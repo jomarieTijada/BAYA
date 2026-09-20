@@ -1,0 +1,13 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "@baya/shared-types": ["../../packages/shared-types/src/index.ts"],
+      "@baya/db":           ["../../packages/db/src/schema.sqlite.ts"]
+    }
+  }
+}
+

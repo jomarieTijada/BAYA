@@ -1,0 +1,26 @@
+{
+  "name": "baya",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "npm run start --workspace=apps/mobile --",
+    "android": "npm run android --workspace=apps/mobile --",
+    "mobile": "npm run start --workspace=apps/mobile --",
+    "db:generate": "npm run generate --workspace=packages/db",
+    "db:migrate": "npm run migrate --workspace=packages/db"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/tijada/baya.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "expo": "~57.0.18",
+    "react": "19.2.3",
+    "react-native": "0.86.3"
+  }
+}

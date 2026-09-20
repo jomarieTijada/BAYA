@@ -1,0 +1,41 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1788587222358,
+      "tag": "0000_shiny_morph",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1788618716172,
+      "tag": "0001_fancy_surge",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1788690930209,
+      "tag": "0002_lovely_vermin",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1788849606882,
+      "tag": "0003_elite_storm",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1788881030034,
+      "tag": "0004_square_pet_avengers",
+      "breakpoints": true
+    }
+  ]
+}

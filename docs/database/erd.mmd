@@ -1,0 +1,137 @@
+erDiagram
+
+    BAYBAYIN_CHARACTERS {
+        text character_id PK
+        text glyph
+        text transliteration UK
+        text audio_asset_key
+    }
+
+    LEARNER_PROFILE {
+        integer learner_id PK
+        text nickname
+        text avatar_id
+        integer total_xp
+        integer current_streak
+        text last_active_date
+        integer audio_enabled
+    }
+
+    RANK_THRESHOLDS {
+        integer level_id PK
+        text rank_title UK
+        integer min_xp_required UK
+    }
+
+    LEARNING_MODULES {
+        text module_id PK
+        integer stage_order UK
+        text stage_type
+        text value_focus
+        text title
+    }
+
+    LESSONS {
+        text lesson_id PK
+        text module_id FK
+        text character_id FK
+        integer order_index
+    }
+
+    LESSON_ACTIVITIES {
+        text activity_id PK
+        text lesson_id FK
+        text activity_type
+        integer base_xp_reward
+    }
+
+    ACTIVITY_PRACTICE_CONFIGS {
+        text activity_id PK, FK
+        text reference_vector_str
+        integer has_kudlit
+        integer stroke_count
+    }
+
+    ACTIVITY_QUIZ_OPTIONS {
+        integer quiz_option_id PK
+        text activity_id FK
+        text option_text
+        integer is_correct
+    }
+
+    LEARNER_ACTIVITY_SUMMARY {
+        integer summary_id PK
+        integer learner_id FK
+        text activity_id FK
+        integer is_cleared
+        integer high_score_xp
+        integer times_attempted
+    }
+
+    ACTIVITY_ATTEMPTS_LOG {
+        integer attempt_id PK
+        integer learner_id FK
+        text activity_id FK
+        integer xp_awarded
+        real visual_accuracy
+        real sequence_accuracy
+        integer kudlit_accuracy
+        text error_category
+        real inference_time_ms
+        text timestamp
+    }
+
+    ACHIEVEMENTS {
+        text achievement_id PK
+        text badge_key UK
+        text title UK
+        text description
+        text icon_asset_key
+        integer xp_threshold
+    }
+
+    LEARNER_ACHIEVEMENTS {
+        integer learner_achievement_id PK
+        integer learner_id FK
+        text achievement_id FK
+        text unlocked_at
+    }
+
+    ASSISTANT_DIALOGUES {
+        text dialogue_id PK
+        text trigger_rule_key
+        text context_stage
+        text dialogue_text
+        text assistant_mood
+    }
+
+    ASSISTANT_INTERACTIONS {
+        integer interaction_id PK
+        integer learner_id FK
+        text dialogue_shown_id FK
+        integer was_helpful
+        text timestamp
+    }
+
+    %% ── Curriculum chain ──────────────────────────────────────────────
+    BAYBAYIN_CHARACTERS ||--o{ LESSONS : "referenced by"
+    LEARNING_MODULES    ||--o{ LESSONS : "contains"
+    LESSONS             ||--o{ LESSON_ACTIVITIES : "includes"
+
+    %% ── Activity config extensions (polymorphic) ──────────────────────
+    LESSON_ACTIVITIES   ||--o| ACTIVITY_PRACTICE_CONFIGS : "has drawing config"
+    LESSON_ACTIVITIES   ||--o{ ACTIVITY_QUIZ_OPTIONS : "has quiz options"
+
+    %% ── Progress & telemetry ──────────────────────────────────────────
+    LESSON_ACTIVITIES   ||--o{ LEARNER_ACTIVITY_SUMMARY : "summarized by (UK: learner, activity)"
+    LESSON_ACTIVITIES   ||--o{ ACTIVITY_ATTEMPTS_LOG : "logged in"
+    LEARNER_PROFILE     ||--o{ LEARNER_ACTIVITY_SUMMARY : "tracks progress"
+    LEARNER_PROFILE     ||--o{ ACTIVITY_ATTEMPTS_LOG : "records attempts"
+
+    %% ── Gamification ──────────────────────────────────────────────────
+    LEARNER_PROFILE     ||--o{ LEARNER_ACHIEVEMENTS : "unlocks (UK: learner, achievement)"
+    ACHIEVEMENTS        ||--o{ LEARNER_ACHIEVEMENTS : "awarded as"
+
+    %% ── BAYA Assistant ────────────────────────────────────────────────
+    LEARNER_PROFILE     ||--o{ ASSISTANT_INTERACTIONS : "experiences"
+    ASSISTANT_DIALOGUES ||--o{ ASSISTANT_INTERACTIONS : "triggers"

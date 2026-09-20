@@ -1,0 +1,1 @@
+ALTER TABLE `handwriting_samples` ADD `attempt_number` integer;

@@ -1,0 +1,19 @@
+{
+  "name": "@baya/db",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./src/schema.sqlite.ts",
+  "types": "./src/schema.sqlite.ts",
+  "scripts": {
+    "generate": "drizzle-kit generate",
+    "migrate": "drizzle-kit migrate"
+  },
+  "dependencies": {
+    "@baya/shared-types": "*",
+    "drizzle-orm": "*",
+    "expo-sqlite": "*"
+  },
+  "devDependencies": {
+    "drizzle-kit": "*"
+  }
+}
