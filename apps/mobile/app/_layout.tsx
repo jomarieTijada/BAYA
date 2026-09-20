@@ -16,17 +16,21 @@ import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import { LandscapeGuard } from '../components/layout/LandscapeGuard';
+
 export default function RootLayout() {
   return (
     <SafeAreaProvider>
       <StatusBar style="dark" />
-      <Stack
-        screenOptions={{
-          headerShown: false,
-          contentStyle: { backgroundColor: '#FAF5E5' },
-          animation: 'fade',
-        }}
-      />
+      <LandscapeGuard>
+        <Stack
+          screenOptions={{
+            headerShown: false,
+            contentStyle: { backgroundColor: '#FAF5E5' },
+            animation: 'fade',
+          }}
+        />
+      </LandscapeGuard>
     </SafeAreaProvider>
   );
 }
