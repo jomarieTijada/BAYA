@@ -1,10 +1,11 @@
 {
   "expo": {
     "name": "BAYA",
-    "slug": "mobile",
+    "slug": "baya",
     "version": "1.0.0",
-    "orientation": "landscape",
+    "orientation": "default",
     "icon": "./assets/icon.png",
+    "scheme": "baya",
     "userInterfaceStyle": "light",
     "ios": {
       "supportsTablet": true
@@ -15,18 +16,15 @@
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false,
-      "package": "com.anonymous.mobile",
-      "permissions": [
-        "READ_EXTERNAL_STORAGE",
-        "WRITE_EXTERNAL_STORAGE"
-      ]
+      "package": "com.tijada.baya"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "output": "single",
+      "bundler": "metro"
     },
     "plugins": [
-      "expo-sharing"
+      "expo-router"
     ]
   }
 }
