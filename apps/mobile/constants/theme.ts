@@ -1,30 +1,41 @@
-import { Platform } from 'react-native';
+/**
+ * constants/theme.ts
+ *
+ * Design tokens for the BAYA PWA.
+ * All colours, spacing, and typography values live here so they can be
+ * adjusted in one place as the design evolves.
+ */
 
-/** Shared design tokens for the BAYA application. */
+// ---------------------------------------------------------------------------
+// Colour palette
+// ---------------------------------------------------------------------------
+
 export const Colors = {
-  primary: '#241F1B',
-  background: '#FBF6EA',
+  /** Deep indigo — primary brand colour */
+  primary: '#1C1630',
+  /** Light cream — default page background */
+  background: '#FAF5E5',
+  /** Off-white card surface */
   surface: '#FFFFFF',
-  border: '#E3D8C5',
-  textPrimary: '#241F1B',
-  textSecondary: '#665D53',
-  textMuted: '#8D8174',
-  accent: '#F76D22',
+  /** Muted violet border */
+  border: '#DDD4C0',
+  /** Primary text on light background */
+  textPrimary: '#1C1630',
+  /** Secondary / subdued text */
+  textSecondary: '#6B6280',
+  /** Muted label */
+  textMuted: '#9E95B0',
+  /** Accent colour for status indicators */
+  accent: '#4A3F7A',
+  /** Success indicator */
   success: '#2E7D32',
+  /** Warning indicator */
   warning: '#F57C00',
-
-  bayaGreen: '#50B946',
-  bayaOrange: '#FAA61F',
-  bayaBlue: '#338DDD',
-  bayaRed: '#F15747',
-
-  rolePrimary: '#F76D22',
-  rolePrimaryHover: '#E95E15',
-  rolePrimaryPressed: '#D94F0C',
-  roleSecondaryHover: '#FFF1E8',
-  focus: '#2C6BB1',
-  disabled: '#C9C0B5',
 } as const;
+
+// ---------------------------------------------------------------------------
+// Spacing scale (multiples of 4px)
+// ---------------------------------------------------------------------------
 
 export const Spacing = {
   xs: 4,
@@ -33,16 +44,22 @@ export const Spacing = {
   lg: 24,
   xl: 32,
   xxl: 48,
-  xxxl: 64,
 } as const;
+
+// ---------------------------------------------------------------------------
+// Border radius
+// ---------------------------------------------------------------------------
 
 export const Radius = {
   sm: 6,
   md: 12,
   lg: 20,
-  xl: 28,
   full: 9999,
 } as const;
+
+// ---------------------------------------------------------------------------
+// Typography sizes
+// ---------------------------------------------------------------------------
 
 export const FontSize = {
   xs: 11,
@@ -52,22 +69,4 @@ export const FontSize = {
   xl: 24,
   xxl: 32,
   hero: 48,
-} as const;
-
-export const Breakpoints = {
-  tablet: 768,
-  desktop: 1280,
-} as const;
-
-export const FontFamily = {
-  rounded: Platform.select({
-    web: '"Arial Rounded MT Bold", "Trebuchet MS", system-ui, sans-serif',
-    ios: 'Arial Rounded MT Bold',
-    default: 'sans-serif',
-  }),
-  body: Platform.select({
-    web: '"Trebuchet MS", system-ui, sans-serif',
-    ios: 'Trebuchet MS',
-    default: 'sans-serif',
-  }),
 } as const;

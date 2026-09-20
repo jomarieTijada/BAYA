@@ -24,9 +24,7 @@
       "bundler": "metro"
     },
     "plugins": [
-      "expo-router",
-      "expo-asset",
-      "expo-image"
+      "expo-router"
     ]
   }
 }
