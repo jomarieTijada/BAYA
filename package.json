@@ -8,6 +8,8 @@
   ],
   "scripts": {
     "start": "npm run start --workspace=apps/mobile --",
+    "build": "npm run export:web --workspace=apps/mobile --",
+    "export:web": "npm run export:web --workspace=apps/mobile --",
     "android": "npm run android --workspace=apps/mobile --",
     "mobile": "npm run start --workspace=apps/mobile --",
     "db:generate": "npm run generate --workspace=packages/db",

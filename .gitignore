@@ -27,6 +27,7 @@ local.properties
 # Python caches and tool output
 __pycache__/
 *.py[cod]
+ml/deployment/onnx/.venv/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
@@ -69,3 +70,18 @@ participant_data/
 research-exports/
 session-exports/
 raw-strokes/
+
+# Large training checkpoints and models
+*.keras
+
+# Generated verification and temporary web export directories
+dist-*/
+apps/mobile/dist-*/
+
+# Local development assets and sandbox experiments (large videos >250MB)
+dev-assets/
+sandbox/
+Gavino_Baybayin_PNG/
+ml/diagnostics/captures/
+ml/deployment/onnx/artifacts/
+

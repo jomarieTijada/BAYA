@@ -1,0 +1,52 @@
+{
+  "model": "Baybayin_EfficientNetB0_BiLSTM_1.0.onnx",
+  "sourceModel": "Baybayin_EfficientNetB0_BiLSTM_1.0.keras",
+  "runtime": "onnxruntime-web",
+  "runtimeVersion": "1.30.0",
+  "modelUrl": "/models/baya/Baybayin_EfficientNetB0_BiLSTM_1.0.onnx",
+  "logicalInputs": [
+    {
+      "name": "image_input",
+      "shape": [1, 96, 96, 1],
+      "dtype": "float32"
+    },
+    {
+      "name": "sequence_input",
+      "shape": [1, 512, 6],
+      "dtype": "float32"
+    }
+  ],
+  "staticNormalizationInputs": [
+    {
+      "name": "BAYA_EfficientNetB0_BiLSTM_1/efficientnetb0_1/normalization_1/Sub/y:0",
+      "semantic": "channel-wise normalization mean",
+      "shape": [1, 1, 1, 3],
+      "dtype": "float32",
+      "values": [0.48500001430511475, 0.4560000002384186, 0.4059999883174896],
+      "source": "efficientnetb0/normalization/mean"
+    },
+    {
+      "name": "BAYA_EfficientNetB0_BiLSTM_1/efficientnetb0_1/normalization_1/Sqrt/x:0",
+      "semantic": "channel-wise normalization variance (input to sqrt)",
+      "shape": [1, 1, 1, 3],
+      "dtype": "float32",
+      "values": [0.2290000021457672, 0.2240000069141388, 0.22499999403953552],
+      "source": "efficientnetb0/normalization/variance"
+    }
+  ],
+  "allOnnxInputNames": [
+    "image_input",
+    "sequence_input",
+    "BAYA_EfficientNetB0_BiLSTM_1/efficientnetb0_1/normalization_1/Sub/y:0",
+    "BAYA_EfficientNetB0_BiLSTM_1/efficientnetb0_1/normalization_1/Sqrt/x:0"
+  ],
+  "output": {
+    "name": "Identity:0",
+    "shape": [1, 63],
+    "dtype": "float32"
+  },
+  "opset": 18,
+  "kerasOnnxGlobalMaxAbsoluteDifference": 3.48687172e-6,
+  "allTop1Match": true,
+  "parityPassed": true
+}

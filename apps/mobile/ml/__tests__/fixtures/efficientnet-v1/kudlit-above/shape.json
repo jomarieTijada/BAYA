@@ -1,0 +1,19 @@
+{
+  "image": [
+    96,
+    96,
+    1
+  ],
+  "sourceImage": {
+    "width": 123,
+    "height": 97
+  },
+  "sequence": [
+    512,
+    6
+  ],
+  "dtype": "float32",
+  "sourceNotebook": "EfficientNet_B0\u2013BiLSTM.ipynb",
+  "imageCell": 17,
+  "sequenceCell": 19
+}

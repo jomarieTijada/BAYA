@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import { Colors, FontFamily, FontSize, Spacing } from '../../constants/theme';
+import { AppIcon } from '../ui/AppIcon';
 
 /** Prevents the web experience from being used when a browser ignores PWA orientation. */
 export function LandscapeGuard({ children }: PropsWithChildren) {
@@ -25,8 +26,8 @@ export function LandscapeGuard({ children }: PropsWithChildren) {
       style={styles.container}
       testID="landscape-orientation-guard"
     >
-      <View style={styles.phone}>
-        <View style={styles.phoneScreen} />
+      <View style={styles.iconArea}>
+        <AppIcon name="phoneLandscape" color="accent" size={64} />
       </View>
       <Text style={styles.title}>Landscape view required</Text>
       <Text style={styles.message}>
@@ -46,22 +47,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: Spacing.xl,
   },
-  phone: {
+  iconArea: {
     alignItems: 'center',
-    borderColor: Colors.primary,
-    borderRadius: 14,
-    borderWidth: 6,
-    height: 86,
     justifyContent: 'center',
     marginBottom: Spacing.lg,
-    transform: [{ rotate: '90deg' }],
-    width: 52,
-  },
-  phoneScreen: {
-    backgroundColor: Colors.rolePrimary,
-    borderRadius: 3,
-    height: 54,
-    width: 30,
   },
   title: {
     color: Colors.textPrimary,

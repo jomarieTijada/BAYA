@@ -1,0 +1,66 @@
+{
+  "sourceNotebook": "EfficientNet_B0\u2013BiLSTM.ipynb",
+  "sourceNotebookSha256": "ef289974391180a9cc34aa861db589527fb8ccc33cd921170d3eada3dfa66c63",
+  "imageFunctionCell": 17,
+  "sequenceFunctionCell": 19,
+  "labelsCell": 15,
+  "metadataCell": 51,
+  "constants": {
+    "IMG_HEIGHT": 96,
+    "IMG_WIDTH": 96,
+    "IMG_CHANNELS": 1,
+    "SEQ_FEATURES": 6,
+    "MAX_SEQ_LEN": 512,
+    "IMAGE_PADDING_RATIO": 0.15,
+    "INK_THRESHOLD": 0.08,
+    "TRAJECTORY_PADDING_RATIO": 0.15
+  },
+  "metadataFields": [
+    "image_height",
+    "image_width",
+    "image_channels",
+    "image_background_rule",
+    "image_position_scale_normalization",
+    "efficientnet_input_conversion",
+    "efficientnet_input_scale",
+    "efficientnet_builtin_preprocessing",
+    "max_sequence_length",
+    "sequence_features",
+    "trajectory_position_scale_normalization",
+    "sequence_overflow_rule",
+    "group_split"
+  ],
+  "preprocessingMetadata": {
+    "image_height": 96,
+    "image_width": 96,
+    "image_channels": 1,
+    "image_background_rule": "white background mapped to approximately 0 and black ink to high values",
+    "image_position_scale_normalization": "ink bounding box -> 15% padding -> centered square -> resize to 96x96",
+    "efficientnet_input_conversion": "single-channel grayscale repeated to 3 RGB channels",
+    "efficientnet_input_scale": "preprocessed image values 0-1 multiplied by 255 before EfficientNet-B0 built-in input rescaling",
+    "efficientnet_builtin_preprocessing": true,
+    "max_sequence_length": 512,
+    "sequence_features": [
+      "x_shape",
+      "y_shape",
+      "dx",
+      "dy",
+      "dt_norm",
+      "stroke_start"
+    ],
+    "trajectory_position_scale_normalization": "trajectory bounding box -> centered square using max(width,height) with 15% padding",
+    "sequence_overflow_rule": "stroke-preserving proportional downsampling"
+  },
+  "groupSplitMetadataKeys": [
+    "train_exports",
+    "validation_exports",
+    "test_exports"
+  ],
+  "metadataVerifiedInSource": true,
+  "classGroupValidationFromExecutedCell41": {
+    "count": 63,
+    "missing": 0,
+    "extra": 0,
+    "duplicates": 0
+  }
+}

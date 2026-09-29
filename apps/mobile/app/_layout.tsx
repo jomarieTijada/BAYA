@@ -11,26 +11,68 @@
  *   - Keeps the status bar consistent across platforms.
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Platform } from 'react-native';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { LandscapeGuard } from '../components/layout/LandscapeGuard';
+import { Colors } from '../constants/theme';
+import { useResponsiveLayout } from '../hooks/useResponsiveLayout';
+import { getReadyDatabase } from '../database';
+import { registerBayaPwa } from '../ml/registerBayaPwa';
+
+let hasTriggeredMlSmoke = false;
+let hasTriggeredMlBenchmark = false;
 
 export default function RootLayout() {
+  const { isPhoneLandscape } = useResponsiveLayout();
+
+  useEffect(() => {
+    // Non-blocking database initialization on startup
+    getReadyDatabase().catch((err) => {
+      console.warn('[BAYA Database] Initialization warning:', err);
+    });
+  }, []);
+
+  useEffect(() => { registerBayaPwa(); }, []);
+
+  useEffect(() => {
+    if (!__DEV__ || Platform.OS !== 'web' || typeof window === 'undefined'
+      || hasTriggeredMlBenchmark || new URLSearchParams(window.location.search).get('bayaMlBenchmark') !== '1') return;
+
+    hasTriggeredMlBenchmark = true;
+    import('../ml/bayaModel')
+      .then(({ runBayaBenchmark }) => runBayaBenchmark())
+      .catch((error: unknown) => console.error('[BAYA ML] Browser benchmark failed:', error));
+  }, []);
+
+  useEffect(() => {
+    if (!__DEV__ || Platform.OS !== 'web' || typeof window === 'undefined'
+      || hasTriggeredMlSmoke || new URLSearchParams(window.location.search).get('bayaMlSmoke') !== '1') return;
+
+    hasTriggeredMlSmoke = true; // React Strict Mode may replay development effects.
+    import('../ml/bayaModel')
+      .then(({ runBayaSmokeTest }) => runBayaSmokeTest())
+      .catch((error: unknown) => console.error(
+        '[BAYA ML] Smoke test failed:', error,
+        error instanceof Error && 'cause' in error ? error.cause : undefined,
+      ));
+  }, []);
+
   return (
-    <SafeAreaProvider>
-      <StatusBar style="dark" />
-      <LandscapeGuard>
-        <Stack
-          screenOptions={{
-            headerShown: false,
-            contentStyle: { backgroundColor: '#FAF5E5' },
-            animation: 'fade',
-          }}
-        />
-      </LandscapeGuard>
+    <SafeAreaProvider style={{ backgroundColor: Colors.background, flex: 1 }}>
+      <StatusBar
+        hidden={isPhoneLandscape}
+        style="dark"
+      />
+      <Stack
+        screenOptions={{
+          animation: 'fade',
+          contentStyle: { backgroundColor: Colors.background, flex: 1 },
+          headerShown: false,
+        }}
+      />
     </SafeAreaProvider>
   );
 }

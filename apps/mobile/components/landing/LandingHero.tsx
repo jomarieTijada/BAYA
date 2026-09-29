@@ -3,18 +3,18 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  useWindowDimensions,
   View,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { BayaLogo } from '../branding/BayaLogo';
 import { BayaMascot } from '../branding/BayaMascot';
 import {
-  Breakpoints,
   Colors,
   FontFamily,
+  ResponsiveLayout,
   Spacing,
 } from '../../constants/theme';
+import { useResponsiveLayout } from '../../hooks/useResponsiveLayout';
 import { RoleSelector } from './RoleSelector';
 
 type LandingHeroProps = {
@@ -23,52 +23,77 @@ type LandingHeroProps = {
 };
 
 export function LandingHero({ onLearnerPress, onMentorPress }: LandingHeroProps) {
-  const { height, width } = useWindowDimensions();
-  const isWide = width >= Breakpoints.tablet && width >= height;
-  const isSmallHeight = height < 700;
-  const compactControls = width < 600 || isSmallHeight;
+  const insets = useSafeAreaInsets();
+  const {
+    height,
+    width,
+    isCompactHeight,
+    isDesktop,
+    isPhone,
+    isPhoneLandscape,
+    isPhonePortrait,
+    isTablet,
+    isTabletLandscape,
+  } = useResponsiveLayout();
+  const useWideLayout = isDesktop || isPhoneLandscape || isTabletLandscape;
+  const compactControls = isPhone || isCompactHeight;
 
-  const wideMascotSize = Math.min(width * 0.55, height * 0.9, 820);
-  const stackedMascotSize = Math.min(
-    width - Spacing.lg,
-    isSmallHeight ? 268 : width < 600 ? 340 : 390,
-  );
-  const logoSize = isWide
-    ? Math.min(104, Math.max(72, width * 0.07))
-    : width < 360
-      ? 52
-      : width < 600
-        ? 64
-        : 78;
+  const mascotSize = isPhoneLandscape
+    ? Math.min(width * 0.42, height * 0.8, 300)
+    : useWideLayout
+      ? Math.min(width * 0.52, height * 0.86, isTablet ? 500 : 820)
+      : isPhonePortrait
+        ? Math.min(width - 64, height * 0.34, 280)
+        : Math.min(width * 0.58, height * 0.4, 390);
+  const logoSize = isPhoneLandscape
+    ? Math.min(66, height * 0.17)
+    : isPhonePortrait
+      ? width < 360 ? 52 : 60
+      : useWideLayout
+        ? Math.min(104, Math.max(72, width * 0.07))
+        : 76;
 
-  const branding = (
-    <View style={styles.branding}>
-      <BayaLogo size={logoSize} />
-      <Text style={[styles.tagline, isWide ? styles.taglineWide : styles.taglineStacked]}>
-        Learn to write Baybayin.
-      </Text>
-    </View>
+  const tagline = (
+    <Text
+      style={[
+        styles.tagline,
+        useWideLayout ? styles.taglineWide : styles.taglineStacked,
+        isPhone && styles.taglinePhone,
+      ]}
+    >
+      Learn to write Baybayin.
+    </Text>
   );
 
   return (
-    <SafeAreaView edges={['top', 'bottom', 'left', 'right']} style={styles.safeArea}>
+    <SafeAreaView
+      edges={isPhoneLandscape ? ['left', 'right', 'bottom'] : ['top', 'bottom', 'left', 'right']}
+      style={styles.safeArea}
+    >
       <ScrollView
         bounces={false}
         contentContainerStyle={[
           styles.scrollContent,
-          isWide ? styles.scrollContentWide : styles.scrollContentStacked,
+          useWideLayout ? styles.scrollContentWide : styles.scrollContentStacked,
+          isPhoneLandscape && styles.scrollContentPhoneLandscape,
+          isPhonePortrait && styles.scrollContentPhonePortrait,
+          { paddingBottom: Math.max(insets.bottom + Spacing.sm, Spacing.md) },
         ]}
         showsVerticalScrollIndicator={false}
+        style={styles.scrollView}
       >
-        {isWide ? (
-          <View style={styles.wideHero}>
-            <View style={styles.mascotPane}>
-              <BayaMascot size={wideMascotSize} state="ambient" />
+        {useWideLayout ? (
+          <View style={[styles.wideHero, isPhoneLandscape && styles.wideHeroPhone]}>
+            <View style={[styles.mascotPane, isPhoneLandscape && styles.mascotPanePhone]}>
+              <BayaMascot size={mascotSize} state="ambient" />
             </View>
 
-            <View style={styles.contentPane}>
-              {branding}
-              <View style={styles.selectorWide}>
+            <View style={[styles.contentPane, isPhoneLandscape && styles.contentPanePhone]}>
+              <View style={styles.branding}>
+                <BayaLogo size={logoSize} />
+                {tagline}
+              </View>
+              <View style={[styles.selectorWide, compactControls && styles.selectorCompact]}>
                 <RoleSelector
                   compact={compactControls}
                   onLearnerPress={onLearnerPress}
@@ -78,10 +103,11 @@ export function LandingHero({ onLearnerPress, onMentorPress }: LandingHeroProps)
             </View>
           </View>
         ) : (
-          <View style={styles.stackedHero}>
-            {branding}
-            <BayaMascot size={stackedMascotSize} state="ambient" />
-            <View style={styles.selectorStacked}>
+          <View style={[styles.stackedHero, isPhonePortrait && styles.stackedHeroPhone]}>
+            <BayaLogo size={logoSize} />
+            <BayaMascot size={mascotSize} state="ambient" />
+            {tagline}
+            <View style={[styles.selectorStacked, isPhonePortrait && styles.selectorStackedPhone]}>
               <RoleSelector
                 compact
                 onLearnerPress={onLearnerPress}
@@ -99,17 +125,33 @@ const styles = StyleSheet.create({
   safeArea: {
     backgroundColor: Colors.background,
     flex: 1,
+    minWidth: 0,
+    width: '100%',
+  },
+  scrollView: {
+    flex: 1,
+    minWidth: 0,
+    width: '100%',
   },
   scrollContent: {
     flexGrow: 1,
+    width: '100%',
   },
   scrollContentWide: {
-    paddingHorizontal: Spacing.xl,
+    paddingHorizontal: ResponsiveLayout.pagePadding.desktop,
   },
   scrollContentStacked: {
     paddingBottom: Spacing.lg,
     paddingHorizontal: Spacing.md,
     paddingTop: Spacing.md,
+  },
+  scrollContentPhoneLandscape: {
+    paddingHorizontal: ResponsiveLayout.pagePadding.phone,
+    paddingTop: Spacing.sm,
+  },
+  scrollContentPhonePortrait: {
+    paddingHorizontal: ResponsiveLayout.pagePadding.phone,
+    paddingTop: 12,
   },
   wideHero: {
     alignSelf: 'center',
@@ -118,11 +160,17 @@ const styles = StyleSheet.create({
     maxWidth: 1760,
     width: '100%',
   },
+  wideHeroPhone: {
+    minHeight: 0,
+  },
   mascotPane: {
     alignItems: 'center',
     flex: 1.12,
     justifyContent: 'center',
     minWidth: 0,
+  },
+  mascotPanePhone: {
+    flex: 0.44,
   },
   contentPane: {
     alignItems: 'center',
@@ -130,6 +178,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     minWidth: 0,
     paddingHorizontal: Spacing.md,
+  },
+  contentPanePhone: {
+    flex: 0.56,
+    paddingHorizontal: Spacing.sm,
   },
   branding: {
     alignItems: 'center',
@@ -150,10 +202,19 @@ const styles = StyleSheet.create({
     lineHeight: 27,
     marginTop: 2,
   },
+  taglinePhone: {
+    fontSize: 18,
+    lineHeight: 23,
+    marginTop: 2,
+  },
   selectorWide: {
     marginTop: Spacing.xxl,
     maxWidth: 500,
     width: '100%',
+  },
+  selectorCompact: {
+    marginTop: 12,
+    maxWidth: 380,
   },
   stackedHero: {
     alignItems: 'center',
@@ -161,8 +222,16 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: '100%',
   },
+  stackedHeroPhone: {
+    gap: 10,
+    justifyContent: 'flex-start',
+  },
   selectorStacked: {
     maxWidth: 430,
     width: '100%',
+  },
+  selectorStackedPhone: {
+    marginTop: 4,
+    maxWidth: 360,
   },
 });

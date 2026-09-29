@@ -71,7 +71,8 @@ const styles = StyleSheet.create({
     minHeight: 76,
   },
   compact: {
-    minHeight: 58,
+    borderWidth: 3,
+    minHeight: 52,
   },
   primary: {
     backgroundColor: Colors.rolePrimary,
@@ -114,7 +115,7 @@ const styles = StyleSheet.create({
     fontSize: 26,
   },
   compactLabel: {
-    fontSize: 20,
+    fontSize: 18,
   },
   primaryLabel: {
     color: Colors.surface,

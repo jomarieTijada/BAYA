@@ -1,0 +1,9 @@
+# Isolated BAYA Keras 3 to ONNX export environment.
+# Python 3.12 is used because Python 3.11 and uv are unavailable on this host.
+# Keras matches the source archive metadata.
+keras==3.13.2
+tensorflow-intel==2.18.0
+numpy==2.0.2
+onnx==1.18.0
+onnxruntime==1.30.0
+tf2onnx==1.17.0

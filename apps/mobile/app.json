@@ -3,31 +3,61 @@
     "name": "BAYA",
     "slug": "baya",
     "version": "1.0.0",
-    "orientation": "landscape",
-    "icon": "./assets/icon.png",
+    "orientation": "default",
+    "icon": "./assets/branding/app/icon.png",
     "scheme": "baya",
     "userInterfaceStyle": "light",
+    "backgroundColor": "#FAF5E5",
+    "androidStatusBar": {
+      "barStyle": "dark-content",
+      "backgroundColor": "#FAF5E5",
+      "translucent": true
+    },
     "ios": {
       "supportsTablet": true,
       "requireFullScreen": true
     },
     "android": {
+      "icon": "./assets/branding/app/icon.png",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "foregroundImage": "./assets/branding/app/android-icon-foreground.png",
+        "backgroundImage": "./assets/branding/app/android-icon-background.png",
+        "monochromeImage": "./assets/branding/app/android-icon-monochrome.png"
       },
       "package": "com.tijada.baya"
     },
     "web": {
-      "favicon": "./assets/favicon.png",
+      "favicon": "./public/icon-192.png",
       "output": "single",
       "bundler": "metro"
     },
     "plugins": [
-      "expo-router",
-      "expo-asset",
-      "expo-image"
+      [
+        "expo-router",
+        {
+          "headers": {
+            "Cross-Origin-Embedder-Policy": "credentialless",
+            "Cross-Origin-Opener-Policy": "same-origin"
+          }
+        }
+      ],
+      [
+        "expo-asset",
+        {
+          "assets": ["./assets/media/videos/baybayin-song.mp4"]
+        }
+      ],
+      "expo-image",
+      "expo-video",
+      [
+        "expo-audio",
+        {
+          "microphonePermission": false,
+          "recordAudioAndroid": false,
+          "enableBackgroundPlayback": false
+        }
+      ],
+      "expo-sqlite"
     ]
   }
 }

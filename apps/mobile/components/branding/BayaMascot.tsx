@@ -11,6 +11,8 @@ type BayaMascotProps = {
   size: number;
   accessibilityLabel?: string;
   autoplay?: boolean;
+  crop?: 'default' | 'upperBody' | 'upperBodyOnly';
+  decorative?: boolean;
   loop?: boolean;
   style?: StyleProp<ViewStyle>;
 };
@@ -21,14 +23,19 @@ export function BayaMascot({
   size,
   accessibilityLabel = 'BAYA, the Baybayin learning mascot',
   autoplay = true,
+  crop = 'default',
+  decorative = false,
   loop = true,
   style,
 }: BayaMascotProps) {
   const { source } = useBayaAnimation({ state, autoplay, loop });
+  const normalizedCrop = crop === 'upperBodyOnly' ? 'upperBody' : crop;
 
   return (
     <BayaFrameRenderer
       accessibilityLabel={accessibilityLabel}
+      crop={normalizedCrop}
+      decorative={decorative}
       size={size}
       source={source}
       style={style}

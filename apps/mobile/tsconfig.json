@@ -2,11 +2,29 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
-    "ignoreDeprecations": "6.0"
+    "ignoreDeprecations": "6.0",
+    "types": [
+      "jest",
+      "node"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
-    ".expo/types/**/*.d.ts"
+    ".expo/types/**/*.d.ts",
+    "declarations.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "components/DrawingCanvas.tsx",
+    "dist",
+    "../../sandbox",
+    "../../dev-assets"
   ]
 }

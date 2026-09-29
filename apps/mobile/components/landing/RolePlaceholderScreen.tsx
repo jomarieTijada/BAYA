@@ -1,8 +1,9 @@
 import React from 'react';
 import { useRouter } from 'expo-router';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Colors, FontFamily, Radius, Spacing } from '../../constants/theme';
+import { Colors, FontFamily, Spacing } from '../../constants/theme';
+import { AppButton } from '../ui/AppButton';
 
 type RolePlaceholderScreenProps = {
   role: 'Learner' | 'Mentor';
@@ -31,14 +32,17 @@ export function RolePlaceholderScreen({ role }: RolePlaceholderScreenProps) {
           This route is ready. The full {role.toLowerCase()} experience will be added in a
           future step.
         </Text>
-        <Pressable
-          accessibilityLabel="Return to role selection"
-          accessibilityRole="button"
-          onPress={goBack}
-          style={({ pressed }) => [styles.backButton, pressed && styles.backButtonPressed]}
-        >
-          <Text style={styles.backButtonLabel}>← BACK TO BAYA</Text>
-        </Pressable>
+        <View style={styles.backButtonArea}>
+          <AppButton
+            accessibilityLabel="Return to role selection"
+            compact
+            fullWidth={false}
+            icon="back"
+            iconPosition="leading"
+            label="BACK TO BAYA"
+            onPress={goBack}
+          />
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -79,22 +83,7 @@ const styles = StyleSheet.create({
     maxWidth: 520,
     textAlign: 'center',
   },
-  backButton: {
-    backgroundColor: Colors.rolePrimary,
-    borderRadius: Radius.full,
+  backButtonArea: {
     marginTop: Spacing.xl,
-    paddingHorizontal: Spacing.lg,
-    paddingVertical: 14,
-  },
-  backButtonPressed: {
-    backgroundColor: Colors.rolePrimaryPressed,
-    transform: [{ scale: 0.98 }],
-  },
-  backButtonLabel: {
-    color: Colors.surface,
-    fontFamily: FontFamily.rounded,
-    fontSize: 15,
-    fontWeight: '900',
-    letterSpacing: 0.8,
   },
 });
