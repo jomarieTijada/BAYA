@@ -18,13 +18,24 @@ function localPath(url) {
   return parsed.pathname;
 }
 
+function isExcludedMedia(filePath) {
+  const normalized = filePath.toLowerCase();
+  return (
+    normalized.endsWith('.mp4') ||
+    normalized.endsWith('.webm') ||
+    normalized.endsWith('.ogg') ||
+    normalized.includes('/videos/') ||
+    normalized.includes('media/videos')
+  );
+}
+
 async function exportedFiles(directory) {
   const absolute = path.join(outputRoot, directory);
   const paths = [];
   for (const entry of await readdir(absolute, { withFileTypes: true })) {
     const child = path.posix.join(directory, entry.name);
     if (entry.isDirectory()) paths.push(...await exportedFiles(child));
-    else if (entry.isFile() && !child.startsWith('assets/media/videos/')) paths.push(`/${child}`);
+    else if (entry.isFile() && !isExcludedMedia(child)) paths.push(`/${child}`);
   }
   return paths;
 }
@@ -86,24 +97,48 @@ self.addEventListener('fetch', event => {
   if (request.method !== 'GET') return;
   const url = new URL(request.url);
   if (url.origin !== self.location.origin || url.pathname === '/sw.js') return;
+
   event.respondWith((async () => {
-    const cache = await caches.open(CACHE_NAME);
-    if (ML_URLS.has(url.pathname) || url.pathname.startsWith('/_expo/static/')) {
+    const isNavigation = request.mode === 'navigate';
+    const isMlOrStatic = ML_URLS.has(url.pathname) || url.pathname.startsWith('/_expo/static/');
+
+    if (isMlOrStatic) {
+      const cache = await caches.open(CACHE_NAME);
       const cached = await cache.match(request);
       if (cached) return cached;
     }
+
     try {
       const response = await fetch(request);
-      if (request.mode === 'navigate' && !response.ok) {
-        const shell = await cache.match('/');
+      if (isNavigation && !response.ok) {
+        const cache = await caches.open(CACHE_NAME);
+        const shell = (await cache.match('/')) || (await caches.match('/'));
         if (shell) return shell;
       }
-      if (response.ok) await cache.put(request.mode === 'navigate' ? '/' : request, response.clone());
+      if (response.ok) {
+        const cache = await caches.open(CACHE_NAME);
+        await cache.put(isNavigation ? '/' : request, response.clone());
+      }
       return response;
     } catch (error) {
-      const cached = await cache.match(request.mode === 'navigate' ? '/' : request);
+      if (isNavigation) {
+        const cache = await caches.open(CACHE_NAME);
+        const shell = (await cache.match('/')) || (await caches.match('/'));
+        if (shell) return shell;
+        return new Response(
+          '<!DOCTYPE html><html><head><meta charset="utf-8"><title>BAYA</title><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="background:#0b1120;color:#fff;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;padding:24px;text-align:center"><div><h2 style="margin-bottom:8px">BAYA is currently offline</h2><p style="color:#94a3b8;margin-bottom:20px">Please reconnect or reload once online.</p><button onclick="location.reload()" style="padding:10px 20px;border-radius:8px;border:none;background:#f59e0b;color:#000;font-weight:bold;cursor:pointer">Reload</button></div></body></html>',
+          { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } }
+        );
+      }
+
+      const cache = await caches.open(CACHE_NAME);
+      const cached = (await cache.match(request)) || (await caches.match(request));
       if (cached) return cached;
-      throw error;
+
+      return new Response('Resource unavailable offline', {
+        status: 504,
+        statusText: 'Gateway Timeout',
+      });
     }
   })());
 });

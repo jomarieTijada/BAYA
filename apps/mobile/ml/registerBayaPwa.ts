@@ -7,10 +7,18 @@ export function registerBayaPwa(): void {
 
   const hadController = Boolean(navigator.serviceWorker.controller);
   let reloaded = false;
-  navigator.serviceWorker.addEventListener('controllerchange', () => {
+  navigator.serviceWorker.addEventListener('controllerchange', async () => {
     if (hadController && !reloaded) {
       reloaded = true;
-      window.location.reload();
+      try {
+        const { closeDatabaseConnection } = await import('../database/connection');
+        await closeDatabaseConnection();
+      } catch {
+        // Safe to ignore if database connection was not initialized
+      }
+      setTimeout(() => {
+        window.location.reload();
+      }, 200);
     }
   });
   void navigator.serviceWorker.register('/sw.js', { updateViaCache: 'none' })

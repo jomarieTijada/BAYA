@@ -8,6 +8,7 @@ import {
   type AppControlDensity,
 } from '../ui/AppTextInput';
 import { localLearnerService } from '../../database/services/localLearnerService';
+import { isOpfsLockConflictError } from '../../database/connection';
 
 type ProfileSetupFormProps = {
   density?: AppControlDensity;
@@ -60,7 +61,11 @@ export function ProfileSetupForm({
       onContinue();
     } catch (error) {
       if (__DEV__) console.warn('[BAYA] Could not save learner profile', error);
-      setNameError('Could not save your profile. Please try again.');
+      if (isOpfsLockConflictError(error)) {
+        setNameError('Storage is busy in another window. Please close other BAYA tabs and try again.');
+      } else {
+        setNameError('Could not save your profile. Please try again.');
+      }
       submissionLockedRef.current = false;
       setIsSubmitting(false);
     }

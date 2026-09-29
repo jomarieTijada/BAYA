@@ -1,4 +1,4 @@
-import { getDatabaseConnection } from './connection';
+import { getDatabaseConnection, onDatabaseClose } from './connection';
 import { runMigrations, type MigrationResult } from './migrate';
 import { seedCurriculum, type SeedResult } from './seed';
 import type { DatabaseConnection } from './types';
@@ -43,4 +43,9 @@ export function getReadyDatabase(): Promise<DatabaseConnection> {
 export function resetReadyDatabase(): void {
   readyPromise = null;
 }
+
+// Auto-reset readyPromise whenever the underlying connection closes or is reset
+onDatabaseClose(() => {
+  resetReadyDatabase();
+});
 

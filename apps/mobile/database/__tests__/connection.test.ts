@@ -162,3 +162,44 @@ describe('getDatabaseConnection — topic progress idempotency', () => {
     expect(isDatabaseConnected()).toBe(false);
   });
 });
+
+describe('OPFS lock conflict detection & lifecycle', () => {
+  it('correctly classifies OPFS lock contention errors', () => {
+    const { isOpfsLockConflictError, OPFS_LOCK_CONFLICT } = require('../connection');
+
+    const opfsError = new Error(
+      "NotFoundError: Failed to execute 'createSyncAccessHandle' on 'FileSystemFileHandle': " +
+      "Access Handle cannot be created if there is another open Access Handle or WritableStream associated with the same file."
+    );
+    expect(isOpfsLockConflictError(opfsError)).toBe(true);
+
+    const vfsError = new Error('Invalid VFS state');
+    expect(isOpfsLockConflictError(vfsError)).toBe(true);
+
+    const explicitConflictError = new Error('Database locked');
+    (explicitConflictError as any).code = OPFS_LOCK_CONFLICT;
+    expect(isOpfsLockConflictError(explicitConflictError)).toBe(true);
+
+    const regularError = new Error('no such table: profiles');
+    expect(isOpfsLockConflictError(regularError)).toBe(false);
+    expect(isOpfsLockConflictError(null)).toBe(false);
+  });
+
+  it('notifies onDatabaseClose listeners on connection teardown', async () => {
+    const { onDatabaseClose } = require('../connection');
+    const listener = jest.fn();
+    const unsubscribe = onDatabaseClose(listener);
+
+    const stub = makeStub();
+    setDatabaseConnection(stub);
+    await closeDatabaseConnection();
+
+    expect(listener).toHaveBeenCalledTimes(1);
+
+    // Unsubscribe works
+    unsubscribe();
+    setDatabaseConnection(stub);
+    await closeDatabaseConnection();
+    expect(listener).toHaveBeenCalledTimes(1);
+  });
+});
