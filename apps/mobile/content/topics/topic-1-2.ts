@@ -4,6 +4,7 @@ import type {
   SlideStepContent,
   TopicActivityData,
 } from "../types";
+import { baybayinSyllabaryHighlights, baybayinSyllabaryText } from '../baybayinSyllabary';
 
 export const topic12Steps: ActivityStep[] = [
   {
@@ -16,22 +17,10 @@ export const topic12Steps: ActivityStep[] = [
       number: 1,
       totalInDeck: 1,
       title: "Paano ba gumagana ang Baybayin?",
-      subtitle: "Baybayin Bilang Sistemang Pantig",
-      openingNarration: "Ang Baybayin ay hindi alpabeto, isa itong SILABARYO.",
-      content:
-        "Alam mo ba? Ang Baybayin ay hindi tulad ng ating alpabeto ngayon kung saan kailangan nating pagsamahin ang dalawang letra tulad ng B at A para mabuo ang 'Ba'.\n\nSa Baybayin, ito ay isang SILABARYO! Ang bawat isang simbolo tulad ng ᜊ ay buo na at may sarili nang tunog na 'Ba'. Bawat panimulang katinig ay may kasama na agad na tunog na 'A'!",
+      content: baybayinSyllabaryText,
       storyHighlight: "Ang Baybayin ay isang SILABARYO, hindi alpabeto.",
       storyMessage: "Basa tayo ng pantig, hindi paisa-isang letra!",
-      highlightWords: [
-        "Baybayin",
-        "SILABARYO",
-        "silabaryo",
-        "alpabeto",
-        "pantig",
-        "Ba",
-        "Ka",
-        "Ta",
-      ],
+      highlightWords: baybayinSyllabaryHighlights,
       illustrationPlaceholder: "Paano Gumagana ang Baybayin (Silabaryo)",
       illustrationTheme: "syllabary",
     } satisfies SlideStepContent,

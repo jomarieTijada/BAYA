@@ -13,6 +13,8 @@ import {
 import { FontFamily, FontSize, Spacing } from "../../../constants/theme";
 import type { SlideStepContent } from "../../../content/types";
 import { StoryGuide } from "./StoryGuide";
+import { LessonSource } from './LessonSource';
+import { VideoCreditLink } from './VideoCreditLink';
 
 export type StoryContentProps = {
   compact?: boolean;
@@ -192,6 +194,7 @@ export function StoryContent({
               </Text>
             ))}
           </View>
+          {content.videoCredit ? <VideoCreditLink credit={content.videoCredit} /> : content.reference ? <LessonSource reference={content.reference} /> : null}
           {content.examples ? (
             <View style={styles.examples}>
               <Text style={[styles.bodyParagraph, { fontSize: bodyFontSize }]}>{content.examplesLabel}</Text>

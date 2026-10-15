@@ -14,18 +14,26 @@ import { ActivityHeader } from '../activity/ActivityHeader';
 import { VideoPlayer } from '../../media/VideoPlayer';
 import { StoryPage } from './StoryPage';
 import { StoryNavigation } from './StoryNavigation';
+import { LessonVideoIntroduction } from './LessonVideoIntroduction';
 
 /** Renders every approved topic section inside one shared storybook shell. */
-export function StorybookTopicScreen({ topicId }: { topicId: string }) {
+export function StorybookTopicScreen({ topicId, initialPage = 'introduction' }: { topicId: string; initialPage?: 'introduction' | 'content' }) {
+  return <StorybookTopicSession key={`${topicId}:${initialPage}`} topicId={topicId} initialPage={initialPage} />;
+}
+
+function StorybookTopicSession({ topicId, initialPage }: { topicId: string; initialPage: 'introduction' | 'content' }) {
   const router = useRouter();
   const { isCompactHeight, isPhone, isPhoneLandscape, isTablet } = useResponsiveLayout();
   const compact = isPhone || isTablet || isCompactHeight;
   const [loaded, setLoaded] = useState<TopicActivityData | null>(null);
   const [isAdvancing, setIsAdvancing] = useState(false);
+  const [videoTopic, setVideoTopic] = useState<string | null>(initialPage === 'content' ? topicId : null);
   const advancing = useRef(false);
   const data = getApprovedStorybookActivity(topicId) ?? (loaded?.id === topicId ? loaded : null);
   const module = approvedCurriculum.find((item) => item.topics.some((topic) => topic.id === topicId));
   const index = module?.topics.findIndex((topic) => topic.id === topicId) ?? -1;
+  const hasIntroduction = Boolean(data?.video.introduction && data.video.isAvailable && data.video.source);
+  const showIntroduction = hasIntroduction && videoTopic !== topicId;
 
   useEffect(() => {
     // Approved story content is already available synchronously. Avoid starting
@@ -41,7 +49,9 @@ export function StorybookTopicScreen({ topicId }: { topicId: string }) {
   const openTopic = (id: string) => {
     // Update the dynamic route in place so the stack does not add a second
     // screen-level transition or remount the story screen.
-    router.setParams({ topicId: id });
+    // Topic navigation returns to that topic's content, including the video,
+    // instead of replaying its welcome slide.
+    router.setParams({ topicId: id, lessonPage: 'content' });
   };
   const completeAndNext = async () => {
     if (advancing.current || !module) return;
@@ -98,8 +108,13 @@ export function StorybookTopicScreen({ topicId }: { topicId: string }) {
       footer={(
         <StoryNavigation
           disabled={isAdvancing}
-          onPrevious={index > 0 ? () => openTopic(module.topics[index - 1].id) : undefined}
-          onNext={completeAndNext}
+          onPrevious={!showIntroduction && hasIntroduction
+            ? () => setVideoTopic(null)
+            : index > 0 ? () => openTopic(module.topics[index - 1].id) : undefined}
+          previousAccessibilityLabel={!showIntroduction && hasIntroduction ? 'Bumalik sa panimula' : undefined}
+          onNext={showIntroduction ? () => setVideoTopic(topicId) : completeAndNext}
+          nextLabel={showIntroduction ? 'Panoorin ang Video' : undefined}
+          nextAccessibilityLabel={showIntroduction ? 'Panoorin ang Video' : undefined}
           isLast={index === module.topics.length - 1}
         />
       )}
@@ -115,7 +130,9 @@ export function StorybookTopicScreen({ topicId }: { topicId: string }) {
       )}
       testID="storybook-topic-screen"
     >
-      <StoryPage
+      {showIntroduction && data.video.introduction ? (
+        <LessonVideoIntroduction introduction={data.video.introduction} compact={compact} landscapeCompact={isPhoneLandscape} />
+      ) : <StoryPage
         content={content}
         compact={compact}
         landscapeCompact={isPhoneLandscape}
@@ -128,7 +145,7 @@ export function StorybookTopicScreen({ topicId }: { topicId: string }) {
             testID="topic-intro-video-player"
           />
         ) : undefined}
-      />
+      />}
     </LearnerAppShell>
   );
 }

@@ -1,9 +1,14 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { Linking, StyleSheet } from 'react-native';
 import { fireEvent, render, screen, waitFor, within } from '@testing-library/react-native';
 import { StorybookTopicScreen } from '../StorybookTopicScreen';
 import { StoryGuide } from '../StoryGuide';
+import { baybayinHistoryContent, baybayinVideoCredit, baybayinVideoIntroduction } from '../../../../content/baybayinIntroduction';
+import { baybayinSyllabaryParagraphs } from '../../../../content/baybayinSyllabary';
 import { getApprovedStorybookActivities } from '../../../../content/approvedStorybook';
+import { VideoActivityCard } from '../../activity/VideoActivityCard';
+import { topic11Steps } from '../../../../content/topics/topic-1-1';
+import type { VideoStepContent } from '../../../../content/types';
 
 const mockReplace = jest.fn();
 const mockPush = jest.fn();
@@ -32,8 +37,84 @@ jest.mock('../../../media/VideoPlayer', () => ({
   },
 }));
 
-describe('Restored single-page approved storybooks', () => {
-  beforeEach(() => { mockReplace.mockClear(); mockPush.mockClear(); mockSetParams.mockClear(); mockDismissTo.mockClear(); setViewport(1440, 900); });
+describe('Approved storybooks with a separate introductory slide', () => {
+  beforeEach(() => {
+    mockReplace.mockClear(); mockPush.mockClear(); mockSetParams.mockClear(); mockDismissTo.mockClear();
+    jest.requireMock('../../../../database/services/localLearnerService').localLearnerService.completeTopic.mockClear();
+    setViewport(1440, 900);
+  });
+
+  it('returns to the introduction and resets it on topic re-entry without saving progress', () => {
+    const { localLearnerService } = jest.requireMock('../../../../database/services/localLearnerService');
+    const view = render(<StorybookTopicScreen topicId="topic-1-1" />);
+    expect(screen.getByTestId('lesson-video-introduction')).toBeTruthy();
+    expect(screen.queryByTestId('topic-intro-video-player')).toBeNull();
+    expect(screen.queryByLabelText('Susunod na paksa')).toBeNull();
+    fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
+    expect(screen.getByTestId('topic-intro-video-player')).toBeTruthy();
+    expect(localLearnerService.completeTopic).not.toHaveBeenCalled();
+    expect(mockSetParams).not.toHaveBeenCalled();
+    fireEvent.press(screen.getByLabelText('Bumalik sa panimula'));
+    expect(screen.getByTestId('lesson-video-introduction')).toBeTruthy();
+    expect(screen.queryByTestId('topic-intro-video-player')).toBeNull();
+    fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
+    view.rerender(<StorybookTopicScreen topicId="topic-1-2" />);
+    view.rerender(<StorybookTopicScreen topicId="topic-1-1" />);
+    expect(screen.getByTestId('lesson-video-introduction')).toBeTruthy();
+    expect(localLearnerService.completeTopic).not.toHaveBeenCalled();
+  });
+
+  it('also shows a separate introductory slide in the activity preview', () => {
+    const onWatch = jest.fn();
+    render(<VideoActivityCard content={topic11Steps[0].content as VideoStepContent} onWatch={onWatch} />);
+    expect(screen.getByText(baybayinVideoIntroduction.body)).toBeTruthy();
+    expect(screen.queryByText('Ang Kuwento ng Baybayin')).toBeNull();
+    fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
+    expect(screen.queryByTestId('lesson-video-introduction')).toBeNull();
+    expect(screen.getAllByText('Ang Kuwento ng Baybayin')).toHaveLength(2);
+    expect(screen.getByText(baybayinVideoCredit.label)).toBeTruthy();
+    expect(onWatch).not.toHaveBeenCalled();
+  });
+
+  it('returns from Topic 2 to Topic 1 content, even without a prior introductory visit', () => {
+    const { localLearnerService } = jest.requireMock('../../../../database/services/localLearnerService');
+    const view = render(<StorybookTopicScreen topicId="topic-1-2" initialPage="content" />);
+    fireEvent.press(screen.getByLabelText('Bumalik sa nakaraang paksa'));
+    expect(mockSetParams).toHaveBeenLastCalledWith({ topicId: 'topic-1-1', lessonPage: 'content' });
+    view.rerender(<StorybookTopicScreen topicId="topic-1-1" initialPage="content" />);
+    expect(screen.getByTestId('topic-intro-video-player')).toBeTruthy();
+    expect(screen.getByText('Baybayin sa Kasaysayan')).toBeTruthy();
+    expect(screen.queryByTestId('lesson-video-introduction')).toBeNull();
+    expect(localLearnerService.completeTopic).not.toHaveBeenCalled();
+    fireEvent.press(screen.getByLabelText('Bumalik sa panimula'));
+    expect(screen.getByTestId('lesson-video-introduction')).toBeTruthy();
+    fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
+    expect(screen.getByTestId('topic-intro-video-player')).toBeTruthy();
+  });
+
+  it('uses the previous and next topic order and completes only on Next', async () => {
+    const { localLearnerService } = jest.requireMock('../../../../database/services/localLearnerService');
+    const ids = getApprovedStorybookActivities().map(activity => activity.id);
+    const view = render(<StorybookTopicScreen topicId={ids[0]} initialPage="content" />);
+    for (let index = 0; index < ids.length - 1; index++) {
+      fireEvent.press(screen.getByLabelText('Susunod na paksa'));
+      await waitFor(() => expect(mockSetParams).toHaveBeenLastCalledWith({ topicId: ids[index + 1], lessonPage: 'content' }));
+      expect(localLearnerService.completeTopic).toHaveBeenLastCalledWith(ids[index]);
+      view.rerender(<StorybookTopicScreen topicId={ids[index + 1]} initialPage="content" />);
+    }
+    const saves = localLearnerService.completeTopic.mock.calls.length;
+    for (let index = ids.length - 1; index > 0; index--) {
+      fireEvent.press(screen.getByLabelText('Bumalik sa nakaraang paksa'));
+      expect(mockSetParams).toHaveBeenLastCalledWith({ topicId: ids[index - 1], lessonPage: 'content' });
+      view.rerender(<StorybookTopicScreen topicId={ids[index - 1]} initialPage="content" />);
+    }
+    expect(screen.getByTestId('topic-intro-video-player')).toBeTruthy();
+    expect(localLearnerService.completeTopic).toHaveBeenCalledTimes(saves);
+    view.rerender(<StorybookTopicScreen topicId={ids.at(-1)!} initialPage="content" />);
+    fireEvent.press(screen.getByLabelText('Bumalik sa mga paksa'));
+    await waitFor(() => expect(mockDismissTo).toHaveBeenCalledWith('/learner/lessons'));
+    expect(localLearnerService.completeTopic).toHaveBeenLastCalledWith(ids.at(-1));
+  });
 
   const setViewport = (width: number, height: number) => {
     const shortSide = Math.min(width, height);
@@ -52,10 +133,11 @@ describe('Restored single-page approved storybooks', () => {
   };
 
   it.each([
-    ['topic-1-1', 'Ang Kasaysayan at Kahalagahan', 'Ang Pinagmulan ng Baybayin'],
+    ['topic-1-1', 'Ang Kasaysayan at Kahalagahan', 'Baybayin sa Kasaysayan'],
     ['topic-1-2', 'Ano Ba ang Silabaryo?', 'Ano Ba ang Silabaryo?'],
   ])('renders %s with exact topic and story titles, visual and BAYA', async (id, topic, title) => {
     render(<StorybookTopicScreen topicId={id} />);
+    if (id === 'topic-1-1') fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
     await waitFor(() => expect(screen.getAllByText(title)).toBeTruthy());
     expect(screen.getAllByText(topic)).toBeTruthy();
     expect(within(screen.getByTestId('activity-header')).getByText(topic)).toBeTruthy();
@@ -77,18 +159,39 @@ describe('Restored single-page approved storybooks', () => {
     expect(screen.queryAllByTestId(/^topic-card-/)).toHaveLength(0);
   });
 
-  it('keeps the supplied story ending in the BAYA message instead of repeating it in the text', async () => {
+  it('shows the separate intro, then history with video creator credit and no source block', () => {
     render(<StorybookTopicScreen topicId="topic-1-1" />);
-    await waitFor(() => expect(screen.getByText('Tara at balikan natin kung saan nagmula ang Baybayin.')).toBeTruthy());
-    expect(screen.getByText('Bago pa man dumating ang mga Kastila, may sarili nang sistema ng pagsusulat ang mga Pilipino.')).toBeTruthy();
-    expect(screen.getByText('Dahil wala pang papel noon, sa mga puno, kawayan, at dahon sila umuukit gamit ang matutulis na bagay para magsulat ng mga tula at mensahe.')).toBeTruthy();
+    expect(screen.getByText(baybayinVideoIntroduction.title)).toBeTruthy();
+    expect(screen.getByText(baybayinVideoIntroduction.body)).toBeTruthy();
+    expect(screen.queryByTestId('topic-intro-video-player')).toBeNull();
+    fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
+    expect(screen.queryByTestId('lesson-video-introduction')).toBeNull();
+    expect(screen.getByText(baybayinHistoryContent.content)).toBeTruthy();
+    expect(screen.getByText(baybayinVideoCredit.label)).toBeTruthy();
+    expect(screen.queryByTestId('lesson-source')).toBeNull();
+    expect(screen.queryByText('Alamin ang Sanggunian')).toBeNull();
     expect(screen.getAllByText('Ito ay mahalagang bahagi ng pagkatao natin.')).toHaveLength(1);
-    expect(screen.queryByText('Tara at balikan natin kung saan nagmula ang Baybayin.', { exact: true })).toBeTruthy();
-    const activity = getApprovedStorybookActivities()[0];
-    const storyContent = activity.steps[0].content;
-    const storyText = storyContent && 'content' in storyContent ? storyContent.content : '';
-    expect(storyText.endsWith('Dahil wala pang papel noon, sa mga puno, kawayan, at dahon sila umuukit gamit ang matutulis na bagay para magsulat ng mga tula at mensahe.')).toBe(true);
-    expect(storyText).not.toContain('Ito ay mahalagang bahagi ng pagkatao natin.');
+  });
+
+  it('opens the GINHAWA website when the video credit is pressed', () => {
+    const open = jest.spyOn(Linking, 'openURL').mockResolvedValue(undefined);
+    render(<StorybookTopicScreen topicId="topic-1-1" />);
+    fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
+    fireEvent.press(screen.getByRole('link', { name: baybayinVideoCredit.label }));
+    expect(open).toHaveBeenCalledWith('https://www.ginhawa.net/');
+    open.mockRestore();
+  });
+
+  it.each([360, 390, 430, 768, 1024, 1366, 1440])('shares the invitation/history/source at %ipx', width => {
+    setViewport(width, 900);
+    render(<StorybookTopicScreen topicId="topic-1-1" />);
+    expect(screen.getByText(baybayinVideoIntroduction.body)).toBeTruthy();
+    expect(screen.queryByTestId('topic-intro-video-player')).toBeNull();
+    fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
+    expect(screen.queryByTestId('lesson-video-introduction')).toBeNull();
+    expect(screen.getByText(baybayinHistoryContent.content)).toBeTruthy();
+    expect(screen.getByText(baybayinVideoCredit.label)).toBeTruthy();
+    expect(screen.getByTestId('topic-intro-video-player')).toBeTruthy();
   });
 
   it('shows only the supplied syllabary concept and examples on Topic 2', async () => {
@@ -96,17 +199,19 @@ describe('Restored single-page approved storybooks', () => {
     await waitFor(() => expect(screen.getByText('ᜊ = Ba\nᜃ = Ka\nᜆ = Ta')).toBeTruthy());
     expect(screen.getByText('Isang simbolo, isang pantig! Ganoon kadali ang Baybayin.')).toBeTruthy();
     expect(screen.getByText('Basahin natin:')).toBeTruthy();
-    expect(screen.getByText(/Doctrina Christiana noong 1593/)).toBeTruthy();
+    expect(screen.getByText(baybayinSyllabaryParagraphs[0])).toBeTruthy();
+    expect(screen.getByText(baybayinSyllabaryParagraphs[1])).toBeTruthy();
   });
 
   it('navigates by approved topic order and ends at the module list', async () => {
     const view = render(<StorybookTopicScreen topicId="topic-1-1" />);
+    fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
     await waitFor(() => expect(screen.getByLabelText('Susunod na paksa')).toBeTruthy());
     fireEvent.press(screen.getByLabelText('Susunod na paksa'));
-    await waitFor(() => expect(mockSetParams).toHaveBeenLastCalledWith({ topicId: 'topic-1-2' }));
+    await waitFor(() => expect(mockSetParams).toHaveBeenLastCalledWith({ topicId: 'topic-1-2', lessonPage: 'content' }));
     view.rerender(<StorybookTopicScreen topicId="topic-1-2" />);
     await waitFor(() => expect(screen.getAllByText('Ano Ba ang Silabaryo?')).toBeTruthy());
-    expect(screen.queryByText('Ang Pinagmulan ng Baybayin')).toBeNull();
+    expect(screen.queryByText('Baybayin sa Kasaysayan')).toBeNull();
     fireEvent.press(screen.getByLabelText('Back'));
     expect(mockDismissTo).toHaveBeenLastCalledWith('/learner/lessons');
   });
@@ -119,14 +224,19 @@ describe('Restored single-page approved storybooks', () => {
     );
 
     render(<StorybookTopicScreen topicId="topic-1-1" />);
+    fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
     await waitFor(() => expect(screen.getByLabelText('Susunod na paksa')).toBeTruthy());
     fireEvent.press(screen.getByLabelText('Susunod na paksa'));
 
     expect(localLearnerService.completeTopic).toHaveBeenCalledWith('topic-1-1');
     expect(mockSetParams).not.toHaveBeenCalled();
 
+    expect(screen.getByLabelText('Bumalik sa panimula').props.accessibilityState.disabled).toBe(true);
+    fireEvent.press(screen.getByLabelText('Bumalik sa panimula'));
+    expect(screen.getByTestId('topic-intro-video-player')).toBeTruthy();
+
     resolveSave();
-    await waitFor(() => expect(mockSetParams).toHaveBeenCalledWith({ topicId: 'topic-1-2' }));
+    await waitFor(() => expect(mockSetParams).toHaveBeenCalledWith({ topicId: 'topic-1-2', lessonPage: 'content' }));
   });
 
   it('protects against rapid repeated Next clicks with single save and navigation', async () => {
@@ -139,6 +249,7 @@ describe('Restored single-page approved storybooks', () => {
     );
 
     render(<StorybookTopicScreen topicId="topic-1-1" />);
+    fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
     await waitFor(() => expect(screen.getByLabelText('Susunod na paksa')).toBeTruthy());
 
     fireEvent.press(screen.getByLabelText('Susunod na paksa'));
@@ -155,6 +266,7 @@ describe('Restored single-page approved storybooks', () => {
     jest.mocked(localLearnerService.completeTopic).mockRejectedValueOnce(new Error('Invalid VFS state'));
 
     render(<StorybookTopicScreen topicId="topic-1-1" />);
+    fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
     await waitFor(() => expect(screen.getByLabelText('Susunod na paksa')).toBeTruthy());
     fireEvent.press(screen.getByLabelText('Susunod na paksa'));
 
@@ -164,6 +276,7 @@ describe('Restored single-page approved storybooks', () => {
 
   it('uses the shared learner header controls and opens Settings', () => {
     render(<StorybookTopicScreen topicId="topic-1-1" />);
+    fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
     expect(screen.getByTestId('activity-header')).toBeTruthy();
     fireEvent.press(screen.getByLabelText('Settings'));
     expect(mockPush).toHaveBeenCalledWith('/learner/settings');
@@ -189,6 +302,7 @@ describe('Restored single-page approved storybooks', () => {
 
   it('sizes story media and type from their measured columns', async () => {
     render(<StorybookTopicScreen topicId="topic-1-1" />);
+    fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
     fireEvent(screen.getByTestId('story-image-column'), 'layout', {
       nativeEvent: { layout: { x: 0, y: 0, width: 420, height: 600 } },
     });
@@ -197,7 +311,7 @@ describe('Restored single-page approved storybooks', () => {
     });
     await waitFor(() => {
       const videoStyle = StyleSheet.flatten(screen.getByTestId('story-visual-frame').props.style);
-      const titleStyle = StyleSheet.flatten(screen.getByText('Ang Pinagmulan ng Baybayin').props.style);
+      const titleStyle = StyleSheet.flatten(screen.getByText('Baybayin sa Kasaysayan').props.style);
       expect(videoStyle.width).toBeCloseTo(Math.min(760, 420, 600 * (16 / 9)));
       expect(videoStyle.aspectRatio).toBe(16 / 9);
       expect(titleStyle.fontSize).toBeCloseTo(Math.min(38, Math.max(24, Math.min(320, 240 * 1.65) * 0.052)));
@@ -215,6 +329,7 @@ describe('Restored single-page approved storybooks', () => {
   ])('uses the same template and visual sizing for every topic at %s × %s', (width, height) => {
     setViewport(width, height);
     const view = render(<StorybookTopicScreen topicId="topic-1-1" />);
+    fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
     const measureAndReadTemplate = () => {
       fireEvent(screen.getByTestId('storybook-page'), 'layout', {
         nativeEvent: { layout: { x: 0, y: 0, width, height: height - 152 } },
@@ -235,15 +350,16 @@ describe('Restored single-page approved storybooks', () => {
     view.rerender(<StorybookTopicScreen topicId="topic-1-2" />);
     expect(measureAndReadTemplate()).toEqual(topicOneTemplate);
     expect(screen.queryByText('ANG BAYBAYIN BILANG SILABARYO')).toBeNull();
-    expect(screen.getByText('Ang Baybayin ay hindi alpabeto, isa itong SILABARYO.')).toBeTruthy();
+    expect(screen.getByText(baybayinSyllabaryParagraphs[0])).toBeTruthy();
     expect(screen.getByText('ᜊ = Ba\nᜃ = Ka\nᜆ = Ta')).toBeTruthy();
-    expect(screen.getByText(/Doctrina Christiana noong 1593/)).toBeTruthy();
+    expect(screen.getByText(baybayinSyllabaryParagraphs[1])).toBeTruthy();
     expect(screen.queryByTestId('topic-intro-video-player')).toBeNull();
     expect(screen.getByTestId('story-image-placeholder')).toBeTruthy();
   });
 
   it('keeps a bounded, nonzero video frame while rotating through portrait and short landscape', () => {
     const view = render(<StorybookTopicScreen topicId="topic-1-1" />);
+    fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
     for (const [width, height, columnWidth, columnHeight] of [
       [390, 844, 358, 200],
       [844, 390, 379, 230],
@@ -283,6 +399,7 @@ describe('Restored single-page approved storybooks', () => {
     }
     expect(activities[0].video).toEqual({
       title: 'Baybayin Song',
+      introduction: baybayinVideoIntroduction,
       source: { type: 'asset', assetId: 'baybayin-song' },
       isAvailable: true,
     });
@@ -308,6 +425,7 @@ describe('Restored single-page approved storybooks', () => {
   ])('keeps the story spread whenever both columns fit at %s × %s', async (width, height, stacked) => {
     setViewport(width, height);
     render(<StorybookTopicScreen topicId="topic-1-1" />);
+    fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
     await waitFor(() => expect(screen.getByTestId('story-content')).toBeTruthy());
     fireEvent(screen.getByTestId('storybook-page'), 'layout', {
       nativeEvent: { layout: { x: 0, y: 92, width, height: Math.max(0, height - 152) } },
@@ -316,7 +434,7 @@ describe('Restored single-page approved storybooks', () => {
     const lessonColumn = within(screen.getByTestId('story-content-column'));
     expect(within(screen.getByTestId('activity-header')).getByText('Ang Kasaysayan at Kahalagahan')).toBeTruthy();
     expect(lessonColumn.queryByText('Ang Kasaysayan at Kahalagahan')).toBeNull();
-    expect(lessonColumn.getByText('Ang Pinagmulan ng Baybayin')).toBeTruthy();
+    expect(lessonColumn.getByText('Baybayin sa Kasaysayan')).toBeTruthy();
     if (stacked) {
       expect(screen.queryByTestId('topic-intro-video-player')).toBeTruthy();
     } else {

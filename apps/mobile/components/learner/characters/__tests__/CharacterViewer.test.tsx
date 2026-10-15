@@ -3,6 +3,7 @@ import { fireEvent, render, screen, waitFor, within } from '@testing-library/rea
 import { StyleSheet } from 'react-native';
 import { useAudioPlayer } from 'expo-audio';
 import * as Speech from 'expo-speech';
+import { Colors } from '../../../../constants/theme';
 import { CharacterViewer } from '../CharacterViewer';
 import { getBaybayinCharacterTopic, type BaybayinCharacterTopic } from '../../../../content/baybayinCharactersData';
 
@@ -21,6 +22,62 @@ function ViewerHarness({ topic }: { topic: BaybayinCharacterTopic }) {
 }
 
 describe('CharacterViewer', () => {
+  it.each([
+    ['ka', 'KAibigan', 'KA', 'ᜃ'],
+    ['nga', 'NGAyon', 'NGA', 'ᜅ'],
+    ['ya', 'YAman', 'YA', 'ᜌ'],
+  ] as const)('renders the approved %s word and target emphasis with a subordinate guide', async (id, word, syllable, glyph) => {
+    const topic = getBaybayinCharacterTopic('topic-2-2')!;
+    render(<ViewerHarness topic={topic} />);
+    fireEvent.press(screen.getByTestId(`character-chip-${id}`));
+    const character = topic.characters.find(item => item.id === id)!;
+    expect(screen.getByTestId('character-example-latin').props.accessibilityLabel).toBe(word);
+    expect(screen.getByTestId('character-example-syllable').props.children).toBe(syllable);
+    expect(StyleSheet.flatten(screen.getByTestId('character-example-syllable').props.style).color).toBe(Colors.rolePrimary);
+    expect(screen.getByTestId('character-example-highlighted-glyph').props.children).toBe(glyph);
+    expect(screen.getByTestId('character-glyph').props.source).toBe(character.imageAsset);
+    expect(screen.getByTestId('character-example-baybayin').props.accessibilityLabel).toBe(`Baybayin: ${character.example.baybayinWord}`);
+    expect(StyleSheet.flatten(screen.getByTestId('character-example-highlighted-glyph').props.style).textDecorationLine).toBeUndefined();
+    expect(StyleSheet.flatten(screen.getByTestId('character-example-guide-line').props.style)).toEqual(expect.objectContaining({ backgroundColor: Colors.textMuted, height: 1 }));
+    expect(screen.getAllByTestId('character-example-guide-line')).toHaveLength(1);
+    for (const oldWord of ['Kama', 'Ngipin', 'Yaya']) expect(screen.queryByLabelText(oldWord)).toBeNull();
+    fireEvent.press(screen.getByTestId('baya-pronunciation-button'));
+    await waitFor(() => expect(Speech.speak).toHaveBeenCalledWith(character.latinEquivalent, expect.objectContaining({ language: 'fil-PH' })));
+  });
+
+  it('uses one thin neutral guide for every Lesson 2 character', () => {
+    for (const topic of ['topic-2-1', 'topic-2-2']) {
+      const source = getBaybayinCharacterTopic(topic)!;
+      const view = render(<ViewerHarness topic={source} />);
+      for (const character of source.characters) {
+        fireEvent.press(screen.getByTestId(`character-chip-${character.id}`));
+        expect(screen.getAllByTestId('character-example-guide-line')).toHaveLength(1);
+        expect(StyleSheet.flatten(screen.getByTestId('character-example-guide-line').props.style)).toEqual(expect.objectContaining({ backgroundColor: Colors.textMuted, height: 1 }));
+        const cancellationMarks = screen.queryAllByTestId('character-example-cancellation-mark', { includeHiddenElements: true });
+        expect(cancellationMarks).toHaveLength(character.example.baybayinWord.includes('᜔') ? 1 : 0);
+        for (const mark of cancellationMarks) expect(mark.props.children).toBe('×');
+      }
+      view.unmount();
+    }
+  });
+
+  it('keeps the final consonant and virama together when fitting KAibigan into a narrow bubble', () => {
+    const topic = getBaybayinCharacterTopic('topic-2-2')!;
+    render(<ViewerHarness topic={topic} />);
+    fireEvent.press(screen.getByTestId('character-chip-ka'));
+    const spelling = screen.getByTestId('character-example-baybayin');
+    const ending = within(spelling).getByLabelText('ᜈ᜔');
+    expect(within(ending).getByText('ᜈ')).toBeTruthy();
+    expect(within(ending).getByTestId('character-example-cancellation-mark', { includeHiddenElements: true }).props.children).toBe('×');
+    expect(within(spelling).queryByText('᜔')).toBeNull();
+    fireEvent(spelling, 'layout', { nativeEvent: { layout: { x: 0, y: 0, width: 217.625, height: 64 } } });
+    fireEvent(screen.getByTestId('character-example-container'), 'layout', { nativeEvent: { layout: { x: 0, y: 0, width: 177, height: 128 } } });
+    const fittedFont = StyleSheet.flatten(screen.getByTestId('character-example-highlighted-glyph').props.style).fontSize;
+    expect(fittedFont).toBeLessThan(48);
+    expect(within(spelling).getByLabelText('ᜈ᜔')).toBeTruthy();
+    expect(StyleSheet.flatten(screen.getByTestId('character-example-guide-line').props.style).height).toBe(1);
+  });
+
   it('uses the same example, BAYA control, and selector for vowels and consonants', () => {
     const vowels = getBaybayinCharacterTopic('topic-2-1')!;
     const { rerender } = render(<ViewerHarness topic={vowels} />);

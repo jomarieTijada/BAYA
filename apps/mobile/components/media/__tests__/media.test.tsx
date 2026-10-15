@@ -8,6 +8,7 @@ import { useVideoPlayer } from "expo-video";
 import { VideoPlayer } from "../VideoPlayer";
 import { ImageViewer } from "../ImageViewer";
 import { resolveStaticMediaUri } from "../mediaResolver";
+import { mediaAssets } from "../../../content/mediaCatalog";
 jest.mock("expo-asset", () => ({
   Asset: {
     fromModule: jest.fn((id: number) => {
@@ -61,6 +62,39 @@ describe("Media resilience", () => {
     expect(video.props.src).toBe("https://bundle.test/123");
     expect(video.props.controls).toBe(true);
     view.unmount();
+    Platform.OS = old;
+  });
+  it("resolves the lesson asset ID and only fails on a real HTML media error", () => {
+    const old = Platform.OS;
+    Platform.OS = "web";
+    const source = { type: "asset" as const, assetId: "baybayin-song" };
+    expect(resolveStaticMediaUri(source)).toBeTruthy();
+    expect(Asset.fromModule).toHaveBeenCalledWith(mediaAssets["baybayin-song"]);
+    const onError = jest.fn();
+    render(<VideoPlayer source={source} onError={onError} title="Lesson video" />);
+    const video = screen.getByLabelText("Lesson video");
+    const videoUri = video.props.src;
+    expect(video.props.controls).toBe(true);
+    expect(video.props.playsInline).toBe(true);
+    expect(video.props.preload).toBe("metadata");
+    expect(video.props.autoPlay).toBeUndefined();
+    fireEvent(video, "loadedMetadata", { currentTarget: { duration: 231 } });
+    fireEvent(video, "canPlay");
+    expect(screen.queryByTestId("video-player-placeholder")).toBeNull();
+    expect(onError).not.toHaveBeenCalled();
+    fireEvent(video, "error", {
+      currentTarget: {
+        error: { code: 4, message: "Unsupported source" },
+        networkState: 3,
+        readyState: 0,
+        currentSrc: "https://bundle.test/lesson.mp4",
+      },
+    });
+    expect(screen.getByTestId("video-player-placeholder")).toBeTruthy();
+    expect(onError).toHaveBeenCalledTimes(1);
+    fireEvent.press(screen.getByRole("button", { name: "Subukan muli" }));
+    expect(screen.getByLabelText("Lesson video").props.src).toBe(videoUri);
+    expect(screen.queryByTestId("video-player-placeholder")).toBeNull();
     Platform.OS = old;
   });
   it("waits for a native local asset URI before creating the player and retries", async () => {

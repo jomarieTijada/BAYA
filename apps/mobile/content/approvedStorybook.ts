@@ -1,4 +1,6 @@
 import { approvedCurriculum } from './approvedCurriculum';
+import { baybayinHistoryContent, baybayinVideoIntroduction } from './baybayinIntroduction';
+import { baybayinSyllabaryHighlights, baybayinSyllabaryText } from './baybayinSyllabary';
 import {
   topic13ActivityData,
   topic14ActivityData,
@@ -14,26 +16,12 @@ const approvedTopicActivities: Readonly<Record<string, TopicActivityData>> = {
 
 const approvedStories: Readonly<Record<string, Omit<SlideStepContent, 'number' | 'totalInDeck'>>> = {
   'topic-1-1': {
-    title: 'Ang Pinagmulan ng Baybayin',
-    content: 'Tara at balikan natin kung saan nagmula ang Baybayin.\n\nBago pa man dumating ang mga Kastila, may sarili nang sistema ng pagsusulat ang mga Pilipino.\n\nDahil wala pang papel noon, sa mga puno, kawayan, at dahon sila umuukit gamit ang matutulis na bagay para magsulat ng mga tula at mensahe.',
-    storyMessage: 'Ito ay mahalagang bahagi ng pagkatao natin.',
+    ...baybayinHistoryContent,
   },
   'topic-1-2': {
     title: 'Ano Ba ang Silabaryo?',
-    openingNarration: 'Ang Baybayin ay hindi alpabeto, isa itong SILABARYO.',
-    content: `Sanay na tayo sa English alphabet kung saan bawat letra ay may iisang tunog (tulad ng "B" at "A").
-
-Pero ang Baybayin ay hindi alpabeto, isa itong SILABARYO.
-
-Ano'ng pinagkaiba?
-
-Sa Baybayin, ang isang simbolo ay katumbas agad ng isang buong pantig (syllable).
-
-Kaya hindi mo na kailangang paghiwalayin ang mga letra; binabasa agad ang isang simbolo bilang "Ba", "Ka", o "Ta".
-
-Ang salitang Baybayin ay galing mismo sa salitang "baybay", na ang ibig sabihin ay i-spell o hatiin sa pantig ang mga salita.
-
-Ganito na tayo magsulat noon pa man, at ginamit din ang sistemang ito sa mga sinaunang libro tulad ng Doctrina Christiana noong 1593.`,
+    content: baybayinSyllabaryText,
+    highlightWords: baybayinSyllabaryHighlights,
     examplesLabel: 'Basahin natin:',
     examples: 'ᜊ = Ba\nᜃ = Ka\nᜆ = Ta',
     storyMessage: 'Isang simbolo, isang pantig! Ganoon kadali ang Baybayin.',
@@ -53,7 +41,7 @@ export function getApprovedStorybookActivity(id: string): TopicActivityData | nu
     activityIndex: index + 1, totalActivitiesInModule: module.topics.length,
     type: 'story', slides: [],
     video: id === 'topic-1-1'
-      ? { title: 'Baybayin Song', source: { type: 'asset', assetId: 'baybayin-song' }, isAvailable: true }
+      ? { title: 'Baybayin Song', introduction: baybayinVideoIntroduction, source: { type: 'asset', assetId: 'baybayin-song' }, isAvailable: true }
       : { title: '', source: null, isAvailable: false },
     steps: [{ id: `${id}-story`, type: 'story', title: story.title,
       content: { ...story, badge: topic.title, number: 1, totalInDeck: 1 } }],

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import { Colors, FontFamily, Radius, Shadows, Spacing } from '../../../constants/theme';
@@ -7,6 +7,9 @@ import { MediaCard } from '../cards/MediaCard';
 import { VideoPlayer } from '../../media/VideoPlayer';
 import { resolveStaticMediaUri } from '../../media/mediaResolver';
 import type { VideoSource, VideoStepContent } from './activityData';
+import { LessonVideoIntroduction } from '../story/LessonVideoIntroduction';
+import { AppButton } from '../../ui/AppButton';
+import { VideoCreditLink } from '../story/VideoCreditLink';
 
 export type VideoPlayState = 'not_started' | 'playing' | 'completed';
 
@@ -47,6 +50,14 @@ export function VideoActivityCard({
   const displayTitle = content.title || title || 'Video';
   const displayBadge = content.badge || 'PANOORIN';
   const resolvedSource = videoSource !== undefined ? videoSource : content.source;
+  const [showIntroduction, setShowIntroduction] = useState(Boolean(content.introduction));
+
+  if (showIntroduction && content.introduction) {
+    return <View style={styles.introSlide}>
+      <LessonVideoIntroduction introduction={content.introduction} compact={compact} landscapeCompact={landscapeCompact} />
+      <AppButton accessibilityLabel="Panoorin ang Video" label="Panoorin ang Video" compact={compact} onPress={() => setShowIntroduction(false)} />
+    </View>;
+  }
 
   return (
     <MediaCard
@@ -78,6 +89,7 @@ export function VideoActivityCard({
         </Text>
       </View>
 
+      {content.credit ? <VideoCreditLink credit={content.credit} /> : null}
       {/* Main Video Learning Viewport: Delegated to VideoPlayer */}
       <VideoPlayer
         compact={compact}
@@ -95,6 +107,7 @@ export function VideoActivityCard({
 export const VideoLessonCard = VideoActivityCard;
 
 const styles = StyleSheet.create({
+  introSlide: { flex: 1, minHeight: 0 },
   card: {
     alignItems: 'stretch',
     backgroundColor: '#FFFDF9',

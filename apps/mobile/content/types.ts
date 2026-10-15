@@ -16,7 +16,19 @@ export type ActivityStepType =
   | "practice"
   | "concept";
 
+export interface VideoIntroduction { title: string; body: string }
+export interface VideoCredit { label: string; url: string }
+export interface LessonReference {
+  organization: string;
+  abbreviation: string;
+  title: string;
+  author: string;
+  url: string;
+}
+
 export interface VideoStepContent {
+  credit?: VideoCredit;
+  introduction?: VideoIntroduction;
   badge?: string;
   description?: string;
   durationText?: string;
@@ -37,6 +49,8 @@ export interface StoryCardChunk {
 }
 
 export interface SlideStepContent {
+  videoCredit?: VideoCredit;
+  reference?: LessonReference;
   examples?: string;
   examplesLabel?: string;
   /** Reserved for future validator-approved artwork; currently always a placeholder. */
@@ -101,6 +115,7 @@ export interface SlideItem {
 }
 
 export interface VideoData {
+  introduction?: VideoIntroduction;
   durationText?: string;
   isAvailable?: boolean;
   metadata?: VideoMetadata;

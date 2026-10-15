@@ -1,5 +1,8 @@
 import type {
   ActivityStep,
+  LessonReference,
+  VideoIntroduction,
+  VideoCredit,
   SlideStepContent,
   TopicActivityData,
   VideoStepContent,
@@ -13,6 +16,12 @@ const record = (v: unknown): v is RecordValue =>
 const text = (v: unknown, max = 20000): v is string =>
   typeof v === "string" && v.length <= max;
 const optionalText = (v: unknown) => v === undefined || text(v);
+const validIntroduction = (v: unknown) => record(v) && text(v.title, 300) && text(v.body, 2000);
+const validVideoCredit = (v: unknown) => record(v) && text(v.label, 300) && v.label.length > 0
+  && text(v.url, 2048) && isValidRemoteUrl(v.url, ['https://www.ginhawa.net']);
+const validReference = (v: unknown) => record(v)
+  && ['organization', 'abbreviation', 'title', 'author'].every(key => text(v[key], 500) && v[key].length > 0)
+  && text(v.url, 2048) && isValidRemoteUrl(v.url, ['https://ncca.gov.ph']);
 function media(v: unknown): MediaSource | undefined {
   if (v === null || v === undefined) return null;
   if (!record(v)) return undefined;
@@ -63,6 +72,8 @@ export function parseActivity(
         !text(c.title, 300) ||
         !optionalText(c.badge) ||
         !optionalText(c.description)
+        || (c.introduction !== undefined && !validIntroduction(c.introduction))
+        || (c.credit !== undefined && !validVideoCredit(c.credit))
       )
         return null;
       content = {
@@ -70,6 +81,8 @@ export function parseActivity(
         source,
         badge: c.badge as string | undefined,
         description: c.description as string | undefined,
+        introduction: c.introduction as VideoIntroduction | undefined,
+        credit: c.credit as VideoCredit | undefined,
       };
     } else if (
       raw.type === "story" ||
@@ -101,9 +114,13 @@ export function parseActivity(
         return null;
       const source = media(c.illustration ?? c.imageSource);
       if (source === undefined) return null;
+      if (c.reference !== undefined && !validReference(c.reference)) return null;
+      if (c.videoCredit !== undefined && !validVideoCredit(c.videoCredit)) return null;
       content = {
         title: c.title,
         content: c.content,
+        reference: c.reference as LessonReference | undefined,
+        videoCredit: c.videoCredit as VideoCredit | undefined,
         number: steps.length + 1,
         totalInDeck: value.steps.length,
         examples: c.examples as string | undefined,

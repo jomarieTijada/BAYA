@@ -1,3 +1,4 @@
+import { baybayinHistoryContent, baybayinVideoCredit, baybayinVideoIntroduction } from '../baybayinIntroduction';
 import type {
   ActivityStep,
   SlideItem,
@@ -16,7 +17,7 @@ export const baybayinSongAsset = baybayinSongVideoSource;
 /**
  * Approved 5 sequential learning steps for Topic 1.1:
  * STEP 1: Video (Panimulang Video)
- * STEP 2: Slide 1 (Pinagmulan ng Baybayin)
+ * STEP 2: Slide 1 (Baybayin sa Kasaysayan)
  * STEP 3: Slide 2 (Paano ginagamit)
  * STEP 4: Slide 3 (Bakit mahalaga)
  * STEP 5: Slide 4 (Handa ka na bang matuto?)
@@ -31,6 +32,8 @@ export const topic11Steps: ActivityStep[] = [
     content: {
       badge: "PANOORIN",
       title: "Ang Kuwento ng Baybayin",
+      introduction: baybayinVideoIntroduction,
+      credit: baybayinVideoCredit,
       durationText: "2:15",
       source: baybayinSongVideoSource,
       metadata: {
@@ -42,32 +45,16 @@ export const topic11Steps: ActivityStep[] = [
   {
     id: "topic-1-1-step-2",
     type: "slide",
-    title: "Ang Pinagmulan ng Baybayin",
+    title: baybayinHistoryContent.title,
     ctaLabel: "Susunod na Slide",
     content: {
       badge: "KASAYSAYAN AT KAHALAGAHAN",
       number: 1,
       totalInDeck: 4,
-      title: "Ang Pinagmulan ng Baybayin",
-      subtitle: "Tara, balikan natin ang pinagmulan ng Baybayin.",
-      openingNarration: "Tara at balikan natin kung saan nagmula ang Baybayin.",
-      content:
-        "Bago pa man dumating ang mga Kastila, may sarili nang sistema ng pagsusulat ang mga Pilipino.\n\nDahil wala pang papel noon, sa mga puno, kawayan, at dahon sila umuukit gamit ang matutulis na bagay para magsulat ng mga tula at mensahe.",
+      ...baybayinHistoryContent,
       storyHighlight: "May sarili tayong paraan ng pagsulat — ang Baybayin.",
-      storyMessage: "Ito ay mahalagang bahagi ng pagkatao natin.",
-      highlightWords: [
-        "Baybayin",
-        "Pilipino",
-        "Kastila",
-        "pagsusulat",
-        "kultura",
-        "kawayan",
-        "dahon",
-        "puno",
-        "papel",
-        "pagkatao",
-      ],
-      illustrationPlaceholder: "Ang Pinagmulan ng Baybayin",
+      highlightWords: ['Baybayin', 'Tagalog', 'pagsulat', 'kasaysayan'],
+      illustrationPlaceholder: "Baybayin sa Kasaysayan",
       illustrationTheme: "origin",
     } satisfies SlideStepContent,
   },
@@ -169,6 +156,7 @@ export const topic11ActivityData: TopicActivityData = {
   steps: topic11Steps,
   video: {
     title: "Ang Kuwento ng Baybayin",
+    introduction: baybayinVideoIntroduction,
     source: baybayinSongVideoSource,
     metadata: {
       originalFilename: "Baybayin Song 1 V2 Gavino (c)2021.mp4",

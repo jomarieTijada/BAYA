@@ -35,26 +35,44 @@ function CharacterExampleGuide({ character, compact, large, short, isStacked }: 
 
 function ExampleWord({ character, large, short }: { character: BaybayinCharacter; large: boolean; short: boolean }) {
   const { word, baybayinWord, highlightedSyllable, highlightIndex } = character.example;
-  // Keep kudlit vowel marks with the base glyph they modify.
+  const [availableWidth, setAvailableWidth] = useState(0);
+  const [glyphMeasure, setGlyphMeasure] = useState<{ word: string; units: number } | null>(null);
+  // Keep vowel signs and the final consonant's virama with their base glyph.
   const glyphs = Array.from(baybayinWord).reduce<string[]>((parts, symbol) => {
     if (/^[\u1712\u1713\u1714]$/.test(symbol) && parts.length > 0) parts[parts.length - 1] += symbol;
     else parts.push(symbol);
     return parts;
   }, []);
+  const baseFontSize = short ? 32 : large ? 58 : 48;
+  const baseLineHeight = short ? 44 : large ? 74 : 64;
+  const widthUnits = glyphMeasure?.word === baybayinWord ? glyphMeasure.units : glyphs.length;
+  // Measure the font's actual glyph widths; longer modern spellings must fit
+  // the existing speech bubble without separating a mark from its character.
+  const fontSize = availableWidth > 1
+    ? Math.min(baseFontSize, Math.max(1, Math.floor((availableWidth - 1) / widthUnits)))
+    : baseFontSize;
+  const glyphTypeStyle = { fontSize, lineHeight: Math.round(baseLineHeight * fontSize / baseFontSize) };
   const start = word.toLowerCase().indexOf(highlightedSyllable.toLowerCase());
   const end = start + highlightedSyllable.length;
   return (
-    <View style={[styles.exampleWord, short && styles.exampleWordShort]}>
+    <View onLayout={({ nativeEvent: { layout } }) => setAvailableWidth(previous => previous === layout.width ? previous : layout.width)} style={[styles.exampleWord, short && styles.exampleWordShort]} testID="character-example-container">
       <Text style={[styles.exampleCaption, large && styles.exampleCaptionLarge]}>Halimbawa</Text>
-      <Text accessibilityLabel={`Baybayin: ${baybayinWord}`} style={[styles.exampleBaybayin, large && styles.exampleBaybayinLarge, short && styles.exampleBaybayinShort]}>
+      <View accessible accessibilityRole="text" accessibilityLabel={`Baybayin: ${baybayinWord}`} onLayout={({ nativeEvent: { layout } }) => {
+        const units = layout.width / fontSize;
+        if (units > 0) setGlyphMeasure(previous => previous?.word === baybayinWord && Math.abs(previous.units - units) < 0.001 ? previous : { word: baybayinWord, units });
+      }} style={styles.exampleGlyphRow} testID="character-example-baybayin">
         {glyphs.map((glyph, index) => (
-          <Text key={index} style={index === highlightIndex ? styles.highlightedGlyph : undefined}>{glyph}</Text>
+          <View key={index} accessibilityLabel={glyph} style={styles.exampleGlyphCell}>
+            <Text style={[styles.exampleBaybayin, glyphTypeStyle, index === highlightIndex && styles.highlightedGlyph]} testID={index === highlightIndex ? 'character-example-highlighted-glyph' : undefined}>{glyph.replace(/\u1714$/, '')}</Text>
+            {glyph.endsWith('\u1714') && <Text accessible={false} aria-hidden style={[styles.exampleCancellationMark, { fontSize: Math.round(fontSize * 0.28), lineHeight: Math.round(fontSize * 0.32) }]} testID="character-example-cancellation-mark">×</Text>}
+            {index === highlightIndex && <View style={styles.exampleGlyphGuide} testID="character-example-guide-line" />}
+          </View>
         ))}
-      </Text>
-      <Text accessibilityLabel={word} style={[styles.exampleLatin, large && styles.exampleLatinLarge, short && styles.exampleLatinShort]}>
+      </View>
+      <Text accessibilityLabel={word} style={[styles.exampleLatin, large && styles.exampleLatinLarge, short && styles.exampleLatinShort]} testID="character-example-latin">
         {start >= 0 ? <>
           {word.slice(0, start)}
-          <Text style={styles.highlightedSyllable}>{word.slice(start, end)}</Text>
+          <Text style={styles.highlightedSyllable} testID="character-example-syllable">{word.slice(start, end)}</Text>
           {word.slice(end)}
         </> : word}
       </Text>
@@ -160,17 +178,21 @@ const styles = StyleSheet.create({
   exampleRegionStacked: { flexBasis: 'auto', flexGrow: 0, flexShrink: 0 },
   exampleGuide: { marginTop: 0 },
   exampleGuideLarge: { justifyContent: 'center', paddingRight: 0 },
-  exampleWord: { alignItems: 'center', gap: Spacing.xs, justifyContent: 'center', minHeight: 128, minWidth: 0 },
+  exampleWord: { alignItems: 'center', gap: Spacing.xs, justifyContent: 'center', minHeight: 128, minWidth: 0, width: '100%' },
   exampleWordShort: { gap: 2, minHeight: 96 },
   exampleCaption: { color: Colors.textSecondary, fontFamily: FontFamily.body, fontSize: 14, fontWeight: '700' },
   exampleCaptionLarge: { fontSize: 17 },
+  exampleGlyphRow: { flexDirection: 'row', justifyContent: 'center' },
+  exampleGlyphCell: { position: 'relative' },
+  // Draw the chosen X-shaped virama independently of the platform font.
+  exampleCancellationMark: { bottom: 0, color: Colors.textPrimary, fontFamily: FontFamily.body, fontWeight: '800', left: 0, position: 'absolute', right: 0, textAlign: 'center' },
+  // Separate from font decoration so the guide stays thin on web and native.
+  exampleGlyphGuide: { backgroundColor: Colors.textMuted, bottom: Spacing.xs, height: 1, left: 0, position: 'absolute', right: 0 },
   exampleBaybayin: { color: Colors.textPrimary, fontSize: 48, lineHeight: 64 },
-  exampleBaybayinLarge: { fontSize: 58, lineHeight: 74 },
-  exampleBaybayinShort: { fontSize: 32, lineHeight: 44 },
   exampleLatin: { color: Colors.textPrimary, fontFamily: FontFamily.rounded, fontSize: 32, fontWeight: '800' },
   exampleLatinLarge: { fontSize: 38 },
   exampleLatinShort: { fontSize: 24 },
-  highlightedGlyph: { color: Colors.rolePrimary, textDecorationLine: 'underline' },
+  highlightedGlyph: { color: Colors.rolePrimary },
   highlightedSyllable: { color: Colors.rolePrimary, textDecorationLine: 'underline' },
   selectorSection: { gap: Spacing.xs, minWidth: 0 },
   selectorSectionLarge: { gap: Spacing.sm },

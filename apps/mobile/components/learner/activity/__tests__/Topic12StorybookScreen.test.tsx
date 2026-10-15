@@ -2,6 +2,7 @@ import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react-native';
 import { ActivityScreen } from '../ActivityScreen';
 import { getActivityData, topic12ActivityData } from '../activityData';
+import { baybayinSyllabaryParagraphs } from '../../../../content/baybayinSyllabary';
 
 // Mock useRouter
 const mockPush = jest.fn();
@@ -109,12 +110,11 @@ describe('Topic 1.2 — Fullscreen Storybook Learning Screen (Paano ba gumagana 
 
     // Opening Emphasized Lead
     expect(
-      screen.getByText('Ang Baybayin ay hindi alpabeto, isa itong SILABARYO.')
+      screen.getByText(baybayinSyllabaryParagraphs[0])
     ).toBeTruthy();
 
     // Body narration text
-    expect(screen.getByText(/Alam mo ba\? Ang Baybayin ay hindi tulad ng ating alpabeto/)).toBeTruthy();
-    expect(screen.getByText(/bawat isang simbolo tulad ng ᜊ ay buo na/)).toBeTruthy();
+    expect(screen.getByText(baybayinSyllabaryParagraphs[1])).toBeTruthy();
   });
 
   it('5. renders BAYA mascot learning guide and speech bubble with custom line without "Sabi ni BAYA"', () => {

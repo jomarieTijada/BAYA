@@ -11,6 +11,7 @@ export function StoryNavigation({
   isLast,
   previousAccessibilityLabel,
   nextAccessibilityLabel,
+  nextLabel,
   disabled = false,
 }: {
   onPrevious?: () => void;
@@ -18,6 +19,7 @@ export function StoryNavigation({
   isLast: boolean;
   previousAccessibilityLabel?: string;
   nextAccessibilityLabel?: string;
+  nextLabel?: string;
   disabled?: boolean;
 }) {
   const { isCompactHeight, isDesktop, isPhone, isPhoneLandscape, isTablet } = useResponsiveLayout();
@@ -47,7 +49,7 @@ export function StoryNavigation({
         accessibilityLabel={previousAccessibilityLabel ?? 'Bumalik sa nakaraang paksa'}
         compact={compact}
         density={landscapeCompact ? 'heroCompact' : undefined}
-        disabled={!onPrevious}
+        disabled={disabled || !onPrevious}
         fullWidth={false}
         label={FilipinoLabels.back}
         onPress={() => onPrevious?.()}
@@ -60,7 +62,7 @@ export function StoryNavigation({
         density={landscapeCompact ? 'heroCompact' : undefined}
         disabled={disabled}
         fullWidth={false}
-        label={isLast ? FilipinoLabels.topics : FilipinoLabels.next}
+        label={nextLabel ?? (isLast ? FilipinoLabels.topics : FilipinoLabels.next)}
         onPress={onNext}
         pill
         style={styles.button}

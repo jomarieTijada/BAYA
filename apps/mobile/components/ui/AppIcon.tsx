@@ -1,7 +1,10 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import React from 'react';
+import { Platform } from 'react-native';
+import Svg, { Path } from 'react-native-svg';
 
 import { Colors, IconSize } from '../../constants/theme';
+import { ioniconBaseline, ioniconPaths, ioniconUnits } from './ioniconPaths.web';
 
 export type AppIconName =
   | 'arrowLeft'
@@ -138,6 +141,27 @@ export function AppIcon({
   size = 'lg',
 }: AppIconProps) {
   const decorative = !accessibilityLabel;
+  const resolvedSize = typeof size === 'number' ? size : IconSize[size];
+
+  if (Platform.OS === 'web') {
+    return (
+      <Svg
+        accessibilityElementsHidden={decorative}
+        accessibilityLabel={accessibilityLabel}
+        accessible={!decorative}
+        height={resolvedSize}
+        importantForAccessibility={decorative ? 'no-hide-descendants' : 'auto'}
+        viewBox={`0 0 ${ioniconUnits} ${ioniconUnits}`}
+        width={resolvedSize}
+      >
+        <Path
+          d={ioniconPaths[iconNames[name]]}
+          fill={iconColors[color]}
+          transform={`translate(0 ${ioniconBaseline}) scale(1 -1)`}
+        />
+      </Svg>
+    );
+  }
 
   return (
     <Ionicons
@@ -148,7 +172,7 @@ export function AppIcon({
       color={iconColors[color]}
       importantForAccessibility={decorative ? 'no-hide-descendants' : 'auto'}
       name={iconNames[name]}
-      size={typeof size === 'number' ? size : IconSize[size]}
+      size={resolvedSize}
     />
   );
 }

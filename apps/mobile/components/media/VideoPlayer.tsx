@@ -67,7 +67,7 @@ export function VideoPlayer(props: VideoPlayerProps) {
       >
       {Platform.OS === "web" ? (
         <video
-          key={uri}
+          key={`${uri}:${retryToken}`}
           controls
           playsInline
           preload="metadata"
@@ -80,11 +80,16 @@ export function VideoPlayer(props: VideoPlayerProps) {
             backgroundColor: "#1C1510",
           }}
           onLoadStart={() => logVideoStatus(sourceType, uri, "loading")}
+          onLoadedMetadata={(event) =>
+            logVideoStatus(sourceType, uri, "loadedmetadata", {
+              duration: event.currentTarget.duration,
+            })
+          }
           onCanPlay={() => {
             logVideoStatus(sourceType, uri, "ready");
             onLoad?.();
           }}
-          onPlay={() => {
+          onPlaying={() => {
             logVideoStatus(sourceType, uri, "playing");
             onPlay?.();
           }}
@@ -92,7 +97,16 @@ export function VideoPlayer(props: VideoPlayerProps) {
             logVideoStatus(sourceType, uri, "completed");
             onEnd?.();
           }}
-          onError={fail}
+          onError={(event) => {
+            const video = event.currentTarget;
+            fail({
+              code: video.error?.code ?? null,
+              message: video.error?.message || "Video load failed",
+              networkState: video.networkState,
+              readyState: video.readyState,
+              currentSrc: video.currentSrc || uri,
+            });
+          }}
         />
       ) : (
         <NativeVideo
@@ -132,13 +146,13 @@ function NativeVideo({
         }
       }),
       player.addListener("statusChange", (event) => {
-        logVideoStatus(sourceType, uri, event.status, event.error);
+        if (event.status !== "error")
+          logVideoStatus(sourceType, uri, event.status, event.error);
         if (event.status === "readyToPlay") onLoad?.();
         if (event.status === "error") onError?.(event.error);
       }),
     ];
     if (player.status === "error") {
-      logVideoStatus(sourceType, uri, "error");
       onError?.(new Error("Media unavailable"));
     } else if (player.status === "readyToPlay") {
       logVideoStatus(sourceType, uri, "readyToPlay");
@@ -155,15 +169,19 @@ function logVideoStatus(
   sourceType: string,
   resolvedUri: string | null,
   status: string,
-  error?: unknown,
+  details?: unknown,
 ) {
   if (!__DEV__) return;
-  console.debug("[BAYA VIDEO DEBUG]", {
+  console.debug("[BAYA Video]", {
     source: sourceType,
     resolvedUri,
     platform: Platform.OS,
-    status,
-    ...(error ? { error } : {}),
+    event: status,
+    ...(details instanceof Error
+      ? { message: details.message }
+      : details && typeof details === "object"
+        ? details
+        : details ? { message: String(details) } : {}),
   });
 }
 
