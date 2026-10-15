@@ -1,7 +1,10 @@
+import { preprocessNotebookSequence } from './bilstmSequence';
 import type { StrokeData } from '../content/writingEngine';
 import { runBayaInference } from './bayaModel';
 import { EFFICIENTNET_CLASS_LABELS } from './efficientNetClassLabels';
-import { preprocessNotebookImage, preprocessNotebookSequence } from './efficientNetPreprocessing';
+import { INK_THRESHOLD } from './efficientNetPreprocessing';
+import { preprocessBayaImage } from './bayaPreprocessing';
+import { validateBayaProbabilities } from './bayaProbabilities';
 
 const CAPTURE_SIZE = 256;
 const CAPTURE_STROKE_WIDTH = CAPTURE_SIZE * (13 / 1000);
@@ -16,20 +19,16 @@ export type BayaRecognitionObserver = {
 };
 const DEFAULT_GEOMETRY: WritingCanvasGeometry = { width: 1, height: 1 };
 
-/** Convert the live canvas capture to the notebook's duration_ms/strokes schema. */
-export function toNotebookSequenceRow(strokes: StrokeData, geometry: WritingCanvasGeometry = DEFAULT_GEOMETRY) {
-  const points = strokes.flat();
-  const timestamps = points.map((point) => point.t ?? 0);
-  return {
-    duration_ms: Math.max(0, Math.max(...timestamps) - Math.min(...timestamps)),
-    strokes: strokes.map((stroke) => ({
-      points: stroke.map((point) => ({ x: point.x * geometry.width, y: point.y * geometry.height, t: point.t ?? 0 })),
-    })),
-  };
-}
-
 /** Rasterize active writing strokes to the RGBA boundary accepted by the pure preprocessing port. */
 export function captureWritingRgba(strokes: StrokeData, geometry: WritingCanvasGeometry = DEFAULT_GEOMETRY): Uint8ClampedArray {
+  if (!Array.isArray(strokes) || !strokes.some(stroke => Array.isArray(stroke) && stroke.length > 0)) {
+    throw new Error('Write a character before asking BAYA to recognize it.');
+  }
+  if (![geometry.width, geometry.height].every(value => Number.isFinite(value) && value >= 1)
+    || strokes.some(stroke => !Array.isArray(stroke) || stroke.some(point => !point
+      || !Number.isFinite(point.x) || !Number.isFinite(point.y) || point.x < 0 || point.x > 1 || point.y < 0 || point.y > 1))) {
+    throw new Error('BAYA drawing capture received invalid canvas geometry or points.');
+  }
   if (typeof document === 'undefined') throw new Error('BAYA drawing capture is available in the web runtime.');
   const canvas = document.createElement('canvas');
   canvas.width = CAPTURE_SIZE;
@@ -65,10 +64,14 @@ export function captureWritingRgba(strokes: StrokeData, geometry: WritingCanvasG
 }
 
 function prepareCapturedInputs(strokes: StrokeData, geometry: WritingCanvasGeometry, imageRgba: Uint8ClampedArray) {
-  const points = strokes.flat();
-  if (points.length === 0) throw new Error('Write a character before asking BAYA to recognize it.');
-  const imageData = preprocessNotebookImage({ width: CAPTURE_SIZE, height: CAPTURE_SIZE, data: imageRgba });
-  const sequenceData = preprocessNotebookSequence(toNotebookSequenceRow(strokes, geometry));
+  const imageData = preprocessBayaImage({ width: CAPTURE_SIZE, height: CAPTURE_SIZE, data: imageRgba });
+  if (!imageData.some(value => value > INK_THRESHOLD)) throw new Error('Write a visible character before asking BAYA to recognize it.');
+  const times = strokes.flat().map(point => point.t ?? 0);
+  if (!times.every(Number.isFinite)) throw new Error('Invalid stroke timestamps');
+  const sequenceData = preprocessNotebookSequence({
+    duration_ms: Math.max(0, Math.max(...times) - Math.min(...times)),
+    strokes: strokes.map(stroke => ({ points: stroke.map(point => ({ x: point.x * geometry.width, y: point.y * geometry.height, t: point.t ?? 0 })) })),
+  });
   return { imageData, sequenceData };
 }
 
@@ -82,9 +85,10 @@ export async function recognizeWriting(strokes: StrokeData, geometry: WritingCan
   observer?.onCaptureCompleted?.({ imageShape: [1, 96, 96, 1], sequenceShape: [1, 512, 6] });
   observer?.onInferenceStarted?.();
   const probabilities = await runBayaInference(imageData, sequenceData);
+  validateBayaProbabilities(probabilities);
   observer?.onInferenceCompleted?.();
   const bestIndices = Array.from(probabilities, (_probability, index) => index)
-    .sort((left, right) => probabilities[right] - probabilities[left])
+    .sort((left, right) => probabilities[right] - probabilities[left] || left - right)
     .slice(0, Math.min(Math.max(1, topK), EFFICIENTNET_CLASS_LABELS.length));
   return bestIndices.map((classIndex) => ({
     classIndex,

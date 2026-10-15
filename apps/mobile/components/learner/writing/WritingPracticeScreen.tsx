@@ -1,12 +1,17 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { getBaybayinTracingGuide } from '../../../content/baybayinTracingGuides';
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Alert, Platform, ScrollView, StyleSheet, View } from 'react-native';
 import { useRouter } from 'expo-router';
 
 import { approvedCurriculum } from '../../../content/approvedCurriculum';
-import { type StrokeData, type WritingAttempt } from '../../../content/writingEngine';
-import { localWritingRecognitionService } from '../../../content/writingRecognitionService';
+import { type StrokeData } from '../../../content/writingEngine';
+import { BAYA_WRITING_MASTERY_POLICY, isValidWritingResult, nextValidCount, validPredictions, type ModelWritingAttempt } from '../../../content/writingMastery';
+import { validWritingCanvas } from '../../../content/writingCanvasValidation';
+import { EFFICIENTNET_CLASS_LABELS } from '../../../ml/efficientNetClassLabels';
+import { WritingMasteryIndicator } from './WritingMasteryIndicator';
 import { recognizeWriting } from '../../../ml/writingRecognition';
-import { BAYA_RECOGNITION_MODEL_URL } from '../../../ml/bayaModelConfig';
+import { preloadBayaModel } from '../../../ml/bayaModel';
+import { BAYA_RECOGNITION_MODEL_NAME, BAYA_RECOGNITION_MODEL_VERSION, BAYA_RECOGNITION_MODEL_URL } from '../../../ml/bayaModelConfig';
 import { getBayaRuntimeDiagnostics } from '../../../ml/bayaRuntimeDiagnostics';
 import { getWritingTopic, writingTopics } from '../../../content/writingLessonData';
 import { Colors, Radius, ResponsiveLayout, Spacing } from '../../../constants/theme';
@@ -33,16 +38,40 @@ function initialSelection(topicId: 'topic-3-1' | 'topic-3-2') {
   return { topicId, index: Math.max(0, requestedIndex) };
 }
 
-/** Data-driven Module 3 practice; the same screen renders vowels and consonants. */
 export function WritingPracticeScreen({ topicId }: { topicId: 'topic-3-1' | 'topic-3-2' }) {
+  useEffect(() => {
+    if (Platform.OS === 'web') {
+      void preloadBayaModel().catch(error => {
+        if (__DEV__) console.warn('[BAYA ML] Preload failed; recognition can retry.', error);
+      });
+    }
+  }, []);
+  // Preserve the explicit previous/next character selection across topic routes,
+  // while remounting transient capture and mastery state for the new activity.
+  const [selection, setSelection] = useState(() => initialSelection(topicId));
+  const masteredCharacters = useRef(new Set<string>());
+  return <WritingPracticeSession key={topicId} topicId={topicId} selection={selection} setSelection={setSelection} masteredCharacters={masteredCharacters} />;
+}
+
+function WritingPracticeSession({ topicId, selection, setSelection, masteredCharacters }: {
+  topicId: 'topic-3-1' | 'topic-3-2';
+  selection: ReturnType<typeof initialSelection>;
+  setSelection: React.Dispatch<React.SetStateAction<ReturnType<typeof initialSelection>>>;
+  masteredCharacters: React.RefObject<Set<string>>;
+}) {
   const router = useRouter();
   const { width, height } = useResponsiveLayout();
   const [available, setAvailable] = useState({ width, height });
   const { columns, compact, dense } = getWritingLayout(available.width, available.height);
-  const [selection, setSelection] = useState(() => initialSelection(topicId));
   const [strokes, setStrokes] = useState<StrokeData>([]);
   const [canvasSize, setCanvasSize] = useState<WritingCanvasSize>({ width: 1, height: 1 });
-  const [attempt, setAttempt] = useState<WritingAttempt | null>(null);
+  const currentStrokes = useRef(strokes);
+  const currentSize = useRef(canvasSize);
+  const [requiresRedraw, setRequiresRedraw] = useState(false);
+  const [validCount, setValidCount] = useState(0);
+  const mastery = useRef(0);
+  const needsRedraw = useRef(false);
+  const evaluatedVersion = useRef(-1);
   const [recognition, setRecognition] = useState<RecognitionState>({ status: 'idle' });
   const [captureDownload, setCaptureDownload] = useState<BayaCaptureDownload | null>(null);
   useEffect(() => () => { if (captureDownload) URL.revokeObjectURL(captureDownload.url); }, [captureDownload]);
@@ -55,6 +84,7 @@ export function WritingPracticeScreen({ topicId }: { topicId: 'topic-3-1' | 'top
       : compact ? 150 : 200;
   const [busy, setBusy] = useState(false);
   const advancing = useRef(false);
+  const completed = useRef(false);
   const checking = useRef(false);
   const drawingVersion = useRef(0);
   const topic = getWritingTopic(topicId);
@@ -64,17 +94,26 @@ export function WritingPracticeScreen({ topicId }: { topicId: 'topic-3-1' | 'top
   const lastExercise = selectedIndex === (topic?.exercises.length ?? 1) - 1;
   const lastTopic = topicIndex === writingTopics.length - 1;
 
-  const resetWriting = () => { drawingVersion.current += 1; setStrokes([]); setAttempt(null); setRecognition({ status: 'idle' }); setCaptureDownload(null); };
+  const targetKey = `${topicId}:${exercise?.characterId}`;
+  const activeTarget = useRef(targetKey);
+  useLayoutEffect(() => { activeTarget.current = targetKey; }, [targetKey]);
+  const mounted = useRef(true);
+  useEffect(() => { mounted.current = true; return () => { mounted.current = false; drawingVersion.current += 1; }; }, []);
+  const resetWriting = useCallback(() => { drawingVersion.current += 1; needsRedraw.current = false; setRequiresRedraw(false); currentStrokes.current = []; setStrokes(currentStrokes.current); setRecognition({ status: 'idle' }); setCaptureDownload(null); }, []);
+  const resetCharacter = useCallback(() => { mastery.current = 0; setValidCount(0); resetWriting(); }, [resetWriting]);
+  const canProceed = validCount >= BAYA_WRITING_MASTERY_POLICY.requiredValidAttempts;
+
   const switchTopic = (nextId: 'topic-3-1' | 'topic-3-2', index = 0) => {
-    resetWriting();
+    resetCharacter();
     setSelection({ topicId: nextId, index });
     router.setParams({ topicId: nextId });
   };
-  const backToLessons = () => router.dismissTo('/learner/lessons');
-  const onChangeStrokes = (nextStrokes: StrokeData) => { drawingVersion.current += 1; setStrokes(nextStrokes); setAttempt(null); setRecognition({ status: 'idle' }); setCaptureDownload(null); };
-  const onUndo = () => { drawingVersion.current += 1; setStrokes(current => current.slice(0, -1)); setAttempt(null); setRecognition({ status: 'idle' }); setCaptureDownload(null); };
+  const backToLessons = () => { drawingVersion.current += 1; router.dismissTo('/learner/lessons'); };
+  const onChangeStrokes = (nextStrokes: StrokeData) => { if (checking.current || needsRedraw.current || mastery.current >= BAYA_WRITING_MASTERY_POLICY.requiredValidAttempts) return; drawingVersion.current += 1; currentStrokes.current = nextStrokes; setStrokes(nextStrokes); setRecognition({ status: 'idle' }); setCaptureDownload(null); };
+  const onUndo = () => { if (needsRedraw.current) { resetWriting(); return; } drawingVersion.current += 1; currentStrokes.current = currentStrokes.current.slice(0, -1); setStrokes(currentStrokes.current); setRecognition({ status: 'idle' }); setCaptureDownload(null); };
   const onBackToWriting = () => {
-    if (selectedIndex > 0) { resetWriting(); setSelection({ topicId, index: selectedIndex - 1 }); return; }
+    if (advancing.current) return;
+    if (selectedIndex > 0) { resetCharacter(); setSelection({ topicId, index: selectedIndex - 1 }); return; }
     if (topicIndex > 0) {
       const previousTopic = writingTopics[topicIndex - 1];
       switchTopic(previousTopic.id, previousTopic.exercises.length - 1);
@@ -83,13 +122,21 @@ export function WritingPracticeScreen({ topicId }: { topicId: 'topic-3-1' | 'top
     backToLessons();
   };
   const onCheck = async () => {
-    if (!exercise || checking.current || busy) return;
+    if (!mounted.current || strokes !== currentStrokes.current || canvasSize !== currentSize.current || targetKey !== activeTarget.current || !exercise || checking.current || busy || needsRedraw.current || mastery.current >= BAYA_WRITING_MASTERY_POLICY.requiredValidAttempts || evaluatedVersion.current === drawingVersion.current) return;
+    if (!validWritingCanvas(strokes, canvasSize)) { setRecognition({ status: 'empty' }); return; }
     checking.current = true;
     const version = drawingVersion.current;
+    const submittedTarget = targetKey;
+    const isCurrent = () => mounted.current && version === drawingVersion.current && submittedTarget === activeTarget.current;
+    evaluatedVersion.current = version;
+    needsRedraw.current = true;
+    setRequiresRedraw(true);
     const submittedStrokes = strokes;
     const submittedSize = canvasSize;
     const diagnostic = {
       ...getBayaRuntimeDiagnostics(),
+      modelName: BAYA_RECOGNITION_MODEL_NAME,
+      modelVersion: BAYA_RECOGNITION_MODEL_VERSION,
       modelUrl: BAYA_RECOGNITION_MODEL_URL,
       wasmPath: '/ort/ort-wasm-simd-threaded.wasm',
       target: exercise.characterId,
@@ -101,10 +148,6 @@ export function WritingPracticeScreen({ topicId }: { topicId: 'topic-3-1' | 'top
     setBusy(true);
     setRecognition({ status: 'analyzing' });
     try {
-      const result = await localWritingRecognitionService.assess(exercise.characterId, submittedStrokes);
-      if (version !== drawingVersion.current) return;
-      if (!result) { setRecognition({ status: 'empty' }); return; }
-
       const captureEnabled = Platform.OS === 'web' && isBayaCaptureEnabled();
       const modelRequest = recognizeWriting(submittedStrokes, submittedSize, 3, {
         onCaptureStarted: () => {
@@ -121,52 +164,58 @@ export function WritingPracticeScreen({ topicId }: { topicId: 'topic-3-1' | 'top
         },
         onInferenceCompleted: () => { phases.inferenceCompleted = true; },
       });
-      const [modelOutcome, saveOutcome] = await Promise.allSettled([
-        modelRequest,
-        localLearnerService.recordWritingAttempt(topicId, result),
-      ]);
-      if (version !== drawingVersion.current) return;
-
-      if (saveOutcome.status === 'fulfilled') setAttempt(result);
-      else {
-        if (__DEV__) console.warn('[BAYA WRITING] Could not save attempt', saveOutcome.reason);
-        Alert.alert('Hindi naitala ang pagsasanay', 'Subukan muli.');
-      }
-
-      if (modelOutcome.status === 'rejected') throw modelOutcome.reason;
-      const ranked = rankPredictions(modelOutcome.value);
+      const predictions = await modelRequest;
+      if (!isCurrent()) return;
+      if (!validPredictions(predictions)) throw new Error('BAYA recognition returned malformed predictions.');
+      const ranked = rankPredictions(predictions);
       const top = ranked[0];
-      if (!top || ranked.some(prediction => !Number.isFinite(prediction.probability) || prediction.probability < 0 || prediction.probability > 1)) {
-        throw new Error('BAYA recognition returned no valid top prediction.');
+      const valid = isValidWritingResult(exercise.characterId, ranked);
+      const result: ModelWritingAttempt = {
+        characterId: exercise.characterId, strokeData: submittedStrokes, imageData: null,
+        recognizedClassId: EFFICIENTNET_CLASS_LABELS[top.classIndex], confidence: top.probability,
+        result: valid ? 'valid' : 'invalid', attemptedAt: new Date().toISOString(),
+      };
+      try { await localLearnerService.recordWritingAttempt(topicId, result); }
+      catch (error) {
+        if (isCurrent()) Alert.alert('Hindi naitala ang pagsasanay', 'Subukan muli.');
+        throw error;
       }
+      if (!isCurrent()) return;
+      mastery.current = nextValidCount(mastery.current, valid);
+      setValidCount(mastery.current);
+      if (mastery.current === BAYA_WRITING_MASTERY_POLICY.requiredValidAttempts) masteredCharacters.current.add(submittedTarget);
       setRecognition({ status: 'success', predictions: ranked });
-      if (__DEV__) console.info('[BAYA Recognition] Result', JSON.stringify({ ...diagnostic, ...phases, top1: top.label, top1Confidence: top.probability, top3: ranked.map(prediction => prediction.label), isCorrect: top.label === exercise.characterId, stateUpdated: true }));
+      if (__DEV__) console.info('[BAYA Recognition] Result', JSON.stringify({ ...diagnostic, ...phases, top1: top.label, top1Confidence: top.probability, top3: ranked.map(prediction => prediction.label), isCorrect: valid, stateUpdated: true }));
       if (captureEnabled) {
         try { setCaptureDownload(downloadBayaCapture(exercise.characterId, submittedStrokes, submittedSize, ranked)); }
         catch (captureError) { if (__DEV__) console.warn('[BAYA CAPTURE] Could not download diagnostic JSON', captureError); }
       }
     } catch (error) {
-      const stateUpdated = version === drawingVersion.current;
+      const stateUpdated = isCurrent();
       if (__DEV__) console.warn('[BAYA Recognition] Failed', JSON.stringify({ ...diagnostic, ...phases, stateUpdated, error: error instanceof Error ? error.message : String(error) }));
       if (stateUpdated) setRecognition({ status: 'error' });
-    } finally { checking.current = false; setBusy(false); }
+    } finally { checking.current = false; if (mounted.current) setBusy(false); }
   };
   const onNext = async () => {
-    if (!attempt || recognition.status !== 'success' || busy || advancing.current || !topic) return;
-    if (!lastExercise) { resetWriting(); setSelection({ topicId, index: selectedIndex + 1 }); return; }
+    if (!mounted.current || completed.current || targetKey !== activeTarget.current || mastery.current < BAYA_WRITING_MASTERY_POLICY.requiredValidAttempts || checking.current || busy || advancing.current || !topic) return;
+    if (!lastExercise) { resetCharacter(); setSelection({ topicId, index: selectedIndex + 1 }); return; }
+    if (!topic.exercises.every(item => masteredCharacters.current.has(`${topicId}:${item.characterId}`))) return;
     advancing.current = true;
     setBusy(true);
+    const completionTarget = targetKey;
     const target = !lastTopic ? writingTopics[topicIndex + 1].id : '/learner/lessons';
     try {
       if (__DEV__) console.info('[BAYA Progress] request topicId=%s source=writing_next target=%s', topicId, target);
       await localLearnerService.completeTopic(topicId);
+      completed.current = true;
+      if (!mounted.current || completionTarget !== activeTarget.current) return;
       if (__DEV__) console.info('[BAYA Progress] navigate topicId=%s target=%s', topicId, target);
       if (!lastTopic) switchTopic(writingTopics[topicIndex + 1].id);
       else backToLessons();
     } catch (error) {
       if (__DEV__) console.warn('[BAYA Progress] request topicId=%s status=failed', topicId, { error });
       Alert.alert('Could not save progress', 'Please try again.');
-    } finally { advancing.current = false; setBusy(false); }
+    } finally { advancing.current = false; if (mounted.current) setBusy(false); }
   };
 
   if (!topic || !exercise) return null;
@@ -186,14 +235,15 @@ export function WritingPracticeScreen({ topicId }: { topicId: 'topic-3-1' | 'top
         <View style={[styles.canvasColumn, columns === 1 && styles.stackColumn, columns === 2 && styles.twoColumn]}>
           <View style={[styles.canvasCard, dense && styles.denseCanvasCard, columns === 3 && styles.tallCard]}>
             <WritingToolbar canEdit={strokes.length > 0} dense={dense} onClear={resetWriting} onUndo={onUndo} />
-            <WritingCanvas compact={compact} dense={dense} fillHeight={columns === 3} hintImage={exercise.referenceImage} onChange={onChangeStrokes} onSizeChange={setCanvasSize} strokes={strokes} />
+            <WritingCanvas disabled={busy || requiresRedraw || canProceed} compact={compact} dense={dense} fillHeight={columns === 3} hintImage={getBaybayinTracingGuide(exercise.characterId)} onChange={onChangeStrokes} onSizeChange={size => { if (size.width !== canvasSize.width || size.height !== canvasSize.height) { drawingVersion.current += 1; currentSize.current = size; setCanvasSize(size); if (checking.current) setRecognition({ status: 'idle' }); } }} strokes={strokes} />
           </View>
         </View>
         <View style={[styles.feedbackColumn, dense && styles.denseFeedbackColumn, columns === 1 && styles.stackColumn, columns === 2 && styles.rowFullColumn]}>
           <ConfidenceCard dense={dense} embedded />
+          <WritingMasteryIndicator count={validCount} />
           <BayaWritingGuide dense={dense} fillHeight={columns === 3} mascotSize={mascotSize} recognition={recognition} targetClass={exercise.characterId} />
           {captureDownload && <a download={captureDownload.filename} href={captureDownload.url}>Download diagnostic JSON</a>}
-          <WritingNavigation analyzing={recognition.status === 'analyzing'} canAdvance={Boolean(attempt) && recognition.status === 'success' && !busy} canCheck={!busy} compact={compact} dense={dense} hasAttempt={Boolean(attempt) && recognition.status === 'success'} isLast={lastTopic && lastExercise} isResult={recognition.status === 'success'} onBackToWriting={onBackToWriting} onCheck={() => { void onCheck(); }} onNext={() => { void onNext(); }} onRetry={resetWriting} />
+          <WritingNavigation analyzing={recognition.status === 'analyzing'} canAdvance={canProceed && !busy} canCheck={!busy && !requiresRedraw && !canProceed} canEdit={!busy} compact={compact} dense={dense} hasAttempt={true} isLast={lastTopic && lastExercise} isResult={recognition.status === 'success' || (requiresRedraw && !busy) || canProceed} onBackToWriting={onBackToWriting} onCheck={() => { void onCheck(); }} onNext={() => { void onNext(); }} onRetry={resetWriting} />
         </View>
       </View>
     </ScrollView>

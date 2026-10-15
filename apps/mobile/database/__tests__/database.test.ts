@@ -37,6 +37,8 @@ import type { DatabaseConnection } from '../types';
 import { localLearnerService } from '../services/localLearnerService';
 import { curriculumService } from '../services/curriculumService';
 import { buildLearnerHomeModel } from '../../components/learner/home/learnerHomeModel';
+import { baybayinHistoryContent, baybayinVideoIntroduction } from '../../content/baybayinIntroduction';
+import { baybayinSyllabaryText } from '../../content/baybayinSyllabary';
 
 /**
  * Creates an in-memory SQLite database adhering to DatabaseConnection.
@@ -271,17 +273,18 @@ describe('BAYA SQLite Database Foundation', () => {
     expect(story1.steps).toHaveLength(1);
     expect(story2.steps).toHaveLength(1);
     expect(story3.steps).toHaveLength(1);
-    expect(story1.steps[0].content.content).toContain('Tara at balikan natin kung saan nagmula ang Baybayin.');
-    expect(story1.steps[0].content.content.endsWith('Dahil wala pang papel noon, sa mga puno, kawayan, at dahon sila umuukit gamit ang matutulis na bagay para magsulat ng mga tula at mensahe.')).toBe(true);
+    expect(story1.steps[0].content.content).toBe(baybayinHistoryContent.content);
+    expect(story1.steps[0].content.reference).toEqual(baybayinHistoryContent.reference);
     expect(story1.steps[0].content.content).not.toContain('Ito ay mahalagang bahagi ng pagkatao natin.');
     expect(story1.steps[0].content.storyMessage).toBe('Ito ay mahalagang bahagi ng pagkatao natin.');
     expect(story2.steps[0].content.examples).toBe('ᜊ = Ba\nᜃ = Ka\nᜆ = Ta');
-    expect(story2.steps[0].content.content).toContain('Doctrina Christiana noong 1593.');
+    expect(story2.steps[0].content.content).toBe(baybayinSyllabaryText);
     expect(story2.steps[0].content.storyMessage).toBe('Isang simbolo, isang pantig! Ganoon kadali ang Baybayin.');
     expect(story1.steps[0].content.illustration).toBeUndefined();
     expect(story2.steps[0].content.illustration).toBeUndefined();
     expect(story1.video).toEqual({
       title: 'Baybayin Song',
+      introduction: baybayinVideoIntroduction,
       source: { type: 'asset', assetId: 'baybayin-song' },
       isAvailable: true,
     });
@@ -552,7 +555,7 @@ describe('BAYA SQLite Database Foundation', () => {
     for (const id of ['topic-1-1', 'topic-1-2', 'topic-1-3', 'topic-1-4', 'topic-1-5', 'topic-2-1', 'topic-2-2']) {
       await localLearnerService.completeTopic(id, db);
     }
-    const sample = { characterId: 'a', strokeData: [[{ x: 0.1, y: 0.2 }, { x: 0.5, y: 0.7 }, { x: 0.8, y: 0.3 }]], imageData: null, confidence: 0.72, result: 'similar' as const };
+    const sample = { characterId: 'a', strokeData: [[{ x: 0.1, y: 0.2 }, { x: 0.5, y: 0.7 }, { x: 0.8, y: 0.3 }]], imageData: null, recognizedClassId: 'a', attemptedAt: '2026-10-07T00:00:00.000Z', confidence: 0.72, result: 'invalid' as const };
     await localLearnerService.recordWritingAttempt('topic-3-1', sample, db);
     const row = await db.getFirstAsync<{ character_id: string; stroke_json: string; confidence_value: number; recognized_result: string | null }>(
       `SELECT w.character_id, w.stroke_json, a.confidence_value, a.recognized_result
@@ -562,11 +565,30 @@ describe('BAYA SQLite Database Foundation', () => {
     expect(row?.character_id).toBe('a');
     expect(JSON.parse(row!.stroke_json)).toEqual(sample.strokeData);
     expect(row?.confidence_value).toBe(0.72);
-    expect(row?.recognized_result).toBeNull();
+    expect(row?.recognized_result).toBe('a');
     await expect(localLearnerService.recordWritingAttempt('topic-3-2', sample, db)).rejects.toThrow('Unknown writing exercise');
     expect((await curriculumService.getModuleById('module-3', db))?.topics.map(topic => topic.status)).toEqual(['available', 'locked']);
     await localLearnerService.completeTopic('topic-3-1', db);
     expect((await curriculumService.getModuleById('module-3', db))?.topics.map(topic => topic.status)).toEqual(['completed', 'available']);
+  });
+
+  test('stores real model target, Top-1, raw confidence, status and timestamp without completing a topic', async () => {
+    await runMigrations(db);
+    await seedCurriculum(db);
+    await localLearnerService.saveProfile('Model learner', '', db);
+    const sample = {
+      characterId: 'a', strokeData: [[{ x: 0.1, y: 0.2 }, { x: 0.5, y: 0.7 }, { x: 0.8, y: 0.3 }]],
+      imageData: null, recognizedClassId: 'a', confidence: 0.799999, result: 'invalid' as const,
+      attemptedAt: '2026-10-06T08:00:00.000Z',
+    };
+    await localLearnerService.recordWritingAttempt('topic-3-1', sample, db);
+    await localLearnerService.recordWritingAttempt('topic-3-1', { ...sample, confidence: 0.8, result: 'valid' }, db);
+    const rows = await db.getAllAsync<any>(`SELECT a.*, w.character_id, w.scoring_method FROM activity_attempts a JOIN writing_attempts w ON a.attempt_id = w.attempt_id ORDER BY confidence_value;`);
+    expect(rows).toHaveLength(2);
+    expect(rows[0]).toMatchObject({ character_id: 'a', recognized_result: 'a', confidence_value: 0.799999, result_status: 'invalid', attempted_at: sample.attemptedAt, scoring_method: 'baya_model_v1', feedback_code: 'baya_model_v1:invalid' });
+    expect(rows[1]).toMatchObject({ confidence_value: 0.8, result_status: 'valid' });
+    expect(await localLearnerService.getCompletedTopicIds(db)).toEqual(new Set());
+    await expect(localLearnerService.recordWritingAttempt('topic-3-1', { ...sample, result: 'valid' }, db)).rejects.toThrow('Invalid model assessment');
   });
 
   test('13. Concurrent completeTopic calls for the same topic join in-flight task without error or duplicate records', async () => {

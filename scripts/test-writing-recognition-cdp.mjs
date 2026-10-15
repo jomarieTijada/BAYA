@@ -6,6 +6,7 @@ import { spawn } from 'node:child_process';
 import { setTimeout as sleep } from 'node:timers/promises';
 
 const DIST_DIR = path.resolve('apps/mobile/dist');
+const ACTIVE_MODEL_URL = JSON.parse(fs.readFileSync('apps/mobile/ml/bayaActiveModel.json', 'utf8')).modelUrl;
 const SERVER_PORT = 5057;
 const CHROME_PORT = 9340;
 const CHROME_PATH = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
@@ -202,7 +203,7 @@ async function main() {
       (async () => {
         try {
           // Verify ORT runtime script and model fetch
-          const modelRes = await fetch('/models/baya/Baybayin_EfficientNetB0_BiLSTM_1.1.onnx');
+          const modelRes = await fetch(${JSON.stringify(ACTIVE_MODEL_URL)});
           const modelSize = (await modelRes.arrayBuffer()).byteLength;
 
           const wasmRes = await fetch('/ort/ort-wasm-simd-threaded.wasm');

@@ -1,0 +1,126 @@
+export const MAX_SEQUENCE_LENGTH = 512;
+export const SEQUENCE_FEATURES = 6;
+export const TRAJECTORY_PADDING_RATIO = 0.15;
+export type NotebookPoint = { x: number; y: number; t?: number };
+export type NotebookStroke = { points?: NotebookPoint[] };
+export type NotebookSequenceRow = {
+  strokes: NotebookStroke[];
+  duration_ms?: number | null;
+};
+
+const clamp = (value: number, low: number, high: number) => Math.min(high, Math.max(low, value));
+
+/** Python round()/NumPy round() tie behavior (nearest, ties to even). */
+function roundTiesToEven(value: number): number {
+  const lower = Math.floor(value);
+  const fraction = value - lower;
+  if (fraction < 0.5) return lower;
+  if (fraction > 0.5) return lower + 1;
+  return lower % 2 === 0 ? lower : lower + 1;
+}
+
+/** Port allocate_points_per_stroke from notebook cell 19. */
+export function allocatePointsPerStroke(lengths: number[], maxTotal = MAX_SEQUENCE_LENGTH): number[] {
+  const count = lengths.length;
+  if (count === 0) return [];
+  const total = lengths.reduce((sum, length) => sum + length, 0);
+  if (total <= maxTotal) return [...lengths];
+  const minEach = maxTotal >= 2 * count ? 2 : 1;
+  const base = lengths.map((length) => Math.min(minEach, length));
+  const remaining = maxTotal - base.reduce((sum, length) => sum + length, 0);
+  if (remaining <= 0) return base;
+  const capacity = lengths.map((length, index) => Math.max(0, length - base[index]));
+  const capacityTotal = capacity.reduce((sum, length) => sum + length, 0);
+  if (capacityTotal === 0) return base;
+  const rawExtra = capacity.map((value) => (remaining * value) / capacityTotal);
+  const extra = rawExtra.map(Math.floor);
+  const allocation = base.map((value, index) => value + extra[index]);
+  let leftover = maxTotal - allocation.reduce((sum, value) => sum + value, 0);
+  const order = rawExtra.map((value, index) => ({ index, fraction: value - extra[index] }))
+    .sort((left, right) => right.fraction - left.fraction || left.index - right.index);
+  for (const { index } of order) {
+    if (leftover <= 0) break;
+    if (allocation[index] < lengths[index]) {
+      allocation[index] += 1;
+      leftover -= 1;
+    }
+  }
+  return allocation;
+}
+
+/** Port select_evenly from notebook cell 19. */
+export function selectEvenly<T>(points: T[], targetCount: number): T[] {
+  if (targetCount >= points.length) return points;
+  if (targetCount <= 1) return [points[0]];
+  const indices: number[] = [];
+  for (let index = 0; index < targetCount; index += 1) {
+    const position = (index * (points.length - 1)) / (targetCount - 1);
+    const rounded = roundTiesToEven(position);
+    if (indices[indices.length - 1] !== rounded) indices.push(rounded);
+  }
+  if (indices.length < targetCount) {
+    const used = new Set(indices);
+    for (let index = 0; index < points.length && indices.length < targetCount; index += 1) {
+      if (!used.has(index)) indices.push(index);
+    }
+    indices.sort((left, right) => left - right);
+  }
+  return indices.slice(0, targetCount).map((index) => points[index]);
+}
+
+function trajectoryTransform(strokes: NotebookStroke[]): [number, number, number] {
+  const points = strokes.flatMap((stroke) => stroke.points ?? []);
+  if (points.length === 0) return [0, 0, 1];
+  const xs = points.map((point) => Math.fround(Number(point.x)));
+  const ys = points.map((point) => Math.fround(Number(point.y)));
+  const minX = Math.min(...xs);
+  const maxX = Math.max(...xs);
+  const minY = Math.min(...ys);
+  const maxY = Math.max(...ys);
+  const centerX = (minX + maxX) / 2;
+  const centerY = (minY + maxY) / 2;
+  const handwritingSize = Math.max(maxX - minX, maxY - minY, 1e-6);
+  return [centerX, centerY, handwritingSize * (1 + 2 * TRAJECTORY_PADDING_RATIO)];
+}
+
+/** Port build_sequence from notebook cell 19. Returns row-major float32 [512,6]. */
+export function preprocessNotebookSequence(row: NotebookSequenceRow): Float32Array {
+  const duration = Math.max(Number(row.duration_ms || 0), 1);
+  const cleanStrokes = row.strokes.filter((stroke) => (stroke.points?.length ?? 0) > 0);
+  const output = new Float32Array(MAX_SEQUENCE_LENGTH * SEQUENCE_FEATURES);
+  if (cleanStrokes.length === 0) return output;
+
+  const [centerX, centerY, scale] = trajectoryTransform(cleanStrokes);
+  const lengths = cleanStrokes.map((stroke) => stroke.points!.length);
+  const allocations = allocatePointsPerStroke(lengths, MAX_SEQUENCE_LENGTH);
+  const sampled = cleanStrokes.map((stroke, index) => selectEvenly(stroke.points!, allocations[index]));
+  let featureIndex = 0;
+  let previousGlobalTime: number | null = null;
+
+  for (const strokePoints of sampled) {
+    let previousX: number | null = null;
+    let previousY: number | null = null;
+    for (let pointIndex = 0; pointIndex < strokePoints.length; pointIndex += 1) {
+      const point = strokePoints[pointIndex];
+      const rawX = Number(point.x);
+      const rawY = Number(point.y);
+      const time = Number(point.t ?? 0);
+      const x = ((rawX - centerX) / scale) + 0.5;
+      const y = ((rawY - centerY) / scale) + 0.5;
+      const strokeStart = pointIndex === 0 ? 1 : 0;
+      const dx = pointIndex === 0 ? 0 : x - (previousX as number);
+      const dy = pointIndex === 0 ? 0 : y - (previousY as number);
+      const dt = previousGlobalTime === null ? 0 : clamp(Math.max(0, time - previousGlobalTime) / duration, 0, 1);
+      output[featureIndex++] = clamp(x, 0, 1);
+      output[featureIndex++] = clamp(y, 0, 1);
+      output[featureIndex++] = dx;
+      output[featureIndex++] = dy;
+      output[featureIndex++] = dt;
+      output[featureIndex++] = strokeStart;
+      previousX = x;
+      previousY = y;
+      previousGlobalTime = time;
+    }
+  }
+  return output;
+}

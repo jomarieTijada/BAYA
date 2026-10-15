@@ -1,6 +1,6 @@
 import type { StrokeData } from '../../../content/writingEngine';
-import { BAYA_RECOGNITION_MODEL_VERSION } from '../../../ml/bayaModelConfig';
-import { captureWritingRgba, prepareBayaInputs, toNotebookSequenceRow, type BayaPrediction, type WritingCanvasGeometry } from '../../../ml/writingRecognition';
+import { BAYA_RECOGNITION_MODEL_NAME, BAYA_RECOGNITION_MODEL_VERSION } from '../../../ml/bayaModelConfig';
+import { captureWritingRgba, prepareBayaInputs, type BayaPrediction, type WritingCanvasGeometry } from '../../../ml/writingRecognition';
 
 const RASTER_SIZE = 256;
 export type BayaCaptureDownload = { url: string; filename: string };
@@ -26,14 +26,14 @@ export function downloadBayaCapture(targetClass: string, strokes: StrokeData, ge
   const { imageData, sequenceData } = prepareBayaInputs(strokes, geometry);
   const capturedAt = new Date().toISOString();
   const capture = {
-    schemaVersion: 1,
+    schemaVersion: 2,
+    modelName: BAYA_RECOGNITION_MODEL_NAME,
     modelVersion: BAYA_RECOGNITION_MODEL_VERSION,
     capturedAt,
     targetClass,
     predictions,
     canvas: geometry,
     normalizedStrokes: strokes,
-    notebookSequenceRow: toNotebookSequenceRow(strokes, geometry),
     raster: { width: RASTER_SIZE, height: RASTER_SIZE, rgbaBase64: encodeBase64(rgba) },
     webInputs: { image: Array.from(imageData), sequence: Array.from(sequenceData) },
   };

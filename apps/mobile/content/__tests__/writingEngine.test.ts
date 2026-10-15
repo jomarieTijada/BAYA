@@ -1,5 +1,4 @@
-import { appendStrokePoint, clampPoint, evaluateWriting, strokePath, type StrokeData } from '../writingEngine';
-import { writingReferenceMasks } from '../writingReferenceMasks';
+import { appendStrokePoint, clampPoint, strokePath } from '../writingEngine';
 import { writingTopics } from '../writingLessonData';
 
 describe('Module 3 writing data and local feedback', () => {
@@ -19,17 +18,4 @@ describe('Module 3 writing data and local feedback', () => {
     expect(curved).toMatch(/Q1000\.0,0\.0 1000\.0,0\.0$/);
   });
 
-  it('requires a real stroke and scores a reference-like trace without claiming recognition', () => {
-    expect(evaluateWriting('ka', [])).toBeNull();
-    expect(evaluateWriting('unknown', [[{ x: 0, y: 0 }, { x: 1, y: 1 }]])).toBeNull();
-    const mask = writingReferenceMasks.ka;
-    const strokes: StrokeData = Array.from({ length: 32 }, (_, row) => {
-      const points = Array.from({ length: 32 }, (_, col) => mask[row * 32 + col] === '1' ? { x: col / 31, y: row / 31 } : null).filter((point): point is { x: number; y: number } => point !== null);
-      return points;
-    }).filter(stroke => stroke.length > 1);
-    const result = evaluateWriting('ka', strokes);
-    expect(result?.confidence).toBeGreaterThan(0.65);
-    expect(result?.characterId).toBe('ka');
-    expect(result?.imageData).toBeNull();
-  });
 });

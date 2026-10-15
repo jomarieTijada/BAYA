@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Colors, FontFamily, Radius, Spacing } from '../../../constants/theme';
 import { BayaMascot } from '../../branding/BayaMascot';
+import { isValidWritingResult } from '../../../content/writingMastery';
 import { type RecognitionState } from './recognitionPresentation';
 import { RecognitionMatchRow } from './RecognitionMatchRow';
 import { useLoadingEllipsis } from './useLoadingEllipsis';
@@ -11,7 +12,7 @@ export function BayaWritingGuide({ recognition, targetClass, mascotSize, dense =
   const loadingDots = useLoadingEllipsis(recognition.status === 'analyzing');
   const result = recognition.status === 'success' ? recognition : null;
   const top = result?.predictions[0];
-  const matchesTarget = Boolean(top && top.label === targetClass);
+  const matchesTarget = Boolean(result && isValidWritingResult(targetClass, result.predictions));
   const bubbleBorder = result ? (matchesTarget ? '#91CCA0' : '#EBC48B') : '#F3CCA5';
   const bubbleBackground = result && matchesTarget ? '#F3FAF0' : '#FFF9EE';
   const density = bubbleWidth > 0 && bubbleWidth < 170 ? 'tight' : dense || (bubbleWidth > 0 && bubbleWidth < 240) ? 'compact' : 'regular';

@@ -1,0 +1,2609 @@
+{
+  "source": "C:\\BAYA\\Baybayin_EfficientNetB0_ExternalFirst_v2.keras",
+  "sourceSha256": "6621a02ed0553580356d4b9529505e1d72240c25532e9fbe76b3b553310c3201",
+  "labelsSource": "C:\\BAYA\\Baybayin_EfficientNetB0_ExternalFirst_v2_labels.json",
+  "labelsSha256": "c68ade6537c59ab2d55872a9e3ed8d75083c89e35722a5b3d63e715ce47d4b91",
+  "versions": {
+    "tensorflow": "2.18.0",
+    "keras": "3.13.2",
+    "tf2onnx": "1.17.0",
+    "onnx": "1.18.0",
+    "onnxruntime": "1.30.0",
+    "pillow": "11.3.0"
+  },
+  "opset": 18,
+  "onnx": "C:\\BAYA\\ml\\deployment\\onnx\\artifacts\\external-v2\\Baybayin_EfficientNetB0_ExternalFirst_v2.onnx",
+  "onnxBytes": 16799019,
+  "onnxSha256": "c09aac56b853841ca4013ecc3617c1e9fdcc3053b2eec40eaa3038393a0c9396",
+  "inputs": [
+    {
+      "name": "image_input",
+      "shape": [
+        1,
+        96,
+        96,
+        1
+      ],
+      "dtype": "tensor(float)"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "Identity:0",
+      "shape": [
+        1,
+        63
+      ],
+      "dtype": "tensor(float)"
+    }
+  ],
+  "removedUnusedInputs": [
+    "BAYA_EfficientNetB0_ExternalFirst_v2_1/efficientnetb0_1/normalization_1/Sub/y:0",
+    "BAYA_EfficientNetB0_ExternalFirst_v2_1/efficientnetb0_1/normalization_1/Sqrt/x:0"
+  ],
+  "orderedLabels": [
+    "a",
+    "b",
+    "ba",
+    "be_bi",
+    "bo_bu",
+    "d",
+    "da_ra",
+    "de_di",
+    "do_du",
+    "e_i",
+    "g",
+    "ga",
+    "ge_gi",
+    "go_gu",
+    "h",
+    "ha",
+    "he_hi",
+    "ho_hu",
+    "k",
+    "ka",
+    "ke_ki",
+    "ko_ku",
+    "l",
+    "la",
+    "le_li",
+    "lo_lu",
+    "m",
+    "ma",
+    "me_mi",
+    "mo_mu",
+    "n",
+    "na",
+    "ne_ni",
+    "ng",
+    "nga",
+    "nge_ngi",
+    "ngo_ngu",
+    "no_nu",
+    "o_u",
+    "p",
+    "pa",
+    "pe_pi",
+    "po_pu",
+    "r",
+    "ra",
+    "re_ri",
+    "ro_ru",
+    "s",
+    "sa",
+    "se_si",
+    "so_su",
+    "t",
+    "ta",
+    "te_ti",
+    "to_tu",
+    "w",
+    "wa",
+    "we_wi",
+    "wo_wu",
+    "y",
+    "ya",
+    "ye_yi",
+    "yo_yu"
+  ],
+  "sampleCount": 113,
+  "top1Matches": 113,
+  "top3Matches": 113,
+  "maximumAbsoluteDifference": 5.066394805908203e-06,
+  "meanAbsoluteDifference": 4.809130014930657e-08,
+  "absoluteTolerance": 1e-05,
+  "conversionParityPassed": true,
+  "preprocessingProvenanceConfirmed": true,
+  "notebook": "BAYA_Dataset_Rescue.ipynb",
+  "preprocessingCell": 36,
+  "configurationCell": 4,
+  "notebookSha256": "7182689286daa601b73a30c63544d2e43bb94c505a99c0bccb514e4b2a0bb7f0",
+  "cases": [
+    {
+      "sample": "zeros",
+      "source": null,
+      "kerasTop1": "nga",
+      "onnxTop1": "nga",
+      "kerasTop3": [
+        "nga",
+        "la",
+        "a"
+      ],
+      "onnxTop3": [
+        "nga",
+        "la",
+        "a"
+      ],
+      "kerasConfidence": 0.151484414935112,
+      "onnxConfidence": 0.15148480236530304,
+      "maximumAbsoluteDifference": 3.8743019104003906e-07,
+      "meanAbsoluteDifference": 2.5445063199315754e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "synthetic",
+      "source": null,
+      "kerasTop1": "lo_lu",
+      "onnxTop1": "lo_lu",
+      "kerasTop3": [
+        "lo_lu",
+        "to_tu",
+        "a"
+      ],
+      "onnxTop3": [
+        "lo_lu",
+        "to_tu",
+        "a"
+      ],
+      "kerasConfidence": 0.09325137734413147,
+      "onnxConfidence": 0.09325149655342102,
+      "maximumAbsoluteDifference": 3.129243850708008e-07,
+      "meanAbsoluteDifference": 2.9010744395828438e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "random",
+      "source": null,
+      "kerasTop1": "a",
+      "onnxTop1": "a",
+      "kerasTop3": [
+        "a",
+        "ho_hu",
+        "ye_yi"
+      ],
+      "onnxTop3": [
+        "a",
+        "ho_hu",
+        "ye_yi"
+      ],
+      "kerasConfidence": 0.04755320027470589,
+      "onnxConfidence": 0.047553129494190216,
+      "maximumAbsoluteDifference": 7.078051567077637e-08,
+      "meanAbsoluteDifference": 1.2177412235547626e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-000",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\B\\Gavino Baybayin - B+.png",
+      "kerasTop1": "bo_bu",
+      "onnxTop1": "bo_bu",
+      "kerasTop3": [
+        "bo_bu",
+        "wo_wu",
+        "b"
+      ],
+      "onnxTop3": [
+        "bo_bu",
+        "wo_wu",
+        "b"
+      ],
+      "kerasConfidence": 0.3036719262599945,
+      "onnxConfidence": 0.30367326736450195,
+      "maximumAbsoluteDifference": 1.7881393432617188e-06,
+      "meanAbsoluteDifference": 8.789018985615777e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-001",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\B\\Gavino Baybayin - B,.png",
+      "kerasTop1": "ba",
+      "onnxTop1": "ba",
+      "kerasTop3": [
+        "ba",
+        "wo_wu",
+        "wa"
+      ],
+      "onnxTop3": [
+        "ba",
+        "wo_wu",
+        "wa"
+      ],
+      "kerasConfidence": 0.9297575354576111,
+      "onnxConfidence": 0.929757833480835,
+      "maximumAbsoluteDifference": 2.980232238769531e-07,
+      "meanAbsoluteDifference": 1.0138394894333207e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-002",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\B\\Gavino Baybayin - BA.png",
+      "kerasTop1": "ba",
+      "onnxTop1": "ba",
+      "kerasTop3": [
+        "ba",
+        "wo_wu",
+        "wa"
+      ],
+      "onnxTop3": [
+        "ba",
+        "wo_wu",
+        "wa"
+      ],
+      "kerasConfidence": 0.9841565489768982,
+      "onnxConfidence": 0.9841564297676086,
+      "maximumAbsoluteDifference": 1.1920928955078125e-07,
+      "meanAbsoluteDifference": 2.7757607552857616e-09,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-003",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\B\\Gavino Baybayin - BIE.png",
+      "kerasTop1": "be_bi",
+      "onnxTop1": "be_bi",
+      "kerasTop3": [
+        "be_bi",
+        "bo_bu",
+        "ba"
+      ],
+      "onnxTop3": [
+        "be_bi",
+        "bo_bu",
+        "ba"
+      ],
+      "kerasConfidence": 0.7582654356956482,
+      "onnxConfidence": 0.7582662105560303,
+      "maximumAbsoluteDifference": 1.0505318641662598e-06,
+      "meanAbsoluteDifference": 3.765569658732373e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-004",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\B\\Gavino Baybayin - BOU.png",
+      "kerasTop1": "bo_bu",
+      "onnxTop1": "bo_bu",
+      "kerasTop3": [
+        "bo_bu",
+        "b",
+        "wo_wu"
+      ],
+      "onnxTop3": [
+        "bo_bu",
+        "b",
+        "wo_wu"
+      ],
+      "kerasConfidence": 0.7771505117416382,
+      "onnxConfidence": 0.7771503329277039,
+      "maximumAbsoluteDifference": 4.246830940246582e-07,
+      "meanAbsoluteDifference": 1.3622981451905368e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-005",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\B\\Gavino Baybayin - Bx.png",
+      "kerasTop1": "b",
+      "onnxTop1": "b",
+      "kerasTop3": [
+        "b",
+        "bo_bu",
+        "ba"
+      ],
+      "onnxTop3": [
+        "b",
+        "bo_bu",
+        "ba"
+      ],
+      "kerasConfidence": 0.5653641819953918,
+      "onnxConfidence": 0.5653654932975769,
+      "maximumAbsoluteDifference": 1.8477439880371094e-06,
+      "meanAbsoluteDifference": 6.660674884303247e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-006",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\D_R\\Gavino Baybayin - DR+.png",
+      "kerasTop1": "de_di",
+      "onnxTop1": "de_di",
+      "kerasTop3": [
+        "de_di",
+        "r",
+        "da_ra"
+      ],
+      "onnxTop3": [
+        "de_di",
+        "r",
+        "da_ra"
+      ],
+      "kerasConfidence": 0.30662426352500916,
+      "onnxConfidence": 0.3066227436065674,
+      "maximumAbsoluteDifference": 1.996755599975586e-06,
+      "meanAbsoluteDifference": 1.297100523638547e-07,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-007",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\D_R\\Gavino Baybayin - DR,.png",
+      "kerasTop1": "re_ri",
+      "onnxTop1": "re_ri",
+      "kerasTop3": [
+        "re_ri",
+        "de_di",
+        "da_ra"
+      ],
+      "onnxTop3": [
+        "re_ri",
+        "de_di",
+        "da_ra"
+      ],
+      "kerasConfidence": 0.76012122631073,
+      "onnxConfidence": 0.7601232528686523,
+      "maximumAbsoluteDifference": 2.0265579223632812e-06,
+      "meanAbsoluteDifference": 6.729355871303176e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-008",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\D_R\\Gavino Baybayin - DRA.png",
+      "kerasTop1": "re_ri",
+      "onnxTop1": "re_ri",
+      "kerasTop3": [
+        "re_ri",
+        "ra",
+        "de_di"
+      ],
+      "onnxTop3": [
+        "re_ri",
+        "ra",
+        "de_di"
+      ],
+      "kerasConfidence": 0.7676584720611572,
+      "onnxConfidence": 0.7676581740379333,
+      "maximumAbsoluteDifference": 2.980232238769531e-07,
+      "meanAbsoluteDifference": 1.24591565565428e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-009",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\D_R\\Gavino Baybayin - DRIE.png",
+      "kerasTop1": "re_ri",
+      "onnxTop1": "re_ri",
+      "kerasTop3": [
+        "re_ri",
+        "ra",
+        "de_di"
+      ],
+      "onnxTop3": [
+        "re_ri",
+        "ra",
+        "de_di"
+      ],
+      "kerasConfidence": 0.8965288400650024,
+      "onnxConfidence": 0.8965290188789368,
+      "maximumAbsoluteDifference": 3.0547380447387695e-07,
+      "meanAbsoluteDifference": 1.5826318793407107e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-010",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\D_R\\Gavino Baybayin - DROU.png",
+      "kerasTop1": "re_ri",
+      "onnxTop1": "re_ri",
+      "kerasTop3": [
+        "re_ri",
+        "ro_ru",
+        "de_di"
+      ],
+      "onnxTop3": [
+        "re_ri",
+        "ro_ru",
+        "de_di"
+      ],
+      "kerasConfidence": 0.7947273850440979,
+      "onnxConfidence": 0.7947309613227844,
+      "maximumAbsoluteDifference": 3.5762786865234375e-06,
+      "meanAbsoluteDifference": 1.1459027321381749e-07,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-011",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\D_R\\Gavino Baybayin - DRx.png",
+      "kerasTop1": "de_di",
+      "onnxTop1": "de_di",
+      "kerasTop3": [
+        "de_di",
+        "r",
+        "re_ri"
+      ],
+      "onnxTop3": [
+        "de_di",
+        "r",
+        "re_ri"
+      ],
+      "kerasConfidence": 0.4282364845275879,
+      "onnxConfidence": 0.4282380938529968,
+      "maximumAbsoluteDifference": 1.6093254089355469e-06,
+      "meanAbsoluteDifference": 6.290142479544542e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-012",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\G\\Gavino Baybayin - G+.png",
+      "kerasTop1": "nga",
+      "onnxTop1": "nga",
+      "kerasTop3": [
+        "nga",
+        "ng",
+        "nge_ngi"
+      ],
+      "onnxTop3": [
+        "nga",
+        "ng",
+        "nge_ngi"
+      ],
+      "kerasConfidence": 0.2775487005710602,
+      "onnxConfidence": 0.2775477170944214,
+      "maximumAbsoluteDifference": 1.4007091522216797e-06,
+      "meanAbsoluteDifference": 9.276534131328975e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-013",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\G\\Gavino Baybayin - G..png",
+      "kerasTop1": "ga",
+      "onnxTop1": "ga",
+      "kerasTop3": [
+        "ga",
+        "yo_yu",
+        "ye_yi"
+      ],
+      "onnxTop3": [
+        "ga",
+        "yo_yu",
+        "ye_yi"
+      ],
+      "kerasConfidence": 0.22183023393154144,
+      "onnxConfidence": 0.2218293398618698,
+      "maximumAbsoluteDifference": 8.940696716308594e-07,
+      "meanAbsoluteDifference": 5.018827078091572e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-014",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\G\\Gavino Baybayin - GA.png",
+      "kerasTop1": "ga",
+      "onnxTop1": "ga",
+      "kerasTop3": [
+        "ga",
+        "ye_yi",
+        "yo_yu"
+      ],
+      "onnxTop3": [
+        "ga",
+        "ye_yi",
+        "yo_yu"
+      ],
+      "kerasConfidence": 0.47020307183265686,
+      "onnxConfidence": 0.4702027142047882,
+      "maximumAbsoluteDifference": 5.438923835754395e-07,
+      "meanAbsoluteDifference": 3.7193331081653014e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-015",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\G\\Gavino Baybayin - GIE.png",
+      "kerasTop1": "ye_yi",
+      "onnxTop1": "ye_yi",
+      "kerasTop3": [
+        "ye_yi",
+        "ga",
+        "re_ri"
+      ],
+      "onnxTop3": [
+        "ye_yi",
+        "ga",
+        "re_ri"
+      ],
+      "kerasConfidence": 0.5314133763313293,
+      "onnxConfidence": 0.5314129590988159,
+      "maximumAbsoluteDifference": 4.172325134277344e-07,
+      "meanAbsoluteDifference": 1.8628257398704012e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-016",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\G\\Gavino Baybayin - GOU.png",
+      "kerasTop1": "ga",
+      "onnxTop1": "ga",
+      "kerasTop3": [
+        "ga",
+        "ye_yi",
+        "yo_yu"
+      ],
+      "onnxTop3": [
+        "ga",
+        "ye_yi",
+        "yo_yu"
+      ],
+      "kerasConfidence": 0.21020615100860596,
+      "onnxConfidence": 0.2102067917585373,
+      "maximumAbsoluteDifference": 6.407499313354492e-07,
+      "meanAbsoluteDifference": 4.838563784557794e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-017",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\G\\Gavino Baybayin - Gx.png",
+      "kerasTop1": "nga",
+      "onnxTop1": "nga",
+      "kerasTop3": [
+        "nga",
+        "wo_wu",
+        "nge_ngi"
+      ],
+      "onnxTop3": [
+        "nga",
+        "wo_wu",
+        "nge_ngi"
+      ],
+      "kerasConfidence": 0.11884086579084396,
+      "onnxConfidence": 0.11883991211652756,
+      "maximumAbsoluteDifference": 9.5367431640625e-07,
+      "meanAbsoluteDifference": 7.862007127158226e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-018",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\H\\Gavino Baybayin - H+.png",
+      "kerasTop1": "yo_yu",
+      "onnxTop1": "yo_yu",
+      "kerasTop3": [
+        "yo_yu",
+        "nga",
+        "h"
+      ],
+      "onnxTop3": [
+        "yo_yu",
+        "nga",
+        "h"
+      ],
+      "kerasConfidence": 0.2914454936981201,
+      "onnxConfidence": 0.29144608974456787,
+      "maximumAbsoluteDifference": 5.960464477539062e-07,
+      "meanAbsoluteDifference": 3.7199574834962806e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-019",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\H\\Gavino Baybayin - H,.png",
+      "kerasTop1": "ha",
+      "onnxTop1": "ha",
+      "kerasTop3": [
+        "ha",
+        "yo_yu",
+        "pa"
+      ],
+      "onnxTop3": [
+        "ha",
+        "yo_yu",
+        "pa"
+      ],
+      "kerasConfidence": 0.46918728947639465,
+      "onnxConfidence": 0.4691872298717499,
+      "maximumAbsoluteDifference": 1.7881393432617188e-07,
+      "meanAbsoluteDifference": 1.3898511858156232e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-020",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\H\\Gavino Baybayin - HA.png",
+      "kerasTop1": "ha",
+      "onnxTop1": "ha",
+      "kerasTop3": [
+        "ha",
+        "yo_yu",
+        "ya"
+      ],
+      "onnxTop3": [
+        "ha",
+        "yo_yu",
+        "ya"
+      ],
+      "kerasConfidence": 0.8476458787918091,
+      "onnxConfidence": 0.8476456999778748,
+      "maximumAbsoluteDifference": 1.7881393432617188e-07,
+      "meanAbsoluteDifference": 1.0328893465395508e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-021",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\H\\Gavino Baybayin - HIE.png",
+      "kerasTop1": "he_hi",
+      "onnxTop1": "he_hi",
+      "kerasTop3": [
+        "he_hi",
+        "ha",
+        "yo_yu"
+      ],
+      "onnxTop3": [
+        "he_hi",
+        "ha",
+        "yo_yu"
+      ],
+      "kerasConfidence": 0.46983253955841064,
+      "onnxConfidence": 0.4698313772678375,
+      "maximumAbsoluteDifference": 2.2351741790771484e-06,
+      "meanAbsoluteDifference": 7.580842907914519e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-022",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\H\\Gavino Baybayin - HOU.png",
+      "kerasTop1": "yo_yu",
+      "onnxTop1": "yo_yu",
+      "kerasTop3": [
+        "yo_yu",
+        "h",
+        "ha"
+      ],
+      "onnxTop3": [
+        "yo_yu",
+        "h",
+        "ha"
+      ],
+      "kerasConfidence": 0.9505205154418945,
+      "onnxConfidence": 0.9505198001861572,
+      "maximumAbsoluteDifference": 7.152557373046875e-07,
+      "meanAbsoluteDifference": 2.2055421108494296e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-023",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\H\\Gavino Baybayin - Hx.png",
+      "kerasTop1": "yo_yu",
+      "onnxTop1": "yo_yu",
+      "kerasTop3": [
+        "yo_yu",
+        "ha",
+        "h"
+      ],
+      "onnxTop3": [
+        "yo_yu",
+        "ha",
+        "h"
+      ],
+      "kerasConfidence": 0.34311580657958984,
+      "onnxConfidence": 0.34311649203300476,
+      "maximumAbsoluteDifference": 6.854534149169922e-07,
+      "meanAbsoluteDifference": 4.2633300403221735e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-024",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\K\\Gavino Baybayin - K+.png",
+      "kerasTop1": "nga",
+      "onnxTop1": "nga",
+      "kerasTop3": [
+        "nga",
+        "nge_ngi",
+        "ko_ku"
+      ],
+      "onnxTop3": [
+        "nga",
+        "nge_ngi",
+        "ko_ku"
+      ],
+      "kerasConfidence": 0.2100987285375595,
+      "onnxConfidence": 0.21009866893291473,
+      "maximumAbsoluteDifference": 2.980232238769531e-07,
+      "meanAbsoluteDifference": 3.7047328309170784e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-025",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\K\\Gavino Baybayin - K,.png",
+      "kerasTop1": "e_i",
+      "onnxTop1": "e_i",
+      "kerasTop3": [
+        "e_i",
+        "ka",
+        "sa"
+      ],
+      "onnxTop3": [
+        "e_i",
+        "ka",
+        "sa"
+      ],
+      "kerasConfidence": 0.24632512032985687,
+      "onnxConfidence": 0.24632465839385986,
+      "maximumAbsoluteDifference": 6.109476089477539e-07,
+      "meanAbsoluteDifference": 4.0874799615555697e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-026",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\K\\Gavino Baybayin - KA.png",
+      "kerasTop1": "ka",
+      "onnxTop1": "ka",
+      "kerasTop3": [
+        "ka",
+        "ke_ki",
+        "re_ri"
+      ],
+      "onnxTop3": [
+        "ka",
+        "ke_ki",
+        "re_ri"
+      ],
+      "kerasConfidence": 0.7231627702713013,
+      "onnxConfidence": 0.7231634855270386,
+      "maximumAbsoluteDifference": 7.152557373046875e-07,
+      "meanAbsoluteDifference": 3.563110791248388e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-027",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\K\\Gavino Baybayin - KIE.png",
+      "kerasTop1": "ka",
+      "onnxTop1": "ka",
+      "kerasTop3": [
+        "ka",
+        "ke_ki",
+        "ko_ku"
+      ],
+      "onnxTop3": [
+        "ka",
+        "ke_ki",
+        "ko_ku"
+      ],
+      "kerasConfidence": 0.5723634362220764,
+      "onnxConfidence": 0.5723633170127869,
+      "maximumAbsoluteDifference": 1.1920928955078125e-07,
+      "meanAbsoluteDifference": 6.292039538421373e-09,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-028",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\K\\Gavino Baybayin - KOU.png",
+      "kerasTop1": "ka",
+      "onnxTop1": "ka",
+      "kerasTop3": [
+        "ka",
+        "ke_ki",
+        "ko_ku"
+      ],
+      "onnxTop3": [
+        "ka",
+        "ke_ki",
+        "ko_ku"
+      ],
+      "kerasConfidence": 0.5560276508331299,
+      "onnxConfidence": 0.5560280084609985,
+      "maximumAbsoluteDifference": 9.387731552124023e-07,
+      "meanAbsoluteDifference": 3.333118348521003e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-029",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\K\\Gavino Baybayin - Kx.png",
+      "kerasTop1": "nga",
+      "onnxTop1": "nga",
+      "kerasTop3": [
+        "nga",
+        "e_i",
+        "nge_ngi"
+      ],
+      "onnxTop3": [
+        "nga",
+        "e_i",
+        "nge_ngi"
+      ],
+      "kerasConfidence": 0.15427330136299133,
+      "onnxConfidence": 0.1542733609676361,
+      "maximumAbsoluteDifference": 3.948807716369629e-07,
+      "meanAbsoluteDifference": 2.9516827669881638e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-030",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\L\\Gavino Baybayin - L+.png",
+      "kerasTop1": "go_gu",
+      "onnxTop1": "go_gu",
+      "kerasTop3": [
+        "go_gu",
+        "le_li",
+        "y"
+      ],
+      "onnxTop3": [
+        "go_gu",
+        "le_li",
+        "y"
+      ],
+      "kerasConfidence": 0.2186657339334488,
+      "onnxConfidence": 0.21866625547409058,
+      "maximumAbsoluteDifference": 5.401670932769775e-07,
+      "meanAbsoluteDifference": 5.2713850949196115e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-031",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\L\\Gavino Baybayin - L,.png",
+      "kerasTop1": "nga",
+      "onnxTop1": "nga",
+      "kerasTop3": [
+        "nga",
+        "y",
+        "ga"
+      ],
+      "onnxTop3": [
+        "nga",
+        "y",
+        "ga"
+      ],
+      "kerasConfidence": 0.15549102425575256,
+      "onnxConfidence": 0.15549089014530182,
+      "maximumAbsoluteDifference": 6.332993507385254e-07,
+      "meanAbsoluteDifference": 5.5092396140689885e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-032",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\L\\Gavino Baybayin - LA.png",
+      "kerasTop1": "le_li",
+      "onnxTop1": "le_li",
+      "kerasTop3": [
+        "le_li",
+        "o_u",
+        "la"
+      ],
+      "onnxTop3": [
+        "le_li",
+        "o_u",
+        "la"
+      ],
+      "kerasConfidence": 0.22563059628009796,
+      "onnxConfidence": 0.22563020884990692,
+      "maximumAbsoluteDifference": 3.8743019104003906e-07,
+      "meanAbsoluteDifference": 2.9714047265033948e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-033",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\L\\Gavino Baybayin - LIE.png",
+      "kerasTop1": "nga",
+      "onnxTop1": "nga",
+      "kerasTop3": [
+        "nga",
+        "pe_pi",
+        "yo_yu"
+      ],
+      "onnxTop3": [
+        "nga",
+        "pe_pi",
+        "yo_yu"
+      ],
+      "kerasConfidence": 0.20457561314105988,
+      "onnxConfidence": 0.20457421243190765,
+      "maximumAbsoluteDifference": 1.4007091522216797e-06,
+      "meanAbsoluteDifference": 8.101547820611841e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-034",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\L\\Gavino Baybayin - LOU.png",
+      "kerasTop1": "la",
+      "onnxTop1": "la",
+      "kerasTop3": [
+        "la",
+        "le_li",
+        "o_u"
+      ],
+      "onnxTop3": [
+        "la",
+        "le_li",
+        "o_u"
+      ],
+      "kerasConfidence": 0.35724055767059326,
+      "onnxConfidence": 0.35723987221717834,
+      "maximumAbsoluteDifference": 1.087784767150879e-06,
+      "meanAbsoluteDifference": 6.856980834281929e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-035",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\L\\Gavino Baybayin - Lx.png",
+      "kerasTop1": "y",
+      "onnxTop1": "y",
+      "kerasTop3": [
+        "y",
+        "go_gu",
+        "nga"
+      ],
+      "onnxTop3": [
+        "y",
+        "go_gu",
+        "nga"
+      ],
+      "kerasConfidence": 0.12343282252550125,
+      "onnxConfidence": 0.12343300879001617,
+      "maximumAbsoluteDifference": 9.909272193908691e-07,
+      "meanAbsoluteDifference": 9.032388218671142e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-036",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\M\\Gavino Baybayin - M+.png",
+      "kerasTop1": "me_mi",
+      "onnxTop1": "me_mi",
+      "kerasTop3": [
+        "me_mi",
+        "ma",
+        "yo_yu"
+      ],
+      "onnxTop3": [
+        "me_mi",
+        "ma",
+        "yo_yu"
+      ],
+      "kerasConfidence": 0.8651326894760132,
+      "onnxConfidence": 0.8651332259178162,
+      "maximumAbsoluteDifference": 5.364418029785156e-07,
+      "meanAbsoluteDifference": 1.8779049003656143e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-037",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\M\\Gavino Baybayin - M,.png",
+      "kerasTop1": "me_mi",
+      "onnxTop1": "me_mi",
+      "kerasTop3": [
+        "me_mi",
+        "ma",
+        "ka"
+      ],
+      "onnxTop3": [
+        "me_mi",
+        "ma",
+        "ka"
+      ],
+      "kerasConfidence": 0.6371672749519348,
+      "onnxConfidence": 0.6371679902076721,
+      "maximumAbsoluteDifference": 1.0132789611816406e-06,
+      "meanAbsoluteDifference": 5.463311417373454e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-038",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\M\\Gavino Baybayin - MA.png",
+      "kerasTop1": "ma",
+      "onnxTop1": "ma",
+      "kerasTop3": [
+        "ma",
+        "me_mi",
+        "ra"
+      ],
+      "onnxTop3": [
+        "ma",
+        "me_mi",
+        "ra"
+      ],
+      "kerasConfidence": 0.5990704894065857,
+      "onnxConfidence": 0.5990707278251648,
+      "maximumAbsoluteDifference": 4.470348358154297e-07,
+      "meanAbsoluteDifference": 1.6607590576125093e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-039",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\M\\Gavino Baybayin - MIE.png",
+      "kerasTop1": "me_mi",
+      "onnxTop1": "me_mi",
+      "kerasTop3": [
+        "me_mi",
+        "ma",
+        "ka"
+      ],
+      "onnxTop3": [
+        "me_mi",
+        "ma",
+        "ka"
+      ],
+      "kerasConfidence": 0.9835577607154846,
+      "onnxConfidence": 0.9835577607154846,
+      "maximumAbsoluteDifference": 2.8870999813079834e-08,
+      "meanAbsoluteDifference": 1.2394731209210692e-09,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-040",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\M\\Gavino Baybayin - MOU.png",
+      "kerasTop1": "me_mi",
+      "onnxTop1": "me_mi",
+      "kerasTop3": [
+        "me_mi",
+        "ma",
+        "ra"
+      ],
+      "onnxTop3": [
+        "me_mi",
+        "ma",
+        "ra"
+      ],
+      "kerasConfidence": 0.4698825478553772,
+      "onnxConfidence": 0.4698837995529175,
+      "maximumAbsoluteDifference": 1.2516975402832031e-06,
+      "meanAbsoluteDifference": 4.3113199387970244e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-041",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\M\\Gavino Baybayin - Mx.png",
+      "kerasTop1": "me_mi",
+      "onnxTop1": "me_mi",
+      "kerasTop3": [
+        "me_mi",
+        "ma",
+        "mo_mu"
+      ],
+      "onnxTop3": [
+        "me_mi",
+        "ma",
+        "mo_mu"
+      ],
+      "kerasConfidence": 0.8075198531150818,
+      "onnxConfidence": 0.8075199723243713,
+      "maximumAbsoluteDifference": 2.086162567138672e-07,
+      "meanAbsoluteDifference": 1.1195006375182567e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-042",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\N\\Gavino Baybayin - N+.png",
+      "kerasTop1": "n",
+      "onnxTop1": "n",
+      "kerasTop3": [
+        "n",
+        "s",
+        "na"
+      ],
+      "onnxTop3": [
+        "n",
+        "s",
+        "na"
+      ],
+      "kerasConfidence": 0.23573511838912964,
+      "onnxConfidence": 0.23573432862758636,
+      "maximumAbsoluteDifference": 2.2798776626586914e-06,
+      "meanAbsoluteDifference": 1.2047419818011962e-07,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-043",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\N\\Gavino Baybayin - N,.png",
+      "kerasTop1": "na",
+      "onnxTop1": "na",
+      "kerasTop3": [
+        "na",
+        "sa",
+        "ga"
+      ],
+      "onnxTop3": [
+        "na",
+        "sa",
+        "ga"
+      ],
+      "kerasConfidence": 0.8314570784568787,
+      "onnxConfidence": 0.8314576745033264,
+      "maximumAbsoluteDifference": 5.960464477539062e-07,
+      "meanAbsoluteDifference": 2.0784417601466955e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-044",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\N\\Gavino Baybayin - NA.png",
+      "kerasTop1": "na",
+      "onnxTop1": "na",
+      "kerasTop3": [
+        "na",
+        "ga",
+        "ne_ni"
+      ],
+      "onnxTop3": [
+        "na",
+        "ga",
+        "ne_ni"
+      ],
+      "kerasConfidence": 0.9260047674179077,
+      "onnxConfidence": 0.9260047674179077,
+      "maximumAbsoluteDifference": 2.7567148208618164e-07,
+      "meanAbsoluteDifference": 1.0243772193812147e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-045",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\N\\Gavino Baybayin - NIE.png",
+      "kerasTop1": "ne_ni",
+      "onnxTop1": "ne_ni",
+      "kerasTop3": [
+        "ne_ni",
+        "na",
+        "b"
+      ],
+      "onnxTop3": [
+        "ne_ni",
+        "na",
+        "b"
+      ],
+      "kerasConfidence": 0.928728461265564,
+      "onnxConfidence": 0.928727924823761,
+      "maximumAbsoluteDifference": 5.364418029785156e-07,
+      "meanAbsoluteDifference": 1.7805572381592227e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-046",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\N\\Gavino Baybayin - NOU.png",
+      "kerasTop1": "na",
+      "onnxTop1": "na",
+      "kerasTop3": [
+        "na",
+        "no_nu",
+        "ne_ni"
+      ],
+      "onnxTop3": [
+        "na",
+        "no_nu",
+        "ne_ni"
+      ],
+      "kerasConfidence": 0.6459788084030151,
+      "onnxConfidence": 0.6459817290306091,
+      "maximumAbsoluteDifference": 2.9206275939941406e-06,
+      "meanAbsoluteDifference": 9.328214791785575e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-047",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\N\\Gavino Baybayin - Nx.png",
+      "kerasTop1": "na",
+      "onnxTop1": "na",
+      "kerasTop3": [
+        "na",
+        "s",
+        "n"
+      ],
+      "onnxTop3": [
+        "na",
+        "s",
+        "n"
+      ],
+      "kerasConfidence": 0.2812938690185547,
+      "onnxConfidence": 0.2812942564487457,
+      "maximumAbsoluteDifference": 5.513429641723633e-07,
+      "meanAbsoluteDifference": 4.130964635618194e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-048",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\NG\\Gavino Baybayin - NG+.png",
+      "kerasTop1": "yo_yu",
+      "onnxTop1": "yo_yu",
+      "kerasTop3": [
+        "yo_yu",
+        "nge_ngi",
+        "ke_ki"
+      ],
+      "onnxTop3": [
+        "yo_yu",
+        "nge_ngi",
+        "ke_ki"
+      ],
+      "kerasConfidence": 0.19881348311901093,
+      "onnxConfidence": 0.19881640374660492,
+      "maximumAbsoluteDifference": 2.9206275939941406e-06,
+      "meanAbsoluteDifference": 1.1669567717786228e-07,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-049",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\NG\\Gavino Baybayin - NG,.png",
+      "kerasTop1": "ka",
+      "onnxTop1": "ka",
+      "kerasTop3": [
+        "ka",
+        "ke_ki",
+        "ga"
+      ],
+      "onnxTop3": [
+        "ka",
+        "ke_ki",
+        "ga"
+      ],
+      "kerasConfidence": 0.4028792977333069,
+      "onnxConfidence": 0.4028804302215576,
+      "maximumAbsoluteDifference": 1.1324882507324219e-06,
+      "meanAbsoluteDifference": 4.408247193731811e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-050",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\NG\\Gavino Baybayin - NGA.png",
+      "kerasTop1": "ra",
+      "onnxTop1": "ra",
+      "kerasTop3": [
+        "ra",
+        "ka",
+        "ga"
+      ],
+      "onnxTop3": [
+        "ra",
+        "ka",
+        "ga"
+      ],
+      "kerasConfidence": 0.462292343378067,
+      "onnxConfidence": 0.46229615807533264,
+      "maximumAbsoluteDifference": 3.814697265625e-06,
+      "meanAbsoluteDifference": 1.2525234623018107e-07,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-051",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\NG\\Gavino Baybayin - NGIE.png",
+      "kerasTop1": "ka",
+      "onnxTop1": "ka",
+      "kerasTop3": [
+        "ka",
+        "ra",
+        "ke_ki"
+      ],
+      "onnxTop3": [
+        "ka",
+        "ra",
+        "ke_ki"
+      ],
+      "kerasConfidence": 0.40169280767440796,
+      "onnxConfidence": 0.4016900658607483,
+      "maximumAbsoluteDifference": 4.798173904418945e-06,
+      "meanAbsoluteDifference": 1.6628117493151906e-07,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-052",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\NG\\Gavino Baybayin - NGOU.png",
+      "kerasTop1": "ra",
+      "onnxTop1": "ra",
+      "kerasTop3": [
+        "ra",
+        "ka",
+        "yo_yu"
+      ],
+      "onnxTop3": [
+        "ra",
+        "ka",
+        "yo_yu"
+      ],
+      "kerasConfidence": 0.582642674446106,
+      "onnxConfidence": 0.5826477408409119,
+      "maximumAbsoluteDifference": 5.066394805908203e-06,
+      "meanAbsoluteDifference": 1.7337064598053522e-07,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-053",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\NG\\Gavino Baybayin - NGx.png",
+      "kerasTop1": "ka",
+      "onnxTop1": "ka",
+      "kerasTop3": [
+        "ka",
+        "ga",
+        "ke_ki"
+      ],
+      "onnxTop3": [
+        "ka",
+        "ga",
+        "ke_ki"
+      ],
+      "kerasConfidence": 0.30479294061660767,
+      "onnxConfidence": 0.3047942519187927,
+      "maximumAbsoluteDifference": 1.3113021850585938e-06,
+      "meanAbsoluteDifference": 5.671230004130242e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-054",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\P\\Gavino Baybayin - P+ 2.png",
+      "kerasTop1": "wo_wu",
+      "onnxTop1": "wo_wu",
+      "kerasTop3": [
+        "wo_wu",
+        "yo_yu",
+        "pe_pi"
+      ],
+      "onnxTop3": [
+        "wo_wu",
+        "yo_yu",
+        "pe_pi"
+      ],
+      "kerasConfidence": 0.2868858873844147,
+      "onnxConfidence": 0.2868889570236206,
+      "maximumAbsoluteDifference": 3.069639205932617e-06,
+      "meanAbsoluteDifference": 1.2248533999405078e-07,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-055",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\P\\Gavino Baybayin - P+.png",
+      "kerasTop1": "p",
+      "onnxTop1": "p",
+      "kerasTop3": [
+        "p",
+        "pe_pi",
+        "ye_yi"
+      ],
+      "onnxTop3": [
+        "p",
+        "pe_pi",
+        "ye_yi"
+      ],
+      "kerasConfidence": 0.2730848491191864,
+      "onnxConfidence": 0.2730850577354431,
+      "maximumAbsoluteDifference": 4.6938657760620117e-07,
+      "meanAbsoluteDifference": 3.826195126517661e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-056",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\P\\Gavino Baybayin - P, 2.png",
+      "kerasTop1": "yo_yu",
+      "onnxTop1": "yo_yu",
+      "kerasTop3": [
+        "yo_yu",
+        "ye_yi",
+        "ya"
+      ],
+      "onnxTop3": [
+        "yo_yu",
+        "ye_yi",
+        "ya"
+      ],
+      "kerasConfidence": 0.6546871066093445,
+      "onnxConfidence": 0.6546856164932251,
+      "maximumAbsoluteDifference": 1.4901161193847656e-06,
+      "meanAbsoluteDifference": 4.851501989562513e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-057",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\P\\Gavino Baybayin - PA 2.png",
+      "kerasTop1": "ya",
+      "onnxTop1": "ya",
+      "kerasTop3": [
+        "ya",
+        "ye_yi",
+        "yo_yu"
+      ],
+      "onnxTop3": [
+        "ya",
+        "ye_yi",
+        "yo_yu"
+      ],
+      "kerasConfidence": 0.5548345446586609,
+      "onnxConfidence": 0.5548340678215027,
+      "maximumAbsoluteDifference": 4.76837158203125e-07,
+      "meanAbsoluteDifference": 2.9668976749812757e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-058",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\P\\Gavino Baybayin - PA.png",
+      "kerasTop1": "ya",
+      "onnxTop1": "ya",
+      "kerasTop3": [
+        "ya",
+        "ra",
+        "ye_yi"
+      ],
+      "onnxTop3": [
+        "ya",
+        "ra",
+        "ye_yi"
+      ],
+      "kerasConfidence": 0.3478315472602844,
+      "onnxConfidence": 0.3478313982486725,
+      "maximumAbsoluteDifference": 5.21540641784668e-07,
+      "meanAbsoluteDifference": 2.712822841146142e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-059",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\P\\Gavino Baybayin - PIE 2.png",
+      "kerasTop1": "ye_yi",
+      "onnxTop1": "ye_yi",
+      "kerasTop3": [
+        "ye_yi",
+        "yo_yu",
+        "ya"
+      ],
+      "onnxTop3": [
+        "ye_yi",
+        "yo_yu",
+        "ya"
+      ],
+      "kerasConfidence": 0.5830036997795105,
+      "onnxConfidence": 0.5830022096633911,
+      "maximumAbsoluteDifference": 1.4901161193847656e-06,
+      "meanAbsoluteDifference": 4.641671973765986e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-060",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\P\\Gavino Baybayin - PIE.png",
+      "kerasTop1": "ye_yi",
+      "onnxTop1": "ye_yi",
+      "kerasTop3": [
+        "ye_yi",
+        "yo_yu",
+        "pe_pi"
+      ],
+      "onnxTop3": [
+        "ye_yi",
+        "yo_yu",
+        "pe_pi"
+      ],
+      "kerasConfidence": 0.8537778258323669,
+      "onnxConfidence": 0.853775680065155,
+      "maximumAbsoluteDifference": 2.1457672119140625e-06,
+      "meanAbsoluteDifference": 6.766908038499091e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-061",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\P\\Gavino Baybayin - POU 2.png",
+      "kerasTop1": "wo_wu",
+      "onnxTop1": "wo_wu",
+      "kerasTop3": [
+        "wo_wu",
+        "yo_yu",
+        "ya"
+      ],
+      "onnxTop3": [
+        "wo_wu",
+        "yo_yu",
+        "ya"
+      ],
+      "kerasConfidence": 0.4631319046020508,
+      "onnxConfidence": 0.463131844997406,
+      "maximumAbsoluteDifference": 1.7434358596801758e-06,
+      "meanAbsoluteDifference": 6.954968241535382e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-062",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\P\\Gavino Baybayin - POU.png",
+      "kerasTop1": "ya",
+      "onnxTop1": "ya",
+      "kerasTop3": [
+        "ya",
+        "ra",
+        "wo_wu"
+      ],
+      "onnxTop3": [
+        "ya",
+        "ra",
+        "wo_wu"
+      ],
+      "kerasConfidence": 0.1714126020669937,
+      "onnxConfidence": 0.17141315340995789,
+      "maximumAbsoluteDifference": 1.944601535797119e-06,
+      "meanAbsoluteDifference": 1.1091398326763218e-07,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-063",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\P\\Gavino Baybayin - Px 2.png",
+      "kerasTop1": "wo_wu",
+      "onnxTop1": "wo_wu",
+      "kerasTop3": [
+        "wo_wu",
+        "pe_pi",
+        "yo_yu"
+      ],
+      "onnxTop3": [
+        "wo_wu",
+        "pe_pi",
+        "yo_yu"
+      ],
+      "kerasConfidence": 0.22958213090896606,
+      "onnxConfidence": 0.2295825332403183,
+      "maximumAbsoluteDifference": 1.2665987014770508e-06,
+      "meanAbsoluteDifference": 7.332626352315798e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-064",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\P\\Gavino Baybayin - Px.png",
+      "kerasTop1": "p",
+      "onnxTop1": "p",
+      "kerasTop3": [
+        "p",
+        "pe_pi",
+        "ye_yi"
+      ],
+      "onnxTop3": [
+        "p",
+        "pe_pi",
+        "ye_yi"
+      ],
+      "kerasConfidence": 0.4058038294315338,
+      "onnxConfidence": 0.40580353140830994,
+      "maximumAbsoluteDifference": 1.4603137969970703e-06,
+      "meanAbsoluteDifference": 8.860774508479702e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-065",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\S\\Gavino Baybayin - S+.png",
+      "kerasTop1": "yo_yu",
+      "onnxTop1": "yo_yu",
+      "kerasTop3": [
+        "yo_yu",
+        "s",
+        "pe_pi"
+      ],
+      "onnxTop3": [
+        "yo_yu",
+        "s",
+        "pe_pi"
+      ],
+      "kerasConfidence": 0.5216434597969055,
+      "onnxConfidence": 0.5216436386108398,
+      "maximumAbsoluteDifference": 3.8743019104003906e-07,
+      "meanAbsoluteDifference": 1.7421284393917416e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-066",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\S\\Gavino Baybayin - S,.png",
+      "kerasTop1": "sa",
+      "onnxTop1": "sa",
+      "kerasTop3": [
+        "sa",
+        "yo_yu",
+        "na"
+      ],
+      "onnxTop3": [
+        "sa",
+        "yo_yu",
+        "na"
+      ],
+      "kerasConfidence": 0.44544827938079834,
+      "onnxConfidence": 0.4454513490200043,
+      "maximumAbsoluteDifference": 3.069639205932617e-06,
+      "meanAbsoluteDifference": 1.0900187171212146e-07,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-067",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\S\\Gavino Baybayin - SA.png",
+      "kerasTop1": "sa",
+      "onnxTop1": "sa",
+      "kerasTop3": [
+        "sa",
+        "yo_yu",
+        "ha"
+      ],
+      "onnxTop3": [
+        "sa",
+        "yo_yu",
+        "ha"
+      ],
+      "kerasConfidence": 0.6735236048698425,
+      "onnxConfidence": 0.673521876335144,
+      "maximumAbsoluteDifference": 1.7285346984863281e-06,
+      "meanAbsoluteDifference": 5.501736418120836e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-068",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\S\\Gavino Baybayin - SIE.png",
+      "kerasTop1": "sa",
+      "onnxTop1": "sa",
+      "kerasTop3": [
+        "sa",
+        "yo_yu",
+        "ye_yi"
+      ],
+      "onnxTop3": [
+        "sa",
+        "yo_yu",
+        "ye_yi"
+      ],
+      "kerasConfidence": 0.48775991797447205,
+      "onnxConfidence": 0.48775991797447205,
+      "maximumAbsoluteDifference": 9.834766387939453e-07,
+      "meanAbsoluteDifference": 3.3438886312466374e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-069",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\S\\Gavino Baybayin - SOU.png",
+      "kerasTop1": "yo_yu",
+      "onnxTop1": "yo_yu",
+      "kerasTop3": [
+        "yo_yu",
+        "sa",
+        "ha"
+      ],
+      "onnxTop3": [
+        "yo_yu",
+        "sa",
+        "ha"
+      ],
+      "kerasConfidence": 0.8217056393623352,
+      "onnxConfidence": 0.8217058181762695,
+      "maximumAbsoluteDifference": 5.364418029785156e-07,
+      "meanAbsoluteDifference": 2.1061587465246992e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-070",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\S\\Gavino Baybayin - Sx.png",
+      "kerasTop1": "yo_yu",
+      "onnxTop1": "yo_yu",
+      "kerasTop3": [
+        "yo_yu",
+        "sa",
+        "s"
+      ],
+      "onnxTop3": [
+        "yo_yu",
+        "sa",
+        "s"
+      ],
+      "kerasConfidence": 0.2653299570083618,
+      "onnxConfidence": 0.26533031463623047,
+      "maximumAbsoluteDifference": 3.5762786865234375e-07,
+      "meanAbsoluteDifference": 3.216908745733755e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-071",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\T\\Gavino Baybayin - T+.png",
+      "kerasTop1": "yo_yu",
+      "onnxTop1": "yo_yu",
+      "kerasTop3": [
+        "yo_yu",
+        "y",
+        "pe_pi"
+      ],
+      "onnxTop3": [
+        "yo_yu",
+        "y",
+        "pe_pi"
+      ],
+      "kerasConfidence": 0.888092577457428,
+      "onnxConfidence": 0.8880927562713623,
+      "maximumAbsoluteDifference": 1.7881393432617188e-07,
+      "meanAbsoluteDifference": 1.0985696275066214e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-072",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\T\\Gavino Baybayin - T,.png",
+      "kerasTop1": "yo_yu",
+      "onnxTop1": "yo_yu",
+      "kerasTop3": [
+        "yo_yu",
+        "sa",
+        "e_i"
+      ],
+      "onnxTop3": [
+        "yo_yu",
+        "sa",
+        "e_i"
+      ],
+      "kerasConfidence": 0.7057701945304871,
+      "onnxConfidence": 0.7057710289955139,
+      "maximumAbsoluteDifference": 8.344650268554688e-07,
+      "meanAbsoluteDifference": 2.8408079641748273e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-073",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\T\\Gavino Baybayin - TA.png",
+      "kerasTop1": "yo_yu",
+      "onnxTop1": "yo_yu",
+      "kerasTop3": [
+        "yo_yu",
+        "ra",
+        "ha"
+      ],
+      "onnxTop3": [
+        "yo_yu",
+        "ra",
+        "ha"
+      ],
+      "kerasConfidence": 0.956773042678833,
+      "onnxConfidence": 0.9567729234695435,
+      "maximumAbsoluteDifference": 1.1920928955078125e-07,
+      "meanAbsoluteDifference": 3.862676330466038e-09,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-074",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\T\\Gavino Baybayin - TIE.png",
+      "kerasTop1": "yo_yu",
+      "onnxTop1": "yo_yu",
+      "kerasTop3": [
+        "yo_yu",
+        "ye_yi",
+        "he_hi"
+      ],
+      "onnxTop3": [
+        "yo_yu",
+        "ye_yi",
+        "he_hi"
+      ],
+      "kerasConfidence": 0.9301837086677551,
+      "onnxConfidence": 0.9301834106445312,
+      "maximumAbsoluteDifference": 2.980232238769531e-07,
+      "meanAbsoluteDifference": 1.51322039202446e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-075",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\T\\Gavino Baybayin - TOU.png",
+      "kerasTop1": "yo_yu",
+      "onnxTop1": "yo_yu",
+      "kerasTop3": [
+        "yo_yu",
+        "h",
+        "wo_wu"
+      ],
+      "onnxTop3": [
+        "yo_yu",
+        "h",
+        "wo_wu"
+      ],
+      "kerasConfidence": 0.9514068961143494,
+      "onnxConfidence": 0.9514062404632568,
+      "maximumAbsoluteDifference": 6.556510925292969e-07,
+      "meanAbsoluteDifference": 2.3441020045668537e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-076",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\T\\Gavino Baybayin - Tx.png",
+      "kerasTop1": "yo_yu",
+      "onnxTop1": "yo_yu",
+      "kerasTop3": [
+        "yo_yu",
+        "y",
+        "pe_pi"
+      ],
+      "onnxTop3": [
+        "yo_yu",
+        "y",
+        "pe_pi"
+      ],
+      "kerasConfidence": 0.8323995471000671,
+      "onnxConfidence": 0.8323999643325806,
+      "maximumAbsoluteDifference": 4.172325134277344e-07,
+      "meanAbsoluteDifference": 2.7744038431722273e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-077",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\VOWELS\\Gavino Baybayin - A.png",
+      "kerasTop1": "ya",
+      "onnxTop1": "ya",
+      "kerasTop3": [
+        "ya",
+        "yo_yu",
+        "wo_wu"
+      ],
+      "onnxTop3": [
+        "ya",
+        "yo_yu",
+        "wo_wu"
+      ],
+      "kerasConfidence": 0.16629032790660858,
+      "onnxConfidence": 0.16629020869731903,
+      "maximumAbsoluteDifference": 3.46451997756958e-07,
+      "meanAbsoluteDifference": 2.4984822789159055e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-078",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\VOWELS\\Gavino Baybayin - DANDA1.png",
+      "kerasTop1": "so_su",
+      "onnxTop1": "so_su",
+      "kerasTop3": [
+        "so_su",
+        "sa",
+        "wo_wu"
+      ],
+      "onnxTop3": [
+        "so_su",
+        "sa",
+        "wo_wu"
+      ],
+      "kerasConfidence": 0.12572312355041504,
+      "onnxConfidence": 0.1257229447364807,
+      "maximumAbsoluteDifference": 4.246830940246582e-07,
+      "meanAbsoluteDifference": 6.386835593730211e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-079",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\VOWELS\\Gavino Baybayin - DANDA2.png",
+      "kerasTop1": "so_su",
+      "onnxTop1": "so_su",
+      "kerasTop3": [
+        "so_su",
+        "g",
+        "sa"
+      ],
+      "onnxTop3": [
+        "so_su",
+        "g",
+        "sa"
+      ],
+      "kerasConfidence": 0.4623316824436188,
+      "onnxConfidence": 0.46233269572257996,
+      "maximumAbsoluteDifference": 1.0132789611816406e-06,
+      "meanAbsoluteDifference": 5.073211071696336e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-080",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\VOWELS\\Gavino Baybayin - IE.png",
+      "kerasTop1": "e_i",
+      "onnxTop1": "e_i",
+      "kerasTop3": [
+        "e_i",
+        "ha",
+        "yo_yu"
+      ],
+      "onnxTop3": [
+        "e_i",
+        "ha",
+        "yo_yu"
+      ],
+      "kerasConfidence": 0.535286009311676,
+      "onnxConfidence": 0.5352842211723328,
+      "maximumAbsoluteDifference": 1.7881393432617188e-06,
+      "meanAbsoluteDifference": 5.7521670925549213e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-081",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\VOWELS\\Gavino Baybayin - OU.png",
+      "kerasTop1": "o_u",
+      "onnxTop1": "o_u",
+      "kerasTop3": [
+        "o_u",
+        "re_ri",
+        "wo_wu"
+      ],
+      "onnxTop3": [
+        "o_u",
+        "re_ri",
+        "wo_wu"
+      ],
+      "kerasConfidence": 0.630092203617096,
+      "onnxConfidence": 0.6300935745239258,
+      "maximumAbsoluteDifference": 1.3709068298339844e-06,
+      "meanAbsoluteDifference": 4.5652572205812795e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-082",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\W\\Gavino Baybayin - W+.png",
+      "kerasTop1": "wo_wu",
+      "onnxTop1": "wo_wu",
+      "kerasTop3": [
+        "wo_wu",
+        "wa",
+        "we_wi"
+      ],
+      "onnxTop3": [
+        "wo_wu",
+        "wa",
+        "we_wi"
+      ],
+      "kerasConfidence": 0.5565904378890991,
+      "onnxConfidence": 0.5565912127494812,
+      "maximumAbsoluteDifference": 7.748603820800781e-07,
+      "meanAbsoluteDifference": 3.163336981425158e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-083",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\W\\Gavino Baybayin - W,.png",
+      "kerasTop1": "wa",
+      "onnxTop1": "wa",
+      "kerasTop3": [
+        "wa",
+        "wo_wu",
+        "o_u"
+      ],
+      "onnxTop3": [
+        "wa",
+        "wo_wu",
+        "o_u"
+      ],
+      "kerasConfidence": 0.9122974872589111,
+      "onnxConfidence": 0.9122973680496216,
+      "maximumAbsoluteDifference": 1.2665987014770508e-07,
+      "meanAbsoluteDifference": 5.027175973564244e-09,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-084",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\W\\Gavino Baybayin - WA.png",
+      "kerasTop1": "wa",
+      "onnxTop1": "wa",
+      "kerasTop3": [
+        "wa",
+        "wo_wu",
+        "o_u"
+      ],
+      "onnxTop3": [
+        "wa",
+        "wo_wu",
+        "o_u"
+      ],
+      "kerasConfidence": 0.878446102142334,
+      "onnxConfidence": 0.8784465789794922,
+      "maximumAbsoluteDifference": 4.76837158203125e-07,
+      "meanAbsoluteDifference": 1.4097716010447975e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-085",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\W\\Gavino Baybayin - WIE.png",
+      "kerasTop1": "we_wi",
+      "onnxTop1": "we_wi",
+      "kerasTop3": [
+        "we_wi",
+        "wa",
+        "be_bi"
+      ],
+      "onnxTop3": [
+        "we_wi",
+        "wa",
+        "be_bi"
+      ],
+      "kerasConfidence": 0.5293989181518555,
+      "onnxConfidence": 0.5293988585472107,
+      "maximumAbsoluteDifference": 1.2516975402832031e-06,
+      "meanAbsoluteDifference": 3.977002814548224e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-086",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\W\\Gavino Baybayin - WOU.png",
+      "kerasTop1": "wo_wu",
+      "onnxTop1": "wo_wu",
+      "kerasTop3": [
+        "wo_wu",
+        "wa",
+        "we_wi"
+      ],
+      "onnxTop3": [
+        "wo_wu",
+        "wa",
+        "we_wi"
+      ],
+      "kerasConfidence": 0.6989279985427856,
+      "onnxConfidence": 0.6989278793334961,
+      "maximumAbsoluteDifference": 1.993030309677124e-07,
+      "meanAbsoluteDifference": 1.463186752711668e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-087",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\W\\Gavino Baybayin - Wx.png",
+      "kerasTop1": "wa",
+      "onnxTop1": "wa",
+      "kerasTop3": [
+        "wa",
+        "wo_wu",
+        "o_u"
+      ],
+      "onnxTop3": [
+        "wa",
+        "wo_wu",
+        "o_u"
+      ],
+      "kerasConfidence": 0.48087209463119507,
+      "onnxConfidence": 0.4808717668056488,
+      "maximumAbsoluteDifference": 4.172325134277344e-07,
+      "meanAbsoluteDifference": 1.9686956149945176e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-088",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\Y\\Gavino Baybayin - Y+.png",
+      "kerasTop1": "wo_wu",
+      "onnxTop1": "wo_wu",
+      "kerasTop3": [
+        "wo_wu",
+        "yo_yu",
+        "ya"
+      ],
+      "onnxTop3": [
+        "wo_wu",
+        "yo_yu",
+        "ya"
+      ],
+      "kerasConfidence": 0.7306139469146729,
+      "onnxConfidence": 0.7306162118911743,
+      "maximumAbsoluteDifference": 2.2649765014648438e-06,
+      "meanAbsoluteDifference": 7.332947675530747e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-089",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\Y\\Gavino Baybayin - Y,.png",
+      "kerasTop1": "yo_yu",
+      "onnxTop1": "yo_yu",
+      "kerasTop3": [
+        "yo_yu",
+        "ya",
+        "ye_yi"
+      ],
+      "onnxTop3": [
+        "yo_yu",
+        "ya",
+        "ye_yi"
+      ],
+      "kerasConfidence": 0.37409737706184387,
+      "onnxConfidence": 0.37409642338752747,
+      "maximumAbsoluteDifference": 9.5367431640625e-07,
+      "meanAbsoluteDifference": 4.98565270338044e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-090",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\Y\\Gavino Baybayin - YA.png",
+      "kerasTop1": "ya",
+      "onnxTop1": "ya",
+      "kerasTop3": [
+        "ya",
+        "wo_wu",
+        "ha"
+      ],
+      "onnxTop3": [
+        "ya",
+        "wo_wu",
+        "ha"
+      ],
+      "kerasConfidence": 0.7659162282943726,
+      "onnxConfidence": 0.7659140825271606,
+      "maximumAbsoluteDifference": 2.1457672119140625e-06,
+      "meanAbsoluteDifference": 6.911633040851759e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-091",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\Y\\Gavino Baybayin - YIE.png",
+      "kerasTop1": "ya",
+      "onnxTop1": "ya",
+      "kerasTop3": [
+        "ya",
+        "ye_yi",
+        "wo_wu"
+      ],
+      "onnxTop3": [
+        "ya",
+        "ye_yi",
+        "wo_wu"
+      ],
+      "kerasConfidence": 0.4686538577079773,
+      "onnxConfidence": 0.468655526638031,
+      "maximumAbsoluteDifference": 2.6673078536987305e-06,
+      "meanAbsoluteDifference": 1.27732830506714e-07,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-092",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\Y\\Gavino Baybayin - YOU.png",
+      "kerasTop1": "wo_wu",
+      "onnxTop1": "wo_wu",
+      "kerasTop3": [
+        "wo_wu",
+        "ya",
+        "yo_yu"
+      ],
+      "onnxTop3": [
+        "wo_wu",
+        "ya",
+        "yo_yu"
+      ],
+      "kerasConfidence": 0.5945583581924438,
+      "onnxConfidence": 0.5945597887039185,
+      "maximumAbsoluteDifference": 1.430511474609375e-06,
+      "meanAbsoluteDifference": 5.423570717048567e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-093",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\Y\\Gavino Baybayin - Yx.png",
+      "kerasTop1": "wo_wu",
+      "onnxTop1": "wo_wu",
+      "kerasTop3": [
+        "wo_wu",
+        "ya",
+        "h"
+      ],
+      "onnxTop3": [
+        "wo_wu",
+        "ya",
+        "h"
+      ],
+      "kerasConfidence": 0.5833717584609985,
+      "onnxConfidence": 0.5833727717399597,
+      "maximumAbsoluteDifference": 1.0132789611816406e-06,
+      "meanAbsoluteDifference": 3.85054050866529e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-094",
+      "source": "apps\\mobile\\ml\\__tests__\\fixtures\\imagenet-finetune-1.0\\edge-sources\\sample-094.png",
+      "kerasTop1": "he_hi",
+      "onnxTop1": "he_hi",
+      "kerasTop3": [
+        "he_hi",
+        "ho_hu",
+        "wo_wu"
+      ],
+      "onnxTop3": [
+        "he_hi",
+        "ho_hu",
+        "wo_wu"
+      ],
+      "kerasConfidence": 0.16872459650039673,
+      "onnxConfidence": 0.16872566938400269,
+      "maximumAbsoluteDifference": 1.0728836059570312e-06,
+      "meanAbsoluteDifference": 9.870869790675998e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-095",
+      "source": "apps\\mobile\\ml\\__tests__\\fixtures\\imagenet-finetune-1.0\\edge-sources\\sample-095.png",
+      "kerasTop1": "nga",
+      "onnxTop1": "nga",
+      "kerasTop3": [
+        "nga",
+        "la",
+        "a"
+      ],
+      "onnxTop3": [
+        "nga",
+        "la",
+        "a"
+      ],
+      "kerasConfidence": 0.151484414935112,
+      "onnxConfidence": 0.15148480236530304,
+      "maximumAbsoluteDifference": 3.8743019104003906e-07,
+      "meanAbsoluteDifference": 2.5445063199315754e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-096",
+      "source": "apps\\mobile\\ml\\__tests__\\fixtures\\imagenet-finetune-1.0\\edge-sources\\sample-096.png",
+      "kerasTop1": "nga",
+      "onnxTop1": "nga",
+      "kerasTop3": [
+        "nga",
+        "la",
+        "a"
+      ],
+      "onnxTop3": [
+        "nga",
+        "la",
+        "a"
+      ],
+      "kerasConfidence": 0.151484414935112,
+      "onnxConfidence": 0.15148480236530304,
+      "maximumAbsoluteDifference": 3.8743019104003906e-07,
+      "meanAbsoluteDifference": 2.5445063199315754e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-097",
+      "source": "apps\\mobile\\ml\\__tests__\\fixtures\\imagenet-finetune-1.0\\edge-sources\\sample-097.png",
+      "kerasTop1": "nga",
+      "onnxTop1": "nga",
+      "kerasTop3": [
+        "nga",
+        "la",
+        "a"
+      ],
+      "onnxTop3": [
+        "nga",
+        "la",
+        "a"
+      ],
+      "kerasConfidence": 0.151484414935112,
+      "onnxConfidence": 0.15148480236530304,
+      "maximumAbsoluteDifference": 3.8743019104003906e-07,
+      "meanAbsoluteDifference": 2.5445063199315754e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-098",
+      "source": "apps\\mobile\\ml\\__tests__\\fixtures\\imagenet-finetune-1.0\\edge-sources\\sample-098.png",
+      "kerasTop1": "he_hi",
+      "onnxTop1": "he_hi",
+      "kerasTop3": [
+        "he_hi",
+        "te_ti",
+        "pe_pi"
+      ],
+      "onnxTop3": [
+        "he_hi",
+        "te_ti",
+        "pe_pi"
+      ],
+      "kerasConfidence": 0.28525713086128235,
+      "onnxConfidence": 0.2852565050125122,
+      "maximumAbsoluteDifference": 7.301568984985352e-07,
+      "meanAbsoluteDifference": 4.552728367141552e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-099",
+      "source": "apps\\mobile\\ml\\__tests__\\fixtures\\imagenet-finetune-1.0\\edge-sources\\sample-099.png",
+      "kerasTop1": "he_hi",
+      "onnxTop1": "he_hi",
+      "kerasTop3": [
+        "he_hi",
+        "te_ti",
+        "ho_hu"
+      ],
+      "onnxTop3": [
+        "he_hi",
+        "te_ti",
+        "ho_hu"
+      ],
+      "kerasConfidence": 0.43804365396499634,
+      "onnxConfidence": 0.438044935464859,
+      "maximumAbsoluteDifference": 1.3560056686401367e-06,
+      "meanAbsoluteDifference": 7.398416023028807e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-100",
+      "source": "apps\\mobile\\ml\\__tests__\\fixtures\\imagenet-finetune-1.0\\edge-sources\\sample-100.png",
+      "kerasTop1": "nga",
+      "onnxTop1": "nga",
+      "kerasTop3": [
+        "nga",
+        "la",
+        "a"
+      ],
+      "onnxTop3": [
+        "nga",
+        "la",
+        "a"
+      ],
+      "kerasConfidence": 0.151484414935112,
+      "onnxConfidence": 0.15148480236530304,
+      "maximumAbsoluteDifference": 3.8743019104003906e-07,
+      "meanAbsoluteDifference": 2.5445063199315754e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-101",
+      "source": "apps\\mobile\\ml\\__tests__\\fixtures\\imagenet-finetune-1.0\\edge-sources\\sample-101.png",
+      "kerasTop1": "he_hi",
+      "onnxTop1": "he_hi",
+      "kerasTop3": [
+        "he_hi",
+        "se_si",
+        "sa"
+      ],
+      "onnxTop3": [
+        "he_hi",
+        "se_si",
+        "sa"
+      ],
+      "kerasConfidence": 0.13730981945991516,
+      "onnxConfidence": 0.13731001317501068,
+      "maximumAbsoluteDifference": 7.078051567077637e-07,
+      "meanAbsoluteDifference": 4.445644749683284e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-102",
+      "source": "apps\\mobile\\ml\\__tests__\\fixtures\\imagenet-finetune-1.0\\edge-sources\\sample-102.png",
+      "kerasTop1": "s",
+      "onnxTop1": "s",
+      "kerasTop3": [
+        "s",
+        "no_nu",
+        "n"
+      ],
+      "onnxTop3": [
+        "s",
+        "no_nu",
+        "n"
+      ],
+      "kerasConfidence": 0.14777468144893646,
+      "onnxConfidence": 0.14777471125125885,
+      "maximumAbsoluteDifference": 4.6938657760620117e-07,
+      "meanAbsoluteDifference": 2.8677436242264416e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-103",
+      "source": "apps\\mobile\\ml\\__tests__\\fixtures\\imagenet-finetune-1.0\\edge-sources\\sample-103.png",
+      "kerasTop1": "nga",
+      "onnxTop1": "nga",
+      "kerasTop3": [
+        "nga",
+        "la",
+        "a"
+      ],
+      "onnxTop3": [
+        "nga",
+        "la",
+        "a"
+      ],
+      "kerasConfidence": 0.151484414935112,
+      "onnxConfidence": 0.15148480236530304,
+      "maximumAbsoluteDifference": 3.8743019104003906e-07,
+      "meanAbsoluteDifference": 2.5445063199315754e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-104",
+      "source": "apps\\mobile\\ml\\__tests__\\fixtures\\imagenet-finetune-1.0\\edge-sources\\sample-104.png",
+      "kerasTop1": "nga",
+      "onnxTop1": "nga",
+      "kerasTop3": [
+        "nga",
+        "la",
+        "a"
+      ],
+      "onnxTop3": [
+        "nga",
+        "la",
+        "a"
+      ],
+      "kerasConfidence": 0.151484414935112,
+      "onnxConfidence": 0.15148480236530304,
+      "maximumAbsoluteDifference": 3.8743019104003906e-07,
+      "meanAbsoluteDifference": 2.5445063199315754e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-105",
+      "source": "apps\\mobile\\ml\\__tests__\\fixtures\\imagenet-finetune-1.0\\edge-sources\\sample-105.png",
+      "kerasTop1": "ga",
+      "onnxTop1": "ga",
+      "kerasTop3": [
+        "ga",
+        "na",
+        "ha"
+      ],
+      "onnxTop3": [
+        "ga",
+        "na",
+        "ha"
+      ],
+      "kerasConfidence": 0.31562089920043945,
+      "onnxConfidence": 0.3156214654445648,
+      "maximumAbsoluteDifference": 5.662441253662109e-07,
+      "meanAbsoluteDifference": 4.1246248800898825e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-106",
+      "source": "apps\\mobile\\ml\\__tests__\\fixtures\\imagenet-finetune-1.0\\edge-sources\\sample-106.png",
+      "kerasTop1": "e_i",
+      "onnxTop1": "e_i",
+      "kerasTop3": [
+        "e_i",
+        "nga",
+        "ma"
+      ],
+      "onnxTop3": [
+        "e_i",
+        "nga",
+        "ma"
+      ],
+      "kerasConfidence": 0.07161830365657806,
+      "onnxConfidence": 0.07161830365657806,
+      "maximumAbsoluteDifference": 1.043081283569336e-07,
+      "meanAbsoluteDifference": 1.638129885707583e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-107",
+      "source": "apps\\mobile\\ml\\__tests__\\fixtures\\imagenet-finetune-1.0\\edge-sources\\sample-107.png",
+      "kerasTop1": "nga",
+      "onnxTop1": "nga",
+      "kerasTop3": [
+        "nga",
+        "e_i",
+        "pa"
+      ],
+      "onnxTop3": [
+        "nga",
+        "e_i",
+        "pa"
+      ],
+      "kerasConfidence": 0.35345566272735596,
+      "onnxConfidence": 0.3534546494483948,
+      "maximumAbsoluteDifference": 1.0132789611816406e-06,
+      "meanAbsoluteDifference": 6.47950083288061e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "sample-108",
+      "source": "apps\\mobile\\ml\\__tests__\\fixtures\\imagenet-finetune-1.0\\edge-sources\\sample-108.png",
+      "kerasTop1": "nga",
+      "onnxTop1": "nga",
+      "kerasTop3": [
+        "nga",
+        "la",
+        "a"
+      ],
+      "onnxTop3": [
+        "nga",
+        "la",
+        "a"
+      ],
+      "kerasConfidence": 0.151484414935112,
+      "onnxConfidence": 0.15148480236530304,
+      "maximumAbsoluteDifference": 3.8743019104003906e-07,
+      "meanAbsoluteDifference": 2.5445063199315754e-08,
+      "top1Match": true,
+      "top3Match": true
+    },
+    {
+      "sample": "capture-baya-capture-ka-2026-09-28T12-51-57-996Z",
+      "source": "ml\\diagnostics\\captures\\baya-capture-ka-2026-09-28T12-51-57-996Z.json",
+      "kerasTop1": "re_ri",
+      "onnxTop1": "re_ri",
+      "kerasTop3": [
+        "re_ri",
+        "ra",
+        "ka"
+      ],
+      "onnxTop3": [
+        "re_ri",
+        "ra",
+        "ka"
+      ],
+      "kerasConfidence": 0.33085450530052185,
+      "onnxConfidence": 0.3308528959751129,
+      "maximumAbsoluteDifference": 1.6093254089355469e-06,
+      "meanAbsoluteDifference": 5.402181260352437e-08,
+      "top1Match": true,
+      "top3Match": true
+    }
+  ]
+}

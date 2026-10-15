@@ -1,0 +1,97 @@
+{
+  "experiment": "selected-model refinement; not a restart of the original model comparison",
+  "seed": 42,
+  "original_model": "Baybayin_EfficientNetB0_BiLSTM_1.0.keras",
+  "new_split_strategy": "per-class stratified fallback (NOT an unseen-writer evaluation)",
+  "sample_counts": {
+    "old_total": 4410,
+    "new_total": 945,
+    "old_train": 3150,
+    "old_val": 630,
+    "old_test": 630,
+    "new_train": 567,
+    "new_val": 189,
+    "new_test": 189,
+    "training_after_augmentation": 7434
+  },
+  "augmentation": {
+    "old_copies": 1,
+    "new_copies": 1,
+    "rotation_deg": 5.0,
+    "scale_min": 0.95,
+    "scale_max": 1.05,
+    "translation_px": 2.0
+  },
+  "fine_tuning": {
+    "stageA_epochs": 5,
+    "stageA_lr": 5e-05,
+    "stageB_epochs": 18,
+    "stageB_lr": 1e-05,
+    "fine_tune_last_n": 20
+  },
+  "candidate_validation": {
+    "v1.0_baseline": {
+      "path": "/content/baya_v1_1/uploads/Baybayin_EfficientNetB0_BiLSTM_1.0.keras",
+      "accuracy": 0.9153439153439153,
+      "macro_precision": 0.9378306878306878,
+      "macro_recall": 0.9153439153439153,
+      "macro_f1": 0.9115646258503399
+    },
+    "v1.1_stageA": {
+      "path": "/content/baya_v1_1/output/Baybayin_EfficientNetB0_BiLSTM_1.1_stageA.keras",
+      "accuracy": 0.9735449735449735,
+      "macro_precision": 0.978835978835979,
+      "macro_recall": 0.9735449735449735,
+      "macro_f1": 0.9729402872260016
+    },
+    "v1.1_stageB": {
+      "path": "/content/baya_v1_1/output/Baybayin_EfficientNetB0_BiLSTM_1.1_stageB.keras",
+      "accuracy": 0.9788359788359788,
+      "macro_precision": 0.9857142857142858,
+      "macro_recall": 0.978835978835979,
+      "macro_f1": 0.9787981859410432
+    }
+  },
+  "selected_candidate": "v1.1_stageB",
+  "promoted_to_v1_1": true,
+  "tests": {
+    "v1_0_original_test": {
+      "accuracy": 0.9809523809523809,
+      "macro_precision": 0.9833499833499832,
+      "macro_recall": 0.9809523809523809,
+      "macro_f1": 0.9810089982259536
+    },
+    "v1_0_new_real_test": {
+      "accuracy": 0.9259259259259259,
+      "macro_precision": 0.9404761904761905,
+      "macro_recall": 0.9259259259259258,
+      "macro_f1": 0.9219954648526076
+    },
+    "v1.1_selected_original_test": {
+      "accuracy": 0.9809523809523809,
+      "macro_precision": 0.9825396825396825,
+      "macro_recall": 0.980952380952381,
+      "macro_f1": 0.9808157961040166
+    },
+    "v1.1_selected_new_real_test": {
+      "accuracy": 0.9735449735449735,
+      "macro_precision": 0.9801587301587301,
+      "macro_recall": 0.9735449735449736,
+      "macro_f1": 0.9727891156462585
+    }
+  },
+  "family_analysis_new_test": {
+    "v1_0": {
+      "exact_accuracy": 0.9259259259259259,
+      "family_accuracy": 0.9611111111111111,
+      "same_family_wrong_form_count": 7,
+      "same_family_wrong_form_rate": 0.03888888888888889
+    },
+    "v1.1_selected": {
+      "exact_accuracy": 0.9735449735449735,
+      "family_accuracy": 0.9833333333333333,
+      "same_family_wrong_form_count": 2,
+      "same_family_wrong_form_rate": 0.011111111111111112
+    }
+  }
+}

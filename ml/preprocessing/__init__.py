@@ -1,21 +1,5 @@
-"""Device-independent preprocessing for BAYA's hybrid handwriting model."""
+"""Read-only raw dataset validation, separate from image inference."""
 
-from .tracing import (
-    FEATURE_NAMES,
-    TraceFeatures,
-    TraceValidationError,
-    normalize_trace,
-    pad_feature_sequences,
-    summarize_attempt,
-    validate_attempt,
-)
+from .tracing import summarize_attempt, validate_attempt
 
-__all__ = [
-    "FEATURE_NAMES",
-    "TraceFeatures",
-    "TraceValidationError",
-    "normalize_trace",
-    "pad_feature_sequences",
-    "summarize_attempt",
-    "validate_attempt",
-]
+__all__ = ["summarize_attempt", "validate_attempt"]

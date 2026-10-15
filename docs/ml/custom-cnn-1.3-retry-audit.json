@@ -1,0 +1,110 @@
+{
+  "notebook": "C:\\BAYA\\Custom_CNN_Model_8.ipynb",
+  "notebookSha256": "1dba63acd076bd5460e7425c1347766563ede2abeb67b8f9412040fcebf969f1",
+  "preprocessingCell": 18,
+  "loaderAstIdenticalToPreviouslyTestedCandidate": true,
+  "configurationCell": "# ---------- Experiment configuration ----------\nIMG_HEIGHT = 96\nIMG_WIDTH = 96\nIMG_CHANNELS = 1\nCNN_FILTERS = (32, 32, 64, 64, 128, 128, 256, 256)\nBATCH_SIZE = 32\nEPOCHS = 60\nLEARNING_RATE = 1e-3\n\nAUGMENTATION_ENABLED = True\nAUG_ROTATION_DEGREES = 8.0\nAUG_SCALE_RANGE = (0.90, 1.10)\nAUG_TRANSLATION_FRACTION = 0.03\nAUG_PROBABILITY = 0.80\n\nMODEL_NAME = \"Baybayin_CustomCNN8\"\nMODEL_VERSION = \"1.1\"\n\n# In local Jupyter, set a path here, e.g. Path(\"BAYA_DATASETS.zip\").\nDATASET_ZIP_PATH = (\n    Path(os.environ[\"BAYA_DATASET_ZIP\"]).expanduser()\n    if os.environ.get(\"BAYA_DATASET_ZIP\") else None\n)\nWORK_DIR = Path(os.environ.get(\n    \"BAYA_WORK_DIR\", \"/content\" if Path(\"/content\").is_dir()\n    else str(Path.cwd() / \"baya_workspace\")\n)).expanduser().resolve()\nUPLOAD_DIR = WORK_DIR / \"baya_upload\"\nOUTER_EXTRACT_DIR = WORK_DIR / \"baya_outer_extracted\"\nEXTRACT_DIR = WORK_DIR / \"baya_exports_extracted\"\nOUTPUT_DIR = WORK_DIR / \"baya_cnn8_output_v1_1\"\n\nEXPECTED_EXPORTS = 14\nEXPECTED_CLASSES = 63\nEXPECTED_ATTEMPTS_PER_EXPORT = 315\nEXPECTED_TOTAL_SAMPLES = EXPECTED_EXPORTS * EXPECTED_ATTEMPTS_PER_EXPORT\n\nfor folder in [UPLOAD_DIR, OUTER_EXTRACT_DIR, EXTRACT_DIR, OUTPUT_DIR]:\n    folder.mkdir(parents=True, exist_ok=True)\nCHECKPOINT_PATH = OUTPUT_DIR / f\"{MODEL_NAME}_cp_{MODEL_VERSION}.keras\"\nFINAL_MODEL_PATH = OUTPUT_DIR / f\"{MODEL_NAME}_{MODEL_VERSION}.keras\"\nprint(\"Workspace:\", WORK_DIR)\nprint(\"Checkpoint:\", CHECKPOINT_PATH)\nprint(\"Final model:\", FINAL_MODEL_PATH)\nprint(\"Expected exports / samples:\", EXPECTED_EXPORTS, EXPECTED_TOTAL_SAMPLES)\n",
+  "candidates": [
+    {
+      "path": "C:\\BAYA\\Baybayin_CustomCNN16_1.3.keras",
+      "bytes": 33643748,
+      "sha256": "cdac4983f1e2c84b80a59bc424488af7d8378cc84261983e8d6d131656115baf",
+      "modelName": "BAYA_CustomCNN16",
+      "convolutionCount": 16,
+      "filters": [
+        32,
+        32,
+        32,
+        32,
+        64,
+        64,
+        64,
+        64,
+        128,
+        128,
+        128,
+        128,
+        256,
+        256,
+        256,
+        256
+      ],
+      "metadata": {
+        "keras_version": "3.13.2",
+        "date_saved": "2026-10-06@07:08:56"
+      }
+    },
+    {
+      "path": "C:\\BAYA\\Baybayin_CustomCNN16_cp_1.3.keras",
+      "bytes": 33645783,
+      "sha256": "cca97dc094ee3ca845fc3c2139cea48f0a18352d0c30eb3b9e7cd34eb6eb7e6b",
+      "modelName": "BAYA_CustomCNN16",
+      "convolutionCount": 16,
+      "filters": [
+        32,
+        32,
+        32,
+        32,
+        64,
+        64,
+        64,
+        64,
+        128,
+        128,
+        128,
+        128,
+        256,
+        256,
+        256,
+        256
+      ],
+      "metadata": {
+        "keras_version": "3.13.2",
+        "date_saved": "2026-10-06@07:01:48"
+      }
+    },
+    {
+      "path": "C:\\BAYA\\Baybayin_CustomCNN8_1.1.keras",
+      "bytes": 14710604,
+      "sha256": "6b8be8c4b4b2ae2c540288fa3dcd70a042218d32388a27f6cc24ae534ab40311",
+      "modelName": "BAYA_CustomCNN8",
+      "convolutionCount": 8,
+      "filters": [
+        32,
+        32,
+        64,
+        64,
+        128,
+        128,
+        256,
+        256
+      ],
+      "metadata": {
+        "keras_version": "3.13.2",
+        "date_saved": "2026-10-06@06:25:43"
+      }
+    },
+    {
+      "path": "C:\\BAYA\\Baybayin_CustomCNN8_cp_1.1.keras",
+      "bytes": 14711751,
+      "sha256": "296bfb6af87b867259082fe5b99991eba046fca0ad58545d12a4a0b60349781b",
+      "modelName": "BAYA_CustomCNN8",
+      "convolutionCount": 8,
+      "filters": [
+        32,
+        32,
+        64,
+        64,
+        128,
+        128,
+        256,
+        256
+      ],
+      "metadata": {
+        "keras_version": "3.13.2",
+        "date_saved": "2026-10-06@06:06:13"
+      }
+    }
+  ],
+  "cnn16ProvenanceConfirmed": false
+}

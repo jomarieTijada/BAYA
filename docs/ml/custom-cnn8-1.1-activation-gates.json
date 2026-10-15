@@ -1,0 +1,36 @@
+{
+  "modelSha256": "422f683eb8447d56a6c327e7fae3333f814fab91c28bc99b69fed68ae1d8dbf2",
+  "checks": {
+    "passed": true,
+    "date": "2026-10-08",
+    "activeDuringValidation": "external-v2",
+    "candidateBuildOverride": "EXPO_PUBLIC_BAYA_VALIDATION_VERSION=custom-cnn8-1.1",
+    "typescriptPassed": true,
+    "lintErrors": 0,
+    "existingLintWarnings": 14,
+    "jestSuitesPassed": 42,
+    "jestTestsPassed": 469,
+    "productionExportPassed": true,
+    "pwaContentCheckPassed": true,
+    "staticRoutesAndAllModelHashesPassed": true,
+    "realBrowserOfflineModelAndWasmPassed": true
+  },
+  "candidateOfflinePwa": {
+    "modelVersion": "custom-cnn8-1.1",
+    "modelUrl": "/models/baya/Baybayin_CustomCNN8_1.1.onnx",
+    "installation": {
+      "cacheName": "baya-pwa-740adbfc4ea85cf5",
+      "entryCount": 99,
+      "modelPrecached": true,
+      "controller": "http://127.0.0.1:59398/sw.js"
+    },
+    "offline": {
+      "status": 200,
+      "bytes": 4857266,
+      "sha256": "422f683eb8447d56a6c327e7fae3333f814fab91c28bc99b69fed68ae1d8dbf2",
+      "wasmStatus": 200
+    },
+    "passed": true
+  },
+  "allActivationGatesPassed": true
+}

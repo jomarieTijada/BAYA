@@ -21,7 +21,7 @@ export function getConfidencePresentation(confidence: number) {
   }
 
   // Truncate at one decimal so a value below a threshold never displays as that threshold.
-  const percentage = `${(Math.floor(confidence * 1000 + 1e-9) / 10).toFixed(1)}%`;
+  const percentage = `${(Math.floor(confidence * 1000) / 10).toFixed(1)}%`;
   if (confidence >= 0.9) {
     return {
       level: 'high' as const,

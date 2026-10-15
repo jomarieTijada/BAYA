@@ -1,0 +1,10 @@
+{
+  "notebook": "BAYA_Dataset_Rescue.ipynb",
+  "notebookSha256": "7182689286daa601b73a30c63544d2e43bb94c505a99c0bccb514e4b2a0bb7f0",
+  "preprocessingCell": 36,
+  "configurationCell": 4,
+  "sampleCount": 109,
+  "maximumAbsoluteDifference": 0,
+  "fixtureSet": "imagenet-finetune-1.0",
+  "note": "Each existing fixture was independently recomputed using the final v2 notebook function; every float matched."
+}

@@ -1,0 +1,34 @@
+{
+  "image_height": 96,
+  "image_width": 96,
+  "image_channels": 1,
+  "image_padding_ratio": 0.15,
+  "ink_threshold": 0.08,
+  "image_background_rule": "white background -> 0; black ink -> high values",
+  "image_position_scale_normalization": "ink bbox -> 15% padding -> centered square -> Pillow bilinear 96x96",
+  "max_sequence_length": 512,
+  "sequence_features": [
+    "x_shape",
+    "y_shape",
+    "dx",
+    "dy",
+    "dt_norm",
+    "stroke_start"
+  ],
+  "trajectory_padding_ratio": 0.15,
+  "trajectory_position_scale_normalization": "trajectory bbox -> centered square -> max(width,height) -> 15% padding",
+  "sequence_overflow_rule": "stroke-preserving proportional downsampling",
+  "augmentation": {
+    "training_only": true,
+    "synchronized_image_sequence": true,
+    "rotation_degrees": 5.0,
+    "scale_range": [
+      0.95,
+      1.05
+    ],
+    "translation_pixels": 2.0,
+    "horizontal_flip": false,
+    "vertical_flip": false,
+    "independent_kudlit_movement": false
+  }
+}

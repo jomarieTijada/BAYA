@@ -1,0 +1,23 @@
+{
+  "activeModelAtStart": "Baybayin_EfficientNetB0_ExternalFirst_v2.onnx",
+  "registryAtStart": {
+    "previous": "Baybayin_EfficientNetB0_imagenet_finetuned_finetune_1.0_onnx_contract.json",
+    "external-v2": "Baybayin_EfficientNetB0_ExternalFirst_v2_onnx_contract.json"
+  },
+  "runtime": "onnxruntime-web 1.30.0 WASM one thread",
+  "preprocessing": "efficientNetPreprocessing.ts; float32 ink-map crop/pad/Pillow-bilinear pipeline",
+  "inference": "bayaModel.web.ts cached session and shared creation Promise; metadata/shape/finite/probability validation",
+  "capture": "writingRecognition.ts independent strokes-only raster; guides excluded",
+  "mastery": "Top1 target >=0.80, three distinct valid attempts; duplicate/stale guards unchanged",
+  "preloadAtStart": "Only development smoke-test path; production session lazily initialized. No production one-time warmup API yet.",
+  "preservedHashesFile": "ml/deployment/onnx/artifacts/custom-cnn-1.3/preserved-assets.json",
+  "startingGitStatus": "ml/deployment/onnx/artifacts/custom-cnn-1.3/starting-status.txt",
+  "startingGitDiff": "ml/deployment/onnx/artifacts/custom-cnn-1.3/starting-diff.patch",
+  "selectedSource": "C:\\BAYA\\Baybayin_CustomCNN16_1.3.keras",
+  "selectionReason": "All 84 weight arrays and architectures identical to checkpoint; saved final later. Both optimizer iterations 2475 agree with best validation-loss epoch25 (99 batches/epoch).",
+  "bestValidationEpoch": 25,
+  "sourceArtifacts": "C:\\Users\\jomsa\\Downloads\\Baybayin_CustomCNN16_1.3_artifacts",
+  "preprocessingBlocker": "CNN16 training loader not yet confirmed. CNN16 exported preprocessing metadata and labels found; candidate loader from CNN8 notebook matches metadata. Newly supplied EfficientNet notebook does not train CNN16.",
+  "preexistingWork": "Extensive uncommitted code/assets and historical BiLSTM deletions; kept intact.",
+  "notebookChangeDuringTask": "User replaced EfficientNetB0_Augmented_Comparison.ipynb, changing its provenance hash; old fixture test depends on original source hash."
+}

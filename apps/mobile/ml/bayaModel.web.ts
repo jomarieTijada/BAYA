@@ -1,34 +1,16 @@
 import { BayaModelError } from './BayaModelError';
-import { BAYA_RECOGNITION_MODEL_URL } from './bayaModelConfig';
+import { validateBayaProbabilities } from './bayaProbabilities';
+import { BAYA_MODEL_CONFIG, BAYA_RECOGNITION_MODEL_NAME, BAYA_RECOGNITION_MODEL_VERSION, BAYA_RECOGNITION_MODEL_URL } from './bayaModelConfig';
 
 const MODEL_URL = BAYA_RECOGNITION_MODEL_URL;
 const ORT_SCRIPT_URL = '/ort/ort-wasm-runtime.min.js';
 const WASM_BASE_URL = '/ort/';
-const IMAGE_SHAPE = [1, 96, 96, 1] as const;
-const SEQUENCE_SHAPE = [1, 512, 6] as const;
-const STATIC_SHAPE = [1, 1, 1, 3] as const;
-const OUTPUT_SHAPE = [1, 63] as const;
-const OUTPUT_UNITS = 63;
-const PROBABILITY_SUM_TOLERANCE = 1e-3;
-
-const INPUT_NAMES = {
-  image: 'image_input',
-  sequence: 'sequence_input',
-  normalizationMean: 'BAYA_EfficientNetB0_BiLSTM_1/efficientnetb0_1/normalization_1/Sub/y:0',
-  normalizationVariance: 'BAYA_EfficientNetB0_BiLSTM_1/efficientnetb0_1/normalization_1/Sqrt/x:0',
-} as const;
-const OUTPUT_NAME = 'Identity:0';
-
-const NORMALIZATION_MEAN = [
-  0.48500001430511475,
-  0.4560000002384186,
-  0.4059999883174896,
-] as const;
-const NORMALIZATION_VARIANCE = [
-  0.2290000021457672,
-  0.2240000069141388,
-  0.22499999403953552,
-] as const;
+const IMAGE_SHAPE = BAYA_MODEL_CONFIG.logicalInputs[0].shape;
+const SEQUENCE_SHAPE = BAYA_MODEL_CONFIG.logicalInputs[1].shape;
+const OUTPUT_SHAPE = BAYA_MODEL_CONFIG.output.shape;
+const OUTPUT_UNITS = BAYA_MODEL_CONFIG.classCount;
+const INPUT_NAMES = { image: BAYA_MODEL_CONFIG.logicalInputs[0].name, sequence: BAYA_MODEL_CONFIG.logicalInputs[1].name };
+const OUTPUT_NAME = BAYA_MODEL_CONFIG.output.name;
 
 type OrtTensor = {
   type: string;
@@ -77,8 +59,6 @@ export type BayaSmokeResult = {
   executionProvider: 'wasm';
   inputNames: string[];
   outputNames: string[];
-  logicalInputNames: [string, string];
-  staticInputNames: [string, string];
   outputShape: number[];
   probabilitySum: number;
   allFinite: boolean;
@@ -104,6 +84,7 @@ export type BayaBenchmarkResult = {
 
 let ortRuntimePromise: Promise<OrtRuntime> | null = null;
 let loadedModelPromise: Promise<LoadedModel> | null = null;
+let preloadPromise: Promise<void> | null = null;
 let smokePromise: Promise<BayaSmokeResult> | null = null;
 let sessionCreationCount = 0;
 
@@ -149,7 +130,7 @@ function describeMetadata(names: readonly string[], metadata: readonly OrtMetada
 }
 
 function shapeMatches(actual: readonly (number | string)[] | undefined, expected: readonly number[]): boolean {
-  if (!actual || actual.length === 0) return true;
+  if (!actual || actual.length === 0) return false;
   return actual.length === expected.length
     && expected.every((dimension, index) => actual[index] === dimension);
 }
@@ -160,23 +141,22 @@ function tensorMetadataMatches(metadata: OrtMetadata | undefined, expectedShape:
 }
 
 function validateSession(session: BayaSession, runtime: OrtRuntime): LoadedModel {
-  const expectedInputNames = Object.values(INPUT_NAMES);
+  const expectedInputNames = [...Object.values(INPUT_NAMES), ...BAYA_MODEL_CONFIG.staticNormalizationInputs.map(input => input.name)];
   const inputNameSet = new Set(session.inputNames);
   const namesMatch = session.inputNames.length === expectedInputNames.length
     && expectedInputNames.every((name) => inputNameSet.has(name));
   const outputsMatch = session.outputNames.length === 1 && session.outputNames[0] === OUTPUT_NAME;
 
   const metadataByName = new Map(session.inputNames.map((name, index) => [name, session.inputMetadata[index]]));
-  const shapesMatch = tensorMetadataMatches(metadataByName.get(INPUT_NAMES.image), IMAGE_SHAPE)
+  const shapesMatch = BAYA_MODEL_CONFIG.staticNormalizationInputs.every(input => tensorMetadataMatches(metadataByName.get(input.name), input.shape))
+    && tensorMetadataMatches(metadataByName.get(INPUT_NAMES.image), IMAGE_SHAPE)
     && tensorMetadataMatches(metadataByName.get(INPUT_NAMES.sequence), SEQUENCE_SHAPE)
-    && tensorMetadataMatches(metadataByName.get(INPUT_NAMES.normalizationMean), STATIC_SHAPE)
-    && tensorMetadataMatches(metadataByName.get(INPUT_NAMES.normalizationVariance), STATIC_SHAPE)
     && tensorMetadataMatches(session.outputMetadata[0], OUTPUT_SHAPE);
 
   if (!namesMatch || !outputsMatch || !shapesMatch) {
     throw new BayaModelError(
       'MODEL_CONTRACT_INVALID',
-      `Expected four float32 inputs (${IMAGE_SHAPE}, ${SEQUENCE_SHAPE}, ${STATIC_SHAPE}, ${STATIC_SHAPE}) `
+      `Expected float32 image (${IMAGE_SHAPE}) and sequence (${SEQUENCE_SHAPE}) inputs `
         + `and output ${OUTPUT_SHAPE} named ${OUTPUT_NAME}. `
         + `Received inputs: ${describeMetadata(session.inputNames, session.inputMetadata).join('; ')}. `
         + `Outputs: ${describeMetadata(session.outputNames, session.outputMetadata).join('; ')}.`,
@@ -211,11 +191,10 @@ async function createAndValidateModel(): Promise<LoadedModel> {
     const loaded = validateSession(session, runtime);
     if (__DEV__) {
       console.info('[BAYA ML] ONNX Runtime Web:', runtime.env.versions.web, 'Execution provider: wasm');
-      console.info('[BAYA ML] Model URL:', MODEL_URL);
+      console.info('[BAYA ML] Model:', { modelName: BAYA_RECOGNITION_MODEL_NAME, modelVersion: BAYA_RECOGNITION_MODEL_VERSION, modelUrl: MODEL_URL });
       console.info('[BAYA ML] Session inputs:', describeMetadata(session.inputNames, session.inputMetadata).join('; '));
       console.info('[BAYA ML] Session outputs:', describeMetadata(session.outputNames, session.outputMetadata).join('; '));
-      console.info('[BAYA ML] Logical inputs:', INPUT_NAMES.image, INPUT_NAMES.sequence);
-      console.info('[BAYA ML] Static normalization inputs:', INPUT_NAMES.normalizationMean, INPUT_NAMES.normalizationVariance);
+      console.info('[BAYA ML] Logical inputs:', INPUT_NAMES.image);
     }
     return loaded;
   } catch (error) {
@@ -240,55 +219,55 @@ export async function getBayaModel(): Promise<void> {
   await getLoadedModel();
 }
 
+/** Preload the shared session and warm it once, independently of drawing attempts. */
+export function preloadBayaModel(): Promise<void> {
+  if (!preloadPromise) {
+    preloadPromise = getBayaModel()
+      .then(() => runBayaInference(new Float32Array(IMAGE_SHAPE.reduce((a, b) => a * b, 1)), new Float32Array(512 * 6)))
+      .then(() => undefined)
+      .catch((error: unknown) => { preloadPromise = null; throw error; });
+  }
+  return preloadPromise;
+}
+
 function validateInput(data: Float32Array, expectedLength: number, label: string): void {
   if (!(data instanceof Float32Array) || data.length !== expectedLength) {
     throw new BayaModelError('INVALID_INPUT', `${label} must be a Float32Array with ${expectedLength} values; received ${data?.length ?? 'no data'}.`);
   }
   for (let index = 0; index < data.length; index += 1) {
-    if (!Number.isFinite(data[index])) {
-      throw new BayaModelError('INVALID_INPUT', `${label} contains a non-finite value at index ${index}.`);
+    if (!Number.isFinite(data[index]) || data[index] < 0 || data[index] > 1) {
+      throw new BayaModelError('INVALID_INPUT', `${label} contains an invalid ink value at index ${index}.`);
     }
   }
 }
 
-function validateProbabilities(values: Float32Array, shape: readonly number[]): number {
-  if (shape.length !== OUTPUT_SHAPE.length || shape.some((dimension, index) => dimension !== OUTPUT_SHAPE[index])
+function validateProbabilities(values: Float32Array, shape: readonly number[]): void {
+  if (!Array.isArray(shape) || shape.length !== OUTPUT_SHAPE.length || shape.some((dimension, index) => dimension !== OUTPUT_SHAPE[index])
     || values.length !== OUTPUT_UNITS) {
     throw new Error(`Expected output ${OUTPUT_SHAPE}; received ${JSON.stringify(shape)} with ${values.length} values.`);
   }
-  let sum = 0;
-  for (let index = 0; index < values.length; index += 1) {
-    const value = values[index];
-    if (!Number.isFinite(value) || value < -1e-6 || value > 1 + 1e-6) {
-      throw new Error(`Output contains an invalid probability at index ${index}: ${value}.`);
-    }
-    sum += value;
-  }
-  if (Math.abs(sum - 1) > PROBABILITY_SUM_TOLERANCE) {
-    throw new Error(`Expected a probability sum near 1; received ${sum}.`);
-  }
-  return sum;
+  validateBayaProbabilities(values);
 }
 
 export async function runBayaInference(imageData: Float32Array, sequenceData: Float32Array): Promise<Float32Array> {
-  validateInput(imageData, 96 * 96, 'imageData');
-  validateInput(sequenceData, 512 * 6, 'sequenceData');
+  validateInput(imageData, IMAGE_SHAPE.reduce((a, b) => a * b, 1), 'imageData');
 
+  if (!(sequenceData instanceof Float32Array) || sequenceData.length !== 512 * 6 || !sequenceData.every(Number.isFinite)) {
+    throw new BayaModelError('INVALID_INPUT', 'sequenceData must contain 3072 finite float32 values.');
+  }
   const { runtime, session } = await getLoadedModel();
-  const image = new runtime.Tensor('float32', imageData, [...IMAGE_SHAPE]);
   const sequence = new runtime.Tensor('float32', sequenceData, [...SEQUENCE_SHAPE]);
-  const mean = new runtime.Tensor('float32', new Float32Array(NORMALIZATION_MEAN), [...STATIC_SHAPE]);
-  const variance = new runtime.Tensor('float32', new Float32Array(NORMALIZATION_VARIANCE), [...STATIC_SHAPE]);
+  const image = new runtime.Tensor('float32', imageData, [...IMAGE_SHAPE]);
+  const normalization = Object.fromEntries(BAYA_MODEL_CONFIG.staticNormalizationInputs.map(input => [input.name, new runtime.Tensor('float32', Float32Array.from(input.values), [...input.shape])]));
   let outputs: Record<string, OrtTensor> = {};
 
   try {
     outputs = await session.run({
       [INPUT_NAMES.image]: image,
       [INPUT_NAMES.sequence]: sequence,
-      [INPUT_NAMES.normalizationMean]: mean,
-      [INPUT_NAMES.normalizationVariance]: variance,
+      ...normalization,
     });
-    const output = outputs[OUTPUT_NAME];
+    const output = outputs?.[OUTPUT_NAME];
     if (!output) throw new Error(`ONNX Runtime did not return the expected output ${OUTPUT_NAME}.`);
     const values = output.data;
     if (!(values instanceof Float32Array)) throw new Error(`Expected float32 output data; received ${output.type}.`);
@@ -300,16 +279,18 @@ export async function runBayaInference(imageData: Float32Array, sequenceData: Fl
   } finally {
     image.dispose();
     sequence.dispose();
-    mean.dispose();
-    variance.dispose();
-    Object.values(outputs).forEach((output) => output.dispose());
+    Object.values(normalization).forEach(tensor => tensor.dispose());
+    if (outputs && typeof outputs === 'object') {
+      Object.values(outputs).forEach((output) => {
+        if (output && typeof output.dispose === 'function') output.dispose();
+      });
+    }
   }
 }
 
 async function runSmoke(): Promise<BayaSmokeResult> {
   const creationsBefore = sessionCreationCount;
   const image = new Float32Array(96 * 96);
-  const sequence = new Float32Array(512 * 6);
   const [firstLoad, concurrentLoad] = await Promise.all([getLoadedModel(), getLoadedModel()]);
   const sessionBefore = firstLoad.session;
   if (sessionBefore !== concurrentLoad.session) {
@@ -320,7 +301,7 @@ async function runSmoke(): Promise<BayaSmokeResult> {
   let probabilitySum = 0;
   const repeatedInferenceCount = 3;
   for (let run = 0; run < repeatedInferenceCount; run += 1) {
-    finalOutput = await runBayaInference(image, sequence);
+    finalOutput = await runBayaInference(image, new Float32Array(512 * 6));
     probabilitySum = finalOutput.reduce((sum, value) => sum + value, 0);
   }
   const sameSessionReused = (await getLoadedModel()).session === sessionBefore;
@@ -330,8 +311,6 @@ async function runSmoke(): Promise<BayaSmokeResult> {
     executionProvider: 'wasm',
     inputNames: [...sessionBefore.inputNames],
     outputNames: [...sessionBefore.outputNames],
-    logicalInputNames: [INPUT_NAMES.image, INPUT_NAMES.sequence],
-    staticInputNames: [INPUT_NAMES.normalizationMean, INPUT_NAMES.normalizationVariance],
     outputShape: [1, finalOutput.length],
     probabilitySum,
     allFinite: Array.from(finalOutput).every(Number.isFinite),
@@ -359,14 +338,13 @@ export async function runBayaBenchmark(): Promise<BayaBenchmarkResult> {
   const creationsBefore = sessionCreationCount;
   const loaded = await getLoadedModel();
   const image = new Float32Array(96 * 96);
-  const sequence = new Float32Array(512 * 6);
   const warmupRuns = 5;
   const timedRuns = 40;
-  for (let index = 0; index < warmupRuns; index += 1) await runBayaInference(image, sequence);
+  for (let index = 0; index < warmupRuns; index += 1) await runBayaInference(image, new Float32Array(512 * 6));
   const times: number[] = [];
   for (let index = 0; index < timedRuns; index += 1) {
     const start = performance.now();
-    await runBayaInference(image, sequence);
+    await runBayaInference(image, new Float32Array(512 * 6));
     times.push(performance.now() - start);
   }
   const sorted = [...times].sort((left, right) => left - right);

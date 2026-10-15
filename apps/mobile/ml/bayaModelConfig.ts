@@ -1,3 +1,7 @@
-/** One-line production model selection; v1.0 remains available for rollback. */
-export const BAYA_RECOGNITION_MODEL_VERSION = '1.1';
-export const BAYA_RECOGNITION_MODEL_URL = `/models/baya/Baybayin_EfficientNetB0_BiLSTM_${BAYA_RECOGNITION_MODEL_VERSION}.onnx`;
+import contract from './bayaActiveModel.json';
+
+/** Sole production model; shared by runtime, labels and PWA generation. */
+export const BAYA_MODEL_CONFIG = contract;
+export const BAYA_RECOGNITION_MODEL_NAME = contract.modelName;
+export const BAYA_RECOGNITION_MODEL_VERSION = contract.modelVersion;
+export const BAYA_RECOGNITION_MODEL_URL = contract.modelUrl;

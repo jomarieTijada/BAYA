@@ -7,3 +7,6 @@ numpy==2.0.2
 onnx==1.18.0
 onnxruntime==1.30.0
 tf2onnx==1.17.0
+
+# Training-image preprocessing for image-only conversion fixtures.
+Pillow==11.3.0

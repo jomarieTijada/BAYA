@@ -1,0 +1,91 @@
+{
+  "roundTripsPassed": true,
+  "phases": [
+    {
+      "phase": "switch-to-custom",
+      "selectedVersion": "custom-cnn8-1.1",
+      "freshExportPassed": true,
+      "contentBasedPwaCheckPassed": true,
+      "allModelRoutesAndHashesPassed": true,
+      "cacheName": "baya-pwa-e69f58c87dacaacd"
+    },
+    {
+      "phase": "rollback-external",
+      "selectedVersion": "external-v2",
+      "freshExportPassed": true,
+      "contentBasedPwaCheckPassed": true,
+      "allModelRoutesAndHashesPassed": true,
+      "cacheName": "baya-pwa-72363382a42b56a0"
+    },
+    {
+      "phase": "final",
+      "selectedVersion": "custom-cnn8-1.1",
+      "freshExportPassed": true,
+      "contentBasedPwaCheckPassed": true,
+      "allModelRoutesAndHashesPassed": true,
+      "cacheName": "baya-pwa-e69f58c87dacaacd"
+    }
+  ],
+  "finalActiveModel": "custom-cnn8-1.1",
+  "allPriorPublicAssetsPreserved": [
+    {
+      "path": "apps\\mobile\\public\\models\\baya\\Baybayin_EfficientNetB0_ExternalFirst_v2.onnx",
+      "sha256": "c09aac56b853841ca4013ecc3617c1e9fdcc3053b2eec40eaa3038393a0c9396",
+      "unchanged": true
+    },
+    {
+      "path": "apps\\mobile\\public\\models\\baya\\Baybayin_EfficientNetB0_ExternalFirst_v2_labels.json",
+      "sha256": "c68ade6537c59ab2d55872a9e3ed8d75083c89e35722a5b3d63e715ce47d4b91",
+      "unchanged": true
+    },
+    {
+      "path": "apps\\mobile\\public\\models\\baya\\Baybayin_EfficientNetB0_ExternalFirst_v2_onnx_contract.json",
+      "sha256": "007b801fe8e505600541d06e0ff69f5de4d0f5b32f59e219a5cf3700eff95371",
+      "unchanged": true
+    },
+    {
+      "path": "apps\\mobile\\public\\models\\baya\\Baybayin_EfficientNetB0_imagenet_finetuned_finetune_1.0.onnx",
+      "sha256": "68462ffc7a85bc830086ddfae082935175c278f6e16063f02d51bef5668cd040",
+      "unchanged": true
+    },
+    {
+      "path": "apps\\mobile\\public\\models\\baya\\Baybayin_EfficientNetB0_imagenet_finetuned_finetune_1.0_onnx_contract.json",
+      "sha256": "ab16adb8eefe86572d768ba4afa7a045914a54200fd1fa31f56df50c76594b36",
+      "unchanged": true
+    }
+  ],
+  "finalOfflinePwa": {
+    "modelVersion": "custom-cnn8-1.1",
+    "modelUrl": "/models/baya/Baybayin_CustomCNN8_1.1.onnx",
+    "installation": {
+      "cacheName": "baya-pwa-e69f58c87dacaacd",
+      "entryCount": 99,
+      "modelPrecached": true,
+      "controller": "http://127.0.0.1:58779/sw.js"
+    },
+    "offline": {
+      "status": 200,
+      "bytes": 4857266,
+      "sha256": "422f683eb8447d56a6c327e7fae3333f814fab91c28bc99b69fed68ae1d8dbf2",
+      "wasmStatus": 200
+    },
+    "passed": true
+  },
+  "externalOfflinePwa": {
+    "modelVersion": "external-v2",
+    "modelUrl": "/models/baya/Baybayin_EfficientNetB0_ExternalFirst_v2.onnx",
+    "installation": {
+      "cacheName": "baya-pwa-72363382a42b56a0",
+      "entryCount": 99,
+      "modelPrecached": true,
+      "controller": "http://127.0.0.1:53450/sw.js"
+    },
+    "offline": {
+      "status": 200,
+      "bytes": 16799019,
+      "sha256": "c09aac56b853841ca4013ecc3617c1e9fdcc3053b2eec40eaa3038393a0c9396",
+      "wasmStatus": 200
+    },
+    "passed": true
+  }
+}

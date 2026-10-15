@@ -1,0 +1,729 @@
+{
+  "notebook": "EfficientNetB0_Augmented_Comparison.ipynb",
+  "notebookSha256": "20dc57f5bac5b7036377ea01e510d69fc02eb455689bf9302caf25264b07629e",
+  "preprocessingCell": 18,
+  "classOrderingCell": 16,
+  "executedClassReportCell": 35,
+  "orderedLabels": [
+    "a",
+    "b",
+    "ba",
+    "be_bi",
+    "bo_bu",
+    "d",
+    "da_ra",
+    "de_di",
+    "do_du",
+    "e_i",
+    "g",
+    "ga",
+    "ge_gi",
+    "go_gu",
+    "h",
+    "ha",
+    "he_hi",
+    "ho_hu",
+    "k",
+    "ka",
+    "ke_ki",
+    "ko_ku",
+    "l",
+    "la",
+    "le_li",
+    "lo_lu",
+    "m",
+    "ma",
+    "me_mi",
+    "mo_mu",
+    "n",
+    "na",
+    "ne_ni",
+    "ng",
+    "nga",
+    "nge_ngi",
+    "ngo_ngu",
+    "no_nu",
+    "o_u",
+    "p",
+    "pa",
+    "pe_pi",
+    "po_pu",
+    "r",
+    "ra",
+    "re_ri",
+    "ro_ru",
+    "s",
+    "sa",
+    "se_si",
+    "so_su",
+    "t",
+    "ta",
+    "te_ti",
+    "to_tu",
+    "w",
+    "wa",
+    "we_wi",
+    "wo_wu",
+    "y",
+    "ya",
+    "ye_yi",
+    "yo_yu"
+  ],
+  "trainingOnlyAugmentation": true,
+  "samples": [
+    {
+      "id": "sample-000",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\B\\Gavino Baybayin - B+.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-001",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\B\\Gavino Baybayin - B,.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-002",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\B\\Gavino Baybayin - BA.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-003",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\B\\Gavino Baybayin - BIE.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-004",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\B\\Gavino Baybayin - BOU.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-005",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\B\\Gavino Baybayin - Bx.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-006",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\D_R\\Gavino Baybayin - DR+.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-007",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\D_R\\Gavino Baybayin - DR,.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-008",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\D_R\\Gavino Baybayin - DRA.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-009",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\D_R\\Gavino Baybayin - DRIE.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-010",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\D_R\\Gavino Baybayin - DROU.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-011",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\D_R\\Gavino Baybayin - DRx.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-012",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\G\\Gavino Baybayin - G+.png",
+      "width": 291,
+      "height": 296
+    },
+    {
+      "id": "sample-013",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\G\\Gavino Baybayin - G..png",
+      "width": 290,
+      "height": 296
+    },
+    {
+      "id": "sample-014",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\G\\Gavino Baybayin - GA.png",
+      "width": 292,
+      "height": 296
+    },
+    {
+      "id": "sample-015",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\G\\Gavino Baybayin - GIE.png",
+      "width": 292,
+      "height": 296
+    },
+    {
+      "id": "sample-016",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\G\\Gavino Baybayin - GOU.png",
+      "width": 292,
+      "height": 296
+    },
+    {
+      "id": "sample-017",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\G\\Gavino Baybayin - Gx.png",
+      "width": 291,
+      "height": 296
+    },
+    {
+      "id": "sample-018",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\H\\Gavino Baybayin - H+.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-019",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\H\\Gavino Baybayin - H,.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-020",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\H\\Gavino Baybayin - HA.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-021",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\H\\Gavino Baybayin - HIE.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-022",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\H\\Gavino Baybayin - HOU.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-023",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\H\\Gavino Baybayin - Hx.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-024",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\K\\Gavino Baybayin - K+.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-025",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\K\\Gavino Baybayin - K,.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-026",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\K\\Gavino Baybayin - KA.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-027",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\K\\Gavino Baybayin - KIE.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-028",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\K\\Gavino Baybayin - KOU.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-029",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\K\\Gavino Baybayin - Kx.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-030",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\L\\Gavino Baybayin - L+.png",
+      "width": 282,
+      "height": 296
+    },
+    {
+      "id": "sample-031",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\L\\Gavino Baybayin - L,.png",
+      "width": 282,
+      "height": 296
+    },
+    {
+      "id": "sample-032",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\L\\Gavino Baybayin - LA.png",
+      "width": 282,
+      "height": 296
+    },
+    {
+      "id": "sample-033",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\L\\Gavino Baybayin - LIE.png",
+      "width": 282,
+      "height": 296
+    },
+    {
+      "id": "sample-034",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\L\\Gavino Baybayin - LOU.png",
+      "width": 282,
+      "height": 296
+    },
+    {
+      "id": "sample-035",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\L\\Gavino Baybayin - Lx.png",
+      "width": 282,
+      "height": 296
+    },
+    {
+      "id": "sample-036",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\M\\Gavino Baybayin - M+.png",
+      "width": 306,
+      "height": 296
+    },
+    {
+      "id": "sample-037",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\M\\Gavino Baybayin - M,.png",
+      "width": 306,
+      "height": 296
+    },
+    {
+      "id": "sample-038",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\M\\Gavino Baybayin - MA.png",
+      "width": 306,
+      "height": 296
+    },
+    {
+      "id": "sample-039",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\M\\Gavino Baybayin - MIE.png",
+      "width": 306,
+      "height": 296
+    },
+    {
+      "id": "sample-040",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\M\\Gavino Baybayin - MOU.png",
+      "width": 306,
+      "height": 296
+    },
+    {
+      "id": "sample-041",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\M\\Gavino Baybayin - Mx.png",
+      "width": 306,
+      "height": 296
+    },
+    {
+      "id": "sample-042",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\N\\Gavino Baybayin - N+.png",
+      "width": 274,
+      "height": 296
+    },
+    {
+      "id": "sample-043",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\N\\Gavino Baybayin - N,.png",
+      "width": 274,
+      "height": 296
+    },
+    {
+      "id": "sample-044",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\N\\Gavino Baybayin - NA.png",
+      "width": 274,
+      "height": 296
+    },
+    {
+      "id": "sample-045",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\N\\Gavino Baybayin - NIE.png",
+      "width": 274,
+      "height": 296
+    },
+    {
+      "id": "sample-046",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\N\\Gavino Baybayin - NOU.png",
+      "width": 274,
+      "height": 296
+    },
+    {
+      "id": "sample-047",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\N\\Gavino Baybayin - Nx.png",
+      "width": 274,
+      "height": 296
+    },
+    {
+      "id": "sample-048",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\NG\\Gavino Baybayin - NG+.png",
+      "width": 301,
+      "height": 296
+    },
+    {
+      "id": "sample-049",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\NG\\Gavino Baybayin - NG,.png",
+      "width": 301,
+      "height": 296
+    },
+    {
+      "id": "sample-050",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\NG\\Gavino Baybayin - NGA.png",
+      "width": 301,
+      "height": 296
+    },
+    {
+      "id": "sample-051",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\NG\\Gavino Baybayin - NGIE.png",
+      "width": 301,
+      "height": 296
+    },
+    {
+      "id": "sample-052",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\NG\\Gavino Baybayin - NGOU.png",
+      "width": 301,
+      "height": 296
+    },
+    {
+      "id": "sample-053",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\NG\\Gavino Baybayin - NGx.png",
+      "width": 301,
+      "height": 296
+    },
+    {
+      "id": "sample-054",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\P\\Gavino Baybayin - P+ 2.png",
+      "width": 306,
+      "height": 296
+    },
+    {
+      "id": "sample-055",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\P\\Gavino Baybayin - P+.png",
+      "width": 306,
+      "height": 296
+    },
+    {
+      "id": "sample-056",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\P\\Gavino Baybayin - P, 2.png",
+      "width": 306,
+      "height": 296
+    },
+    {
+      "id": "sample-057",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\P\\Gavino Baybayin - PA 2.png",
+      "width": 306,
+      "height": 296
+    },
+    {
+      "id": "sample-058",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\P\\Gavino Baybayin - PA.png",
+      "width": 306,
+      "height": 296
+    },
+    {
+      "id": "sample-059",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\P\\Gavino Baybayin - PIE 2.png",
+      "width": 306,
+      "height": 296
+    },
+    {
+      "id": "sample-060",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\P\\Gavino Baybayin - PIE.png",
+      "width": 306,
+      "height": 296
+    },
+    {
+      "id": "sample-061",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\P\\Gavino Baybayin - POU 2.png",
+      "width": 306,
+      "height": 296
+    },
+    {
+      "id": "sample-062",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\P\\Gavino Baybayin - POU.png",
+      "width": 306,
+      "height": 296
+    },
+    {
+      "id": "sample-063",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\P\\Gavino Baybayin - Px 2.png",
+      "width": 306,
+      "height": 296
+    },
+    {
+      "id": "sample-064",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\P\\Gavino Baybayin - Px.png",
+      "width": 306,
+      "height": 296
+    },
+    {
+      "id": "sample-065",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\S\\Gavino Baybayin - S+.png",
+      "width": 315,
+      "height": 296
+    },
+    {
+      "id": "sample-066",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\S\\Gavino Baybayin - S,.png",
+      "width": 315,
+      "height": 296
+    },
+    {
+      "id": "sample-067",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\S\\Gavino Baybayin - SA.png",
+      "width": 315,
+      "height": 296
+    },
+    {
+      "id": "sample-068",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\S\\Gavino Baybayin - SIE.png",
+      "width": 315,
+      "height": 296
+    },
+    {
+      "id": "sample-069",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\S\\Gavino Baybayin - SOU.png",
+      "width": 315,
+      "height": 296
+    },
+    {
+      "id": "sample-070",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\S\\Gavino Baybayin - Sx.png",
+      "width": 315,
+      "height": 296
+    },
+    {
+      "id": "sample-071",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\T\\Gavino Baybayin - T+.png",
+      "width": 285,
+      "height": 367
+    },
+    {
+      "id": "sample-072",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\T\\Gavino Baybayin - T,.png",
+      "width": 285,
+      "height": 367
+    },
+    {
+      "id": "sample-073",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\T\\Gavino Baybayin - TA.png",
+      "width": 285,
+      "height": 367
+    },
+    {
+      "id": "sample-074",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\T\\Gavino Baybayin - TIE.png",
+      "width": 285,
+      "height": 367
+    },
+    {
+      "id": "sample-075",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\T\\Gavino Baybayin - TOU.png",
+      "width": 285,
+      "height": 367
+    },
+    {
+      "id": "sample-076",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\T\\Gavino Baybayin - Tx.png",
+      "width": 285,
+      "height": 367
+    },
+    {
+      "id": "sample-077",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\VOWELS\\Gavino Baybayin - A.png",
+      "width": 309,
+      "height": 296
+    },
+    {
+      "id": "sample-078",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\VOWELS\\Gavino Baybayin - DANDA1.png",
+      "width": 103,
+      "height": 296
+    },
+    {
+      "id": "sample-079",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\VOWELS\\Gavino Baybayin - DANDA2.png",
+      "width": 128,
+      "height": 296
+    },
+    {
+      "id": "sample-080",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\VOWELS\\Gavino Baybayin - IE.png",
+      "width": 296,
+      "height": 296
+    },
+    {
+      "id": "sample-081",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\VOWELS\\Gavino Baybayin - OU.png",
+      "width": 193,
+      "height": 296
+    },
+    {
+      "id": "sample-082",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\W\\Gavino Baybayin - W+.png",
+      "width": 272,
+      "height": 296
+    },
+    {
+      "id": "sample-083",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\W\\Gavino Baybayin - W,.png",
+      "width": 272,
+      "height": 296
+    },
+    {
+      "id": "sample-084",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\W\\Gavino Baybayin - WA.png",
+      "width": 272,
+      "height": 296
+    },
+    {
+      "id": "sample-085",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\W\\Gavino Baybayin - WIE.png",
+      "width": 272,
+      "height": 296
+    },
+    {
+      "id": "sample-086",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\W\\Gavino Baybayin - WOU.png",
+      "width": 272,
+      "height": 296
+    },
+    {
+      "id": "sample-087",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\W\\Gavino Baybayin - Wx.png",
+      "width": 272,
+      "height": 296
+    },
+    {
+      "id": "sample-088",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\Y\\Gavino Baybayin - Y+.png",
+      "width": 309,
+      "height": 296
+    },
+    {
+      "id": "sample-089",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\Y\\Gavino Baybayin - Y,.png",
+      "width": 309,
+      "height": 296
+    },
+    {
+      "id": "sample-090",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\Y\\Gavino Baybayin - YA.png",
+      "width": 309,
+      "height": 296
+    },
+    {
+      "id": "sample-091",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\Y\\Gavino Baybayin - YIE.png",
+      "width": 309,
+      "height": 296
+    },
+    {
+      "id": "sample-092",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\Y\\Gavino Baybayin - YOU.png",
+      "width": 309,
+      "height": 296
+    },
+    {
+      "id": "sample-093",
+      "source": "Gavino_Baybayin_PNG\\Gavino Baybayin Characters SMALL\\Y\\Gavino Baybayin - Yx.png",
+      "width": 309,
+      "height": 296
+    },
+    {
+      "id": "sample-094",
+      "source": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-094.png",
+      "width": 123,
+      "height": 97
+    },
+    {
+      "id": "sample-095",
+      "source": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-095.png",
+      "width": 123,
+      "height": 97
+    },
+    {
+      "id": "sample-096",
+      "source": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-096.png",
+      "width": 123,
+      "height": 97
+    },
+    {
+      "id": "sample-097",
+      "source": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-097.png",
+      "width": 123,
+      "height": 97
+    },
+    {
+      "id": "sample-098",
+      "source": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-098.png",
+      "width": 123,
+      "height": 97
+    },
+    {
+      "id": "sample-099",
+      "source": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-099.png",
+      "width": 123,
+      "height": 97
+    },
+    {
+      "id": "sample-100",
+      "source": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-100.png",
+      "width": 123,
+      "height": 97
+    },
+    {
+      "id": "sample-101",
+      "source": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-101.png",
+      "width": 123,
+      "height": 97
+    },
+    {
+      "id": "sample-102",
+      "source": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-102.png",
+      "width": 123,
+      "height": 97
+    },
+    {
+      "id": "sample-103",
+      "source": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-103.png",
+      "width": 123,
+      "height": 97
+    },
+    {
+      "id": "sample-104",
+      "source": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-104.png",
+      "width": 123,
+      "height": 97
+    },
+    {
+      "id": "sample-105",
+      "source": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-105.png",
+      "width": 123,
+      "height": 97
+    },
+    {
+      "id": "sample-106",
+      "source": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-106.png",
+      "width": 123,
+      "height": 97
+    },
+    {
+      "id": "sample-107",
+      "source": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-107.png",
+      "width": 123,
+      "height": 97
+    },
+    {
+      "id": "sample-108",
+      "source": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-108.png",
+      "width": 123,
+      "height": 97
+    }
+  ]
+}

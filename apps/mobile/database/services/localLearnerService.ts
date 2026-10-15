@@ -1,7 +1,8 @@
 /** Local learner identity and progress, backed by the ERD tables. */
 import { approvedCurriculum } from '../../content/approvedCurriculum';
 import { getWritingTopic } from '../../content/writingLessonData';
-import type { WritingAttempt } from '../../content/writingEngine';
+import { writingClassId, isValidWritingResult, type ModelWritingAttempt } from '../../content/writingMastery';
+import { WRITING_INPUT_LIMITS } from '../../content/writingCanvasValidation';
 import type { Module } from '../../content/modules/catalog';
 import { getReadyDatabase } from '../lifecycle';
 import type { DatabaseConnection, Profile } from '../types';
@@ -46,13 +47,18 @@ export const localLearnerService = {
     return activeLearner(await database(dbOverride));
   },
 
-  /** Store a local handwriting sample without presenting shape similarity as OCR recognition. */
-  async recordWritingAttempt(topicId: string, attempt: WritingAttempt, dbOverride?: DatabaseConnection): Promise<void> {
+  /** Store a validated raw model assessment and its original canvas metadata. */
+  async recordWritingAttempt(topicId: string, attempt: ModelWritingAttempt, dbOverride?: DatabaseConnection): Promise<void> {
     const topic = getWritingTopic(topicId);
     if (!topic?.exercises.some(exercise => exercise.characterId === attempt.characterId)) throw new Error('Unknown writing exercise.');
     const pointCount = attempt.strokeData.reduce((total, stroke) => total + stroke.length, 0);
-    if (!pointCount || pointCount > 4000 || !Number.isFinite(attempt.confidence) || attempt.confidence < 0 || attempt.confidence > 1) throw new Error('Invalid writing attempt.');
+    if (!pointCount || pointCount > WRITING_INPUT_LIMITS.maxPoints || !Number.isFinite(attempt.confidence) || attempt.confidence < 0 || attempt.confidence > 1) throw new Error('Invalid writing attempt.');
     if (attempt.strokeData.some(stroke => stroke.some(point => !Number.isFinite(point.x) || !Number.isFinite(point.y) || point.x < 0 || point.x > 1 || point.y < 0 || point.y > 1))) throw new Error('Invalid stroke coordinates.');
+    if (writingClassId(attempt.recognizedClassId) < 0 || !Number.isFinite(Date.parse(attempt.attemptedAt))
+      || !['valid', 'invalid'].includes(attempt.result)
+      || (attempt.result === 'valid') !== isValidWritingResult(attempt.characterId, [{
+        label: attempt.recognizedClassId, classIndex: writingClassId(attempt.recognizedClassId), probability: attempt.confidence,
+      }])) throw new Error('Invalid model assessment.');
     const db = await database(dbOverride);
     if (!db.withTransactionAsync) throw new Error('Writing attempt requires a transaction.');
     await db.withTransactionAsync(async transactionDb => {
@@ -70,13 +76,13 @@ export const localLearnerService = {
       const attemptId = await newId(transactionDb);
       await transactionDb.runAsync(
         `INSERT INTO activity_attempts (attempt_id, learner_profile_id, activity_id, result_status, recognized_result, confidence_value, feedback_code, attempted_at)
-         VALUES (?, ?, ?, 'attempted', NULL, ?, ?, ?);`,
-        [attemptId, learner!.profile_id, topicId, attempt.confidence, `visual_similarity_v1:${attempt.result}`, new Date().toISOString()]
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?);`,
+        [attemptId, learner!.profile_id, topicId, attempt.result, attempt.recognizedClassId, attempt.confidence, `baya_model_v1:${attempt.result}`, attempt.attemptedAt]
       );
       await transactionDb.runAsync(
         `INSERT INTO writing_attempts (attempt_id, character_id, stroke_json, image_data, scoring_method)
-         VALUES (?, ?, ?, NULL, 'visual_similarity_v1');`,
-        [attemptId, attempt.characterId, JSON.stringify(attempt.strokeData)]
+         VALUES (?, ?, ?, NULL, ?);`,
+        [attemptId, attempt.characterId, JSON.stringify(attempt.strokeData), 'baya_model_v1']
       );
     });
   },

@@ -1,0 +1,18 @@
+{
+  "modelVersion": "1.1",
+  "modelUrl": "/models/baya/Baybayin_EfficientNetB0_BiLSTM_1.1.onnx",
+  "installation": {
+    "cacheName": "baya-pwa-b588aa7c18067564",
+    "entryCount": 101,
+    "modelPrecached": true,
+    "controller": "http://127.0.0.1:65270/sw.js"
+  },
+  "offline": {
+    "status": 200,
+    "bytes": 17175026,
+    "sha256": "b53c69e28385eef71d0032667671692e97f670abc214f46e49d090dbd4f27149",
+    "wasmStatus": 200,
+    "offlineInferenceRuns": 3
+  },
+  "passed": true
+}

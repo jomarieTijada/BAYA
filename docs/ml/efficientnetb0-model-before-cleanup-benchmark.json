@@ -1,0 +1,42 @@
+{
+  "runtime": "1.30.0",
+  "threads": 1,
+  "preprocessing": {
+    "count": 110,
+    "mean": 12.746454546668312,
+    "median": 12.615000002086163,
+    "p95": 21.140999995172024
+  },
+  "sessionInitialization": {
+    "count": 3,
+    "mean": 425.5766666730245,
+    "median": 277.690000012517,
+    "p95": 697.3105000033975
+  },
+  "firstInference": {
+    "count": 3,
+    "mean": 41.791666666666664,
+    "median": 33.38500000536442,
+    "p95": 61.44250000268221
+  },
+  "warmInference": {
+    "count": 114,
+    "mean": 24.59223684211049,
+    "median": 23.842500001192093,
+    "p95": 29.058000002056357
+  },
+  "serviceWarmInference": {
+    "count": 114,
+    "mean": 24.892368420566385,
+    "median": 24.299999989569187,
+    "p95": 30.428749998658894
+  },
+  "endToEnd": {
+    "count": 110,
+    "mean": 34.3143181821162,
+    "median": 33.89000000804663,
+    "p95": 44.685000009089705
+  },
+  "modelBytes": 16778379,
+  "notes": "Desktop Chromium single-thread WASM, local HTTP, three initialization/first-inference trials, five warmups, identical 114-case corpus. End-to-end includes RGBA preprocessing and actual app service; excludes canvas rasterization/cold remote download. Before/after cleanup runs use identical graph bytes and runtime lifecycle."
+}

@@ -6,6 +6,7 @@ import { useLoadingEllipsis } from './useLoadingEllipsis';
 
 type WritingNavigationProps = {
   canCheck: boolean;
+  canEdit?: boolean;
   canAdvance: boolean;
   hasAttempt: boolean;
   isResult: boolean;
@@ -19,7 +20,7 @@ type WritingNavigationProps = {
   dense?: boolean;
 };
 
-export function WritingNavigation({ canCheck, canAdvance, hasAttempt, isResult, isLast, analyzing, onBackToWriting, onCheck, onNext, onRetry, compact, dense = false }: WritingNavigationProps) {
+export function WritingNavigation({ canCheck, canEdit = canCheck, canAdvance, hasAttempt, isResult, isLast, analyzing, onBackToWriting, onCheck, onNext, onRetry, compact, dense = false }: WritingNavigationProps) {
   const loadingDots = useLoadingEllipsis(analyzing);
   return <View style={styles.container} testID="writing-navigation">
     {isResult ? <>
@@ -32,8 +33,8 @@ export function WritingNavigation({ canCheck, canAdvance, hasAttempt, isResult, 
         style={[styles.resultPrimary, dense && styles.denseResultButton]}
       />}
       <View style={styles.secondaryRow}>
-        <AppButton accessibilityLabel="Ulitin ang pagsulat" compact={compact} disabled={!canCheck} fullWidth={false} label="Ulitin" onPress={onRetry} style={[styles.secondaryButton, dense && styles.denseResultButton]} tone="outlinePrimary" />
-        <AppButton accessibilityLabel="Bumalik sa naunang simbolo" compact={compact} disabled={!canCheck} fullWidth={false} icon="back" iconPosition="leading" label={FilipinoLabels.back} onPress={onBackToWriting} style={[styles.secondaryButton, styles.backAction, dense && styles.denseResultButton]} tone="outlinePrimary" />
+        <AppButton accessibilityLabel="Ulitin ang pagsulat" compact={compact} disabled={!canEdit} fullWidth={false} label="Ulitin" onPress={onRetry} style={[styles.secondaryButton, dense && styles.denseResultButton]} tone="outlinePrimary" />
+        <AppButton accessibilityLabel="Bumalik sa naunang simbolo" compact={compact} disabled={!canEdit} fullWidth={false} icon="back" iconPosition="leading" label={FilipinoLabels.back} onPress={onBackToWriting} style={[styles.secondaryButton, styles.backAction, dense && styles.denseResultButton]} tone="outlinePrimary" />
       </View>
     </> : <>
       <AppButton
@@ -45,7 +46,7 @@ export function WritingNavigation({ canCheck, canAdvance, hasAttempt, isResult, 
         style={[styles.checkButton, compact && styles.compactCheckButton, dense && styles.denseCheckButton]}
       />
       {hasAttempt && <View style={styles.secondaryRow}>
-        <AppButton accessibilityLabel="Ulitin ang pagsulat" compact={compact} disabled={!canCheck} fullWidth={false} label="Ulitin" onPress={onRetry} style={[styles.secondaryButton, dense && styles.denseResultButton]} tone="outlinePrimary" />
+        <AppButton accessibilityLabel="Ulitin ang pagsulat" compact={compact} disabled={!canEdit} fullWidth={false} label="Ulitin" onPress={onRetry} style={[styles.secondaryButton, dense && styles.denseResultButton]} tone="outlinePrimary" />
         <AppButton accessibilityLabel={isLast ? 'Bumalik sa mga paksa' : 'Susunod na simbolo'} compact={compact} disabled={!canAdvance} fullWidth={false} label={isLast ? 'Mga Paksa' : 'Susunod'} onPress={onNext} style={[styles.secondaryButton, dense && styles.denseResultButton]} />
       </View>}
     </>}

@@ -41,11 +41,11 @@ class CaptureHandler(BaseHTTPRequestHandler):
         try:
             body = self.rfile.read(length)
             capture = json.loads(body)
-            if capture.get("schemaVersion") != 1 or capture.get("targetClass") != "ka":
-                raise ValueError("Expected a version 1 KA capture")
+            if capture.get("schemaVersion") != 2 or set(capture.get("webInputs", {})) != {"image"}:
+                raise ValueError("Expected a version 2 image-only capture")
             stamp = re.sub(r"[^0-9TZ-]", "-", capture["capturedAt"])
             DESTINATION.mkdir(parents=True, exist_ok=True)
-            path = DESTINATION / f"baya-capture-ka-{stamp}.json"
+            path = DESTINATION / f"baya-capture-{stamp}.json"
             path.write_bytes(body)
         except (ValueError, KeyError, TypeError) as error:
             self.send_error(400, str(error))
@@ -64,7 +64,7 @@ def main() -> None:
     server.timeout = 1
     server.shutdown_requested = False
     server.capture_path = None
-    print(f"Waiting for one KA capture at http://127.0.0.1:8765/capture -> {DESTINATION}", flush=True)
+    print(f"Waiting for one image capture at http://127.0.0.1:8765/capture -> {DESTINATION}", flush=True)
     try:
         while not server.shutdown_requested:
             server.handle_request()

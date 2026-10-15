@@ -1,18 +1,21 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Image, Platform, StyleSheet, View, type GestureResponderEvent, type ViewStyle } from 'react-native';
+import { WRITING_INPUT_LIMITS } from '../../../content/writingCanvasValidation';
 import Svg, { Path } from 'react-native-svg';
 import { Colors, Radius } from '../../../constants/theme';
-import { appendStrokePoint, clampPoint, strokePath, type StrokeData } from '../../../content/writingEngine';
+import { appendStrokePoint, strokePath, type StrokeData } from '../../../content/writingEngine';
 
 export type WritingCanvasSize = { width: number; height: number };
 
-export function WritingCanvas({ strokes, onChange, onSizeChange, hintImage, compact, dense = false, fillHeight = false }: { strokes: StrokeData; onChange: (strokes: StrokeData) => void; onSizeChange?: (size: WritingCanvasSize) => void; hintImage: number; compact: boolean; dense?: boolean; fillHeight?: boolean }) {
+export function WritingCanvas({ strokes, onChange, onSizeChange, hintImage, compact, dense = false, fillHeight = false, disabled = false }: { strokes: StrokeData; onChange: (strokes: StrokeData) => void; onSizeChange?: (size: WritingCanvasSize) => void; hintImage: number; compact: boolean; dense?: boolean; fillHeight?: boolean; disabled?: boolean }) {
   const [size, setSize] = useState({ width: 1, height: 1 });
   const working = useRef<StrokeData>(strokes);
-  useEffect(() => { working.current = strokes; }, [strokes]);
-  const pointFromEvent = useCallback((event: GestureResponderEvent) => clampPoint(event.nativeEvent.locationX / size.width, event.nativeEvent.locationY / size.height, Date.now()), [size]);
-  const begin = (event: GestureResponderEvent) => { working.current = [...working.current, [pointFromEvent(event)]]; onChange(working.current); };
-  const move = (event: GestureResponderEvent) => { working.current = appendStrokePoint(working.current, pointFromEvent(event)); onChange(working.current); };
+  const activeStroke = useRef(false);
+  useEffect(() => { working.current = strokes; if (!strokes.length) activeStroke.current = false; }, [strokes]);
+  const pointFromEvent = useCallback((event: GestureResponderEvent) => ({ x: event.nativeEvent.locationX / size.width, y: event.nativeEvent.locationY / size.height, t: Date.now() }), [size]);
+  const inside = (point: { x: number; y: number }) => Number.isFinite(point.x) && Number.isFinite(point.y) && point.x >= 0 && point.x <= 1 && point.y >= 0 && point.y <= 1;
+  const begin = (event: GestureResponderEvent) => { const point = pointFromEvent(event); activeStroke.current = false; if (disabled || !inside(point) || working.current.reduce((n, stroke) => n + stroke.length, 0) >= WRITING_INPUT_LIMITS.maxPoints) return; activeStroke.current = true; working.current = [...working.current, [point]]; onChange(working.current); };
+  const move = (event: GestureResponderEvent) => { const point = pointFromEvent(event); if (disabled || !activeStroke.current) return; if (!inside(point)) { activeStroke.current = false; return; } const next = appendStrokePoint(working.current, point); if (next === working.current) return; working.current = next; onChange(next); };
   return <View
     accessibilityLabel="Lugar ng pagsusulat ng Baybayin"
     onLayout={event => {
@@ -20,11 +23,13 @@ export function WritingCanvas({ strokes, onChange, onSizeChange, hintImage, comp
       setSize(next);
       onSizeChange?.(next);
     }}
-    onMoveShouldSetResponder={() => true}
+    onMoveShouldSetResponder={() => false}
     onResponderGrant={begin}
     onResponderMove={move}
+    onResponderRelease={() => { activeStroke.current = false; }}
+    onResponderTerminate={() => { activeStroke.current = false; }}
     onResponderTerminationRequest={() => false}
-    onStartShouldSetResponder={() => true}
+    onStartShouldSetResponder={() => !disabled}
     style={[styles.canvas, !fillHeight && (compact ? styles.canvasCompact : styles.canvasAspect), fillHeight && styles.fillHeight, dense && styles.denseCanvas, Platform.OS === 'web' && ({ touchAction: 'none' } as unknown as ViewStyle)]}
     testID="writing-canvas"
   >

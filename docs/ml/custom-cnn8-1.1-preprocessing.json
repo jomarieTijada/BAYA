@@ -1,0 +1,25 @@
+{
+  "notebook": "Custom_CNN_Model_8.ipynb",
+  "notebookSha256": "1dba63acd076bd5460e7425c1347766563ede2abeb67b8f9412040fcebf969f1",
+  "preprocessingCell": 18,
+  "configuration": {
+    "IMG_HEIGHT": 96,
+    "IMG_WIDTH": 96,
+    "IMG_CHANNELS": 1,
+    "CNN_FILTERS": [
+      32,
+      32,
+      64,
+      64,
+      128,
+      128,
+      256,
+      256
+    ],
+    "MODEL_NAME": "Baybayin_CustomCNN8",
+    "MODEL_VERSION": "1.1"
+  },
+  "sampleCount": 109,
+  "maximumAbsoluteDifference": 0.0,
+  "originalFixtureNotebookSha256": "20dc57f5bac5b7036377ea01e510d69fc02eb455689bf9302caf25264b07629e"
+}

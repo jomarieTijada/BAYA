@@ -1,0 +1,65 @@
+{
+  "runtime": "1.30.0",
+  "threads": 1,
+  "preprocessing": {
+    "count": 110,
+    "mean": 15.759500000151721,
+    "median": 15.967499993741512,
+    "p95": 24.554999996721744
+  },
+  "custom": {
+    "sessionInitialization": {
+      "count": 3,
+      "mean": 323.7416666646798,
+      "median": 57.104999989271164,
+      "p95": 787.3290000021457
+    },
+    "firstInference": {
+      "count": 3,
+      "mean": 74.79833333194256,
+      "median": 66.41499999165535,
+      "p95": 93.0279999986291
+    },
+    "warmInference": {
+      "count": 114,
+      "mean": 48.83767543929188,
+      "median": 48.457499995827675,
+      "p95": 61.620750003308046
+    },
+    "endToEnd": {
+      "count": 110,
+      "mean": 59.491090908375654,
+      "median": 58.314999990165234,
+      "p95": 79.75424999594688
+    },
+    "modelBytes": 4857266
+  },
+  "external": {
+    "sessionInitialization": {
+      "count": 3,
+      "mean": 315.1050000041723,
+      "median": 310.57500000298023,
+      "p95": 411.30750000029803
+    },
+    "firstInference": {
+      "count": 3,
+      "mean": 34.64666666587194,
+      "median": 33.75499999523163,
+      "p95": 45.98599999845028
+    },
+    "warmInference": {
+      "count": 114,
+      "mean": 30.037324561753817,
+      "median": 30.020000003278255,
+      "p95": 40.15174999460578
+    },
+    "endToEnd": {
+      "count": 110,
+      "mean": 42.22677272802049,
+      "median": 41.78499999642372,
+      "p95": 57.02550000250339
+    },
+    "modelBytes": 16799019
+  },
+  "notes": "Local HTTP, desktop Chromium, single-thread WASM, same 114-case corpus, alternating model order, three session creation/first-inference trials, five warmups. End-to-end measures RGBA preprocessing + Tensor + session.run + copied output; excludes UI raster capture/network cold download."
+}

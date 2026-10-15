@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-07",
+  "activeModel": "C:\\BAYA\\apps\\mobile\\public\\models\\baya\\Baybayin_EfficientNetB0_imagenet_finetuned_finetune_1.0.onnx",
+  "sha256": "68462ffc7a85bc830086ddfae082935175c278f6e16063f02d51bef5668cd040",
+  "contract": "apps/mobile/ml/bayaActiveModel.json",
+  "input": "image_input float32 [1,96,96,1]",
+  "output": "Identity:0 float32 [1,63]",
+  "runtime": "onnxruntime-web 1.30.0 WASM",
+  "preprocessing": "apps/mobile/ml/efficientNetPreprocessing.ts: Pillow-compatible grayscale/white alpha composite/invert/ink>0.08/crop/15% padding/center/bilinear/float32 NHWC",
+  "capture": "apps/mobile/ml/writingRecognition.ts: independent 256x256 learner-strokes-only raster; guide excluded",
+  "inference": "apps/mobile/ml/bayaModel.web.ts: one image tensor, metadata checks, finite probabilities, cached session",
+  "topK": "writingRecognition.ts descending raw probabilities; ties by index",
+  "mastery": "writingMastery.ts and WritingPracticeScreen.tsx: canonical Top1 >=0.80, three valid attempts, synchronous lock and stale-result guards",
+  "pwa": "generate-pwa-service-worker.mjs reads active manifest, hashes precache contents, cache-first exact URL; Netlify public copied by Expo with immutable model URLs",
+  "rollbackBefore": "No version selector; old active contract exists beside old asset",
+  "preexistingChanges": "Extensive uncommitted work; BiLSTM 1.0/1.1 assets and contracts already deleted before task. No change to those deletions. Current image-only model preserved.",
+  "blocker": "Final v2 preprocessing provenance not yet established; available notebook has no ExternalFirst reference."
+}

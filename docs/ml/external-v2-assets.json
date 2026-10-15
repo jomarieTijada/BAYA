@@ -1,0 +1,17 @@
+{
+  "previous": {
+    "model": "Baybayin_EfficientNetB0_imagenet_finetuned_finetune_1.0.onnx",
+    "bytes": 16778379,
+    "sha256": "68462ffc7a85bc830086ddfae082935175c278f6e16063f02d51bef5668cd040",
+    "exportMatches": true
+  },
+  "external-v2": {
+    "model": "Baybayin_EfficientNetB0_ExternalFirst_v2.onnx",
+    "bytes": 16799019,
+    "sha256": "c09aac56b853841ca4013ecc3617c1e9fdcc3053b2eec40eaa3038393a0c9396",
+    "exportMatches": true
+  },
+  "activeVersion": "external-v2",
+  "labelsExactCopy": true,
+  "serviceWorkerReferencesNewUrl": true
+}
