@@ -36,6 +36,7 @@ function makeStub(): DatabaseConnection {
 // ---------------------------------------------------------------------------
 let openCallCount = 0;
 let resolveOpen: (() => void) | null = null;
+let mockLatestRawDb: { closeAsync: jest.Mock } | null = null;
 
 jest.mock('expo-sqlite', () => ({
   openDatabaseAsync: jest.fn((_name: string) => {
@@ -43,8 +44,8 @@ jest.mock('expo-sqlite', () => ({
     return new Promise<unknown>((resolve) => {
       // Expose a way to control when the open resolves so we can test
       // concurrent callers without timing dependencies.
-      resolveOpen = () =>
-        resolve({
+      resolveOpen = () => {
+        mockLatestRawDb = {
           execAsync: jest.fn().mockResolvedValue(undefined),
           runAsync: jest.fn().mockResolvedValue({ lastInsertRowId: 0, changes: 0 }),
           getFirstAsync: jest.fn().mockResolvedValue(null),
@@ -52,7 +53,9 @@ jest.mock('expo-sqlite', () => ({
           withExclusiveTransactionAsync: jest.fn().mockImplementation(async (action: (db: unknown) => unknown) => action({})),
           withTransactionAsync: jest.fn().mockImplementation(async (action: () => unknown) => action()),
           closeAsync: jest.fn().mockResolvedValue(undefined),
-        });
+        } as any;
+        resolve(mockLatestRawDb);
+      };
     });
   }),
 }));
@@ -65,6 +68,7 @@ describe('getDatabaseConnection — singleton guarantee', () => {
   beforeEach(() => {
     openCallCount = 0;
     resolveOpen = null;
+    mockLatestRawDb = null;
     // Reset the module-level singleton state between tests by injecting null.
     setDatabaseConnection(null);
   });
@@ -143,6 +147,54 @@ describe('getDatabaseConnection — singleton guarantee', () => {
     setDatabaseConnection(stub);
     const conn = await getDatabaseConnection();
     expect(conn).toBe(stub);
+  });
+
+  it('joins a close requested while the first SQLite open is pending', async () => {
+    const opening = getDatabaseConnection();
+    const closing = closeDatabaseConnection();
+    resolveOpen?.();
+    await opening;
+    await closing;
+    expect(isDatabaseConnected()).toBe(false);
+    expect(mockLatestRawDb?.closeAsync).toHaveBeenCalledTimes(1);
+  });
+
+  it('does not start another open while closeAsync is still running', async () => {
+    let finishClose!: () => void;
+    const closeGate = new Promise<void>((resolve) => { finishClose = resolve; });
+    const stub = makeStub();
+    stub.closeAsync = jest.fn(() => closeGate);
+    setDatabaseConnection(stub);
+
+    const closing = closeDatabaseConnection();
+    const reopening = getDatabaseConnection();
+    await Promise.resolve();
+    expect(openCallCount).toBe(0);
+    finishClose();
+    await closing;
+    await Promise.resolve();
+    resolveOpen?.();
+    await reopening;
+    expect(openCallCount).toBe(1);
+  });
+
+  it('waits for an active transaction before closing SQLite', async () => {
+    const opening = getDatabaseConnection();
+    resolveOpen?.();
+    const db = await opening;
+    let finishTransaction!: () => void;
+    const transactionGate = new Promise<void>((resolve) => { finishTransaction = resolve; });
+    const transaction = db.withTransactionAsync!(async () => {
+      await transactionGate;
+    });
+
+    const closing = closeDatabaseConnection();
+    await Promise.resolve();
+    expect(mockLatestRawDb?.closeAsync).not.toHaveBeenCalled();
+    finishTransaction();
+    await transaction;
+    await closing;
+    expect(mockLatestRawDb?.closeAsync).toHaveBeenCalledTimes(1);
   });
 });
 

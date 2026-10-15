@@ -1,0 +1,55 @@
+/**
+ * app/debug/database.tsx
+ *
+ * Debug-only route for the BAYA SQLite Database Inspector.
+ * Protected by EXPO_PUBLIC_ENABLE_DB_INSPECTOR feature flag.
+ */
+import React from 'react';
+import { Text, View, StyleSheet } from 'react-native';
+import Constants from 'expo-constants';
+
+const DB_INSPECTOR_ENABLED =
+  Constants.expoConfig?.extra?.EXPO_PUBLIC_ENABLE_DB_INSPECTOR === 'true' ||
+  (typeof process !== 'undefined' && process.env?.EXPO_PUBLIC_ENABLE_DB_INSPECTOR === 'true');
+
+export default function DebugDatabaseRoute() {
+  if (!DB_INSPECTOR_ENABLED) {
+    return (
+      <View style={styles.disabled}>
+        <Text style={styles.disabledTitle}>Database Inspector Disabled</Text>
+        <Text style={styles.disabledText}>
+          Set EXPO_PUBLIC_ENABLE_DB_INSPECTOR=true in your environment to enable this tool.
+        </Text>
+      </View>
+    );
+  }
+
+  // Lazy-load the inspector only when enabled
+  const DatabaseInspector = require('../../components/debug/DatabaseInspector').default;
+
+  return <DatabaseInspector />;
+}
+
+const styles = StyleSheet.create({
+  disabled: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#1e1e2e',
+    padding: 24,
+  },
+  disabledTitle: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#cdd6f4',
+    marginBottom: 8,
+    fontFamily: 'monospace',
+  },
+  disabledText: {
+    fontSize: 13,
+    color: '#7f849c',
+    textAlign: 'center',
+    fontFamily: 'monospace',
+    maxWidth: 400,
+  },
+});

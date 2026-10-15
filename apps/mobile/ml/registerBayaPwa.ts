@@ -13,8 +13,10 @@ export function registerBayaPwa(): void {
       try {
         const { closeDatabaseConnection } = await import('../database/connection');
         await closeDatabaseConnection();
-      } catch {
-        // Safe to ignore if database connection was not initialized
+      } catch (error) {
+        console.error('[BAYA PWA] Database ownership release failed; postponing reload', error);
+        reloaded = false;
+        return;
       }
       setTimeout(() => {
         window.location.reload();

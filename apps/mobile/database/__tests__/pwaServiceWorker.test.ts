@@ -12,21 +12,29 @@ describe('PWA Service Worker Generation and Fetch Strategy', () => {
     expect(scriptContent).toContain('/videos/');
   });
 
-  it('guarantees navigation requests never reject uncaught errors', async () => {
+  it('bypasses service worker interception for video, audio, and Range requests', async () => {
     const scriptContent = await readFile(scriptPath, 'utf8');
 
-    // Navigation must fall back to shell or fallback response rather than throwing
+    expect(scriptContent).toContain('isMedia');
+    expect(scriptContent).toContain("request.destination === 'video'");
+    expect(scriptContent).toContain("request.headers.has('range')");
+  });
+
+  it('guarantees navigation requests never reject uncaught errors or return 504', async () => {
+    const scriptContent = await readFile(scriptPath, 'utf8');
+
     expect(scriptContent).toContain("request.mode === 'navigate'");
     expect(scriptContent).toContain("isNavigation");
     expect(scriptContent).toContain("cache.match('/')");
     expect(scriptContent).toContain("caches.match('/')");
     expect(scriptContent).toContain("BAYA is currently offline");
+    expect(scriptContent).not.toContain("status: 504");
   });
 
-  it('guarantees missing subresources return 504 status instead of throwing to respondWith', async () => {
+  it('provides diagnostic logging and clean offline responses without synthetic 504s', async () => {
     const scriptContent = await readFile(scriptPath, 'utf8');
 
-    expect(scriptContent).toContain("status: 504");
-    expect(scriptContent).toContain("Gateway Timeout");
+    expect(scriptContent).toContain("[BAYA SW Asset Fetch Error]");
+    expect(scriptContent).toContain("status: 404");
   });
 });
