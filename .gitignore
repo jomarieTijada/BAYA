@@ -85,3 +85,9 @@ Gavino_Baybayin_PNG/
 ml/diagnostics/captures/
 ml/deployment/onnx/artifacts/
 
+
+# Local research notebooks and duplicate source assets
+*.ipynb
+.ipynb_checkpoints/
+/baybayin_guides_1024/
+/Baybayin_EfficientNetB0_ExternalFirst_v2_labels.json

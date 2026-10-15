@@ -34,3 +34,7 @@ See `apps/mobile/AGENTS.md` before changing the Expo application and `ml/README.
 ## Mobile architecture
 
 See [the content architecture guide](apps/mobile/content/README.md) for adding approved modules, topics, activity types and local/remote media. [The cleanup report](cleanup-report.md) records asset moves, experiments retained outside production, and verification results.
+
+## Local research files
+
+Training notebooks (`*.ipynb`) are kept locally and excluded from GitHub. Historical reports may name these notebooks as provenance; reproducing notebook-based model exports requires the original local research files. Runtime models, model contracts, and test fixtures remain versioned.

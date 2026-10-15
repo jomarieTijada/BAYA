@@ -8,4 +8,4 @@
 - `media/{videos,audio}/`: canonical bundled media. Register stable IDs in `content/mediaCatalog.ts`.
 - `backgrounds/`, `placeholders/`: shared visual assets when actually needed. Current fallbacks are code-rendered.
 
-`public/` contains required PWA icons/manifest only; it must not duplicate bundled lesson videos. Root `sandbox/` and `dev-assets/` preserve experiments and original media, are outside the app/public trees, and are blocked by Metro. `cleanup-report.md` at repository root records decisions and duplicate hashes. Empty category directories are intentional `.gitkeep` placeholders.
+`public/` contains required PWA icons/manifest only; it must not duplicate bundled lesson videos. Root `sandbox/` and `dev-assets/` preserve experiments and original media, are outside the app/public trees, and are blocked by Metro. `docs/cleanup-report.md` records decisions and duplicate hashes. Empty category directories are intentional `.gitkeep` placeholders.
