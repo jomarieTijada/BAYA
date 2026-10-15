@@ -2,10 +2,17 @@
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 
 const DIST_DIR = path.resolve('apps/mobile/dist');
 const PORT = 5099;
-
+const activeModel = JSON.parse(fs.readFileSync('apps/mobile/ml/bayaActiveModel.json', 'utf8'));
+const publicRoot = 'apps/mobile/public';
+const serviceWorker = fs.readFileSync(path.join(DIST_DIR, 'sw.js'), 'utf8');
+const precache = JSON.parse(serviceWorker.match(/const PRECACHE_URLS = (\[[^\n]+\]);/)[1]);
+const intended = [activeModel.modelUrl, activeModel.labelsUrl, activeModel.contractUrl];
+if (intended.some(url => !precache.includes(url))) throw new Error('Production ML asset missing from PWA precache');
+if (precache.some(url => url.startsWith('/models/baya/') && !intended.includes(url))) throw new Error('Unexpected ML asset precached');
 const MIME_MAP = {
   '.html': 'text/html; charset=utf-8',
   '.js': 'application/javascript; charset=utf-8',
@@ -90,7 +97,7 @@ const testUrls = [
   { url: '/learner/home', expectStatus: 200, expectType: 'text/html', expectSpa: true },
   { url: '/learner/settings', expectStatus: 200, expectType: 'text/html', expectSpa: true },
   { url: '/learner/activities/topic-3-1', expectStatus: 200, expectType: 'text/html', expectSpa: true },
-  { url: '/models/baya/Baybayin_EfficientNetB0_BiLSTM_1.1.onnx', expectStatus: 200, expectType: 'application/octet-stream', expectBinary: true, minSize: 15_000_000 },
+  ...intended.map(url => { const bytes = fs.readFileSync(path.join(publicRoot, url)); return { url, expectStatus: 200, expectType: 'application/octet-stream', expectBinary: true, expectedHash: url === activeModel.modelUrl ? activeModel.onnxSha256 : url === activeModel.labelsUrl ? activeModel.labelsSha256 : createHash('sha256').update(bytes).digest('hex'), expectedSize: bytes.length }; }),
   { url: '/ort/ort-wasm-simd-threaded.wasm', expectStatus: 200, expectType: 'application/wasm', expectBinary: true, minSize: 10_000_000 },
   { url: '/ort/ort-wasm-simd-threaded.mjs', expectStatus: 200, expectType: 'application/javascript', expectBinary: false },
   { url: '/ort/ort-wasm-runtime.min.js', expectStatus: 200, expectType: 'application/javascript', expectBinary: false },
@@ -115,6 +122,8 @@ for (const test of testUrls) {
     let pass = status === test.expectStatus;
     if (test.expectType && !contentType.includes(test.expectType)) pass = false;
     if (test.minSize && size < test.minSize) pass = false;
+    if (test.expectedSize && size !== test.expectedSize) pass = false;
+    if (test.expectedHash && createHash('sha256').update(Buffer.from(buffer)).digest('hex') !== test.expectedHash) pass = false;
 
     // Check that binary files are NOT index.html
     if (test.expectBinary) {

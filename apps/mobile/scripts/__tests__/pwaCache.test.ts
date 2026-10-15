@@ -2,9 +2,11 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, realpathSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
+import { runInNewContext } from 'node:vm';
+import { BAYA_MODEL_CONFIG as activeModel } from '../../ml/bayaModelConfig';
 
 const generator = path.resolve(__dirname, '../generate-pwa-service-worker.mjs');
-const model = 'Baybayin_EfficientNetB0_BiLSTM_1.1.onnx';
+const model = activeModel.model;
 let outputRoot: string;
 
 function write(relativePath: string, content: string) {
@@ -28,14 +30,17 @@ beforeEach(() => {
   write('favicon.ico', 'icon');
   write('icon-192.png', 'icon');
   write('icon-512.png', 'icon');
-  write(`models/baya/${model}`, 'v1.1 model bytes');
+  write(`models/baya/${model}`, 'active model bytes');
+  write(activeModel.labelsUrl.slice(1), 'production labels');
+  write(activeModel.contractUrl.slice(1), 'production contract');
+  write('models/baya/unselected.onnx', 'unselected bytes');
   write('ort/ort-wasm-runtime.min.js', 'runtime');
   write('ort/ort-wasm-simd-threaded.mjs', 'loader');
   write('ort/ort-wasm-simd-threaded.wasm', 'wasm');
   write('_expo/static/js/web/entry-test.js', 'bundle v1');
   write('_expo/static/js/web/worker-test.js', 'worker');
   write('assets/reference.png', 'reference');
-  write('assets/media/videos/lesson.mp4', 'large video');
+  write('assets/assets/media/videos/baybayin-song.test.mp4', 'large video');
 });
 
 afterEach(() => {
@@ -47,7 +52,7 @@ afterEach(() => {
   rmSync(resolved, { recursive: true, force: true });
 });
 
-it('precaches the v1.1 model, ORT WASM, and app shell without the old model or video', () => {
+it('exports and precaches only the active model, ORT WASM, and app shell', () => {
   generate();
   const worker = readFileSync(path.join(outputRoot, 'sw.js'), 'utf8');
   expect(worker).toContain(`/models/baya/${model}`);
@@ -57,9 +62,49 @@ it('precaches the v1.1 model, ORT WASM, and app shell without the old model or v
   expect(worker).toContain('/_expo/static/js/web/entry-test.js');
   expect(worker).toContain('/_expo/static/js/web/worker-test.js');
   expect(worker).toContain('/assets/reference.png');
-  expect(worker).not.toContain('BiLSTM_1.0.onnx');
+  expect(worker).not.toContain('unselected.onnx');
+  expect(existsSync(path.join(outputRoot, 'models/baya/unselected.onnx'))).toBe(false);
   expect(worker).not.toContain('lesson.mp4');
+  expect(worker).not.toContain('baybayin-song.test.mp4');
   expect(generate('--check')).toContain('Verified baya-pwa-');
+});
+
+it('fails export when the lesson MP4 is absent', () => {
+  const video = path.join(outputRoot, 'assets/assets/media/videos/baybayin-song.test.mp4');
+  rmSync(video);
+  expect(() => generate()).toThrow();
+});
+
+it('leaves video and Range requests to the browser without a cache or SPA response', () => {
+  generate();
+  const worker = readFileSync(path.join(outputRoot, 'sw.js'), 'utf8');
+  const listeners: Record<string, (event: any) => void> = {};
+  const fetch = jest.fn();
+  const open = jest.fn();
+  runInNewContext(worker, {
+    self: {
+      location: { origin: 'https://baya.test' },
+      addEventListener: (name: string, listener: (event: any) => void) => {
+        listeners[name] = listener;
+      },
+    },
+    URL,
+    Set,
+    fetch,
+    caches: { open },
+  });
+  for (const request of [
+    { url: 'https://baya.test/assets/assets/media/videos/baybayin-song.test.mp4', destination: 'video', headers: { has: () => false } },
+    { url: 'https://baya.test/stream/lesson', destination: 'video', headers: { has: () => false } },
+    { url: 'https://baya.test/assets/assets/media/videos/missing.mp4', destination: '', headers: { has: () => false } },
+    { url: 'https://baya.test/assets/file.bin', destination: '', headers: { has: (name: string) => name === 'range' } },
+  ]) {
+    const respondWith = jest.fn();
+    listeners.fetch({ request: { method: 'GET', ...request }, respondWith });
+    expect(respondWith).not.toHaveBeenCalled();
+  }
+  expect(fetch).not.toHaveBeenCalled();
+  expect(open).not.toHaveBeenCalled();
 });
 
 it('changes the cache version when an exported bundle changes', () => {

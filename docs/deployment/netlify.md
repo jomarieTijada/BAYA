@@ -11,7 +11,7 @@ BAYA is architected as an offline-capable React Native Web / Expo application wi
 Key runtime components:
 - **Client Framework**: React Native Web 0.21.2, Expo SDK 57, Expo Router 57 (Single-Page Application).
 - **Client Persistence**: `expo-sqlite@~57.0.3` running `wa-sqlite` over browser **Origin Private File System (OPFS)** via `AccessHandlePoolVFS`. OPFS requires a **Secure Context** (`window.isSecureContext === true`, available on `https://` and `localhost`).
-- **Machine Learning**: `onnxruntime-web@1.30.0` executing `Baybayin_EfficientNetB0_BiLSTM_1.1.onnx` (17.17 MB) using WebAssembly (WASM CPU) with multi-threading / SIMD.
+- **Machine Learning**: `onnxruntime-web@1.30.0` executing `Baybayin_EfficientNetB0_BiLSTM_1.1.onnx` (16.38 MiB) using WebAssembly (WASM CPU) with one thread / SIMD.
 - **Service Worker / PWA**: Custom versioned Service Worker (`sw.js`) precaching the app shell, static assets, ONNX model, and WASM runtime for offline operation.
 - **Routing**: Client-side Single Page Application (SPA) routing where all non-file URLs rewrite to `/index.html` with HTTP 200.
 
@@ -105,7 +105,7 @@ Referrer-Policy: strict-origin-when-cross-origin
 
 ## 6. Large File Caching & MIME Types
 
-The ONNX model (`17.17 MB`) and WASM runtime (`14.24 MB`) must be served as immutable binaries without accidental HTML SPA rewrites:
+The ONNX model (`16.38 MiB`) and WASM runtime (`14.24 MB`) must be served as immutable binaries without accidental HTML SPA rewrites:
 
 | Route | Content-Type | Cache-Control |
 |---|---|---|
@@ -153,7 +153,7 @@ Verify that client-side routes can be directly refreshed without Netlify 404 err
 2. Draw the Baybayin character for **A** (ᜀ).
 3. Tap **Suriin**.
 4. In DevTools Network tab, verify:
-   - `/models/baya/Baybayin_EfficientNetB0_BiLSTM_1.1.onnx` returns HTTP 200 with ~17.17 MB.
+   - `/models/baya/Baybayin_EfficientNetB0_BiLSTM_1.1.onnx` returns HTTP 200 with ~16.38 MiB.
    - `/ort/ort-wasm-simd-threaded.wasm` returns HTTP 200 with ~14.24 MB.
 5. In the UI, verify:
    - Recognition result displays Top-1 candidate and confidence percentage.

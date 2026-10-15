@@ -139,4 +139,3 @@ No known failing assessment-control case remains from the tested scenarios. Conf
 Physical touch devices and audible audio playback were not manually tested. Existing media/reference tests passed. Native ONNX recognition remains unsupported by the existing native adapter; this work verifies the supported web/PWA runtime.
 
 This is a local offline application. Handler guards protect against disabled-button bypass and ordinary UI-state manipulation, but arbitrary JavaScript execution or direct database tampering cannot be made tamper-proof with client-only state. No server attestation or persistence architecture was invented.
-
