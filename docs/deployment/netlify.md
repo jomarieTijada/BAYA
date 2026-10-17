@@ -21,7 +21,7 @@ Key runtime components:
 
 When creating a new site in the [Netlify Dashboard](https://app.netlify.com/):
 
-### Option A: Monorepo Root Setup (Recommended)
+### Monorepo Root Setup
 This matches the primary `netlify.toml` in the repository root:
 - **Repository**: Select your BAYA Git repository (GitHub / GitLab).
 - **Base directory**: *(Leave empty / root)*
@@ -29,18 +29,11 @@ This matches the primary `netlify.toml` in the repository root:
 - **Publish directory**: `apps/mobile/dist`
 - **Functions directory**: *(None)*
 
-### Option B: Subdirectory Setup
-If you prefer setting the Netlify Base Directory to the mobile app workspace:
-- **Base directory**: `apps/mobile`
-- **Build command**: `npm run export:web`
-- **Publish directory**: `dist`
-- **Functions directory**: *(None)*
-
-Both configurations are fully supported because repository-controlled configuration files exist at both levels:
-1. `C:\BAYA\netlify.toml` (Monorepo root)
-2. `C:\BAYA\apps\mobile\netlify.toml` (Workspace root)
-3. `C:\BAYA\apps\mobile\public\_redirects` (Copied to `dist/_redirects`)
-4. `C:\BAYA\apps\mobile\public\_headers` (Copied to `dist/_headers`)
+Use the root setup above with the current configuration. There is one
+`netlify.toml`, at `C:\BAYA\netlify.toml`; there is no workspace-level copy.
+Changing the base directory would require reviewing the build and publish paths.
+The existing `apps/mobile/public/_redirects` and `apps/mobile/public/_headers`
+are also copied to the exported `dist` directory.
 
 ---
 
@@ -55,6 +48,18 @@ Recommended Netlify build environment variables:
 | `NPM_FLAGS` | `--legacy-peer-deps` | Ensures seamless peer dependency resolution across Expo packages |
 
 These are already declared in `netlify.toml` under `[build.environment]`.
+
+The optional public client flag `EXPO_PUBLIC_ENABLE_DB_INSPECTOR` defaults to
+`false`. Keep it unset or `false` for production. If an override is needed for a
+controlled build, set it in Netlify's environment settings for that deploy context
+and make it available to builds. Expo embeds the value at export time, so a new
+build is required after changes. The flag is not an authorization boundary.
+
+The developer's `apps/mobile/.env` is Git-ignored and is not available in a Git-based
+Netlify build. Do not upload it or place it in `public/`. `.env.example` documents
+safe defaults and is not automatically loaded. No Supabase or backend credentials
+are required. All `EXPO_PUBLIC_` values are public; server secrets must stay in a
+separate trusted backend. See [Environment Configuration](../development/environment.md).
 
 ---
 

@@ -6,13 +6,11 @@
  */
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import Constants from 'expo-constants';
-
-const DB_INSPECTOR_ENABLED =
-  Constants.expoConfig?.extra?.EXPO_PUBLIC_ENABLE_DB_INSPECTOR === 'true' ||
-  (typeof process !== 'undefined' && process.env?.EXPO_PUBLIC_ENABLE_DB_INSPECTOR === 'true');
 
 export default function DebugDatabaseRoute() {
+  // Expo inlines static dot notation. Missing/invalid values keep the tool disabled.
+  const DB_INSPECTOR_ENABLED = process.env.EXPO_PUBLIC_ENABLE_DB_INSPECTOR === 'true';
+
   if (!DB_INSPECTOR_ENABLED) {
     return (
       <View style={styles.disabled}>
