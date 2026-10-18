@@ -1,3 +1,11 @@
+# Larger right-edge swipe hand — 19 October 2026
+
+The user requested a larger, more visible hand at the far-right edge. This supersedes the small inter-card placement below. `LessonJourney` now anchors a **48 px orange hand** 12 px inside the visible row's right edge, vertically centered within its measured visible height. The hand moves 32 px left, three times the previous short-phone icon size with four times its travel. Its transparent, temporary overlay reserves no space and passes all touches through to the lesson cards.
+
+The landscape-only start, two brief gestures, session dismissal, reduced-motion preference and offline asset behavior remain intact. No bottom navigation, card styling, progression or persistence changes are included.
+
+Validation: 3 focused suites / 13 tests passed; TypeScript passed; lint reported 0 errors and 14 existing warnings; production build passed (163 assets, `baya-pwa-c00445777e51e87a`). Production browser evidence is in `sandbox/right-hand/`, including `fixed-780.png` and `fixed-667.png`. Completed-card screenshots are labeled presentation fixtures, not changes to learner records. Browser checks passed at five viewport sizes, including 780×315 and 667×375, with animation frames, rotation, touch dismissal, session return, reduced motion and cached offline behavior verified; zero runtime exceptions. This export is ready for a separate Netlify upload.
+
 # Phone swipe hint correction — 19 October 2026
 
 The installed-phone report exposed two omissions: the cue required 36 px of unused vertical space below a card, so it was suppressed on short landscape viewports; its timeout could also finish behind the portrait rotation guard.

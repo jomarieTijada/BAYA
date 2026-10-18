@@ -6,7 +6,7 @@ import { AppIcon } from '../../ui/AppIcon';
 /** Memory only: revisiting the journey must not replay its onboarding. */
 export const lessonJourneyHintSession = new Set<string>();
 
-export function FloatingSwipeHint({ left, top, size = 28, travel = 28, onDismiss }: { left: number; top: number; size?: number; travel?: number; onDismiss: () => void }) {
+export function FloatingSwipeHint({ left, top, size = 48, travel = 32, onDismiss }: { left: number; top: number; size?: number; travel?: number; onDismiss: () => void }) {
   const reduced = useReducedMotionPreference();
   const [opacity] = useState(() => new Animated.Value(0));
   const [translation] = useState(() => new Animated.Value(0));
@@ -35,5 +35,5 @@ export function FloatingSwipeHint({ left, top, size = 28, travel = 28, onDismiss
   </Animated.View>;
 }
 const styles = StyleSheet.create({
-  gesture: { position: 'absolute', width: 28, height: 28, backgroundColor: 'transparent', zIndex: 2 },
+  gesture: { position: 'absolute', backgroundColor: 'transparent', zIndex: 2 },
 });

@@ -38,12 +38,12 @@ it('replaces arrows with bounded keyboard and accessibility scrolling', () => {
   fireEvent(row, 'keyDown', { key: 'Home', target, currentTarget: target, preventDefault });
   expect(scrollTo).toHaveBeenLastCalledWith({ x: 0, animated: false });
 });
-it('uses the existing card gap when a short viewport cannot fit the full gesture', () => {
+it('keeps a large gesture at the visible right edge on short phones', () => {
   render(<LessonJourney lessons={lessons} availableHeight={180} />); layout();
   const style = StyleSheet.flatten(screen.getByTestId('floating-swipe-hint').props.style);
-  expect(style.width).toBe(16);
-  expect(style.left - 8).toBeGreaterThanOrEqual(240);
-  expect(style.left + style.width).toBeLessThanOrEqual(264);
+  expect(style.width).toBe(48);
+  expect(style.left - 32).toBeGreaterThanOrEqual(0);
+  expect(style.left + style.width).toBe(600 - 12);
   expect(style.top + style.height).toBeLessThanOrEqual(180);
 });
 it('does not spend the hint timeout behind the portrait rotation guard', () => {

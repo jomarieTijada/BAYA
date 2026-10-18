@@ -32,23 +32,15 @@ export function LessonJourney({ lessons, availableHeight = 0, onContinueLesson }
       : LessonCardWidth.regular;
   const overflow = viewportWidth > 0 && contentWidth > viewportWidth + 1;
   const rowHeight = Math.max(0, ...Object.values(cardHeights));
-  // Prefer the full gesture below a shorter card. On short phones, use the
-  // existing gap between cards without covering content or reserving space.
-  const belowCard = lessons.map((lesson, index) => ({
-    left: index * (cardWidth + Spacing.lg) - offset + cardWidth * 0.7,
-    top: (cardHeights[lesson.id] ?? Infinity) + 8,
-    size: 28,
-    travel: 28,
-  })).filter(slot => slot.left - 28 >= 0 && slot.left + 28 <= viewportWidth && slot.top + 28 <= Math.min(rowHeight, availableHeight))
-    .sort((a, b) => a.top - b.top || b.left - a.left)[0];
-  const betweenCards = lessons.slice(0, -1).map((lesson, index) => ({
-    left: index * (cardWidth + Spacing.lg) - offset + cardWidth + 8,
-    top: Math.min(rowHeight, availableHeight) * 0.55 - 8,
-    size: 16,
-    travel: 8,
-  })).find(slot => slot.left - slot.travel >= 0 && slot.left + slot.size <= viewportWidth
-    && slot.top >= 0 && slot.top + slot.size <= Math.min(rowHeight, availableHeight));
-  const hintSlot = belowCard ?? betweenCards;
+  // Anchor the gesture to the visible right edge, independent of card gaps.
+  // It floats over the row without taking space or intercepting card presses.
+  const visibleHeight = Math.min(rowHeight, availableHeight);
+  const hintSlot = visibleHeight >= 64 && viewportWidth >= 92 ? {
+    left: viewportWidth - 48 - 12,
+    top: (visibleHeight - 48) / 2,
+    size: 48,
+    travel: 32,
+  } : undefined;
   const navigate = (x: number) => {
     dismissHint();
     scroller.current?.scrollTo({ x: Math.min(maxOffset, Math.max(0, x)), animated: false });
