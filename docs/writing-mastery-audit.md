@@ -1,8 +1,8 @@
 # BAYA handwriting mastery audit
 
-Date: 2026-10-06 (Asia/Taipei)
+Original audit: 2026-10-06 (Asia/Taipei). Policy updated with teacher approval on 2026-10-17; see `stakeholder-feedback-review.md` for current verification.
 
-BAYA now requires **three separately drawn, saved model evaluations whose Top-1 class is the target and whose raw probability is at least 0.80** before its Next handler advances. Invalid submissions preserve earned progress. The ONNX model, preprocessing, output probabilities, class ordering, runtime, curriculum, and database schema were not changed by this task.
+BAYA now requires **two separately drawn, saved model evaluations whose Top-1 class is the target and whose raw probability is at least 0.80** before its Next handler advances. Invalid submissions preserve earned progress. The ONNX model, preprocessing, output probabilities, class ordering, runtime, curriculum, and database schema were not changed by this task.
 
 ## 1. Files inspected
 
@@ -58,9 +58,9 @@ The comparison uses the unmodified numeric probability. 0.80 and 0.800001 pass; 
 
 The ranked result must be descending, valid and nonempty. Every prediction's label must agree with its class index. Unknown or duplicate class IDs are rejected. Rank 2/3 cannot earn credit, even above 80%. Existing stable descending ranking is retained, including tie ordering; no target promotion or probability adjustment occurs.
 
-## 7. Three-valid-attempt state
+## 7. Two-valid-attempt state (updated 2026-10-17)
 
-The current character has rendered count state plus a synchronous authoritative ref for handlers. A successful saved evaluation applies `min(requiredValidAttempts, count + (valid ? 1 : 0))`. Failures do not reset or increment it. Ordinary rerenders preserve the count; it never exceeds three. Session mastery history records completed characters so the topic-completion handler can require every character to have been mastered.
+The current character has rendered count state plus a synchronous authoritative ref for handlers. A successful saved evaluation applies `min(requiredValidAttempts, count + (valid ? 1 : 0))`. Failures do not reset or increment it. Ordinary rerenders preserve the count; it never exceeds two. Session mastery history records completed characters so the topic-completion handler can require every character to have been mastered.
 
 ## 8. Next gating and boundaries
 
@@ -134,7 +134,7 @@ Jest reports existing asynchronous React act warnings and retained handles; full
 
 ## 19. Limits and unresolved edge cases
 
-No known failing assessment-control case remains from the tested scenarios. Confidence guarantees concern the actual raw model result, not recognition accuracy. The live browser check exercised a failing real drawing; successful three-check progression is proven by deterministic component tests, not by manufacturing confident model output.
+No known failing assessment-control case remains from the tested scenarios. Confidence guarantees concern the actual raw model result, not recognition accuracy. The live browser check exercised a failing real drawing; the original three-check progression was proven by deterministic component tests, not by manufacturing confident model output.
 
 Physical touch devices and audible audio playback were not manually tested. Existing media/reference tests passed. Native ONNX recognition remains unsupported by the existing native adapter; this work verifies the supported web/PWA runtime.
 

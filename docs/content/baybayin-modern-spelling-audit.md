@@ -6,7 +6,7 @@ On 2026-10-07, the user explicitly selected modern Baybayin with a vowel-cancell
 
 The audit uses the [Unicode Tagalog character chart](https://www.unicode.org/charts/PDF/U1700.pdf) and [Unicode's Philippine script principles](https://www.unicode.org/versions/Unicode18.0.0/core-spec/chapter-17/): consonants carry an inherent A; the upper vowel sign represents I/E, the lower sign represents U/O, and a virama cancels the inherent vowel. The examples consistently use **U+1714 TAGALOG SIGN VIRAMA**, the cross-shaped cancellation mark. A final N is consequently `ᜈ᜔`, not unmarked `ᜈ` (NA).
 
-The spellings below are a word-by-word application of those rules. They are not a claim that Unicode publishes a Filipino word dictionary. The existing DA/RA character convention is retained for HAri. No new RA reference character or font is introduced.
+The spellings below are a word-by-word application of those rules. They are not a claim that Unicode publishes a Filipino word dictionary. On 2026-10-17 the teacher selected HALAMAN to replace HARI. Its Filipino syllables are ha-la-man; its encoded units are ha-la-ma-n. The final N uses U+1714. Character IDs, HA reference glyph, illustration and pronunciation remain unchanged; no word-specific audio or illustration exists.
 
 ## All 17 examples
 
@@ -19,7 +19,7 @@ The spellings below are a word-by-word application of those rules. They are not 
 | KAibigan | ka-i-bi-ga-n | ᜃᜁᜊᜒᜄᜈ᜔ | Added final N + virama |
 | DAhon | da-ho-n | ᜇᜑᜓᜈ᜔ | Added final N + virama |
 | GAtas | ga-ta-s | ᜄᜆᜐ᜔ | Added final S + virama |
-| HAri | ha-ri | ᜑᜇᜒ | Already complete; shared DA/RA glyph |
+| HAlaman | ha-la-ma-n | ᜑᜎᜋᜈ᜔ | Teacher-selected replacement, 2026-10-17; final N + virama |
 | LAwa | la-wa | ᜎᜏ | Already complete |
 | MAta | ma-ta | ᜋᜆ | Already complete |
 | NAnay | na-na-y | ᜈᜈᜌ᜔ | Added final Y + virama |
