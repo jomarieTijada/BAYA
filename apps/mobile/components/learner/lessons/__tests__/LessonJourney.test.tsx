@@ -1,12 +1,13 @@
 import React from 'react';
-import { Animated, Platform, ScrollView } from 'react-native';
+import { Animated, Platform, ScrollView, StyleSheet } from 'react-native';
 import { act, fireEvent, render, screen } from '@testing-library/react-native';
 import { LessonJourney } from '../LessonJourney';
 import { lessonJourneyHintSession } from '../FloatingSwipeHint';
 import { createApprovedModules } from '../lessonData';
 jest.mock('../../../ui/AppIcon', () => ({ AppIcon: () => null }));
 jest.mock('../LessonCard', () => ({ LessonCard: () => null, LessonCardWidth: { landscapeCompact: 240, compact: 280, regular: 330 } }));
-jest.mock('../../../../hooks/useResponsiveLayout', () => ({ useResponsiveLayout: () => ({ height: 375, isPhone: true, isCompactHeight: true, isPhoneLandscape: true }) }));
+let mockViewport = { width: 667, height: 375 };
+jest.mock('../../../../hooks/useResponsiveLayout', () => ({ useResponsiveLayout: () => ({ ...mockViewport, isPhone: true, isCompactHeight: true, isPhoneLandscape: mockViewport.width > mockViewport.height }) }));
 jest.mock('../../../../hooks/useReducedMotionPreference', () => ({ useReducedMotionPreference: () => false }));
 const lessons = createApprovedModules();
 function layout(width = 600) {
@@ -14,7 +15,7 @@ function layout(width = 600) {
   fireEvent(screen.getByTestId('lesson-journey'), 'contentSizeChange', 900, 300);
   lessons.forEach((lesson, index) => fireEvent(screen.getByTestId(`journey-slot-${lesson.id}`), 'layout', { nativeEvent: { layout: { height: index ? 170 : 300 } } }));
 }
-beforeEach(() => { lessonJourneyHintSession.clear(); jest.useFakeTimers(); jest.replaceProperty(Platform, 'OS', 'web'); jest.spyOn(Animated, 'sequence').mockReturnValue({ start: jest.fn(), stop: jest.fn(), reset: jest.fn() }); });
+beforeEach(() => { mockViewport = { width: 667, height: 375 }; lessonJourneyHintSession.clear(); jest.useFakeTimers(); jest.replaceProperty(Platform, 'OS', 'web'); jest.spyOn(Animated, 'sequence').mockReturnValue({ start: jest.fn(), stop: jest.fn(), reset: jest.fn() }); });
 afterEach(() => { jest.useRealTimers(); jest.restoreAllMocks(); });
 it('replaces arrows with bounded keyboard and accessibility scrolling', () => {
   const scrollTo = jest.spyOn(ScrollView.prototype, 'scrollTo').mockImplementation(() => {});
@@ -37,8 +38,26 @@ it('replaces arrows with bounded keyboard and accessibility scrolling', () => {
   fireEvent(row, 'keyDown', { key: 'Home', target, currentTarget: target, preventDefault });
   expect(scrollTo).toHaveBeenLastCalledWith({ x: 0, animated: false });
 });
-it('omits the gesture when the measured viewport has no safe empty area', () => {
+it('uses the existing card gap when a short viewport cannot fit the full gesture', () => {
   render(<LessonJourney lessons={lessons} availableHeight={180} />); layout();
+  const style = StyleSheet.flatten(screen.getByTestId('floating-swipe-hint').props.style);
+  expect(style.width).toBe(16);
+  expect(style.left - 8).toBeGreaterThanOrEqual(240);
+  expect(style.left + style.width).toBeLessThanOrEqual(264);
+  expect(style.top + style.height).toBeLessThanOrEqual(180);
+});
+it('does not spend the hint timeout behind the portrait rotation guard', () => {
+  mockViewport = { width: 375, height: 667 };
+  const view = render(<LessonJourney lessons={lessons} availableHeight={250} />); layout();
+  act(() => jest.advanceTimersByTime(5000));
+  expect(screen.queryByTestId('floating-swipe-hint')).toBeNull();
+  expect(lessonJourneyHintSession.size).toBe(0);
+  mockViewport = { width: 667, height: 375 };
+  view.rerender(<LessonJourney lessons={lessons} availableHeight={250} />);
+  expect(screen.getByTestId('floating-swipe-hint')).toBeTruthy();
+});
+it('waits for actual layout measurements', () => {
+  render(<LessonJourney lessons={lessons} />); layout();
   expect(screen.queryByTestId('floating-swipe-hint')).toBeNull();
 });
 it('hides when content fits and reevaluates after resize without changing card dimensions', () => {

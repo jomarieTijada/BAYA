@@ -1,3 +1,15 @@
+# Phone swipe hint correction — 19 October 2026
+
+The installed-phone report exposed two omissions: the cue required 36 px of unused vertical space below a card, so it was suppressed on short landscape viewports; its timeout could also finish behind the portrait rotation guard.
+
+The full 28 px hand and 28 px sweep remain the preferred placement. When that cannot fit, a 16 px hand moves 8 px left within the existing 24 px gap between cards. Its entire sweep stays outside the card rectangles. The fallback adds no background, controls, padding, card resizing or scrolling region. Animation starts only in landscape. Existing session dismissal, reduced-motion handling, touch passthrough and offline assets remain unchanged.
+
+The reported bottom gap was not visible in the supplied screenshot. The user asked to ignore it; no navigation or safe-area changes are included. Physical installed-PWA inset behavior is not claimed as verified.
+
+Browser evidence is in `sandbox/phone-navigation/`: `fixed-780.png`, `fixed-667.png`, `portrait-then-landscape.png`, `offline.png`, and `browser-results.json`. Completed-card screenshots use explicitly labeled presentation fixtures in an isolated browser; no learner records were changed. Verification covers 780×315, 667×375, 844×390, 1024×768 and 1366×768, plus portrait-to-landscape rotation, session return, touch dismissal, reduced motion and cached offline reload. The hint is correctly absent when all cards fit.
+
+Validation: **58 suites / 550 tests passed**; TypeScript passed; lint passed with 0 errors and 14 existing warnings; `npm run build` passed (163 cached assets, `baya-pwa-1cd6e6983fdb6b8d`). Browser checks reported zero runtime exceptions. The refreshed `apps/mobile/dist` is ready for a separate Netlify deployment.
+
 # Current gesture-only lesson guidance — 18 October 2026
 
 **SUCCESS — implemented and visually verified on web.** This correction supersedes the pill and edge-chevron UI below. Both navigation rails and their 88 px reserved width are removed. The lesson row again uses its full width. Only a transparent 28 px orange hand briefly moves left twice and fades away, with no visible text, pill, shadow or arrow. Placement uses measured card heights and available viewport space; the gesture is omitted if no safe area exists or reduced motion is enabled.

@@ -6,7 +6,7 @@ import { AppIcon } from '../../ui/AppIcon';
 /** Memory only: revisiting the journey must not replay its onboarding. */
 export const lessonJourneyHintSession = new Set<string>();
 
-export function FloatingSwipeHint({ left, top, onDismiss }: { left: number; top: number; onDismiss: () => void }) {
+export function FloatingSwipeHint({ left, top, size = 28, travel = 28, onDismiss }: { left: number; top: number; size?: number; travel?: number; onDismiss: () => void }) {
   const reduced = useReducedMotionPreference();
   const [opacity] = useState(() => new Animated.Value(0));
   const [translation] = useState(() => new Animated.Value(0));
@@ -20,18 +20,18 @@ export function FloatingSwipeHint({ left, top, onDismiss }: { left: number; top:
       try {
         const gesture = () => Animated.sequence([
           timing(translation, 0, 0), timing(opacity, 1, 180),
-          timing(translation, -28, 750), timing(opacity, 0, 220),
+          timing(translation, -travel, 750), timing(opacity, 0, 220),
         ]);
         animation = Animated.sequence([Animated.delay(700), gesture(), Animated.delay(200), gesture()]);
         animation.start();
       } catch { /* The natural card peek and accessible scrolling remain available. */ }
     }
     return () => { clearTimeout(timer); animation?.stop(); };
-  }, [onDismiss, opacity, reduced, translation]);
+  }, [onDismiss, opacity, reduced, translation, travel]);
   // The partial next card is the static affordance for reduced-motion users.
   if (reduced) return null;
-  return <Animated.View accessible accessibilityLabel="I-swipe pakaliwa para makita ang kasunod na modyul." pointerEvents="none" style={[styles.gesture, { left, top, opacity, transform: [{ translateX: translation }] }]} testID="floating-swipe-hint">
-    <AppIcon name="swipeHand" size={28} color="accent" />
+  return <Animated.View accessible accessibilityLabel="I-swipe pakaliwa para makita ang kasunod na modyul." pointerEvents="none" style={[styles.gesture, { left, top, width: size, height: size, opacity, transform: [{ translateX: translation }] }]} testID="floating-swipe-hint">
+    <AppIcon name="swipeHand" size={size} color="accent" />
   </Animated.View>;
 }
 const styles = StyleSheet.create({

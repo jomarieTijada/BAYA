@@ -14,7 +14,7 @@ type Props = {
 
 /** Keeps modules in one row, centered when they fit and swipeable when they do not. */
 export function LessonJourney({ lessons, availableHeight = 0, onContinueLesson }: Props) {
-  const { isPhone, isCompactHeight, isPhoneLandscape } = useResponsiveLayout();
+  const { isPhone, isCompactHeight, isPhoneLandscape, width, height } = useResponsiveLayout();
   const sessionKey = lessons.map(lesson => lesson.id).join(':');
   const [dismissed, setDismissed] = useState(() => lessonJourneyHintSession.has(sessionKey));
   const dismissHint = useCallback(() => { lessonJourneyHintSession.add(sessionKey); setDismissed(true); }, [sessionKey]);
@@ -32,13 +32,23 @@ export function LessonJourney({ lessons, availableHeight = 0, onContinueLesson }
       : LessonCardWidth.regular;
   const overflow = viewportWidth > 0 && contentWidth > viewportWidth + 1;
   const rowHeight = Math.max(0, ...Object.values(cardHeights));
-  // The complete 56 px gesture sweep must stay in measured empty space below
-  // a card, inside both the row and the available viewport. Otherwise omit it.
-  const hintSlot = lessons.map((lesson, index) => ({
+  // Prefer the full gesture below a shorter card. On short phones, use the
+  // existing gap between cards without covering content or reserving space.
+  const belowCard = lessons.map((lesson, index) => ({
     left: index * (cardWidth + Spacing.lg) - offset + cardWidth * 0.7,
     top: (cardHeights[lesson.id] ?? Infinity) + 8,
+    size: 28,
+    travel: 28,
   })).filter(slot => slot.left - 28 >= 0 && slot.left + 28 <= viewportWidth && slot.top + 28 <= Math.min(rowHeight, availableHeight))
     .sort((a, b) => a.top - b.top || b.left - a.left)[0];
+  const betweenCards = lessons.slice(0, -1).map((lesson, index) => ({
+    left: index * (cardWidth + Spacing.lg) - offset + cardWidth + 8,
+    top: Math.min(rowHeight, availableHeight) * 0.55 - 8,
+    size: 16,
+    travel: 8,
+  })).find(slot => slot.left - slot.travel >= 0 && slot.left + slot.size <= viewportWidth
+    && slot.top >= 0 && slot.top + slot.size <= Math.min(rowHeight, availableHeight));
+  const hintSlot = belowCard ?? betweenCards;
   const navigate = (x: number) => {
     dismissHint();
     scroller.current?.scrollTo({ x: Math.min(maxOffset, Math.max(0, x)), animated: false });
@@ -88,7 +98,7 @@ export function LessonJourney({ lessons, availableHeight = 0, onContinueLesson }
         </View>
       ))}
     </ScrollView>
-    {overflow && !dismissed && offset <= 1 && hintSlot && <FloatingSwipeHint {...hintSlot} onDismiss={dismissHint} />}
+    {width > height && overflow && !dismissed && offset <= 1 && hintSlot && <FloatingSwipeHint {...hintSlot} onDismiss={dismissHint} />}
     </View>
   );
 }
