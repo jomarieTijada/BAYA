@@ -1,5 +1,5 @@
 import React, { type ReactNode } from "react";
-import { Image } from "expo-image";
+import { SpeechBubbleTail } from "../../ui/SpeechBubbleTail";
 import { View, Text } from "react-native";
 import { storyGuideStyles as styles } from "./storyGuideStyles";
 function renderHighlightedText(text: string, highlightWords: string[] = []) {
@@ -72,31 +72,7 @@ export function StorySpeechBubble({
         {renderHighlightedText(takeawayText, highlightWords)}
       </Text>}
 
-      {/* Custom smooth curved pointer tail pointing toward BAYA's face */}
-      <View
-        pointerEvents="none"
-        style={[
-          styles.tailWrapper,
-          isTablet && styles.tailWrapperTablet,
-          compact && styles.tailWrapperCompact,
-          effectiveLandscape && styles.tailWrapperLandscape,
-          stackGuide && styles.tailHidden,
-        ]}
-      >
-        <Image
-          accessible={false}
-          aria-hidden
-          contentFit="contain"
-          source={require("../../../assets/icons/lesson/baya_speech_tail.svg")}
-          style={[
-            styles.tailImage,
-            isTablet && styles.tailImageTablet,
-            compact && styles.tailImageCompact,
-            effectiveLandscape && styles.tailImageLandscape,
-          ]}
-          transition={0}
-        />
-      </View>
+      {!stackGuide && <SpeechBubbleTail position="right" size={effectiveLandscape ? 'landscape' : compact ? 'compact' : isTablet ? 'tablet' : 'regular'} />}
     </View>
   );
 }

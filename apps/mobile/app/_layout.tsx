@@ -21,6 +21,7 @@ import { Colors } from '../constants/theme';
 import { useResponsiveLayout } from '../hooks/useResponsiveLayout';
 import { getReadyDatabase } from '../database';
 import { registerBayaPwa } from '../ml/registerBayaPwa';
+import { LandscapeGuard } from '../components/layout/LandscapeGuard';
 
 let hasTriggeredMlSmoke = false;
 let hasTriggeredMlBenchmark = false;
@@ -66,13 +67,13 @@ export default function RootLayout() {
         hidden={isPhoneLandscape}
         style="dark"
       />
-      <Stack
+      <LandscapeGuard><Stack
         screenOptions={{
           animation: 'fade',
           contentStyle: { backgroundColor: Colors.background, flex: 1 },
           headerShown: false,
         }}
-      />
+      /></LandscapeGuard>
     </SafeAreaProvider>
   );
 }

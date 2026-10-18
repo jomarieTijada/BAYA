@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import React from 'react';
+import React, { useEffect, useRef, useSyncExternalStore } from 'react';
 import {
   Platform,
   StyleSheet,
@@ -10,18 +10,36 @@ import {
 
 import { Colors, FontFamily, FontSize, Spacing } from '../../constants/theme';
 import { AppIcon } from '../ui/AppIcon';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { installLandscapeLock, isMobileBrowser } from './orientationPolicy';
 
-/** Prevents the web experience from being used when a browser ignores PWA orientation. */
+const subscribeToDevice = () => () => {};
+const getDevice = () => Platform.OS !== 'web' || (typeof window !== 'undefined' && isMobileBrowser(window.navigator));
+const getServerDevice = () => Platform.OS !== 'web';
+
+/** Overlay, never replace, the lesson so rotation retains the learner's work. */
 export function LandscapeGuard({ children }: PropsWithChildren) {
   const { height, width } = useWindowDimensions();
-  const isPortrait = height > width;
-
-  if (!isPortrait) {
-    return <>{children}</>;
-  }
+  const mobile = useSyncExternalStore(subscribeToDevice, getDevice, getServerDevice);
+  const content = useRef<View>(null);
+  const blocked = mobile && height > width;
+  useEffect(() => {
+    if (Platform.OS !== 'web' || typeof window === 'undefined') return;
+    return installLandscapeLock(window);
+  }, []);
+  useEffect(() => {
+    if (Platform.OS !== 'web') return;
+    const element = content.current as unknown as HTMLElement | null;
+    if (blocked) element?.setAttribute?.('inert', '');
+    else element?.removeAttribute?.('inert');
+  }, [blocked]);
 
   return (
-    <View
+    <View style={styles.root}>
+    <View ref={content} style={[styles.root, blocked && styles.hidden]} pointerEvents={blocked ? 'none' : 'auto'} accessibilityElementsHidden={blocked} importantForAccessibility={blocked ? 'no-hide-descendants' : 'auto'}>
+      {children}
+    </View>
+    {blocked && <SafeAreaView
       accessibilityRole="alert"
       style={styles.container}
       testID="landscape-orientation-guard"
@@ -29,18 +47,20 @@ export function LandscapeGuard({ children }: PropsWithChildren) {
       <View style={styles.iconArea}>
         <AppIcon name="phoneLandscape" color="accent" size={64} />
       </View>
-      <Text style={styles.title}>Landscape view required</Text>
+      <Text style={styles.title}>Please turn your device sideways to start learning!</Text>
       <Text style={styles.message}>
-        {Platform.OS === 'web'
-          ? 'Rotate your device or widen the browser window to continue.'
-          : 'Rotate your device to continue.'}
+        BAYA is ready when you are. Your work stays here.
       </Text>
+    </SafeAreaView>}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  root: { flex: 1, minHeight: 0 },
+  hidden: { opacity: 0 },
   container: {
+    position: 'absolute', top: 0, bottom: 0, left: 0, right: 0,
     alignItems: 'center',
     backgroundColor: Colors.background,
     flex: 1,

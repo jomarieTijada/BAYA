@@ -61,7 +61,7 @@ export function LandingHero({ onLearnerPress, onMentorPress }: LandingHeroProps)
         isPhone && styles.taglinePhone,
       ]}
     >
-      Learn to write Baybayin.
+      {"Mabuhay! Let's learn Baybayin together!"}
     </Text>
   );
 

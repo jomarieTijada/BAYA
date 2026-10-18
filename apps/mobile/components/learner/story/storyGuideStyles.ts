@@ -1,5 +1,6 @@
 import { StyleSheet, type TextStyle } from "react-native";
-import { Colors, FontFamily, Radius, Shadows, Spacing } from "../../../constants/theme";
+import { Colors, FontFamily, Radius, Spacing } from "../../../constants/theme";
+import { speechBubbleStyles, SpeechBubbleColors } from "../../ui/speechBubbleStyles";
 export const storyGuideStyles = StyleSheet.create({
   guideContainer: {
     alignItems: "center", // Vertically aligns speech bubble directly with BAYA's face & upper body
@@ -30,10 +31,7 @@ export const storyGuideStyles = StyleSheet.create({
     paddingRight: 0,
   },
   bubbleCard: {
-    backgroundColor: "#FFF9EE",
-    borderColor: "#F5C799",
-    borderRadius: 24,
-    borderWidth: 2,
+    ...speechBubbleStyles.surface,
     flex: 1,
     justifyContent: "center",
     maxWidth: 480,
@@ -42,7 +40,7 @@ export const storyGuideStyles = StyleSheet.create({
     paddingVertical: 22,
     position: "relative",
     zIndex: 1,
-    ...Shadows.card,
+
   },
   bubbleCardDesktop: {
     maxWidth: 500,
@@ -78,51 +76,8 @@ export const storyGuideStyles = StyleSheet.create({
     paddingVertical: 8,
     flexShrink: 0,
   },
-  tailWrapper: {
-    height: 36,
-    marginTop: -18,
-    position: "absolute",
-    right: -25,
-    top: "50%",
-    width: 28,
-    zIndex: 2,
-  },
-  tailWrapperTablet: {
-    height: 30,
-    marginTop: -15,
-    right: -21,
-    width: 24,
-  },
-  tailWrapperCompact: {
-    height: 26,
-    marginTop: -13,
-    right: -17,
-    width: 20,
-  },
-  tailWrapperLandscape: {
-    height: 20,
-    marginTop: -10,
-    right: -14,
-    width: 16,
-  },
-  tailImage: {
-    height: 36,
-    width: 28,
-  },
-  tailImageTablet: {
-    height: 30,
-    width: 24,
-  },
-  tailImageCompact: {
-    height: 26,
-    width: 20,
-  },
-  tailImageLandscape: {
-    height: 20,
-    width: 16,
-  },
   bubbleText: {
-    color: "#342214",
+    color: SpeechBubbleColors.text,
     fontFamily: FontFamily.rounded,
     fontSize: 16.5,
     fontWeight: "700",
@@ -152,7 +107,6 @@ export const storyGuideStyles = StyleSheet.create({
     lineHeight: 19,
     textAlign: "center",
   },
-  tailHidden: { display: "none" },
   mascotContainer: {
     alignItems: "center",
     justifyContent: "flex-start", // Anchors Baya's top (salakot hat) at top, hides feet at bottom

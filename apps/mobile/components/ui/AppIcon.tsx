@@ -23,6 +23,8 @@ export type AppIconName =
   | 'devicePortrait'
   | 'forward'
   | 'home'
+  | 'help'
+  | 'swipeHand'
   | 'lessons'
   | 'lock'
   | 'menu'
@@ -91,6 +93,8 @@ const iconNames = {
   devicePortrait: 'tablet-portrait-outline',
   forward: 'arrow-forward',
   home: 'home',
+  help: 'help-circle-outline',
+  swipeHand: 'hand-left-outline',
   lessons: 'book',
   lock: 'lock-closed',
   menu: 'menu',
@@ -146,11 +150,11 @@ export function AppIcon({
   if (Platform.OS === 'web') {
     return (
       <Svg
-        accessibilityElementsHidden={decorative}
-        accessibilityLabel={accessibilityLabel}
-        accessible={!decorative}
+        aria-hidden={decorative}
+        aria-label={accessibilityLabel}
+        role={decorative ? undefined : 'img'}
+        focusable={false}
         height={resolvedSize}
-        importantForAccessibility={decorative ? 'no-hide-descendants' : 'auto'}
         viewBox={`0 0 ${ioniconUnits} ${ioniconUnits}`}
         width={resolvedSize}
       >

@@ -3,7 +3,7 @@
     "name": "BAYA",
     "slug": "baya",
     "version": "1.0.0",
-    "orientation": "default",
+    "orientation": "landscape",
     "icon": "./assets/branding/app/icon.png",
     "scheme": "baya",
     "userInterfaceStyle": "light",

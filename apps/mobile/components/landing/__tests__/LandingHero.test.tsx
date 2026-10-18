@@ -130,6 +130,7 @@ describe('LandingHero (White-Box Suite)', () => {
     render(<LandingHero {...defaultProps} />);
 
     const edges = screen.getByTestId('safe-area-view').props.accessibilityLabel;
+    expect(screen.getByText("Mabuhay! Let's learn Baybayin together!")).toBeTruthy();
     expect(edges).toEqual(JSON.stringify(['left', 'right', 'bottom']));
     expect(screen.getByText('LogoSize:66')).toBeTruthy();
     expect(screen.getByText('MascotSize:300,State:ambient')).toBeTruthy();
