@@ -24,6 +24,49 @@ jest.mock("expo-asset", () => ({
   },
 }));
 describe("Media resilience", () => {
+  it('seeks the introductory web video once per source without autoplay or rewind resets', () => {
+    const old = Platform.OS;
+    Platform.OS = 'web';
+    const view = render(<VideoPlayer source={{ type: 'local', source: 123 }} title="Intro" startAtSeconds={17} />);
+    const media = { duration: NaN, currentTime: 0 };
+    fireEvent(screen.getByLabelText('Intro'), 'loadedMetadata', { currentTarget: media });
+    expect(media.currentTime).toBe(0);
+    media.duration = 231;
+    fireEvent(screen.getByLabelText('Intro'), 'canPlay', { currentTarget: media });
+    expect(media.currentTime).toBe(17);
+    media.currentTime = 4;
+    view.rerender(<VideoPlayer source={{ type: 'local', source: 123 }} title="Intro" startAtSeconds={17} onPlay={() => {}} />);
+    fireEvent(screen.getByLabelText('Intro'), 'play', { currentTarget: media });
+    fireEvent(screen.getByLabelText('Intro'), 'canPlay', { currentTarget: media });
+    expect(media.currentTime).toBe(4);
+    expect(screen.getByLabelText('Intro').props.autoPlay).toBeUndefined();
+    view.rerender(<VideoPlayer source={{ type: 'local', source: 456 }} title="Intro" startAtSeconds={17} />);
+    media.currentTime = 0;
+    fireEvent(screen.getByLabelText('Intro'), 'loadedMetadata', { currentTarget: media });
+    expect(media.currentTime).toBe(17);
+    view.unmount();
+    Platform.OS = old;
+  });
+  it('waits for native metadata and preserves manual replay across callback changes', async () => {
+    const old = Platform.OS;
+    Platform.OS = 'ios';
+    const events: Record<string, (event?: any) => void> = {};
+    const player = { status: 'loading', duration: 0, currentTime: 0, addListener: (name: string, fn: (event?: any) => void) => { events[name] = fn; return { remove: jest.fn() }; } };
+    (useVideoPlayer as jest.Mock).mockReturnValue(player);
+    const view = render(<VideoPlayer source={{ type: 'local', source: 123 }} title="Intro" startAtSeconds={17} />);
+    await act(async () => { await Promise.resolve(); });
+    act(() => events.statusChange({ status: 'readyToPlay' }));
+    expect(player.currentTime).toBe(0);
+    player.duration = 231;
+    act(() => events.sourceLoad());
+    expect(player.currentTime).toBe(17);
+    player.currentTime = 3;
+    view.rerender(<VideoPlayer source={{ type: 'local', source: 123 }} title="Intro" startAtSeconds={17} onPlay={() => {}} />);
+    act(() => { events.playingChange({ isPlaying: false }); events.playingChange({ isPlaying: true }); events.statusChange({ status: 'readyToPlay' }); });
+    expect(player.currentTime).toBe(3);
+    view.unmount();
+    Platform.OS = old;
+  });
   it("rejects missing asset IDs and unapproved remote hosts", () => {
     expect(
       resolveStaticMediaUri({ type: "asset", assetId: "missing" }),
@@ -79,7 +122,7 @@ describe("Media resilience", () => {
     expect(video.props.preload).toBe("metadata");
     expect(video.props.autoPlay).toBeUndefined();
     fireEvent(video, "loadedMetadata", { currentTarget: { duration: 231 } });
-    fireEvent(video, "canPlay");
+    fireEvent(video, "canPlay", { currentTarget: { duration: 231, currentTime: 0 } });
     expect(screen.queryByTestId("video-player-placeholder")).toBeNull();
     expect(onError).not.toHaveBeenCalled();
     fireEvent(video, "error", {

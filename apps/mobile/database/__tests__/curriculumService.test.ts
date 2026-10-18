@@ -51,8 +51,8 @@ function createInMemoryDatabase(): DatabaseConnection {
 
 
 const expectedTopics = [
-  { id: 'topic-1-1', title: 'Ang Kasaysayan at Kahalagahan' },
-  { id: 'topic-1-2', title: 'Ano Ba ang Silabaryo?' },
+  { id: 'topic-1-1', title: 'Kasaysayan at Kahalagahan ng Baybayin' },
+  { id: 'topic-1-2', title: 'Baybayin: Isang Silabaryo (Pantigan)' },
   { id: 'topic-1-3', title: 'Ang 17 Simbolo ng Baybayin' },
   { id: 'topic-1-4', title: 'Magkaibang Letra, Iisang Simbolo?' },
   { id: 'topic-1-5', title: 'Paano naman ang Da at Ra?' },

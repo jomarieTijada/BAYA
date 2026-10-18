@@ -19,7 +19,7 @@ const approvedStories: Readonly<Record<string, Omit<SlideStepContent, 'number' |
     ...baybayinHistoryContent,
   },
   'topic-1-2': {
-    title: 'Ano Ba ang Silabaryo?',
+    title: 'Baybayin: Isang Silabaryo (Pantigan)',
     content: baybayinSyllabaryText,
     highlightWords: baybayinSyllabaryHighlights,
     examplesLabel: 'Basahin natin:',

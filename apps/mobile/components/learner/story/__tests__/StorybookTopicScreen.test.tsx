@@ -31,9 +31,9 @@ jest.mock('react-native-safe-area-context', () => ({ SafeAreaView: jest.requireA
 jest.mock('../../../ui/AppIcon', () => ({ AppIcon: () => null }));
 jest.mock('../../../branding/BayaMascot', () => ({ BayaMascot: () => null }));
 jest.mock('../../../media/VideoPlayer', () => ({
-  VideoPlayer: ({ testID, title }: { testID: string; title: string }) => {
+  VideoPlayer: ({ testID, title, startAtSeconds }: { testID: string; title: string; startAtSeconds: number }) => {
     const { Text, View } = jest.requireActual('react-native');
-    return <View testID={testID}><Text>{title}</Text></View>;
+    return <View testID={testID} accessibilityValue={{ now: startAtSeconds }}><Text>{title}</Text></View>;
   },
 }));
 
@@ -52,6 +52,7 @@ describe('Approved storybooks with a separate introductory slide', () => {
     expect(screen.queryByLabelText('Susunod na paksa')).toBeNull();
     fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
     expect(screen.getByTestId('topic-intro-video-player')).toBeTruthy();
+    expect(screen.getByTestId('topic-intro-video-player').props.accessibilityValue.now).toBe(17);
     expect(localLearnerService.completeTopic).not.toHaveBeenCalled();
     expect(mockSetParams).not.toHaveBeenCalled();
     fireEvent.press(screen.getByLabelText('Bumalik sa panimula'));
@@ -133,8 +134,8 @@ describe('Approved storybooks with a separate introductory slide', () => {
   };
 
   it.each([
-    ['topic-1-1', 'Ang Kasaysayan at Kahalagahan', 'Baybayin sa Kasaysayan'],
-    ['topic-1-2', 'Ano Ba ang Silabaryo?', 'Ano Ba ang Silabaryo?'],
+    ['topic-1-1', 'Kasaysayan at Kahalagahan ng Baybayin', 'Baybayin sa Kasaysayan'],
+    ['topic-1-2', 'Baybayin: Isang Silabaryo (Pantigan)', 'Baybayin: Isang Silabaryo (Pantigan)'],
   ])('renders %s with exact topic and story titles, visual and BAYA', async (id, topic, title) => {
     render(<StorybookTopicScreen topicId={id} />);
     if (id === 'topic-1-1') fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
@@ -178,7 +179,7 @@ describe('Approved storybooks with a separate introductory slide', () => {
     render(<StorybookTopicScreen topicId="topic-1-1" />);
     fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
     fireEvent.press(screen.getByRole('link', { name: baybayinVideoCredit.label }));
-    expect(open).toHaveBeenCalledWith('https://www.ginhawa.net/');
+    expect(open).toHaveBeenCalledWith('https://www.facebook.com/baybayincreativityworkshop');
     open.mockRestore();
   });
 
@@ -210,7 +211,7 @@ describe('Approved storybooks with a separate introductory slide', () => {
     fireEvent.press(screen.getByLabelText('Susunod na paksa'));
     await waitFor(() => expect(mockSetParams).toHaveBeenLastCalledWith({ topicId: 'topic-1-2', lessonPage: 'content' }));
     view.rerender(<StorybookTopicScreen topicId="topic-1-2" />);
-    await waitFor(() => expect(screen.getAllByText('Ano Ba ang Silabaryo?')).toBeTruthy());
+    await waitFor(() => expect(screen.getAllByText('Baybayin: Isang Silabaryo (Pantigan)')).toBeTruthy());
     expect(screen.queryByText('Baybayin sa Kasaysayan')).toBeNull();
     fireEvent.press(screen.getByLabelText('Back'));
     expect(mockDismissTo).toHaveBeenLastCalledWith('/learner/lessons');
@@ -432,8 +433,8 @@ describe('Approved storybooks with a separate introductory slide', () => {
     });
     expect(screen.getByTestId('story-navigation')).toBeTruthy();
     const lessonColumn = within(screen.getByTestId('story-content-column'));
-    expect(within(screen.getByTestId('activity-header')).getByText('Ang Kasaysayan at Kahalagahan')).toBeTruthy();
-    expect(lessonColumn.queryByText('Ang Kasaysayan at Kahalagahan')).toBeNull();
+    expect(within(screen.getByTestId('activity-header')).getByText('Kasaysayan at Kahalagahan ng Baybayin')).toBeTruthy();
+    expect(lessonColumn.queryByText('Kasaysayan at Kahalagahan ng Baybayin')).toBeNull();
     expect(lessonColumn.getByText('Baybayin sa Kasaysayan')).toBeTruthy();
     if (stacked) {
       expect(screen.queryByTestId('topic-intro-video-player')).toBeTruthy();

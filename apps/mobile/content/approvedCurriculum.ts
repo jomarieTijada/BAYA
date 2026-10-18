@@ -18,9 +18,9 @@ export const approvedCurriculum: readonly ApprovedModule[] = Object.freeze([
     topics: Object.freeze([
       Object.freeze({
         id: "topic-1-1",
-        title: "Ang Kasaysayan at Kahalagahan",
+        title: "Kasaysayan at Kahalagahan ng Baybayin",
       }),
-      Object.freeze({ id: "topic-1-2", title: "Ano Ba ang Silabaryo?" }),
+      Object.freeze({ id: "topic-1-2", title: "Baybayin: Isang Silabaryo (Pantigan)" }),
       Object.freeze({
         id: "topic-1-3",
         title: "Ang 17 Simbolo ng Baybayin",

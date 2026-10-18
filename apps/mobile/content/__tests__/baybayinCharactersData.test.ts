@@ -12,7 +12,7 @@ describe('Module 2 character content', () => {
     ['ka', 'ka-i-bi-ga-n', 'ᜃᜁᜊᜒᜄᜈ᜔'],
     ['da_ra', 'da-ho-n', 'ᜇᜑᜓᜈ᜔'],
     ['ga', 'ga-ta-s', 'ᜄᜆᜐ᜔'],
-    ['ha', 'ha-ri', 'ᜑᜇᜒ'],
+    ['ha', 'ha-la-ma-n', 'ᜑᜎᜋᜈ᜔'],
     ['la', 'la-wa', 'ᜎᜏ'],
     ['ma', 'ma-ta', 'ᜋᜆ'],
     ['na', 'na-na-y', 'ᜈᜈᜌ᜔'],
@@ -53,6 +53,7 @@ describe('Module 2 character content', () => {
 
   it.each([
     ['ka', 'KAibigan', 'Ka', 'ᜃ', 'ᜃᜁᜊᜒᜄᜈ᜔'],
+    ['ha', 'HAlaman', 'Ha', 'ᜑ', 'ᜑᜎᜋᜈ᜔'],
     ['nga', 'NGAyon', 'Nga', 'ᜅ', 'ᜅᜌᜓᜈ᜔'],
     ['ya', 'YAman', 'Ya', 'ᜌ', 'ᜌᜋᜈ᜔'],
   ] as const)('keeps the revised %s example associated with its original character', (id, word, syllable, symbol, baybayinWord) => {
@@ -65,6 +66,6 @@ describe('Module 2 character content', () => {
 
   it('excludes the superseded words from Lesson 2 examples', () => {
     const words = baybayinCharacters.map(character => character.example.word.toLowerCase());
-    for (const oldWord of ['kama', 'ngipin', 'yaya']) expect(words).not.toContain(oldWord);
+    for (const oldWord of ['kama', 'ngipin', 'yaya', 'hari']) expect(words).not.toContain(oldWord);
   });
 });

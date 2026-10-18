@@ -12,6 +12,7 @@ import { LearnerAppShell } from '../LearnerAppShell';
 import { LearnerPageHeader } from '../LearnerPageHeader';
 import { ActivityHeader } from '../activity/ActivityHeader';
 import { VideoPlayer } from '../../media/VideoPlayer';
+import { BAYBAYIN_VIDEO_START_SECONDS } from '../../../content/baybayinIntroduction';
 import { StoryPage } from './StoryPage';
 import { StoryNavigation } from './StoryNavigation';
 import { LessonVideoIntroduction } from './LessonVideoIntroduction';
@@ -141,6 +142,7 @@ function StorybookTopicSession({ topicId, initialPage }: { topicId: string; init
             compact={compact}
             isLandscapeCompact={isPhoneLandscape}
             source={data.video.source}
+            startAtSeconds={data.id === 'topic-1-1' ? BAYBAYIN_VIDEO_START_SECONDS : 0}
             title={data.video.title}
             testID="topic-intro-video-player"
           />

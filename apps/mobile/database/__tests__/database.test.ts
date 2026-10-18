@@ -244,7 +244,7 @@ describe('BAYA SQLite Database Foundation', () => {
     const module1Activities = await lessonRepository.getActivitiesByLesson('module-1');
     expect(module1Activities.length).toBe(5);
     expect(module1Activities[0].activity_id).toBe('topic-1-1');
-    expect(module1Activities[0].title).toBe('Ang Kasaysayan at Kahalagahan');
+    expect(module1Activities[0].title).toBe('Kasaysayan at Kahalagahan ng Baybayin');
     expect(module1Activities[0].activity_type).toBe('concept');
     const module2Activities = await lessonRepository.getActivitiesByLesson('module-2');
     expect(module2Activities.map(({ activity_id }) => activity_id)).toEqual(['topic-2-1', 'topic-2-2']);

@@ -32,8 +32,8 @@ jest.mock('../../../ui/BackButton', () => ({ BackButton: () => null }));
 
 function expectOnlyApprovedTopics() {
   expect(screen.getAllByTestId(/^topic-card-/)).toHaveLength(9);
-  expect(screen.getByTestId('topic-card-topic-1-1').props.accessibilityLabel).toContain('Ang Kasaysayan at Kahalagahan');
-  expect(screen.getByTestId('topic-card-topic-1-2').props.accessibilityLabel).toContain('Ano Ba ang Silabaryo?');
+  expect(screen.getByTestId('topic-card-topic-1-1').props.accessibilityLabel).toContain('Kasaysayan at Kahalagahan ng Baybayin');
+  expect(screen.getByTestId('topic-card-topic-1-2').props.accessibilityLabel).toContain('Baybayin: Isang Silabaryo (Pantigan)');
   expect(screen.getByTestId('topic-card-topic-1-3').props.accessibilityLabel).toContain('Ang 17 Simbolo ng Baybayin');
   expect(screen.getByTestId('topic-card-topic-1-4').props.accessibilityLabel).toContain('Magkaibang Letra, Iisang Simbolo?');
   expect(screen.getByTestId('topic-card-topic-1-5').props.accessibilityLabel).toContain('Paano naman ang Da at Ra?');

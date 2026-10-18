@@ -1,7 +1,14 @@
 import { getApprovedStorybookActivity } from '../approvedStorybook';
-import { baybayinHistoryContent, baybayinHistoryReference, baybayinVideoCredit, baybayinVideoIntroduction } from '../baybayinIntroduction';
+import { BAYBAYIN_VIDEO_START_SECONDS, baybayinHistoryContent, baybayinHistoryReference, baybayinVideoCredit, baybayinVideoIntroduction } from '../baybayinIntroduction';
 import { topic11Steps, topic11ActivityData } from '../topics/topic-1-1';
 import { parseActivity } from '../parseActivity';
+
+it('uses the confirmed titles and preserves Pilipino in its people/identity context', () => {
+  expect(getApprovedStorybookActivity('topic-1-1')?.title).toBe('Kasaysayan at Kahalagahan ng Baybayin');
+  expect(getApprovedStorybookActivity('topic-1-2')?.title).toBe('Baybayin: Isang Silabaryo (Pantigan)');
+  expect(baybayinHistoryContent.content).toContain('pamana bilang mga Pilipino');
+  expect(BAYBAYIN_VIDEO_START_SECONDS).toBe(17);
+});
 
 it('shares one invitation, historical paragraph and source across live and preview data', () => {
   const live = getApprovedStorybookActivity('topic-1-1')!;
@@ -30,5 +37,18 @@ it('retains validated invitation/source metadata when content is serialized and 
 it.each(['javascript:alert(1)', 'http://ncca.gov.ph/article', 'https://ncca.gov.ph.evil.test/article'])('rejects an invalid reference URL %s at the content boundary', url => {
   const payload = JSON.parse(JSON.stringify(topic11ActivityData));
   payload.steps[1].content.reference.url = url;
+  expect(parseActivity(payload)).toBeNull();
+});
+
+it.each(['https://www.ginhawa.net/', 'https://www.facebook.com/baybayincreativityworkshop'])('accepts approved and legacy stored video credits: %s', url => {
+  const payload = JSON.parse(JSON.stringify(topic11ActivityData));
+  payload.steps[0].content.credit.url = url;
+  payload.steps[1].content.videoCredit.url = url;
+  expect(parseActivity(payload)).not.toBeNull();
+});
+
+it.each(['javascript:alert(1)', 'https://www.facebook.com/other-page', 'https://www.facebook.com.evil.test/baybayincreativityworkshop', 'http://www.facebook.com/baybayincreativityworkshop'])('rejects unapproved video destinations: %s', url => {
+  const payload = JSON.parse(JSON.stringify(topic11ActivityData));
+  payload.steps[0].content.credit.url = url;
   expect(parseActivity(payload)).toBeNull();
 });

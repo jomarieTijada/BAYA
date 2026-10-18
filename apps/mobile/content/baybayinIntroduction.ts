@@ -1,5 +1,8 @@
 import type { LessonReference, SlideStepContent, VideoCredit, VideoIntroduction } from './types';
 
+/** Teacher-approved entry point; learners can still rewind with normal controls. */
+export const BAYBAYIN_VIDEO_START_SECONDS = 17;
+
 /** Validator-requested copy shared by the live storybook and activity previews. */
 export const baybayinVideoIntroduction: VideoIntroduction = {
   title: 'Kilalanin natin ang Baybayin!',
@@ -15,8 +18,8 @@ export const baybayinHistoryReference: LessonReference = {
 };
 
 export const baybayinVideoCredit: VideoCredit = {
-  label: 'Video Gawa ng: GINHAWA Inc',
-  url: 'https://www.ginhawa.net/',
+  label: 'Video gawa ng GINHAWA Baybayin Creativity Workshop',
+  url: 'https://www.facebook.com/baybayincreativityworkshop',
 };
 
 export const baybayinHistoryContent: Pick<SlideStepContent, 'title' | 'content' | 'storyMessage' | 'reference' | 'videoCredit'> = {

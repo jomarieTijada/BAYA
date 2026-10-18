@@ -40,7 +40,8 @@ const consonants: readonly BaybayinCharacter[] = [
   { id: 'ka', category: 'katinig', latinEquivalent: 'Ka', unicodeSymbol: 'ᜃ', imageAsset: baybayinAssets.ka, audioSrc: null, example: { word: 'KAibigan', baybayinWord: 'ᜃᜁᜊᜒᜄᜈ᜔', highlightIndex: 0, highlightedSyllable: 'Ka' } },
   { id: 'da_ra', category: 'katinig', latinEquivalent: 'Da / Ra', unicodeSymbol: 'ᜇ', imageAsset: baybayinAssets.da_ra, audioSrc: null, example: { word: 'DAhon', baybayinWord: 'ᜇᜑᜓᜈ᜔', highlightIndex: 0, highlightedSyllable: 'Da' } },
   { id: 'ga', category: 'katinig', latinEquivalent: 'Ga', unicodeSymbol: 'ᜄ', imageAsset: baybayinAssets.ga, audioSrc: null, example: { word: 'GAtas', baybayinWord: 'ᜄᜆᜐ᜔', highlightIndex: 0, highlightedSyllable: 'Ga' } },
-  { id: 'ha', category: 'katinig', latinEquivalent: 'Ha', unicodeSymbol: 'ᜑ', imageAsset: baybayinAssets.ha, audioSrc: null, example: { word: 'HAri', baybayinWord: 'ᜑᜇᜒ', highlightIndex: 0, highlightedSyllable: 'Ha' } },
+  // Teacher-selected HALAMAN: ha-la-ma-n; U+1714 cancels the final na vowel.
+  { id: 'ha', category: 'katinig', latinEquivalent: 'Ha', unicodeSymbol: 'ᜑ', imageAsset: baybayinAssets.ha, audioSrc: null, example: { word: 'HAlaman', baybayinWord: 'ᜑᜎᜋᜈ᜔', highlightIndex: 0, highlightedSyllable: 'Ha' } },
   { id: 'la', category: 'katinig', latinEquivalent: 'La', unicodeSymbol: 'ᜎ', imageAsset: baybayinAssets.la, audioSrc: null, example: { word: 'LAwa', baybayinWord: 'ᜎᜏ', highlightIndex: 0, highlightedSyllable: 'La' } },
   { id: 'ma', category: 'katinig', latinEquivalent: 'Ma', unicodeSymbol: 'ᜋ', imageAsset: baybayinAssets.ma, audioSrc: null, example: { word: 'MAta', baybayinWord: 'ᜋᜆ', highlightIndex: 0, highlightedSyllable: 'Ma' } },
   { id: 'na', category: 'katinig', latinEquivalent: 'Na', unicodeSymbol: 'ᜈ', imageAsset: baybayinAssets.na, audioSrc: null, example: { word: 'NAnay', baybayinWord: 'ᜈᜈᜌ᜔', highlightIndex: 0, highlightedSyllable: 'Na' } },

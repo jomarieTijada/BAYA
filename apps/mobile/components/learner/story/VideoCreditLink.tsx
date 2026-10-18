@@ -7,6 +7,7 @@ export function VideoCreditLink({ credit }: { credit: VideoCredit }) {
   return <Pressable
     accessibilityLabel={credit.label}
     accessibilityRole="link"
+    accessibilityHint="Bubukas sa labas ng aralin. Kailangan ng internet."
     onPress={() => {
       void Linking.openURL(credit.url).catch(() => Alert.alert('Hindi mabuksan ang website', 'Subukan muli kapag may koneksiyon sa internet.'));
     }}

@@ -5,7 +5,7 @@ const row: ContentRecord = { activity_id: 'topic-1-1', revision: 1, validation_s
 const service = (value: ContentRecord | null) => createActivityContentService({ getByTopicId: async () => value });
 describe('Reviewed activity delivery', () => {
   it('loads approved data and derives title/position from the approved manifest', async () => {
-    expect(await service(row).getByTopicId('topic-1-1')).toMatchObject({ id: 'topic-1-1', moduleTitle: 'Pagkilala sa Baybayin', title: 'Ang Kasaysayan at Kahalagahan', totalActivitiesInModule: 5 });
+    expect(await service(row).getByTopicId('topic-1-1')).toMatchObject({ id: 'topic-1-1', moduleTitle: 'Pagkilala sa Baybayin', title: 'Kasaysayan at Kahalagahan ng Baybayin', totalActivitiesInModule: 5 });
   });
   it.each([null, { ...row, validation_status: 'draft' }, { ...row, reviewed_by: null }, { ...row, reviewed_at: 'invalid' }, { ...row, revision: 0 }, { ...row, payload_json: '{oops' }, { ...row, payload_json: JSON.stringify({ ...payload, moduleId: 'module-other' }) }])('falls back for absent, unreviewed or malformed records', async value => expect(await service(value).getByTopicId('topic-1-1')).toBeNull());
   it('handles an offline source without throwing', async () => {

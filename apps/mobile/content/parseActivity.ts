@@ -9,6 +9,7 @@ import type {
 } from "./types";
 import type { MediaSource } from "../components/media/MediaSource";
 import { isValidRemoteUrl } from "./mediaPolicy";
+import { baybayinVideoCredit } from './baybayinIntroduction';
 
 type RecordValue = Record<string, unknown>;
 const record = (v: unknown): v is RecordValue =>
@@ -18,7 +19,7 @@ const text = (v: unknown, max = 20000): v is string =>
 const optionalText = (v: unknown) => v === undefined || text(v);
 const validIntroduction = (v: unknown) => record(v) && text(v.title, 300) && text(v.body, 2000);
 const validVideoCredit = (v: unknown) => record(v) && text(v.label, 300) && v.label.length > 0
-  && text(v.url, 2048) && isValidRemoteUrl(v.url, ['https://www.ginhawa.net']);
+  && text(v.url, 2048) && (v.url === baybayinVideoCredit.url || isValidRemoteUrl(v.url, ['https://www.ginhawa.net']));
 const validReference = (v: unknown) => record(v)
   && ['organization', 'abbreviation', 'title', 'author'].every(key => text(v[key], 500) && v[key].length > 0)
   && text(v.url, 2048) && isValidRemoteUrl(v.url, ['https://ncca.gov.ph']);

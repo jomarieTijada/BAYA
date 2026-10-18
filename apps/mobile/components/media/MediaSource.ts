@@ -22,6 +22,8 @@ export type VideoPlayState =
   "idle" | "resolving" | "ready" | "playing" | "completed" | "error";
 
 export interface VideoPlayerProps {
+  /** Initial position only; never reapplied after manual seeking or pause/resume. */
+  startAtSeconds?: number;
   compact?: boolean;
   isLandscapeCompact?: boolean;
   metadata?: VideoMetadata;
