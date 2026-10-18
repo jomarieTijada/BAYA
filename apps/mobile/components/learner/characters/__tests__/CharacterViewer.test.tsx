@@ -22,6 +22,18 @@ function ViewerHarness({ topic }: { topic: BaybayinCharacterTopic }) {
 }
 
 describe('CharacterViewer', () => {
+  it('shows one contextual swipe hint only while the selector overflows', () => {
+    render(<ViewerHarness topic={getBaybayinCharacterTopic('topic-2-2')!} />);
+    const row = screen.getByTestId('character-selector');
+    fireEvent(row, 'layout', { nativeEvent: { layout: { width: 300 } } });
+    fireEvent(row, 'contentSizeChange', 900, 50);
+    expect(screen.getAllByTestId('lesson-swipe-hint')).toHaveLength(1);
+    expect(screen.getByLabelText('I-swipe pakaliwa')).toBeTruthy();
+    fireEvent.scroll(row, { nativeEvent: { contentOffset: { x: 600, y: 0 } } });
+    expect(screen.getByLabelText('I-swipe pakanan')).toBeTruthy();
+    fireEvent(row, 'layout', { nativeEvent: { layout: { width: 1000 } } });
+    expect(screen.queryByTestId('lesson-swipe-hint')).toBeNull();
+  });
   it.each([
     ['ka', 'KAibigan', 'KA', 'ᜃ'],
     ['nga', 'NGAyon', 'NGA', 'ᜅ'],

@@ -19,6 +19,7 @@ import { curriculumService } from '../../../database/services/curriculumService'
  */
 export function LessonScreen() {
   const router = useRouter();
+  const [availableHeight, setAvailableHeight] = useState(0);
   const [lessons, setLessons] = useState<readonly LessonItem[]>(createApprovedModules);
 
   useFocusEffect(useCallback(() => {
@@ -83,9 +84,10 @@ export function LessonScreen() {
         <View style={styles.organicBlob3} />
       </View>
 
-      <LearnerScreenContainer testID="lesson-scroll">
+      <LearnerScreenContainer testID="lesson-scroll" onViewportHeightChange={setAvailableHeight}>
         <LessonJourney
           lessons={lessons}
+          availableHeight={availableHeight}
           onContinueLesson={handleContinueLesson}
         />
       </LearnerScreenContainer>

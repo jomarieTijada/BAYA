@@ -1,0 +1,33 @@
+import React from 'react';
+import { Animated, StyleSheet } from 'react-native';
+import { act, render, screen } from '@testing-library/react-native';
+import { FloatingSwipeHint } from '../FloatingSwipeHint';
+import { useReducedMotionPreference } from '../../../../hooks/useReducedMotionPreference';
+jest.mock('../../../../hooks/useReducedMotionPreference', () => ({ useReducedMotionPreference: jest.fn(() => false) }));
+jest.mock('../../../ui/AppIcon', () => ({ AppIcon: () => null }));
+beforeEach(() => { jest.useFakeTimers(); (useReducedMotionPreference as jest.Mock).mockReturnValue(false); });
+afterEach(() => { jest.useRealTimers(); jest.restoreAllMocks(); });
+it('floats without intercepting input, demonstrates two gestures and dismisses once', () => {
+  const timing = jest.spyOn(Animated, 'timing');
+  const stop = jest.fn();
+  jest.spyOn(Animated, 'sequence').mockReturnValue({ start: jest.fn(), stop, reset: jest.fn() });
+  const dismiss = jest.fn();
+  const view = render(<FloatingSwipeHint left={320} top={180} onDismiss={dismiss} />);
+  const hint = screen.getByTestId('floating-swipe-hint');
+  expect(hint.props.pointerEvents).toBe('none');
+  expect(StyleSheet.flatten(hint.props.style)).toMatchObject({ position: 'absolute', left: 320, top: 180, width: 28, height: 28, backgroundColor: 'transparent' });
+  expect(screen.queryByText('I-swipe pakaliwa')).toBeNull();
+  expect(timing.mock.calls.filter(call => call[1].toValue === -28)).toHaveLength(2);
+  expect(timing.mock.calls.some(call => call[1].duration === 220 && call[1].toValue === 0)).toBe(true);
+  view.rerender(<FloatingSwipeHint left={340} top={180} onDismiss={dismiss} />);
+  expect(timing.mock.calls.filter(call => call[1].toValue === -28)).toHaveLength(2);
+  act(() => jest.advanceTimersByTime(3600)); expect(dismiss).toHaveBeenCalledTimes(1);
+  view.unmount(); expect(stop).toHaveBeenCalled();
+});
+it('relies on the existing card peek with reduced motion', () => {
+  (useReducedMotionPreference as jest.Mock).mockReturnValue(true);
+  const timing = jest.spyOn(Animated, 'timing'), dismiss = jest.fn();
+  render(<FloatingSwipeHint left={320} top={180} onDismiss={dismiss} />);
+  expect(screen.queryByTestId('floating-swipe-hint')).toBeNull(); expect(timing).not.toHaveBeenCalled();
+  act(() => jest.advanceTimersByTime(3600)); expect(dismiss).toHaveBeenCalledTimes(1);
+});

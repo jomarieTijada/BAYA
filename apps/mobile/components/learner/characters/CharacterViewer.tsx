@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Animated, Image, Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
+import { SwipeHint, swipeDirection } from '../../ui/SwipeHint';
 import { Colors, FontFamily, Radius, Spacing } from '../../../constants/theme';
 import type { BaybayinCharacter } from '../../../content/baybayinCharactersData';
 import { useResponsiveLayout } from '../../../hooks/useResponsiveLayout';
@@ -86,6 +87,9 @@ export function CharacterViewer({ characters, topicId, selectedIndex, onSelectCh
   const compact = isCompactHeight || isPhone || isTablet;
   const large = isDesktop && !isCompactHeight;
   const selector = useRef<ScrollView>(null);
+  const [selectorWidth, setSelectorWidth] = useState(0);
+  const [contentWidth, setContentWidth] = useState(0);
+  const [scrollOffset, setScrollOffset] = useState(0);
   const chipLayouts = useRef<Record<number, { x: number; width: number }>>({});
   const [activeScale] = useState(() => new Animated.Value(1));
 
@@ -127,7 +131,7 @@ export function CharacterViewer({ characters, topicId, selectedIndex, onSelectCh
           <ScrollView style={styles.contentScroll} contentContainerStyle={[styles.content, isStacked && styles.contentStacked]} showsVerticalScrollIndicator>
             <View style={[styles.selectorSection, large && styles.selectorSectionLarge]}>
               <Text style={[styles.selectorTitle, large && styles.selectorTitleLarge]}>Mga simbolo</Text>
-              <ScrollView horizontal ref={selector} showsHorizontalScrollIndicator={false} contentContainerStyle={[styles.selectorContent, large && styles.selectorContentCentered]} style={styles.selector} testID="character-selector">
+              <ScrollView horizontal ref={selector} onLayout={event => setSelectorWidth(event.nativeEvent.layout.width)} onContentSizeChange={width => setContentWidth(width)} onScroll={event => setScrollOffset(event.nativeEvent.contentOffset.x)} scrollEventThrottle={16} showsHorizontalScrollIndicator={false} contentContainerStyle={[styles.selectorContent, large && contentWidth <= selectorWidth && styles.selectorContentCentered]} style={styles.selector} testID="character-selector">
                 {characters.map((item, index) => {
                   const selected = index === selectedIndex;
                   return (
@@ -147,6 +151,7 @@ export function CharacterViewer({ characters, topicId, selectedIndex, onSelectCh
                   );
                 })}
               </ScrollView>
+              <SwipeHint direction={swipeDirection(selectorWidth, contentWidth, scrollOffset)} />
             </View>
             <View style={[styles.exampleRegion, isStacked && styles.exampleRegionStacked]}>
               <CharacterExampleGuide character={character} compact={compact} large={large} short={isCompactHeight} isStacked={isStacked} />
