@@ -3,7 +3,7 @@ import type { BayaPrediction } from '../ml/writingRecognition';
 import type { StrokeData } from './writingEngine';
 
 export const RECOGNITION_CONFIDENCE_THRESHOLD = 0.80;
-export const REQUIRED_SUCCESSFUL_TRIALS = 3;
+export const REQUIRED_SUCCESSFUL_TRIALS = 2;
 export const BAYA_WRITING_MASTERY_POLICY = Object.freeze({ minConfidence: RECOGNITION_CONFIDENCE_THRESHOLD, requiredValidAttempts: REQUIRED_SUCCESSFUL_TRIALS });
 
 /** IDs are model output indices, never a target-biased display-label comparison. */

@@ -4,6 +4,9 @@ import { writingTopics } from '../writingLessonData';
 
 const prediction = (label: string, probability: number) => ({ label, probability, classIndex: writingClassId(label) });
 describe('strict writing mastery policy', () => {
+  it('enforces the approved two-success rule with the unchanged confidence threshold', () => {
+    expect(BAYA_WRITING_MASTERY_POLICY).toEqual({ minConfidence: 0.80, requiredValidAttempts: 2 });
+  });
   it.each([[0.80, true], [0.800001, true], [0.799999, false], [0.7996, false], [0, false], [1, true]])('compares raw %s inclusively', (probability, valid) => {
     expect(isValidWritingResult('ba', [prediction('ba', probability as number)])).toBe(valid);
   });
@@ -35,13 +38,13 @@ describe('strict writing mastery policy', () => {
   it('accumulates successes without resetting on failure and caps progress', () => {
     let count = 0;
     const counts = [true, false, true, false, true, true].map(valid => count = nextValidCount(count, valid));
-    expect(counts).toEqual([1, 1, 2, 2, 3, 3]);
+    expect(counts).toEqual([1, 1, 2, 2, 2, 2]);
     expect(count).toBe(BAYA_WRITING_MASTERY_POLICY.requiredValidAttempts);
   });
   it.each([
-    [[0.92, 0.85, 0.80], [1, 2, 3]],
-    [[0.80, 0.80, 0.80], [1, 2, 3]],
-    [[0.91, 0.76, 0.84, 0.79, 0.93], [1, 1, 2, 2, 3]],
+    [[0.92, 0.85, 0.80], [1, 2, 2]],
+    [[0.80, 0.80, 0.80], [1, 2, 2]],
+    [[0.91, 0.76, 0.84, 0.79, 0.93], [1, 1, 2, 2, 2]],
   ])('counts independent raw-confidence trials %j', (probabilities, expected) => {
     let count = 0;
     expect(probabilities.map(probability => count = nextValidCount(count, isValidWritingResult('ba', [prediction('ba', probability)])))).toEqual(expected);

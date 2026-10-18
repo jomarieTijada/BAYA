@@ -7,7 +7,7 @@ import { appendStrokePoint, strokePath, type StrokeData } from '../../../content
 
 export type WritingCanvasSize = { width: number; height: number };
 
-export function WritingCanvas({ strokes, onChange, onSizeChange, hintImage, compact, dense = false, fillHeight = false, disabled = false }: { strokes: StrokeData; onChange: (strokes: StrokeData) => void; onSizeChange?: (size: WritingCanvasSize) => void; hintImage: number; compact: boolean; dense?: boolean; fillHeight?: boolean; disabled?: boolean }) {
+export function WritingCanvas({ strokes, onChange, onSizeChange, hintImage, compact, dense = false, fillHeight = false, disabled = false, targetRef }: { strokes: StrokeData; onChange: (strokes: StrokeData) => void; onSizeChange?: (size: WritingCanvasSize) => void; hintImage: number; compact: boolean; dense?: boolean; fillHeight?: boolean; disabled?: boolean; targetRef?: React.RefObject<View | null> }) {
   const [size, setSize] = useState({ width: 1, height: 1 });
   const working = useRef<StrokeData>(strokes);
   const activeStroke = useRef(false);
@@ -17,6 +17,8 @@ export function WritingCanvas({ strokes, onChange, onSizeChange, hintImage, comp
   const begin = (event: GestureResponderEvent) => { const point = pointFromEvent(event); activeStroke.current = false; if (disabled || !inside(point) || working.current.reduce((n, stroke) => n + stroke.length, 0) >= WRITING_INPUT_LIMITS.maxPoints) return; activeStroke.current = true; working.current = [...working.current, [point]]; onChange(working.current); };
   const move = (event: GestureResponderEvent) => { const point = pointFromEvent(event); if (disabled || !activeStroke.current) return; if (!inside(point)) { activeStroke.current = false; return; } const next = appendStrokePoint(working.current, point); if (next === working.current) return; working.current = next; onChange(next); };
   return <View
+    ref={targetRef}
+    collapsable={false}
     accessibilityLabel="Lugar ng pagsusulat ng Baybayin"
     onLayout={event => {
       const next = { width: Math.max(1, event.nativeEvent.layout.width), height: Math.max(1, event.nativeEvent.layout.height) };

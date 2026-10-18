@@ -16,7 +16,7 @@ export function WritingToolbar({ onClear, onUndo, canEdit, dense = false }: { on
 
 const styles = StyleSheet.create({
   row: { flexDirection: 'row', gap: 8, justifyContent: 'flex-end' },
-  button: { alignItems: 'center', backgroundColor: '#FFF9EF', borderColor: Colors.border, borderRadius: Radius.md, borderWidth: 1, height: 42, justifyContent: 'center', width: 42 },
-  denseButton: { height: 34, width: 34 },
+  button: { flexDirection: 'row', gap: 6, paddingHorizontal: 10, alignItems: 'center', backgroundColor: '#FFF9EF', borderColor: Colors.border, borderRadius: Radius.md, borderWidth: 1, minHeight: 44, justifyContent: 'center', minWidth: 44 },
+  denseButton: { paddingHorizontal: 8 },
   disabled: { opacity: 0.5 },
 });

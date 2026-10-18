@@ -9,6 +9,7 @@ import { BAYA_WRITING_MASTERY_POLICY, isValidWritingResult, nextValidCount, vali
 import { validWritingCanvas } from '../../../content/writingCanvasValidation';
 import { EFFICIENTNET_CLASS_LABELS } from '../../../ml/efficientNetClassLabels';
 import { WritingMasteryIndicator } from './WritingMasteryIndicator';
+import { WritingInstructions } from './WritingInstructions';
 import { recognizeWriting } from '../../../ml/writingRecognition';
 import { preloadBayaModel } from '../../../ml/bayaModel';
 import { BAYA_RECOGNITION_MODEL_NAME, BAYA_RECOGNITION_MODEL_VERSION, BAYA_RECOGNITION_MODEL_URL } from '../../../ml/bayaModelConfig';
@@ -61,6 +62,11 @@ function WritingPracticeSession({ topicId, selection, setSelection, masteredChar
 }) {
   const router = useRouter();
   const { width, height } = useResponsiveLayout();
+  const referenceTarget = useRef<View>(null);
+  const canvasTarget = useRef<View>(null);
+  const starsTarget = useRef<View>(null);
+  const actionTarget = useRef<View>(null);
+  const guideTargets = { reference: referenceTarget, canvas: canvasTarget, stars: starsTarget, action: actionTarget };
   const [available, setAvailable] = useState({ width, height });
   const { columns, compact, dense } = getWritingLayout(available.width, available.height);
   const [strokes, setStrokes] = useState<StrokeData>([]);
@@ -76,12 +82,8 @@ function WritingPracticeSession({ topicId, selection, setSelection, masteredChar
   const [captureDownload, setCaptureDownload] = useState<BayaCaptureDownload | null>(null);
   useEffect(() => () => { if (captureDownload) URL.revokeObjectURL(captureDownload.url); }, [captureDownload]);
   const mascotSize = dense
-    ? available.height < 500
-      ? Math.min(108, available.width * 0.2, Math.max(100, (available.height - 80) * 0.6))
-      : Math.min(210, available.width * 0.23, (available.height - 80) * 0.78)
-    : columns === 3
-      ? Math.min(360, available.width * 0.25, available.height * 0.5)
-      : compact ? 150 : 200;
+    ? Math.min(64, Math.max(48, available.height * 0.17))
+    : Math.min(220, available.width * 0.17, available.height * 0.3);
   const [busy, setBusy] = useState(false);
   const advancing = useRef(false);
   const completed = useRef(false);
@@ -99,9 +101,14 @@ function WritingPracticeSession({ topicId, selection, setSelection, masteredChar
   useLayoutEffect(() => { activeTarget.current = targetKey; }, [targetKey]);
   const mounted = useRef(true);
   useEffect(() => { mounted.current = true; return () => { mounted.current = false; drawingVersion.current += 1; }; }, []);
-  const resetWriting = useCallback(() => { drawingVersion.current += 1; needsRedraw.current = false; setRequiresRedraw(false); currentStrokes.current = []; setStrokes(currentStrokes.current); setRecognition({ status: 'idle' }); setCaptureDownload(null); }, []);
+  const resetWriting = useCallback(() => { drawingVersion.current += 1; needsRedraw.current = false; setRequiresRedraw(false); currentStrokes.current = []; setStrokes(currentStrokes.current); setRecognition({ status: 'idle' }); setCaptureDownload(null); }, [setRequiresRedraw, setStrokes, setRecognition, setCaptureDownload]);
   const resetCharacter = useCallback(() => { mastery.current = 0; setValidCount(0); resetWriting(); }, [resetWriting]);
   const canProceed = validCount >= BAYA_WRITING_MASTERY_POLICY.requiredValidAttempts;
+  const onRetry = () => { if (!checking.current && !advancing.current && mastery.current < BAYA_WRITING_MASTERY_POLICY.requiredValidAttempts) resetWriting(); };
+  const onClear = () => {
+    if (checking.current || advancing.current || needsRedraw.current || mastery.current >= BAYA_WRITING_MASTERY_POLICY.requiredValidAttempts) return;
+    resetWriting();
+  };
 
   const switchTopic = (nextId: 'topic-3-1' | 'topic-3-2', index = 0) => {
     resetCharacter();
@@ -110,9 +117,9 @@ function WritingPracticeSession({ topicId, selection, setSelection, masteredChar
   };
   const backToLessons = () => { drawingVersion.current += 1; router.dismissTo('/learner/lessons'); };
   const onChangeStrokes = (nextStrokes: StrokeData) => { if (checking.current || needsRedraw.current || mastery.current >= BAYA_WRITING_MASTERY_POLICY.requiredValidAttempts) return; drawingVersion.current += 1; currentStrokes.current = nextStrokes; setStrokes(nextStrokes); setRecognition({ status: 'idle' }); setCaptureDownload(null); };
-  const onUndo = () => { if (needsRedraw.current) { resetWriting(); return; } drawingVersion.current += 1; currentStrokes.current = currentStrokes.current.slice(0, -1); setStrokes(currentStrokes.current); setRecognition({ status: 'idle' }); setCaptureDownload(null); };
+  const onUndo = () => { if (checking.current || advancing.current || needsRedraw.current || mastery.current >= BAYA_WRITING_MASTERY_POLICY.requiredValidAttempts) return; drawingVersion.current += 1; currentStrokes.current = currentStrokes.current.slice(0, -1); setStrokes(currentStrokes.current); setRecognition({ status: 'idle' }); setCaptureDownload(null); };
   const onBackToWriting = () => {
-    if (advancing.current) return;
+    if (advancing.current || checking.current) return;
     if (selectedIndex > 0) { resetCharacter(); setSelection({ topicId, index: selectedIndex - 1 }); return; }
     if (topicIndex > 0) {
       const previousTopic = writingTopics[topicIndex - 1];
@@ -220,30 +227,36 @@ function WritingPracticeSession({ topicId, selection, setSelection, masteredChar
 
   if (!topic || !exercise) return null;
   const previousCount = writingTopics.slice(0, topicIndex).reduce((sum, item) => sum + item.exercises.length, 0);
+  const unsuccessful = recognition.status === 'error' || (recognition.status === 'success' && !isValidWritingResult(exercise.characterId, recognition.predictions));
+  const actionPhase = canProceed ? 'complete' : busy ? 'checking' : requiresRedraw ? 'retry' : 'ready';
+  const navigation = <WritingNavigation phase={actionPhase} busy={busy} canAdvance={canProceed && !busy} canCheck={strokes.some(stroke => stroke.length > 0) && !busy && !requiresRedraw && !canProceed} canEdit={!busy} compact={compact} isLast={lastTopic && lastExercise} targetRef={actionTarget} onCheck={() => { void onCheck(); }} onNext={() => { void onNext(); }} onRetry={onRetry} />;
   return <LearnerAppShell
     activeRoute="/learner/lessons"
     backgroundColor="#FFFDF7"
-    header={<ActivityHeader currentStep={previousCount + selectedIndex + 1} totalSteps={totalExercises} onBack={backToLessons} onOpenSettings={() => router.push('/learner/settings')} subtitle={topic.title} title={module.title} />}
+    header={<ActivityHeader currentStep={previousCount + selectedIndex + 1} totalSteps={totalExercises} onBack={onBackToWriting} onOpenSettings={() => router.push('/learner/settings')} subtitle={topic.title} title={module.title} />}
     showBottomNavigation={false}
+
     testID={`writing-practice-screen-${topicId}`}
   >
     <ScrollView contentContainerStyle={[styles.scrollContent, dense && styles.denseScrollContent, { paddingHorizontal: available.width < 700 || dense ? ResponsiveLayout.pagePadding.phone : ResponsiveLayout.pagePadding.desktop }]} keyboardShouldPersistTaps="handled" onLayout={event => { const { width: measuredWidth, height: measuredHeight } = event.nativeEvent.layout; if (measuredWidth !== available.width || measuredHeight !== available.height) setAvailable({ width: measuredWidth, height: measuredHeight }); }} style={styles.scroll}>
-      <View style={[styles.columns, dense && styles.denseColumns, columns === 1 && styles.stack, columns === 3 && styles.desktopColumns, columns === 3 && { minHeight: Math.max(0, available.height - (dense ? Spacing.sm * 2 : Spacing.md + Spacing.lg)) }]}>
-        <View style={[styles.referenceColumn, columns === 1 && styles.stackColumn, columns === 2 && styles.twoColumn]}>
+      <View style={[styles.columns, dense && styles.denseColumns, columns === 1 && styles.stack, columns === 3 && styles.desktopColumns, columns === 3 && { minHeight: Math.max(0, available.height - (dense ? Spacing.xs * 2 : Spacing.md + Spacing.lg)) }]}>
+        <View ref={referenceTarget} collapsable={false} testID="writing-reference-panel" style={[styles.referenceColumn, columns === 1 && styles.stackColumn, columns === 2 && styles.twoColumn]}>
           <CharacterReferenceCard compact={compact} dense={dense} exercise={exercise} fullHeight={columns === 3} />
         </View>
         <View style={[styles.canvasColumn, columns === 1 && styles.stackColumn, columns === 2 && styles.twoColumn]}>
           <View style={[styles.canvasCard, dense && styles.denseCanvasCard, columns === 3 && styles.tallCard]}>
-            <WritingToolbar canEdit={strokes.length > 0} dense={dense} onClear={resetWriting} onUndo={onUndo} />
-            <WritingCanvas disabled={busy || requiresRedraw || canProceed} compact={compact} dense={dense} fillHeight={columns === 3} hintImage={getBaybayinTracingGuide(exercise.characterId)} onChange={onChangeStrokes} onSizeChange={size => { if (size.width !== canvasSize.width || size.height !== canvasSize.height) { drawingVersion.current += 1; currentSize.current = size; setCanvasSize(size); if (checking.current) setRecognition({ status: 'idle' }); } }} strokes={strokes} />
+            <WritingInstructions key={targetKey} count={validCount} unsuccessful={unsuccessful} compact={dense}>
+              <WritingToolbar canEdit={strokes.length > 0 && !busy && !requiresRedraw && !canProceed} dense={dense} onClear={onClear} onUndo={onUndo} />
+            </WritingInstructions>
+            <WritingCanvas targetRef={canvasTarget} disabled={busy || requiresRedraw || canProceed} compact={compact} dense={dense} fillHeight={columns === 3} hintImage={getBaybayinTracingGuide(exercise.characterId)} onChange={onChangeStrokes} onSizeChange={size => { if (size.width !== canvasSize.width || size.height !== canvasSize.height) { drawingVersion.current += 1; currentSize.current = size; setCanvasSize(size); if (checking.current) setRecognition({ status: 'idle' }); } }} strokes={strokes} />
           </View>
         </View>
-        <View style={[styles.feedbackColumn, dense && styles.denseFeedbackColumn, columns === 1 && styles.stackColumn, columns === 2 && styles.rowFullColumn]}>
-          <ConfidenceCard dense={dense} embedded />
-          <WritingMasteryIndicator count={validCount} />
-          <BayaWritingGuide dense={dense} fillHeight={columns === 3} mascotSize={mascotSize} recognition={recognition} targetClass={exercise.characterId} />
+        <View testID="writing-feedback-panel" style={[styles.feedbackColumn, dense && styles.denseFeedbackColumn, columns === 1 && styles.stackColumn, columns === 2 && styles.rowFullColumn, columns === 3 && { maxHeight: Math.max(0, available.height - (dense ? Spacing.xs * 2 : Spacing.md + Spacing.lg)) }]}>
+          <ConfidenceCard dense={dense} embedded guideTargets={guideTargets} phase={actionPhase} action={navigation} progress={<WritingMasteryIndicator targetRef={starsTarget} key={targetKey} count={validCount} required={BAYA_WRITING_MASTERY_POLICY.requiredValidAttempts} compact={dense} />}>
+
+          <BayaWritingGuide dense={dense} mascotSize={mascotSize} recognition={recognition} targetClass={exercise.characterId} />
           {captureDownload && <a download={captureDownload.filename} href={captureDownload.url}>Download diagnostic JSON</a>}
-          <WritingNavigation analyzing={recognition.status === 'analyzing'} canAdvance={canProceed && !busy} canCheck={!busy && !requiresRedraw && !canProceed} canEdit={!busy} compact={compact} dense={dense} hasAttempt={true} isLast={lastTopic && lastExercise} isResult={recognition.status === 'success' || (requiresRedraw && !busy) || canProceed} onBackToWriting={onBackToWriting} onCheck={() => { void onCheck(); }} onNext={() => { void onNext(); }} onRetry={resetWriting} />
+          </ConfidenceCard>
         </View>
       </View>
     </ScrollView>
@@ -251,21 +264,22 @@ function WritingPracticeSession({ topicId, selection, setSelection, masteredChar
 }
 
 const styles = StyleSheet.create({
+
   scroll: { flex: 1, minHeight: 0, width: '100%' },
   scrollContent: { flexGrow: 1, paddingBottom: Spacing.lg, paddingTop: Spacing.md, width: '100%' },
-  denseScrollContent: { paddingBottom: Spacing.sm, paddingTop: Spacing.sm },
+  denseScrollContent: { paddingBottom: Spacing.xs, paddingTop: Spacing.xs },
   columns: { alignItems: 'stretch', flexDirection: 'row', flexWrap: 'wrap', gap: Spacing.md, width: '100%' },
   denseColumns: { gap: Spacing.sm },
   desktopColumns: { flexWrap: 'nowrap' },
   stack: { flexDirection: 'column', flexWrap: 'nowrap' },
   referenceColumn: { flex: 0.9, minWidth: 0 },
   canvasColumn: { flex: 2.1, minWidth: 0 },
-  feedbackColumn: { backgroundColor: Colors.surface, borderColor: Colors.border, borderRadius: Radius.xl, borderWidth: 1, flex: 1.05, gap: Spacing.sm, justifyContent: 'space-between', minWidth: 0, padding: Spacing.md },
+  feedbackColumn: { alignSelf: 'flex-start', backgroundColor: Colors.surface, borderColor: Colors.border, borderRadius: Radius.xl, borderWidth: 1, flex: 1.05, gap: Spacing.sm, minWidth: 0, padding: Spacing.md },
   denseFeedbackColumn: { gap: Spacing.xs, padding: Spacing.sm },
   twoColumn: { flexBasis: '46%', flexGrow: 1 },
   stackColumn: { flexBasis: 'auto', flexGrow: 0, flexShrink: 0, width: '100%' },
   rowFullColumn: { flexBasis: '100%', flexGrow: 0, width: '100%' },
-  canvasCard: { backgroundColor: Colors.surface, borderColor: Colors.border, borderRadius: Radius.xl, borderWidth: 1, gap: Spacing.md, minWidth: 0, padding: Spacing.md, width: '100%' },
+  canvasCard: { backgroundColor: Colors.surface, borderColor: Colors.border, borderRadius: Radius.xl, borderWidth: 1, gap: Spacing.sm, minWidth: 0, padding: Spacing.md, width: '100%' },
   denseCanvasCard: { gap: Spacing.xs, padding: Spacing.sm },
   tallCard: { flex: 1 },
 });
