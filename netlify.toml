@@ -10,6 +10,10 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  # Public client configuration only. Database access is enforced by Supabase RLS.
+  EXPO_PUBLIC_SUPABASE_URL = "https://xqtsrsxhfylfldtfbuhe.supabase.co"
+  EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY = "sb_publishable_yUPPhI5BKZUGCghcZP6mmA_rQfwES3j"
+  EXPO_PUBLIC_ENABLE_DB_INSPECTOR = "false"
   NPM_FLAGS = "--legacy-peer-deps"
 
 # Client-side Single Page Application (SPA) routing for Expo Router.

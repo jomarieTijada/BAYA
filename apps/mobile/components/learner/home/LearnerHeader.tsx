@@ -1,6 +1,6 @@
+import { router } from 'expo-router';
 import React, { useState } from 'react';
 import {
-  Alert,
   type LayoutChangeEvent,
   Pressable,
   StyleSheet,
@@ -43,7 +43,7 @@ export function LearnerHeader({ learner, onOpenSettings, onLayout }: LearnerHead
   const [settingsHovered, setSettingsHovered] = useState(false);
 
   const showWorkspaceNotice = () => {
-    Alert.alert('Join Workspace', 'Joining a workspace will be available in the next update.');
+    router.push('/learner/workspaces/join');
   };
 
   return (
@@ -127,7 +127,7 @@ export function LearnerHeader({ learner, onOpenSettings, onLayout }: LearnerHead
             </View>
             <View accessibilityElementsHidden style={styles.dot} />
             <Pressable
-              accessibilityHint="Shows when workspace joining will be available"
+              accessibilityHint="Enter a workspace code"
               accessibilityLabel="Join Workspace"
               accessibilityRole="link"
               onBlur={() => setJoinFocused(false)}

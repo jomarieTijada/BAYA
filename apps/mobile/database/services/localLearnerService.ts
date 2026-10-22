@@ -43,6 +43,15 @@ async function setState(db: DatabaseConnection, key: string, value: string) {
 }
 
 export const localLearnerService = {
+  async bindCloudIdentity(localId: string, userId: string): Promise<void> {
+    const db = await database();
+    if (!db.withTransactionAsync) throw new Error('Profile linking requires a transaction.');
+    await db.withTransactionAsync(async tx => {
+      const profile = await activeLearner(tx);
+      if (!profile || profile.profile_id !== localId || (profile.auth_user_id && profile.auth_user_id !== userId)) throw { code: 'account_mismatch' };
+      await tx.runAsync('UPDATE profiles SET auth_user_id = ? WHERE profile_id = ?;', [userId, localId]);
+    });
+  },
   async getActiveLearner(dbOverride?: DatabaseConnection): Promise<Profile | null> {
     return activeLearner(await database(dbOverride));
   },

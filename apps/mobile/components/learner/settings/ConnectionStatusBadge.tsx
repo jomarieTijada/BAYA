@@ -7,16 +7,16 @@ import { SETTINGS_COPY } from './settingsCopy';
 type ConnectionStatusBadgeProps = {
   connected: boolean;
   landscapeCompact: boolean;
-  onPress: () => void;
+  onPress?: () => void;
 };
 
 /** One status control and label for independent and connected workspace states. */
 export function ConnectionStatusBadge({ connected, landscapeCompact, onPress }: ConnectionStatusBadgeProps) {
   return (
     <Pressable
-      accessibilityHint={SETTINGS_COPY.statusTestHint}
+      accessibilityHint={undefined}
       accessibilityLabel={connected ? SETTINGS_COPY.connectedAccessibility : SETTINGS_COPY.disconnectedAccessibility}
-      accessibilityRole="button"
+      accessibilityRole={onPress ? "button" : "text"}
       onPress={onPress}
       style={({ pressed }) => [
         styles.pill,
@@ -45,10 +45,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: Radius.full,
     flexDirection: 'row',
-    flexShrink: 0,
+    flexShrink: 1,
+    maxWidth: '100%',
     gap: 6,
-    paddingHorizontal: 12,
-    paddingVertical: 6,
+    paddingHorizontal: 16,
+    paddingVertical: 10,
   },
   pillLandscapeCompact: {
     paddingHorizontal: 8,
@@ -70,8 +71,8 @@ const styles = StyleSheet.create({
   },
   dot: {
     borderRadius: Radius.full,
-    height: 7,
-    width: 7,
+    height: 10,
+    width: 10,
   },
   dotNone: {
     backgroundColor: Colors.textMuted,
@@ -81,12 +82,13 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: FontFamily.rounded,
-    fontSize: 12,
+    fontSize: 18,
+    flexShrink: 1,
     fontWeight: '700',
     includeFontPadding: false,
   },
   textLandscapeCompact: {
-    fontSize: 11,
+    fontSize: 13,
   },
   textNone: {
     color: Colors.textSecondary,

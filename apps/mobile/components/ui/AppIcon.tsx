@@ -47,7 +47,11 @@ export type AppIconName =
   | 'undo'
   | 'pencil'
   | 'video'
-  | 'writing';
+  | 'writing'
+  | 'eye'
+  | 'eyeOff'
+  | 'workspace'
+  | 'copy';
 
 type AppIconColor =
   | 'accent'
@@ -118,6 +122,10 @@ const iconNames = {
   pencil: 'pencil-outline',
   video: 'videocam-outline',
   writing: 'pencil-outline',
+  eye: 'eye-outline',
+  eyeOff: 'eye-off-outline',
+  workspace: 'business-outline',
+  copy: 'copy-outline',
 } satisfies Record<AppIconName, IoniconName>;
 
 const iconColors = {

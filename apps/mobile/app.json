@@ -44,7 +44,9 @@
       [
         "expo-asset",
         {
-          "assets": ["./assets/media/videos/baybayin-song.mp4"]
+          "assets": [
+            "./assets/media/videos/baybayin-song.mp4"
+          ]
         }
       ],
       "expo-image",
@@ -57,7 +59,8 @@
           "enableBackgroundPlayback": false
         }
       ],
-      "expo-sqlite"
+      "expo-sqlite",
+      "expo-secure-store"
     ]
   }
 }

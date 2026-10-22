@@ -10,15 +10,21 @@ import {
 import { Colors, FontFamily, Radius, Spacing } from '../../constants/theme';
 
 type AppTextInputProps = Omit<TextInputProps, 'style'> & {
-  density?: AppControlDensity;
+  density?: AppControlDensity | 'form';
   error?: string;
   helperText?: string;
   label: string;
+  trailing?: React.ReactNode;
+  labelAction?: React.ReactNode;
   optional?: boolean;
   required?: boolean;
 };
 
-export type AppControlDensity = 'regular' | 'mobile' | 'compact' | 'landscapeCompact';
+export type AppControlDensity =
+  | 'regular'
+  | 'mobile'
+  | 'compact'
+  | 'landscapeCompact';
 
 /** Labelled input with reusable required, optional, helper, focus, and error states. */
 export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
@@ -32,6 +38,8 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
       label,
       onBlur,
       onFocus,
+      trailing,
+      labelAction,
       optional = false,
       placeholderTextColor = Colors.placeholder,
       required = false,
@@ -41,7 +49,8 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
   ) {
     const [focused, setFocused] = useState(false);
     const accessibleLabel =
-      accessibilityLabel ?? `${label}${required ? ', required' : optional ? ', optional' : ''}`;
+      accessibilityLabel ??
+      `${label}${required ? ', required' : optional ? ', optional' : ''}`;
     const isLandscape = density === 'landscapeCompact';
     const isCompact = density === 'compact' || isLandscape;
     const hasSupport = Boolean(error || helperText);
@@ -67,6 +76,7 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
             {label}
             {required ? <Text style={styles.required}>*</Text> : null}
           </Text>
+          {labelAction}
           {optional ? (
             <Text
               style={[
@@ -81,33 +91,44 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
           ) : null}
         </View>
 
-        <TextInput
-          ref={ref}
-          {...inputProps}
-          accessibilityHint={accessibilityHint}
-          accessibilityLabel={accessibleLabel}
-          accessibilityState={{ disabled: Boolean(inputProps.editable === false) }}
-          autoCapitalize={inputProps.autoCapitalize ?? 'none'}
-          autoCorrect={inputProps.autoCorrect ?? false}
-          onBlur={(event) => {
-            setFocused(false);
-            onBlur?.(event);
-          }}
-          onFocus={(event) => {
-            setFocused(true);
-            onFocus?.(event);
-          }}
-          placeholderTextColor={placeholderTextColor}
-          style={[
-            styles.input,
-            density === 'mobile' && styles.inputMobile,
-            density === 'compact' && styles.inputCompact,
-            isLandscape && styles.inputLandscapeCompact,
-            error && styles.inputError,
-            focused && styles.inputFocused,
-          ]}
-        />
+        <View style={{ position: 'relative' }}>
+          <TextInput
+            ref={ref}
+            {...inputProps}
+            accessibilityHint={accessibilityHint}
+            accessibilityLabel={accessibleLabel}
+            accessibilityState={{
+              disabled: Boolean(inputProps.editable === false),
+            }}
+            autoCapitalize={inputProps.autoCapitalize ?? 'none'}
+            autoCorrect={inputProps.autoCorrect ?? false}
+            onBlur={(event) => {
+              setFocused(false);
+              onBlur?.(event);
+            }}
+            onFocus={(event) => {
+              setFocused(true);
+              onFocus?.(event);
+            }}
+            placeholderTextColor={placeholderTextColor}
+            style={[
+              styles.input,
+              density === 'form' && { borderRadius: 24 },
+              trailing ? { paddingRight: 64 } : undefined,
+              density === 'mobile' && styles.inputMobile,
+              density === 'compact' && styles.inputCompact,
+              isLandscape && styles.inputLandscapeCompact,
+              error && styles.inputError,
+              focused && styles.inputFocused,
+            ]}
+          />
 
+          {trailing ? (
+            <View style={{ position: 'absolute', right: 8, top: 8 }}>
+              {trailing}
+            </View>
+          ) : null}
+        </View>
         {hasSupport ? (
           <View
             style={[
@@ -143,14 +164,16 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
               </Text>
             )}
           </View>
-        ) : !isCompact ? (
+        ) : density === 'regular' || density === 'mobile' ? (
           <View
             style={[
               styles.supportArea,
               density === 'mobile' && styles.supportAreaMobile,
             ]}
           >
-            <Text aria-hidden style={styles.helper}>{' '}</Text>
+            <Text aria-hidden style={styles.helper}>
+              {' '}
+            </Text>
           </View>
         ) : null}
       </View>
