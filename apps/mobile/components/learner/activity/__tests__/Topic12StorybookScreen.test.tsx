@@ -1,8 +1,19 @@
 import React from 'react';
-import { render, fireEvent, screen } from '@testing-library/react-native';
+import { render as renderComponent, fireEvent, screen } from '@testing-library/react-native';
+
+
 import { ActivityScreen } from '../ActivityScreen';
 import { getActivityData, topic12ActivityData } from '../activityData';
 import { baybayinSyllabaryParagraphs } from '../../../../content/baybayinSyllabary';
+
+// React Native's test renderer does not dispatch native layout events.
+function render(element: React.ReactElement) {
+  const result = renderComponent(element);
+  fireEvent(screen.getByTestId('storybook-page'), 'layout', {
+    nativeEvent: { layout: { width: 1366, height: 650 } },
+  });
+  return result;
+}
 
 // Mock useRouter
 const mockPush = jest.fn();
