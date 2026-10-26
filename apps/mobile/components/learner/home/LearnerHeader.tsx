@@ -1,8 +1,7 @@
 import { router } from 'expo-router';
-import React, { useState } from 'react';
+import React from 'react';
 import {
   type LayoutChangeEvent,
-  Pressable,
   StyleSheet,
   Text,
   View,
@@ -17,6 +16,7 @@ import {
 } from '../../../constants/theme';
 import { useResponsiveLayout } from '../../../hooks/useResponsiveLayout';
 import { AppIcon } from '../../ui/AppIcon';
+import { LearnerActionMenu } from '../LearnerActionMenu';
 import { XpProgress } from './XpProgress';
 import type { LearnerHomeViewModel } from './learnerHomeDemo';
 
@@ -37,14 +37,6 @@ export function LearnerHeader({ learner, onOpenSettings, onLayout }: LearnerHead
     : compact
       ? LearnerHeaderMetrics.compact
       : LearnerHeaderMetrics.regular;
-  const [joinFocused, setJoinFocused] = useState(false);
-  const [joinHovered, setJoinHovered] = useState(false);
-  const [settingsFocused, setSettingsFocused] = useState(false);
-  const [settingsHovered, setSettingsHovered] = useState(false);
-
-  const showWorkspaceNotice = () => {
-    router.push('/learner/workspaces/join');
-  };
 
   return (
     <View
@@ -125,28 +117,6 @@ export function LearnerHeader({ learner, onOpenSettings, onLayout }: LearnerHead
                 {learner.title || 'Baybayin Learner'}
               </Text>
             </View>
-            <View accessibilityElementsHidden style={styles.dot} />
-            <Pressable
-              accessibilityHint="Enter a workspace code"
-              accessibilityLabel="Join Workspace"
-              accessibilityRole="link"
-              onBlur={() => setJoinFocused(false)}
-              onFocus={() => setJoinFocused(true)}
-              onHoverIn={() => setJoinHovered(true)}
-              onHoverOut={() => setJoinHovered(false)}
-              onPress={showWorkspaceNotice}
-              style={[styles.joinLink, (joinFocused || joinHovered) && styles.joinLinkActive]}
-            >
-              <Text
-                style={[
-                  styles.joinText,
-                  compact && styles.joinTextCompact,
-                  landscapeCompact && styles.joinTextLandscapeCompact,
-                ]}
-              >
-                Join Workspace
-              </Text>
-            </Pressable>
           </View>
         </View>
       </View>
@@ -184,25 +154,15 @@ export function LearnerHeader({ learner, onOpenSettings, onLayout }: LearnerHead
             LVL {learner.level}
           </Text>
         </View>
-        <Pressable
-          accessibilityLabel="Settings"
-          accessibilityRole="button"
-          hitSlop={8}
-          onBlur={() => setSettingsFocused(false)}
-          onFocus={() => setSettingsFocused(true)}
-          onHoverIn={() => setSettingsHovered(true)}
-          onHoverOut={() => setSettingsHovered(false)}
-          onPress={onOpenSettings}
-          style={({ pressed }) => [
-            styles.settingsButton,
-            compact && styles.settingsButtonCompact,
-            landscapeCompact && styles.settingsButtonLandscapeCompact,
-            (settingsFocused || settingsHovered) && styles.settingsButtonActive,
-            pressed && styles.settingsButtonPressed,
-          ]}
-        >
-          <AppIcon color="accent" name="settings" size={metrics.settingsIcon} />
-        </Pressable>
+        <LearnerActionMenu groups={[
+          { label: 'Workspace', actions: [
+            { label: 'Join Workspace', icon: 'workspace', onPress: () => router.push('/learner/workspaces') },
+            { label: 'Workspace & Sync', icon: 'sync', onPress: onOpenSettings },
+          ] },
+          { label: 'Account', actions: [
+            { label: 'Learner Account', icon: 'profile', onPress: () => router.push('/learner/workspaces/account') },
+          ] },
+        ]} />
       </View>
     </View>
   );
@@ -385,35 +345,6 @@ const styles = StyleSheet.create({
     fontSize: LearnerHeaderMetrics.landscapeCompact.learnerTitle,
     includeFontPadding: false,
   },
-  dot: {
-    backgroundColor: Colors.textMuted,
-    borderRadius: Radius.full,
-    height: 4,
-    width: 4,
-  },
-  joinLink: {
-    borderBottomColor: Colors.textMuted,
-    borderBottomWidth: 1,
-    borderRadius: 3,
-    paddingBottom: 1,
-  },
-  joinLinkActive: {
-    backgroundColor: Colors.roleSecondaryHover,
-    borderBottomColor: Colors.focus,
-  },
-  joinText: {
-    color: Colors.textMuted,
-    fontFamily: FontFamily.body,
-    fontSize: 14,
-    fontWeight: '700',
-  },
-  joinTextCompact: {
-    fontSize: 12,
-  },
-  joinTextLandscapeCompact: {
-    fontSize: 11,
-    includeFontPadding: false,
-  },
   statusGroup: {
     alignItems: 'center',
     flexDirection: 'row',
@@ -479,31 +410,5 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     includeFontPadding: false,
   },
-  settingsButton: {
-    alignItems: 'center',
-    backgroundColor: Colors.surface,
-    borderColor: Colors.border,
-    borderRadius: Radius.full,
-    borderWidth: 2,
-    height: LearnerHeaderMetrics.regular.settingsButton,
-    justifyContent: 'center',
-    width: LearnerHeaderMetrics.regular.settingsButton,
-  },
-  settingsButtonActive: {
-    backgroundColor: Colors.roleSecondaryHover,
-    borderColor: Colors.focus,
-  },
-  settingsButtonCompact: {
-    height: LearnerHeaderMetrics.compact.settingsButton,
-    width: LearnerHeaderMetrics.compact.settingsButton,
-  },
-  settingsButtonLandscapeCompact: {
-    borderWidth: 1.5,
-    flexShrink: 0,
-    height: LearnerHeaderMetrics.landscapeCompact.settingsButton,
-    width: LearnerHeaderMetrics.landscapeCompact.settingsButton,
-  },
-  settingsButtonPressed: {
-    transform: [{ scale: 0.96 }],
-  },
+
 });

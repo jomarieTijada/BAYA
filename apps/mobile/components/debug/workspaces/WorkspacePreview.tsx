@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { JoinApprovalPreview } from './JoinApprovalPreview';
+import { BayaDialog } from '../../ui/BayaDialog';
+import { AppButton } from '../../ui/AppButton';
+import { MentorActionMenu } from '../../mentor/MentorActionMenu';
 import { Text } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { CloudServicesContext } from '../../../modules/cloud/services';
@@ -16,14 +20,15 @@ import {
   WorkspaceDetailsScreen,
 } from '../../mentor/WorkspaceScreens';
 import {
-  LearnerJoinWorkspaceScreen,
   LearnerMembershipScreen,
 } from '../../learner/LearnerWorkspaceScreens';
 export default function WorkspacePreview() {
+  const [independent, setIndependent] = useState(true);
   const { screen = 'login' } = useLocalSearchParams<{ screen: string }>();
+  if (screen.startsWith('approval-')) return <JoinApprovalPreview key={screen} screen={screen} />;
   const services = {
     ...fixtureServices,
-    auth: { ...fixtureServices.auth },
+    auth: { ...fixtureServices.auth, signOut: async () => ({ok: true as const, data: undefined}) },
     workspaces: { ...fixtureServices.workspaces },
   };
   if (['dashboard', 'progress-detail', 'settings-connected', 'settings-empty'].includes(screen)) {
@@ -55,7 +60,7 @@ export default function WorkspacePreview() {
       >
         DEVELOPMENT PREVIEW · TEST DATA ONLY
       </Text>
-      {screen === 'learner-account' ? <LearnerCloudAccount /> : screen === 'manage' ? <WorkspaceManageScreen id="preview" /> : screen.startsWith('settings-') ? <SettingsScreen /> : screen === 'dashboard' ? <MentorDashboard id="preview" /> : screen === 'progress-detail' ? <LearnerProgressDetail workspaceId="preview" profileId="preview-learner" /> : screen === 'login' || screen === 'register' || screen === 'reset' ? (
+      {screen === 'independent' ? <><AppButton label="Open independent dialog" accessibilityLabel="Open independent dialog" onPress={() => setIndependent(true)} /><BayaDialog visible={independent} title="Continue as an Independent Learner?" description="Your progress will stay on this device until you join a workspace." onDismiss={() => setIndependent(false)} primaryAction={{label:'YES, CONTINUE',onPress:()=>setIndependent(false)}} secondaryAction={{label:'NO, ENTER WORKSPACE ID',onPress:()=>router.push('/learner/workspaces')}} /></> : screen === 'mentor-settings' ? <MentorActionMenu /> : screen === 'learner-account'  ? <LearnerCloudAccount /> : screen === 'manage' ? <WorkspaceManageScreen id="preview" /> : screen.startsWith('settings-') ? <SettingsScreen /> : screen === 'dashboard' ? <MentorDashboard id="preview" /> : screen === 'progress-detail' ? <LearnerProgressDetail workspaceId="preview" profileId="preview-learner" /> : screen === 'login' || screen === 'register' || screen === 'reset' ? (
         <AuthScreen mode={screen} />
       ) : screen === 'otp' ? (
         <OtpScreen
@@ -68,7 +73,7 @@ export default function WorkspacePreview() {
       ) : screen === 'details' ? (
         <WorkspaceDetailsScreen id="test-id" />
       ) : screen === 'join' ? (
-        <LearnerJoinWorkspaceScreen />
+        <LearnerMembershipScreen />
       ) : screen === 'memberships' ? (
         <LearnerMembershipScreen />
       ) : (

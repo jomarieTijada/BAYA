@@ -1,0 +1,667 @@
+[
+  {
+    "screen": "otp-toast",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nVERIFY YOUR EMAIL\nEnter the verification code sent to mentor@example.test.\nVERIFICATION CODE*\nVERIFY\nResend code\nVerification code requested. Check your email.",
+    "inputs": [
+      {
+        "width": 698,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "logout",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nManage your mentor session.\nAccount & session\nLearning progress saved on this device stays here when you log out.\nLOG OUT\nLog out of BAYA?\nYou can log in again to manage your workspaces.\nYES, LOG OUT\nCANCEL",
+    "inputs": []
+  },
+  {
+    "screen": "settings-empty",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nWorkspace & Sync\nWorkspace progress tracker\nNo Workspace Connected\nYou are currently learning independently.\nJoin a workspace to synchronize your learning progress with a mentor.\nJOIN WORKSPACE\nYour progress will link seamlessly upon joining a mentor's workspace code.\nLearner cloud account",
+    "inputs": []
+  },
+  {
+    "screen": "join",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nJOIN WORKSPACE\nAsk your mentor for a workspace code. Enter it below.\nWORKSPACE CODE*\nJOIN WORKSPACE",
+    "inputs": [
+      {
+        "width": 698,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "login",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nMENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nPASSWORD*\nForgot Password?\nLOG IN\nDon’t have a mentor account? Create Account",
+    "inputs": [
+      {
+        "width": 698,
+        "height": 68
+      },
+      {
+        "width": 698,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "register",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nCREATE MENTOR ACCOUNT\nSet up your mentor account for managing learner workspaces.\nFULL NAME*\nEMAIL ADDRESS*\nPASSWORD*\nCONFIRM PASSWORD*\nCREATE ACCOUNT\nAlready have a mentor account? Log in",
+    "inputs": [
+      {
+        "width": 537,
+        "height": 68
+      },
+      {
+        "width": 537,
+        "height": 68
+      },
+      {
+        "width": 537,
+        "height": 68
+      },
+      {
+        "width": 537,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "create",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nCREATE WORKSPACE\nCreate a workspace for your learners.\nWORKSPACE NAME*\nWORKSPACE CODE\nAuto ID Generator · Share this code with your learners after creation.\nCREATE WORKSPACE",
+    "inputs": [
+      {
+        "width": 698,
+        "height": 68
+      },
+      {
+        "width": 698,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "details",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nWorkspace Details\nShare the workspace code with your learners.\nBaybayin Workshop A\n● Active\nCODE: BAYA-7K2P\n3 Learners",
+    "inputs": []
+  },
+  {
+    "screen": "otp-toast",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nVERIFY YOUR EMAIL\nEnter the verification code sent to mentor@example.test.\nVERIFICATION CODE*\nVERIFY\nResend code\nVerification code requested. Check your email.",
+    "inputs": [
+      {
+        "width": 574,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "logout",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nManage your mentor session.\nAccount & session\nLearning progress saved on this device stays here when you log out.\nLOG OUT\nLog out of BAYA?\nYou can log in again to manage your workspaces.\nYES, LOG OUT\nCANCEL",
+    "inputs": []
+  },
+  {
+    "screen": "settings-empty",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nWorkspace & Sync\nWorkspace progress tracker\nNo Workspace Connected\nYou are currently learning independently.\nJoin a workspace to synchronize your learning progress with a mentor.\nJOIN WORKSPACE\nYour progress will link seamlessly upon joining a mentor's workspace code.\nLearner cloud account",
+    "inputs": []
+  },
+  {
+    "screen": "join",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nJOIN WORKSPACE\nAsk your mentor for a workspace code. Enter it below.\nWORKSPACE CODE*\nJOIN WORKSPACE",
+    "inputs": [
+      {
+        "width": 574,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "login",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nMENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nPASSWORD*\nForgot Password?\nLOG IN\nDon’t have a mentor account? Create Account",
+    "inputs": [
+      {
+        "width": 574,
+        "height": 68
+      },
+      {
+        "width": 574,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "register",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nCREATE MENTOR ACCOUNT\nSet up your mentor account for managing learner workspaces.\nFULL NAME*\nEMAIL ADDRESS*\nPASSWORD*\nCONFIRM PASSWORD*\nCREATE ACCOUNT\nAlready have a mentor account? Log in",
+    "inputs": [
+      {
+        "width": 574,
+        "height": 68
+      },
+      {
+        "width": 574,
+        "height": 68
+      },
+      {
+        "width": 574,
+        "height": 68
+      },
+      {
+        "width": 574,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "create",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nCREATE WORKSPACE\nCreate a workspace for your learners.\nWORKSPACE NAME*\nWORKSPACE CODE\nAuto ID Generator · Share this code with your learners after creation.\nCREATE WORKSPACE",
+    "inputs": [
+      {
+        "width": 574,
+        "height": 68
+      },
+      {
+        "width": 574,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "details",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nWorkspace Details\nShare the workspace code with your learners.\nBaybayin Workshop A\n● Active\nCODE: BAYA-7K2P\n3 Learners",
+    "inputs": []
+  },
+  {
+    "screen": "otp-toast",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nVERIFY YOUR EMAIL\nEnter the verification code sent to mentor@example.test.\nVERIFICATION CODE*\nVERIFY\nResend code\nVerification code requested. Check your email.",
+    "inputs": [
+      {
+        "width": 734,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "logout",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nManage your mentor session.\nAccount & session\nLearning progress saved on this device stays here when you log out.\nLOG OUT\nLog out of BAYA?\nYou can log in again to manage your workspaces.\nYES, LOG OUT\nCANCEL",
+    "inputs": []
+  },
+  {
+    "screen": "settings-empty",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nWorkspace & Sync\nWorkspace progress tracker\nNo Workspace Connected\nYou are currently learning independently.\nJoin a workspace to synchronize your learning progress with a mentor.\nJOIN WORKSPACE\nYour progress will link seamlessly upon joining a mentor's workspace code.\nLearner cloud account",
+    "inputs": []
+  },
+  {
+    "screen": "join",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nJOIN WORKSPACE\nAsk your mentor for a workspace code. Enter it below.\nWORKSPACE CODE*\nJOIN WORKSPACE",
+    "inputs": [
+      {
+        "width": 734,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "login",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nMENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nPASSWORD*\nForgot Password?\nLOG IN\nDon’t have a mentor account? Create Account",
+    "inputs": [
+      {
+        "width": 734,
+        "height": 68
+      },
+      {
+        "width": 734,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "register",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nCREATE MENTOR ACCOUNT\nSet up your mentor account for managing learner workspaces.\nFULL NAME*\nEMAIL ADDRESS*\nPASSWORD*\nCONFIRM PASSWORD*\nCREATE ACCOUNT\nAlready have a mentor account? Log in",
+    "inputs": [
+      {
+        "width": 751,
+        "height": 68
+      },
+      {
+        "width": 751,
+        "height": 68
+      },
+      {
+        "width": 751,
+        "height": 68
+      },
+      {
+        "width": 751,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "create",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nCREATE WORKSPACE\nCreate a workspace for your learners.\nWORKSPACE NAME*\nWORKSPACE CODE\nAuto ID Generator · Share this code with your learners after creation.\nCREATE WORKSPACE",
+    "inputs": [
+      {
+        "width": 734,
+        "height": 68
+      },
+      {
+        "width": 734,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "details",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nWorkspace Details\nShare the workspace code with your learners.\nBaybayin Workshop A\n● Active\nCODE: BAYA-7K2P\n3 Learners",
+    "inputs": []
+  },
+  {
+    "screen": "otp-toast",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nVERIFY YOUR EMAIL\nEnter the verification code sent to mentor@example.test.\nVERIFICATION CODE*\nVERIFY\nResend code\nVerification code requested. Check your email.",
+    "inputs": [
+      {
+        "width": 734,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "logout",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nManage your mentor session.\nAccount & session\nLearning progress saved on this device stays here when you log out.\nLOG OUT\nLog out of BAYA?\nYou can log in again to manage your workspaces.\nYES, LOG OUT\nCANCEL",
+    "inputs": []
+  },
+  {
+    "screen": "settings-empty",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nWorkspace & Sync\nWorkspace progress tracker\nNo Workspace Connected\nYou are currently learning independently.\nJoin a workspace to synchronize your learning progress with a mentor.\nJOIN WORKSPACE\nYour progress will link seamlessly upon joining a mentor's workspace code.\nLearner cloud account",
+    "inputs": []
+  },
+  {
+    "screen": "join",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nJOIN WORKSPACE\nAsk your mentor for a workspace code. Enter it below.\nWORKSPACE CODE*\nJOIN WORKSPACE",
+    "inputs": [
+      {
+        "width": 734,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "login",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nMENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nPASSWORD*\nForgot Password?\nLOG IN\nDon’t have a mentor account? Create Account",
+    "inputs": [
+      {
+        "width": 734,
+        "height": 68
+      },
+      {
+        "width": 734,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "register",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nCREATE MENTOR ACCOUNT\nSet up your mentor account for managing learner workspaces.\nFULL NAME*\nEMAIL ADDRESS*\nPASSWORD*\nCONFIRM PASSWORD*\nCREATE ACCOUNT\nAlready have a mentor account? Log in",
+    "inputs": [
+      {
+        "width": 399,
+        "height": 68
+      },
+      {
+        "width": 399,
+        "height": 68
+      },
+      {
+        "width": 399,
+        "height": 68
+      },
+      {
+        "width": 399,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "create",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nCREATE WORKSPACE\nCreate a workspace for your learners.\nWORKSPACE NAME*\nWORKSPACE CODE\nAuto ID Generator · Share this code with your learners after creation.\nCREATE WORKSPACE",
+    "inputs": [
+      {
+        "width": 734,
+        "height": 68
+      },
+      {
+        "width": 734,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "details",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nWorkspace Details\nShare the workspace code with your learners.\nBaybayin Workshop A\n● Active\nCODE: BAYA-7K2P\n3 Learners",
+    "inputs": []
+  },
+  {
+    "screen": "otp-toast",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nVERIFY YOUR EMAIL\nEnter the verification code sent to mentor@example.test.\nVERIFICATION CODE*\nVERIFY\nResend code\nVerification code requested. Check your email.",
+    "inputs": [
+      {
+        "width": 698,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "logout",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nManage your mentor session.\nAccount & session\nLearning progress saved on this device stays here when you log out.\nLOG OUT\nLog out of BAYA?\nYou can log in again to manage your workspaces.\nYES, LOG OUT\nCANCEL",
+    "inputs": []
+  },
+  {
+    "screen": "settings-empty",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nWorkspace & Sync\nWorkspace progress tracker\nNo Workspace Connected\nYou are currently learning independently.\nJoin a workspace to synchronize your learning progress with a mentor.\nJOIN WORKSPACE\nYour progress will link seamlessly upon joining a mentor's workspace code.\nLearner cloud account",
+    "inputs": []
+  },
+  {
+    "screen": "join",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nJOIN WORKSPACE\nAsk your mentor for a workspace code. Enter it below.\nWORKSPACE CODE*\nJOIN WORKSPACE",
+    "inputs": [
+      {
+        "width": 698,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "login",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nMENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nPASSWORD*\nForgot Password?\nLOG IN\nDon’t have a mentor account? Create Account",
+    "inputs": [
+      {
+        "width": 698,
+        "height": 68
+      },
+      {
+        "width": 698,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "register",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nCREATE MENTOR ACCOUNT\nSet up your mentor account for managing learner workspaces.\nFULL NAME*\nEMAIL ADDRESS*\nPASSWORD*\nCONFIRM PASSWORD*\nCREATE ACCOUNT\nAlready have a mentor account? Log in",
+    "inputs": [
+      {
+        "width": 427,
+        "height": 68
+      },
+      {
+        "width": 427,
+        "height": 68
+      },
+      {
+        "width": 427,
+        "height": 68
+      },
+      {
+        "width": 427,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "create",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nCREATE WORKSPACE\nCreate a workspace for your learners.\nWORKSPACE NAME*\nWORKSPACE CODE\nAuto ID Generator · Share this code with your learners after creation.\nCREATE WORKSPACE",
+    "inputs": [
+      {
+        "width": 698,
+        "height": 68
+      },
+      {
+        "width": 698,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "details",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nWorkspace Details\nShare the workspace code with your learners.\nBaybayin Workshop A\n● Active\nCODE: BAYA-7K2P\n3 Learners",
+    "inputs": []
+  },
+  {
+    "screen": "independent",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nOpen independent dialog\nContinue as an Independent Learner?\nYour progress will stay on this device until you join a workspace.\nYES, CONTINUE\nNO, ENTER WORKSPACE ID",
+    "inputs": []
+  },
+  {
+    "screen": "joined",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nYOU’RE CONNECTED!\nYour mentor’s workspace is ready for you.\nBaybayin Workshop A\nBAYA-7K2P\nOnline workspace services are not available yet. Please try again later.\nWORKSPACE & SYNC\nMY WORKSPACES\nWORKSPACE JOINED!\nYou are now connected to your mentor’s workspace.\nYour eligible learning progress can now synchronize with the workspace.\nCONTINUE",
+    "inputs": []
+  },
+  {
+    "screen": "mentor-settings",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nManage your mentor session.\nAccount & session\nLearning progress saved on this device stays here when you log out.\nLOG OUT",
+    "inputs": []
+  },
+  {
+    "screen": "independent",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nOpen independent dialog\nContinue as an Independent Learner?\nYour progress will stay on this device until you join a workspace.\nYES, CONTINUE\nNO, ENTER WORKSPACE ID",
+    "inputs": []
+  },
+  {
+    "screen": "joined",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nYOU’RE CONNECTED!\nYour mentor’s workspace is ready for you.\nBaybayin Workshop A\nBAYA-7K2P\nOnline workspace services are not available yet. Please try again later.\nWORKSPACE & SYNC\nMY WORKSPACES\nWORKSPACE JOINED!\nYou are now connected to your mentor’s workspace.\nYour eligible learning progress can now synchronize with the workspace.\nCONTINUE",
+    "inputs": []
+  },
+  {
+    "screen": "mentor-settings",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nManage your mentor session.\nAccount & session\nLearning progress saved on this device stays here when you log out.\nLOG OUT",
+    "inputs": []
+  },
+  {
+    "screen": "independent",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nOpen independent dialog\nContinue as an Independent Learner?\nYour progress will stay on this device until you join a workspace.\nYES, CONTINUE\nNO, ENTER WORKSPACE ID",
+    "inputs": []
+  },
+  {
+    "screen": "joined",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nYOU’RE CONNECTED!\nYour mentor’s workspace is ready for you.\nBaybayin Workshop A\nBAYA-7K2P\nOnline workspace services are not available yet. Please try again later.\nWORKSPACE & SYNC\nMY WORKSPACES\nWORKSPACE JOINED!\nYou are now connected to your mentor’s workspace.\nYour eligible learning progress can now synchronize with the workspace.\nCONTINUE",
+    "inputs": []
+  },
+  {
+    "screen": "mentor-settings",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nManage your mentor session.\nAccount & session\nLearning progress saved on this device stays here when you log out.\nLOG OUT",
+    "inputs": []
+  },
+  {
+    "screen": "independent",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nOpen independent dialog\nContinue as an Independent Learner?\nYour progress will stay on this device until you join a workspace.\nYES, CONTINUE\nNO, ENTER WORKSPACE ID",
+    "inputs": []
+  },
+  {
+    "screen": "joined",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nYOU’RE CONNECTED!\nYour mentor’s workspace is ready for you.\nBaybayin Workshop A\nBAYA-7K2P\nOnline workspace services are not available yet. Please try again later.\nWORKSPACE & SYNC\nMY WORKSPACES\nWORKSPACE JOINED!\nYou are now connected to your mentor’s workspace.\nYour eligible learning progress can now synchronize with the workspace.\nCONTINUE",
+    "inputs": []
+  },
+  {
+    "screen": "mentor-settings",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nManage your mentor session.\nAccount & session\nLearning progress saved on this device stays here when you log out.\nLOG OUT",
+    "inputs": []
+  },
+  {
+    "screen": "independent",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nOpen independent dialog\nContinue as an Independent Learner?\nYour progress will stay on this device until you join a workspace.\nYES, CONTINUE\nNO, ENTER WORKSPACE ID",
+    "inputs": []
+  },
+  {
+    "screen": "joined",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nYOU’RE CONNECTED!\nYour mentor’s workspace is ready for you.\nBaybayin Workshop A\nBAYA-7K2P\nOnline workspace services are not available yet. Please try again later.\nWORKSPACE & SYNC\nMY WORKSPACES\nWORKSPACE JOINED!\nYou are now connected to your mentor’s workspace.\nYour eligible learning progress can now synchronize with the workspace.\nCONTINUE",
+    "inputs": []
+  },
+  {
+    "screen": "mentor-settings",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nManage your mentor session.\nAccount & session\nLearning progress saved on this device stays here when you log out.\nLOG OUT",
+    "inputs": []
+  }
+]

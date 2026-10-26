@@ -51,6 +51,7 @@ export type AppIconName =
   | 'eye'
   | 'eyeOff'
   | 'workspace'
+  | 'layers'
   | 'copy';
 
 type AppIconColor =
@@ -125,6 +126,7 @@ const iconNames = {
   eye: 'eye-outline',
   eyeOff: 'eye-off-outline',
   workspace: 'business-outline',
+  layers: 'layers-outline',
   copy: 'copy-outline',
 } satisfies Record<AppIconName, IoniconName>;
 
@@ -154,6 +156,10 @@ export function AppIcon({
 }: AppIconProps) {
   const decorative = !accessibilityLabel;
   const resolvedSize = typeof size === 'number' ? size : IconSize[size];
+
+  if (name === 'layers') return <Svg aria-hidden={decorative} accessibilityLabel={accessibilityLabel} width={resolvedSize} height={resolvedSize} viewBox="0 0 24 24">
+    <Path d="M3 7 12 2 21 7 12 12 3 7 M3 12 12 17 21 12 M3 17 12 22 21 17" fill="none" stroke={iconColors[color]} strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" />
+  </Svg>;
 
   if (Platform.OS === 'web') {
     return (

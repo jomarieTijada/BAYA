@@ -1,0 +1,342 @@
+{
+  "counts": {
+    "attempts": 0,
+    "profiles": 1,
+    "progress": 0,
+    "workspaces": 2,
+    "memberships": 0
+  },
+  "grants": [
+    {
+      "grantee": "anon",
+      "grantor": "postgres",
+      "table_name": "lessons",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "SELECT",
+      "with_hierarchy": "YES"
+    },
+    {
+      "grantee": "authenticated",
+      "grantor": "postgres",
+      "table_name": "lessons",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "SELECT",
+      "with_hierarchy": "YES"
+    },
+    {
+      "grantee": "anon",
+      "grantor": "postgres",
+      "table_name": "activities",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "SELECT",
+      "with_hierarchy": "YES"
+    },
+    {
+      "grantee": "authenticated",
+      "grantor": "postgres",
+      "table_name": "activities",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "SELECT",
+      "with_hierarchy": "YES"
+    },
+    {
+      "grantee": "anon",
+      "grantor": "postgres",
+      "table_name": "content_versions",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "SELECT",
+      "with_hierarchy": "YES"
+    },
+    {
+      "grantee": "authenticated",
+      "grantor": "postgres",
+      "table_name": "content_versions",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "SELECT",
+      "with_hierarchy": "YES"
+    },
+    {
+      "grantee": "authenticated",
+      "grantor": "postgres",
+      "table_name": "profiles",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "SELECT",
+      "with_hierarchy": "YES"
+    },
+    {
+      "grantee": "authenticated",
+      "grantor": "postgres",
+      "table_name": "mentor_profiles",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "SELECT",
+      "with_hierarchy": "YES"
+    },
+    {
+      "grantee": "authenticated",
+      "grantor": "postgres",
+      "table_name": "workspaces",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "SELECT",
+      "with_hierarchy": "YES"
+    },
+    {
+      "grantee": "authenticated",
+      "grantor": "postgres",
+      "table_name": "workspace_memberships",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "SELECT",
+      "with_hierarchy": "YES"
+    },
+    {
+      "grantee": "authenticated",
+      "grantor": "postgres",
+      "table_name": "learner_progress",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "SELECT",
+      "with_hierarchy": "YES"
+    },
+    {
+      "grantee": "authenticated",
+      "grantor": "postgres",
+      "table_name": "activity_attempts",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "SELECT",
+      "with_hierarchy": "YES"
+    },
+    {
+      "grantee": "authenticated",
+      "grantor": "postgres",
+      "table_name": "review_items",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "SELECT",
+      "with_hierarchy": "YES"
+    },
+    {
+      "grantee": "authenticated",
+      "grantor": "postgres",
+      "table_name": "workspace_join_requests",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "SELECT",
+      "with_hierarchy": "YES"
+    }
+  ],
+  "constraints": [
+    {
+      "table": "activities",
+      "definition": "FOREIGN KEY (lesson_id) REFERENCES lessons(lesson_id) ON DELETE RESTRICT"
+    },
+    {
+      "table": "activities",
+      "definition": "UNIQUE (lesson_id, sequence_no)"
+    },
+    {
+      "table": "activities",
+      "definition": "PRIMARY KEY (activity_id)"
+    },
+    {
+      "table": "activities",
+      "definition": "CHECK ((sequence_no >= 0))"
+    },
+    {
+      "table": "activity_attempts",
+      "definition": "FOREIGN KEY (activity_id) REFERENCES activities(activity_id) ON DELETE RESTRICT"
+    },
+    {
+      "table": "activity_attempts",
+      "definition": "CHECK (((confidence_value >= (0)::numeric) AND (confidence_value <= (1)::numeric)))"
+    },
+    {
+      "table": "activity_attempts",
+      "definition": "FOREIGN KEY (learner_profile_id) REFERENCES profiles(profile_id) ON DELETE CASCADE"
+    },
+    {
+      "table": "activity_attempts",
+      "definition": "PRIMARY KEY (attempt_id)"
+    },
+    {
+      "table": "content_versions",
+      "definition": "PRIMARY KEY (content_version_id)"
+    },
+    {
+      "table": "content_versions",
+      "definition": "CHECK ((validation_status = ANY (ARRAY['draft'::text, 'validated'::text, 'retired'::text])))"
+    },
+    {
+      "table": "content_versions",
+      "definition": "UNIQUE (version_label)"
+    },
+    {
+      "table": "learner_progress",
+      "definition": "FOREIGN KEY (learner_profile_id) REFERENCES profiles(profile_id) ON DELETE CASCADE"
+    },
+    {
+      "table": "learner_progress",
+      "definition": "UNIQUE (learner_profile_id, lesson_id)"
+    },
+    {
+      "table": "learner_progress",
+      "definition": "FOREIGN KEY (lesson_id) REFERENCES lessons(lesson_id) ON DELETE RESTRICT"
+    },
+    {
+      "table": "learner_progress",
+      "definition": "PRIMARY KEY (learner_progress_id)"
+    },
+    {
+      "table": "lessons",
+      "definition": "FOREIGN KEY (content_version_id) REFERENCES content_versions(content_version_id) ON DELETE RESTRICT"
+    },
+    {
+      "table": "lessons",
+      "definition": "PRIMARY KEY (lesson_id)"
+    },
+    {
+      "table": "lessons",
+      "definition": "CHECK ((stage_number > 0))"
+    },
+    {
+      "table": "mentor_profiles",
+      "definition": "PRIMARY KEY (mentor_profile_id)"
+    },
+    {
+      "table": "mentor_profiles",
+      "definition": "FOREIGN KEY (profile_id) REFERENCES profiles(profile_id) ON DELETE CASCADE"
+    },
+    {
+      "table": "mentor_profiles",
+      "definition": "UNIQUE (profile_id)"
+    },
+    {
+      "table": "profiles",
+      "definition": "FOREIGN KEY (auth_user_id) REFERENCES auth.users(id) ON DELETE CASCADE"
+    },
+    {
+      "table": "profiles",
+      "definition": "UNIQUE (auth_user_id)"
+    },
+    {
+      "table": "profiles",
+      "definition": "CHECK (((char_length(btrim(display_name)) >= 1) AND (char_length(btrim(display_name)) <= 100)))"
+    },
+    {
+      "table": "profiles",
+      "definition": "PRIMARY KEY (profile_id)"
+    },
+    {
+      "table": "profiles",
+      "definition": "CHECK ((role = ANY (ARRAY['mentor'::text, 'learner'::text])))"
+    },
+    {
+      "table": "review_items",
+      "definition": "FOREIGN KEY (activity_id) REFERENCES activities(activity_id) ON DELETE RESTRICT"
+    },
+    {
+      "table": "review_items",
+      "definition": "FOREIGN KEY (learner_profile_id) REFERENCES profiles(profile_id) ON DELETE CASCADE"
+    },
+    {
+      "table": "review_items",
+      "definition": "PRIMARY KEY (review_item_id)"
+    },
+    {
+      "table": "workspace_join_requests",
+      "definition": "CHECK (((reviewed_at IS NULL) OR (reviewed_at >= requested_at)))"
+    },
+    {
+      "table": "workspace_join_requests",
+      "definition": "CHECK ((((status = 'pending'::text) AND (reviewed_at IS NULL) AND (reviewed_by IS NULL)) OR ((status <> 'pending'::text) AND (reviewed_at IS NOT NULL) AND (reviewed_by IS NOT NULL))))"
+    },
+    {
+      "table": "workspace_join_requests",
+      "definition": "FOREIGN KEY (learner_profile_id) REFERENCES profiles(profile_id) ON DELETE CASCADE"
+    },
+    {
+      "table": "workspace_join_requests",
+      "definition": "PRIMARY KEY (request_id)"
+    },
+    {
+      "table": "workspace_join_requests",
+      "definition": "FOREIGN KEY (reviewed_by) REFERENCES mentor_profiles(mentor_profile_id) ON DELETE RESTRICT"
+    },
+    {
+      "table": "workspace_join_requests",
+      "definition": "CHECK ((status = ANY (ARRAY['pending'::text, 'approved'::text, 'rejected'::text])))"
+    },
+    {
+      "table": "workspace_join_requests",
+      "definition": "FOREIGN KEY (workspace_id) REFERENCES workspaces(workspace_id) ON DELETE CASCADE"
+    },
+    {
+      "table": "workspace_memberships",
+      "definition": "FOREIGN KEY (learner_profile_id) REFERENCES profiles(profile_id) ON DELETE CASCADE"
+    },
+    {
+      "table": "workspace_memberships",
+      "definition": "UNIQUE (learner_profile_id, workspace_id)"
+    },
+    {
+      "table": "workspace_memberships",
+      "definition": "PRIMARY KEY (membership_id)"
+    },
+    {
+      "table": "workspace_memberships",
+      "definition": "FOREIGN KEY (workspace_id) REFERENCES workspaces(workspace_id) ON DELETE CASCADE"
+    },
+    {
+      "table": "workspaces",
+      "definition": "FOREIGN KEY (mentor_profile_id) REFERENCES mentor_profiles(mentor_profile_id) ON DELETE CASCADE"
+    },
+    {
+      "table": "workspaces",
+      "definition": "PRIMARY KEY (workspace_id)"
+    },
+    {
+      "table": "workspaces",
+      "definition": "CHECK ((status = ANY (ARRAY['active'::text, 'archived'::text])))"
+    },
+    {
+      "table": "workspaces",
+      "definition": "CHECK ((workspace_code ~ '^BAYA-[A-F0-9]{12}$'::text))"
+    },
+    {
+      "table": "workspaces",
+      "definition": "UNIQUE (workspace_code)"
+    },
+    {
+      "table": "workspaces",
+      "definition": "CHECK (((char_length(btrim(workspace_name)) >= 1) AND (char_length(btrim(workspace_name)) <= 100)))"
+    }
+  ],
+  "fingerprints": {
+    "profiles": "bf34f89bb19d8f2c43646903b98c7f88",
+    "workspaces": "c007d223748291ec7e69f4edb1de7afe",
+    "memberships": "d41d8cd98f00b204e9800998ecf8427e"
+  }
+}

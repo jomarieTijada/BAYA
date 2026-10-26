@@ -8,7 +8,7 @@ import { progressPreviewServices } from '../../../debug/workspaces/progressFixtu
 const mockPush=jest.fn();
 const mockReplace=jest.fn();
 jest.mock('expo-router',()=>({router:{push:(...args:unknown[])=>mockPush(...args),replace:(...args:unknown[])=>mockReplace(...args)},useFocusEffect:(cb:()=>void)=>require('react').useEffect(cb,[cb])}));
-jest.mock('react-native-safe-area-context',()=>({SafeAreaView:require('react-native').View}));
+jest.mock('react-native-safe-area-context',()=>({SafeAreaView:require('react-native').View,useSafeAreaInsets:()=>({top:0,bottom:0,left:0,right:0})}));
 jest.mock('../../../ui/AppIcon',()=>({AppIcon:()=>null}));
 const mount=(services:CloudServices)=>render(<CloudServicesContext.Provider value={services}><SettingsScreen /></CloudServicesContext.Provider>);
 beforeEach(()=>jest.clearAllMocks());
@@ -17,14 +17,16 @@ it('matches the independent wireframe and opens real join navigation',async()=>{
  await screen.findByText('You are currently learning independently.');
  expect(screen.getByText('Workspace & Sync')).toBeTruthy();
  expect(screen.getByText('No Workspace Connected')).toBeTruthy();
+ expect(screen.queryByLabelText('Learner cloud account')).toBeNull();
+ expect(screen.queryByLabelText('Keeping your workspace access')).toBeNull();
  fireEvent.press(screen.getByLabelText('Join workspace'));
- expect(mockPush).toHaveBeenCalledWith('/learner/workspaces/join');
+ expect(mockPush).toHaveBeenCalledWith('/learner/workspaces');
 });
 it('does not claim independence during loading or a failed membership read',async()=>{
  mount(pendingCloudServices);
  expect(screen.getByText('Checking your workspace…')).toBeTruthy();
  expect(screen.queryByText('No Workspace Connected')).toBeNull();
- await screen.findByText(/not available yet/);
+ expect((await screen.findAllByText(/not available yet/)).length).toBeGreaterThan(0);
  expect(screen.queryByText('You are currently learning independently.')).toBeNull();
 });
 it('uses actual membership name, code and sync time',async()=>{
@@ -60,4 +62,10 @@ it('prevents repeat sync submission and refreshes memberships only after confirm
 it('does not enable a presentation-only sync button without a handler',()=>{
  render(<WorkspaceSyncCard initialInfo={{status:'connected',workspaceName:'Class',workspaceCode:'CODE'}} />);
  expect(screen.getByLabelText('Sync learning progress').props.accessibilityState.disabled).toBe(true);
+});
+it('explains pending approval without inviting another join or enabling sync',()=>{
+ render(<WorkspaceSyncCard initialInfo={{status:'none'}} pending />);
+ expect(screen.getByText('Your request is with your mentor.')).toBeTruthy();
+ expect(screen.queryByLabelText('Join workspace')).toBeNull();
+ expect(screen.queryByLabelText('Sync learning progress')).toBeNull();
 });

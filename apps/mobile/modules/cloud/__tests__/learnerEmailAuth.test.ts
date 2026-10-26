@@ -25,7 +25,7 @@ it.each(['mentor','other-account'])('rejects %s and clears the unsuitable auth s
 it('does not bind or report success when the OTP is wrong',async()=>{
  const {service,auth,bind}=setup();auth.verifyOtp.mockResolvedValue({error:{code:'otp_expired'}} as any);const r=await service.request('learner@example.test');if(!r.ok) throw Error();expect(await service.verify(r.data.id,'bad')).toEqual({ok:false,code:'expired_code'});expect(bind).not.toHaveBeenCalled();
 });
-it('does not reuse an unconfirmed or anonymous session',async()=>{
+it('verifies and binds an authenticated anonymous learner session',async()=>{
  const {service,auth,bind}=setup();auth.getSession.mockResolvedValue({data:{session:{}}} as any);auth.getUser.mockResolvedValue({data:{user:{id:'cloud',email:'learner@example.test',is_anonymous:true}}} as any);
- expect(await service.session()).toEqual({ok:false,code:'learner_login_required'});expect(bind).not.toHaveBeenCalled();
+ expect(await service.session()).toEqual({ok:true,data:{email:'learner@example.test',profileId:'profile'}});expect(bind).toHaveBeenCalledWith('local','cloud');
 });

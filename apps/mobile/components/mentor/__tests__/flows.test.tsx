@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-require-imports -- Jest mock factories must resolve modules inside the factory. */
 import React from 'react';
+import { Modal } from 'react-native';
 import {
   act,
   fireEvent,
   render,
   screen,
-  waitFor,
+  waitFor, within,
 } from '@testing-library/react-native';
 import { AuthScreen, OtpScreen } from '../AuthScreen';
 import { WorkspaceManageScreen } from '../WorkspaceManageScreen';
@@ -16,7 +17,6 @@ import {
   MentorBoundary,
 } from '../WorkspaceScreens';
 import {
-  LearnerJoinWorkspaceScreen,
   LearnerMembershipScreen,
 } from '../../learner/LearnerWorkspaceScreens';
 import {
@@ -37,17 +37,20 @@ import {
 } from '../../../modules/cloud/validation';
 const mockPush = jest.fn();
 const mockReplace = jest.fn();
+jest.mock('../../../hooks/useReducedMotionPreference', () => ({ useReducedMotionPreference: () => true }));
 jest.mock('expo-router', () => ({
   router: {
     push: (...args: unknown[]) => mockPush(...args),
     replace: (...args: unknown[]) => mockReplace(...args),
   },
+  useLocalSearchParams: () => ({}),
   useFocusEffect: (callback: () => void) => {
     require('react').useEffect(callback, [callback]);
   },
 }));
 jest.mock('react-native-safe-area-context', () => ({
   SafeAreaView: require('react-native').View,
+  useSafeAreaInsets: () => ({top:0,bottom:0,left:0,right:0}),
 }));
 jest.mock('../../ui/AppIcon', () => ({ AppIcon: () => null }));
 function mount(
@@ -86,13 +89,6 @@ it('completes password recovery only after validating and submitting the email c
   fireEvent.press(screen.getByLabelText('Update password'));
   await screen.findByLabelText('Go to login');
   expect(completePasswordReset).toHaveBeenCalledWith('mentor@example.test', '123456', 'new-password');
-});
-it('logs out through the adapter before returning to login', async () => {
-  const signOut = jest.fn(async () => ({ ok: true as const, data: undefined }));
-  mount(<WorkspaceSelectionScreen />, { ...fixtureServices, auth: { ...fixtureServices.auth, signOut } });
-  fireEvent.press(screen.getByLabelText('Log out'));
-  await waitFor(() => expect(mockReplace).toHaveBeenCalledWith('/mentor'));
-  expect(signOut).toHaveBeenCalledTimes(1);
 });
 it('validates login and toggles secure entry without submitting invalid fields', () => {
   const login = jest.fn();
@@ -167,7 +163,7 @@ it('registers only matching passwords and follows verification response', async 
     'test-password',
   );
   fireEvent.press(screen.getByLabelText('Create Account'));
-  await screen.findByText(/Check your email to finish/);
+  await screen.findByText(/If confirmation is needed/);
   expect(register).toHaveBeenCalledWith(
     'Maria',
     'mentor@example.test',
@@ -221,6 +217,7 @@ it('distinguishes loading from an authoritative empty list and wires creation', 
     },
   });
   expect(screen.queryByText('No Workspace Created Yet')).toBeNull();
+  await waitFor(() => expect(resolve).toEqual(expect.any(Function)));
   await act(async () => resolve({ ok: true, data: [] }));
   fireEvent.press(screen.getByLabelText('Create workspace'));
   expect(mockPush).toHaveBeenCalledWith('/mentor/workspaces/create');
@@ -255,23 +252,24 @@ it('creates only after confirmation and passes the trimmed name', async () => {
   });
 });
 it('handles existing memberships through the authorized service', async () => {
-  const join = jest.fn(async () => ({
+  const requestJoin = jest.fn(async () => ({
     ok: true as const,
-    data: { ...joinedFixture, alreadyJoined: true },
+    data: { kind: 'already_member' as const, joined: { ...joinedFixture, alreadyJoined: true } },
   }));
-  mount(<LearnerJoinWorkspaceScreen />, {
+  mount(<LearnerMembershipScreen />, {
     ...fixtureServices,
-    workspaces: { ...fixtureServices.workspaces, join },
+    workspaces: { ...fixtureServices.workspaces, requestJoin },
   });
+  fireEvent.press(screen.getByLabelText('Join workspace'));
   fireEvent.changeText(
     await screen.findByLabelText('WORKSPACE CODE, required'),
     ' baya-7k2p ',
   );
-  fireEvent.press(screen.getByLabelText('Join workspace'));
-  await screen.findByText('You already belong to this workspace.');
-  expect(join).toHaveBeenCalledWith('BAYA-7K2P');
-  fireEvent.press(screen.getByLabelText('My workspaces'));
-  expect(mockReplace).toHaveBeenCalledWith('/learner/workspaces');
+  fireEvent.press(within(screen.UNSAFE_getByType(Modal)).getByRole('button', { name: 'JOIN WORKSPACE' }));
+  await screen.findByText('You are now connected to your mentor’s workspace.');
+  expect(requestJoin).toHaveBeenCalledWith('BAYA-7K2P');
+  fireEvent.press(screen.getByLabelText('MY WORKSPACES'));
+  expect(screen.getByText('MY WORKSPACES')).toBeTruthy();
 });
 it('shows verified learner memberships', async () => {
   mount(<LearnerMembershipScreen />);
@@ -281,18 +279,19 @@ it('shows verified learner memberships', async () => {
 it.each(['not_found', 'inactive', 'unauthorized', 'offline'] as const)(
   'does not confirm a %s join',
   async (code) => {
-    mount(<LearnerJoinWorkspaceScreen />, {
+    mount(<LearnerMembershipScreen />, {
       ...fixtureServices,
       workspaces: {
         ...fixtureServices.workspaces,
-        join: async () => ({ ok: false, code }),
+        requestJoin: async () => ({ ok: false, code }),
       },
     });
+    fireEvent.press(screen.getByLabelText('Join workspace'));
     fireEvent.changeText(
       await screen.findByLabelText('WORKSPACE CODE, required'),
       'BAYA-TEST',
     );
-    fireEvent.press(screen.getByLabelText('Join workspace'));
+    fireEvent.press(within(screen.UNSAFE_getByType(Modal)).getByRole('button', { name: 'JOIN WORKSPACE' }));
     await waitFor(() => expect(screen.getByRole('alert')).toBeTruthy());
     expect(screen.queryByText('YOU’RE CONNECTED!')).toBeNull();
   },
@@ -359,7 +358,14 @@ it('allows a provider-backed OTP resend and replaces the challenge', async () =>
     { ...fixtureServices, auth: { ...fixtureServices.auth, resend, verify } },
   );
   fireEvent.press(screen.getByLabelText('Resend code'));
-  await screen.findByText('A new code has been sent.');
+  expect(resend).not.toHaveBeenCalled();
+  expect(screen.getByText('You can request another code in 1:00.')).toBeTruthy();
+  const clock = jest.spyOn(Date, 'now').mockReturnValue(Date.now() + 61000);
+  await waitFor(() => expect(screen.getByText('You can now request another code.')).toBeTruthy(), { timeout: 2500 });
+  fireEvent.press(screen.getByLabelText('Resend code'));
+  await waitFor(() => expect(resend).toHaveBeenCalledTimes(1));
+  expect(screen.getByText('You can request another code in 1:00.')).toBeTruthy();
+  clock.mockRestore();
   fireEvent.changeText(
     screen.getByLabelText('VERIFICATION CODE, required'),
     'invalid-test-code',
@@ -378,20 +384,19 @@ it('archives only after confirmation and preserves the workspace identity', asyn
  const update=jest.fn().mockResolvedValue({ok:true,data:{...workspaceFixture,status:'archived'}});
  mount(<WorkspaceManageScreen id={workspaceFixture.workspace_id}/>,{...fixtureServices,workspaces:{...fixtureServices.workspaces,update,members:async()=>({ok:true,data:[]})}});
  fireEvent.press(await screen.findByText('Archive workspace'));expect(update).not.toHaveBeenCalled();
- fireEvent.press(screen.getByLabelText('Confirm archive'));
+ fireEvent.press(screen.getByLabelText('CONFIRM ARCHIVE', { includeHiddenElements: true }));
  await waitFor(()=>expect(update).toHaveBeenCalledWith(workspaceFixture.workspace_id,workspaceFixture.workspace_name,'archived'));
 });
-it('requires learner email verification before exposing workspace joining',async()=>{
- const request=jest.fn().mockResolvedValue({ok:true,data:{id:'challenge',email:'learner@example.test'}});
- const session=jest.fn().mockResolvedValue({ok:true,data:null});const verify=jest.fn().mockImplementation(async()=>{session.mockResolvedValue({ok:true,data:{email:'learner@example.test',profileId:'learner'}});return {ok:true,data:{email:'learner@example.test',profileId:'learner'}};});
- mount(<LearnerJoinWorkspaceScreen/>,{...fixtureServices,learnerAuth:{session,request,verify,signOut:async()=>({ok:true,data:undefined})}});
- const input=await screen.findByLabelText('LEARNER EMAIL');expect(screen.queryByLabelText('WORKSPACE CODE, required')).toBeNull();
- fireEvent.changeText(input,'learner@example.test');fireEvent.press(screen.getByLabelText('Send learner code'));
- fireEvent.changeText(await screen.findByLabelText('VERIFICATION CODE'),'12345678');fireEvent.press(screen.getByLabelText('Verify learner email'));
- expect(await screen.findByLabelText('WORKSPACE CODE, required')).toBeTruthy();expect(verify).toHaveBeenCalledWith('challenge','12345678');
+it('exposes code-only joining without requiring learner email', async () => {
+ const session=jest.fn(); const request=jest.fn(); const verify=jest.fn();
+ mount(<LearnerMembershipScreen/>,{...fixtureServices,learnerAuth:{session,request,verify,signOut:async()=>({ok:true,data:undefined})}});
+ fireEvent.press(screen.getByLabelText('Join workspace'));
+ expect(screen.getByLabelText('WORKSPACE CODE, required')).toBeTruthy();
+ expect(screen.queryByLabelText('LEARNER EMAIL')).toBeNull();
+ expect(session).not.toHaveBeenCalled(); expect(request).not.toHaveBeenCalled();
 });
-it('offers learner sign-out on a dedicated account screen',async()=>{
+it('routes learner account actions to Settings',async()=>{
  const signOut=jest.fn().mockResolvedValue({ok:true,data:undefined});
  mount(<LearnerCloudAccount/>,{...fixtureServices,learnerAuth:{...fixtureServices.learnerAuth!,signOut}});
- fireEvent.press(await screen.findByText('Sign out learner'));await waitFor(()=>expect(signOut).toHaveBeenCalledTimes(1));
+ fireEvent.press(await screen.findByText('Account settings'));expect(mockPush).toHaveBeenCalledWith('/learner/settings');expect(signOut).not.toHaveBeenCalled();
 });

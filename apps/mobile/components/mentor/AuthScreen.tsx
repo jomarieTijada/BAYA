@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { View, useWindowDimensions } from 'react-native';
+import { useBayaToast } from '../ui/BayaNotifications';
+import React, { useEffect, useState } from 'react';
+import { Text, View, useWindowDimensions } from 'react-native';
 import { router } from 'expo-router';
 import { AppTextInput } from '../ui/AppTextInput';
 import { AppButton } from '../ui/AppButton';
@@ -21,6 +22,7 @@ export function AuthScreen({
 }: {
   mode?: 'login' | 'register' | 'reset';
 }) {
+  const toast = useBayaToast();
   const services = useCloudServices();
   const op = useOperation();
   const { width } = useWindowDimensions();
@@ -40,11 +42,11 @@ export function AuthScreen({
     setValues((current) => ({ ...current, [key]: value }));
   const outcome = (result: AuthOutcome) => {
     setValues((current) => ({ ...current, password: '', confirm: '' }));
-    if (result.kind === 'authenticated') router.replace('/mentor/workspaces');
-    else if (result.kind === 'otp') setChallenge(result.challenge);
+    if (result.kind === 'authenticated') { toast('You’re signed in.'); router.replace('/mentor/workspaces'); }
+    else if (result.kind === 'otp') { setChallenge(result.challenge); toast('Verification code requested. Check your email.'); }
     else
       op.setMessage(
-        'Check your email to finish verifying your account, then log in.',
+        'If confirmation is needed, check your email. If you already have an account, log in or use Forgot Password.',
       );
   };
   if (challenge)
@@ -70,6 +72,7 @@ export function AuthScreen({
       void op.run(
         () => services.auth.resetPassword(normalizeEmail(values.email)),
         () => {
+          toast('If an eligible account exists, check your email for reset instructions.', 'information');
           if (services.auth.completePasswordReset) setResetEmail(normalizeEmail(values.email));
           op.setMessage(
             'If an eligible account exists, check your email for reset instructions.',
@@ -236,9 +239,21 @@ export function OtpScreen({
   onBack: () => void;
   onOutcome: (result: AuthOutcome) => void;
 }) {
+  const toast = useBayaToast();
   const services = useCloudServices();
   const op = useOperation();
   const [current, setCurrent] = useState(challenge);
+  const [resendAt, setResendAt] = useState(() => Date.now() + 60000);
+  const [remainingSeconds, setRemainingSeconds] = useState(60);
+  useEffect(() => {
+    if (!current) return;
+    const timer = setInterval(() => {
+      const remaining = Math.max(0, Math.ceil((resendAt - Date.now()) / 1000));
+      setRemainingSeconds(remaining);
+      if (remaining === 0) clearInterval(timer);
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [current, resendAt]);
   const [code, setCode] = useState('');
   const [error, setError] = useState('');
   return (
@@ -262,6 +277,11 @@ export function OtpScreen({
         editable={!!current && !op.busy}
       />
       <Notice text={op.message} busy={op.busy} />
+      {current && <Text style={s.notice}>
+        {remainingSeconds > 0
+          ? `You can request another code in ${Math.floor(remainingSeconds / 60)}:${String(remainingSeconds % 60).padStart(2, '0')}.`
+          : 'You can now request another code.'}
+      </Text>}
       <AppButton
         label="VERIFY"
         accessibilityLabel="Verify code"
@@ -280,14 +300,17 @@ export function OtpScreen({
       />
       <TextAction
         label="Resend code"
-        disabled={!current || op.busy}
+        disabled={!current || op.busy || remainingSeconds > 0}
         onPress={() => {
+          if (Date.now() < resendAt) return;
           void op.run(
             () => services.auth.resend(current!.id),
             (next) => {
               setCurrent(next);
               setCode('');
-              op.setMessage('A new code has been sent.');
+              setResendAt(Date.now() + 60000);
+              setRemainingSeconds(60);
+              toast('Verification code requested. Check your email.');
             },
           );
         }}
@@ -297,6 +320,7 @@ export function OtpScreen({
 }
 
 function RecoveryScreen({ email, onBack }: { email: string; onBack: () => void }) {
+  const toast = useBayaToast();
   const services = useCloudServices();
   const op = useOperation();
   const [code, setCode] = useState('');
@@ -315,6 +339,7 @@ function RecoveryScreen({ email, onBack }: { email: string; onBack: () => void }
         setError(issue || '');
         if (issue) return;
         void op.run(() => services.auth.completePasswordReset!(email, code.trim(), password), () => {
+          toast('Password updated.');
           setPassword(''); setConfirm(''); setCode(''); setDone(true);
         });
       }} />

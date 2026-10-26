@@ -217,7 +217,7 @@ describe('getDatabaseConnection — topic progress idempotency', () => {
 
 describe('OPFS lock conflict detection & lifecycle', () => {
   it('correctly classifies OPFS lock contention errors', () => {
-    const { isOpfsLockConflictError, OPFS_LOCK_CONFLICT } = require('../connection');
+    const { isOpfsLockConflictError, OPFS_LOCK_CONFLICT } = jest.requireActual('../connection');
 
     const opfsError = new Error(
       "NotFoundError: Failed to execute 'createSyncAccessHandle' on 'FileSystemFileHandle': " +
@@ -238,7 +238,7 @@ describe('OPFS lock conflict detection & lifecycle', () => {
   });
 
   it('notifies onDatabaseClose listeners on connection teardown', async () => {
-    const { onDatabaseClose } = require('../connection');
+    const { onDatabaseClose } = jest.requireActual('../connection');
     const listener = jest.fn();
     const unsubscribe = onDatabaseClose(listener);
 

@@ -1,3 +1,4 @@
+import { useBayaToast } from '../ui/BayaNotifications';
 import React, { useState } from 'react';
 import { Platform, Pressable, Share, Text, View } from 'react-native';
 import { BaseCard } from '../ui/cards/BaseCard';
@@ -15,6 +16,7 @@ export function WorkspaceCard({
   onEnter?: () => void;
   onManage?: () => void;
 }) {
+  const toast = useBayaToast();
   const [feedback, setFeedback] = useState('');
   const copy = async () => {
     try {
@@ -24,7 +26,7 @@ export function WorkspaceCard({
           return;
         }
         await navigator.clipboard.writeText(workspace.workspace_code);
-        setFeedback('Code copied.');
+        toast('Workspace code copied.');
       } else {
         await Share.share({ message: workspace.workspace_code });
       }
@@ -102,6 +104,7 @@ export function WorkspaceCard({
       {workspace.learnerCount !== undefined && (
         <Text style={s.notice}>{workspace.learnerCount} Learners</Text>
       )}
+      {workspace.pendingCount !== undefined && <Text style={s.notice}>{workspace.pendingCount} Pending Requests</Text>}
       {workspace.lastSyncedAt &&
         !Number.isNaN(Date.parse(workspace.lastSyncedAt)) && (
           <Text style={s.notice}>

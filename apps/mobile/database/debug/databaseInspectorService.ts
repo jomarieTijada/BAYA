@@ -53,7 +53,7 @@ export interface IndexColumnInfo {
 export interface TableSchema {
   columns: ColumnInfo[];
   createSql: string | null;
-  indexes: Array<{ name: string; unique: number; columns: IndexColumnInfo[] }>;
+  indexes: { name: string; unique: number; columns: IndexColumnInfo[] }[];
 }
 
 export interface PaginatedResult<T> {

@@ -1,0 +1,72 @@
+Browser tab: 1, Title: "Untitled query | SQL Editor | BAYA | Supabase", URL: "https://supabase.com/dashboard/project/xqtsrsxhfylfldtfbuhe/sql/67df88d2-3dbc-4357-b651-1da8cf9b3147".
+0 AXWebArea Untitled query | SQL Editor | BAYA | Supabase, URL: supabase.com/dashboard/project/xqtsrsxhfylfldtfbuhe/sql/67df88d2-3dbc-4357-b651-1da8cf9b3147
+	1 container
+		2 link Description: Skip to content, Value: supabase.com/dashboard/project/xqtsrsxhfylfldtfbuhe/sql/67df88d2-3dbc-4357-b651-1da8cf9b3147#main
+		3 container
+			4 image
+			5 text We are investigating a technical issue
+			6 container
+				7 text Follow the
+				8 link Description: status page, Value: status.supabase.com/
+				9 text  for updates
+			10 button Dismiss banner
+		11 container
+			12 button B BAYA main
+				13 text B
+				14 text BAYA
+				15 text main
+			16 button Connect
+			17 pop up button (collapsed) jomarieTijada, ID: radix-_r_ga_, Secondary Actions: Expand
+				18 image jomarieTijada
+			19 button Description: Open menu, Help: Menu dropdown button
+		20 container Floating toolbar
+			21 container mobile-nav-actions
+				22 button search-trigger
+				23 button Help, ID: help-dropdown-button
+				24 button Advisor Center, ID: advisor-center-trigger
+				25 button SQL Editor, ID: editor-trigger
+					26 image
+					27 text SQL Editor
+				28 button AI Assistant, ID: assistant-trigger
+					29 text AI Assistant
+		30 container
+			31 tab group
+				51 container
+					52 tab (selected, settable, boolean) Untitled query, ID: radix-_r_j9_-trigger-sql-67df88d2-3dbc-4357-b651-1da8cf9b3147, Value: 1
+Untitled query
+					53 button Close tab
+				54 button
+			55 text Unsaved edits
+			35 pop up button (collapsed) Description: More actions, ID: radix-_r_jm_, Secondary Actions: Expand
+			36 pop up button (collapsed) Description: Query source: Database, ID: radix-_r_ju_, Secondary Actions: Expand
+			37 button Save
+			38 button Run
+			39 container
+				40 editor (settable) Description: Editor content, Value: reset role;
+select 'PASS: 10 live database authorization checks; transaction rolled back' as result;
+rollback;
+
+				60 container
+					61 text 47  48 
+					62 content list
+						63 text begin
+						64 text  begin
+			42 splitter 50
+			43 container
+				44 tab group
+					45 tab (selected, settable, boolean) Results, Value: 1, ID: radix-_r_k5_-trigger-results
+					46 tab (selectable, settable, boolean) Chart, Value: 0, ID: radix-_r_k5_-trigger-chart
+					65 button 1 row
+						66 container
+							67 text 1  row
+					59 pop up button (collapsed) Export, ID: radix-_r_kp_, Secondary Actions: Expand
+				68 table
+					69 row result
+						70 cell (selectable) result
+					71 row PASS: 10 live database authorization checks; transaction rolled back View full cell content
+						72 cell (selectable) Description: View full cell content, Value: PASS: 10 live database authorization checks; transaction rolled back
+		50 text SQL Editor | BAYA | Supabase
+
+The focused UI element is 40 editor (settable) Description: Editor content, Value: reset role;
+select 'PASS: 10 live database authorization checks; transaction rolled back' as result;
+rollback;

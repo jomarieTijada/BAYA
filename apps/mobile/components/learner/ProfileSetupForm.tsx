@@ -1,3 +1,5 @@
+import { router } from 'expo-router';
+import { BayaDialog } from '../ui/BayaDialog';
 import React, { useRef, useState } from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 
@@ -26,6 +28,7 @@ export function ProfileSetupForm({
   density = 'regular',
   onContinue,
 }: ProfileSetupFormProps) {
+  const [confirmIndependent, setConfirmIndependent] = useState(false);
   const [name, setName] = useState('');
   const [workspaceId, setWorkspaceId] = useState('');
   const [nameError, setNameError] = useState<string>();
@@ -58,7 +61,9 @@ export function ProfileSetupForm({
     setIsSubmitting(true);
     try {
       await localLearnerService.saveProfile(trimmedName, workspaceId);
-      onContinue();
+      setIsSubmitting(false);
+      if (workspaceId.trim()) router.push({ pathname: '/learner/workspaces', params: { code: workspaceId.trim().toUpperCase() } });
+      else setConfirmIndependent(true);
     } catch (error) {
       if (__DEV__) console.warn('[BAYA] Could not save learner profile', error);
       if (isOpfsLockConflictError(error)) {
@@ -80,6 +85,11 @@ export function ProfileSetupForm({
         density === 'landscapeCompact' && styles.formLandscapeCompact,
       ]}
     >
+      <BayaDialog visible={confirmIndependent} title="Continue as an Independent Learner?"
+        description="Your progress will stay on this device until you join a workspace."
+        onDismiss={() => { setConfirmIndependent(false); submissionLockedRef.current = false; }}
+        primaryAction={{ label: 'YES, CONTINUE', onPress: () => { setConfirmIndependent(false); onContinue(); } }}
+        secondaryAction={{ label: 'NO, ENTER WORKSPACE ID', onPress: () => { setConfirmIndependent(false); router.push('/learner/workspaces'); } }} />
       <AppTextInput
         autoCapitalize="words"
         autoComplete="name"

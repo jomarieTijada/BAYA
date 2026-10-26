@@ -1,7 +1,7 @@
 import React from 'react';
-import { ScrollView, View, Text, StyleSheet, useWindowDimensions } from 'react-native';
+import { ScrollView, StyleSheet, useWindowDimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { BackButton } from '../ui/BackButton';
+import { PageHeader } from '../layout/PageHeader';
 import { Colors, FontFamily, Shadows } from '../../constants/theme';
 
 export function ProgressPage({ title, subtitle, onBack, action, children }: React.PropsWithChildren<{
@@ -10,14 +10,7 @@ export function ProgressPage({ title, subtitle, onBack, action, children }: Reac
   const { width } = useWindowDimensions();
   return <SafeAreaView style={p.screen}>
     <ScrollView contentContainerStyle={[p.page, width < 750 && { padding: 16 }]}>
-      <View style={p.header}>
-        <BackButton accessibilityLabel="Back" onPress={onBack} />
-        <View style={{ flex: 1, minWidth: 0 }}>
-          <Text accessibilityRole="header" style={[p.title, width < 750 && { fontSize: 26 }]}>{title}</Text>
-          {subtitle && <Text style={p.subtitle}>{subtitle}</Text>}
-        </View>
-        {action}
-      </View>
+      <PageHeader title={title} subtitle={subtitle} onBack={onBack} action={action} />
       {children}
     </ScrollView>
   </SafeAreaView>;

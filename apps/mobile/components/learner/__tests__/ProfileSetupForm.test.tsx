@@ -11,6 +11,9 @@ jest.mock('../../../database/services/localLearnerService', () => ({
   },
 }));
 
+jest.mock('expo-router', () => ({ router: { push: jest.fn() } }));
+jest.mock('react-native-safe-area-context', () => ({ useSafeAreaInsets: () => ({top:0,bottom:0,left:0,right:0}) }));
+
 jest.mock('../../ui/AppIcon', () => ({
   AppIcon: () => null,
 }));
@@ -33,6 +36,7 @@ describe('ProfileSetupForm', () => {
     fireEvent.changeText(screen.getByPlaceholderText('Enter your name'), 'Maria');
     fireEvent.press(screen.getByText('CONTINUE'));
 
+    fireEvent.press(await screen.findByLabelText('YES, CONTINUE', {includeHiddenElements:true}));
     await waitFor(() => {
       expect(localLearnerService.saveProfile).toHaveBeenCalledWith('Maria', '');
       expect(onContinue).toHaveBeenCalledTimes(1);

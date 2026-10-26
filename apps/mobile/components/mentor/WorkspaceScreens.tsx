@@ -1,10 +1,11 @@
+import { useCloudRead } from '../../modules/progress/useCloudRead';
+import { useBayaToast } from '../ui/BayaNotifications';
 import React, { useCallback, useState } from 'react';
 import { Text, View, useWindowDimensions } from 'react-native';
 import { router, useFocusEffect } from 'expo-router';
 import {
   useCloudServices,
   failureMessage,
-  type Result,
   type WorkspaceSummary,
 } from '../../modules/cloud/services';
 import { useOperation } from '../../modules/cloud/useOperation';
@@ -15,6 +16,7 @@ import { AppIcon } from '../ui/AppIcon';
 import { BaseCard } from '../ui/cards/BaseCard';
 import { FeatureScreen, Notice, TextAction, s } from './FeatureScreen';
 import { WorkspaceCard } from './WorkspaceCard';
+import { MentorActionMenu } from './MentorActionMenu';
 /** Route guard is presentation only; adapters must separately authorize every operation. */
 export function MentorBoundary({ children }: React.PropsWithChildren) {
   const services = useCloudServices();
@@ -79,34 +81,10 @@ export function MentorBoundary({ children }: React.PropsWithChildren) {
     </FeatureScreen>
   );
 }
-function useWorkspaceLoad<T>(load: () => Promise<Result<T>>) {
-  const [result, setResult] = useState<Result<T>>();
-  const [retry, setRetry] = useState(0);
-  useFocusEffect(
-    useCallback(() => {
-      // A retry invalidates this focused request, including its stale response.
-      void retry;
-      let active = true;
-      setResult(undefined);
-      void load()
-        .then((value) => {
-          if (active) setResult(value);
-        })
-        .catch(() => {
-          if (active) setResult({ ok: false, code: 'network' });
-        });
-      return () => {
-        active = false;
-      };
-    }, [load, retry]),
-  );
-  return { result, retry: () => setRetry((n) => n + 1) };
-}
 export function WorkspaceSelectionScreen() {
   const services = useCloudServices();
-  const logout = useOperation();
   const { width } = useWindowDimensions();
-  const { result, retry } = useWorkspaceLoad(
+  const { result, refresh: retry } = useCloudRead(
     useCallback(() => services.workspaces.listOwned(), [services]),
   );
   return (
@@ -115,13 +93,7 @@ export function WorkspaceSelectionScreen() {
       card={false}
       title="Choose Workspace"
       subtitle="Select a workspace to manage learner progress."
-      onBack={() => router.replace('/')}
-      footer={services.auth.signOut ? <>
-        <Notice text={logout.message} busy={logout.busy} />
-        <TextAction label="Log out" disabled={logout.busy} onPress={() => {
-          void logout.run(() => services.auth.signOut!(), () => router.replace('/mentor'));
-        }} />
-      </> : undefined}
+      action={<MentorActionMenu />}
     >
       {!result ? (
         <Notice busy text="Loading your workspaces…" />
@@ -220,6 +192,7 @@ export function WorkspaceEmptyState({ onCreate }: { onCreate: () => void }) {
   );
 }
 export function CreateWorkspaceScreen() {
+  const toast = useBayaToast();
   const services = useCloudServices();
   const op = useOperation();
   const [name, setName] = useState('');
@@ -261,11 +234,12 @@ export function CreateWorkspaceScreen() {
           if (issue) return;
           void op.run(
             () => services.workspaces.create(name.trim()),
-            (workspace) =>
+            (workspace) => {
+              toast('Workspace created.');
               router.replace({
                 pathname: '/mentor/workspaces/[id]',
                 params: { id: workspace.workspace_id },
-              }),
+              }); },
           );
         }}
       />
@@ -274,7 +248,7 @@ export function CreateWorkspaceScreen() {
 }
 export function WorkspaceDetailsScreen({ id }: { id: string }) {
   const services = useCloudServices();
-  const { result, retry } = useWorkspaceLoad<WorkspaceSummary>(
+  const { result, refresh: retry } = useCloudRead<WorkspaceSummary>(
     useCallback(() => services.workspaces.details(id), [services, id]),
   );
   return (

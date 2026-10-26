@@ -1,11 +1,11 @@
+import { useCloudRead } from '../../modules/progress/useCloudRead';
+import { JoinRequestStatus } from './JoinRequestStatus';
 import React, { useCallback, useState } from 'react';
-import { router, useFocusEffect } from 'expo-router';
-import { Text, View } from 'react-native';
+import { Redirect, router, useLocalSearchParams } from 'expo-router';
+import { Text, View, useWindowDimensions } from 'react-native';
 import {
   useCloudServices,
   failureMessage,
-  type JoinedWorkspace,
-  type Result,
 } from '../../modules/cloud/services';
 import { useOperation } from '../../modules/cloud/useOperation';
 import { codeError, normalizeCode } from '../../modules/cloud/validation';
@@ -13,103 +13,56 @@ import { AppTextInput } from '../ui/AppTextInput';
 import { AppButton } from '../ui/AppButton';
 import { FeatureScreen, Notice, s } from '../mentor/FeatureScreen';
 import { BaseCard } from '../ui/cards/BaseCard';
-import { LearnerCloudAccount } from './LearnerCloudAccount';
+import { BayaDialog } from '../ui/BayaDialog';
+const joinMessages = {
+  ...failureMessage,
+  network: "Can't connect right now. Please try again.",
+  offline: "Can't connect right now. Please try again.",
+  unavailable: 'Joining is not ready yet. Ask your mentor for help. You can keep learning.',
+  invalid_code: 'Workspace not found. Check the code and try again.',
+  not_found: 'Workspace not found. Check the code and try again.',
+};
 export function LearnerJoinWorkspaceScreen() {
-  return <LearnerCloudAccount><JoinWorkspaceForm /></LearnerCloudAccount>;
+  const { code } = useLocalSearchParams<{ code?: string }>();
+  return <Redirect href={typeof code === 'string' ? { pathname: '/learner/workspaces', params: { code } } : '/learner/workspaces'} />;
 }
-function JoinWorkspaceForm() {
+function JoinWorkspaceForm({ visible, onClose, onSubmitted, initialCode }: {
+  visible: boolean; onClose: () => void; onSubmitted: () => void; initialCode: string;
+}) {
+  const { height } = useWindowDimensions();
+  const compact = height < 500;
   const services = useCloudServices();
-  const op = useOperation();
-  const sync = useOperation();
-  const [code, setCode] = useState('');
+  const op = useOperation(joinMessages);
+  const [code, setCode] = useState(initialCode);
   const [error, setError] = useState<string>();
-  const [joined, setJoined] = useState<JoinedWorkspace>();
-  return (
-    <FeatureScreen
-      title={joined ? 'YOU’RE CONNECTED!' : 'JOIN WORKSPACE'}
-      subtitle={
-        joined
-          ? joined.alreadyJoined
-            ? 'You already belong to this workspace.'
-            : 'Your mentor’s workspace is ready for you.'
-          : 'Ask your mentor for a workspace code. Enter it below.'
-      }
-      onBack={() => router.replace('/learner/workspaces')}
-    >
-      {joined ? (
-        <>
-          <Text style={s.title}>{joined.workspace.workspace_name}</Text>
-          <Text selectable style={s.subtitle}>
-            {joined.workspace.workspace_code}
-          </Text>
-          <Notice busy={sync.busy} text={sync.message} />
-          <AppButton label="WORKSPACE & SYNC" accessibilityLabel="Open workspace sync settings" onPress={() => router.push('/learner/settings')} />
-          <AppButton
-            label="MY WORKSPACES"
-            accessibilityLabel="My workspaces"
-            onPress={() => router.replace('/learner/workspaces')}
-          />
-        </>
-      ) : (
-        <>
-          <AppTextInput
-            density="form"
-            label="WORKSPACE CODE"
-            required
-            placeholder="Code from your mentor"
-            autoCapitalize="characters"
-            value={code}
-            onChangeText={setCode}
-            error={error}
-            editable={!op.busy}
-          />
-          <Notice busy={op.busy} text={op.message} />
-          <AppButton
-            label={op.busy ? 'JOINING…' : 'JOIN WORKSPACE'}
-            accessibilityLabel="Join workspace"
-            icon="arrowRight"
-            disabled={op.busy}
-            onPress={() => {
-              const issue = codeError(code, services.policy);
-              setError(issue);
-              if (issue) return;
-              void op.run(
-                () => services.workspaces.join(normalizeCode(code)),
-                (membership) => {
-                  setJoined(membership);
-                  void sync.run(() => services.progress.sync(), () => sync.setMessage('Learning progress synchronized.'));
-                },
-              );
-            }}
-          />
-        </>
-      )}
-    </FeatureScreen>
-  );
+  const [confirmation, setConfirmation] = useState<'sent' | 'pending' | 'member'>();
+  const close = () => { if (!op.busy) { setConfirmation(undefined); onClose(); } };
+  const submit = () => {
+      const issue = codeError(code, services.policy); setError(issue); if (issue) return;
+      void op.run(() => services.workspaces.requestJoin ? services.workspaces.requestJoin(normalizeCode(code)) : Promise.resolve({ ok: false as const, code: 'unavailable' as const }), result => {
+        setConfirmation(result.kind === 'already_member' ? 'member' : result.kind === 'already_pending' ? 'pending' : 'sent');
+        setCode(''); onSubmitted();
+      });
+  };
+  return <BayaDialog visible={visible} variant={!confirmation ? 'form' : confirmation === 'member' ? 'success' : 'information'} icon="workspace"
+    title={!confirmation ? 'JOIN WORKSPACE' : confirmation === 'member' ? 'WORKSPACE JOINED!' : confirmation === 'pending' ? 'WAITING FOR APPROVAL' : 'JOIN REQUEST SENT!'}
+    description={!confirmation ? 'Enter the workspace code given by your mentor.' : confirmation === 'member' ? 'You are now connected to your mentor’s workspace.' : 'Your mentor will review your request.'}
+    detail={confirmation ? confirmation === 'member' ? 'Your workspace is available in My Workspaces.' : 'You can keep learning while you wait.' : undefined}
+    closeLabel={!confirmation ? 'Close join workspace' : undefined} onDismiss={close}
+    primaryAction={confirmation ? { label: confirmation === 'member' ? 'MY WORKSPACES' : 'CONTINUE LEARNING', onPress: () => { close(); if (confirmation !== 'member') router.replace('/learner/home'); } } : { label: 'JOIN WORKSPACE', loading: op.busy, onPress: submit }}>
+    {!confirmation && <View style={{ gap: 10 }}>
+      <AppTextInput density={compact ? 'compact' : 'form'} label="WORKSPACE CODE" required placeholder="Code from your mentor" autoCapitalize="characters" autoCorrect={false} returnKeyType="go" onSubmitEditing={submit} value={code} onChangeText={value => { setCode(value); setError(undefined); op.setMessage(''); }} error={error} editable={!op.busy} />
+      <Notice busy={op.busy} text={op.busy ? 'Sending your request…' : op.message} />
+    </View>}
+  </BayaDialog>;
 }
 export function LearnerMembershipScreen() {
   const services = useCloudServices();
-  const [result, setResult] = useState<Result<JoinedWorkspace[]>>();
-  const [retry, setRetry] = useState(0);
-  useFocusEffect(
-    useCallback(() => {
-      // A retry invalidates this focused request, including its stale response.
-      void retry;
-      let active = true;
-      setResult(undefined);
-      void services.workspaces
-        .memberships()
-        .then((data) => {
-          if (active) setResult(data);
-        })
-        .catch(() => {
-          if (active) setResult({ ok: false, code: 'network' });
-        });
-      return () => {
-        active = false;
-      };
-    }, [services, retry]),
-  );
+  const { result, refresh } = useCloudRead(useCallback(() => services.workspaces.memberships(), [services]), true);
+  const params = useLocalSearchParams<{ code?: string }>();
+  const [joining, setJoining] = useState(false);
+  const [revision, setRevision] = useState(0);
+  const [pending, setPending] = useState(false);
   return (
     <FeatureScreen
       title="MY WORKSPACES"
@@ -120,8 +73,9 @@ export function LearnerMembershipScreen() {
         label="JOIN WORKSPACE"
         accessibilityLabel="Join workspace"
         icon="add"
-        onPress={() => router.push('/learner/workspaces/join')}
+        onPress={() => setJoining(true)}
       />
+      <JoinRequestStatus revision={revision} onPendingChange={setPending} onApproved={refresh} suppressApprovedDialog={joining} />
       {!result ? (
         <Notice busy text="Checking your workspaces…" />
       ) : !result.ok ? (
@@ -130,12 +84,12 @@ export function LearnerMembershipScreen() {
           <AppButton
             label="TRY AGAIN"
             accessibilityLabel="Retry memberships"
-            onPress={() => setRetry((n) => n + 1)}
+            onPress={refresh}
           />
         </>
       ) : result.data.length === 0 ? (
         <Text style={s.notice}>
-          You haven’t joined a workspace yet. Ask your mentor for a code.
+          {pending ? 'Your request is waiting for mentor approval.' : 'You haven’t joined a workspace yet. Ask your mentor for a code.'}
         </Text>
       ) : (
         result.data.map(({ workspace, membership }) => (
@@ -154,6 +108,7 @@ export function LearnerMembershipScreen() {
           </BaseCard>
         ))
       )}
+      <JoinWorkspaceForm visible={joining} onClose={() => setJoining(false)} initialCode={typeof params.code === 'string' ? params.code : ''} onSubmitted={() => { void refresh(); setRevision(value => value + 1); }} />
     </FeatureScreen>
   );
 }

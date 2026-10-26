@@ -1,0 +1,526 @@
+{
+  "source": "BAYA_ResNet18_1.0.keras",
+  "sourceSha256": "9a97b5d3933bef49b955b155369c58c32ccec3cf61bfbb4f213fad2d2ca1f7b8",
+  "onnx": "ml\\deployment\\onnx\\artifacts\\resnet18-1.0\\BAYA_ResNet18_1.0.onnx",
+  "onnxSha256": "fc41b21606b96b2a1fec6850259a8cbdc446d54f3d113ae8086e87310268f265",
+  "versions": {
+    "tensorflow": "2.18.0",
+    "keras": "3.13.2",
+    "tf2onnx": "1.17.0",
+    "onnx": "1.18.0",
+    "onnxruntime": "1.30.0"
+  },
+  "opset": 18,
+  "inputs": [
+    {
+      "name": "image_input",
+      "shape": [
+        1,
+        96,
+        96,
+        1
+      ],
+      "type": "tensor(float)"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "Identity:0",
+      "shape": [
+        1,
+        63
+      ],
+      "type": "tensor(float)"
+    }
+  ],
+  "activation": "softmax",
+  "checkerPassed": true,
+  "samples": [
+    {
+      "sample": "zeros",
+      "maxAbsoluteDifference": 7.450580596923828e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "ones",
+      "maxAbsoluteDifference": 1.1920928955078125e-07,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "alpha-gray",
+      "maxAbsoluteDifference": 1.1920928955078125e-07,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "blank-image",
+      "maxAbsoluteDifference": 7.450580596923828e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "degenerate-duration",
+      "maxAbsoluteDifference": 7.450580596923828e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "exact-512",
+      "maxAbsoluteDifference": 7.450580596923828e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "kudlit-above",
+      "maxAbsoluteDifference": 1.1920928955078125e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "kudlit-below",
+      "maxAbsoluteDifference": 1.564621925354004e-07,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "many-strokes-downsampling",
+      "maxAbsoluteDifference": 7.450580596923828e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "multi-stroke",
+      "maxAbsoluteDifference": 2.2351741790771484e-08,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "narrow-tall",
+      "maxAbsoluteDifference": 8.940696716308594e-08,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "over-512",
+      "maxAbsoluteDifference": 7.450580596923828e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "short-sequence",
+      "maxAbsoluteDifference": 7.450580596923828e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "single-stroke",
+      "maxAbsoluteDifference": 6.170012056827545e-09,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "tiny-edge",
+      "maxAbsoluteDifference": 4.470348358154297e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "wide",
+      "maxAbsoluteDifference": 1.1084466677857563e-12,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "zero-duration",
+      "maxAbsoluteDifference": 7.450580596923828e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "Gavino Baybayin - B+",
+      "maxAbsoluteDifference": 7.636845111846924e-08,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - B,",
+      "maxAbsoluteDifference": 1.1920928955078125e-07,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - BA",
+      "maxAbsoluteDifference": 2.1032064978498966e-12,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "Gavino Baybayin - BIE",
+      "maxAbsoluteDifference": 1.77351466845721e-11,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - BOU",
+      "maxAbsoluteDifference": 5.21540641784668e-08,
+      "top1Matches": true,
+      "probabilitySum": 1.0000001192092896
+    },
+    {
+      "sample": "Gavino Baybayin - Bx",
+      "maxAbsoluteDifference": 1.0244548320770264e-08,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - DR+",
+      "maxAbsoluteDifference": 5.960464477539063e-08,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "Gavino Baybayin - DR,",
+      "maxAbsoluteDifference": 1.1920928955078125e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "Gavino Baybayin - DRA",
+      "maxAbsoluteDifference": 6.480149750132114e-12,
+      "top1Matches": true,
+      "probabilitySum": 1.0000001192092896
+    },
+    {
+      "sample": "Gavino Baybayin - DRIE",
+      "maxAbsoluteDifference": 1.5276668818842154e-13,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - DROU",
+      "maxAbsoluteDifference": 1.1920928955078125e-07,
+      "top1Matches": true,
+      "probabilitySum": 1.0000001192092896
+    },
+    {
+      "sample": "Gavino Baybayin - DRx",
+      "maxAbsoluteDifference": 3.958120942115784e-09,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - G+",
+      "maxAbsoluteDifference": 1.1920928955078125e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "Gavino Baybayin - G.",
+      "maxAbsoluteDifference": 2.2737367544323206e-13,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - GA",
+      "maxAbsoluteDifference": 3.608224830031759e-15,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - GIE",
+      "maxAbsoluteDifference": 5.6843418860808015e-12,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - GOU",
+      "maxAbsoluteDifference": 6.963318810448982e-13,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "Gavino Baybayin - Gx",
+      "maxAbsoluteDifference": 2.9103830456733704e-10,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - H+",
+      "maxAbsoluteDifference": 5.960464477539063e-08,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "Gavino Baybayin - H,",
+      "maxAbsoluteDifference": 8.003553375601768e-11,
+      "top1Matches": true,
+      "probabilitySum": 1.0000001192092896
+    },
+    {
+      "sample": "Gavino Baybayin - HA",
+      "maxAbsoluteDifference": 7.194245199571014e-14,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - HIE",
+      "maxAbsoluteDifference": 1.1920928955078125e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "Gavino Baybayin - HOU",
+      "maxAbsoluteDifference": 1.1920928955078125e-07,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - Hx",
+      "maxAbsoluteDifference": 4.76837158203125e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999998807907104
+    },
+    {
+      "sample": "Gavino Baybayin - K+",
+      "maxAbsoluteDifference": 1.564621925354004e-07,
+      "top1Matches": true,
+      "probabilitySum": 1.0000001192092896
+    },
+    {
+      "sample": "Gavino Baybayin - K,",
+      "maxAbsoluteDifference": 3.5762786865234375e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999998807907104
+    },
+    {
+      "sample": "Gavino Baybayin - KA",
+      "maxAbsoluteDifference": 3.2751579226442118e-15,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - KIE",
+      "maxAbsoluteDifference": 3.9968028886505635e-14,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - KOU",
+      "maxAbsoluteDifference": 5.4569682106375694e-12,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - Kx",
+      "maxAbsoluteDifference": 9.5367431640625e-07,
+      "top1Matches": true,
+      "probabilitySum": 1.000000238418579
+    },
+    {
+      "sample": "Gavino Baybayin - L+",
+      "maxAbsoluteDifference": 2.980232238769531e-07,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - L,",
+      "maxAbsoluteDifference": 1.1920928955078125e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "Gavino Baybayin - LA",
+      "maxAbsoluteDifference": 1.1920928955078125e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "Gavino Baybayin - LIE",
+      "maxAbsoluteDifference": 1.1920928955078125e-07,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - LOU",
+      "maxAbsoluteDifference": 1.6370904631912708e-10,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "Gavino Baybayin - Lx",
+      "maxAbsoluteDifference": 2.086162567138672e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999998807907104
+    },
+    {
+      "sample": "Gavino Baybayin - M+",
+      "maxAbsoluteDifference": 5.960464477539062e-07,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - M,",
+      "maxAbsoluteDifference": 3.91155481338501e-08,
+      "top1Matches": true,
+      "probabilitySum": 1.0000001192092896
+    },
+    {
+      "sample": "Gavino Baybayin - MA",
+      "maxAbsoluteDifference": 1.1937117960769683e-12,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - MIE",
+      "maxAbsoluteDifference": 4.6629367034256575e-15,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - MOU",
+      "maxAbsoluteDifference": 2.7284841053187847e-11,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "Gavino Baybayin - Mx",
+      "maxAbsoluteDifference": 4.76837158203125e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "Gavino Baybayin - N+",
+      "maxAbsoluteDifference": 1.1920928955078125e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999998211860657
+    },
+    {
+      "sample": "Gavino Baybayin - N,",
+      "maxAbsoluteDifference": 4.3655745685100555e-11,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - NA",
+      "maxAbsoluteDifference": 2.0463630789890885e-12,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - NIE",
+      "maxAbsoluteDifference": 1.7763568394002505e-14,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - NOU",
+      "maxAbsoluteDifference": 1.5916157281026244e-11,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - Nx",
+      "maxAbsoluteDifference": 2.3283064365386963e-10,
+      "top1Matches": true,
+      "probabilitySum": 0.9999998211860657
+    },
+    {
+      "sample": "Gavino Baybayin - NG+",
+      "maxAbsoluteDifference": 7.078051567077637e-08,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - NG,",
+      "maxAbsoluteDifference": 2.384185791015625e-07,
+      "top1Matches": true,
+      "probabilitySum": 1.0000001192092896
+    },
+    {
+      "sample": "Gavino Baybayin - NGA",
+      "maxAbsoluteDifference": 6.934897101018578e-12,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "Gavino Baybayin - NGIE",
+      "maxAbsoluteDifference": 1.1920928955078125e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999998807907104
+    },
+    {
+      "sample": "Gavino Baybayin - NGOU",
+      "maxAbsoluteDifference": 1.1920928955078125e-07,
+      "top1Matches": true,
+      "probabilitySum": 1.0000001192092896
+    },
+    {
+      "sample": "Gavino Baybayin - NGx",
+      "maxAbsoluteDifference": 2.682209014892578e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999998211860657
+    },
+    {
+      "sample": "Gavino Baybayin - P+ 2",
+      "maxAbsoluteDifference": 1.4551915228366852e-11,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "Gavino Baybayin - P+",
+      "maxAbsoluteDifference": 2.9103830456733704e-11,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - P, 2",
+      "maxAbsoluteDifference": 2.7939677238464355e-09,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - PA 2",
+      "maxAbsoluteDifference": 1.1920928955078125e-07,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - PA",
+      "maxAbsoluteDifference": 8.640199666842818e-12,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    },
+    {
+      "sample": "Gavino Baybayin - PIE 2",
+      "maxAbsoluteDifference": 2.0605739337042905e-13,
+      "top1Matches": true,
+      "probabilitySum": 0.9999999403953552
+    },
+    {
+      "sample": "Gavino Baybayin - PIE",
+      "maxAbsoluteDifference": 1.1920928955078125e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999998807907104
+    },
+    {
+      "sample": "Gavino Baybayin - POU 2",
+      "maxAbsoluteDifference": 1.1920928955078125e-07,
+      "top1Matches": true,
+      "probabilitySum": 0.9999998807907104
+    },
+    {
+      "sample": "Gavino Baybayin - POU",
+      "maxAbsoluteDifference": 1.1920928955078125e-07,
+      "top1Matches": true,
+      "probabilitySum": 1.0
+    }
+  ],
+  "activationStatus": "CPU VERIFIED; browser validation required before activation.",
+  "exportArtifactChecksumMatched": true,
+  "labelOrderVerified": true,
+  "notebookSha256": "b6de18b9d4a2d8e41a89ce73d21a21261cfafc447be91fcb3c2266a317f393f4",
+  "preprocessingCell": 15,
+  "sampleLimitation": "Conversion parity on image fixtures and reference glyphs is not held-out handwriting accuracy. Saved model differs from revised notebook BN settings; original export contains matching model bytes and authoritative label/preprocessing metadata."
+}

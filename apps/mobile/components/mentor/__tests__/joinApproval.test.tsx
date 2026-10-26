@@ -1,0 +1,203 @@
+/* eslint-disable @typescript-eslint/no-require-imports -- Jest factory mocks. */
+import React from 'react';
+import * as Clipboard from 'expo-clipboard';
+import { Modal } from 'react-native';
+import { router } from 'expo-router';
+import { act, fireEvent, render, screen, waitFor, within } from '@testing-library/react-native';
+import { LearnerMembershipScreen } from '../../learner/LearnerWorkspaceScreens';
+import { JoinRequestStatus } from '../../learner/JoinRequestStatus';
+import { PendingJoinRequests } from '../PendingJoinRequests';
+import { CloudServicesContext, type CloudServices, type JoinRequest, type Result } from '../../../modules/cloud/services';
+import { fixtureServices, joinedFixture } from '../../debug/workspaces/fixtures';
+const mockToast = jest.fn();
+jest.mock('expo-clipboard', () => ({ setStringAsync: jest.fn().mockResolvedValue(true) }));
+jest.mock('expo-router', () => ({ router: { replace: jest.fn(), push: jest.fn() }, useLocalSearchParams: () => ({}), useFocusEffect: (cb: () => void) => require('react').useEffect(cb, [cb]) }));
+jest.mock('react-native-safe-area-context', () => ({ SafeAreaView: require('react-native').View, useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) }));
+jest.mock('../../ui/AppIcon', () => ({ AppIcon: () => null }));
+jest.mock('../../ui/BayaNotifications', () => ({ useBayaToast: () => mockToast }));
+jest.mock('../../../hooks/useReducedMotionPreference', () => ({ useReducedMotionPreference: () => true }));
+const request: JoinRequest = { request_id: 'request-test', workspace_id: joinedFixture.workspace.workspace_id, learner_profile_id: 'test-learner', display_name: 'Sample Learner', workspace_name: 'Class', status: 'pending', requested_at: '2026-10-25T00:00:00Z', reviewed_at: null, reviewed_by: null };
+const mount = (node: React.ReactNode, workspaces: Partial<CloudServices['workspaces']> = {}, sync = jest.fn()) => render(<CloudServicesContext.Provider value={{ ...fixtureServices, progress: { ...fixtureServices.progress, sync }, workspaces: { ...fixtureServices.workspaces, myRequests: async () => ({ ok: true, data: [] }), ...workspaces } }}>{node}</CloudServicesContext.Provider>);
+beforeEach(() => jest.clearAllMocks());
+it('opens and dismisses the form without navigation, rereads, or losing its draft', async () => {
+  const memberships = jest.fn().mockResolvedValue({ ok: true, data: [] });
+  const myRequests = jest.fn().mockResolvedValue({ ok: true, data: [] });
+  mount(<LearnerMembershipScreen />, { memberships, myRequests });
+  await screen.findByText('You haven’t joined a workspace yet. Ask your mentor for a code.');
+  fireEvent.press(screen.getByLabelText('Join workspace'));
+  fireEvent.changeText(screen.getByLabelText('WORKSPACE CODE, required'), 'BAYA-DRAFT');
+  fireEvent.press(screen.getByLabelText('Close join workspace'));
+  expect(screen.queryByLabelText('WORKSPACE CODE, required')).toBeNull();
+  fireEvent.press(screen.getByLabelText('Join workspace'));
+  expect(screen.getByLabelText('WORKSPACE CODE, required').props.value).toBe('BAYA-DRAFT');
+  fireEvent(screen.UNSAFE_getByType(Modal), 'requestClose');
+  expect(screen.queryByLabelText('WORKSPACE CODE, required')).toBeNull();
+  expect(memberships).toHaveBeenCalledTimes(1);
+  expect(myRequests).toHaveBeenCalledTimes(1);
+  expect(router.push).not.toHaveBeenCalled();
+  expect(router.replace).not.toHaveBeenCalled();
+});
+it('requires a code and handles an existing pending request without active membership', async () => {
+  const requestJoin = jest.fn().mockResolvedValue({ ok: true, data: { kind: 'already_pending', request } });
+  const myRequests = jest.fn().mockResolvedValue({ ok: true, data: [] });
+  mount(<LearnerMembershipScreen />, { requestJoin, myRequests, memberships: async () => ({ ok: true, data: [] }) });
+  await act(async () => {});
+  fireEvent.press(screen.getByLabelText('Join workspace'));
+  fireEvent.press(within(screen.UNSAFE_getByType(Modal)).getByRole('button', { name: 'JOIN WORKSPACE' }));
+  expect(requestJoin).not.toHaveBeenCalled();
+  expect(screen.getByLabelText('WORKSPACE CODE, required')).toBeTruthy();
+  fireEvent.changeText(screen.getByLabelText('WORKSPACE CODE, required'), 'BAYA-ABCDEF123456');
+  myRequests.mockResolvedValue({ ok: true, data: [request] });
+  fireEvent.press(within(screen.UNSAFE_getByType(Modal)).getByRole('button', { name: 'JOIN WORKSPACE' }));
+  await screen.findByText('Your mentor will review your request.');
+  expect(screen.queryByText('WORKSPACE JOINED!')).toBeNull();
+  fireEvent(screen.UNSAFE_getByType(Modal), 'requestClose');
+  await screen.findByText('WAITING FOR APPROVAL');
+  expect(screen.queryByText('Joined')).toBeNull();
+  expect(requestJoin).toHaveBeenCalledTimes(1);
+});
+it('keeps the initial form free of status controls and technical warnings', async () => {
+  mount(<LearnerMembershipScreen />);
+  await act(async () => {});
+  expect(screen.queryByLabelText('Refresh workspace status')).toBeNull();
+  expect(screen.queryByText(/Cloud access is saved/)).toBeNull();
+  expect(screen.getByLabelText('Join workspace')).toBeTruthy();
+  expect(screen.queryByLabelText('WORKSPACE CODE, required')).toBeNull();
+});
+it('shows status instead of another join form for an existing pending request', async () => {
+  mount(<LearnerMembershipScreen />, { myRequests: async () => ({ ok: true, data: [request] }) });
+  await screen.findByText('WAITING FOR APPROVAL');
+  expect(screen.queryByLabelText('WORKSPACE CODE, required')).toBeNull();
+  expect(screen.getByLabelText('Refresh workspace status')).toBeTruthy();
+
+});
+it('sends code only, prevents duplicate presses, shows pending confirmation, and never syncs pending data', async () => {
+  let resolve!: (r: Result<{ kind: 'request_submitted'; request: JoinRequest }>) => void;
+  const requestJoin = jest.fn(() => new Promise<Result<{ kind: 'request_submitted'; request: JoinRequest }>>(r => { resolve = r; }));
+  const sync = jest.fn();
+  mount(<LearnerMembershipScreen />, { requestJoin }, sync);
+  expect(screen.queryByLabelText('EMAIL ADDRESS')).toBeNull();
+  fireEvent.press(screen.getByLabelText('Join workspace'));
+  fireEvent.changeText(screen.getByLabelText('WORKSPACE CODE, required'), ' baya-abcdef123456 ');
+  fireEvent.press(within(screen.UNSAFE_getByType(Modal)).getByRole('button', { name: 'JOIN WORKSPACE' }));
+  fireEvent.press(within(screen.UNSAFE_getByType(Modal)).getByRole('button', { name: 'JOIN WORKSPACE' }));
+  expect(requestJoin).toHaveBeenCalledTimes(1);
+  expect(requestJoin).toHaveBeenCalledWith('BAYA-ABCDEF123456');
+  expect(screen.getByLabelText('Close join workspace').props.accessibilityState.disabled).toBe(true);
+  fireEvent(screen.UNSAFE_getByType(Modal), 'requestClose');
+  expect(screen.getByLabelText('WORKSPACE CODE, required')).toBeTruthy();
+  await act(async () => resolve({ ok: true, data: { kind: 'request_submitted', request } }));
+  await screen.findByText('JOIN REQUEST SENT!');
+  expect(screen.queryByLabelText('WORKSPACE CODE, required')).toBeNull();
+  expect(screen.UNSAFE_getAllByType(Modal)).toHaveLength(1);
+  expect(screen.queryByText('WORKSPACE JOINED!')).toBeNull();
+  expect(sync).not.toHaveBeenCalled();
+});
+it('keeps the code and enables retry after an offline submission', async () => {
+  mount(<LearnerMembershipScreen />, { requestJoin: async () => ({ ok: false, code: 'offline' }) });
+  fireEvent.press(screen.getByLabelText('Join workspace'));
+  fireEvent.changeText(screen.getByLabelText('WORKSPACE CODE, required'), 'BAYA-ABCDEF123456');
+  fireEvent.press(within(screen.UNSAFE_getByType(Modal)).getByRole('button', { name: 'JOIN WORKSPACE' }));
+  await screen.findByText("Can't connect right now. Please try again.");
+  expect(screen.getByLabelText('WORKSPACE CODE, required').props.value).toBe('BAYA-ABCDEF123456');
+  expect(within(screen.UNSAFE_getByType(Modal)).getByRole('button', { name: 'JOIN WORKSPACE' }).props.accessibilityState.disabled).toBe(false);
+});
+it('refreshes pending to approved only after verifying the active membership', async () => {
+  const myRequests = jest.fn().mockResolvedValue({ ok: true, data: [request] });
+  const memberships = jest.fn().mockResolvedValue({ ok: true, data: [] });
+  mount(<JoinRequestStatus />, { myRequests, memberships });
+  await screen.findByText('WAITING FOR APPROVAL');
+  myRequests.mockResolvedValue({ ok: true, data: [{ ...request, status: 'approved', reviewed_at: request.requested_at, reviewed_by: 'mentor' }] });
+  fireEvent.press(screen.getByLabelText('Refresh workspace status'));
+  await screen.findByText('MEMBERSHIP INACTIVE');
+  expect(screen.queryByText('WORKSPACE JOINED!')).toBeNull();
+  memberships.mockResolvedValue({ ok: true, data: [joinedFixture] });
+  fireEvent.press(screen.getByLabelText('Refresh workspace status'));
+  await screen.findByText('WORKSPACE JOINED!');
+});
+it.each(['approved', 'rejected'] as const)('reviews a request as %s then refreshes confirmed counts', async decision => {
+  const onReviewed = jest.fn();
+  const pendingRequests = jest.fn().mockResolvedValue({ ok: true, data: [request] });
+  const reviewRequest = jest.fn(async () => {
+    pendingRequests.mockResolvedValue({ ok: true, data: [] });
+    return { ok: true as const, data: { ...request, status: decision } };
+  });
+  mount(<PendingJoinRequests workspaceId={request.workspace_id} onReviewed={onReviewed} />, { pendingRequests, reviewRequest });
+  await screen.findByText('1 Pending');
+  fireEvent.press(screen.getByLabelText(`${decision === 'approved' ? 'Approve' : 'Reject'} Sample Learner`));
+  await screen.findByText('No pending join requests.');
+  expect(reviewRequest).toHaveBeenCalledWith(request.request_id, decision);
+  expect(onReviewed).toHaveBeenCalledTimes(1);
+  expect(mockToast).toHaveBeenCalledWith(`Request ${decision}.`);
+});
+it('does not replace loading or denied reads with a false empty list', async () => {
+  let resolve!: (r: Result<JoinRequest[]>) => void;
+  const pendingRequests = jest.fn(() => new Promise<Result<JoinRequest[]>>(r => { resolve = r; }));
+  mount(<PendingJoinRequests workspaceId="workspace" onReviewed={jest.fn()} />, { pendingRequests });
+  expect(screen.queryByText('No pending join requests.')).toBeNull();
+  await waitFor(() => expect(pendingRequests).toHaveBeenCalled());
+  await act(async () => resolve({ ok: false, code: 'unauthorized' }));
+  expect(screen.queryByText('No pending join requests.')).toBeNull();
+  expect(screen.getByLabelText('Refresh pending join requests')).toBeTruthy();
+});
+
+it('opens and copies the authoritative reference without reviewing the request', async () => {
+  const reviewRequest = jest.fn();
+  mount(<PendingJoinRequests workspaceId={request.workspace_id} onReviewed={jest.fn()} />, { pendingRequests: async () => ({ ok: true, data: [request] }), reviewRequest });
+  await screen.findByText('1 Pending');
+  fireEvent.press(screen.getByLabelText('View reference for Sample Learner'));
+  expect(screen.getByText(request.request_id)).toBeTruthy();
+  fireEvent.press(screen.getByLabelText('COPY REFERENCE'));
+  await waitFor(() => expect(Clipboard.setStringAsync).toHaveBeenCalledWith(request.request_id));
+  expect(reviewRequest).not.toHaveBeenCalled();
+  await waitFor(() => expect(mockToast).toHaveBeenCalledWith('Request reference copied.'));
+  fireEvent.press(screen.getByLabelText('CLOSE'));
+  expect(screen.queryByText('REQUEST REFERENCE')).toBeNull();
+});
+
+it('keeps a large list visible during refresh and a failed refresh, without duplicate reads', async () => {
+  let resolve!: (r: Result<JoinRequest[]>) => void;
+  const requests = Array.from({ length: 24 }, (_, i) => ({ ...request, request_id: `request-${i}`, display_name: i ? `Learner ${i}` : '  ' }));
+  const pendingRequests = jest.fn().mockResolvedValueOnce({ ok: true, data: requests }).mockImplementation(() => new Promise<Result<JoinRequest[]>>(r => { resolve = r; }));
+  mount(<PendingJoinRequests workspaceId={request.workspace_id} onReviewed={jest.fn()} />, { pendingRequests });
+  await screen.findByText('24 Pending');
+  expect(screen.getByLabelText('Approve Learner')).toBeTruthy();
+  fireEvent.press(screen.getByLabelText('Refresh pending join requests'));
+  fireEvent.press(screen.getByLabelText('Refresh pending join requests'));
+  await waitFor(() => expect(pendingRequests).toHaveBeenCalledTimes(2));
+  expect(pendingRequests).toHaveBeenLastCalledWith(request.workspace_id);
+  expect(screen.getByLabelText('Approve Learner 23')).toBeTruthy();
+  await act(async () => resolve({ ok: false, code: 'offline' }));
+  expect(screen.getByText('24 Pending')).toBeTruthy();
+  expect(screen.getByText('You’re offline. Connect to the internet and try again.')).toBeTruthy();
+  expect(screen.getByLabelText('Refresh pending join requests').props.accessibilityState.disabled).toBe(false);
+});
+it('keeps other requests usable while one review is pending and retains the card on failure', async () => {
+  let resolve!: (r: Result<JoinRequest>) => void;
+  const reviewRequest = jest.fn(() => new Promise<Result<JoinRequest>>(r => { resolve = r; }));
+  const requests = Array.from({ length: 4 }, (_, i) => ({ ...request, request_id: `r${i}`, display_name: `Learner ${i}` }));
+  mount(<PendingJoinRequests workspaceId="workspace" onReviewed={jest.fn()} />, { pendingRequests: async () => ({ ok: true, data: requests }), reviewRequest });
+  await screen.findByText('4 Pending');
+  fireEvent.press(screen.getByLabelText('Approve Learner 0'));
+  fireEvent.press(screen.getByLabelText('Approve Learner 0'));
+  expect(reviewRequest).toHaveBeenCalledTimes(1);
+  expect(screen.getByLabelText('Approve Learner 1').props.accessibilityState.disabled).toBe(false);
+  await act(async () => resolve({ ok: false, code: 'network' }));
+  expect(screen.getByText('4 Pending')).toBeTruthy();
+  expect(screen.getByLabelText('Approve Learner 0').props.accessibilityState.disabled).toBe(false);
+  expect(mockToast).not.toHaveBeenCalled();
+});
+
+it('scopes reads to the selected workspace and clears the previous workspace while switching', async () => {
+  let resolve!: (r: Result<JoinRequest[]>) => void;
+  const pendingRequests = jest.fn().mockResolvedValueOnce({ ok: true, data: [request] }).mockImplementation(() => new Promise<Result<JoinRequest[]>>(r => { resolve = r; }));
+  const services = { ...fixtureServices, workspaces: { ...fixtureServices.workspaces, pendingRequests } };
+  const view = (id: string) => <CloudServicesContext.Provider value={services}><PendingJoinRequests workspaceId={id} onReviewed={jest.fn()} /></CloudServicesContext.Provider>;
+  const { rerender } = render(view(request.workspace_id));
+  await screen.findByText('Sample Learner');
+  rerender(view('other-workspace'));
+  await waitFor(() => expect(pendingRequests).toHaveBeenLastCalledWith('other-workspace'));
+  expect(screen.queryByText('Sample Learner')).toBeNull();
+  await act(async () => resolve({ ok: true, data: [] }));
+  expect(screen.getByText('0 Pending')).toBeTruthy();
+});

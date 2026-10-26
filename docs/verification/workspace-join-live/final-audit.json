@@ -1,0 +1,298 @@
+{
+  "rls": [
+    {
+      "name": "lessons",
+      "enabled": true
+    },
+    {
+      "name": "activities",
+      "enabled": true
+    },
+    {
+      "name": "content_versions",
+      "enabled": true
+    },
+    {
+      "name": "profiles",
+      "enabled": true
+    },
+    {
+      "name": "mentor_profiles",
+      "enabled": true
+    },
+    {
+      "name": "workspaces",
+      "enabled": true
+    },
+    {
+      "name": "workspace_memberships",
+      "enabled": true
+    },
+    {
+      "name": "learner_progress",
+      "enabled": true
+    },
+    {
+      "name": "activity_attempts",
+      "enabled": true
+    },
+    {
+      "name": "review_items",
+      "enabled": true
+    },
+    {
+      "name": "workspace_join_requests",
+      "enabled": true
+    }
+  ],
+  "auth": [
+    {
+      "role": "learner",
+      "anonymous": true
+    },
+    {
+      "role": "mentor",
+      "anonymous": false
+    }
+  ],
+  "policies": [
+    {
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n FROM content_versions v\n WHERE (v.content_version_id = lessons.content_version_id)))",
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "tablename": "lessons",
+      "permissive": "PERMISSIVE",
+      "policyname": "published_lessons",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "(EXISTS ( SELECT 1\n FROM lessons l\n WHERE (l.lesson_id = activities.lesson_id)))",
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "tablename": "activities",
+      "permissive": "PERMISSIVE",
+      "policyname": "published_activities",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "((validation_status = 'validated'::text) AND (activated_at <= now()))",
+      "roles": [
+        "anon",
+        "authenticated"
+      ],
+      "tablename": "content_versions",
+      "permissive": "PERMISSIVE",
+      "policyname": "published_versions",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "baya_private.can_read_learner(profile_id)",
+      "roles": [
+        "authenticated"
+      ],
+      "tablename": "profiles",
+      "permissive": "PERMISSIVE",
+      "policyname": "authorized_profiles",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "(profile_id = baya_private.own_profile())",
+      "roles": [
+        "authenticated"
+      ],
+      "tablename": "mentor_profiles",
+      "permissive": "PERMISSIVE",
+      "policyname": "own_mentor",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "baya_private.can_read_workspace(workspace_id)",
+      "roles": [
+        "authenticated"
+      ],
+      "tablename": "workspaces",
+      "permissive": "PERMISSIVE",
+      "policyname": "authorized_workspaces",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "((learner_profile_id = baya_private.own_profile()) OR baya_private.owns_workspace(workspace_id))",
+      "roles": [
+        "authenticated"
+      ],
+      "tablename": "workspace_memberships",
+      "permissive": "PERMISSIVE",
+      "policyname": "authorized_memberships",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "baya_private.can_read_learner(learner_profile_id)",
+      "roles": [
+        "authenticated"
+      ],
+      "tablename": "learner_progress",
+      "permissive": "PERMISSIVE",
+      "policyname": "authorized_progress",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "baya_private.can_read_learner(learner_profile_id)",
+      "roles": [
+        "authenticated"
+      ],
+      "tablename": "activity_attempts",
+      "permissive": "PERMISSIVE",
+      "policyname": "authorized_attempts",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "baya_private.can_read_learner(learner_profile_id)",
+      "roles": [
+        "authenticated"
+      ],
+      "tablename": "review_items",
+      "permissive": "PERMISSIVE",
+      "policyname": "authorized_reviews",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "((learner_profile_id = baya_private.own_profile()) OR baya_private.owns_workspace(workspace_id))",
+      "roles": [
+        "authenticated"
+      ],
+      "tablename": "workspace_join_requests",
+      "permissive": "PERMISSIVE",
+      "policyname": "authorized_requests",
+      "schemaname": "public",
+      "with_check": null
+    }
+  ],
+  "requests": [
+    {
+      "status": "rejected",
+      "request_id": "5187a252-2083-4a1f-87f6-dc44ba1de275",
+      "reviewed_at": "2026-10-25T11:46:51.996167+00:00",
+      "reviewed_by": "74f4c36f-2c97-46aa-8ad3-37afda29d5c8",
+      "requested_at": "2026-10-25T11:46:38.970867+00:00",
+      "workspace_id": "de32cf40-c58c-455b-b571-af6903e69cd5",
+      "learner_profile_id": "d4aa57e9-580f-40d9-b585-8ab0917ba9ca"
+    },
+    {
+      "status": "approved",
+      "request_id": "378b1a84-f6bf-4710-9168-b584e5512f8c",
+      "reviewed_at": "2026-10-25T11:47:20.858553+00:00",
+      "reviewed_by": "74f4c36f-2c97-46aa-8ad3-37afda29d5c8",
+      "requested_at": "2026-10-25T11:47:10.743728+00:00",
+      "workspace_id": "de32cf40-c58c-455b-b571-af6903e69cd5",
+      "learner_profile_id": "d4aa57e9-580f-40d9-b585-8ab0917ba9ca"
+    }
+  ],
+  "functions": [
+    {
+      "acl": [
+        "postgres=X/postgres"
+      ],
+      "name": "join_request_json",
+      "config": [
+        "search_path=\"\""
+      ],
+      "definition": "CREATE OR REPLACE FUNCTION baya_private.join_request_json(r workspace_join_requests)\n RETURNS jsonb\n LANGUAGE sql\n STABLE SECURITY DEFINER\n SET search_path TO ''\nAS $function$\r\n select to_jsonb(r)||jsonb_build_object('display_name',p.display_name,'workspace_name',w.workspace_name)\r\n from public.profiles p,public.workspaces w where p.profile_id=r.learner_profile_id and w.workspace_id=r.workspace_id\r\n$function$\n",
+      "securityDefiner": true
+    },
+    {
+      "acl": [
+        "postgres=X/postgres",
+        "authenticated=X/postgres"
+      ],
+      "name": "join_workspace",
+      "config": [
+        "search_path=\"\""
+      ],
+      "definition": "CREATE OR REPLACE FUNCTION public.join_workspace(p_code text)\n RETURNS jsonb\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO ''\nAS $function$\r\ndeclare result jsonb;\r\nbegin\r\n result:=public.request_workspace_join(p_code);\r\n if result->>'kind'<>'already_member' then raise exception 'mentor_approval_required' using errcode='42501'; end if;\r\n return result->'joined';\r\nend $function$\n",
+      "securityDefiner": true
+    },
+    {
+      "acl": [
+        "postgres=X/postgres",
+        "authenticated=X/postgres"
+      ],
+      "name": "list_my_join_requests",
+      "config": [
+        "search_path=\"\""
+      ],
+      "definition": "CREATE OR REPLACE FUNCTION public.list_my_join_requests()\n RETURNS jsonb\n LANGUAGE plpgsql\n STABLE SECURITY DEFINER\n SET search_path TO ''\nAS $function$\r\ndeclare p uuid:=baya_private.own_profile();\r\nbegin\r\n if p is null or not exists(select 1 from public.profiles where profile_id=p and role='learner') then raise exception 'unauthorized' using errcode='42501'; end if;\r\n return (select coalesce(jsonb_agg(baya_private.join_request_json(r) order by r.requested_at desc),'[]'::jsonb) from public.workspace_join_requests r where r.learner_profile_id=p);\r\nend $function$\n",
+      "securityDefiner": true
+    },
+    {
+      "acl": [
+        "postgres=X/postgres",
+        "authenticated=X/postgres"
+      ],
+      "name": "list_workspace_join_requests",
+      "config": [
+        "search_path=\"\""
+      ],
+      "definition": "CREATE OR REPLACE FUNCTION public.list_workspace_join_requests(p_workspace_id uuid)\n RETURNS jsonb\n LANGUAGE plpgsql\n STABLE SECURITY DEFINER\n SET search_path TO ''\nAS $function$\r\nbegin\r\n if not baya_private.owns_workspace(p_workspace_id) then raise exception 'unauthorized' using errcode='42501'; end if;\r\n return (select coalesce(jsonb_agg(baya_private.join_request_json(r) order by r.requested_at,r.request_id),'[]'::jsonb) from public.workspace_join_requests r where r.workspace_id=p_workspace_id and r.status='pending');\r\nend $function$\n",
+      "securityDefiner": true
+    },
+    {
+      "acl": [
+        "postgres=X/postgres",
+        "authenticated=X/postgres"
+      ],
+      "name": "request_workspace_join",
+      "config": [
+        "search_path=\"\""
+      ],
+      "definition": "CREATE OR REPLACE FUNCTION public.request_workspace_join(p_code text)\n RETURNS jsonb\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO ''\nAS $function$\r\ndeclare p uuid:=baya_private.own_profile(); w public.workspaces; r public.workspace_join_requests; m public.workspace_memberships;\r\nbegin\r\n if p is null or not exists(select 1 from public.profiles where profile_id=p and role='learner') then raise exception 'unauthorized' using errcode='42501'; end if;\r\n if p_code is null or upper(btrim(p_code)) !~ '^BAYA-[A-F0-9]{12}$' then raise exception 'invalid_code' using errcode='22023'; end if;\r\n select * into w from public.workspaces where workspace_code=upper(btrim(p_code)) for share;\r\n if not found then raise exception 'invalid_code' using errcode='22023'; end if;\r\n if w.status<>'active' then raise exception 'inactive' using errcode='P0001'; end if;\r\n -- Serialize submissions for this identity, including retries after a timeout.\r\n perform 1 from public.profiles where profile_id=p for update;\r\n select * into m from public.workspace_memberships where workspace_id=w.workspace_id and learner_profile_id=p and is_active;\r\n if found then return jsonb_build_object('kind','already_member','joined',jsonb_build_object('workspace',to_jsonb(w),'membership',to_jsonb(m),'alreadyJoined',true)); end if;\r\n select * into r from public.workspace_join_requests where workspace_id=w.workspace_id and learner_profile_id=p and status='pending';\r\n if found then return jsonb_build_object('kind','already_pending','request',baya_private.join_request_json(r)); end if;\r\n insert into public.workspace_join_requests(workspace_id,learner_profile_id) values(w.workspace_id,p) returning * into r;\r\n return jsonb_build_object('kind','request_submitted','request',baya_private.join_request_json(r));\r\nend $function$\n",
+      "securityDefiner": true
+    },
+    {
+      "acl": [
+        "postgres=X/postgres",
+        "authenticated=X/postgres"
+      ],
+      "name": "review_workspace_join_request",
+      "config": [
+        "search_path=\"\""
+      ],
+      "definition": "CREATE OR REPLACE FUNCTION public.review_workspace_join_request(p_request_id uuid, p_decision text)\n RETURNS jsonb\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO ''\nAS $function$\r\ndeclare r public.workspace_join_requests; w public.workspaces; m public.workspace_memberships; reviewer uuid:=baya_private.own_mentor();\r\nbegin\r\n if reviewer is null then raise exception 'unauthorized' using errcode='42501'; end if;\r\n if p_decision is null or p_decision not in ('approved','rejected') then raise exception 'invalid_decision' using errcode='22023'; end if;\r\n -- Check ownership before locking or exposing the request.\r\n select w0.* into w from public.workspaces w0 join public.workspace_join_requests r0 using(workspace_id)\r\n where r0.request_id=p_request_id and w0.mentor_profile_id=reviewer for share of w0;\r\n if not found then raise exception 'unauthorized' using errcode='42501'; end if;\r\n select * into r from public.workspace_join_requests where request_id=p_request_id for update;\r\n if r.status<> 'pending' and r.status<>p_decision then raise exception 'already_processed' using errcode='40001'; end if;\r\n if r.status='pending' then\r\n if p_decision='approved' then\r\n if w.status<>'active' then raise exception 'inactive' using errcode='P0001'; end if;\r\n if not exists(select 1 from public.profiles where profile_id=r.learner_profile_id and role='learner') then raise exception 'unauthorized' using errcode='42501'; end if;\r\n insert into public.workspace_memberships(workspace_id,learner_profile_id) values(r.workspace_id,r.learner_profile_id)\r\n on conflict(learner_profile_id,workspace_id) do update set is_active=true;\r\n end if;\r\n update public.workspace_join_requests set status=p_decision,reviewed_at=now(),reviewed_by=reviewer where request_id=r.request_id returning * into r;\r\n end if;\r\n select * into m from public.workspace_memberships where workspace_id=r.workspace_id and learner_profile_id=r.learner_profile_id;\r\n return jsonb_build_object('request',baya_private.join_request_json(r),'membership',case when m.membership_id is null then null else to_jsonb(m) end);\r\nend $function$\n",
+      "securityDefiner": true
+    }
+  ],
+  "memberships": [
+    {
+      "is_active": true,
+      "joined_at": "2026-10-25T11:47:20.858553+00:00",
+      "workspace_id": "de32cf40-c58c-455b-b571-af6903e69cd5",
+      "membership_id": "6605ead9-8d3d-4778-80e0-0d51d12ffee3",
+      "last_synced_at": null,
+      "learner_profile_id": "d4aa57e9-580f-40d9-b585-8ab0917ba9ca"
+    }
+  ]
+}

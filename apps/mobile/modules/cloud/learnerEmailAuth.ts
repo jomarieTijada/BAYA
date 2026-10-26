@@ -1,3 +1,4 @@
+import { verifyLearnerIdentity } from './learnerIdentity';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { CloudServices, FailureCode, LearnerCloudSession, Result } from './services';
 export type LocalCloudIdentity = { profile_id: string; display_name: string; auth_user_id?: string | null };
@@ -12,14 +13,7 @@ export function createLearnerEmailAuth({ clientFor, activeLearner, bind, failure
   async function run<T>(fn: () => Promise<T>): Promise<Result<T>> { try { return { ok: true, data: await fn() }; } catch (e) { return failure(e); } }
   async function identity() { const local = await activeLearner(); if (!local) throw { code: 'learner_required' }; return local; }
   async function checked(client: SupabaseClient, local: LocalCloudIdentity): Promise<LearnerCloudSession> {
-    const { data, error } = await client.auth.getUser(); if (error) throw error;
-    const user = data.user;
-    if (!user || user.is_anonymous || !user.email_confirmed_at || !user.email) throw { code: 'learner_login_required' };
-    const profile = await client.from('profiles').select('profile_id,role').eq('auth_user_id',user.id).single();
-    if (profile.error) throw profile.error;
-    if (profile.data.role !== 'learner' || (local.auth_user_id && local.auth_user_id !== user.id)) throw { code: 'account_mismatch' };
-    await bind(local.profile_id,user.id);
-    return { email: user.email, profileId: profile.data.profile_id };
+    return verifyLearnerIdentity(client, local, bind);
   }
   return {
     session: () => run(async () => {

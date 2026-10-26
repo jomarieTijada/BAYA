@@ -10,13 +10,13 @@ import { defaultWorkspaceInfo, type WorkspaceInfo } from './workspaceSettingsDat
 import { p } from '../../progress/ProgressPage';
 
 /** Presentation only: connection and sync time always come from the service. */
-export function WorkspaceSyncCard({ initialInfo = defaultWorkspaceInfo, onJoinPress, onSyncPress, busy = false, message = '' }: {
-  initialInfo?: WorkspaceInfo; onJoinPress?: () => void; onSyncPress?: () => void; busy?: boolean; message?: string;
+export function WorkspaceSyncCard({ initialInfo = defaultWorkspaceInfo, onJoinPress, onSyncPress, busy = false, message = '', pending = false }: {
+  initialInfo?: WorkspaceInfo; onJoinPress?: () => void; onSyncPress?: () => void; busy?: boolean; message?: string; pending?: boolean;
 }) {
-  const { width, height } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   const compact = width < 750;
   const connected = initialInfo.status === 'connected';
-  return <View testID="workspace-sync-card" style={[p.card, styles.card, { minHeight: Math.max(380, height - 180), padding: compact ? 20 : 28 }]}>
+  return <View testID="workspace-sync-card" style={[p.card, styles.card, { padding: compact ? 20 : 24 }]}>
     <View style={[p.row, { justifyContent: 'space-between' }]}>
       <View style={[p.row, { flexShrink: 1, flexWrap: 'nowrap' }]}>
         <View style={styles.icon}><AppIcon name="cloud" color="accent" size={30} /></View>
@@ -36,17 +36,17 @@ export function WorkspaceSyncCard({ initialInfo = defaultWorkspaceInfo, onJoinPr
           <Text style={[p.text, { fontWeight: '700' }]}>{initialInfo.lastSyncedText ?? 'Not synchronized yet'}</Text>
         </View>
       </> : <>
-        <View style={[p.row, { flexWrap: 'nowrap' }]}><View style={styles.dot} /><Text style={[p.name, { fontSize: compact ? 20 : 23, flex: 1 }]}>{SETTINGS_COPY.independentHeadline}</Text></View>
-        <Text style={[p.text, { marginTop: 22, marginLeft: 30 }]}>{SETTINGS_COPY.independentDescription}</Text>
+        <View style={[p.row, { flexWrap: 'nowrap' }]}><View style={styles.dot} /><Text style={[p.name, { fontSize: compact ? 20 : 23, flex: 1 }]}>{pending ? 'Your request is with your mentor.' : SETTINGS_COPY.independentHeadline}</Text></View>
+        <Text style={[p.text, { marginTop: 16 }]}>{pending ? 'You can keep learning while you wait. Sync becomes available after approval.' : SETTINGS_COPY.independentDescription}</Text>
       </>}
     </View>
     <View style={styles.actions}>
       {!!message && <Text accessibilityLiveRegion="polite" style={[p.text, { textAlign: 'center' }]}>{message}</Text>}
-      <AppButton accessibilityLabel={connected ? SETTINGS_COPY.syncAccessibility : SETTINGS_COPY.joinAccessibility} label={busy ? 'SYNCHRONIZING…' : connected ? SETTINGS_COPY.syncNow : SETTINGS_COPY.joinWorkspace}
+      {(connected || !pending) && <AppButton accessibilityLabel={connected ? SETTINGS_COPY.syncAccessibility : SETTINGS_COPY.joinAccessibility} label={busy ? 'SYNCHRONIZING…' : connected ? SETTINGS_COPY.syncNow : SETTINGS_COPY.joinWorkspace}
         icon={connected ? 'sync' : 'add'} iconPosition="leading" disabled={busy || (connected && !onSyncPress)}
-        onPress={connected ? () => onSyncPress?.() : onJoinPress ?? (() => router.push('/learner/workspaces/join'))}
-        style={{ width: '100%', maxWidth: 620, minHeight: 64, borderRadius: 22 }} />
-      <Text style={[p.text, { color: Colors.textMuted, textAlign: 'center' }]}>{connected ? SETTINGS_COPY.connectedFooter : SETTINGS_COPY.independentFooter}</Text>
+        onPress={connected ? () => onSyncPress?.() : onJoinPress ?? (() => router.push('/learner/workspaces'))}
+        style={{ width: '100%', maxWidth: 620, minHeight: 64, borderRadius: 22 }} />}
+      <Text style={[p.text, { color: Colors.textMuted, textAlign: 'center' }]}>{connected ? SETTINGS_COPY.connectedFooter : 'Your learning stays saved on this device.'}</Text>
     </View>
   </View>;
 }
@@ -58,5 +58,5 @@ const styles = StyleSheet.create({
   code: { fontFamily: FontFamily.rounded, color: Colors.accent, fontWeight: '800', fontSize: 20, borderWidth: 1.5, borderColor: Colors.border, borderRadius: 12, backgroundColor: Colors.surface, paddingVertical: 6, paddingHorizontal: 14 },
   divider: { height: 1.5, backgroundColor: Colors.border, marginVertical: 18 },
   dot: { width: 14, height: 14, backgroundColor: Colors.accent, borderRadius: 7 },
-  actions: { flex: 1, justifyContent: 'flex-end', alignItems: 'center', gap: 14, paddingTop: 32 },
+  actions: { alignItems: 'center', gap: 14, paddingTop: 4 },
 });

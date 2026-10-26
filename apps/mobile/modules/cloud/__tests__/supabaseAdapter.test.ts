@@ -8,20 +8,20 @@ const joined = { workspace, membership, alreadyJoined: false };
 function mockClient() {
   const auth = {
     getSession: jest.fn().mockResolvedValue({ data: { session: null }, error: null }),
-    getUser: jest.fn(), signInWithPassword: jest.fn(), signUp: jest.fn(), verifyOtp: jest.fn(),
+    getUser: jest.fn().mockResolvedValue({data:{user:{id:'cloud-user',is_anonymous:true}}}), signInWithPassword: jest.fn(), signUp: jest.fn(), verifyOtp: jest.fn(),
     resend: jest.fn(), resetPasswordForEmail: jest.fn(), updateUser: jest.fn(),
     signOut: jest.fn().mockResolvedValue({ error: null }),
-    signInAnonymously: jest.fn().mockResolvedValue({ data: {}, error: null }),
+    signInAnonymously: jest.fn().mockResolvedValue({ data: {session:{user:{id:'cloud-user'}}}, error: null }),
   };
   const rpc = jest.fn().mockResolvedValue({ data: joined, error: null });
-  const from = jest.fn();
+  const from = jest.fn().mockReturnValue({select:()=>({eq:()=>({single:async()=>({data:{profile_id:'p1',role:'learner'}})})})});
   return { auth, rpc, from, client: { auth, rpc, from } as unknown as SupabaseClient };
 }
 function setup() {
   const mentor = mockClient(); const learner = mockClient(); const recovery = mockClient();
   const activeLearner = jest.fn().mockResolvedValue({ profile_id: 'local-one', display_name: 'Learner' });
   const learnerClient = jest.fn().mockReturnValue(learner.client);
-  const service = createSupabaseServices({ mentor: mentor.client, learnerClient, recoveryClient: () => recovery.client, activeLearner });
+  const service = createSupabaseServices({ mentor: mentor.client, learnerClient, recoveryClient: () => recovery.client, activeLearner, bindLearner: async () => {} });
   return { service, mentor, learner, recovery, activeLearner, learnerClient };
 }
 it('does not create anonymous users while reading memberships', async () => {
@@ -30,11 +30,12 @@ it('does not create anonymous users while reading memberships', async () => {
   expect(learner.auth.signInAnonymously).not.toHaveBeenCalled();
   expect(learner.rpc).not.toHaveBeenCalled();
 });
-it('requires verified learner sign-in and never creates anonymous accounts', async () => {
+it('creates and verifies a device learner before authorizing a code-only join', async () => {
   const { service, learner } = setup();
-  expect(await service.workspaces.join(workspace.workspace_code)).toEqual({ ok: false, code: 'learner_login_required' });
-  expect(learner.auth.signInAnonymously).not.toHaveBeenCalled();
-  expect(learner.rpc).not.toHaveBeenCalled();
+  expect(await service.workspaces.join(workspace.workspace_code)).toEqual({ ok: true, data: joined });
+  expect(learner.auth.signInAnonymously).toHaveBeenCalledTimes(1);
+  expect(learner.auth.getUser).toHaveBeenCalled();
+  expect(learner.rpc).toHaveBeenCalledWith('join_workspace', {p_code: workspace.workspace_code});
 });
 it('does not fall back to mentor identity when no active learner exists', async () => {
   const { service, activeLearner, learnerClient } = setup(); activeLearner.mockResolvedValue(null);
@@ -78,6 +79,12 @@ it('propagates wrong-password failures without sending OTP', async () => {
   expect(await service.auth.login('x@y.test', 'wrong')).toEqual({ ok: false, code: 'credentials' });
   expect(mentor.auth.resend).not.toHaveBeenCalled();
 });
+it('does not fabricate an OTP challenge for an obscured repeat signup', async () => {
+  const { service, mentor } = setup();
+  mentor.auth.signUp.mockResolvedValue({ data: { session: null, user: { identities: [] } }, error: null });
+  expect(await service.auth.register('Name', 'mentor@example.test', 'password123')).toEqual({ ok: true, data: { kind: 'check_email' } });
+  expect(mentor.auth.resend).not.toHaveBeenCalled();
+});
 it('returns no session for signed-out mentor and refuses anonymous mentor access', async () => {
   const { service, mentor } = setup();
   expect(await service.auth.session()).toEqual({ ok: true, data: null });
@@ -95,6 +102,39 @@ it('uses ephemeral recovery auth, updates only after OTP, and clears recovery se
   expect(recovery.auth.signOut).toHaveBeenCalledWith({ scope: 'local' });
   expect(mentor.auth.verifyOtp).not.toHaveBeenCalled();
 });
+
+describe('mentor profile restoration', () => {
+  function authenticated() {
+    const state = setup();
+    state.mentor.auth.getSession.mockResolvedValue({ data: { session: {} }, error: null });
+    state.mentor.auth.getUser.mockResolvedValue({ data: { user: { id: 'mentor-user', is_anonymous: false, email_confirmed_at: '2026-10-24' } }, error: null });
+    const maybeSingle = jest.fn();
+    const query = { select: jest.fn(), eq: jest.fn(), maybeSingle };
+    query.select.mockReturnValue(query);
+    query.eq.mockReturnValue(query);
+    state.mentor.from.mockReturnValue(query);
+    return { ...state, maybeSingle };
+  }
+  it.each([0, 1])('fails closed when mentor profile lookup %i is empty', async index => {
+    const { service, maybeSingle, mentor } = authenticated();
+    if (index === 1) maybeSingle.mockResolvedValueOnce({ data: { profile_id: 'p1' }, error: null });
+    maybeSingle.mockResolvedValueOnce({ data: null, error: null });
+    expect(await service.auth.session()).toEqual({ ok: false, code: 'mentor_profile_missing' });
+    expect(maybeSingle).toHaveBeenCalledTimes(index + 1);
+    expect(mentor.rpc).not.toHaveBeenCalled();
+  });
+  it('restores only a complete verified mentor identity', async () => {
+    const { service, maybeSingle } = authenticated();
+    maybeSingle.mockResolvedValueOnce({ data: { profile_id: 'p1' }, error: null });
+    maybeSingle.mockResolvedValueOnce({ data: { mentor_profile_id: 'm1' }, error: null });
+    expect(await service.auth.session()).toEqual({ ok: true, data: { authUserId: 'mentor-user', profileId: 'p1', mentorProfileId: 'm1' } });
+  });
+  it('does not disguise server failures as a missing profile', async () => {
+    const { service, maybeSingle } = authenticated();
+    maybeSingle.mockResolvedValueOnce({ data: null, error: { code: '42P01' } });
+    expect(await service.auth.session()).toEqual({ ok: false, code: 'unavailable' });
+  });
+});
 it('does not update a password after failed recovery verification', async () => {
   const { service, recovery } = setup(); recovery.auth.verifyOtp.mockResolvedValue({ error: { code: 'otp_expired' } });
   expect(await service.auth.completePasswordReset!('x@y.test', 'bad', 'new-password')).toEqual({ ok: false, code: 'expired_code' });
@@ -105,6 +145,57 @@ it('maps safe provider failures without exposing raw messages', () => {
   expect(cloudFailure({ status: 429, message: 'private detail' })).toEqual({ ok: false, code: 'rate_limited' });
   expect(cloudFailure({ code: '42P01' })).toEqual({ ok: false, code: 'unavailable' });
   expect(cloudFailure({ code: 'P0001' })).toEqual({ ok: false, code: 'inactive' });
+});
+it('never replaces a bound learner identity when its session is missing', async () => {
+  const { service, activeLearner, learner } = setup();
+  activeLearner.mockResolvedValue({ profile_id: 'local-one', display_name: 'Learner', auth_user_id: 'original' });
+  expect(await service.workspaces.join(workspace.workspace_code)).toEqual({ ok: false, code: 'learner_login_required' });
+  expect(learner.auth.signInAnonymously).not.toHaveBeenCalled();
+  expect(learner.rpc).not.toHaveBeenCalled();
+});
+it('rejects a different authenticated identity before requesting membership', async () => {
+  const { service, activeLearner, learner } = setup();
+  activeLearner.mockResolvedValue({ profile_id: 'local-one', auth_user_id: 'original' });
+  learner.auth.getSession.mockResolvedValue({ data: { session: {} } });
+  expect(await service.workspaces.join(workspace.workspace_code)).toEqual({ ok: false, code: 'account_mismatch' });
+  expect(learner.rpc).not.toHaveBeenCalled();
+});
+it('reports disabled anonymous Auth without fabricating a membership', async () => {
+  const { service, learner } = setup();
+  learner.auth.signInAnonymously.mockResolvedValue({ error: { code: 'anonymous_provider_disabled' } });
+  expect(await service.workspaces.requestJoin!(workspace.workspace_code)).toEqual({ ok: false, code: 'learner_auth_disabled' });
+  expect(learner.rpc).not.toHaveBeenCalled();
+});
+const pendingRequest = { request_id: 'r1', workspace_id: 'w1', learner_profile_id: 'p1', display_name: 'Learner', workspace_name: 'Class', status: 'pending', requested_at: '2026-10-25T00:00:00Z', reviewed_at: null, reviewed_by: null };
+it('submits only a code under verified learner identity, never a caller profile ID', async () => {
+  const { service, learner, mentor } = setup();
+  learner.rpc.mockResolvedValue({ data: { kind: 'request_submitted', request: pendingRequest } });
+  const result = await service.workspaces.requestJoin!(' baya-abcdef123456 ');
+  expect(result).toEqual({ ok: true, data: { kind: 'request_submitted', request: pendingRequest } });
+  expect(learner.rpc).toHaveBeenCalledWith('request_workspace_join', { p_code: 'BAYA-ABCDEF123456' });
+  expect(mentor.auth.signUp).not.toHaveBeenCalled();
+  expect(mentor.rpc).not.toHaveBeenCalled();
+});
+it('checks approval receipts and does not accept approved status without an active membership', async () => {
+  const { service, mentor } = setup();
+  const request = { ...pendingRequest, status: 'approved', reviewed_at: '2026-10-25T01:00:00Z', reviewed_by: 'mentor' };
+  mentor.rpc.mockResolvedValue({ data: { request, membership: null } });
+  expect((await service.workspaces.reviewRequest!('r1', 'approved')).ok).toBe(false);
+  mentor.rpc.mockResolvedValue({ data: { request, membership } });
+  expect((await service.workspaces.reviewRequest!('r1', 'approved')).ok).toBe(true);
+  expect(mentor.rpc).toHaveBeenCalledWith('review_workspace_join_request', { p_request_id: 'r1', p_decision: 'approved' });
+});
+it('does not create an anonymous identity simply to view status', async () => {
+  const { service, learner } = setup();
+  expect(await service.workspaces.myRequests!()).toEqual({ ok: true, data: [] });
+  expect(learner.auth.signInAnonymously).not.toHaveBeenCalled();
+});
+it('does not show a false empty status when a bound identity has lost its session', async () => {
+  const { service, activeLearner, learner } = setup();
+  activeLearner.mockResolvedValue({ profile_id: 'local-one', auth_user_id: 'lost-identity' });
+  expect(await service.workspaces.myRequests!()).toEqual({ ok: false, code: 'learner_login_required' });
+  expect(await service.workspaces.memberships()).toEqual({ ok: false, code: 'learner_login_required' });
+  expect(learner.auth.signInAnonymously).not.toHaveBeenCalled();
 });
 it('accepts only public credentials and fails closed when configuration is missing', () => {
   expect(readCloudConfig()).toBeNull();

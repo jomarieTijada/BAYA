@@ -241,10 +241,8 @@ describe('BAYA Database Inspector', () => {
   // 14. Inspector never calls SQLite.openDatabaseAsync directly
   // -----------------------------------------------------------------------
   test('14. databaseInspectorService source does not statically import expo-sqlite', () => {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const fs = require('node:fs') as typeof import('node:fs');
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const path = require('node:path') as typeof import('node:path');
+    const fs = jest.requireActual('node:fs') as typeof import('node:fs');
+    const path = jest.requireActual('node:path') as typeof import('node:path');
     const sourceFile = path.join(__dirname, '..', 'databaseInspectorService.ts');
     const source = fs.readFileSync(sourceFile, 'utf-8');
     expect(source).toContain("from '../connection'");

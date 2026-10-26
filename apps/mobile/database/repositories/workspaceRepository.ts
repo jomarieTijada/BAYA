@@ -153,7 +153,7 @@ export const workspaceRepository = {
   async getLearnerWorkspaces(
     learnerProfileId: string,
     dbOverride?: DatabaseConnection
-  ): Promise<Array<Workspace & { membership_id: string; joined_at: string; last_synced_at: string | null }>> {
+  ): Promise<(Workspace & { membership_id: string; joined_at: string; last_synced_at: string | null })[]> {
     const db = dbOverride || (await getDatabaseConnection());
     return db.getAllAsync<Workspace & { membership_id: string; joined_at: string; last_synced_at: string | null }>(
       `SELECT w.workspace_id, w.mentor_profile_id, w.workspace_code, w.workspace_name, w.status, w.created_at,

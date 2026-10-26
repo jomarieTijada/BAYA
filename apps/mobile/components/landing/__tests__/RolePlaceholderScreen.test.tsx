@@ -10,8 +10,8 @@ jest.mock('expo-router', () => ({
 
 // 2. Mock SafeAreaView
 jest.mock('react-native-safe-area-context', () => {
-  const React = require('react');
-  const { View } = require('react-native');
+  const React = jest.requireActual('react');
+  const { View } = jest.requireActual('react-native');
   return {
     SafeAreaView: ({ children, style }: any) =>
       React.createElement(View, { testID: 'safe-area-view', style }, children),
@@ -20,8 +20,8 @@ jest.mock('react-native-safe-area-context', () => {
 
 // 3. Mock AppButton with the correct two-level relative path
 jest.mock('../../ui/AppButton', () => {
-  const React = require('react');
-  const { TouchableOpacity, Text } = require('react-native');
+  const React = jest.requireActual('react');
+  const { TouchableOpacity, Text } = jest.requireActual('react-native');
   return {
     AppButton: (props: any) =>
       React.createElement(

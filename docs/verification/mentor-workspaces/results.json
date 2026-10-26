@@ -1,0 +1,1182 @@
+[
+  {
+    "screen": "login",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nMENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nPASSWORD*\nForgot Password?\nLOG IN\nDon’t have a mentor account? Create Account",
+    "inputs": [
+      {
+        "width": 698,
+        "height": 68
+      },
+      {
+        "width": 698,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "otp",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nVERIFY YOUR EMAIL\nEnter the verification code sent to mentor@example.test.\nVERIFICATION CODE*\nVERIFY\nResend code",
+    "inputs": [
+      {
+        "width": 698,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "empty",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nChoose Workspace\nSelect a workspace to manage learner progress.\nNo Workspace Created Yet\nCreate a workspace to start managing learner progress and activities.\nCREATE WORKSPACE",
+    "inputs": []
+  },
+  {
+    "screen": "list",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nChoose Workspace\nSelect a workspace to manage learner progress.\nMY WORKSPACES · 2 Active\nCREATE WORKSPACE\nBaybayin Workshop A\n● Active\nCODE: BAYA-7K2P\n3 Learners\nENTER\nBeginner Baybayin Group\n● Active\nCODE: BAYA-4M8Q\n8 Learners\nENTER",
+    "inputs": []
+  },
+  {
+    "screen": "create",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nCREATE WORKSPACE\nCreate a workspace for your learners.\nWORKSPACE NAME*\nWORKSPACE CODE\nAuto ID Generator · Share this code with your learners after creation.\nCREATE WORKSPACE",
+    "inputs": [
+      {
+        "width": 698,
+        "height": 68
+      },
+      {
+        "width": 698,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "details",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nWorkspace Details\nShare the workspace code with your learners.\nBaybayin Workshop A\n● Active\nCODE: BAYA-7K2P\n3 Learners",
+    "inputs": []
+  },
+  {
+    "screen": "join",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nJOIN WORKSPACE\nAsk your mentor for a workspace code. Enter it below.\nWORKSPACE CODE*\nJOIN WORKSPACE",
+    "inputs": [
+      {
+        "width": 698,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "memberships",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nMY WORKSPACES\nLearn together with your mentor.\nJOIN WORKSPACE\nBaybayin Workshop A\nBAYA-7K2P\nJoined",
+    "inputs": []
+  },
+  {
+    "screen": "loading",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nChoose Workspace\nSelect a workspace to manage learner progress.\nLoading your workspaces…",
+    "inputs": []
+  },
+  {
+    "screen": "error",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nChoose Workspace\nSelect a workspace to manage learner progress.\nYou’re offline. Connect to the internet and try again.\nTRY AGAIN\nGo to Mentor Login",
+    "inputs": []
+  },
+  {
+    "screen": "validation",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "MENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nEnter your email address.\nPASSWORD*\nForgot Password?\nEnter your password.\nLOG IN\nDon’t have a mentor account? Create Account",
+    "inputs": [
+      {
+        "width": 698,
+        "height": 68
+      },
+      {
+        "width": 698,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "login",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nMENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nPASSWORD*\nForgot Password?\nLOG IN\nDon’t have a mentor account? Create Account",
+    "inputs": [
+      {
+        "width": 574,
+        "height": 68
+      },
+      {
+        "width": 574,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "otp",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nVERIFY YOUR EMAIL\nEnter the verification code sent to mentor@example.test.\nVERIFICATION CODE*\nVERIFY\nResend code",
+    "inputs": [
+      {
+        "width": 574,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "empty",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nChoose Workspace\nSelect a workspace to manage learner progress.\nNo Workspace Created Yet\nCreate a workspace to start managing learner progress and activities.\nCREATE WORKSPACE",
+    "inputs": []
+  },
+  {
+    "screen": "list",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nChoose Workspace\nSelect a workspace to manage learner progress.\nMY WORKSPACES · 2 Active\nCREATE WORKSPACE\nBaybayin Workshop A\n● Active\nCODE: BAYA-7K2P\n3 Learners\nENTER\nBeginner Baybayin Group\n● Active\nCODE: BAYA-4M8Q\n8 Learners\nENTER",
+    "inputs": []
+  },
+  {
+    "screen": "create",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nCREATE WORKSPACE\nCreate a workspace for your learners.\nWORKSPACE NAME*\nWORKSPACE CODE\nAuto ID Generator · Share this code with your learners after creation.\nCREATE WORKSPACE",
+    "inputs": [
+      {
+        "width": 574,
+        "height": 68
+      },
+      {
+        "width": 574,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "details",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nWorkspace Details\nShare the workspace code with your learners.\nBaybayin Workshop A\n● Active\nCODE: BAYA-7K2P\n3 Learners",
+    "inputs": []
+  },
+  {
+    "screen": "join",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nJOIN WORKSPACE\nAsk your mentor for a workspace code. Enter it below.\nWORKSPACE CODE*\nJOIN WORKSPACE",
+    "inputs": [
+      {
+        "width": 574,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "memberships",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nMY WORKSPACES\nLearn together with your mentor.\nJOIN WORKSPACE\nBaybayin Workshop A\nBAYA-7K2P\nJoined",
+    "inputs": []
+  },
+  {
+    "screen": "loading",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nChoose Workspace\nSelect a workspace to manage learner progress.\nLoading your workspaces…",
+    "inputs": []
+  },
+  {
+    "screen": "error",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nChoose Workspace\nSelect a workspace to manage learner progress.\nYou’re offline. Connect to the internet and try again.\nTRY AGAIN\nGo to Mentor Login",
+    "inputs": []
+  },
+  {
+    "screen": "validation",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "MENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nEnter your email address.\nPASSWORD*\nForgot Password?\nEnter your password.\nLOG IN\nDon’t have a mentor account? Create Account",
+    "inputs": [
+      {
+        "width": 574,
+        "height": 68
+      },
+      {
+        "width": 574,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "login",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nMENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nPASSWORD*\nForgot Password?\nLOG IN\nDon’t have a mentor account? Create Account",
+    "inputs": [
+      {
+        "width": 734,
+        "height": 68
+      },
+      {
+        "width": 734,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "otp",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nVERIFY YOUR EMAIL\nEnter the verification code sent to mentor@example.test.\nVERIFICATION CODE*\nVERIFY\nResend code",
+    "inputs": [
+      {
+        "width": 734,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "empty",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nChoose Workspace\nSelect a workspace to manage learner progress.\nNo Workspace Created Yet\nCreate a workspace to start managing learner progress and activities.\nCREATE WORKSPACE",
+    "inputs": []
+  },
+  {
+    "screen": "list",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nChoose Workspace\nSelect a workspace to manage learner progress.\nMY WORKSPACES · 2 Active\nCREATE WORKSPACE\nBaybayin Workshop A\n● Active\nCODE: BAYA-7K2P\n3 Learners\nENTER\nBeginner Baybayin Group\n● Active\nCODE: BAYA-4M8Q\n8 Learners\nENTER",
+    "inputs": []
+  },
+  {
+    "screen": "create",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nCREATE WORKSPACE\nCreate a workspace for your learners.\nWORKSPACE NAME*\nWORKSPACE CODE\nAuto ID Generator · Share this code with your learners after creation.\nCREATE WORKSPACE",
+    "inputs": [
+      {
+        "width": 734,
+        "height": 68
+      },
+      {
+        "width": 734,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "details",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nWorkspace Details\nShare the workspace code with your learners.\nBaybayin Workshop A\n● Active\nCODE: BAYA-7K2P\n3 Learners",
+    "inputs": []
+  },
+  {
+    "screen": "join",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nJOIN WORKSPACE\nAsk your mentor for a workspace code. Enter it below.\nWORKSPACE CODE*\nJOIN WORKSPACE",
+    "inputs": [
+      {
+        "width": 734,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "memberships",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nMY WORKSPACES\nLearn together with your mentor.\nJOIN WORKSPACE\nBaybayin Workshop A\nBAYA-7K2P\nJoined",
+    "inputs": []
+  },
+  {
+    "screen": "loading",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nChoose Workspace\nSelect a workspace to manage learner progress.\nLoading your workspaces…",
+    "inputs": []
+  },
+  {
+    "screen": "error",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nChoose Workspace\nSelect a workspace to manage learner progress.\nYou’re offline. Connect to the internet and try again.\nTRY AGAIN\nGo to Mentor Login",
+    "inputs": []
+  },
+  {
+    "screen": "validation",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "MENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nEnter your email address.\nPASSWORD*\nForgot Password?\nEnter your password.\nLOG IN\nDon’t have a mentor account? Create Account",
+    "inputs": [
+      {
+        "width": 734,
+        "height": 68
+      },
+      {
+        "width": 734,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "login",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nMENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nPASSWORD*\nForgot Password?\nLOG IN\nDon’t have a mentor account? Create Account",
+    "inputs": [
+      {
+        "width": 734,
+        "height": 68
+      },
+      {
+        "width": 734,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "otp",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nVERIFY YOUR EMAIL\nEnter the verification code sent to mentor@example.test.\nVERIFICATION CODE*\nVERIFY\nResend code",
+    "inputs": [
+      {
+        "width": 734,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "empty",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nChoose Workspace\nSelect a workspace to manage learner progress.\nNo Workspace Created Yet\nCreate a workspace to start managing learner progress and activities.\nCREATE WORKSPACE",
+    "inputs": []
+  },
+  {
+    "screen": "list",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nChoose Workspace\nSelect a workspace to manage learner progress.\nMY WORKSPACES · 2 Active\nCREATE WORKSPACE\nBaybayin Workshop A\n● Active\nCODE: BAYA-7K2P\n3 Learners\nENTER\nBeginner Baybayin Group\n● Active\nCODE: BAYA-4M8Q\n8 Learners\nENTER",
+    "inputs": []
+  },
+  {
+    "screen": "create",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nCREATE WORKSPACE\nCreate a workspace for your learners.\nWORKSPACE NAME*\nWORKSPACE CODE\nAuto ID Generator · Share this code with your learners after creation.\nCREATE WORKSPACE",
+    "inputs": [
+      {
+        "width": 734,
+        "height": 68
+      },
+      {
+        "width": 734,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "details",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nWorkspace Details\nShare the workspace code with your learners.\nBaybayin Workshop A\n● Active\nCODE: BAYA-7K2P\n3 Learners",
+    "inputs": []
+  },
+  {
+    "screen": "join",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nJOIN WORKSPACE\nAsk your mentor for a workspace code. Enter it below.\nWORKSPACE CODE*\nJOIN WORKSPACE",
+    "inputs": [
+      {
+        "width": 734,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "memberships",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nMY WORKSPACES\nLearn together with your mentor.\nJOIN WORKSPACE\nBaybayin Workshop A\nBAYA-7K2P\nJoined",
+    "inputs": []
+  },
+  {
+    "screen": "loading",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nChoose Workspace\nSelect a workspace to manage learner progress.\nLoading your workspaces…",
+    "inputs": []
+  },
+  {
+    "screen": "error",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nChoose Workspace\nSelect a workspace to manage learner progress.\nYou’re offline. Connect to the internet and try again.\nTRY AGAIN\nGo to Mentor Login",
+    "inputs": []
+  },
+  {
+    "screen": "validation",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "MENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nEnter your email address.\nPASSWORD*\nForgot Password?\nEnter your password.\nLOG IN\nDon’t have a mentor account? Create Account",
+    "inputs": [
+      {
+        "width": 734,
+        "height": 68
+      },
+      {
+        "width": 734,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "login",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nMENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nPASSWORD*\nForgot Password?\nLOG IN\nDon’t have a mentor account? Create Account",
+    "inputs": [
+      {
+        "width": 698,
+        "height": 68
+      },
+      {
+        "width": 698,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "otp",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nVERIFY YOUR EMAIL\nEnter the verification code sent to mentor@example.test.\nVERIFICATION CODE*\nVERIFY\nResend code",
+    "inputs": [
+      {
+        "width": 698,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "empty",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nChoose Workspace\nSelect a workspace to manage learner progress.\nNo Workspace Created Yet\nCreate a workspace to start managing learner progress and activities.\nCREATE WORKSPACE",
+    "inputs": []
+  },
+  {
+    "screen": "list",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nChoose Workspace\nSelect a workspace to manage learner progress.\nMY WORKSPACES · 2 Active\nCREATE WORKSPACE\nBaybayin Workshop A\n● Active\nCODE: BAYA-7K2P\n3 Learners\nENTER\nBeginner Baybayin Group\n● Active\nCODE: BAYA-4M8Q\n8 Learners\nENTER",
+    "inputs": []
+  },
+  {
+    "screen": "create",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nCREATE WORKSPACE\nCreate a workspace for your learners.\nWORKSPACE NAME*\nWORKSPACE CODE\nAuto ID Generator · Share this code with your learners after creation.\nCREATE WORKSPACE",
+    "inputs": [
+      {
+        "width": 698,
+        "height": 68
+      },
+      {
+        "width": 698,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "details",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nWorkspace Details\nShare the workspace code with your learners.\nBaybayin Workshop A\n● Active\nCODE: BAYA-7K2P\n3 Learners",
+    "inputs": []
+  },
+  {
+    "screen": "join",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nJOIN WORKSPACE\nAsk your mentor for a workspace code. Enter it below.\nWORKSPACE CODE*\nJOIN WORKSPACE",
+    "inputs": [
+      {
+        "width": 698,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "memberships",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nMY WORKSPACES\nLearn together with your mentor.\nJOIN WORKSPACE\nBaybayin Workshop A\nBAYA-7K2P\nJoined",
+    "inputs": []
+  },
+  {
+    "screen": "loading",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nChoose Workspace\nSelect a workspace to manage learner progress.\nLoading your workspaces…",
+    "inputs": []
+  },
+  {
+    "screen": "error",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nChoose Workspace\nSelect a workspace to manage learner progress.\nYou’re offline. Connect to the internet and try again.\nTRY AGAIN\nGo to Mentor Login",
+    "inputs": []
+  },
+  {
+    "screen": "validation",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "MENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nEnter your email address.\nPASSWORD*\nForgot Password?\nEnter your password.\nLOG IN\nDon’t have a mentor account? Create Account",
+    "inputs": [
+      {
+        "width": 698,
+        "height": 68
+      },
+      {
+        "width": 698,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "register",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nCREATE MENTOR ACCOUNT\nSet up your mentor account for managing learner workspaces.\nFULL NAME*\nEMAIL ADDRESS*\nPASSWORD*\nCONFIRM PASSWORD*\nCREATE ACCOUNT\nAlready have a mentor account? Log in",
+    "inputs": [
+      {
+        "width": 537,
+        "height": 68
+      },
+      {
+        "width": 537,
+        "height": 68
+      },
+      {
+        "width": 537,
+        "height": 68
+      },
+      {
+        "width": 537,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "joined",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nYOU’RE CONNECTED!\nYour mentor’s workspace is ready for you.\nBaybayin Workshop A\nBAYA-7K2P\nMY WORKSPACES",
+    "inputs": []
+  },
+  {
+    "screen": "register",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nCREATE MENTOR ACCOUNT\nSet up your mentor account for managing learner workspaces.\nFULL NAME*\nEMAIL ADDRESS*\nPASSWORD*\nCONFIRM PASSWORD*\nCREATE ACCOUNT\nAlready have a mentor account? Log in",
+    "inputs": [
+      {
+        "width": 574,
+        "height": 68
+      },
+      {
+        "width": 574,
+        "height": 68
+      },
+      {
+        "width": 574,
+        "height": 68
+      },
+      {
+        "width": 574,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "joined",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nYOU’RE CONNECTED!\nYour mentor’s workspace is ready for you.\nBaybayin Workshop A\nBAYA-7K2P\nMY WORKSPACES",
+    "inputs": []
+  },
+  {
+    "screen": "register",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nCREATE MENTOR ACCOUNT\nSet up your mentor account for managing learner workspaces.\nFULL NAME*\nEMAIL ADDRESS*\nPASSWORD*\nCONFIRM PASSWORD*\nCREATE ACCOUNT\nAlready have a mentor account? Log in",
+    "inputs": [
+      {
+        "width": 751,
+        "height": 68
+      },
+      {
+        "width": 751,
+        "height": 68
+      },
+      {
+        "width": 751,
+        "height": 68
+      },
+      {
+        "width": 751,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "joined",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nYOU’RE CONNECTED!\nYour mentor’s workspace is ready for you.\nBaybayin Workshop A\nBAYA-7K2P\nMY WORKSPACES",
+    "inputs": []
+  },
+  {
+    "screen": "register",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nCREATE MENTOR ACCOUNT\nSet up your mentor account for managing learner workspaces.\nFULL NAME*\nEMAIL ADDRESS*\nPASSWORD*\nCONFIRM PASSWORD*\nCREATE ACCOUNT\nAlready have a mentor account? Log in",
+    "inputs": [
+      {
+        "width": 399,
+        "height": 68
+      },
+      {
+        "width": 399,
+        "height": 68
+      },
+      {
+        "width": 399,
+        "height": 68
+      },
+      {
+        "width": 399,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "joined",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nYOU’RE CONNECTED!\nYour mentor’s workspace is ready for you.\nBaybayin Workshop A\nBAYA-7K2P\nMY WORKSPACES",
+    "inputs": []
+  },
+  {
+    "screen": "register",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nCREATE MENTOR ACCOUNT\nSet up your mentor account for managing learner workspaces.\nFULL NAME*\nEMAIL ADDRESS*\nPASSWORD*\nCONFIRM PASSWORD*\nCREATE ACCOUNT\nAlready have a mentor account? Log in",
+    "inputs": [
+      {
+        "width": 419.5,
+        "height": 68
+      },
+      {
+        "width": 419.5,
+        "height": 68
+      },
+      {
+        "width": 419.5,
+        "height": 68
+      },
+      {
+        "width": 419.5,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "joined",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nYOU’RE CONNECTED!\nYour mentor’s workspace is ready for you.\nBaybayin Workshop A\nBAYA-7K2P\nMY WORKSPACES",
+    "inputs": []
+  },
+  {
+    "screen": "reset",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nRESET PASSWORD\nIf an eligible account exists, a reset code was sent to mentor@example.test.\nRESET CODE*\nNEW PASSWORD*\nCONFIRM PASSWORD*\nUPDATE PASSWORD\nRequest another code",
+    "inputs": [
+      {
+        "width": 698,
+        "height": 68
+      },
+      {
+        "width": 698,
+        "height": 68
+      },
+      {
+        "width": 698,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "guard",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "MENTOR WORKSPACES\nAccess your learner workspaces.\nOnline workspace services are not available yet. Please try again later.\nTRY AGAIN\nGo to Mentor Login",
+    "inputs": []
+  },
+  {
+    "screen": "unavailable",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "MENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nPASSWORD*\nForgot Password?\nOnline workspace services are not available yet. Please try again later.\nLOG IN\nDon’t have a mentor account? Create Account",
+    "inputs": [
+      {
+        "width": 698,
+        "height": 68
+      },
+      {
+        "width": 698,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "reset",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nRESET PASSWORD\nIf an eligible account exists, a reset code was sent to mentor@example.test.\nRESET CODE*\nNEW PASSWORD*\nCONFIRM PASSWORD*\nUPDATE PASSWORD\nRequest another code",
+    "inputs": [
+      {
+        "width": 574,
+        "height": 68
+      },
+      {
+        "width": 574,
+        "height": 68
+      },
+      {
+        "width": 574,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "guard",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "MENTOR WORKSPACES\nAccess your learner workspaces.\nOnline workspace services are not available yet. Please try again later.\nTRY AGAIN\nGo to Mentor Login",
+    "inputs": []
+  },
+  {
+    "screen": "unavailable",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "MENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nPASSWORD*\nForgot Password?\nOnline workspace services are not available yet. Please try again later.\nLOG IN\nDon’t have a mentor account? Create Account",
+    "inputs": [
+      {
+        "width": 574,
+        "height": 68
+      },
+      {
+        "width": 574,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "reset",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nRESET PASSWORD\nIf an eligible account exists, a reset code was sent to mentor@example.test.\nRESET CODE*\nNEW PASSWORD*\nCONFIRM PASSWORD*\nUPDATE PASSWORD\nRequest another code",
+    "inputs": [
+      {
+        "width": 734,
+        "height": 68
+      },
+      {
+        "width": 734,
+        "height": 68
+      },
+      {
+        "width": 734,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "guard",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "MENTOR WORKSPACES\nAccess your learner workspaces.\nOnline workspace services are not available yet. Please try again later.\nTRY AGAIN\nGo to Mentor Login",
+    "inputs": []
+  },
+  {
+    "screen": "unavailable",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "MENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nPASSWORD*\nForgot Password?\nOnline workspace services are not available yet. Please try again later.\nLOG IN\nDon’t have a mentor account? Create Account",
+    "inputs": [
+      {
+        "width": 734,
+        "height": 68
+      },
+      {
+        "width": 734,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "reset",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nRESET PASSWORD\nIf an eligible account exists, a reset code was sent to mentor@example.test.\nRESET CODE*\nNEW PASSWORD*\nCONFIRM PASSWORD*\nUPDATE PASSWORD\nRequest another code",
+    "inputs": [
+      {
+        "width": 734,
+        "height": 68
+      },
+      {
+        "width": 734,
+        "height": 68
+      },
+      {
+        "width": 734,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "guard",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "MENTOR WORKSPACES\nAccess your learner workspaces.\nOnline workspace services are not available yet. Please try again later.\nTRY AGAIN\nGo to Mentor Login",
+    "inputs": []
+  },
+  {
+    "screen": "unavailable",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "MENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nPASSWORD*\nForgot Password?\nOnline workspace services are not available yet. Please try again later.\nLOG IN\nDon’t have a mentor account? Create Account",
+    "inputs": [
+      {
+        "width": 734,
+        "height": 68
+      },
+      {
+        "width": 734,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "reset",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nRESET PASSWORD\nIf an eligible account exists, a reset code was sent to mentor@example.test.\nRESET CODE*\nNEW PASSWORD*\nCONFIRM PASSWORD*\nUPDATE PASSWORD\nRequest another code",
+    "inputs": [
+      {
+        "width": 698,
+        "height": 68
+      },
+      {
+        "width": 698,
+        "height": 68
+      },
+      {
+        "width": 698,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "guard",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "MENTOR WORKSPACES\nAccess your learner workspaces.\nOnline workspace services are not available yet. Please try again later.\nTRY AGAIN\nGo to Mentor Login",
+    "inputs": []
+  },
+  {
+    "screen": "unavailable",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "MENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nPASSWORD*\nForgot Password?\nOnline workspace services are not available yet. Please try again later.\nLOG IN\nDon’t have a mentor account? Create Account",
+    "inputs": [
+      {
+        "width": 698,
+        "height": 68
+      },
+      {
+        "width": 698,
+        "height": 68
+      }
+    ]
+  },
+  {
+    "screen": "settings-empty",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nWorkspace & Sync\nWorkspace progress tracker\nNo Workspace Connected\nYou are currently learning independently.\nJoin a workspace to synchronize your learning progress with a mentor.\nJOIN WORKSPACE\nYour progress will link seamlessly upon joining a mentor's workspace code.",
+    "inputs": []
+  },
+  {
+    "screen": "settings-connected",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nWorkspace & Sync\nWorkspace progress tracker\nConnected\nWORKSPACE\nBaybayin Workshop A\nWORKSPACE CODE\nBAYA-7K2P\nLast Synchronized:\nJust now\nSYNC NOW\nOnly synchronized learning progress is visible to your mentor.",
+    "inputs": []
+  },
+  {
+    "screen": "dashboard",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nMentor Dashboard\nMonitor your workspace and learner progress.\nBaybayin Workshop A\n3 Learners · Last sync: Just now\nID: BAYA-7K2P\nLEARNER PROGRESS\n3 Active\nJ\nJomarie\nPaano naman ang Da at Ra? (Module 1 of 3)\n44%\n✓ Just now\nVIEW →\nC\nCarlo\nKilalanin ang mga Katinig (Module 2 of 3)\n67%\n✓ Just now\nVIEW →\nM\nMia\nMagkaibang Letra, Iisang Simbolo? (Module 1 of 3)\n33%\nYesterday\nVIEW →\nRefresh progress",
+    "inputs": []
+  },
+  {
+    "screen": "progress-detail",
+    "width": 1366,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nLearner Progress\nSynchronized topic completion\nJomarie\n4 of 9 topics completed · 44%\nLast synchronized: Just now\nPagkilala sa Baybayin\nKasaysayan at Kahalagahan ng Baybayin\n✓ Completed · 10/21/2026\nPagkilala sa Baybayin\nBaybayin: Isang Silabaryo (Pantigan)\n✓ Completed · 10/21/2026\nPagkilala sa Baybayin\nAng 17 Simbolo ng Baybayin\n✓ Completed · 10/21/2026\nPagkilala sa Baybayin\nMagkaibang Letra, Iisang Simbolo?\n✓ Completed · 10/21/2026\nPagkilala sa Baybayin\nPaano naman ang Da at Ra?\nNot completed\nBaybayin Characters\nAng mga Patinig\nNot completed\nBaybayin Characters\nKilalanin ang mga Katinig\nNot completed\nPagsusulat ng Baybayin\nMga Patinig\nNot completed\nPagsusulat ng Baybayin\nMga Katinig\nNot completed",
+    "inputs": []
+  },
+  {
+    "screen": "settings-empty",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nWorkspace & Sync\nWorkspace progress tracker\nNo Workspace Connected\nYou are currently learning independently.\nJoin a workspace to synchronize your learning progress with a mentor.\nJOIN WORKSPACE\nYour progress will link seamlessly upon joining a mentor's workspace code.",
+    "inputs": []
+  },
+  {
+    "screen": "settings-connected",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nWorkspace & Sync\nWorkspace progress tracker\nConnected\nWORKSPACE\nBaybayin Workshop A\nWORKSPACE CODE\nBAYA-7K2P\nLast Synchronized:\nJust now\nSYNC NOW\nOnly synchronized learning progress is visible to your mentor.",
+    "inputs": []
+  },
+  {
+    "screen": "dashboard",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nMentor Dashboard\nMonitor your workspace and learner progress.\nBaybayin Workshop A\n3 Learners · Last sync: Just now\nID: BAYA-7K2P\nLEARNER PROGRESS\n3 Active\nJ\nJomarie\nPaano naman ang Da at Ra? (Module 1 of 3)\n44%\n✓ Just now\nVIEW →\nC\nCarlo\nKilalanin ang mga Katinig (Module 2 of 3)\n67%\n✓ Just now\nVIEW →\nM\nMia\nMagkaibang Letra, Iisang Simbolo? (Module 1 of 3)\n33%\nYesterday\nVIEW →\nRefresh progress",
+    "inputs": []
+  },
+  {
+    "screen": "progress-detail",
+    "width": 667,
+    "height": 375,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nLearner Progress\nSynchronized topic completion\nJomarie\n4 of 9 topics completed · 44%\nLast synchronized: Just now\nPagkilala sa Baybayin\nKasaysayan at Kahalagahan ng Baybayin\n✓ Completed · 10/21/2026\nPagkilala sa Baybayin\nBaybayin: Isang Silabaryo (Pantigan)\n✓ Completed · 10/21/2026\nPagkilala sa Baybayin\nAng 17 Simbolo ng Baybayin\n✓ Completed · 10/21/2026\nPagkilala sa Baybayin\nMagkaibang Letra, Iisang Simbolo?\n✓ Completed · 10/21/2026\nPagkilala sa Baybayin\nPaano naman ang Da at Ra?\nNot completed\nBaybayin Characters\nAng mga Patinig\nNot completed\nBaybayin Characters\nKilalanin ang mga Katinig\nNot completed\nPagsusulat ng Baybayin\nMga Patinig\nNot completed\nPagsusulat ng Baybayin\nMga Katinig\nNot completed",
+    "inputs": []
+  },
+  {
+    "screen": "settings-empty",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nWorkspace & Sync\nWorkspace progress tracker\nNo Workspace Connected\nYou are currently learning independently.\nJoin a workspace to synchronize your learning progress with a mentor.\nJOIN WORKSPACE\nYour progress will link seamlessly upon joining a mentor's workspace code.",
+    "inputs": []
+  },
+  {
+    "screen": "settings-connected",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nWorkspace & Sync\nWorkspace progress tracker\nConnected\nWORKSPACE\nBaybayin Workshop A\nWORKSPACE CODE\nBAYA-7K2P\nLast Synchronized:\nJust now\nSYNC NOW\nOnly synchronized learning progress is visible to your mentor.",
+    "inputs": []
+  },
+  {
+    "screen": "dashboard",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nMentor Dashboard\nMonitor your workspace and learner progress.\nBaybayin Workshop A\n3 Learners · Last sync: Just now\nID: BAYA-7K2P\nLEARNER PROGRESS\n3 Active\nJ\nJomarie\nPaano naman ang Da at Ra? (Module 1 of 3)\n44%\n✓ Just now\nVIEW →\nC\nCarlo\nKilalanin ang mga Katinig (Module 2 of 3)\n67%\n✓ Just now\nVIEW →\nM\nMia\nMagkaibang Letra, Iisang Simbolo? (Module 1 of 3)\n33%\nYesterday\nVIEW →\nRefresh progress",
+    "inputs": []
+  },
+  {
+    "screen": "progress-detail",
+    "width": 844,
+    "height": 390,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nLearner Progress\nSynchronized topic completion\nJomarie\n4 of 9 topics completed · 44%\nLast synchronized: Just now\nPagkilala sa Baybayin\nKasaysayan at Kahalagahan ng Baybayin\n✓ Completed · 10/21/2026\nPagkilala sa Baybayin\nBaybayin: Isang Silabaryo (Pantigan)\n✓ Completed · 10/21/2026\nPagkilala sa Baybayin\nAng 17 Simbolo ng Baybayin\n✓ Completed · 10/21/2026\nPagkilala sa Baybayin\nMagkaibang Letra, Iisang Simbolo?\n✓ Completed · 10/21/2026\nPagkilala sa Baybayin\nPaano naman ang Da at Ra?\nNot completed\nBaybayin Characters\nAng mga Patinig\nNot completed\nBaybayin Characters\nKilalanin ang mga Katinig\nNot completed\nPagsusulat ng Baybayin\nMga Patinig\nNot completed\nPagsusulat ng Baybayin\nMga Katinig\nNot completed",
+    "inputs": []
+  },
+  {
+    "screen": "settings-empty",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nWorkspace & Sync\nWorkspace progress tracker\nNo Workspace Connected\nYou are currently learning independently.\nJoin a workspace to synchronize your learning progress with a mentor.\nJOIN WORKSPACE\nYour progress will link seamlessly upon joining a mentor's workspace code.",
+    "inputs": []
+  },
+  {
+    "screen": "settings-connected",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nWorkspace & Sync\nWorkspace progress tracker\nConnected\nWORKSPACE\nBaybayin Workshop A\nWORKSPACE CODE\nBAYA-7K2P\nLast Synchronized:\nJust now\nSYNC NOW\nOnly synchronized learning progress is visible to your mentor.",
+    "inputs": []
+  },
+  {
+    "screen": "dashboard",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nMentor Dashboard\nMonitor your workspace and learner progress.\nBaybayin Workshop A\n3 Learners · Last sync: Just now\nID: BAYA-7K2P\nLEARNER PROGRESS\n3 Active\nJ\nJomarie\nPaano naman ang Da at Ra? (Module 1 of 3)\n44%\n✓ Just now\nVIEW →\nC\nCarlo\nKilalanin ang mga Katinig (Module 2 of 3)\n67%\n✓ Just now\nVIEW →\nM\nMia\nMagkaibang Letra, Iisang Simbolo? (Module 1 of 3)\n33%\nYesterday\nVIEW →\nRefresh progress",
+    "inputs": []
+  },
+  {
+    "screen": "progress-detail",
+    "width": 915,
+    "height": 412,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nLearner Progress\nSynchronized topic completion\nJomarie\n4 of 9 topics completed · 44%\nLast synchronized: Just now\nPagkilala sa Baybayin\nKasaysayan at Kahalagahan ng Baybayin\n✓ Completed · 10/21/2026\nPagkilala sa Baybayin\nBaybayin: Isang Silabaryo (Pantigan)\n✓ Completed · 10/21/2026\nPagkilala sa Baybayin\nAng 17 Simbolo ng Baybayin\n✓ Completed · 10/21/2026\nPagkilala sa Baybayin\nMagkaibang Letra, Iisang Simbolo?\n✓ Completed · 10/21/2026\nPagkilala sa Baybayin\nPaano naman ang Da at Ra?\nNot completed\nBaybayin Characters\nAng mga Patinig\nNot completed\nBaybayin Characters\nKilalanin ang mga Katinig\nNot completed\nPagsusulat ng Baybayin\nMga Patinig\nNot completed\nPagsusulat ng Baybayin\nMga Katinig\nNot completed",
+    "inputs": []
+  },
+  {
+    "screen": "settings-empty",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nWorkspace & Sync\nWorkspace progress tracker\nNo Workspace Connected\nYou are currently learning independently.\nJoin a workspace to synchronize your learning progress with a mentor.\nJOIN WORKSPACE\nYour progress will link seamlessly upon joining a mentor's workspace code.",
+    "inputs": []
+  },
+  {
+    "screen": "settings-connected",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nSettings\nWorkspace & Sync\nWorkspace progress tracker\nConnected\nWORKSPACE\nBaybayin Workshop A\nWORKSPACE CODE\nBAYA-7K2P\nLast Synchronized:\nJust now\nSYNC NOW\nOnly synchronized learning progress is visible to your mentor.",
+    "inputs": []
+  },
+  {
+    "screen": "dashboard",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nMentor Dashboard\nMonitor your workspace and learner progress.\nBaybayin Workshop A\n3 Learners · Last sync: Just now\nID: BAYA-7K2P\nLEARNER PROGRESS\n3 Active\nJ\nJomarie\nPaano naman ang Da at Ra? (Module 1 of 3)\n44%\n✓ Just now\nVIEW →\nC\nCarlo\nKilalanin ang mga Katinig (Module 2 of 3)\n67%\n✓ Just now\nVIEW →\nM\nMia\nMagkaibang Letra, Iisang Simbolo? (Module 1 of 3)\n33%\nYesterday\nVIEW →\nRefresh progress",
+    "inputs": []
+  },
+  {
+    "screen": "progress-detail",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "text": "DEVELOPMENT PREVIEW · TEST DATA ONLY\nLearner Progress\nSynchronized topic completion\nJomarie\n4 of 9 topics completed · 44%\nLast synchronized: Just now\nPagkilala sa Baybayin\nKasaysayan at Kahalagahan ng Baybayin\n✓ Completed · 10/21/2026\nPagkilala sa Baybayin\nBaybayin: Isang Silabaryo (Pantigan)\n✓ Completed · 10/21/2026\nPagkilala sa Baybayin\nAng 17 Simbolo ng Baybayin\n✓ Completed · 10/21/2026\nPagkilala sa Baybayin\nMagkaibang Letra, Iisang Simbolo?\n✓ Completed · 10/21/2026\nPagkilala sa Baybayin\nPaano naman ang Da at Ra?\nNot completed\nBaybayin Characters\nAng mga Patinig\nNot completed\nBaybayin Characters\nKilalanin ang mga Katinig\nNot completed\nPagsusulat ng Baybayin\nMga Patinig\nNot completed\nPagsusulat ng Baybayin\nMga Katinig\nNot completed",
+    "inputs": []
+  }
+]

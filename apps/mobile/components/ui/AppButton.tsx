@@ -76,7 +76,7 @@ export function AppButton({
             color={tone === 'muted' ? 'secondaryText' : tone === 'outlinePrimary' ? 'accent' : 'onPrimary'}
           />
         ) : null}
-        <Text
+        {!!label && <Text
           style={[
             styles.label,
             isCompact && styles.compactLabel,
@@ -88,7 +88,7 @@ export function AppButton({
           ]}
         >
           {label}
-        </Text>
+        </Text>}
         {icon && iconPosition === 'trailing' ? (
           <AppIcon
             name={icon}

@@ -1,13 +1,18 @@
+/* eslint-disable @typescript-eslint/no-require-imports -- Jest factories resolve React inside the factory. */
 import React from 'react';
-import { render, screen } from '@testing-library/react-native';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
 
 import { DashboardCards } from '../DashboardCards';
 import { LearnerHeader } from '../LearnerHeader';
 import { learnerHomeDemo } from '../learnerHomeDemo';
 
 let mockViewport = { width: 390, height: 844 };
+const mockPush = jest.fn();
+const mockOpenSettings = jest.fn();
 
 jest.mock('expo-router', () => ({
+  router: { push: (...args: unknown[]) => mockPush(...args) },
+  useFocusEffect: (cb: () => void) => require('react').useEffect(cb, [cb]),
   useRouter: () => ({
     back: jest.fn(),
     canGoBack: () => true,
@@ -18,8 +23,9 @@ jest.mock('expo-router', () => ({
 }));
 jest.mock('react-native-safe-area-context', () => {
   const { View } = jest.requireActual('react-native');
-  return { SafeAreaView: View };
+  return { SafeAreaView: View, useSafeAreaInsets: () => ({ top: 0, bottom: 0, left: 0, right: 0 }) };
 });
+jest.mock('../../../../hooks/useReducedMotionPreference', () => ({ useReducedMotionPreference: () => true }));
 jest.mock('../../../../hooks/useResponsiveLayout', () => ({
   useResponsiveLayout: () => {
     const { height, width } = mockViewport;
@@ -55,9 +61,17 @@ function renderHeader() {
   return render(
     <LearnerHeader
       learner={learnerHomeDemo.learner}
-      onOpenSettings={jest.fn()}
+      onOpenSettings={mockOpenSettings}
     />
   );
+}
+
+function openSettings() {
+  screen.UNSAFE_root.findAll(node => !!node.instance?.measureInWindow).forEach(node => {
+    jest.spyOn(node.instance, 'measureInWindow').mockImplementation((...args: unknown[]) =>
+      (args[0] as (x: number, y: number, w: number, h: number) => void)(300, 12, 48, 48));
+  });
+  fireEvent.press(screen.getByLabelText('Settings'));
 }
 
 describe('Learner Home — English copy consistency', () => {
@@ -117,19 +131,39 @@ describe('Learner Home — English copy consistency', () => {
   // ── LearnerHeader ────────────────────────────────────────────────────────────
 
   describe('LearnerHeader', () => {
-    it.each(viewports)('shows English workspace link and settings label at %ipx', (width) => {
+    it.each(viewports)('keeps workspace actions inside settings at %ipx', async (width) => {
       mockViewport = { width, height: width < 600 ? 844 : 900 };
       const view = renderHeader();
 
-      expect(screen.getByLabelText('Join Workspace')).toBeTruthy();
-      expect(screen.getByText('Join Workspace')).toBeTruthy();
+      expect(screen.queryByText('Join Workspace')).toBeNull();
       expect(screen.getByLabelText('Settings')).toBeTruthy();
+      openSettings();
+      expect(await screen.findByLabelText('Join Workspace')).toBeTruthy();
 
       const allText = JSON.stringify(view.toJSON());
       expect(allText).not.toContain('Sumali sa Workspace');
       expect(allText).not.toContain('Mga Setting');
 
       view.unmount();
+    });
+
+    it.each([
+      ['Join Workspace', '/learner/workspaces'],
+      ['Learner Account', '/learner/workspaces/account'],
+    ])('navigates from %s and closes the menu', async (label, route) => {
+      renderHeader();
+      openSettings();
+      fireEvent.press(await screen.findByLabelText(label));
+      expect(mockPush).toHaveBeenCalledWith(route);
+      await waitFor(() => expect(screen.queryByLabelText('Join Workspace')).toBeNull());
+    });
+
+    it('preserves access to workspace and sync settings', async () => {
+      renderHeader();
+      openSettings();
+      fireEvent.press(await screen.findByLabelText('Workspace & Sync'));
+      expect(mockOpenSettings).toHaveBeenCalledTimes(1);
+      await waitFor(() => expect(screen.queryByLabelText('Join Workspace')).toBeNull());
     });
   });
 });

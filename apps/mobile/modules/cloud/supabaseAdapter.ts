@@ -1,8 +1,10 @@
+import { verifyLearnerIdentity } from './learnerIdentity';
+import { parseJoinRequest } from './joinRequests';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import { createLearnerEmailAuth, type LocalCloudIdentity } from './learnerEmailAuth';
 import { createProgressServices } from '../progress/supabaseProgress';
 import type { ProgressSnapshot } from '../progress/contracts';
-import type { CloudServices, Result, FailureCode, WorkspaceSummary, JoinedWorkspace, AuthOutcome } from './services';
+import type { CloudServices, Result, FailureCode, WorkspaceSummary, JoinedWorkspace, AuthOutcome, JoinRequestOutcome } from './services';
 
 type LearnerIdentity = LocalCloudIdentity;
 type Dependencies = {
@@ -15,17 +17,20 @@ type Dependencies = {
 };
 const ok = <T>(data: T): Result<T> => ({ ok: true, data });
 export function cloudFailure(error: unknown): { ok: false; code: FailureCode } {
+  if (typeof navigator !== 'undefined' && navigator.onLine === false) return { ok: false, code: 'offline' };
   const e = error as { code?: string; message?: string; status?: number } | null;
   const codes: Record<string, FailureCode> = {
     '42501': 'unauthorized', 'P0002': 'not_found', 'P0001': 'inactive',
     '22023': 'invalid_code', '23505': 'conflict', invalid_credentials: 'credentials',
     otp_expired: 'expired_code', user_already_exists: 'exists',
     session_not_found: 'unauthorized', refresh_token_not_found: 'unauthorized',
-    anonymous_provider_disabled: 'unavailable', signup_disabled: 'unavailable',
+    anonymous_provider_disabled: 'learner_auth_disabled', signup_disabled: 'learner_auth_disabled',
+    '40001': 'already_processed',
     '42P01': 'unavailable', PGRST202: 'unavailable',
     weak_password: 'weak_password', over_email_send_rate_limit: 'rate_limited',
     over_request_rate_limit: 'rate_limited', over_sms_send_rate_limit: 'rate_limited',
     unavailable: 'unavailable', learner_required: 'learner_required',
+    mentor_profile_missing: 'mentor_profile_missing', PGRST116: 'unavailable',
     learner_login_required: 'learner_login_required', account_mismatch: 'account_mismatch',
   };
   return { ok: false, code: codes[e?.code ?? ''] ?? (e?.status === 429 ? 'rate_limited' : e?.status === 401 ? 'unauthorized' : 'network') };
@@ -45,6 +50,7 @@ export function parseWorkspace(value: unknown): WorkspaceSummary {
     workspace_code: field(row, 'workspace_code'), workspace_name: field(row, 'workspace_name'),
     status: field(row, 'status'), created_at: field(row, 'created_at'),
     ...(typeof row.learnerCount === 'number' ? { learnerCount: row.learnerCount } : {}),
+    ...(typeof row.pendingCount === 'number' ? { pendingCount: row.pendingCount } : {}),
   };
 }
 function joined(value: unknown): JoinedWorkspace {
@@ -77,18 +83,31 @@ export function createSupabaseServices({ mentor, learnerClient, recoveryClient, 
     if (error) throw error;
     return parse(data);
   }
+  const identityRequests = new Map<string, Promise<SupabaseClient | null>>();
   // Resolving a local identity never authorizes a cloud row. Only its separate Auth session does.
   async function learner(create: boolean): Promise<SupabaseClient | null> {
     const identity = await activeLearner();
     if (!identity) { if (!create) return null; throw { code: 'learner_required' }; }
-    const client = learnerClient(identity.profile_id);
-    const { data, error } = await client.auth.getSession();
-    if (error) throw error;
-    if (!data.session) {
-      if (!create) return null;
-      throw { code: 'learner_login_required' };
-    }
-    return client;
+    const key = `${identity.profile_id}:${create}`;
+    const existing = identityRequests.get(key);
+    if (existing) return existing;
+    const task = (async () => {
+      const client = learnerClient(identity.profile_id);
+      const { data, error } = await client.auth.getSession();
+      if (error) throw error;
+      if (!data.session) {
+        // Never replace a lost identity: doing so would orphan existing memberships.
+        if (identity.auth_user_id) throw { code: 'learner_login_required' };
+        if (!create) return null;
+        const created = await client.auth.signInAnonymously({ options: { data: { display_name: identity.display_name, account_type: 'learner' } } });
+        if (created.error) throw created.error;
+        if (!created.data.session) throw { code: 'learner_login_required' };
+      }
+      await verifyLearnerIdentity(client, identity, bindLearner ?? (async () => { throw { code: 'unavailable' }; }));
+      return client;
+    })().finally(() => identityRequests.delete(key));
+    identityRequests.set(key, task);
+    return task;
   }
   return {
     learnerAuth,
@@ -106,10 +125,14 @@ export function createSupabaseServices({ mentor, learnerClient, recoveryClient, 
         const { data, error } = await mentor.auth.getUser();
         if (error) throw error;
         if (!data.user || data.user.is_anonymous || !data.user.email_confirmed_at) throw { code: '42501' };
-        const profile = await mentor.from('profiles').select('profile_id').eq('auth_user_id', data.user.id).eq('role', 'mentor').single();
+        // Missing/invisible profiles are an account setup failure, not a network
+        // outage. Optional reads avoid a singular-response 406 for zero rows.
+        const profile = await mentor.from('profiles').select('profile_id').eq('auth_user_id', data.user.id).eq('role', 'mentor').maybeSingle();
         if (profile.error) throw profile.error;
-        const own = await mentor.from('mentor_profiles').select('mentor_profile_id').eq('profile_id', profile.data.profile_id).single();
+        if (!profile.data) throw { code: 'mentor_profile_missing' };
+        const own = await mentor.from('mentor_profiles').select('mentor_profile_id').eq('profile_id', profile.data.profile_id).maybeSingle();
         if (own.error) throw own.error;
+        if (!own.data) throw { code: 'mentor_profile_missing' };
         return { authUserId: data.user.id, profileId: field(object(profile.data), 'profile_id'), mentorProfileId: field(object(own.data), 'mentor_profile_id') };
       }),
       login: (email, password) => attempt(async () => {
@@ -126,6 +149,9 @@ export function createSupabaseServices({ mentor, learnerClient, recoveryClient, 
         const { data, error } = await mentor.auth.signUp({ email, password, options: { data: { display_name: name } } });
         if (error) throw error;
         if (data.session) return { kind: 'authenticated' as const };
+        // Auth can deliberately obscure a repeated signup. Such a response
+        // is not evidence that a new verification email was requested.
+        if (data.user?.identities?.length === 0) return { kind: 'check_email' as const };
         return challenge(email);
       }),
       verify: (id, code) => attempt(async () => {
@@ -163,6 +189,32 @@ export function createSupabaseServices({ mentor, learnerClient, recoveryClient, 
       }),
     },
     workspaces: {
+      requestJoin: code => attempt(async (): Promise<JoinRequestOutcome> => rpc((await learner(true))!, 'request_workspace_join', { p_code: code.trim().toUpperCase() }, value => {
+        const r = object(value);
+        if (r.kind === 'already_member') {
+          const member = joined(r.joined);
+          if (!member.membership.is_active || member.workspace.status !== 'active') throw new Error('Inactive membership receipt');
+          return { kind: r.kind, joined: member };
+        }
+        if (r.kind !== 'request_submitted' && r.kind !== 'already_pending') throw new Error('Invalid request outcome');
+        const request = parseJoinRequest(r.request);
+        if (request.status !== 'pending') throw new Error('Invalid pending receipt');
+        return { kind: r.kind, request };
+      })),
+      myRequests: () => attempt(async () => {
+        const client = await learner(false);
+        return client ? rpc(client, 'list_my_join_requests', {}, v => array(v, parseJoinRequest)) : [];
+      }),
+      pendingRequests: id => attempt(() => rpc(mentor, 'list_workspace_join_requests', { p_workspace_id: id }, v => array(v, parseJoinRequest))),
+      reviewRequest: (id, decision) => attempt(() => rpc(mentor, 'review_workspace_join_request', { p_request_id: id, p_decision: decision }, v => {
+        const row = object(v); const request = parseJoinRequest(row.request);
+        if (request.status !== decision) throw new Error('Invalid review receipt');
+        if (decision === 'approved') {
+          const m = object(row.membership);
+          if (m.is_active !== true || m.learner_profile_id !== request.learner_profile_id || m.workspace_id !== request.workspace_id) throw new Error('Missing approved membership');
+        }
+        return request;
+      })),
       update: (id, name, status) => attempt(() => rpc(mentor, 'update_workspace', { p_workspace_id: id, p_name: name.trim(), p_status: status }, parseWorkspace)),
       members: id => attempt(() => rpc(mentor, 'list_workspace_members', { p_workspace_id: id }, v => array(v, item => {
         const row = object(item);

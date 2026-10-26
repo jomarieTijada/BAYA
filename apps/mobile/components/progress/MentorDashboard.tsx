@@ -1,6 +1,6 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { router } from 'expo-router';
-import { Pressable, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { ProgressPage, p } from './ProgressPage';
 import { WorkspaceCode } from './WorkspaceCode';
 import { LearnerProgressRow } from './LearnerProgressRow';
@@ -11,15 +11,31 @@ import { AppIcon } from '../ui/AppIcon';
 import { AppButton } from '../ui/AppButton';
 import { Notice, TextAction } from '../mentor/FeatureScreen';
 import { Colors } from '../../constants/theme';
+import { MentorActionMenu } from '../mentor/MentorActionMenu';
+import { useBayaToast } from '../ui/BayaNotifications';
 
 export function MentorDashboard({ id }: { id: string }) {
   const services = useCloudServices();
   const [offset, setOffset] = useState(0);
-  const [settings, setSettings] = useState(false);
-  const { result, refresh } = useCloudRead(useCallback(() => services.progress.dashboard(id, offset), [services, id, offset]));
+  const toast = useBayaToast();
+  const refreshingRequest = useRef(false);
+  const { result, refresh, refreshing } = useCloudRead(useCallback(() => services.progress.dashboard(id, offset), [services, id, offset]), true);
+  const refreshProgress = async () => {
+    if (refreshingRequest.current || refreshing) return;
+    refreshingRequest.current = true;
+    try {
+      const response = await refresh();
+      if (response) toast(response.ok ? 'Progress refreshed.' : failureMessage[response.code], response.ok ? 'success' : 'error');
+    } finally { refreshingRequest.current = false; }
+  };
   return <ProgressPage title="Mentor Dashboard" subtitle="Monitor your workspace and learner progress." onBack={() => router.replace('/mentor/workspaces')}
-    action={<Pressable accessibilityRole="button" accessibilityLabel="Workspace options" onPress={() => setSettings(v => !v)} style={[p.card, { padding: 16, borderRadius: 40 }]}><AppIcon name="settings" color="accent" size={26} /></Pressable>}>
-    {settings && <View style={[p.card, p.row]}><TextAction label="Manage workspace" onPress={() => router.push({ pathname: '/mentor/workspaces/manage', params: { id } })} /><TextAction label="Refresh progress" onPress={refresh} /><TextAction label="Choose another workspace" onPress={() => router.replace('/mentor/workspaces')} /></View>}
+    action={<MentorActionMenu label="Workspace options" groups={[
+      { label: 'Workspace', actions: [
+        { label: 'Manage Workspace', icon: 'workspace', onPress: () => router.push({ pathname: '/mentor/workspaces/manage', params: { id } }) },
+        { label: 'Refresh Progress', icon: 'sync', onPress: () => { void refreshProgress(); }, busy: refreshing, disabled: refreshing, keepOpen: true },
+        { label: 'Switch Workspace', icon: 'layers', onPress: () => router.replace('/mentor/workspaces') },
+      ] },
+    ]} />}>
     {!result ? <Notice busy text="Loading synchronized progress…" /> : !result.ok ? <View style={[p.card, { gap: 20 }]}>
       <Notice text={failureMessage[result.code]} /><AppButton label="TRY AGAIN" accessibilityLabel="Retry progress dashboard" onPress={refresh} />
     </View> : <>
@@ -35,7 +51,6 @@ export function MentorDashboard({ id }: { id: string }) {
       <View style={p.row}>
         {offset > 0 && <TextAction label="Previous learners" onPress={() => setOffset(n => Math.max(0, n - 50))} />}
         {result.data.nextOffset !== null && <TextAction label="Next learners" onPress={() => setOffset(result.data.nextOffset!)} />}
-        <TextAction label="Refresh progress" onPress={refresh} />
       </View>
     </>}
   </ProgressPage>;

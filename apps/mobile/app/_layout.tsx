@@ -22,6 +22,7 @@ import { useResponsiveLayout } from '../hooks/useResponsiveLayout';
 import { getReadyDatabase } from '../database';
 import { registerBayaPwa } from '../ml/registerBayaPwa';
 import { LandscapeGuard } from '../components/layout/LandscapeGuard';
+import { BayaNotifications } from '../components/ui/BayaNotifications';
 import { CloudProvider } from '../modules/cloud/CloudProvider';
 
 let hasTriggeredMlSmoke = false;
@@ -68,13 +69,13 @@ export default function RootLayout() {
         hidden={isPhoneLandscape}
         style="dark"
       />
-      <CloudProvider><LandscapeGuard><Stack
+      <CloudProvider><BayaNotifications><LandscapeGuard><Stack
         screenOptions={{
           animation: 'fade',
           contentStyle: { backgroundColor: Colors.background, flex: 1 },
           headerShown: false,
         }}
-      /></LandscapeGuard></CloudProvider>
+      /></LandscapeGuard></BayaNotifications></CloudProvider>
     </SafeAreaProvider>
   );
 }

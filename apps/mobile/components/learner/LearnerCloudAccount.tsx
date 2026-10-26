@@ -1,3 +1,4 @@
+import { useBayaToast } from '../ui/BayaNotifications';
 import React, { useCallback, useState } from 'react';
 import { router } from 'expo-router';
 import { Text } from 'react-native';
@@ -10,6 +11,8 @@ import { AppButton } from '../ui/AppButton';
 import { FeatureScreen, Notice, TextAction, s } from '../mentor/FeatureScreen';
 
 export function LearnerCloudAccount({ children }: React.PropsWithChildren) {
+  const toast = useBayaToast();
+  const [resendAt,setResendAt] = useState(0);
   const {learnerAuth} = useCloudServices();
   const op = useOperation();
   const [email,setEmail] = useState('');
@@ -19,10 +22,10 @@ export function LearnerCloudAccount({ children }: React.PropsWithChildren) {
   const {result,refresh} = useCloudRead(useCallback(() => learnerAuth ? learnerAuth.session() : Promise.resolve({ok:false as const,code:'unavailable' as const}),[learnerAuth]));
   if (result?.ok && result.data) {
     if (children) return <>{children}</>;
-    return <FeatureScreen title="LEARNER CLOUD ACCOUNT" subtitle={result.data.email} onBack={() => router.replace('/learner/settings')}>
+    return <FeatureScreen title="LEARNER CLOUD ACCOUNT" subtitle={result.data.email || 'This device has a verified learner identity.'} onBack={() => router.replace('/learner/settings')}>
       <Text style={s.notice}>Your learner account is verified. Saved learning stays on this device when you sign out.</Text>
-      <AppButton label="JOIN WORKSPACE" accessibilityLabel="Join workspace" onPress={() => router.push('/learner/workspaces/join')} />
-      <TextAction label="Sign out learner" disabled={op.busy} onPress={() => { void op.run(() => learnerAuth!.signOut(),refresh); }} />
+      <AppButton label="JOIN WORKSPACE" accessibilityLabel="Join workspace" onPress={() => router.push('/learner/workspaces')} />
+      <TextAction label="Account settings" onPress={() => router.push('/learner/settings')} />
       <Notice text={op.message} busy={op.busy} />
     </FeatureScreen>;
   }
@@ -34,10 +37,10 @@ export function LearnerCloudAccount({ children }: React.PropsWithChildren) {
       <Notice busy={op.busy} text={op.message} />
       <AppButton label={challenge ? 'VERIFY EMAIL' : 'SEND CODE'} accessibilityLabel={challenge ? 'Verify learner email' : 'Send learner code'} disabled={op.busy} onPress={() => {
         const issue = challenge ? (!code.trim() ? 'Enter the code from your email.' : undefined) : emailError(email); setError(issue); if(issue) return;
-        if(challenge) void op.run(() => learnerAuth!.verify(challenge.id,code.trim()),() => {setCode('');setChallenge(undefined);refresh();});
-        else void op.run(() => learnerAuth!.request(email),setChallenge);
+        if(challenge) void op.run(() => learnerAuth!.verify(challenge.id,code.trim()),() => {toast('Learner account verified.');setCode('');setChallenge(undefined);refresh();});
+        else void op.run(() => learnerAuth!.request(email),next=>{setChallenge(next);setResendAt(Date.now()+60000);toast('Verification code requested. Check your email.');});
       }} />
-      {challenge && <><TextAction label="Resend learner code" disabled={op.busy} onPress={() => {void op.run(() => learnerAuth!.request(challenge.email),next => {setChallenge(next);setCode('');op.setMessage('A new code has been sent.');});}} /><TextAction label="Use another email" disabled={op.busy} onPress={() => {setChallenge(undefined);setCode('');setError(undefined);}} /></>}
+      {challenge && <><TextAction label="Resend learner code" disabled={op.busy} onPress={() => {if(Date.now()<resendAt){op.setMessage('Please wait one minute before requesting another code.');return;}void op.run(() => learnerAuth!.request(challenge.email),next => {setChallenge(next);setCode('');setResendAt(Date.now()+60000);toast('Verification code requested. Check your email.');});}} /><TextAction label="Use another email" disabled={op.busy} onPress={() => {setChallenge(undefined);setCode('');setError(undefined);}} /></>}
     </>}
   </FeatureScreen>;
 }

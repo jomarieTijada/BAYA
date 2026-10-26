@@ -4,6 +4,8 @@ import type { ProgressServices } from '../progress/contracts';
 
 export type FailureCode =
   | 'unavailable'
+  | 'learner_auth_disabled'
+  | 'already_processed'
   | 'offline'
   | 'unauthorized'
   | 'credentials'
@@ -16,6 +18,7 @@ export type FailureCode =
   | 'rate_limited'
   | 'weak_password'
   | 'learner_required'
+  | 'mentor_profile_missing'
   | 'learner_login_required'
   | 'account_mismatch'
   | 'incompatible_progress'
@@ -36,6 +39,7 @@ export type AuthOutcome =
   | { kind: 'check_email' };
 export type WorkspaceSummary = Workspace & {
   learnerCount?: number;
+  pendingCount?: number;
   lastSyncedAt?: string;
 };
 export type JoinedWorkspace = {
@@ -44,6 +48,15 @@ export type JoinedWorkspace = {
   alreadyJoined: boolean;
 };
 export type WorkspaceMember = { profileId: string; displayName: string; active: boolean };
+export type JoinRequest = {
+  request_id: string; workspace_id: string; learner_profile_id: string;
+  display_name: string; workspace_name: string;
+  status: 'pending' | 'approved' | 'rejected'; requested_at: string;
+  reviewed_at: string | null; reviewed_by: string | null;
+};
+export type JoinRequestOutcome =
+  | { kind: 'request_submitted' | 'already_pending'; request: JoinRequest }
+  | { kind: 'already_member'; joined: JoinedWorkspace };
 export type LearnerCloudSession = { email: string; profileId: string };
 /** Adapters must resolve identity from their authenticated session, never from caller-supplied profile IDs. */
 export interface CloudServices {
@@ -74,6 +87,10 @@ export interface CloudServices {
     signOut?(): Promise<Result<void>>;
   };
   workspaces: {
+    requestJoin?(code: string): Promise<Result<JoinRequestOutcome>>;
+    myRequests?(): Promise<Result<JoinRequest[]>>;
+    pendingRequests?(id: string): Promise<Result<JoinRequest[]>>;
+    reviewRequest?(id: string, decision: 'approved' | 'rejected'): Promise<Result<JoinRequest>>;
     update?(id: string, name: string, status: 'active' | 'archived'): Promise<Result<WorkspaceSummary>>;
     members?(id: string): Promise<Result<WorkspaceMember[]>>;
     setMemberActive?(id: string, profileId: string, active: boolean): Promise<Result<void>>;
@@ -101,6 +118,10 @@ export const pendingCloudServices: CloudServices = {
     resetPassword: unavailable,
   },
   workspaces: {
+    requestJoin: unavailable,
+    myRequests: unavailable,
+    pendingRequests: unavailable,
+    reviewRequest: unavailable,
     listOwned: unavailable,
     create: unavailable,
     details: unavailable,
@@ -112,6 +133,8 @@ export const CloudServicesContext =
   createContext<CloudServices>(pendingCloudServices);
 export const useCloudServices = () => useContext(CloudServicesContext);
 export const failureMessage: Record<FailureCode, string> = {
+  learner_auth_disabled: 'Joining is not ready yet. Ask your mentor for help. You can keep learning.',
+  already_processed: 'This request has already been reviewed. Refresh to see its current status.',
   unavailable:
     'Online workspace services are not available yet. Please try again later.',
   offline: 'You’re offline. Connect to the internet and try again.',
@@ -128,8 +151,9 @@ export const failureMessage: Record<FailureCode, string> = {
   rate_limited: 'Too many requests. Please wait a moment before trying again.',
   weak_password: 'Choose a stronger password with at least 8 characters.',
   learner_required: 'Choose or create your learner profile before joining a workspace.',
-  learner_login_required: 'Verify your learner email before joining or synchronizing a workspace.',
-  account_mismatch: 'This email belongs to another account role or this local profile is linked to a different learner. Use the original learner email.',
+  mentor_profile_missing: 'This account does not have an accessible mentor profile. Sign in with your mentor account. If this is your mentor account, ask the administrator to check its profile setup.',
+  learner_login_required: 'We couldn’t verify this learner’s saved cloud identity. Ask your mentor for help. Your learning is still saved on this device.',
+  account_mismatch: 'This device profile is linked to a different learner identity. Restore the original learner account to continue.',
   incompatible_progress: 'This progress could not be synchronized. Update the app or ask your mentor for help. Your learning is still saved on this device.',
   network: 'We couldn’t connect. Please try again.',
 };

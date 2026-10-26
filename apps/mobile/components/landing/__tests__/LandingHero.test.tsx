@@ -7,8 +7,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 // 1. Mock Responsive Hook & Safe Area Context
 jest.mock('../../../hooks/useResponsiveLayout');
 jest.mock('react-native-safe-area-context', () => {
-  const React = require('react');
-  const { View } = require('react-native');
+  const React = jest.requireActual('react');
+  const { View } = jest.requireActual('react-native');
   return {
     SafeAreaView: ({ children, edges, style }: { children?: React.ReactNode; edges?: string[]; style?: any }) =>
       React.createElement(
@@ -22,8 +22,8 @@ jest.mock('react-native-safe-area-context', () => {
 
 // 2. Mock Brand Components
 jest.mock('../../branding/BayaLogo', () => {
-  const React = require('react');
-  const { View, Text } = require('react-native');
+  const React = jest.requireActual('react');
+  const { View, Text } = jest.requireActual('react-native');
   return {
     BayaLogo: ({ size }: { size: number }) =>
       React.createElement(View, { testID: 'baya-logo' }, React.createElement(Text, null, `LogoSize:${size}`)),
@@ -31,8 +31,8 @@ jest.mock('../../branding/BayaLogo', () => {
 });
 
 jest.mock('../../branding/BayaMascot', () => {
-  const React = require('react');
-  const { View, Text } = require('react-native');
+  const React = jest.requireActual('react');
+  const { View, Text } = jest.requireActual('react-native');
   return {
     BayaMascot: ({ size, state }: { size: number; state: string }) =>
       React.createElement(
@@ -45,8 +45,8 @@ jest.mock('../../branding/BayaMascot', () => {
 
 // 3. Mock RoleSelector Component
 jest.mock('../RoleSelector', () => {
-  const React = require('react');
-  const { View, TouchableOpacity, Text } = require('react-native');
+  const React = jest.requireActual('react');
+  const { View, TouchableOpacity, Text } = jest.requireActual('react-native');
   return {
     RoleSelector: ({ compact, onLearnerPress, onMentorPress }: any) =>
       React.createElement(
