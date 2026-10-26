@@ -1,0 +1,13 @@
+{
+  "model": "BAYA_ResNet18_1.0.onnx",
+  "sourceSha256": "9a97b5d3933bef49b955b155369c58c32ccec3cf61bfbb4f213fad2d2ca1f7b8",
+  "publicSha256": "fc41b21606b96b2a1fec6850259a8cbdc446d54f3d113ae8086e87310268f265",
+  "exportSha256": "fc41b21606b96b2a1fec6850259a8cbdc446d54f3d113ae8086e87310268f265",
+  "deployedModels": [
+    "BAYA_ResNet18_1.0.onnx",
+    "BAYA_ResNet18_1.0_labels.json",
+    "BAYA_ResNet18_1.0_onnx_contract.json"
+  ],
+  "serviceWorkerIncludesActive": true,
+  "researchSourcePreserved": true
+}

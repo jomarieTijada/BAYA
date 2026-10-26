@@ -1,0 +1,289 @@
+[
+  {
+    "path": "apps/mobile/app/achievements/README.md",
+    "bytes": 966,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "# Achievements\r\n\r\n## Purpose\r\n\r\nReserves mobile routes for badges, rewards, levels, and challenge progress in BAYA.\r\n\r\n## Responsibilities\r\n\r\nDefines the future navigation entry points and route-level states for badges, rewards, levels, and challenge progress.\r\n\r\n## Allowed Contents\r\n\r\nFuture route screens, layouts, navigation parameters, and presentation-only loading or error boundaries.\r\n\r\n## Excluded Contents\r\n\r\nDatabase queries, domain decisions, handwriting scoring, NLP rules, and backend transport implementations.\r\n\r\n## Dependencies\r\n\r\nMay depend on the corresponding feature presentation layer and shared navigation resources, then invoke application use cases through that presentation boundary.\r\n\r\n## Related BAYA Requirements\r\n\r\nSupports badges, rewards, levels, and challenge progress.\r\n\r\n## Future Implementation Notes\r\n\r\nKeep route files thin and accessibility-aware; offline status should be presented without embedding synchronization rules.\r\n\r\n"
+  },
+  {
+    "path": "apps/mobile/app/activities/README.md",
+    "bytes": 946,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "# Activities\r\n\r\n## Purpose\r\n\r\nReserves mobile routes for quiz and structured practice entry points in BAYA.\r\n\r\n## Responsibilities\r\n\r\nDefines the future navigation entry points and route-level states for quiz and structured practice entry points.\r\n\r\n## Allowed Contents\r\n\r\nFuture route screens, layouts, navigation parameters, and presentation-only loading or error boundaries.\r\n\r\n## Excluded Contents\r\n\r\nDatabase queries, domain decisions, handwriting scoring, NLP rules, and backend transport implementations.\r\n\r\n## Dependencies\r\n\r\nMay depend on the corresponding feature presentation layer and shared navigation resources, then invoke application use cases through that presentation boundary.\r\n\r\n## Related BAYA Requirements\r\n\r\nSupports quiz and structured practice entry points.\r\n\r\n## Future Implementation Notes\r\n\r\nKeep route files thin and accessibility-aware; offline status should be presented without embedding synchronization rules.\r\n\r\n"
+  },
+  {
+    "path": "apps/mobile/app/authentication/README.md",
+    "bytes": 1025,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "# Authentication\r\n\r\n## Purpose\r\n\r\nReserves mobile routes for sign-in, registration, session recovery, and identity entry points in BAYA.\r\n\r\n## Responsibilities\r\n\r\nDefines the future navigation entry points and route-level states for sign-in, registration, session recovery, and identity entry points.\r\n\r\n## Allowed Contents\r\n\r\nFuture route screens, layouts, navigation parameters, and presentation-only loading or error boundaries.\r\n\r\n## Excluded Contents\r\n\r\nDatabase queries, domain decisions, handwriting scoring, NLP rules, and backend transport implementations.\r\n\r\n## Dependencies\r\n\r\nMay depend on the corresponding feature presentation layer and shared navigation resources, then invoke application use cases through that presentation boundary.\r\n\r\n## Related BAYA Requirements\r\n\r\nSupports sign-in, registration, session recovery, and identity entry points.\r\n\r\n## Future Implementation Notes\r\n\r\nKeep route files thin and accessibility-aware; offline status should be presented without embedding synchronization rules.\r\n\r\n"
+  },
+  {
+    "path": "apps/mobile/app/debug/database.tsx",
+    "bytes": 1420,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "/**\n * app/debug/database.tsx\n *\n * Debug-only route for the BAYA SQLite Database Inspector.\n * Protected by EXPO_PUBLIC_ENABLE_DB_INSPECTOR feature flag.\n */\nimport React from 'react';\nimport { Text, View, StyleSheet } from 'react-native';\n\nexport default function DebugDatabaseRoute() {\n  // Expo inlines static dot notation. Missing/invalid values keep the tool disabled.\n  const DB_INSPECTOR_ENABLED = process.env.EXPO_PUBLIC_ENABLE_DB_INSPECTOR === 'true';\n\n  if (!DB_INSPECTOR_ENABLED) {\n    return (\n      <View style={styles.disabled}>\n        <Text style={styles.disabledTitle}>Database Inspector Disabled</Text>\n        <Text style={styles.disabledText}>\n          Set EXPO_PUBLIC_ENABLE_DB_INSPECTOR=true in your environment to enable this tool.\n        </Text>\n      </View>\n    );\n  }\n\n  // Lazy-load the inspector only when enabled\n  const DatabaseInspector = require('../../components/debug/DatabaseInspector').default;\n\n  return <DatabaseInspector />;\n}\n\nconst styles = StyleSheet.create({\n  disabled: {\n    flex: 1,\n    justifyContent: 'center',\n    alignItems: 'center',\n    backgroundColor: '#1e1e2e',\n    padding: 24,\n  },\n  disabledTitle: {\n    fontSize: 18,\n    fontWeight: '700',\n    color: '#cdd6f4',\n    marginBottom: 8,\n    fontFamily: 'monospace',\n  },\n  disabledText: {\n    fontSize: 13,\n    color: '#7f849c',\n    textAlign: 'center',\n    fontFamily: 'monospace',\n    maxWidth: 400,\n  },\n});\n"
+  },
+  {
+    "path": "apps/mobile/app/debug/workspace-preview.tsx",
+    "bytes": 424,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "import React from 'react';\nimport { Redirect } from 'expo-router';\nexport default function WorkspacePreviewRoute() {\n  if (__DEV__) {\n    // Keep test fixtures out of the production dependency graph.\n    // eslint-disable-next-line @typescript-eslint/no-require-imports\n    const Preview = require('../../components/debug/workspaces/WorkspacePreview').default;\n    return <Preview />;\n  }\n  return <Redirect href=\"/\" />;\n}\r\n"
+  },
+  {
+    "path": "apps/mobile/app/debug/_layout.tsx",
+    "bytes": 432,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "/**\n * app/debug/_layout.tsx\n *\n * Layout for the debug route group. Uses a plain Stack with no header.\n * These routes are NOT linked from any learner navigation.\n */\nimport React from 'react';\nimport { Stack } from 'expo-router';\n\nexport default function DebugLayout() {\n  return (\n    <Stack\n      screenOptions={{\n        headerShown: false,\n        contentStyle: { backgroundColor: '#1e1e2e', flex: 1 },\n      }}\n    />\n  );\n}\n"
+  },
+  {
+    "path": "apps/mobile/app/handwriting/README.md",
+    "bytes": 956,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "# Handwriting\r\n\r\n## Purpose\r\n\r\nReserves mobile routes for canvas practice and handwriting-result views in BAYA.\r\n\r\n## Responsibilities\r\n\r\nDefines the future navigation entry points and route-level states for canvas practice and handwriting-result views.\r\n\r\n## Allowed Contents\r\n\r\nFuture route screens, layouts, navigation parameters, and presentation-only loading or error boundaries.\r\n\r\n## Excluded Contents\r\n\r\nDatabase queries, domain decisions, handwriting scoring, NLP rules, and backend transport implementations.\r\n\r\n## Dependencies\r\n\r\nMay depend on the corresponding feature presentation layer and shared navigation resources, then invoke application use cases through that presentation boundary.\r\n\r\n## Related BAYA Requirements\r\n\r\nSupports canvas practice and handwriting-result views.\r\n\r\n## Future Implementation Notes\r\n\r\nKeep route files thin and accessibility-aware; offline status should be presented without embedding synchronization rules.\r\n\r\n"
+  },
+  {
+    "path": "apps/mobile/app/home/README.md",
+    "bytes": 951,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "# Home\r\n\r\n## Purpose\r\n\r\nReserves mobile routes for the learner dashboard and next-action summary in BAYA.\r\n\r\n## Responsibilities\r\n\r\nDefines the future navigation entry points and route-level states for the learner dashboard and next-action summary.\r\n\r\n## Allowed Contents\r\n\r\nFuture route screens, layouts, navigation parameters, and presentation-only loading or error boundaries.\r\n\r\n## Excluded Contents\r\n\r\nDatabase queries, domain decisions, handwriting scoring, NLP rules, and backend transport implementations.\r\n\r\n## Dependencies\r\n\r\nMay depend on the corresponding feature presentation layer and shared navigation resources, then invoke application use cases through that presentation boundary.\r\n\r\n## Related BAYA Requirements\r\n\r\nSupports navigation and learner performance summaries.\r\n\r\n## Future Implementation Notes\r\n\r\nKeep route files thin and accessibility-aware; offline status should be presented without embedding synchronization rules.\r\n\r\n"
+  },
+  {
+    "path": "apps/mobile/app/index.tsx",
+    "bytes": 1054,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "import React, { useRef } from 'react';\nimport { Stack, useRouter } from 'expo-router';\nimport { LandingHero } from '../components/landing/LandingHero';\nimport { localLearnerService } from '../database/services/localLearnerService';\n\r\nexport default function HomeScreen() {\r\n  const router = useRouter();\n  const openingLearner = useRef(false);\n\n  const openLearner = async () => {\n    if (openingLearner.current) return;\n    openingLearner.current = true;\n    try {\n      const profile = await localLearnerService.getActiveLearner();\n      router.push(profile ? '/learner/home' : '/learner/setup');\n    } catch (error) {\n      if (__DEV__) console.warn('[HomeScreen] Could not read saved learner', error);\n      router.push('/learner/setup');\n    } finally {\n      openingLearner.current = false;\n    }\n  };\n\r\n  return (\r\n    <>\r\n      <Stack.Screen options={{ title: 'BAYA · Learn Baybayin' }} />\r\n      <LandingHero\n        onLearnerPress={() => { void openLearner(); }}\n        onMentorPress={() => router.push('/mentor')}\n      />\n    </>\r\n  );\r\n}\r\n"
+  },
+  {
+    "path": "apps/mobile/app/learner/achievements.tsx",
+    "bytes": 533,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "import React from 'react';\nimport { Stack } from 'expo-router';\n\nimport { LearnerPlaceholderScreen } from '../../components/learner/LearnerPlaceholderScreen';\n\nexport default function LearnerAchievementsRoute() {\n  return (\n    <>\n      <Stack.Screen options={{ title: 'BAYA · Achievements' }} />\n      <LearnerPlaceholderScreen\n        activeRoute=\"/learner/achievements\"\n        description=\"Rewards and achievement details will be designed in a future step.\"\n        title=\"Achievements are coming next.\"\n      />\n    </>\n  );\n}\n"
+  },
+  {
+    "path": "apps/mobile/app/learner/activities/[topicId].tsx",
+    "bytes": 899,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "import React from 'react';\r\nimport { useLocalSearchParams } from 'expo-router';\r\nimport { StorybookTopicScreen } from '../../../components/learner/story/StorybookTopicScreen';\r\nimport { Topic2_1Screen, Topic2_2Screen } from '../../../components/learner/characters/CharacterTopicScreen';\r\nimport { WritingPracticeScreen } from '../../../components/learner/writing/WritingPracticeScreen';\r\n\r\nexport default function TopicActivityRoute() {\r\n  const { topicId, lessonPage } = useLocalSearchParams<{ topicId: string; lessonPage?: string }>();\r\n  if (topicId === 'topic-2-1') return <Topic2_1Screen />;\r\n  if (topicId === 'topic-2-2') return <Topic2_2Screen />;\r\n  if (topicId === 'topic-3-1' || topicId === 'topic-3-2') return <WritingPracticeScreen topicId={topicId} />;\r\n  return <StorybookTopicScreen topicId={topicId ?? ''} initialPage={lessonPage === 'content' ? 'content' : 'introduction'} />;\r\n}\r\n"
+  },
+  {
+    "path": "apps/mobile/app/learner/home.tsx",
+    "bytes": 324,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "import React from 'react';\nimport { Stack } from 'expo-router';\n\nimport { LearnerHomeScreen } from '../../components/learner/home/LearnerHomeScreen';\n\nexport default function LearnerHomeRoute() {\n  return (\n    <>\n      <Stack.Screen options={{ title: 'BAYA · Learner Home' }} />\n      <LearnerHomeScreen />\n    </>\n  );\n}\n"
+  },
+  {
+    "path": "apps/mobile/app/learner/index.tsx",
+    "bytes": 349,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "import React from 'react';\r\nimport { Stack } from 'expo-router';\r\nimport { RolePlaceholderScreen } from '../../components/landing/RolePlaceholderScreen';\r\n\r\nexport default function LearnerScreen() {\r\n  return (\r\n    <>\r\n      <Stack.Screen options={{ title: 'BAYA · Learner' }} />\r\n      <RolePlaceholderScreen role=\"Learner\" />\r\n    </>\r\n  );\r\n}\r\n"
+  },
+  {
+    "path": "apps/mobile/app/learner/lessons/current.tsx",
+    "bytes": 164,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "import React from 'react';\nimport { Redirect } from 'expo-router';\n\nexport default function CurrentLessonRoute() {\n  return <Redirect href=\"/learner/lessons\" />;\n}\n"
+  },
+  {
+    "path": "apps/mobile/app/learner/lessons/[id].tsx",
+    "bytes": 238,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "import React from 'react';\nimport { Redirect } from 'expo-router';\n\nexport default function LessonDetailRoute() {\n  // Keep existing links valid without showing a second topic-list screen.\n  return <Redirect href=\"/learner/lessons\" />;\n}\n"
+  },
+  {
+    "path": "apps/mobile/app/learner/lessons.tsx",
+    "bytes": 326,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "import React from 'react';\nimport { Stack } from 'expo-router';\n\nimport { LessonScreen } from '../../components/learner/lessons/LessonScreen';\n\nexport default function LearnerLessonsRoute() {\n  return (\n    <>\n      <Stack.Screen options={{ title: 'BAYA · Baybayin Basics Lessons' }} />\n      <LessonScreen />\n    </>\n  );\n}\n"
+  },
+  {
+    "path": "apps/mobile/app/learner/profile.tsx",
+    "bytes": 496,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "import React from 'react';\nimport { Stack } from 'expo-router';\n\nimport { LearnerPlaceholderScreen } from '../../components/learner/LearnerPlaceholderScreen';\n\nexport default function LearnerProfileRoute() {\n  return (\n    <>\n      <Stack.Screen options={{ title: 'BAYA · Profile' }} />\n      <LearnerPlaceholderScreen\n        activeRoute=\"/learner/profile\"\n        description=\"Profile details will be designed in a future step.\"\n        title=\"Profile is coming next.\"\n      />\n    </>\n  );\n}\n"
+  },
+  {
+    "path": "apps/mobile/app/learner/settings.tsx",
+    "bytes": 413,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "import React from 'react';\nimport { Stack } from 'expo-router';\n\nimport { SettingsScreen } from '../../components/learner/settings/SettingsScreen';\nimport { SETTINGS_COPY } from '../../components/learner/settings/settingsCopy';\n\nexport default function LearnerSettingsRoute() {\n  return (\n    <>\n      <Stack.Screen options={{ title: `BAYA · ${SETTINGS_COPY.title}` }} />\n      <SettingsScreen />\n    </>\n  );\n}\n"
+  },
+  {
+    "path": "apps/mobile/app/learner/setup.tsx",
+    "bytes": 6722,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "import React from 'react';\nimport { Stack, useRouter } from 'expo-router';\nimport {\n  KeyboardAvoidingView,\n  Platform,\n  ScrollView,\n  StyleSheet,\n  Text,\n  View,\n} from 'react-native';\nimport { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';\n\nimport { ProfileSetupForm } from '../../components/learner/ProfileSetupForm';\nimport { BackButton } from '../../components/ui/BackButton';\nimport { Colors, FontFamily, Shadows, Spacing } from '../../constants/theme';\nimport { useResponsiveLayout } from '../../hooks/useResponsiveLayout';\n\nexport default function LearnerSetupScreen() {\n  const router = useRouter();\n  const insets = useSafeAreaInsets();\n  const {\n    height,\n    isPhone,\n    isPhoneLandscape,\n    isPhonePortrait,\n  } = useResponsiveLayout();\n  const isLandscapeCompact = isPhoneLandscape && height <= 500;\n  const density = isLandscapeCompact\n    ? 'landscapeCompact'\n    : isPhonePortrait\n      ? 'mobile'\n      : 'regular';\n  const compact = density !== 'regular';\n\n  const goBack = () => {\n    if (router.canGoBack()) {\n      router.back();\n      return;\n    }\n\n    router.replace('/');\n  };\n\n  return (\n    <SafeAreaView\n      edges={isLandscapeCompact ? ['left', 'right', 'bottom'] : ['top', 'bottom', 'left', 'right']}\n      style={styles.safeArea}\n      testID=\"setup-screen-root\"\n    >\n      <Stack.Screen options={{ title: 'BAYA · Set Up Your Profile' }} />\n\n      <KeyboardAvoidingView\n        behavior={Platform.OS === 'ios' ? 'padding' : undefined}\n        style={styles.keyboardArea}\n        testID=\"setup-screen-wrapper\"\n      >\n        <ScrollView\n          automaticallyAdjustKeyboardInsets\n          bounces={false}\n          contentContainerStyle={[\n            styles.scrollContent,\n            isPhone && styles.scrollContentPhone,\n            isLandscapeCompact && styles.scrollContentLandscapeCompact,\n            !isLandscapeCompact && { paddingBottom: Math.max(insets.bottom + Spacing.md, Spacing.lg) },\n          ]}\n          keyboardDismissMode=\"interactive\"\n          keyboardShouldPersistTaps=\"handled\"\n          showsVerticalScrollIndicator={false}\n          style={styles.scrollView}\n          testID=\"setup-scroll-view\"\n        >\n          <View\n            style={[\n              styles.navRow,\n              isPhone && styles.navRowPhone,\n              isLandscapeCompact && styles.navRowLandscapeCompact,\n            ]}\n            testID=\"setup-page-header\"\n          >\n            <BackButton\n              accessibilityLabel=\"Back\"\n              compact={compact}\n              onPress={goBack}\n              size={isLandscapeCompact ? 'landscape' : compact ? 'compact' : 'regular'}\n            />\n          </View>\n\n          <View\n            style={[\n              styles.card,\n              Shadows.card,\n              isPhone && styles.cardPhone,\n              isLandscapeCompact && styles.cardLandscapeCompact,\n            ]}\n            testID=\"setup-card\"\n          >\n            <View\n              style={[\n                styles.header,\n                compact && styles.headerCompact,\n                isLandscapeCompact && styles.headerLandscapeCompact,\n              ]}\n            >\n              <Text\n                accessibilityRole=\"header\"\n                style={[\n                  styles.title,\n                  compact && styles.titleCompact,\n                  isLandscapeCompact && styles.titleLandscapeCompact,\n                ]}\n              >\n                SET UP YOUR PROFILE\n              </Text>\n              <Text\n                style={[\n                  styles.subtitle,\n                  compact && styles.subtitleCompact,\n                  isLandscapeCompact && styles.subtitleLandscapeCompact,\n                ]}\n              >\n                Start your Baybayin journey.\n              </Text>\n            </View>\n\n            <ProfileSetupForm\n              density={density}\n              onContinue={() => router.replace('/learner/home')}\n            />\n          </View>\n        </ScrollView>\n      </KeyboardAvoidingView>\n    </SafeAreaView>\n  );\n}\n\nconst styles = StyleSheet.create({\n  safeArea: {\n    backgroundColor: Colors.background,\n    flex: 1,\n    minWidth: 0,\n    width: '100%',\n  },\n  keyboardArea: {\n    flex: 1,\n    minWidth: 0,\n    width: '100%',\n  },\n  scrollView: {\n    flex: 1,\n    minWidth: 0,\n    width: '100%',\n  },\n  scrollContent: {\n    alignItems: 'center',\n    flexGrow: 1,\n    justifyContent: 'center',\n    paddingHorizontal: Spacing.xxl,\n    paddingTop: Spacing.md,\n    width: '100%',\n  },\n  scrollContentPhone: {\n    justifyContent: 'flex-start',\n    paddingHorizontal: Spacing.md,\n    paddingTop: Spacing.sm,\n  },\n  scrollContentLandscapeCompact: {\n    alignItems: 'center',\n    justifyContent: 'center',\n    paddingHorizontal: Spacing.md,\n    paddingVertical: 8,\n    width: '100%',\n  },\n  navRow: {\n    alignItems: 'flex-start',\n    alignSelf: 'center',\n    marginBottom: Spacing.md,\n    maxWidth: 940,\n    width: '100%',\n  },\n  navRowPhone: {\n    alignItems: 'flex-start',\n    alignSelf: 'stretch',\n    marginBottom: Spacing.sm,\n    maxWidth: '100%',\n  },\n  navRowLandscapeCompact: {\n    alignItems: 'flex-start',\n    alignSelf: 'center',\n    marginBottom: 6,\n    maxWidth: 630,\n    width: '100%',\n  },\n  card: {\n    alignSelf: 'center',\n    backgroundColor: Colors.surface,\n    borderColor: Colors.border,\n    borderRadius: 40,\n    borderWidth: 1,\n    maxWidth: 940,\n    minWidth: 0,\n    paddingHorizontal: 52,\n    paddingVertical: 42,\n    width: '100%',\n  },\n  cardPhone: {\n    borderRadius: 22,\n    maxWidth: '100%',\n    paddingHorizontal: 20,\n    paddingVertical: 20,\n  },\n  cardLandscapeCompact: {\n    alignSelf: 'center',\n    borderRadius: 20,\n    maxWidth: 630,\n    paddingHorizontal: 18,\n    paddingTop: 8,\n    paddingBottom: 8,\n    width: '100%',\n  },\n  header: {\n    alignItems: 'center',\n    marginBottom: Spacing.lg,\n  },\n  headerCompact: {\n    marginBottom: 12,\n  },\n  headerLandscapeCompact: {\n    marginBottom: 6,\n  },\n  title: {\n    color: Colors.textPrimary,\n    fontFamily: FontFamily.rounded,\n    fontSize: 34,\n    fontWeight: '900',\n    letterSpacing: 1.8,\n    lineHeight: 42,\n    textAlign: 'center',\n  },\n  titleCompact: {\n    fontSize: 24,\n    letterSpacing: 1.2,\n    lineHeight: 30,\n  },\n  titleLandscapeCompact: {\n    fontSize: 20,\n    letterSpacing: 1.0,\n    lineHeight: 24,\n  },\n  subtitle: {\n    color: Colors.textSecondary,\n    fontFamily: FontFamily.body,\n    fontSize: 20,\n    lineHeight: 28,\n    marginTop: Spacing.sm,\n    textAlign: 'center',\n  },\n  subtitleCompact: {\n    fontSize: 17,\n    lineHeight: 23,\n    marginTop: Spacing.xs,\n  },\n  subtitleLandscapeCompact: {\n    fontSize: 13,\n    lineHeight: 16,\n    marginTop: 2,\n  },\n});\n"
+  },
+  {
+    "path": "apps/mobile/app/learner/welcome.tsx",
+    "bytes": 251,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "import React from 'react';\nimport { Redirect } from 'expo-router';\n\n/** Preserves old development links while the former placeholder route is retired. */\nexport default function LearnerWelcomeRedirect() {\n  return <Redirect href=\"/learner/home\" />;\n}\n"
+  },
+  {
+    "path": "apps/mobile/app/learner/workspaces/account.tsx",
+    "bytes": 99,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "export { LearnerCloudAccount as default } from \"../../../components/learner/LearnerCloudAccount\";\r\n"
+  },
+  {
+    "path": "apps/mobile/app/learner/workspaces/index.tsx",
+    "bytes": 106,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "export { LearnerMembershipScreen as default } from \"../../../components/learner/LearnerWorkspaceScreens\";\n"
+  },
+  {
+    "path": "apps/mobile/app/learner/workspaces/join.tsx",
+    "bytes": 109,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "export { LearnerJoinWorkspaceScreen as default } from \"../../../components/learner/LearnerWorkspaceScreens\";\n"
+  },
+  {
+    "path": "apps/mobile/app/learner/_layout.tsx",
+    "bytes": 603,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "import React from 'react';\nimport { Stack } from 'expo-router';\n\nimport { Colors } from '../../constants/theme';\n\n/**\n * Learner route boundary only.\n *\n * Onboarding screens such as `setup` own only onboarding navigation. Main\n * learner screens compose their dashboard chrome explicitly, so it can never\n * leak into onboarding through a shared layout wrapper.\n */\nexport default function LearnerLayout() {\n  return (\n    <Stack\n      screenOptions={{\n        animation: 'fade',\n        contentStyle: { backgroundColor: Colors.background, flex: 1 },\n        headerShown: false,\n      }}\n    />\n  );\n}\n"
+  },
+  {
+    "path": "apps/mobile/app/lessons/README.md",
+    "bytes": 991,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "# Lessons\r\n\r\n## Purpose\r\n\r\nReserves mobile routes for lesson discovery, lesson detail, and learning progression in BAYA.\r\n\r\n## Responsibilities\r\n\r\nDefines the future navigation entry points and route-level states for lesson discovery, lesson detail, and learning progression.\r\n\r\n## Allowed Contents\r\n\r\nFuture route screens, layouts, navigation parameters, and presentation-only loading or error boundaries.\r\n\r\n## Excluded Contents\r\n\r\nDatabase queries, domain decisions, handwriting scoring, NLP rules, and backend transport implementations.\r\n\r\n## Dependencies\r\n\r\nMay depend on the corresponding feature presentation layer and shared navigation resources, then invoke application use cases through that presentation boundary.\r\n\r\n## Related BAYA Requirements\r\n\r\nSupports lesson discovery, lesson detail, and learning progression.\r\n\r\n## Future Implementation Notes\r\n\r\nKeep route files thin and accessibility-aware; offline status should be presented without embedding synchronization rules.\r\n\r\n"
+  },
+  {
+    "path": "apps/mobile/app/mentor/index.tsx",
+    "bytes": 76,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "export { AuthScreen as default } from \"../../components/mentor/AuthScreen\";\n"
+  },
+  {
+    "path": "apps/mobile/app/mentor/learner-progress.tsx",
+    "bytes": 516,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "import React from 'react';\nimport { useLocalSearchParams } from 'expo-router';\nimport { MentorBoundary } from '../../components/mentor/WorkspaceScreens';\nimport { LearnerProgressDetail } from '../../components/progress/LearnerProgressDetail';\nexport default function LearnerProgressRoute() {\n  const { workspaceId, profileId } = useLocalSearchParams<{ workspaceId: string; profileId: string }>();\n  return <MentorBoundary><LearnerProgressDetail workspaceId={workspaceId} profileId={profileId} /></MentorBoundary>;\n}\n"
+  },
+  {
+    "path": "apps/mobile/app/mentor/register.tsx",
+    "bytes": 172,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "import React from \"react\";\nimport { AuthScreen } from \"../../components/mentor/AuthScreen\";\nexport default function Register() {\n  return <AuthScreen mode=\"register\" />;\n}\n"
+  },
+  {
+    "path": "apps/mobile/app/mentor/reset-password.tsx",
+    "bytes": 166,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "import React from \"react\";\nimport { AuthScreen } from \"../../components/mentor/AuthScreen\";\nexport default function Reset() {\n  return <AuthScreen mode=\"reset\" />;\n}\n"
+  },
+  {
+    "path": "apps/mobile/app/mentor/settings.tsx",
+    "bytes": 212,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "import React from 'react';\nimport { Redirect } from 'expo-router';\n// Keep old links usable without an extra settings screen.\nexport default function Settings() { return <Redirect href=\"/mentor/workspaces\" />; }\n"
+  },
+  {
+    "path": "apps/mobile/app/mentor/verify.tsx",
+    "bytes": 262,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "import React from \"react\";\nimport { router } from \"expo-router\";\nimport { OtpScreen } from \"../../components/mentor/AuthScreen\";\nexport default function Verify() {\n  return (\n    <OtpScreen onBack={() => router.replace(\"/mentor\")} onOutcome={() => {}} />\n  );\n}\n"
+  },
+  {
+    "path": "apps/mobile/app/mentor/workspaces/create.tsx",
+    "bytes": 261,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "import React from \"react\";\nimport {\n  MentorBoundary,\n  CreateWorkspaceScreen,\n} from \"../../../components/mentor/WorkspaceScreens\";\nexport default function Create() {\n  return (\n    <MentorBoundary>\n      <CreateWorkspaceScreen />\n    </MentorBoundary>\n  );\n}\n"
+  },
+  {
+    "path": "apps/mobile/app/mentor/workspaces/index.tsx",
+    "bytes": 271,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "import React from \"react\";\nimport {\n  MentorBoundary,\n  WorkspaceSelectionScreen,\n} from \"../../../components/mentor/WorkspaceScreens\";\nexport default function Workspaces() {\n  return (\n    <MentorBoundary>\n      <WorkspaceSelectionScreen />\n    </MentorBoundary>\n  );\n}\n"
+  },
+  {
+    "path": "apps/mobile/app/mentor/workspaces/manage.tsx",
+    "bytes": 442,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "import React from 'react';\nimport { useLocalSearchParams } from 'expo-router';\nimport { MentorBoundary } from '../../../components/mentor/WorkspaceScreens';\nimport { WorkspaceManageScreen } from '../../../components/mentor/WorkspaceManageScreen';\nexport default function ManageWorkspace() {\n  const { id } = useLocalSearchParams<{ id: string }>();\n  return <MentorBoundary><WorkspaceManageScreen key={id} id={id || ''} /></MentorBoundary>;\n}\n"
+  },
+  {
+    "path": "apps/mobile/app/mentor/workspaces/[id].tsx",
+    "bytes": 437,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "import React from \"react\";\nimport { useLocalSearchParams } from \"expo-router\";\nimport {\n  MentorBoundary,\n} from \"../../../components/mentor/WorkspaceScreens\";\nimport { MentorDashboard } from '../../../components/progress/MentorDashboard';\nexport default function Details() {\n  const { id } = useLocalSearchParams<{ id: string }>();\n  return (\n    <MentorBoundary>\n      <MentorDashboard key={id} id={id} />\n    </MentorBoundary>\n  );\n}\n"
+  },
+  {
+    "path": "apps/mobile/app/onboarding/README.md",
+    "bytes": 934,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "# Onboarding\r\n\r\n## Purpose\r\n\r\nReserves mobile routes for first-run setup and learner readiness in BAYA.\r\n\r\n## Responsibilities\r\n\r\nDefines the future navigation entry points and route-level states for first-run setup and learner readiness.\r\n\r\n## Allowed Contents\r\n\r\nFuture route screens, layouts, navigation parameters, and presentation-only loading or error boundaries.\r\n\r\n## Excluded Contents\r\n\r\nDatabase queries, domain decisions, handwriting scoring, NLP rules, and backend transport implementations.\r\n\r\n## Dependencies\r\n\r\nMay depend on the corresponding feature presentation layer and shared navigation resources, then invoke application use cases through that presentation boundary.\r\n\r\n## Related BAYA Requirements\r\n\r\nSupports first-run setup and learner readiness.\r\n\r\n## Future Implementation Notes\r\n\r\nKeep route files thin and accessibility-aware; offline status should be presented without embedding synchronization rules.\r\n\r\n"
+  },
+  {
+    "path": "apps/mobile/app/profile/README.md",
+    "bytes": 925,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "# Profile\r\n\r\n## Purpose\r\n\r\nReserves mobile routes for learner profile viewing and editing in BAYA.\r\n\r\n## Responsibilities\r\n\r\nDefines the future navigation entry points and route-level states for learner profile viewing and editing.\r\n\r\n## Allowed Contents\r\n\r\nFuture route screens, layouts, navigation parameters, and presentation-only loading or error boundaries.\r\n\r\n## Excluded Contents\r\n\r\nDatabase queries, domain decisions, handwriting scoring, NLP rules, and backend transport implementations.\r\n\r\n## Dependencies\r\n\r\nMay depend on the corresponding feature presentation layer and shared navigation resources, then invoke application use cases through that presentation boundary.\r\n\r\n## Related BAYA Requirements\r\n\r\nSupports learner profile viewing and editing.\r\n\r\n## Future Implementation Notes\r\n\r\nKeep route files thin and accessibility-aware; offline status should be presented without embedding synchronization rules.\r\n\r\n"
+  },
+  {
+    "path": "apps/mobile/app/progress/README.md",
+    "bytes": 959,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "# Progress\r\n\r\n## Purpose\r\n\r\nReserves mobile routes for mastery, completion, and performance summaries in BAYA.\r\n\r\n## Responsibilities\r\n\r\nDefines the future navigation entry points and route-level states for mastery, completion, and performance summaries.\r\n\r\n## Allowed Contents\r\n\r\nFuture route screens, layouts, navigation parameters, and presentation-only loading or error boundaries.\r\n\r\n## Excluded Contents\r\n\r\nDatabase queries, domain decisions, handwriting scoring, NLP rules, and backend transport implementations.\r\n\r\n## Dependencies\r\n\r\nMay depend on the corresponding feature presentation layer and shared navigation resources, then invoke application use cases through that presentation boundary.\r\n\r\n## Related BAYA Requirements\r\n\r\nSupports mastery, completion, and performance summaries.\r\n\r\n## Future Implementation Notes\r\n\r\nKeep route files thin and accessibility-aware; offline status should be presented without embedding synchronization rules.\r\n\r\n"
+  },
+  {
+    "path": "apps/mobile/app/README.md",
+    "bytes": 926,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "# App\r\n\r\n## Purpose\r\n\r\nReserves the route-facing presentation boundary for BAYA mobile navigation.\r\n\r\n## Responsibilities\r\n\r\nMaps learner journeys to feature presentation entry points and keeps route composition thin.\r\n\r\n## Allowed Contents\r\n\r\nFuture route groups, navigation entry points, layouts, and route-level presentation metadata.\r\n\r\n## Excluded Contents\r\n\r\nDomain rules, handwriting scoring, NLP validation, repository access, and synchronization logic.\r\n\r\n## Dependencies\r\n\r\nDepends on feature presentation surfaces and shared navigation conventions; it must not directly call databases or technical adapters.\r\n\r\n## Related BAYA Requirements\r\n\r\nSupports clear navigation among onboarding, lessons, activities, handwriting, progress, achievements, profile, and settings.\r\n\r\n## Future Implementation Notes\r\n\r\nRoutes should delegate behavior to feature presentation and application layers when implementation begins.\r\n\r\n"
+  },
+  {
+    "path": "apps/mobile/app/settings/README.md",
+    "bytes": 1067,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "# Settings\r\n\r\n## Purpose\r\n\r\nReserves mobile routes for accessibility, localization, synchronization, privacy, and application preferences in BAYA.\r\n\r\n## Responsibilities\r\n\r\nDefines the future navigation entry points and route-level states for accessibility, localization, synchronization, privacy, and application preferences.\r\n\r\n## Allowed Contents\r\n\r\nFuture route screens, layouts, navigation parameters, and presentation-only loading or error boundaries.\r\n\r\n## Excluded Contents\r\n\r\nDatabase queries, domain decisions, handwriting scoring, NLP rules, and backend transport implementations.\r\n\r\n## Dependencies\r\n\r\nMay depend on the corresponding feature presentation layer and shared navigation resources, then invoke application use cases through that presentation boundary.\r\n\r\n## Related BAYA Requirements\r\n\r\nSupports accessibility, localization, synchronization, privacy, and application preferences.\r\n\r\n## Future Implementation Notes\r\n\r\nKeep route files thin and accessibility-aware; offline status should be presented without embedding synchronization rules.\r\n\r\n"
+  },
+  {
+    "path": "apps/mobile/app/_layout.tsx",
+    "bytes": 3084,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "contents": "/**\r\n * app/_layout.tsx\r\n *\r\n * Root Expo Router layout for the BAYA PWA.\r\n *\r\n * Responsibilities:\r\n *   - Wraps all screens in SafeAreaProvider for correct edge inset handling\r\n *     on both mobile and web (no-op on desktop browsers).\r\n *   - Configures the Stack navigator shell with a hidden header so each\r\n *     screen owns its own header presentation.\r\n *   - Keeps the status bar consistent across platforms.\r\n */\r\n\r\nimport React, { useEffect } from 'react';\r\nimport { Platform } from 'react-native';\r\nimport { Stack } from 'expo-router';\r\nimport { StatusBar } from 'expo-status-bar';\r\nimport { SafeAreaProvider } from 'react-native-safe-area-context';\r\n\r\nimport { Colors } from '../constants/theme';\r\nimport { useResponsiveLayout } from '../hooks/useResponsiveLayout';\r\nimport { getReadyDatabase } from '../database';\r\nimport { registerBayaPwa } from '../ml/registerBayaPwa';\r\nimport { LandscapeGuard } from '../components/layout/LandscapeGuard';\r\nimport { BayaNotifications } from '../components/ui/BayaNotifications';\r\nimport { CloudProvider } from '../modules/cloud/CloudProvider';\r\n\r\nlet hasTriggeredMlSmoke = false;\r\nlet hasTriggeredMlBenchmark = false;\r\n\r\nexport default function RootLayout() {\r\n  const { isPhoneLandscape } = useResponsiveLayout();\r\n\r\n  useEffect(() => {\r\n    // Non-blocking database initialization on startup\r\n    getReadyDatabase().catch((err) => {\r\n      console.warn('[BAYA Database] Initialization warning:', err);\r\n    });\r\n  }, []);\r\n\r\n  useEffect(() => { registerBayaPwa(); }, []);\r\n\r\n  useEffect(() => {\r\n    if (!__DEV__ || Platform.OS !== 'web' || typeof window === 'undefined'\r\n      || hasTriggeredMlBenchmark || new URLSearchParams(window.location.search).get('bayaMlBenchmark') !== '1') return;\r\n\r\n    hasTriggeredMlBenchmark = true;\r\n    import('../ml/bayaModel')\r\n      .then(({ runBayaBenchmark }) => runBayaBenchmark())\r\n      .catch((error: unknown) => console.error('[BAYA ML] Browser benchmark failed:', error));\r\n  }, []);\r\n\r\n  useEffect(() => {\r\n    if (!__DEV__ || Platform.OS !== 'web' || typeof window === 'undefined'\r\n      || hasTriggeredMlSmoke || new URLSearchParams(window.location.search).get('bayaMlSmoke') !== '1') return;\r\n\r\n    hasTriggeredMlSmoke = true; // React Strict Mode may replay development effects.\r\n    import('../ml/bayaModel')\r\n      .then(({ runBayaSmokeTest }) => runBayaSmokeTest())\r\n      .catch((error: unknown) => console.error(\r\n        '[BAYA ML] Smoke test failed:', error,\r\n        error instanceof Error && 'cause' in error ? error.cause : undefined,\r\n      ));\r\n  }, []);\r\n\r\n  return (\r\n    <SafeAreaProvider style={{ backgroundColor: Colors.background, flex: 1 }}>\r\n      <StatusBar\r\n        hidden={isPhoneLandscape}\r\n        style=\"dark\"\r\n      />\r\n      <CloudProvider><BayaNotifications><LandscapeGuard><Stack\r\n        screenOptions={{\r\n          animation: 'fade',\r\n          contentStyle: { backgroundColor: Colors.background, flex: 1 },\r\n          headerShown: false,\r\n        }}\r\n      /></LandscapeGuard></BayaNotifications></CloudProvider>\r\n    </SafeAreaProvider>\r\n  );\r\n}\r\n"
+  }
+]

@@ -1,0 +1,617 @@
+[
+  {
+    "manifest": "package.json",
+    "name": "expo",
+    "version": "~57.0.18",
+    "references": [
+      "packages\\shared-types\\src\\index.ts",
+      "packages\\db\\src\\schema.sqlite.ts",
+      "packages\\db\\src\\handwritingRepository.ts",
+      "packages\\db\\drizzle.config.ts",
+      "packages\\db\\drizzle\\migrations.js",
+      "scripts\\benchmark-baya-rollback.mjs",
+      "scripts\\test-mem-cdp.mjs",
+      "scripts\\test-prod-dist.mjs",
+      "scripts\\verify-resnet18-browser.mjs",
+      "scripts\\verify-efficientnetb0-browser.mjs",
+      "scripts\\verify-custom-cnn8-browser.mjs",
+      "scripts\\verify-custom-cnn-browser.mjs"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "package.json",
+    "name": "react",
+    "version": "19.2.3",
+    "references": [
+      "apps/mobile\\types\\react-dom.d.ts",
+      "apps/mobile\\database\\__tests__\\concurrencyAndLifecycle.test.ts",
+      "apps/mobile\\app\\_layout.tsx",
+      "apps/mobile\\app\\index.tsx",
+      "apps/mobile\\database\\connection.ts",
+      "apps/mobile\\modules\\progress\\useCloudRead.ts",
+      "apps/mobile\\app\\debug\\_layout.tsx",
+      "apps/mobile\\app\\debug\\workspace-preview.tsx",
+      "apps/mobile\\app\\debug\\database.tsx",
+      "apps/mobile\\constants\\theme.ts",
+      "apps/mobile\\database\\debug\\databaseInspectorService.ts",
+      "apps/mobile\\app\\learner\\_layout.tsx"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "package.json",
+    "name": "react-native",
+    "version": "0.86.3",
+    "references": [
+      "apps/mobile\\database\\__tests__\\concurrencyAndLifecycle.test.ts",
+      "apps/mobile\\app\\_layout.tsx",
+      "apps/mobile\\database\\connection.ts",
+      "apps/mobile\\app\\debug\\database.tsx",
+      "apps/mobile\\constants\\theme.ts",
+      "apps/mobile\\database\\debug\\databaseInspectorService.ts",
+      "apps/mobile\\app\\learner\\setup.tsx",
+      "apps/mobile\\hooks\\__tests__\\useReducedMotionPreference.test.tsx",
+      "apps/mobile\\hooks\\useResponsiveLayout.ts",
+      "apps/mobile\\hooks\\useReducedMotionPreference.ts",
+      "apps/mobile\\modules\\cloud\\CloudProvider.tsx",
+      "apps/mobile\\components\\ui\\__tests__\\SwipeHint.test.tsx"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "@expo/metro-runtime",
+    "version": "~57.0.16",
+    "references": [],
+    "decision": "Retain pending indirect tool/autolink/API review; no absence-of-import deletion"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "@expo/vector-icons",
+    "version": "^15.1.1",
+    "references": [
+      "apps/mobile\\components\\ui\\AppIcon.tsx"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "@supabase/supabase-js",
+    "version": "^2.118.0",
+    "references": [
+      "scripts\\test-workspace-approval-integration.mjs",
+      "apps/mobile\\modules\\progress\\__tests__\\supabaseProgress.test.ts",
+      "apps/mobile\\modules\\progress\\supabaseProgress.ts",
+      "apps/mobile\\modules\\cloud\\__tests__\\supabaseAdapter.test.ts",
+      "apps/mobile\\modules\\cloud\\__tests__\\learnerEmailAuth.test.ts",
+      "apps/mobile\\modules\\cloud\\supabaseAdapter.ts",
+      "apps/mobile\\modules\\cloud\\learnerIdentity.ts",
+      "apps/mobile\\modules\\cloud\\learnerEmailAuth.ts",
+      "apps/mobile\\modules\\cloud\\CloudProvider.tsx"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "expo",
+    "version": "~57.0.25",
+    "references": [
+      "packages\\shared-types\\src\\index.ts",
+      "packages\\db\\src\\schema.sqlite.ts",
+      "packages\\db\\src\\handwritingRepository.ts",
+      "packages\\db\\drizzle.config.ts",
+      "packages\\db\\drizzle\\migrations.js",
+      "scripts\\benchmark-baya-rollback.mjs",
+      "scripts\\test-mem-cdp.mjs",
+      "scripts\\test-prod-dist.mjs",
+      "scripts\\verify-resnet18-browser.mjs",
+      "scripts\\verify-efficientnetb0-browser.mjs",
+      "scripts\\verify-custom-cnn8-browser.mjs",
+      "scripts\\verify-custom-cnn-browser.mjs"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "expo-asset",
+    "version": "~57.0.18",
+    "references": [
+      "apps/mobile\\app.json",
+      "apps/mobile\\components\\media\\__tests__\\media.test.tsx",
+      "apps/mobile\\components\\media\\mediaResolver.ts",
+      "apps/mobile\\components\\branding\\baya\\useBayaAnimation.ts",
+      "apps/mobile\\components\\branding\\baya\\BayaFrameRenderer.tsx"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "expo-audio",
+    "version": "~57.0.5",
+    "references": [
+      "apps/mobile\\app.json",
+      "apps/mobile\\jest.setup-media.js",
+      "apps/mobile\\components\\media\\AudioPlayer.tsx",
+      "apps/mobile\\components\\media\\__tests__\\media.test.tsx",
+      "apps/mobile\\components\\learner\\characters\\__tests__\\CharacterViewer.test.tsx",
+      "apps/mobile\\components\\learner\\characters\\useCharacterPronunciation.ts"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "expo-constants",
+    "version": "~57.0.19",
+    "references": [],
+    "decision": "Retain pending indirect tool/autolink/API review; no absence-of-import deletion"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "expo-dev-client",
+    "version": "~57.0.19",
+    "references": [],
+    "decision": "Retain pending indirect tool/autolink/API review; no absence-of-import deletion"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "expo-image",
+    "version": "~57.0.5",
+    "references": [
+      "apps/mobile\\app.json",
+      "apps/mobile\\components\\branding\\baya\\BayaFrameRenderer.tsx"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "expo-linking",
+    "version": "~57.0.11",
+    "references": [],
+    "decision": "Retain pending indirect tool/autolink/API review; no absence-of-import deletion"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "expo-router",
+    "version": "~57.0.23",
+    "references": [
+      "apps/mobile\\app.json",
+      "apps/mobile\\app\\_layout.tsx",
+      "apps/mobile\\app\\index.tsx",
+      "apps/mobile\\modules\\progress\\useCloudRead.ts",
+      "apps/mobile\\app\\debug\\_layout.tsx",
+      "apps/mobile\\app\\debug\\workspace-preview.tsx",
+      "apps/mobile\\app\\learner\\_layout.tsx",
+      "apps/mobile\\app\\learner\\welcome.tsx",
+      "apps/mobile\\app\\learner\\setup.tsx",
+      "apps/mobile\\app\\learner\\settings.tsx",
+      "apps/mobile\\app\\learner\\profile.tsx",
+      "apps/mobile\\app\\learner\\lessons.tsx"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "expo-secure-store",
+    "version": "~57.0.4",
+    "references": [
+      "apps/mobile\\app.json",
+      "apps/mobile\\modules\\cloud\\CloudProvider.tsx"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "expo-speech",
+    "version": "~57.0.3",
+    "references": [
+      "apps/mobile\\components\\learner\\characters\\__tests__\\CharacterViewer.test.tsx",
+      "apps/mobile\\components\\learner\\characters\\__tests__\\CharacterTopicScreen.test.tsx",
+      "apps/mobile\\components\\learner\\characters\\useCharacterPronunciation.ts"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "expo-sqlite",
+    "version": "~57.0.3",
+    "references": [
+      "packages\\db\\src\\handwritingRepository.ts",
+      "scripts\\test-mem-cdp.mjs",
+      "apps/mobile\\scripts\\patch-expo-sqlite-web.mjs",
+      "apps/mobile\\app.json",
+      "apps/mobile\\database\\__tests__\\connection.test.ts",
+      "apps/mobile\\database\\workerLifecycle.web.ts",
+      "apps/mobile\\database\\connection.ts",
+      "apps/mobile\\database\\debug\\__tests__\\databaseInspector.test.ts",
+      "apps/mobile\\database\\debug\\databaseInspectorService.ts"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "expo-status-bar",
+    "version": "~57.0.1",
+    "references": [
+      "apps/mobile\\app\\_layout.tsx"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "expo-video",
+    "version": "~57.0.5",
+    "references": [
+      "apps/mobile\\app.json",
+      "apps/mobile\\jest.setup-media.js",
+      "apps/mobile\\components\\media\\__tests__\\media.test.tsx",
+      "apps/mobile\\components\\media\\VideoPlayer.tsx"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "onnxruntime-web",
+    "version": "1.30.0",
+    "references": [
+      "apps/mobile\\scripts\\__tests__\\pwaCache.test.ts",
+      "apps/mobile\\scripts\\copy-ort-wasm.mjs",
+      "apps/mobile\\public\\models\\baya\\BAYA_ResNet18_1.0_onnx_contract.json",
+      "apps/mobile\\ml\\bayaActiveModel.json"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "react",
+    "version": "19.2.3",
+    "references": [
+      "apps/mobile\\types\\react-dom.d.ts",
+      "apps/mobile\\database\\__tests__\\concurrencyAndLifecycle.test.ts",
+      "apps/mobile\\app\\_layout.tsx",
+      "apps/mobile\\app\\index.tsx",
+      "apps/mobile\\database\\connection.ts",
+      "apps/mobile\\modules\\progress\\useCloudRead.ts",
+      "apps/mobile\\app\\debug\\_layout.tsx",
+      "apps/mobile\\app\\debug\\workspace-preview.tsx",
+      "apps/mobile\\app\\debug\\database.tsx",
+      "apps/mobile\\constants\\theme.ts",
+      "apps/mobile\\database\\debug\\databaseInspectorService.ts",
+      "apps/mobile\\app\\learner\\_layout.tsx"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "react-dom",
+    "version": "19.2.3",
+    "references": [
+      "apps/mobile\\types\\react-dom.d.ts",
+      "apps/mobile\\components\\ui\\PopoverLayer.web.tsx"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "react-native",
+    "version": "0.86.3",
+    "references": [
+      "apps/mobile\\database\\__tests__\\concurrencyAndLifecycle.test.ts",
+      "apps/mobile\\app\\_layout.tsx",
+      "apps/mobile\\database\\connection.ts",
+      "apps/mobile\\app\\debug\\database.tsx",
+      "apps/mobile\\constants\\theme.ts",
+      "apps/mobile\\database\\debug\\databaseInspectorService.ts",
+      "apps/mobile\\app\\learner\\setup.tsx",
+      "apps/mobile\\hooks\\__tests__\\useReducedMotionPreference.test.tsx",
+      "apps/mobile\\hooks\\useResponsiveLayout.ts",
+      "apps/mobile\\hooks\\useReducedMotionPreference.ts",
+      "apps/mobile\\modules\\cloud\\CloudProvider.tsx",
+      "apps/mobile\\components\\ui\\__tests__\\SwipeHint.test.tsx"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "react-native-safe-area-context",
+    "version": "~5.7.0",
+    "references": [
+      "apps/mobile\\app\\_layout.tsx",
+      "apps/mobile\\app\\learner\\setup.tsx",
+      "apps/mobile\\components\\ui\\__tests__\\BayaNotifications.test.tsx",
+      "apps/mobile\\components\\ui\\BayaNotifications.tsx",
+      "apps/mobile\\components\\ui\\BayaDialog.tsx",
+      "apps/mobile\\components\\ui\\BayaActionMenu.tsx",
+      "apps/mobile\\components\\progress\\__tests__\\progress.test.tsx",
+      "apps/mobile\\components\\progress\\ProgressPage.tsx",
+      "apps/mobile\\components\\mentor\\__tests__\\joinApproval.test.tsx",
+      "apps/mobile\\components\\mentor\\__tests__\\flows.test.tsx",
+      "apps/mobile\\components\\mentor\\FeatureScreen.tsx",
+      "apps/mobile\\components\\landing\\__tests__\\RolePlaceholderScreen.test.tsx"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "react-native-screens",
+    "version": "~4.26.0",
+    "references": [],
+    "decision": "Retain pending indirect tool/autolink/API review; no absence-of-import deletion"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "react-native-svg",
+    "version": "15.15.4",
+    "references": [
+      "apps/mobile\\components\\ui\\SpeechBubbleTail.tsx",
+      "apps/mobile\\components\\ui\\AppIcon.tsx",
+      "apps/mobile\\components\\learner\\writing\\WritingCanvas.tsx"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "react-native-url-polyfill",
+    "version": "^4.0.0",
+    "references": [
+      "apps/mobile\\modules\\cloud\\CloudProvider.tsx"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "react-native-web",
+    "version": "^0.21.2",
+    "references": [],
+    "decision": "Retain pending indirect tool/autolink/API review; no absence-of-import deletion"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "@electric-sql/pglite",
+    "version": "^0.5.10",
+    "references": [
+      "scripts\\test-cloud-management.mjs",
+      "scripts\\test-cloud-db.mjs",
+      "scripts\\test-cloud-progress.mjs",
+      "scripts\\test-workspace-approval.mjs"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "@react-native/jest-preset",
+    "version": "^0.86.3",
+    "references": [],
+    "decision": "Retain pending indirect tool/autolink/API review; no absence-of-import deletion"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "@testing-library/react-native",
+    "version": "^13.0.0",
+    "references": [
+      "apps/mobile\\hooks\\__tests__\\useReducedMotionPreference.test.tsx",
+      "apps/mobile\\components\\ui\\__tests__\\SwipeHint.test.tsx",
+      "apps/mobile\\components\\ui\\__tests__\\BayaNotifications.test.tsx",
+      "apps/mobile\\components\\ui\\cards\\__tests__\\BaseCard.test.tsx",
+      "apps/mobile\\components\\progress\\__tests__\\progress.test.tsx",
+      "apps/mobile\\components\\mentor\\__tests__\\joinApproval.test.tsx",
+      "apps/mobile\\components\\mentor\\__tests__\\flows.test.tsx",
+      "apps/mobile\\components\\landing\\__tests__\\RolePlaceholderScreen.test.tsx",
+      "apps/mobile\\components\\landing\\__tests__\\RoleButton.test.tsx",
+      "apps/mobile\\components\\landing\\__tests__\\LandingHero.test.tsx",
+      "apps/mobile\\components\\debug\\__tests__\\DebugDatabaseRoute.test.tsx",
+      "apps/mobile\\components\\layout\\__tests__\\LandscapeGuard.test.tsx"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "@types/jest",
+    "version": "^29.5.14",
+    "references": [],
+    "decision": "Retain pending indirect tool/autolink/API review; no absence-of-import deletion"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "@types/react",
+    "version": "~19.2.2",
+    "references": [],
+    "decision": "Retain pending indirect tool/autolink/API review; no absence-of-import deletion"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "eslint",
+    "version": "^9.0.0",
+    "references": [
+      "apps/mobile\\eslint.config.js",
+      "apps/mobile\\database\\workerLifecycle.web.ts",
+      "apps/mobile\\app\\debug\\workspace-preview.tsx",
+      "apps/mobile\\components\\progress\\__tests__\\progress.test.tsx",
+      "apps/mobile\\components\\mentor\\__tests__\\joinApproval.test.tsx",
+      "apps/mobile\\components\\mentor\\__tests__\\flows.test.tsx",
+      "apps/mobile\\components\\DrawingCanvas.tsx",
+      "apps/mobile\\ml\\__tests__\\bayaModel.test.ts",
+      "apps/mobile\\components\\learner\\home\\__tests__\\LearnerHomeScreen.test.tsx",
+      "apps/mobile\\components\\learner\\activity\\__tests__\\Topic12StorybookScreen.test.tsx",
+      "apps/mobile\\components\\learner\\activity\\__tests__\\ActivityScreen.test.tsx",
+      "apps/mobile\\components\\learner\\settings\\__tests__\\SettingsScreen.test.tsx"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "eslint-config-expo",
+    "version": "~57.0.2",
+    "references": [
+      "apps/mobile\\eslint.config.js"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "jest",
+    "version": "^29.7.0",
+    "references": [
+      "apps/mobile\\tsconfig.json",
+      "apps/mobile\\eslint.config.js",
+      "apps/mobile\\scripts\\__tests__\\pwaCache.test.ts",
+      "apps/mobile\\database\\__tests__\\connection.test.ts",
+      "apps/mobile\\database\\__tests__\\concurrencyAndLifecycle.test.ts",
+      "apps/mobile\\database\\__tests__\\activityContentService.test.ts",
+      "apps/mobile\\modules\\progress\\__tests__\\supabaseProgress.test.ts",
+      "apps/mobile\\database\\debug\\__tests__\\databaseInspector.test.ts",
+      "apps/mobile\\jest.setup-media.js",
+      "apps/mobile\\hooks\\__tests__\\useReducedMotionPreference.test.tsx",
+      "apps/mobile\\modules\\cloud\\__tests__\\supabaseAdapter.test.ts",
+      "apps/mobile\\modules\\cloud\\__tests__\\learnerEmailAuth.test.ts"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "jest-expo",
+    "version": "~57.0.0",
+    "references": [],
+    "decision": "Retain pending indirect tool/autolink/API review; no absence-of-import deletion"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "react-test-renderer",
+    "version": "19.2.3",
+    "references": [],
+    "decision": "Retain pending indirect tool/autolink/API review; no absence-of-import deletion"
+  },
+  {
+    "manifest": "apps/mobile/package.json",
+    "name": "typescript",
+    "version": "~6.0.3",
+    "references": [
+      "scripts\\benchmark-baya-rollback.mjs",
+      "scripts\\verify-resnet18-browser.mjs",
+      "scripts\\verify-external-v2-browser.mjs",
+      "scripts\\verify-efficientnetb0-browser.mjs",
+      "scripts\\verify-custom-cnn8-browser.mjs",
+      "scripts\\verify-custom-cnn-browser.mjs",
+      "scripts\\verify-bilstm-v1.1-browser.mjs",
+      "apps/mobile\\database\\workerLifecycle.web.ts",
+      "apps/mobile\\app\\debug\\workspace-preview.tsx",
+      "apps/mobile\\components\\progress\\__tests__\\progress.test.tsx",
+      "apps/mobile\\components\\mentor\\__tests__\\joinApproval.test.tsx",
+      "apps/mobile\\components\\mentor\\__tests__\\flows.test.tsx"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "packages/db/package.json",
+    "name": "@baya/shared-types",
+    "version": "*",
+    "references": [
+      "packages\\db\\src\\schema.sqlite.ts",
+      "packages\\db\\src\\handwritingRepository.ts",
+      "apps/mobile\\components\\DrawingCanvas.tsx"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "packages/db/package.json",
+    "name": "drizzle-orm",
+    "version": "*",
+    "references": [
+      "packages\\db\\src\\schema.sqlite.ts",
+      "packages\\db\\src\\handwritingRepository.ts"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "packages/db/package.json",
+    "name": "expo-sqlite",
+    "version": "*",
+    "references": [
+      "packages\\db\\src\\handwritingRepository.ts",
+      "scripts\\test-mem-cdp.mjs",
+      "apps/mobile\\scripts\\patch-expo-sqlite-web.mjs",
+      "apps/mobile\\app.json",
+      "apps/mobile\\database\\__tests__\\connection.test.ts",
+      "apps/mobile\\database\\workerLifecycle.web.ts",
+      "apps/mobile\\database\\connection.ts",
+      "apps/mobile\\database\\debug\\__tests__\\databaseInspector.test.ts",
+      "apps/mobile\\database\\debug\\databaseInspectorService.ts"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "packages/db/package.json",
+    "name": "drizzle-kit",
+    "version": "*",
+    "references": [
+      "packages\\db\\drizzle.config.ts"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "services/api/package.json",
+    "name": "@types/cors",
+    "version": "^2.8.19",
+    "references": [],
+    "decision": "Retain pending indirect tool/autolink/API review; no absence-of-import deletion"
+  },
+  {
+    "manifest": "services/api/package.json",
+    "name": "@types/express",
+    "version": "^5.0.6",
+    "references": [],
+    "decision": "Retain pending indirect tool/autolink/API review; no absence-of-import deletion"
+  },
+  {
+    "manifest": "services/api/package.json",
+    "name": "@types/node",
+    "version": "^26.2.0",
+    "references": [],
+    "decision": "Retain pending indirect tool/autolink/API review; no absence-of-import deletion"
+  },
+  {
+    "manifest": "services/api/package.json",
+    "name": "drizzle-kit",
+    "version": "^0.31.10",
+    "references": [
+      "packages\\db\\drizzle.config.ts"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "services/api/package.json",
+    "name": "tsx",
+    "version": "^4.23.12",
+    "references": [
+      "apps/mobile\\tsconfig.json",
+      "apps/mobile\\app\\_layout.tsx",
+      "apps/mobile\\app\\debug\\_layout.tsx",
+      "apps/mobile\\app\\debug\\database.tsx",
+      "apps/mobile\\components\\ui\\StatusCard.tsx",
+      "apps/mobile\\components\\DrawingCanvas.tsx",
+      "apps/mobile\\components\\debug\\DatabaseInspector.tsx",
+      "apps/mobile\\components\\layout\\AppHeader.tsx"
+    ],
+    "decision": "Retain: source/config/tool references"
+  },
+  {
+    "manifest": "services/api/package.json",
+    "name": "typescript",
+    "version": "^7.0.2",
+    "references": [
+      "scripts\\benchmark-baya-rollback.mjs",
+      "scripts\\verify-resnet18-browser.mjs",
+      "scripts\\verify-external-v2-browser.mjs",
+      "scripts\\verify-efficientnetb0-browser.mjs",
+      "scripts\\verify-custom-cnn8-browser.mjs",
+      "scripts\\verify-custom-cnn-browser.mjs",
+      "scripts\\verify-bilstm-v1.1-browser.mjs",
+      "apps/mobile\\database\\workerLifecycle.web.ts",
+      "apps/mobile\\app\\debug\\workspace-preview.tsx",
+      "apps/mobile\\components\\progress\\__tests__\\progress.test.tsx",
+      "apps/mobile\\components\\mentor\\__tests__\\joinApproval.test.tsx",
+      "apps/mobile\\components\\mentor\\__tests__\\flows.test.tsx"
+    ],
+    "decision": "Retain: source/config/tool references"
+  }
+]

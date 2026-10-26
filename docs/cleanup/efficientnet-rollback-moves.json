@@ -1,0 +1,20 @@
+[
+  {
+    "original": "C:\\BAYA\\ml\\deployment\\onnx\\artifacts\\bilstm-v1.1-replacement\\superseded\\EfficientNetB0_model_labels.json",
+    "destination": "C:\\BAYA\\ml\\rollback\\models\\baya\\EfficientNetB0_model_labels.json",
+    "sha256": "C68ADE6537C59AB2D55872A9E3ED8D75083C89E35722A5B3D63E715CE47D4B91",
+    "bytes": 2088
+  },
+  {
+    "original": "C:\\BAYA\\ml\\deployment\\onnx\\artifacts\\bilstm-v1.1-replacement\\superseded\\EfficientNetB0_model_onnx_contract.json",
+    "destination": "C:\\BAYA\\ml\\rollback\\models\\baya\\EfficientNetB0_model_onnx_contract.json",
+    "sha256": "9028A181DB95D951479B361DBEA5975AB82778EAE9648D76C23FAE85D595AFF0",
+    "bytes": 4216
+  },
+  {
+    "original": "C:\\BAYA\\ml\\deployment\\onnx\\artifacts\\bilstm-v1.1-replacement\\superseded\\EfficientNetB0_model.onnx",
+    "destination": "C:\\BAYA\\ml\\rollback\\models\\baya\\EfficientNetB0_model.onnx",
+    "sha256": "68462FFC7A85BC830086DDFAE082935175C278F6E16063F02D51BEF5668CD040",
+    "bytes": 16778379
+  }
+]

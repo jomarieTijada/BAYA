@@ -1,0 +1,18 @@
+[
+  "apps/mobile/components/learner/story/StoryVisualLearning.tsx",
+  "apps/mobile/components/learner/writing/BayaWritingGuide.tsx",
+  "apps/mobile/ml/__tests__/activeModelContract.test.ts",
+  "apps/mobile/ml/__tests__/bayaModel.test.ts",
+  "apps/mobile/ml/__tests__/writingRecognitionPhases.test.ts",
+  "apps/mobile/ml/bayaModel.web.ts",
+  "apps/mobile/ml/writingRecognition.ts",
+  "ml/deployment/onnx/inspect_export_imagenet.py",
+  "scripts/verify-bilstm-v1.1-browser.mjs",
+  "scripts/verify-custom-cnn-browser.mjs",
+  "scripts/verify-custom-cnn8-browser.mjs",
+  "scripts/verify-efficientnetb0-browser.mjs",
+  "scripts/verify-external-v2-browser.mjs",
+  "ml/deployment/onnx/inspect_export_resnet18.py",
+  "scripts/benchmark-baya-rollback.mjs",
+  "scripts/verify-resnet18-browser.mjs"
+]

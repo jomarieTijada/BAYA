@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import { Colors, FontFamily, Radius, Shadows, Spacing } from '../../../constants/theme';
 import { AppIcon } from '../../ui/AppIcon';
-import { MediaCard } from '../cards/MediaCard';
+import { ActivityCard } from '../cards/ActivityCard';
 import { VideoPlayer } from '../../media/VideoPlayer';
 import { resolveStaticMediaUri } from '../../media/mediaResolver';
 import type { VideoSource, VideoStepContent } from './activityData';
@@ -60,7 +60,8 @@ export function VideoActivityCard({
   }
 
   return (
-    <MediaCard
+    <ActivityCard
+      type="video"
       icon={null}
       style={[
         styles.card,
@@ -99,7 +100,7 @@ export function VideoActivityCard({
         source={resolvedSource}
         title={displayTitle}
       />
-    </MediaCard>
+    </ActivityCard>
   );
 }
 

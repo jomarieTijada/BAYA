@@ -1,0 +1,10 @@
+[
+  {
+    "sha256": "a4e030697a7571b3e95d31860e4da55d2f98e5e861e2b55e414f45a8556828ba",
+    "paths": [
+      "apps/mobile/assets/branding/app/favicon.png",
+      "apps/mobile/public/favicon.png"
+    ],
+    "decision": "Retain until dynamic/native/web consumers are reconciled"
+  }
+]

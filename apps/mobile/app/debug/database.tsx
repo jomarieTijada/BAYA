@@ -4,12 +4,12 @@
  * Debug-only route for the BAYA SQLite Database Inspector.
  * Protected by EXPO_PUBLIC_ENABLE_DB_INSPECTOR feature flag.
  */
-import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
+import DatabaseInspector from '../../components/debug/DatabaseInspector';
 
 export default function DebugDatabaseRoute() {
   // Expo inlines static dot notation. Missing/invalid values keep the tool disabled.
-  const DB_INSPECTOR_ENABLED = process.env.EXPO_PUBLIC_ENABLE_DB_INSPECTOR === 'true';
+  const DB_INSPECTOR_ENABLED = __DEV__ && process.env.EXPO_PUBLIC_ENABLE_DB_INSPECTOR === 'true';
 
   if (!DB_INSPECTOR_ENABLED) {
     return (
@@ -21,9 +21,6 @@ export default function DebugDatabaseRoute() {
       </View>
     );
   }
-
-  // Lazy-load the inspector only when enabled
-  const DatabaseInspector = require('../../components/debug/DatabaseInspector').default;
 
   return <DatabaseInspector />;
 }

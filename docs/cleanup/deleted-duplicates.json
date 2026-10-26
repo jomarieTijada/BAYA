@@ -1,0 +1,16 @@
+[
+  {
+    "deleted": "ml/deployment/onnx/artifacts/custom-cnn8-1.1/Baybayin_CustomCNN8_1.1.onnx",
+    "recovery": "ml/rollback/models/baya/Baybayin_CustomCNN8_1.1.onnx",
+    "sha256": "422F683EB8447D56A6C327E7FAE3333F814FAB91C28BC99B69FED68AE1D8DBF2",
+    "bytes": 4857266,
+    "reason": "Exact duplicate generated export; runtime comparison scripts use rollback copy"
+  },
+  {
+    "deleted": "ml/deployment/onnx/artifacts/external-v2/Baybayin_EfficientNetB0_ExternalFirst_v2.onnx",
+    "recovery": "ml/rollback/models/baya/Baybayin_EfficientNetB0_ExternalFirst_v2.onnx",
+    "sha256": "C09AAC56B853841CA4013ECC3617C1E9FDCC3053B2EEC40EAA3038393A0C9396",
+    "bytes": 16799019,
+    "reason": "Exact duplicate generated export; runtime comparison scripts use rollback copy"
+  }
+]

@@ -1,30 +1,19 @@
-# Scripts
+# Repository verification tools
 
-## Purpose
+Run scripts from the repository root. Application build helpers are in
+`apps/mobile/scripts`; conversion tools are in `ml/deployment/onnx`.
 
-Reserves categorized locations for future repeatable BAYA maintenance and delivery automation.
+- `test-cloud-db.mjs`, `test-cloud-management.mjs`, `test-cloud-progress.mjs`,
+  `test-workspace-approval.mjs`: isolated PGlite migration, authorization and
+  progress checks. These do not access hosted Supabase.
+- `test-workspace-approval-integration.mjs`: requires an explicitly isolated
+  Supabase test project and refuses the production BAYA project.
+- `verify-resnet18-browser.mjs`: active model browser parity verification.
+- Other model-specific verification and rollback benchmarks: research comparisons
+  using retained checkpoints, fixtures and archived adapters.
+- UI/PWA/browser scripts: developer diagnostics requiring a browser and local
+  server. Review prerequisites and target URLs before running them.
+- `serve-dist.mjs`, `verify-netlify-assets.mjs`: export/server checks.
 
-## Responsibilities
-
-Documents planned development, database, data-processing, model-export, validation, testing, and release helpers.
-
-## Allowed Contents
-
-README documentation only during this task; future reviewed scripts must be narrow, repeatable, and safe.
-
-## Excluded Contents
-
-Shell, batch, PowerShell, Python, JavaScript, or other executable command files during this task, plus credentials and application business rules.
-
-## Dependencies
-
-Future scripts may orchestrate documented tools but must not become the only location for domain, ML, migration, or release knowledge.
-
-## Related BAYA Requirements
-
-Supports reproducible development, research, validation, testing, and release processes.
-
-## Future Implementation Notes
-
-No executable scripts or command files are generated now.
-
+Do not use scripts to bypass disabled browser access or point mutation-oriented
+integration scripts at production. Cleanup does not deploy the application.

@@ -1,0 +1,78 @@
+[
+  {
+    "path": ".git",
+    "reason": "dependency/tool cache"
+  },
+  {
+    "path": "android/.gradle",
+    "reason": "dependency/tool cache"
+  },
+  {
+    "path": "android/.kotlin",
+    "reason": "dependency/tool cache"
+  },
+  {
+    "path": "android/app/.cxx",
+    "reason": "dependency/tool cache"
+  },
+  {
+    "path": "apps/mobile/android/.gradle",
+    "reason": "dependency/tool cache"
+  },
+  {
+    "path": "apps/mobile/android/.kotlin",
+    "reason": "dependency/tool cache"
+  },
+  {
+    "path": "apps/mobile/android/app/.cxx",
+    "reason": "dependency/tool cache"
+  },
+  {
+    "path": "apps/mobile/node_modules",
+    "reason": "dependency/tool cache"
+  },
+  {
+    "path": "ml/deployment/onnx/.venv",
+    "reason": "dependency/tool cache"
+  },
+  {
+    "path": "ml/deployment/onnx/__pycache__",
+    "reason": "dependency/tool cache"
+  },
+  {
+    "path": "ml/preprocessing/__pycache__",
+    "reason": "dependency/tool cache"
+  },
+  {
+    "path": "ml/scripts/__pycache__",
+    "reason": "dependency/tool cache"
+  },
+  {
+    "path": "ml/tests/__pycache__",
+    "reason": "dependency/tool cache"
+  },
+  {
+    "path": "ml/training/__pycache__",
+    "reason": "dependency/tool cache"
+  },
+  {
+    "path": "ml/__pycache__",
+    "reason": "dependency/tool cache"
+  },
+  {
+    "path": "node_modules",
+    "reason": "dependency/tool cache"
+  },
+  {
+    "path": "sandbox/workspace-security/node_modules",
+    "reason": "dependency/tool cache"
+  },
+  {
+    "path": "sandbox/__pycache__",
+    "reason": "dependency/tool cache"
+  },
+  {
+    "path": "services/api/node_modules",
+    "reason": "dependency/tool cache"
+  }
+]

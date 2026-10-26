@@ -1,0 +1,56 @@
+[
+  {
+    "path": "research/notebooks/BAYA_Dataset_Rescue.ipynb",
+    "sha256": "7182689286daa601b73a30c63544d2e43bb94c505a99c0bccb514e4b2a0bb7f0",
+    "bytes": 993978,
+    "cells": 52,
+    "outputs": 58,
+    "classification": "Research methodology/evaluation; distinct original retained",
+    "action": "Preserved with outputs; not deployed"
+  },
+  {
+    "path": "research/notebooks/BAYA_ResNet18.ipynb",
+    "sha256": "b6de18b9d4a2d8e41a89ce73d21a21261cfafc447be91fcb3c2266a317f393f4",
+    "bytes": 597353,
+    "cells": 32,
+    "outputs": 31,
+    "classification": "Canonical active model training",
+    "action": "Preserved with outputs; not deployed"
+  },
+  {
+    "path": "research/notebooks/Custom_CNN_Model_8.ipynb",
+    "sha256": "1dba63acd076bd5460e7425c1347766563ede2abeb67b8f9412040fcebf969f1",
+    "bytes": 922848,
+    "cells": 44,
+    "outputs": 46,
+    "classification": "Research methodology/evaluation; distinct original retained",
+    "action": "Preserved with outputs; not deployed"
+  },
+  {
+    "path": "research/notebooks/EfficientNetB0_Augmented_Comparison.ipynb",
+    "sha256": "a1ac35d853c62b9487ef6adbb43d21a79be27533e8535f8f5295711aa9e87754",
+    "bytes": 5446684,
+    "cells": 65,
+    "outputs": 101,
+    "classification": "Research methodology/evaluation; distinct original retained",
+    "action": "Preserved with outputs; not deployed"
+  },
+  {
+    "path": "ml/training/BAYA_EfficientNetB0_BiLSTM_v1_1_Refinement.ipynb",
+    "sha256": "f576fca139566e8b9c1f308b209d07842bda044b291c28f541b4b173aee60ba2",
+    "bytes": 118345,
+    "cells": 36,
+    "outputs": 0,
+    "classification": "Research methodology/evaluation; distinct original retained",
+    "action": "Preserved with outputs; not deployed"
+  },
+  {
+    "path": "ml/training/EfficientNet_B0–BiLSTM.ipynb",
+    "sha256": "ef289974391180a9cc34aa861db589527fb8ccc33cd921170d3eada3dfa66c63",
+    "bytes": 823610,
+    "cells": 53,
+    "outputs": 61,
+    "classification": "Research methodology/evaluation; distinct original retained",
+    "action": "Preserved with outputs; not deployed"
+  }
+]

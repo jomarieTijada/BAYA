@@ -1,0 +1,1003 @@
+[
+  {
+    "path": "apps/mobile/.expo/preprocess-parity-build/models/baya/Baybayin_EfficientNetB0_BiLSTM_1.0.onnx",
+    "bytes": 17175331,
+    "classification": "GENERATED",
+    "reason": "Build/test/tool output; unique media still requires review",
+    "sha256": "c329f2f0d9862f7e369da5e946eaf7ce9eca978568123b65003b3aa93b075630"
+  },
+  {
+    "path": "apps/mobile/android/app/build/intermediates/assets/debug/mergeDebugAssets/Baybayin_EfficientNetB0_BiLSTM_1.1.onnx",
+    "bytes": 17175276,
+    "classification": "GENERATED",
+    "reason": "Build/test/tool output; unique media still requires review",
+    "sha256": "32b63d2f36802e5792006c07f18bcc1aead2f9d20ed1181edc1feebf59ab70b1"
+  },
+  {
+    "path": "apps/mobile/android/app/build/intermediates/assets/debug/mergeDebugAssets/mlkit_barcode_models/barcode_ssd_mobilenet_v1_dmp25_quant.tflite",
+    "bytes": 390456,
+    "classification": "GENERATED",
+    "reason": "Build/test/tool output; unique media still requires review",
+    "sha256": "6c7b209f4256ca4521d86f83d00904ada1a6a443010698463b750d757fae15a4"
+  },
+  {
+    "path": "apps/mobile/android/app/build/intermediates/assets/debug/mergeDebugAssets/mlkit_barcode_models/oned_auto_regressor_mobile.tflite",
+    "bytes": 213880,
+    "classification": "GENERATED",
+    "reason": "Build/test/tool output; unique media still requires review",
+    "sha256": "8e07cd3b38da1ded3c07d6c81d06990cbdfa284c214557b94e106372e0497442"
+  },
+  {
+    "path": "apps/mobile/android/app/build/intermediates/assets/debug/mergeDebugAssets/mlkit_barcode_models/oned_feature_extractor_mobile.tflite",
+    "bytes": 276552,
+    "classification": "GENERATED",
+    "reason": "Build/test/tool output; unique media still requires review",
+    "sha256": "981c89dcca6aac10c7ff7304933747f6936292b6395d02ee944e6fbc73b3c92b"
+  },
+  {
+    "path": "apps/mobile/dist/models/baya/BAYA_ResNet18_1.0.onnx",
+    "bytes": 44974086,
+    "classification": "GENERATED",
+    "reason": "Build/test/tool output; unique media still requires review",
+    "sha256": "fc41b21606b96b2a1fec6850259a8cbdc446d54f3d113ae8086e87310268f265"
+  },
+  {
+    "path": "apps/mobile/dist-video-backup-20260929/models/baya/Baybayin_EfficientNetB0_BiLSTM_1.0.onnx",
+    "bytes": 17175331,
+    "classification": "GENERATED",
+    "reason": "Build/test/tool output; unique media still requires review",
+    "sha256": "c329f2f0d9862f7e369da5e946eaf7ce9eca978568123b65003b3aa93b075630"
+  },
+  {
+    "path": "apps/mobile/dist-video-backup-20260929/models/baya/Baybayin_EfficientNetB0_BiLSTM_1.1.onnx",
+    "bytes": 17175276,
+    "classification": "GENERATED",
+    "reason": "Build/test/tool output; unique media still requires review",
+    "sha256": "32b63d2f36802e5792006c07f18bcc1aead2f9d20ed1181edc1feebf59ab70b1"
+  },
+  {
+    "path": "apps/mobile/modules/baya-native/android/build/generated/baya-assets/Baybayin_EfficientNetB0_BiLSTM_1.1.onnx",
+    "bytes": 17175276,
+    "classification": "GENERATED",
+    "reason": "Build/test/tool output; unique media still requires review",
+    "sha256": "32b63d2f36802e5792006c07f18bcc1aead2f9d20ed1181edc1feebf59ab70b1"
+  },
+  {
+    "path": "apps/mobile/modules/baya-native/android/build/intermediates/assets/debug/mergeDebugAssets/Baybayin_EfficientNetB0_BiLSTM_1.1.onnx",
+    "bytes": 17175276,
+    "classification": "GENERATED",
+    "reason": "Build/test/tool output; unique media still requires review",
+    "sha256": "32b63d2f36802e5792006c07f18bcc1aead2f9d20ed1181edc1feebf59ab70b1"
+  },
+  {
+    "path": "apps/mobile/public/models/baya/BAYA_ResNet18_1.0.onnx",
+    "bytes": 44974086,
+    "classification": "ACTIVE",
+    "reason": "Application source, route, fixture or runtime asset; checked before retirement",
+    "sha256": "fc41b21606b96b2a1fec6850259a8cbdc446d54f3d113ae8086e87310268f265"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/alpha-gray.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "222c2dfa267d8fabd2439993690029d946d22b708507ba030ed11172704d9b60"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/baya-capture-ka-2026-09-28T12-51-57-996Z.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "bb657b56c76543998967ad3a79200e153c051bce2e8143077f42f162582ed846"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/Baybayin_EfficientNetB0_BiLSTM_1.1.onnx",
+    "bytes": 17175026,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "b53c69e28385eef71d0032667671692e97f670abc214f46e49d090dbd4f27149"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/blank-image.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "b86aa875d1bcc9e24bad59a437f38f0c36201b6932b91ff4ed1c135e0253afff"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/degenerate-duration.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "ba9797f80ad158099c856305ee16fe55a85b520c688f6736a3a245963c3c5826"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/exact-512.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "35f1b051fe258d6a9f79df8dd55fb297431dd3250a9ecc66ed76f439af91cda6"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/kudlit-above.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "4d7e6b71fa9bf86d32cf37cae6020e03d12e054b96a462f146587dba0edba692"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/kudlit-below.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "182a56c0a6b261eba369cfcf2e43936c09cda523eb268d33e8483abd1faf8c80"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/many-strokes-downsampling.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "6e624df499cc23077908a247fb2593bb3873fd92f0e2e16994a3922b5019d045"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/multi-stroke.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "3d60e054d024e3f95c55de3d0b6d661321b9d8c52ad965e67e1c042989632115"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/narrow-tall.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "f68b0efa721ac0c7d98842aaf3548aff0ccd511854f5d98b32d8fcb612d69fe3"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/over-512.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "aaff37b41c8d4540bc7a6b01397829fb1f3a5fa61a8b09cbdc5128da2c896111"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/short-sequence.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "636131185dedddafa285e12d9a33db47def5dfe299f151447681ec832bb5a1cc"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/single-stroke.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "00457300c290ea2885afb171ab31d91e46c7194c32a7df1ef75e3e88ae6a7be9"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/tiny-edge.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "f3a433319f6de6aa7d4bc1e212604727517e934dbd3bd661125adb3358192caa"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/wide.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "04b526ee7cdd816c04ddc18bd0bdd5db29679ac4a22da0c1efd298afeccfda06"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/zero-duration.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "8866f00781722ae9107e4324489b9a550b4257f0170df8bf421959de85741e31"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/alpha-gray.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "222c2dfa267d8fabd2439993690029d946d22b708507ba030ed11172704d9b60"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/Baybayin_EfficientNetB0_BiLSTM_1.1.onnx",
+    "bytes": 17174689,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "0e42b19742d8aca9ced8f35dfbffeca7b9d03fc25d2500a2ab3e470e1eb9192b"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/blank-image.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "b86aa875d1bcc9e24bad59a437f38f0c36201b6932b91ff4ed1c135e0253afff"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/degenerate-duration.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "ba9797f80ad158099c856305ee16fe55a85b520c688f6736a3a245963c3c5826"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/exact-512.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "35f1b051fe258d6a9f79df8dd55fb297431dd3250a9ecc66ed76f439af91cda6"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/kudlit-above.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "4d7e6b71fa9bf86d32cf37cae6020e03d12e054b96a462f146587dba0edba692"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/kudlit-below.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "182a56c0a6b261eba369cfcf2e43936c09cda523eb268d33e8483abd1faf8c80"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/many-strokes-downsampling.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "6e624df499cc23077908a247fb2593bb3873fd92f0e2e16994a3922b5019d045"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/multi-stroke.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "3d60e054d024e3f95c55de3d0b6d661321b9d8c52ad965e67e1c042989632115"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/narrow-tall.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "f68b0efa721ac0c7d98842aaf3548aff0ccd511854f5d98b32d8fcb612d69fe3"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/over-512.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "aaff37b41c8d4540bc7a6b01397829fb1f3a5fa61a8b09cbdc5128da2c896111"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/real-ka.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "bb657b56c76543998967ad3a79200e153c051bce2e8143077f42f162582ed846"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/short-sequence.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "636131185dedddafa285e12d9a33db47def5dfe299f151447681ec832bb5a1cc"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/single-stroke.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "00457300c290ea2885afb171ab31d91e46c7194c32a7df1ef75e3e88ae6a7be9"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/tiny-edge.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "f3a433319f6de6aa7d4bc1e212604727517e934dbd3bd661125adb3358192caa"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/wide.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "04b526ee7cdd816c04ddc18bd0bdd5db29679ac4a22da0c1efd298afeccfda06"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/zero-duration.npz",
+    "bytes": 50164,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "8866f00781722ae9107e4324489b9a550b4257f0170df8bf421959de85741e31"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/custom-cnn-1.3/Baybayin_CustomCNN16_1.3.onnx",
+    "bytes": 11131978,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "c945a453a1b83054c10f65fee93c26060055c68fe40a280dd9cd8b089861dfaf"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/custom-cnn-1.3/golden-reference.npz",
+    "bytes": 4292010,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "327edbfc26c1559bc5648e12d40a16bfc496dcc702aa353ac88e90dbbe6f4c0d"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/custom-cnn8-1.1/golden-reference.npz",
+    "bytes": 4292010,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "90404299335001eaf6142bcea274bdcf47c65f7a119e1204821eeea504279726"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/efficientnetb0-model/golden-reference.npz",
+    "bytes": 4292010,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "54ff7e1296aca5edb5776470fc4580f3492a3d1d567ae5a2963a2096cb4dab88"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/external-v2/conversion-reference.npz",
+    "bytes": 4254358,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "8c8b5f12c15d3af5f5319abf79a95785a7c12e3dda7ce2f89f253684089d2e45"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/imagenet-finetune-1.0/Baybayin_EfficientNetB0_imagenet_finetuned_finetune_1.0.onnx",
+    "bytes": 16778379,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "68462ffc7a85bc830086ddfae082935175c278f6e16063f02d51bef5668cd040"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/imagenet-finetune-1.0/conversion-reference.npz",
+    "bytes": 4103654,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "791a58ef410a82938114baca43d5d7acca2927aa0ec304aff658239f928eeffc"
+  },
+  {
+    "path": "ml/deployment/onnx/artifacts/resnet18-1.0/BAYA_ResNet18_1.0.onnx",
+    "bytes": 44974086,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "fc41b21606b96b2a1fec6850259a8cbdc446d54f3d113ae8086e87310268f265"
+  },
+  {
+    "path": "ml/rollback/models/baya/Baybayin_CustomCNN8_1.1.onnx",
+    "bytes": 4857266,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "422f683eb8447d56a6c327e7fae3333f814fab91c28bc99b69fed68ae1d8dbf2"
+  },
+  {
+    "path": "ml/rollback/models/baya/Baybayin_EfficientNetB0_BiLSTM_1.1.onnx",
+    "bytes": 17175276,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "32b63d2f36802e5792006c07f18bcc1aead2f9d20ed1181edc1feebf59ab70b1"
+  },
+  {
+    "path": "ml/rollback/models/baya/Baybayin_EfficientNetB0_ExternalFirst_v2.onnx",
+    "bytes": 16799019,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "c09aac56b853841ca4013ecc3617c1e9fdcc3053b2eec40eaa3038393a0c9396"
+  },
+  {
+    "path": "ml/rollback/models/baya/EfficientNetB0_model.onnx",
+    "bytes": 16778379,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "68462ffc7a85bc830086ddfae082935175c278f6e16063f02d51bef5668cd040"
+  },
+  {
+    "path": "ml/training/BAYA_EfficientNetB0_BiLSTM_v1_1_Refinement.ipynb",
+    "bytes": 118345,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "f576fca139566e8b9c1f308b209d07842bda044b291c28f541b4b173aee60ba2"
+  },
+  {
+    "path": "ml/training/EfficientNet_B0–BiLSTM.ipynb",
+    "bytes": 823610,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "ef289974391180a9cc34aa861db589527fb8ccc33cd921170d3eada3dfa66c63"
+  },
+  {
+    "path": "research/models/BAYA_ResNet18_1.0.keras",
+    "bytes": 135267131,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "9a97b5d3933bef49b955b155369c58c32ccec3cf61bfbb4f213fad2d2ca1f7b8"
+  },
+  {
+    "path": "research/models/Baybayin_CustomCNN16_1.3.keras",
+    "bytes": 33643748,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "cdac4983f1e2c84b80a59bc424488af7d8378cc84261983e8d6d131656115baf"
+  },
+  {
+    "path": "research/models/Baybayin_CustomCNN16_cp_1.3.keras",
+    "bytes": 33645783,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "cca97dc094ee3ca845fc3c2139cea48f0a18352d0c30eb3b9e7cd34eb6eb7e6b"
+  },
+  {
+    "path": "research/models/Baybayin_CustomCNN8_1.1.keras",
+    "bytes": 14710604,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "6b8be8c4b4b2ae2c540288fa3dcd70a042218d32388a27f6cc24ae534ab40311"
+  },
+  {
+    "path": "research/models/Baybayin_CustomCNN8_cp_1.1.keras",
+    "bytes": 14711751,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "296bfb6af87b867259082fe5b99991eba046fca0ad58545d12a4a0b60349781b"
+  },
+  {
+    "path": "research/models/Baybayin_EfficientNetB0_BiLSTM_1.0.keras",
+    "bytes": 29156234,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "73c8ab68b1d1017d2b4da778b7313e0b2b3c82b6da1ba115ee475472a2208a89"
+  },
+  {
+    "path": "research/models/Baybayin_EfficientNetB0_BiLSTM_1.1.keras",
+    "bytes": 29156571,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "067a7005b6f656fd3ba32648adee580af55cd5a05fbb03d76892627b5745c539"
+  },
+  {
+    "path": "research/models/Baybayin_EfficientNetB0_ExternalFirst_v2.keras",
+    "bytes": 28089136,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "6621a02ed0553580356d4b9529505e1d72240c25532e9fbe76b3b553310c3201"
+  },
+  {
+    "path": "research/models/EfficientNetB0_model.keras",
+    "bytes": 50918209,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "d53e7becd5c15964b71198fb7b13dc90e2b6a8b2e4a0ad75527f895da130be1c"
+  },
+  {
+    "path": "research/notebooks/BAYA_Dataset_Rescue.ipynb",
+    "bytes": 993978,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "7182689286daa601b73a30c63544d2e43bb94c505a99c0bccb514e4b2a0bb7f0"
+  },
+  {
+    "path": "research/notebooks/BAYA_ResNet18.ipynb",
+    "bytes": 597353,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "b6de18b9d4a2d8e41a89ce73d21a21261cfafc447be91fcb3c2266a317f393f4"
+  },
+  {
+    "path": "research/notebooks/Custom_CNN_Model_8.ipynb",
+    "bytes": 922848,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "1dba63acd076bd5460e7425c1347766563ede2abeb67b8f9412040fcebf969f1"
+  },
+  {
+    "path": "research/notebooks/EfficientNetB0_Augmented_Comparison.ipynb",
+    "bytes": 5446684,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "a1ac35d853c62b9487ef6adbb43d21a79be27533e8535f8f5295711aa9e87754"
+  },
+  {
+    "path": "sandbox/baybayin-modern-audit/profile/optimization_guide_model_store/13/E6DC4029A1E4B4C1/43493CB124BB1186/model.tflite",
+    "bytes": 1219248,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "3c88fd9805746be38b8d567b81dccee7c790ed17ca58902e69506b1e4c41fd3f"
+  },
+  {
+    "path": "sandbox/baybayin-modern-audit/profile/optimization_guide_model_store/2/E6DC4029A1E4B4C1/D3C5D31580DD5407/model.tflite",
+    "bytes": 392048,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "a0956386dc64fd9f4883c8741f950cd60a56859616b159c9e4251c9eb0ac5534"
+  },
+  {
+    "path": "sandbox/baybayin-modern-audit/profile/optimization_guide_model_store/20/E6DC4029A1E4B4C1/DDF7B42263E0BBFB/model.tflite",
+    "bytes": 31520,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "e8c55250b30a5999403e9b7ad1031223ca3297e2a79de5bd169581f734691eab"
+  },
+  {
+    "path": "sandbox/baybayin-modern-audit/profile/optimization_guide_model_store/24/E6DC4029A1E4B4C1/1FAD1D21C5887F2E/model.tflite",
+    "bytes": 4602152,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "b7de6a063847c456e8ddfa668e4f731861f82cfb95bcad9909e9f604ed62d633"
+  },
+  {
+    "path": "sandbox/baybayin-modern-audit/profile/optimization_guide_model_store/25/E6DC4029A1E4B4C1/550C9A6601B196D4/model.tflite",
+    "bytes": 180520,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "498e3205bf85da0a8f8b57e292d4bd12b31d691e04039c04bedcde75d1ea7459"
+  },
+  {
+    "path": "sandbox/baybayin-modern-audit/profile/optimization_guide_model_store/25/E6DC4029A1E4B4C1/550C9A6601B196D4/visual_model_desktop.tflite",
+    "bytes": 3452826,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "eaea1c7eeb2af4fcb59c7db541df61057c4ccdb8a4d4f70af75776d70aa1850c"
+  },
+  {
+    "path": "sandbox/baybayin-modern-audit/profile/optimization_guide_model_store/26/E6DC4029A1E4B4C1/96F8B971A4271DCA/model.tflite",
+    "bytes": 7112,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "92e81784c55f74000441d25a29c895b19ca1bd53efe0177ce3c27fbdb7869fa1"
+  },
+  {
+    "path": "sandbox/baybayin-modern-audit/profile/optimization_guide_model_store/43/E6DC4029A1E4B4C1/16452D0AF1A38282/model.tflite",
+    "bytes": 36778224,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "bbc7dc1ae142e321b07749bc824f487c199334f6cfc567166ce8e2e58bd955a4"
+  },
+  {
+    "path": "sandbox/baybayin-modern-audit/profile/optimization_guide_model_store/45/E6DC4029A1E4B4C1/6B112CB365D0B227/model.tflite",
+    "bytes": 131736,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "4c897707a45592774ffc4c65b207589efee2f1667798f96b4e37245047466e3e"
+  },
+  {
+    "path": "sandbox/baybayin-modern-audit/profile/optimization_guide_model_store/9/E6DC4029A1E4B4C1/F584AA066FA154EF/model.tflite",
+    "bytes": 31520,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "21ecf18a9eb18a66870208035d857a536d6d714e0eec47a86d316ade56bb90a4"
+  },
+  {
+    "path": "sandbox/baybayin-x-cancellation-audit/profile/optimization_guide_model_store/13/E6DC4029A1E4B4C1/E72962973DE2714C/model.tflite",
+    "bytes": 1219248,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "3c88fd9805746be38b8d567b81dccee7c790ed17ca58902e69506b1e4c41fd3f"
+  },
+  {
+    "path": "sandbox/baybayin-x-cancellation-audit/profile/optimization_guide_model_store/2/E6DC4029A1E4B4C1/C14422D3496EFBA6/model.tflite",
+    "bytes": 392048,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "a0956386dc64fd9f4883c8741f950cd60a56859616b159c9e4251c9eb0ac5534"
+  },
+  {
+    "path": "sandbox/baybayin-x-cancellation-audit/profile/optimization_guide_model_store/20/E6DC4029A1E4B4C1/270C0D570C27BC00/model.tflite",
+    "bytes": 31520,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "e8c55250b30a5999403e9b7ad1031223ca3297e2a79de5bd169581f734691eab"
+  },
+  {
+    "path": "sandbox/baybayin-x-cancellation-audit/profile/optimization_guide_model_store/24/E6DC4029A1E4B4C1/51DCCFE7B758AE9A/model.tflite",
+    "bytes": 4602152,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "b7de6a063847c456e8ddfa668e4f731861f82cfb95bcad9909e9f604ed62d633"
+  },
+  {
+    "path": "sandbox/baybayin-x-cancellation-audit/profile/optimization_guide_model_store/25/E6DC4029A1E4B4C1/7B32F5E00AA78F82/model.tflite",
+    "bytes": 180520,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "498e3205bf85da0a8f8b57e292d4bd12b31d691e04039c04bedcde75d1ea7459"
+  },
+  {
+    "path": "sandbox/baybayin-x-cancellation-audit/profile/optimization_guide_model_store/25/E6DC4029A1E4B4C1/7B32F5E00AA78F82/visual_model_desktop.tflite",
+    "bytes": 3452826,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "eaea1c7eeb2af4fcb59c7db541df61057c4ccdb8a4d4f70af75776d70aa1850c"
+  },
+  {
+    "path": "sandbox/baybayin-x-cancellation-audit/profile/optimization_guide_model_store/26/E6DC4029A1E4B4C1/6B1CE37479FC8E5B/model.tflite",
+    "bytes": 7112,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "92e81784c55f74000441d25a29c895b19ca1bd53efe0177ce3c27fbdb7869fa1"
+  },
+  {
+    "path": "sandbox/baybayin-x-cancellation-audit/profile/optimization_guide_model_store/43/E6DC4029A1E4B4C1/00AF27B453CC02F2/model.tflite",
+    "bytes": 36778224,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "bbc7dc1ae142e321b07749bc824f487c199334f6cfc567166ce8e2e58bd955a4"
+  },
+  {
+    "path": "sandbox/baybayin-x-cancellation-audit/profile/optimization_guide_model_store/45/E6DC4029A1E4B4C1/087BEC4E13514619/model.tflite",
+    "bytes": 131736,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "4c897707a45592774ffc4c65b207589efee2f1667798f96b4e37245047466e3e"
+  },
+  {
+    "path": "sandbox/baybayin-x-cancellation-audit/profile/optimization_guide_model_store/9/E6DC4029A1E4B4C1/013AF8F5B14E562F/model.tflite",
+    "bytes": 31520,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "21ecf18a9eb18a66870208035d857a536d6d714e0eec47a86d316ade56bb90a4"
+  },
+  {
+    "path": "sandbox/cleanup-browser-validation/profile/optimization_guide_model_store/13/E6DC4029A1E4B4C1/DC24330F360E2186/model.tflite",
+    "bytes": 1219248,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "3c88fd9805746be38b8d567b81dccee7c790ed17ca58902e69506b1e4c41fd3f"
+  },
+  {
+    "path": "sandbox/cleanup-browser-validation/profile/optimization_guide_model_store/2/E6DC4029A1E4B4C1/096FAABCD609ED45/model.tflite",
+    "bytes": 392048,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "a0956386dc64fd9f4883c8741f950cd60a56859616b159c9e4251c9eb0ac5534"
+  },
+  {
+    "path": "sandbox/cleanup-browser-validation/profile/optimization_guide_model_store/20/E6DC4029A1E4B4C1/4DA497A583A9500B/model.tflite",
+    "bytes": 31520,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "e8c55250b30a5999403e9b7ad1031223ca3297e2a79de5bd169581f734691eab"
+  },
+  {
+    "path": "sandbox/cleanup-browser-validation/profile/optimization_guide_model_store/24/E6DC4029A1E4B4C1/9142122502DA83D7/model.tflite",
+    "bytes": 4602152,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "b7de6a063847c456e8ddfa668e4f731861f82cfb95bcad9909e9f604ed62d633"
+  },
+  {
+    "path": "sandbox/cleanup-browser-validation/profile/optimization_guide_model_store/25/E6DC4029A1E4B4C1/B4B91DABF59C4D72/model.tflite",
+    "bytes": 180520,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "498e3205bf85da0a8f8b57e292d4bd12b31d691e04039c04bedcde75d1ea7459"
+  },
+  {
+    "path": "sandbox/cleanup-browser-validation/profile/optimization_guide_model_store/25/E6DC4029A1E4B4C1/B4B91DABF59C4D72/visual_model_desktop.tflite",
+    "bytes": 3452826,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "eaea1c7eeb2af4fcb59c7db541df61057c4ccdb8a4d4f70af75776d70aa1850c"
+  },
+  {
+    "path": "sandbox/cleanup-browser-validation/profile/optimization_guide_model_store/26/E6DC4029A1E4B4C1/06E33EC6ED126881/model.tflite",
+    "bytes": 7112,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "92e81784c55f74000441d25a29c895b19ca1bd53efe0177ce3c27fbdb7869fa1"
+  },
+  {
+    "path": "sandbox/cleanup-browser-validation/profile/optimization_guide_model_store/43/E6DC4029A1E4B4C1/1B02C049D6420010/model.tflite",
+    "bytes": 36778224,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "bbc7dc1ae142e321b07749bc824f487c199334f6cfc567166ce8e2e58bd955a4"
+  },
+  {
+    "path": "sandbox/cleanup-browser-validation/profile/optimization_guide_model_store/45/E6DC4029A1E4B4C1/244D9BBC4CF34042/model.tflite",
+    "bytes": 131736,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "4c897707a45592774ffc4c65b207589efee2f1667798f96b4e37245047466e3e"
+  },
+  {
+    "path": "sandbox/cleanup-browser-validation/profile/optimization_guide_model_store/9/E6DC4029A1E4B4C1/705033B3DD1B7822/model.tflite",
+    "bytes": 31520,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "21ecf18a9eb18a66870208035d857a536d6d714e0eec47a86d316ade56bb90a4"
+  },
+  {
+    "path": "sandbox/cleanup-browser-validation/profile-final/optimization_guide_model_store/13/E6DC4029A1E4B4C1/9D62A2CF057E2A97/model.tflite",
+    "bytes": 1219248,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "3c88fd9805746be38b8d567b81dccee7c790ed17ca58902e69506b1e4c41fd3f"
+  },
+  {
+    "path": "sandbox/cleanup-browser-validation/profile-final/optimization_guide_model_store/2/E6DC4029A1E4B4C1/D215EA98C7A6ECCA/model.tflite",
+    "bytes": 392048,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "a0956386dc64fd9f4883c8741f950cd60a56859616b159c9e4251c9eb0ac5534"
+  },
+  {
+    "path": "sandbox/cleanup-browser-validation/profile-final/optimization_guide_model_store/20/E6DC4029A1E4B4C1/47AA61F454FB0D90/model.tflite",
+    "bytes": 31520,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "e8c55250b30a5999403e9b7ad1031223ca3297e2a79de5bd169581f734691eab"
+  },
+  {
+    "path": "sandbox/cleanup-browser-validation/profile-final/optimization_guide_model_store/24/E6DC4029A1E4B4C1/7AA7651805940148/model.tflite",
+    "bytes": 4602152,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "b7de6a063847c456e8ddfa668e4f731861f82cfb95bcad9909e9f604ed62d633"
+  },
+  {
+    "path": "sandbox/cleanup-browser-validation/profile-final/optimization_guide_model_store/25/E6DC4029A1E4B4C1/59D4A76D330001AC/model.tflite",
+    "bytes": 180520,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "498e3205bf85da0a8f8b57e292d4bd12b31d691e04039c04bedcde75d1ea7459"
+  },
+  {
+    "path": "sandbox/cleanup-browser-validation/profile-final/optimization_guide_model_store/25/E6DC4029A1E4B4C1/59D4A76D330001AC/visual_model_desktop.tflite",
+    "bytes": 3452826,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "eaea1c7eeb2af4fcb59c7db541df61057c4ccdb8a4d4f70af75776d70aa1850c"
+  },
+  {
+    "path": "sandbox/cleanup-browser-validation/profile-final/optimization_guide_model_store/26/E6DC4029A1E4B4C1/62B5AC33A654CB8F/model.tflite",
+    "bytes": 7112,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "92e81784c55f74000441d25a29c895b19ca1bd53efe0177ce3c27fbdb7869fa1"
+  },
+  {
+    "path": "sandbox/cleanup-browser-validation/profile-final/optimization_guide_model_store/43/E6DC4029A1E4B4C1/6613A7691F5D7A5B/model.tflite",
+    "bytes": 36778224,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "bbc7dc1ae142e321b07749bc824f487c199334f6cfc567166ce8e2e58bd955a4"
+  },
+  {
+    "path": "sandbox/cleanup-browser-validation/profile-final/optimization_guide_model_store/45/E6DC4029A1E4B4C1/F1FCBDA708106EE4/model.tflite",
+    "bytes": 131736,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "4c897707a45592774ffc4c65b207589efee2f1667798f96b4e37245047466e3e"
+  },
+  {
+    "path": "sandbox/cleanup-browser-validation/profile-final/optimization_guide_model_store/9/E6DC4029A1E4B4C1/624D9ABF71859D65/model.tflite",
+    "bytes": 31520,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "21ecf18a9eb18a66870208035d857a536d6d714e0eec47a86d316ade56bb90a4"
+  },
+  {
+    "path": "sandbox/ginhawa-navigation-browser-validation/profile/optimization_guide_model_store/13/E6DC4029A1E4B4C1/BC6B8AE65B2A753C/model.tflite",
+    "bytes": 1219248,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "3c88fd9805746be38b8d567b81dccee7c790ed17ca58902e69506b1e4c41fd3f"
+  },
+  {
+    "path": "sandbox/ginhawa-navigation-browser-validation/profile/optimization_guide_model_store/2/E6DC4029A1E4B4C1/9757829D7EDECED1/model.tflite",
+    "bytes": 392048,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "a0956386dc64fd9f4883c8741f950cd60a56859616b159c9e4251c9eb0ac5534"
+  },
+  {
+    "path": "sandbox/ginhawa-navigation-browser-validation/profile/optimization_guide_model_store/20/E6DC4029A1E4B4C1/C2F464F6FAEA385A/model.tflite",
+    "bytes": 31520,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "e8c55250b30a5999403e9b7ad1031223ca3297e2a79de5bd169581f734691eab"
+  },
+  {
+    "path": "sandbox/ginhawa-navigation-browser-validation/profile/optimization_guide_model_store/24/E6DC4029A1E4B4C1/3267997D7533C10D/model.tflite",
+    "bytes": 4602152,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "b7de6a063847c456e8ddfa668e4f731861f82cfb95bcad9909e9f604ed62d633"
+  },
+  {
+    "path": "sandbox/ginhawa-navigation-browser-validation/profile/optimization_guide_model_store/25/E6DC4029A1E4B4C1/B4858416CF69A886/model.tflite",
+    "bytes": 180520,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "498e3205bf85da0a8f8b57e292d4bd12b31d691e04039c04bedcde75d1ea7459"
+  },
+  {
+    "path": "sandbox/ginhawa-navigation-browser-validation/profile/optimization_guide_model_store/25/E6DC4029A1E4B4C1/B4858416CF69A886/visual_model_desktop.tflite",
+    "bytes": 3452826,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "eaea1c7eeb2af4fcb59c7db541df61057c4ccdb8a4d4f70af75776d70aa1850c"
+  },
+  {
+    "path": "sandbox/ginhawa-navigation-browser-validation/profile/optimization_guide_model_store/26/E6DC4029A1E4B4C1/29FF87D73FF06D61/model.tflite",
+    "bytes": 7112,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "92e81784c55f74000441d25a29c895b19ca1bd53efe0177ce3c27fbdb7869fa1"
+  },
+  {
+    "path": "sandbox/ginhawa-navigation-browser-validation/profile/optimization_guide_model_store/43/E6DC4029A1E4B4C1/1DC58A399046513B/model.tflite",
+    "bytes": 36778224,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "bbc7dc1ae142e321b07749bc824f487c199334f6cfc567166ce8e2e58bd955a4"
+  },
+  {
+    "path": "sandbox/ginhawa-navigation-browser-validation/profile/optimization_guide_model_store/45/E6DC4029A1E4B4C1/8EB6B0B17421AE92/model.tflite",
+    "bytes": 131736,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "4c897707a45592774ffc4c65b207589efee2f1667798f96b4e37245047466e3e"
+  },
+  {
+    "path": "sandbox/ginhawa-navigation-browser-validation/profile/optimization_guide_model_store/9/E6DC4029A1E4B4C1/F741C328C9260441/model.tflite",
+    "bytes": 31520,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "21ecf18a9eb18a66870208035d857a536d6d714e0eec47a86d316ade56bb90a4"
+  },
+  {
+    "path": "sandbox/intro-slide-browser-validation/profile/optimization_guide_model_store/13/E6DC4029A1E4B4C1/5F088C715C32ADF2/model.tflite",
+    "bytes": 1219248,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "3c88fd9805746be38b8d567b81dccee7c790ed17ca58902e69506b1e4c41fd3f"
+  },
+  {
+    "path": "sandbox/intro-slide-browser-validation/profile/optimization_guide_model_store/2/E6DC4029A1E4B4C1/D379D29E61EA44F6/model.tflite",
+    "bytes": 392048,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "a0956386dc64fd9f4883c8741f950cd60a56859616b159c9e4251c9eb0ac5534"
+  },
+  {
+    "path": "sandbox/intro-slide-browser-validation/profile/optimization_guide_model_store/20/E6DC4029A1E4B4C1/F9D1C2DA48289262/model.tflite",
+    "bytes": 31520,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "e8c55250b30a5999403e9b7ad1031223ca3297e2a79de5bd169581f734691eab"
+  },
+  {
+    "path": "sandbox/intro-slide-browser-validation/profile/optimization_guide_model_store/24/E6DC4029A1E4B4C1/9992FF096D1BA385/model.tflite",
+    "bytes": 4602152,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "b7de6a063847c456e8ddfa668e4f731861f82cfb95bcad9909e9f604ed62d633"
+  },
+  {
+    "path": "sandbox/intro-slide-browser-validation/profile/optimization_guide_model_store/25/E6DC4029A1E4B4C1/4C0352AB17BB598F/model.tflite",
+    "bytes": 180520,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "498e3205bf85da0a8f8b57e292d4bd12b31d691e04039c04bedcde75d1ea7459"
+  },
+  {
+    "path": "sandbox/intro-slide-browser-validation/profile/optimization_guide_model_store/25/E6DC4029A1E4B4C1/4C0352AB17BB598F/visual_model_desktop.tflite",
+    "bytes": 3452826,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "eaea1c7eeb2af4fcb59c7db541df61057c4ccdb8a4d4f70af75776d70aa1850c"
+  },
+  {
+    "path": "sandbox/intro-slide-browser-validation/profile/optimization_guide_model_store/26/E6DC4029A1E4B4C1/2FC3C19F1A6C6C19/model.tflite",
+    "bytes": 7112,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "92e81784c55f74000441d25a29c895b19ca1bd53efe0177ce3c27fbdb7869fa1"
+  },
+  {
+    "path": "sandbox/intro-slide-browser-validation/profile/optimization_guide_model_store/45/E6DC4029A1E4B4C1/43998BEC9492A8B6/model.tflite",
+    "bytes": 131736,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "4c897707a45592774ffc4c65b207589efee2f1667798f96b4e37245047466e3e"
+  },
+  {
+    "path": "sandbox/intro-slide-browser-validation/profile/optimization_guide_model_store/9/E6DC4029A1E4B4C1/8CC6C7949C6DA094/model.tflite",
+    "bytes": 31520,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "21ecf18a9eb18a66870208035d857a536d6d714e0eec47a86d316ade56bb90a4"
+  },
+  {
+    "path": "sandbox/lesson-two-validator-after/profile/optimization_guide_model_store/13/E6DC4029A1E4B4C1/262BC9B2F7556672/model.tflite",
+    "bytes": 1219248,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "3c88fd9805746be38b8d567b81dccee7c790ed17ca58902e69506b1e4c41fd3f"
+  },
+  {
+    "path": "sandbox/lesson-two-validator-after/profile/optimization_guide_model_store/2/E6DC4029A1E4B4C1/D1BABEEB199FAA13/model.tflite",
+    "bytes": 392048,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "a0956386dc64fd9f4883c8741f950cd60a56859616b159c9e4251c9eb0ac5534"
+  },
+  {
+    "path": "sandbox/lesson-two-validator-after/profile/optimization_guide_model_store/20/E6DC4029A1E4B4C1/2AC0D4D2B6B8BB8D/model.tflite",
+    "bytes": 31520,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "e8c55250b30a5999403e9b7ad1031223ca3297e2a79de5bd169581f734691eab"
+  },
+  {
+    "path": "sandbox/lesson-two-validator-after/profile/optimization_guide_model_store/24/E6DC4029A1E4B4C1/02DC5881152F4FE0/model.tflite",
+    "bytes": 4602152,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "b7de6a063847c456e8ddfa668e4f731861f82cfb95bcad9909e9f604ed62d633"
+  },
+  {
+    "path": "sandbox/lesson-two-validator-after/profile/optimization_guide_model_store/25/E6DC4029A1E4B4C1/DA373400F68D73D9/model.tflite",
+    "bytes": 180520,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "498e3205bf85da0a8f8b57e292d4bd12b31d691e04039c04bedcde75d1ea7459"
+  },
+  {
+    "path": "sandbox/lesson-two-validator-after/profile/optimization_guide_model_store/25/E6DC4029A1E4B4C1/DA373400F68D73D9/visual_model_desktop.tflite",
+    "bytes": 3452826,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "eaea1c7eeb2af4fcb59c7db541df61057c4ccdb8a4d4f70af75776d70aa1850c"
+  },
+  {
+    "path": "sandbox/lesson-two-validator-after/profile/optimization_guide_model_store/26/E6DC4029A1E4B4C1/21B9A6C97F349F73/model.tflite",
+    "bytes": 7112,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "92e81784c55f74000441d25a29c895b19ca1bd53efe0177ce3c27fbdb7869fa1"
+  },
+  {
+    "path": "sandbox/lesson-two-validator-after/profile/optimization_guide_model_store/43/E6DC4029A1E4B4C1/3076E5764E155649/model.tflite",
+    "bytes": 36778224,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "bbc7dc1ae142e321b07749bc824f487c199334f6cfc567166ce8e2e58bd955a4"
+  },
+  {
+    "path": "sandbox/lesson-two-validator-after/profile/optimization_guide_model_store/45/E6DC4029A1E4B4C1/789301E8759AB9CF/model.tflite",
+    "bytes": 131736,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "4c897707a45592774ffc4c65b207589efee2f1667798f96b4e37245047466e3e"
+  },
+  {
+    "path": "sandbox/lesson-two-validator-after/profile/optimization_guide_model_store/9/E6DC4029A1E4B4C1/86C9149AE3C1D77A/model.tflite",
+    "bytes": 31520,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "21ecf18a9eb18a66870208035d857a536d6d714e0eec47a86d316ade56bb90a4"
+  },
+  {
+    "path": "sandbox/writing-mastery-web/models/baya/Baybayin_EfficientNetB0_BiLSTM_1.0.onnx",
+    "bytes": 17175331,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "c329f2f0d9862f7e369da5e946eaf7ce9eca978568123b65003b3aa93b075630"
+  },
+  {
+    "path": "sandbox/writing-mastery-web/models/baya/Baybayin_EfficientNetB0_BiLSTM_1.1.onnx",
+    "bytes": 17175276,
+    "classification": "UNCERTAIN",
+    "reason": "Requires consumer/context review",
+    "sha256": "32b63d2f36802e5792006c07f18bcc1aead2f9d20ed1181edc1feebf59ab70b1"
+  }
+]

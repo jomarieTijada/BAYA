@@ -78,6 +78,9 @@ raw-strokes/
 dist-*/
 apps/mobile/dist-*/
 
+# Full local cleanup inventories (kept in the external recovery archive)
+docs/cleanup/20261026/git-ignored.txt
+
 # Local development assets and sandbox experiments (large videos >250MB)
 dev-assets/
 sandbox/

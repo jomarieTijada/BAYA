@@ -1,0 +1,74 @@
+[
+  {
+    "original": "C:\\BAYA\\apps\\mobile\\public\\models\\baya\\Baybayin_CustomCNN8_1.1_labels.json",
+    "destination": "C:\\BAYA\\ml\\rollback\\models\\baya\\Baybayin_CustomCNN8_1.1_labels.json",
+    "sha256": "C68ADE6537C59AB2D55872A9E3ED8D75083C89E35722A5B3D63E715CE47D4B91",
+    "bytes": 2088
+  },
+  {
+    "original": "C:\\BAYA\\apps\\mobile\\public\\models\\baya\\Baybayin_CustomCNN8_1.1_onnx_contract.json",
+    "destination": "C:\\BAYA\\ml\\rollback\\models\\baya\\Baybayin_CustomCNN8_1.1_onnx_contract.json",
+    "sha256": "D798ED7FF7301E2F74C1CCBD3577D720A57EF56572EF9DD7DECC8901586B36BC",
+    "bytes": 4406
+  },
+  {
+    "original": "C:\\BAYA\\apps\\mobile\\public\\models\\baya\\Baybayin_CustomCNN8_1.1.onnx",
+    "destination": "C:\\BAYA\\ml\\rollback\\models\\baya\\Baybayin_CustomCNN8_1.1.onnx",
+    "sha256": "422F683EB8447D56A6C327E7FAE3333F814FAB91C28BC99B69FED68AE1D8DBF2",
+    "bytes": 4857266
+  },
+  {
+    "original": "C:\\BAYA\\apps\\mobile\\public\\models\\baya\\Baybayin_EfficientNetB0_BiLSTM_1.1_onnx_contract.json",
+    "destination": "C:\\BAYA\\ml\\rollback\\models\\baya\\Baybayin_EfficientNetB0_BiLSTM_1.1_onnx_contract.json",
+    "sha256": "8505534B8E1FD0C467AA80CB6EF1D18831865948B725A58DD425977D8A114DC7",
+    "bytes": 5214
+  },
+  {
+    "original": "C:\\BAYA\\apps\\mobile\\public\\models\\baya\\Baybayin_EfficientNetB0_BiLSTM_1.1.onnx",
+    "destination": "C:\\BAYA\\ml\\rollback\\models\\baya\\Baybayin_EfficientNetB0_BiLSTM_1.1.onnx",
+    "sha256": "32B63D2F36802E5792006C07F18BCC1AEAD2F9D20ED1181EDC1FEEBF59AB70B1",
+    "bytes": 17175276
+  },
+  {
+    "original": "C:\\BAYA\\apps\\mobile\\public\\models\\baya\\Baybayin_EfficientNetB0_BiLSTM_labels_1.1.json",
+    "destination": "C:\\BAYA\\ml\\rollback\\models\\baya\\Baybayin_EfficientNetB0_BiLSTM_labels_1.1.json",
+    "sha256": "C68ADE6537C59AB2D55872A9E3ED8D75083C89E35722A5B3D63E715CE47D4B91",
+    "bytes": 2088
+  },
+  {
+    "original": "C:\\BAYA\\apps\\mobile\\public\\models\\baya\\Baybayin_EfficientNetB0_BiLSTM_preprocessing_1.1.json",
+    "destination": "C:\\BAYA\\ml\\rollback\\models\\baya\\Baybayin_EfficientNetB0_BiLSTM_preprocessing_1.1.json",
+    "sha256": "007F02F966AA0F516EDCBBD94FEE2F36C55057A924659F23437B69386B1D4A4D",
+    "bytes": 990
+  },
+  {
+    "original": "C:\\BAYA\\apps\\mobile\\public\\models\\baya\\Baybayin_EfficientNetB0_BiLSTM_v1_1_metrics.json",
+    "destination": "C:\\BAYA\\ml\\rollback\\models\\baya\\Baybayin_EfficientNetB0_BiLSTM_v1_1_metrics.json",
+    "sha256": "25494D4771CC7601B7744C95EB3D0218A0AEE090B05FAC029596663A77870372",
+    "bytes": 3034
+  },
+  {
+    "original": "C:\\BAYA\\apps\\mobile\\public\\models\\baya\\Baybayin_EfficientNetB0_ExternalFirst_v2_labels.json",
+    "destination": "C:\\BAYA\\ml\\rollback\\models\\baya\\Baybayin_EfficientNetB0_ExternalFirst_v2_labels.json",
+    "sha256": "C68ADE6537C59AB2D55872A9E3ED8D75083C89E35722A5B3D63E715CE47D4B91",
+    "bytes": 2088
+  },
+  {
+    "original": "C:\\BAYA\\apps\\mobile\\public\\models\\baya\\Baybayin_EfficientNetB0_ExternalFirst_v2_onnx_contract.json",
+    "destination": "C:\\BAYA\\ml\\rollback\\models\\baya\\Baybayin_EfficientNetB0_ExternalFirst_v2_onnx_contract.json",
+    "sha256": "007B801FE8E505600541D06E0FF69F5DE4D0F5B32F59E219A5CF3700EFF95371",
+    "bytes": 3935
+  },
+  {
+    "original": "C:\\BAYA\\apps\\mobile\\public\\models\\baya\\Baybayin_EfficientNetB0_ExternalFirst_v2.onnx",
+    "destination": "C:\\BAYA\\ml\\rollback\\models\\baya\\Baybayin_EfficientNetB0_ExternalFirst_v2.onnx",
+    "sha256": "C09AAC56B853841CA4013ECC3617C1E9FDCC3053B2EEC40EAA3038393A0C9396",
+    "bytes": 16799019
+  },
+  {
+    "original": "C:\\BAYA\\apps\\mobile\\public\\models\\baya\\Baybayin_EfficientNetB0_imagenet_finetuned_finetune_1.0_onnx_contract.json",
+    "destination": "C:\\BAYA\\ml\\rollback\\models\\baya\\Baybayin_EfficientNetB0_imagenet_finetuned_finetune_1.0_onnx_contract.json",
+    "sha256": "AB16ADB8EEFE86572D768BA4AFA7A045914A54200FD1FA31F56DF50C76594B36",
+    "bytes": 2941
+  }
+]

@@ -1,0 +1,982 @@
+[
+  {
+    "path": ".gitignore",
+    "action": "modified"
+  },
+  {
+    "path": "apps/mobile/app/README.md",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/app/achievements/README.md",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/app/activities/README.md",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/app/authentication/README.md",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/app/debug/database.tsx",
+    "action": "modified"
+  },
+  {
+    "path": "apps/mobile/app/handwriting/README.md",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/app/home/README.md",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/app/lessons/README.md",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/app/onboarding/README.md",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/app/profile/README.md",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/app/progress/README.md",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/app/settings/README.md",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/components/debug/__tests__/DebugDatabaseRoute.test.tsx",
+    "action": "modified"
+  },
+  {
+    "path": "apps/mobile/components/layout/AppHeader.tsx",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/components/learner/activity/VideoActivityCard.tsx",
+    "action": "modified"
+  },
+  {
+    "path": "apps/mobile/components/learner/cards/MediaCard.tsx",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/components/learner/story/StoryImagePlaceholder.tsx",
+    "action": "modified"
+  },
+  {
+    "path": "apps/mobile/components/learner/story/StoryVisualLearning.tsx",
+    "action": "modified"
+  },
+  {
+    "path": "apps/mobile/components/learner/writing/WritingPracticeScreen.tsx",
+    "action": "modified"
+  },
+  {
+    "path": "apps/mobile/components/learner/writing/bayaCapture.ts",
+    "action": "modified"
+  },
+  {
+    "path": "apps/mobile/components/ui/StatusCard.tsx",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/content/writingMastery.ts",
+    "action": "modified"
+  },
+  {
+    "path": "apps/mobile/ml/README.md",
+    "action": "modified"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/activeModelContract.test.ts",
+    "action": "modified"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/bayaModel.test.ts",
+    "action": "modified"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/bilstmSequence.test.ts",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/alpha-gray/image.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/alpha-gray/input.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/alpha-gray/input.rgba",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/alpha-gray/sequence.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/alpha-gray/shape.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/alpha-gray/source.png",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/blank-image/image.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/blank-image/input.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/blank-image/input.rgba",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/blank-image/sequence.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/blank-image/shape.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/blank-image/source.png",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/class-mapping.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/degenerate-duration/image.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/degenerate-duration/input.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/degenerate-duration/input.rgba",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/degenerate-duration/sequence.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/degenerate-duration/shape.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/degenerate-duration/source.png",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/exact-512/image.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/exact-512/input.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/exact-512/input.rgba",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/exact-512/sequence.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/exact-512/shape.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/exact-512/source.png",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/kudlit-above/image.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/kudlit-above/input.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/kudlit-above/input.rgba",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/kudlit-above/sequence.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/kudlit-above/shape.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/kudlit-above/source.png",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/kudlit-below/image.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/kudlit-below/input.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/kudlit-below/input.rgba",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/kudlit-below/sequence.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/kudlit-below/shape.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/kudlit-below/source.png",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/many-strokes-downsampling/image.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/many-strokes-downsampling/input.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/many-strokes-downsampling/input.rgba",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/many-strokes-downsampling/sequence.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/many-strokes-downsampling/shape.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/many-strokes-downsampling/source.png",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/multi-stroke/image.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/multi-stroke/input.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/multi-stroke/input.rgba",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/multi-stroke/sequence.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/multi-stroke/shape.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/multi-stroke/source.png",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/narrow-tall/image.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/narrow-tall/input.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/narrow-tall/input.rgba",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/narrow-tall/sequence.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/narrow-tall/shape.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/narrow-tall/source.png",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/notebook-audit.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/over-512/image.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/over-512/input.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/over-512/input.rgba",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/over-512/sequence.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/over-512/shape.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/over-512/source.png",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/real-ka.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/short-sequence/image.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/short-sequence/input.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/short-sequence/input.rgba",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/short-sequence/sequence.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/short-sequence/shape.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/short-sequence/source.png",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/single-stroke/image.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/single-stroke/input.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/single-stroke/input.rgba",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/single-stroke/sequence.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/single-stroke/shape.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/single-stroke/source.png",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/tiny-edge/image.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/tiny-edge/input.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/tiny-edge/input.rgba",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/tiny-edge/sequence.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/tiny-edge/shape.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/tiny-edge/source.png",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/wide/image.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/wide/input.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/wide/input.rgba",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/wide/sequence.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/wide/shape.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/wide/source.png",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/zero-duration/image.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/zero-duration/input.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/zero-duration/input.rgba",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/zero-duration/sequence.f32",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/zero-duration/shape.json",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/zero-duration/source.png",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/imageEdgeCases.test.ts",
+    "action": "modified"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/imagenetPreprocessing.test.ts",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/inkImagePreprocessing.test.ts",
+    "action": "added"
+  },
+  {
+    "path": "apps/mobile/ml/__tests__/writingRecognitionPhases.test.ts",
+    "action": "modified"
+  },
+  {
+    "path": "apps/mobile/ml/bayaClassLabels.ts",
+    "action": "added"
+  },
+  {
+    "path": "apps/mobile/ml/bayaModel.ts",
+    "action": "modified"
+  },
+  {
+    "path": "apps/mobile/ml/bayaModel.web.ts",
+    "action": "modified"
+  },
+  {
+    "path": "apps/mobile/ml/bayaPreprocessing.ts",
+    "action": "modified"
+  },
+  {
+    "path": "apps/mobile/ml/bilstmSequence.ts",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/efficientNetClassLabels.ts",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/efficientNetPreprocessing.ts",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "apps/mobile/ml/inkImagePreprocessing.ts",
+    "action": "added"
+  },
+  {
+    "path": "apps/mobile/ml/writingRecognition.ts",
+    "action": "modified"
+  },
+  {
+    "path": "docs/architecture/routes.md",
+    "action": "added"
+  },
+  {
+    "path": "ml/deployment/onnx/inspect_export_imagenet.py",
+    "action": "modified"
+  },
+  {
+    "path": "ml/deployment/onnx/inspect_export_resnet18.py",
+    "action": "modified"
+  },
+  {
+    "path": "ml/deployment/onnx/replace_bilstm_v1_1.py",
+    "action": "modified"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/alpha-gray/image.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/alpha-gray/input.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/alpha-gray/input.rgba",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/alpha-gray/sequence.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/alpha-gray/shape.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/alpha-gray/source.png",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/blank-image/image.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/blank-image/input.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/blank-image/input.rgba",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/blank-image/sequence.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/blank-image/shape.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/blank-image/source.png",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/class-mapping.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/degenerate-duration/image.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/degenerate-duration/input.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/degenerate-duration/input.rgba",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/degenerate-duration/sequence.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/degenerate-duration/shape.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/degenerate-duration/source.png",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/exact-512/image.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/exact-512/input.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/exact-512/input.rgba",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/exact-512/sequence.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/exact-512/shape.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/exact-512/source.png",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/kudlit-above/image.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/kudlit-above/input.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/kudlit-above/input.rgba",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/kudlit-above/sequence.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/kudlit-above/shape.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/kudlit-above/source.png",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/kudlit-below/image.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/kudlit-below/input.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/kudlit-below/input.rgba",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/kudlit-below/sequence.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/kudlit-below/shape.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/kudlit-below/source.png",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/many-strokes-downsampling/image.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/many-strokes-downsampling/input.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/many-strokes-downsampling/input.rgba",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/many-strokes-downsampling/sequence.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/many-strokes-downsampling/shape.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/many-strokes-downsampling/source.png",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/multi-stroke/image.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/multi-stroke/input.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/multi-stroke/input.rgba",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/multi-stroke/sequence.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/multi-stroke/shape.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/multi-stroke/source.png",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/narrow-tall/image.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/narrow-tall/input.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/narrow-tall/input.rgba",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/narrow-tall/sequence.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/narrow-tall/shape.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/narrow-tall/source.png",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/notebook-audit.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/over-512/image.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/over-512/input.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/over-512/input.rgba",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/over-512/sequence.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/over-512/shape.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/over-512/source.png",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/real-ka.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/short-sequence/image.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/short-sequence/input.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/short-sequence/input.rgba",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/short-sequence/sequence.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/short-sequence/shape.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/short-sequence/source.png",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/single-stroke/image.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/single-stroke/input.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/single-stroke/input.rgba",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/single-stroke/sequence.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/single-stroke/shape.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/single-stroke/source.png",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/tiny-edge/image.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/tiny-edge/input.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/tiny-edge/input.rgba",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/tiny-edge/sequence.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/tiny-edge/shape.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/tiny-edge/source.png",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/wide/image.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/wide/input.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/wide/input.rgba",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/wide/sequence.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/wide/shape.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/wide/source.png",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/zero-duration/image.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/zero-duration/input.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/zero-duration/input.rgba",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/zero-duration/sequence.f32",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/zero-duration/shape.json",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/fixtures/bilstm-v1.1/zero-duration/source.png",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/runtime/README.md",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/runtime/bayaModel.web.ts.txt",
+    "action": "added"
+  },
+  {
+    "path": "ml/rollback/runtime/bilstmSequence.ts.txt",
+    "action": "added"
+  },
+  {
+    "path": "scripts/README.md",
+    "action": "modified"
+  },
+  {
+    "path": "scripts/benchmark-baya-rollback.mjs",
+    "action": "modified"
+  },
+  {
+    "path": "scripts/test-bilstm-ui-smoke.mjs",
+    "action": "modified"
+  },
+  {
+    "path": "scripts/test-env-cdp.mjs",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "scripts/test-interactive-cdp.mjs",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "scripts/test-mem-cdp.mjs",
+    "action": "removed or relocated"
+  },
+  {
+    "path": "scripts/verify-bilstm-v1.1-browser.mjs",
+    "action": "modified"
+  },
+  {
+    "path": "scripts/verify-custom-cnn-browser.mjs",
+    "action": "modified"
+  },
+  {
+    "path": "scripts/verify-custom-cnn8-browser.mjs",
+    "action": "modified"
+  },
+  {
+    "path": "scripts/verify-efficientnetb0-browser.mjs",
+    "action": "modified"
+  },
+  {
+    "path": "scripts/verify-external-v2-browser.mjs",
+    "action": "modified"
+  },
+  {
+    "path": "scripts/verify-resnet18-browser.mjs",
+    "action": "modified"
+  }
+]

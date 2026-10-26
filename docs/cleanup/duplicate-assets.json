@@ -1,0 +1,1892 @@
+[
+  [
+    {
+      "path": "android/app/src/main/res/drawable-hdpi/splashscreen_logo.png",
+      "bytes": 20754,
+      "category": "UNCERTAIN",
+      "sha256": "721c895579cb08ec4c9a0fe7dadafe9a97c33ef758d3578ad5e8b540de59f974",
+      "action": "Review; do not delete"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable-hdpi/splashscreen_logo.png",
+      "bytes": 20754,
+      "category": "ACTIVE",
+      "sha256": "721c895579cb08ec4c9a0fe7dadafe9a97c33ef758d3578ad5e8b540de59f974",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "android/app/src/main/res/drawable-mdpi/splashscreen_logo.png",
+      "bytes": 12863,
+      "category": "UNCERTAIN",
+      "sha256": "f84b9b17a4a1c7d7dd840cd272c07a6c3fd66d5a9826b64bb53facb6f176bc24",
+      "action": "Review; do not delete"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable-mdpi/splashscreen_logo.png",
+      "bytes": 12863,
+      "category": "ACTIVE",
+      "sha256": "f84b9b17a4a1c7d7dd840cd272c07a6c3fd66d5a9826b64bb53facb6f176bc24",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "android/app/src/main/res/drawable-xhdpi/splashscreen_logo.png",
+      "bytes": 29081,
+      "category": "UNCERTAIN",
+      "sha256": "e1c5250e339add5ed7849cb0859d052edb9781abb91db049e68ae3a4059247d7",
+      "action": "Review; do not delete"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable-xhdpi/splashscreen_logo.png",
+      "bytes": 29081,
+      "category": "ACTIVE",
+      "sha256": "e1c5250e339add5ed7849cb0859d052edb9781abb91db049e68ae3a4059247d7",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "android/app/src/main/res/drawable-xxhdpi/splashscreen_logo.png",
+      "bytes": 47123,
+      "category": "UNCERTAIN",
+      "sha256": "23d97ccb41a821ee345b2c5bb0c9bdab730a751a9227925acbf0af021dc38a9b",
+      "action": "Review; do not delete"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable-xxhdpi/splashscreen_logo.png",
+      "bytes": 47123,
+      "category": "ACTIVE",
+      "sha256": "23d97ccb41a821ee345b2c5bb0c9bdab730a751a9227925acbf0af021dc38a9b",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "android/app/src/main/res/drawable-xxxhdpi/splashscreen_logo.png",
+      "bytes": 66529,
+      "category": "UNCERTAIN",
+      "sha256": "be9fac5c4cda48c41dce592288c486524bba3e4ca7fa00c0a04a46928154b5bf",
+      "action": "Review; do not delete"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable-xxxhdpi/splashscreen_logo.png",
+      "bytes": 66529,
+      "category": "ACTIVE",
+      "sha256": "be9fac5c4cda48c41dce592288c486524bba3e4ca7fa00c0a04a46928154b5bf",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/branding/app/favicon.png",
+      "bytes": 1129,
+      "category": "ACTIVE",
+      "sha256": "a4e030697a7571b3e95d31860e4da55d2f98e5e861e2b55e414f45a8556828ba",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "apps/mobile/public/favicon.png",
+      "bytes": 1129,
+      "category": "ACTIVE",
+      "sha256": "a4e030697a7571b3e95d31860e4da55d2f98e5e861e2b55e414f45a8556828ba",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/gavino/a.png",
+      "bytes": 7021,
+      "category": "ACTIVE",
+      "sha256": "62feef15410a911d9c79a6ecb37a5150a4e37a477fbef73062b6e03a054cca3d",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "Gavino_Baybayin_PNG/Gavino Baybayin Characters SMALL/VOWELS/Gavino Baybayin - A.png",
+      "bytes": 7021,
+      "category": "RESEARCH",
+      "sha256": "62feef15410a911d9c79a6ecb37a5150a4e37a477fbef73062b6e03a054cca3d",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/gavino/ba.png",
+      "bytes": 6629,
+      "category": "ACTIVE",
+      "sha256": "0a3f0afa53a1d4f626788fe9188cfd7c4a46679b3b066bcc3f44d4b7a98c3a9a",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "Gavino_Baybayin_PNG/Gavino Baybayin Characters SMALL/B/Gavino Baybayin - BA.png",
+      "bytes": 6629,
+      "category": "RESEARCH",
+      "sha256": "0a3f0afa53a1d4f626788fe9188cfd7c4a46679b3b066bcc3f44d4b7a98c3a9a",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/gavino/da_ra.png",
+      "bytes": 7288,
+      "category": "ACTIVE",
+      "sha256": "91d20a58603372e54656dbfeb9152fd1d537e92e4b2200b02b1b4d168342d1be",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "Gavino_Baybayin_PNG/Gavino Baybayin Characters SMALL/D_R/Gavino Baybayin - DRA.png",
+      "bytes": 7288,
+      "category": "RESEARCH",
+      "sha256": "91d20a58603372e54656dbfeb9152fd1d537e92e4b2200b02b1b4d168342d1be",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/gavino/e_i.png",
+      "bytes": 8358,
+      "category": "ACTIVE",
+      "sha256": "b4ef12f146c6a674fd80833b2c99d41afe1bce7ddfa1aa9946a759e49c38a061",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "Gavino_Baybayin_PNG/Gavino Baybayin Characters SMALL/VOWELS/Gavino Baybayin - IE.png",
+      "bytes": 8358,
+      "category": "RESEARCH",
+      "sha256": "b4ef12f146c6a674fd80833b2c99d41afe1bce7ddfa1aa9946a759e49c38a061",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/gavino/ga.png",
+      "bytes": 8365,
+      "category": "ACTIVE",
+      "sha256": "6d881c9132739362f22bf047a0e80612dd1d219486173de6c3c948f38d5385a8",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "Gavino_Baybayin_PNG/Gavino Baybayin Characters SMALL/G/Gavino Baybayin - GA.png",
+      "bytes": 8365,
+      "category": "RESEARCH",
+      "sha256": "6d881c9132739362f22bf047a0e80612dd1d219486173de6c3c948f38d5385a8",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/gavino/ha.png",
+      "bytes": 5737,
+      "category": "ACTIVE",
+      "sha256": "af89d172bfbeaf349084de072205cb5f42a6f79382f24cda018b2b297f32c48c",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "Gavino_Baybayin_PNG/Gavino Baybayin Characters SMALL/H/Gavino Baybayin - HA.png",
+      "bytes": 5737,
+      "category": "RESEARCH",
+      "sha256": "af89d172bfbeaf349084de072205cb5f42a6f79382f24cda018b2b297f32c48c",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/gavino/ka.png",
+      "bytes": 8683,
+      "category": "ACTIVE",
+      "sha256": "56b4159d6d303fa8bc24423794e5a22ada3e2d49e85e07de5aef147d76a4c40e",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "Gavino_Baybayin_PNG/Gavino Baybayin Characters SMALL/K/Gavino Baybayin - KA.png",
+      "bytes": 8683,
+      "category": "RESEARCH",
+      "sha256": "56b4159d6d303fa8bc24423794e5a22ada3e2d49e85e07de5aef147d76a4c40e",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/gavino/la.png",
+      "bytes": 6275,
+      "category": "ACTIVE",
+      "sha256": "acf3304f2a8e85eea87914496e9863c32fe5910b22125dc7237129d281b910a5",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "Gavino_Baybayin_PNG/Gavino Baybayin Characters SMALL/L/Gavino Baybayin - LA.png",
+      "bytes": 6275,
+      "category": "RESEARCH",
+      "sha256": "acf3304f2a8e85eea87914496e9863c32fe5910b22125dc7237129d281b910a5",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/gavino/ma.png",
+      "bytes": 6443,
+      "category": "ACTIVE",
+      "sha256": "7b81716c779ce99f908a9e7c51977063701954f6d41681ecef8b3c4f6b06b766",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "Gavino_Baybayin_PNG/Gavino Baybayin Characters SMALL/M/Gavino Baybayin - MA.png",
+      "bytes": 6443,
+      "category": "RESEARCH",
+      "sha256": "7b81716c779ce99f908a9e7c51977063701954f6d41681ecef8b3c4f6b06b766",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/gavino/na.png",
+      "bytes": 7336,
+      "category": "ACTIVE",
+      "sha256": "bdfa801b4accd029e2a3027d30c8a9110a6b312938e4786fd90e974e888e0213",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "Gavino_Baybayin_PNG/Gavino Baybayin Characters SMALL/N/Gavino Baybayin - NA.png",
+      "bytes": 7336,
+      "category": "RESEARCH",
+      "sha256": "bdfa801b4accd029e2a3027d30c8a9110a6b312938e4786fd90e974e888e0213",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/gavino/nga.png",
+      "bytes": 8184,
+      "category": "ACTIVE",
+      "sha256": "f631768b98f19d5c9542705985011026044eeea87add358af7941c1299a877fd",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "Gavino_Baybayin_PNG/Gavino Baybayin Characters SMALL/NG/Gavino Baybayin - NGA.png",
+      "bytes": 8184,
+      "category": "RESEARCH",
+      "sha256": "f631768b98f19d5c9542705985011026044eeea87add358af7941c1299a877fd",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/gavino/o_u.png",
+      "bytes": 4843,
+      "category": "ACTIVE",
+      "sha256": "2502116aeff7ea1ca27723b0aab516e64fe9320e93f6e060f121f8a54b729d3f",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "Gavino_Baybayin_PNG/Gavino Baybayin Characters SMALL/VOWELS/Gavino Baybayin - OU.png",
+      "bytes": 4843,
+      "category": "RESEARCH",
+      "sha256": "2502116aeff7ea1ca27723b0aab516e64fe9320e93f6e060f121f8a54b729d3f",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/gavino/pa.png",
+      "bytes": 6997,
+      "category": "ACTIVE",
+      "sha256": "94964bfbaa548f803cde3230c925b177d82d00111608980cf132099c17c519d4",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "Gavino_Baybayin_PNG/Gavino Baybayin Characters SMALL/P/Gavino Baybayin - PA.png",
+      "bytes": 6997,
+      "category": "RESEARCH",
+      "sha256": "94964bfbaa548f803cde3230c925b177d82d00111608980cf132099c17c519d4",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/gavino/sa.png",
+      "bytes": 8678,
+      "category": "ACTIVE",
+      "sha256": "3ab4d82f652cfdd98731cfdabe137840f6b93f118d9dbb640b239b82cd53da80",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "Gavino_Baybayin_PNG/Gavino Baybayin Characters SMALL/S/Gavino Baybayin - SA.png",
+      "bytes": 8678,
+      "category": "RESEARCH",
+      "sha256": "3ab4d82f652cfdd98731cfdabe137840f6b93f118d9dbb640b239b82cd53da80",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/gavino/ta.png",
+      "bytes": 6640,
+      "category": "ACTIVE",
+      "sha256": "0f30e1cb78243a4036fcef043a22a8292daa776b792070343c9e78301f5de17b",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "Gavino_Baybayin_PNG/Gavino Baybayin Characters SMALL/T/Gavino Baybayin - TA.png",
+      "bytes": 6640,
+      "category": "RESEARCH",
+      "sha256": "0f30e1cb78243a4036fcef043a22a8292daa776b792070343c9e78301f5de17b",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/gavino/wa.png",
+      "bytes": 5967,
+      "category": "ACTIVE",
+      "sha256": "70da38b4cd0e7e98eae61732272edaa33e7088df517715f751b05db02abfef03",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "Gavino_Baybayin_PNG/Gavino Baybayin Characters SMALL/W/Gavino Baybayin - WA.png",
+      "bytes": 5967,
+      "category": "RESEARCH",
+      "sha256": "70da38b4cd0e7e98eae61732272edaa33e7088df517715f751b05db02abfef03",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/gavino/ya.png",
+      "bytes": 6056,
+      "category": "ACTIVE",
+      "sha256": "d01e14581e2149cc6e53313f7306d0a956ebac0dd41e1a04091b7db44a0f1640",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "Gavino_Baybayin_PNG/Gavino Baybayin Characters SMALL/Y/Gavino Baybayin - YA.png",
+      "bytes": 6056,
+      "category": "RESEARCH",
+      "sha256": "d01e14581e2149cc6e53313f7306d0a956ebac0dd41e1a04091b7db44a0f1640",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/a.png",
+      "bytes": 53156,
+      "category": "ACTIVE",
+      "sha256": "583d8a67d5926a22c1591b54a50ea99c389ce5a9ac39b422212f56ace6221470",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/a.png",
+      "bytes": 53156,
+      "category": "RESEARCH",
+      "sha256": "583d8a67d5926a22c1591b54a50ea99c389ce5a9ac39b422212f56ace6221470",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/b.png",
+      "bytes": 56704,
+      "category": "ACTIVE",
+      "sha256": "0f62f9522f064623dfc3b572c7cc5272d178ace13d0553b0dd8be0f905e8b7db",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/b.png",
+      "bytes": 56704,
+      "category": "RESEARCH",
+      "sha256": "0f62f9522f064623dfc3b572c7cc5272d178ace13d0553b0dd8be0f905e8b7db",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/ba.png",
+      "bytes": 62731,
+      "category": "ACTIVE",
+      "sha256": "3da2e07bdc21b5794dcc5de23fd83aa236b7ca14fb0913c17260a9ad3905f7d2",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/ba.png",
+      "bytes": 62731,
+      "category": "RESEARCH",
+      "sha256": "3da2e07bdc21b5794dcc5de23fd83aa236b7ca14fb0913c17260a9ad3905f7d2",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/be_bi.png",
+      "bytes": 53390,
+      "category": "ACTIVE",
+      "sha256": "76f1867bbc0190b828b0610b4affd2e56ce23b52b667218f6722f3a3c16afc41",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/be_bi.png",
+      "bytes": 53390,
+      "category": "RESEARCH",
+      "sha256": "76f1867bbc0190b828b0610b4affd2e56ce23b52b667218f6722f3a3c16afc41",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/bo_bu.png",
+      "bytes": 58790,
+      "category": "ACTIVE",
+      "sha256": "38f2c1b7faa9c4dbe4c2d23c50833cb16577dc20b53d886e0cbde580143ba421",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/bo_bu.png",
+      "bytes": 58790,
+      "category": "RESEARCH",
+      "sha256": "38f2c1b7faa9c4dbe4c2d23c50833cb16577dc20b53d886e0cbde580143ba421",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/d.png",
+      "bytes": 58419,
+      "category": "ACTIVE",
+      "sha256": "516f44ad901e8878428514dc97c0c93025d5448224f1597118c68fb04d704920",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/d.png",
+      "bytes": 58419,
+      "category": "RESEARCH",
+      "sha256": "516f44ad901e8878428514dc97c0c93025d5448224f1597118c68fb04d704920",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/da_ra.png",
+      "bytes": 43377,
+      "category": "ACTIVE",
+      "sha256": "d6ba8cf3f9d204742a453d6cc3cfddc2e8b9b4f4c30df04da2439534d84af9f8",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/da_ra.png",
+      "bytes": 43377,
+      "category": "RESEARCH",
+      "sha256": "d6ba8cf3f9d204742a453d6cc3cfddc2e8b9b4f4c30df04da2439534d84af9f8",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/de_di.png",
+      "bytes": 54771,
+      "category": "ACTIVE",
+      "sha256": "a6a9c3dcf660f228432055e6b17cf048874790ea23137531b352181f27337325",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/de_di.png",
+      "bytes": 54771,
+      "category": "RESEARCH",
+      "sha256": "a6a9c3dcf660f228432055e6b17cf048874790ea23137531b352181f27337325",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/do_du.png",
+      "bytes": 50373,
+      "category": "ACTIVE",
+      "sha256": "d565f79a7f1e98324359c3732989e0d4f8cbb6ca4c3a806d58b039fb909a44e0",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/do_du.png",
+      "bytes": 50373,
+      "category": "RESEARCH",
+      "sha256": "d565f79a7f1e98324359c3732989e0d4f8cbb6ca4c3a806d58b039fb909a44e0",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/e_i.png",
+      "bytes": 47451,
+      "category": "ACTIVE",
+      "sha256": "fc97dad299aef297b321a35165083ae906614534f2de3a0715be084491e55fdb",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/e_i.png",
+      "bytes": 47451,
+      "category": "RESEARCH",
+      "sha256": "fc97dad299aef297b321a35165083ae906614534f2de3a0715be084491e55fdb",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/g.png",
+      "bytes": 54557,
+      "category": "ACTIVE",
+      "sha256": "45e03adb03726884f3a70e2a56c4fdea52524b2733cddf6c756de88cae106589",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/g.png",
+      "bytes": 54557,
+      "category": "RESEARCH",
+      "sha256": "45e03adb03726884f3a70e2a56c4fdea52524b2733cddf6c756de88cae106589",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/ga.png",
+      "bytes": 50311,
+      "category": "ACTIVE",
+      "sha256": "20577f4da3540d57e12f55635949564fc650911b8d5080920b21dd04ec4aad56",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/ga.png",
+      "bytes": 50311,
+      "category": "RESEARCH",
+      "sha256": "20577f4da3540d57e12f55635949564fc650911b8d5080920b21dd04ec4aad56",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/ge_gi.png",
+      "bytes": 55701,
+      "category": "ACTIVE",
+      "sha256": "83dabfd6dc28c38faf14f3e622a351c8139bd3aa1eacb35ffed12d2061b7258a",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/ge_gi.png",
+      "bytes": 55701,
+      "category": "RESEARCH",
+      "sha256": "83dabfd6dc28c38faf14f3e622a351c8139bd3aa1eacb35ffed12d2061b7258a",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/go_gu.png",
+      "bytes": 50020,
+      "category": "ACTIVE",
+      "sha256": "c0d791882b39ac76d2689a5a9df43de3a9a33763b2f52c67a305061e1adda547",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/go_gu.png",
+      "bytes": 50020,
+      "category": "RESEARCH",
+      "sha256": "c0d791882b39ac76d2689a5a9df43de3a9a33763b2f52c67a305061e1adda547",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/h.png",
+      "bytes": 47816,
+      "category": "ACTIVE",
+      "sha256": "b4804607ada791ed42b1ac69bec577b9e0a983dbfa2f40af78a8fdb455792126",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/h.png",
+      "bytes": 47816,
+      "category": "RESEARCH",
+      "sha256": "b4804607ada791ed42b1ac69bec577b9e0a983dbfa2f40af78a8fdb455792126",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/ha.png",
+      "bytes": 38032,
+      "category": "ACTIVE",
+      "sha256": "70deda54a61d38bc15ea0ab9a88ab3ed7fda4520758893825eb300c7347ed0b3",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/ha.png",
+      "bytes": 38032,
+      "category": "RESEARCH",
+      "sha256": "70deda54a61d38bc15ea0ab9a88ab3ed7fda4520758893825eb300c7347ed0b3",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/he_hi.png",
+      "bytes": 45697,
+      "category": "ACTIVE",
+      "sha256": "2992f29f1c06c09c421e63abd6ef4081b6c802fa98f8fbc31e97291b9b5ef679",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/he_hi.png",
+      "bytes": 45697,
+      "category": "RESEARCH",
+      "sha256": "2992f29f1c06c09c421e63abd6ef4081b6c802fa98f8fbc31e97291b9b5ef679",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/ho_hu.png",
+      "bytes": 39742,
+      "category": "ACTIVE",
+      "sha256": "e95ce0e0cba94f5b4e8c18eaa265a4dadd8509a4611e22f56bbc5c95585920c7",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/ho_hu.png",
+      "bytes": 39742,
+      "category": "RESEARCH",
+      "sha256": "e95ce0e0cba94f5b4e8c18eaa265a4dadd8509a4611e22f56bbc5c95585920c7",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/k.png",
+      "bytes": 52679,
+      "category": "ACTIVE",
+      "sha256": "7c43e2ea75b1dd54359383b45590434cfaeb540d58558839dac9415b687f2bb1",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/k.png",
+      "bytes": 52679,
+      "category": "RESEARCH",
+      "sha256": "7c43e2ea75b1dd54359383b45590434cfaeb540d58558839dac9415b687f2bb1",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/ka.png",
+      "bytes": 52310,
+      "category": "ACTIVE",
+      "sha256": "e8a4799b915d9f0db6704a1076b0c999af9bbdf20420e933651328ca6be90847",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/ka.png",
+      "bytes": 52310,
+      "category": "RESEARCH",
+      "sha256": "e8a4799b915d9f0db6704a1076b0c999af9bbdf20420e933651328ca6be90847",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/ke_ki.png",
+      "bytes": 60616,
+      "category": "ACTIVE",
+      "sha256": "98708416f019da35ba6ff7d88b648fffd9f1262eeaac1bdfef63db024fd8348e",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/ke_ki.png",
+      "bytes": 60616,
+      "category": "RESEARCH",
+      "sha256": "98708416f019da35ba6ff7d88b648fffd9f1262eeaac1bdfef63db024fd8348e",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/ko_ku.png",
+      "bytes": 48044,
+      "category": "ACTIVE",
+      "sha256": "343a35b4eb20fe94b66bc19d71ffc682321688df0cbd65e727793f0c4d593332",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/ko_ku.png",
+      "bytes": 48044,
+      "category": "RESEARCH",
+      "sha256": "343a35b4eb20fe94b66bc19d71ffc682321688df0cbd65e727793f0c4d593332",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/l.png",
+      "bytes": 49200,
+      "category": "ACTIVE",
+      "sha256": "f350c79ff9c31feb053f80cb015710b7889dddbd4eb5edc46cf4dc942bef7452",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/l.png",
+      "bytes": 49200,
+      "category": "RESEARCH",
+      "sha256": "f350c79ff9c31feb053f80cb015710b7889dddbd4eb5edc46cf4dc942bef7452",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/la.png",
+      "bytes": 43020,
+      "category": "ACTIVE",
+      "sha256": "09d815b016534bc7b2b96e465904fba3efc2f498eae25f1aa6292b6f1af40ca8",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/la.png",
+      "bytes": 43020,
+      "category": "RESEARCH",
+      "sha256": "09d815b016534bc7b2b96e465904fba3efc2f498eae25f1aa6292b6f1af40ca8",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/le_li.png",
+      "bytes": 51844,
+      "category": "ACTIVE",
+      "sha256": "375805996c057ac268e96b2eec42258495858819bb551d4dde84e5660e5b9f5e",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/le_li.png",
+      "bytes": 51844,
+      "category": "RESEARCH",
+      "sha256": "375805996c057ac268e96b2eec42258495858819bb551d4dde84e5660e5b9f5e",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/lo_lu.png",
+      "bytes": 52550,
+      "category": "ACTIVE",
+      "sha256": "b00c79cf75919bf075c8c635c29908b94de703b46a2a6ddd789985320b4c3606",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/lo_lu.png",
+      "bytes": 52550,
+      "category": "RESEARCH",
+      "sha256": "b00c79cf75919bf075c8c635c29908b94de703b46a2a6ddd789985320b4c3606",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/m.png",
+      "bytes": 54696,
+      "category": "ACTIVE",
+      "sha256": "2be98b943168509e02ad69128692c624ba4b72e9711151208617486e3b6a18fb",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/m.png",
+      "bytes": 54696,
+      "category": "RESEARCH",
+      "sha256": "2be98b943168509e02ad69128692c624ba4b72e9711151208617486e3b6a18fb",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/ma.png",
+      "bytes": 48500,
+      "category": "ACTIVE",
+      "sha256": "568df5976c7c34b74090f238e211f343caf71720920737a8dfb5bb1825c4d057",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/ma.png",
+      "bytes": 48500,
+      "category": "RESEARCH",
+      "sha256": "568df5976c7c34b74090f238e211f343caf71720920737a8dfb5bb1825c4d057",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/me_mi.png",
+      "bytes": 51121,
+      "category": "ACTIVE",
+      "sha256": "bd81291d78417011c08807923b7dad5b3d4e822ff8ab48f8d9035f9b04ff9204",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/me_mi.png",
+      "bytes": 51121,
+      "category": "RESEARCH",
+      "sha256": "bd81291d78417011c08807923b7dad5b3d4e822ff8ab48f8d9035f9b04ff9204",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/mo_mu.png",
+      "bytes": 45431,
+      "category": "ACTIVE",
+      "sha256": "3b55fce728427737eb5b6cf11438af961a6f1991100ed46de5d7dc33678d76ae",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/mo_mu.png",
+      "bytes": 45431,
+      "category": "RESEARCH",
+      "sha256": "3b55fce728427737eb5b6cf11438af961a6f1991100ed46de5d7dc33678d76ae",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/n.png",
+      "bytes": 69141,
+      "category": "ACTIVE",
+      "sha256": "2c53a34cbbdc1a5673da8b6e54752d4f0b99b7787ab397d7fa1e0c4f174516ad",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/n.png",
+      "bytes": 69141,
+      "category": "RESEARCH",
+      "sha256": "2c53a34cbbdc1a5673da8b6e54752d4f0b99b7787ab397d7fa1e0c4f174516ad",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/na.png",
+      "bytes": 62793,
+      "category": "ACTIVE",
+      "sha256": "479c5d7d32871c5da2807d98a73570640a8a92012fe9c2bf3043c927557f1beb",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/na.png",
+      "bytes": 62793,
+      "category": "RESEARCH",
+      "sha256": "479c5d7d32871c5da2807d98a73570640a8a92012fe9c2bf3043c927557f1beb",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/ne_ni.png",
+      "bytes": 61617,
+      "category": "ACTIVE",
+      "sha256": "722d937ea011c072942ffd33ab9b4d542d35cdf8bca9d4ed87438bcb16705409",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/ne_ni.png",
+      "bytes": 61617,
+      "category": "RESEARCH",
+      "sha256": "722d937ea011c072942ffd33ab9b4d542d35cdf8bca9d4ed87438bcb16705409",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/ng.png",
+      "bytes": 68560,
+      "category": "ACTIVE",
+      "sha256": "007dcabca54735b61fde8051bc0e0bf5db7976b0bea01ad0390e0355073c39f4",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/ng.png",
+      "bytes": 68560,
+      "category": "RESEARCH",
+      "sha256": "007dcabca54735b61fde8051bc0e0bf5db7976b0bea01ad0390e0355073c39f4",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/nga.png",
+      "bytes": 36431,
+      "category": "ACTIVE",
+      "sha256": "87b3976b95cbb9e0efa618fe150a0cba4e3c2432f43b4ef50eae3714f5785781",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/nga.png",
+      "bytes": 36431,
+      "category": "RESEARCH",
+      "sha256": "87b3976b95cbb9e0efa618fe150a0cba4e3c2432f43b4ef50eae3714f5785781",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/nge_ngi.png",
+      "bytes": 53396,
+      "category": "ACTIVE",
+      "sha256": "58bdfbc1be953f6089ba74ed8c4125634a87e6513833c94df3aceebad6e0a538",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/nge_ngi.png",
+      "bytes": 53396,
+      "category": "RESEARCH",
+      "sha256": "58bdfbc1be953f6089ba74ed8c4125634a87e6513833c94df3aceebad6e0a538",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/ngo_ngu.png",
+      "bytes": 41969,
+      "category": "ACTIVE",
+      "sha256": "ebdfbf9cdc4d3df30978ad09027a118f8711a7d2d2a4fb5b9bdfc2cb62521686",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/ngo_ngu.png",
+      "bytes": 41969,
+      "category": "RESEARCH",
+      "sha256": "ebdfbf9cdc4d3df30978ad09027a118f8711a7d2d2a4fb5b9bdfc2cb62521686",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/no_nu.png",
+      "bytes": 75750,
+      "category": "ACTIVE",
+      "sha256": "438b9271106406020c9fe16c71f8920fc7353a5e23e03aea018f88efb4a35522",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/no_nu.png",
+      "bytes": 75750,
+      "category": "RESEARCH",
+      "sha256": "438b9271106406020c9fe16c71f8920fc7353a5e23e03aea018f88efb4a35522",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/o_u.png",
+      "bytes": 42735,
+      "category": "ACTIVE",
+      "sha256": "71e36ae76d442a91e7ce750eee6c498d93375581a64ac235a132a28e92ef71c4",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/o_u.png",
+      "bytes": 42735,
+      "category": "RESEARCH",
+      "sha256": "71e36ae76d442a91e7ce750eee6c498d93375581a64ac235a132a28e92ef71c4",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/p.png",
+      "bytes": 44763,
+      "category": "ACTIVE",
+      "sha256": "731d1cef44584a6167c4ee7a1d710608c1aef11b3e7d842accc83bff4caa8c32",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/p.png",
+      "bytes": 44763,
+      "category": "RESEARCH",
+      "sha256": "731d1cef44584a6167c4ee7a1d710608c1aef11b3e7d842accc83bff4caa8c32",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/pa.png",
+      "bytes": 50202,
+      "category": "ACTIVE",
+      "sha256": "3c538f38ee4e7c2f8b04eed14687489506cd47ef2441c6bae18dfeeb1b17b516",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/pa.png",
+      "bytes": 50202,
+      "category": "RESEARCH",
+      "sha256": "3c538f38ee4e7c2f8b04eed14687489506cd47ef2441c6bae18dfeeb1b17b516",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/pe_pi.png",
+      "bytes": 46206,
+      "category": "ACTIVE",
+      "sha256": "715b02547da7ad6bd7aa72749d00b1eb73b9c359d7154038f978d52cbe98b63c",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/pe_pi.png",
+      "bytes": 46206,
+      "category": "RESEARCH",
+      "sha256": "715b02547da7ad6bd7aa72749d00b1eb73b9c359d7154038f978d52cbe98b63c",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/po_pu.png",
+      "bytes": 41473,
+      "category": "ACTIVE",
+      "sha256": "95874154ec45859a33985a732e1d56e751e1f7917680c3603838c6a13f689f07",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/po_pu.png",
+      "bytes": 41473,
+      "category": "RESEARCH",
+      "sha256": "95874154ec45859a33985a732e1d56e751e1f7917680c3603838c6a13f689f07",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/r.png",
+      "bytes": 59873,
+      "category": "ACTIVE",
+      "sha256": "5eec8ff89167c2b1b30324f0f486ab3b44e90b06b6d4d59e793353aeccd7eed1",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/r.png",
+      "bytes": 59873,
+      "category": "RESEARCH",
+      "sha256": "5eec8ff89167c2b1b30324f0f486ab3b44e90b06b6d4d59e793353aeccd7eed1",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/ra.png",
+      "bytes": 50485,
+      "category": "ACTIVE",
+      "sha256": "e7512a9fc4407f3a6ec1261fd7e0f335aafa01762d2eb39b3d6517955bfec3f9",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/ra.png",
+      "bytes": 50485,
+      "category": "RESEARCH",
+      "sha256": "e7512a9fc4407f3a6ec1261fd7e0f335aafa01762d2eb39b3d6517955bfec3f9",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/re_ri.png",
+      "bytes": 48735,
+      "category": "ACTIVE",
+      "sha256": "4c32b30951d564fc74589b063e10a37f7cdbf9de66977426279ea8c827ea30e7",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/re_ri.png",
+      "bytes": 48735,
+      "category": "RESEARCH",
+      "sha256": "4c32b30951d564fc74589b063e10a37f7cdbf9de66977426279ea8c827ea30e7",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/ro_ru.png",
+      "bytes": 54398,
+      "category": "ACTIVE",
+      "sha256": "d18e3d4436c859407f937fb893c71bc30eb7457d4c9bac267927e56458319fa5",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/ro_ru.png",
+      "bytes": 54398,
+      "category": "RESEARCH",
+      "sha256": "d18e3d4436c859407f937fb893c71bc30eb7457d4c9bac267927e56458319fa5",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/s.png",
+      "bytes": 65042,
+      "category": "ACTIVE",
+      "sha256": "6b6c3c07bb7236ec18561d4fa977c18876c84244cde72507b0af0130fd558c10",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/s.png",
+      "bytes": 65042,
+      "category": "RESEARCH",
+      "sha256": "6b6c3c07bb7236ec18561d4fa977c18876c84244cde72507b0af0130fd558c10",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/sa.png",
+      "bytes": 66917,
+      "category": "ACTIVE",
+      "sha256": "946bb3303ee5c68171139bc2fd1516d50a9cfb9fa1959501c98e987421349bac",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/sa.png",
+      "bytes": 66917,
+      "category": "RESEARCH",
+      "sha256": "946bb3303ee5c68171139bc2fd1516d50a9cfb9fa1959501c98e987421349bac",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/se_si.png",
+      "bytes": 66042,
+      "category": "ACTIVE",
+      "sha256": "9d770618f96f4f8ebba0db6b584ae68787577bc3b38930351e08e87ddab0b0f6",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/se_si.png",
+      "bytes": 66042,
+      "category": "RESEARCH",
+      "sha256": "9d770618f96f4f8ebba0db6b584ae68787577bc3b38930351e08e87ddab0b0f6",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/so_su.png",
+      "bytes": 53598,
+      "category": "ACTIVE",
+      "sha256": "5a564df3555c86d1c089a3d28d890631eeec82b0bbc6e803e94e218511528f58",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/so_su.png",
+      "bytes": 53598,
+      "category": "RESEARCH",
+      "sha256": "5a564df3555c86d1c089a3d28d890631eeec82b0bbc6e803e94e218511528f58",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/t.png",
+      "bytes": 52555,
+      "category": "ACTIVE",
+      "sha256": "952cb64996e7717fce6c117f7f955f5a63aeda75c02fadc6b660e3960f8052ae",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/t.png",
+      "bytes": 52555,
+      "category": "RESEARCH",
+      "sha256": "952cb64996e7717fce6c117f7f955f5a63aeda75c02fadc6b660e3960f8052ae",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/ta.png",
+      "bytes": 43829,
+      "category": "ACTIVE",
+      "sha256": "62b84dbcc2d9f4ca635e915ac241bcefe393bfe2f852f588563b7b73c76a8801",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/ta.png",
+      "bytes": 43829,
+      "category": "RESEARCH",
+      "sha256": "62b84dbcc2d9f4ca635e915ac241bcefe393bfe2f852f588563b7b73c76a8801",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/te_ti.png",
+      "bytes": 50031,
+      "category": "ACTIVE",
+      "sha256": "25e385eb5f874db801de1c282552bd7b40cbd82f4e35da1f2f4032e7ee8aa2b3",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/te_ti.png",
+      "bytes": 50031,
+      "category": "RESEARCH",
+      "sha256": "25e385eb5f874db801de1c282552bd7b40cbd82f4e35da1f2f4032e7ee8aa2b3",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/to_tu.png",
+      "bytes": 46242,
+      "category": "ACTIVE",
+      "sha256": "d059483fbd3ec76e16268b5f59f58030ef426162a6447f6fe83f09af95c7c291",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/to_tu.png",
+      "bytes": 46242,
+      "category": "RESEARCH",
+      "sha256": "d059483fbd3ec76e16268b5f59f58030ef426162a6447f6fe83f09af95c7c291",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/w.png",
+      "bytes": 42559,
+      "category": "ACTIVE",
+      "sha256": "9a87ac34fbf4fad78c4c653521806872cbf38eacac007902e4853e9a24a6a969",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/w.png",
+      "bytes": 42559,
+      "category": "RESEARCH",
+      "sha256": "9a87ac34fbf4fad78c4c653521806872cbf38eacac007902e4853e9a24a6a969",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/wa.png",
+      "bytes": 38326,
+      "category": "ACTIVE",
+      "sha256": "a98276a53611a719ce597a2d6bdd5227aee73eb6c85e3350702823d1495c75fe",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/wa.png",
+      "bytes": 38326,
+      "category": "RESEARCH",
+      "sha256": "a98276a53611a719ce597a2d6bdd5227aee73eb6c85e3350702823d1495c75fe",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/we_wi.png",
+      "bytes": 44075,
+      "category": "ACTIVE",
+      "sha256": "3c9e3b70dc43762b6eeb92d2ad011bbb50a41a487f229b5cf15af88a0bd5b662",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/we_wi.png",
+      "bytes": 44075,
+      "category": "RESEARCH",
+      "sha256": "3c9e3b70dc43762b6eeb92d2ad011bbb50a41a487f229b5cf15af88a0bd5b662",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/wo_wu.png",
+      "bytes": 49494,
+      "category": "ACTIVE",
+      "sha256": "ef310501be79a4627a246f96368edb2dd9301475d0e01c8bf2e14d88d4e143fe",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/wo_wu.png",
+      "bytes": 49494,
+      "category": "RESEARCH",
+      "sha256": "ef310501be79a4627a246f96368edb2dd9301475d0e01c8bf2e14d88d4e143fe",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/y.png",
+      "bytes": 54020,
+      "category": "ACTIVE",
+      "sha256": "0572409ea02da654d78dc274388226d241ea2c4322c7a7b56c53e0f5d88e711d",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/y.png",
+      "bytes": 54020,
+      "category": "RESEARCH",
+      "sha256": "0572409ea02da654d78dc274388226d241ea2c4322c7a7b56c53e0f5d88e711d",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/ya.png",
+      "bytes": 50284,
+      "category": "ACTIVE",
+      "sha256": "9bd401309075b7bcc9a8ed6eb80e0dec6b7e2b14d6711426a50088a7ae0e7196",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/ya.png",
+      "bytes": 50284,
+      "category": "RESEARCH",
+      "sha256": "9bd401309075b7bcc9a8ed6eb80e0dec6b7e2b14d6711426a50088a7ae0e7196",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/ye_yi.png",
+      "bytes": 53835,
+      "category": "ACTIVE",
+      "sha256": "4ec40af51fd17faa0fb582d8395d355a0fdec4d379b856bd6edb7bdb28e1626e",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/ye_yi.png",
+      "bytes": 53835,
+      "category": "RESEARCH",
+      "sha256": "4ec40af51fd17faa0fb582d8395d355a0fdec4d379b856bd6edb7bdb28e1626e",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/assets/illustrations/baybayin/guides-1024/yo_yu.png",
+      "bytes": 52356,
+      "category": "ACTIVE",
+      "sha256": "e7d2545c284a71a2fd50fcc4ab038625701769a47dc27ebd30d092a0ec6e2aca",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "baybayin_guides_1024/yo_yu.png",
+      "bytes": 52356,
+      "category": "RESEARCH",
+      "sha256": "e7d2545c284a71a2fd50fcc4ab038625701769a47dc27ebd30d092a0ec6e2aca",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/alpha-gray/source.png",
+      "bytes": 636,
+      "category": "ACTIVE",
+      "sha256": "8a08c10356d6debc33c4c7f77af145af498634a38a673b40aa066aaf197e47ce",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-094.png",
+      "bytes": 636,
+      "category": "ACTIVE",
+      "sha256": "8a08c10356d6debc33c4c7f77af145af498634a38a673b40aa066aaf197e47ce",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/fixtures/alpha-gray/source.png",
+      "bytes": 636,
+      "category": "RESEARCH",
+      "sha256": "8a08c10356d6debc33c4c7f77af145af498634a38a673b40aa066aaf197e47ce",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/fixtures/alpha-gray/source.png",
+      "bytes": 636,
+      "category": "RESEARCH",
+      "sha256": "8a08c10356d6debc33c4c7f77af145af498634a38a673b40aa066aaf197e47ce",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/blank-image/source.png",
+      "bytes": 306,
+      "category": "ACTIVE",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/degenerate-duration/source.png",
+      "bytes": 306,
+      "category": "ACTIVE",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/exact-512/source.png",
+      "bytes": 306,
+      "category": "ACTIVE",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/many-strokes-downsampling/source.png",
+      "bytes": 306,
+      "category": "ACTIVE",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/over-512/source.png",
+      "bytes": 306,
+      "category": "ACTIVE",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/short-sequence/source.png",
+      "bytes": 306,
+      "category": "ACTIVE",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/zero-duration/source.png",
+      "bytes": 306,
+      "category": "ACTIVE",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-095.png",
+      "bytes": 306,
+      "category": "ACTIVE",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-096.png",
+      "bytes": 306,
+      "category": "ACTIVE",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-097.png",
+      "bytes": 306,
+      "category": "ACTIVE",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-100.png",
+      "bytes": 306,
+      "category": "ACTIVE",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-103.png",
+      "bytes": 306,
+      "category": "ACTIVE",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-104.png",
+      "bytes": 306,
+      "category": "ACTIVE",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-108.png",
+      "bytes": 306,
+      "category": "ACTIVE",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/fixtures/blank-image/source.png",
+      "bytes": 306,
+      "category": "RESEARCH",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/fixtures/degenerate-duration/source.png",
+      "bytes": 306,
+      "category": "RESEARCH",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/fixtures/exact-512/source.png",
+      "bytes": 306,
+      "category": "RESEARCH",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/fixtures/many-strokes-downsampling/source.png",
+      "bytes": 306,
+      "category": "RESEARCH",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/fixtures/over-512/source.png",
+      "bytes": 306,
+      "category": "RESEARCH",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/fixtures/short-sequence/source.png",
+      "bytes": 306,
+      "category": "RESEARCH",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/fixtures/zero-duration/source.png",
+      "bytes": 306,
+      "category": "RESEARCH",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/fixtures/blank-image/source.png",
+      "bytes": 306,
+      "category": "RESEARCH",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/fixtures/degenerate-duration/source.png",
+      "bytes": 306,
+      "category": "RESEARCH",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/fixtures/exact-512/source.png",
+      "bytes": 306,
+      "category": "RESEARCH",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/fixtures/many-strokes-downsampling/source.png",
+      "bytes": 306,
+      "category": "RESEARCH",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/fixtures/over-512/source.png",
+      "bytes": 306,
+      "category": "RESEARCH",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/fixtures/short-sequence/source.png",
+      "bytes": 306,
+      "category": "RESEARCH",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/fixtures/zero-duration/source.png",
+      "bytes": 306,
+      "category": "RESEARCH",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/custom-cnn8-1.1/fixture-validation.png",
+      "bytes": 306,
+      "category": "RESEARCH",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/efficientnetb0-model/preprocessing-check.png",
+      "bytes": 306,
+      "category": "RESEARCH",
+      "sha256": "754e503144ee6954bb861f5ee752c424fd4b8c04d53227a3857eb040d52ee306",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/kudlit-above/source.png",
+      "bytes": 359,
+      "category": "ACTIVE",
+      "sha256": "15ea32a8e935d37f63c0e5f266157bbcb474a63dd02f7338471e2dcbcc047472",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-098.png",
+      "bytes": 359,
+      "category": "ACTIVE",
+      "sha256": "15ea32a8e935d37f63c0e5f266157bbcb474a63dd02f7338471e2dcbcc047472",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/fixtures/kudlit-above/source.png",
+      "bytes": 359,
+      "category": "RESEARCH",
+      "sha256": "15ea32a8e935d37f63c0e5f266157bbcb474a63dd02f7338471e2dcbcc047472",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/fixtures/kudlit-above/source.png",
+      "bytes": 359,
+      "category": "RESEARCH",
+      "sha256": "15ea32a8e935d37f63c0e5f266157bbcb474a63dd02f7338471e2dcbcc047472",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/kudlit-below/source.png",
+      "bytes": 356,
+      "category": "ACTIVE",
+      "sha256": "59b940821898c166111d43dbf80902f7287a0ca69efa914c02e4e325983a2828",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-099.png",
+      "bytes": 356,
+      "category": "ACTIVE",
+      "sha256": "59b940821898c166111d43dbf80902f7287a0ca69efa914c02e4e325983a2828",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/fixtures/kudlit-below/source.png",
+      "bytes": 356,
+      "category": "RESEARCH",
+      "sha256": "59b940821898c166111d43dbf80902f7287a0ca69efa914c02e4e325983a2828",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/fixtures/kudlit-below/source.png",
+      "bytes": 356,
+      "category": "RESEARCH",
+      "sha256": "59b940821898c166111d43dbf80902f7287a0ca69efa914c02e4e325983a2828",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/multi-stroke/source.png",
+      "bytes": 485,
+      "category": "ACTIVE",
+      "sha256": "81c379c50997e3dc208d751d1fde4e907b989da83c77109f89fd76b97f473842",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-101.png",
+      "bytes": 485,
+      "category": "ACTIVE",
+      "sha256": "81c379c50997e3dc208d751d1fde4e907b989da83c77109f89fd76b97f473842",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/fixtures/multi-stroke/source.png",
+      "bytes": 485,
+      "category": "RESEARCH",
+      "sha256": "81c379c50997e3dc208d751d1fde4e907b989da83c77109f89fd76b97f473842",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/fixtures/multi-stroke/source.png",
+      "bytes": 485,
+      "category": "RESEARCH",
+      "sha256": "81c379c50997e3dc208d751d1fde4e907b989da83c77109f89fd76b97f473842",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/narrow-tall/source.png",
+      "bytes": 276,
+      "category": "ACTIVE",
+      "sha256": "61741f6604671cb2bcf8a042bee3223920a9d6c81b1bb08b916d59ccd6c20432",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-102.png",
+      "bytes": 276,
+      "category": "ACTIVE",
+      "sha256": "61741f6604671cb2bcf8a042bee3223920a9d6c81b1bb08b916d59ccd6c20432",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/fixtures/narrow-tall/source.png",
+      "bytes": 276,
+      "category": "RESEARCH",
+      "sha256": "61741f6604671cb2bcf8a042bee3223920a9d6c81b1bb08b916d59ccd6c20432",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/fixtures/narrow-tall/source.png",
+      "bytes": 276,
+      "category": "RESEARCH",
+      "sha256": "61741f6604671cb2bcf8a042bee3223920a9d6c81b1bb08b916d59ccd6c20432",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/single-stroke/source.png",
+      "bytes": 397,
+      "category": "ACTIVE",
+      "sha256": "83c5a1c99c5cd505b2b6fe5c7fbed0411c4d265c44af1cef31b516a402a1c44a",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-105.png",
+      "bytes": 397,
+      "category": "ACTIVE",
+      "sha256": "83c5a1c99c5cd505b2b6fe5c7fbed0411c4d265c44af1cef31b516a402a1c44a",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/fixtures/single-stroke/source.png",
+      "bytes": 397,
+      "category": "RESEARCH",
+      "sha256": "83c5a1c99c5cd505b2b6fe5c7fbed0411c4d265c44af1cef31b516a402a1c44a",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/fixtures/single-stroke/source.png",
+      "bytes": 397,
+      "category": "RESEARCH",
+      "sha256": "83c5a1c99c5cd505b2b6fe5c7fbed0411c4d265c44af1cef31b516a402a1c44a",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/tiny-edge/source.png",
+      "bytes": 129,
+      "category": "ACTIVE",
+      "sha256": "0ed9158b19a3a816cc81a371ba44ede715304f32cced5a7527addbe350d65ea2",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-106.png",
+      "bytes": 129,
+      "category": "ACTIVE",
+      "sha256": "0ed9158b19a3a816cc81a371ba44ede715304f32cced5a7527addbe350d65ea2",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/fixtures/tiny-edge/source.png",
+      "bytes": 129,
+      "category": "RESEARCH",
+      "sha256": "0ed9158b19a3a816cc81a371ba44ede715304f32cced5a7527addbe350d65ea2",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/fixtures/tiny-edge/source.png",
+      "bytes": 129,
+      "category": "RESEARCH",
+      "sha256": "0ed9158b19a3a816cc81a371ba44ede715304f32cced5a7527addbe350d65ea2",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/wide/source.png",
+      "bytes": 150,
+      "category": "ACTIVE",
+      "sha256": "2797776e092076df5df0b6f867256305c2dd7a0a151393bcc0ada5927db655dc",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0/edge-sources/sample-107.png",
+      "bytes": 150,
+      "category": "ACTIVE",
+      "sha256": "2797776e092076df5df0b6f867256305c2dd7a0a151393bcc0ada5927db655dc",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-replacement/fixtures/wide/source.png",
+      "bytes": 150,
+      "category": "RESEARCH",
+      "sha256": "2797776e092076df5df0b6f867256305c2dd7a0a151393bcc0ada5927db655dc",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/bilstm-v1.1-reproduction/fixtures/wide/source.png",
+      "bytes": 150,
+      "category": "RESEARCH",
+      "sha256": "2797776e092076df5df0b6f867256305c2dd7a0a151393bcc0ada5927db655dc",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "dev-assets/speech-bubbles/speech-bubble.svg",
+      "bytes": 1237,
+      "category": "RESEARCH",
+      "sha256": "9cf26a8b6d312bc799f64ef6c8ba3df68405b15c7efc2aecc8d2bda684e35388",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "dev-assets/speech-bubbles/Speech_bubble.svg",
+      "bytes": 1237,
+      "category": "RESEARCH",
+      "sha256": "9cf26a8b6d312bc799f64ef6c8ba3df68405b15c7efc2aecc8d2bda684e35388",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ],
+  [
+    {
+      "path": "docs/verification/mentor-popover/closed-667x375.jpg",
+      "bytes": 24447,
+      "category": "UNCERTAIN",
+      "sha256": "b0ddcff1c84df1bc71bcb29e3236f0f292adb487f79e4d173ba89b85c47b687b",
+      "action": "Review; do not delete"
+    },
+    {
+      "path": "docs/verification/mentor-popover/dismissed-667x375.jpg",
+      "bytes": 24447,
+      "category": "UNCERTAIN",
+      "sha256": "b0ddcff1c84df1bc71bcb29e3236f0f292adb487f79e4d173ba89b85c47b687b",
+      "action": "Review; do not delete"
+    }
+  ],
+  [
+    {
+      "path": "ml/deployment/onnx/artifacts/custom-cnn-1.3/baya-capture-ka-2026-09-28T12-51-57-996Z.png",
+      "bytes": 4891,
+      "category": "RESEARCH",
+      "sha256": "3612acc2f8eb2fe99bf6c217231f092cd57e3a06cc7e40b90dc46e6da848b677",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/custom-cnn8-1.1/baya-capture-ka-2026-09-28T12-51-57-996Z.png",
+      "bytes": 4891,
+      "category": "RESEARCH",
+      "sha256": "3612acc2f8eb2fe99bf6c217231f092cd57e3a06cc7e40b90dc46e6da848b677",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/efficientnetb0-model/capture-preprocessing.png",
+      "bytes": 4891,
+      "category": "RESEARCH",
+      "sha256": "3612acc2f8eb2fe99bf6c217231f092cd57e3a06cc7e40b90dc46e6da848b677",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    },
+    {
+      "path": "ml/deployment/onnx/artifacts/external-v2/baya-capture-ka-2026-09-28T12-51-57-996Z.png",
+      "bytes": 4891,
+      "category": "RESEARCH",
+      "sha256": "3612acc2f8eb2fe99bf6c217231f092cd57e3a06cc7e40b90dc46e6da848b677",
+      "action": "Preserve unless reference audit establishes relocation/duplicate"
+    }
+  ]
+]

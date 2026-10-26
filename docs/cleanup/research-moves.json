@@ -1,0 +1,93 @@
+[
+  {
+    "original": "C:\\BAYA\\BAYA_ResNet18_1.0.keras",
+    "destination": "C:\\BAYA\\research\\models\\BAYA_ResNet18_1.0.keras",
+    "backup": "C:\\BAYA-cleanup-backups\\20261025\\research-originals\\BAYA_ResNet18_1.0.keras",
+    "sha256": "9A97B5D3933BEF49B955B155369C58C32CCEC3CF61BFBB4F213FAD2D2CA1F7B8",
+    "bytes": 135267131
+  },
+  {
+    "original": "C:\\BAYA\\Baybayin_CustomCNN16_1.3.keras",
+    "destination": "C:\\BAYA\\research\\models\\Baybayin_CustomCNN16_1.3.keras",
+    "backup": "C:\\BAYA-cleanup-backups\\20261025\\research-originals\\Baybayin_CustomCNN16_1.3.keras",
+    "sha256": "CDAC4983F1E2C84B80A59BC424488AF7D8378CC84261983E8D6D131656115BAF",
+    "bytes": 33643748
+  },
+  {
+    "original": "C:\\BAYA\\Baybayin_CustomCNN16_cp_1.3.keras",
+    "destination": "C:\\BAYA\\research\\models\\Baybayin_CustomCNN16_cp_1.3.keras",
+    "backup": "C:\\BAYA-cleanup-backups\\20261025\\research-originals\\Baybayin_CustomCNN16_cp_1.3.keras",
+    "sha256": "CCA97DC094EE3CA845FC3C2139CEA48F0A18352D0C30EB3B9E7CD34EB6EB7E6B",
+    "bytes": 33645783
+  },
+  {
+    "original": "C:\\BAYA\\Baybayin_CustomCNN8_1.1.keras",
+    "destination": "C:\\BAYA\\research\\models\\Baybayin_CustomCNN8_1.1.keras",
+    "backup": "C:\\BAYA-cleanup-backups\\20261025\\research-originals\\Baybayin_CustomCNN8_1.1.keras",
+    "sha256": "6B8BE8C4B4B2AE2C540288FA3DCD70A042218D32388A27F6CC24AE534AB40311",
+    "bytes": 14710604
+  },
+  {
+    "original": "C:\\BAYA\\Baybayin_CustomCNN8_cp_1.1.keras",
+    "destination": "C:\\BAYA\\research\\models\\Baybayin_CustomCNN8_cp_1.1.keras",
+    "backup": "C:\\BAYA-cleanup-backups\\20261025\\research-originals\\Baybayin_CustomCNN8_cp_1.1.keras",
+    "sha256": "296BFB6AF87B867259082FE5B99991EBA046FCA0AD58545D12A4A0B60349781B",
+    "bytes": 14711751
+  },
+  {
+    "original": "C:\\BAYA\\Baybayin_EfficientNetB0_BiLSTM_1.0.keras",
+    "destination": "C:\\BAYA\\research\\models\\Baybayin_EfficientNetB0_BiLSTM_1.0.keras",
+    "backup": "C:\\BAYA-cleanup-backups\\20261025\\research-originals\\Baybayin_EfficientNetB0_BiLSTM_1.0.keras",
+    "sha256": "73C8AB68B1D1017D2B4DA778B7313E0B2B3C82B6DA1BA115EE475472A2208A89",
+    "bytes": 29156234
+  },
+  {
+    "original": "C:\\BAYA\\Baybayin_EfficientNetB0_BiLSTM_1.1.keras",
+    "destination": "C:\\BAYA\\research\\models\\Baybayin_EfficientNetB0_BiLSTM_1.1.keras",
+    "backup": "C:\\BAYA-cleanup-backups\\20261025\\research-originals\\Baybayin_EfficientNetB0_BiLSTM_1.1.keras",
+    "sha256": "067A7005B6F656FD3BA32648ADEE580AF55CD5A05FBB03D76892627B5745C539",
+    "bytes": 29156571
+  },
+  {
+    "original": "C:\\BAYA\\Baybayin_EfficientNetB0_ExternalFirst_v2.keras",
+    "destination": "C:\\BAYA\\research\\models\\Baybayin_EfficientNetB0_ExternalFirst_v2.keras",
+    "backup": "C:\\BAYA-cleanup-backups\\20261025\\research-originals\\Baybayin_EfficientNetB0_ExternalFirst_v2.keras",
+    "sha256": "6621A02ED0553580356D4B9529505E1D72240C25532E9FBE76B3B553310C3201",
+    "bytes": 28089136
+  },
+  {
+    "original": "C:\\BAYA\\EfficientNetB0_model.keras",
+    "destination": "C:\\BAYA\\research\\models\\EfficientNetB0_model.keras",
+    "backup": "C:\\BAYA-cleanup-backups\\20261025\\research-originals\\EfficientNetB0_model.keras",
+    "sha256": "D53E7BECD5C15964B71198FB7B13DC90E2B6A8B2E4A0AD75527F895DA130BE1C",
+    "bytes": 50918209
+  },
+  {
+    "original": "C:\\BAYA\\BAYA_Dataset_Rescue.ipynb",
+    "destination": "C:\\BAYA\\research\\notebooks\\BAYA_Dataset_Rescue.ipynb",
+    "backup": "C:\\BAYA-cleanup-backups\\20261025\\research-originals\\BAYA_Dataset_Rescue.ipynb",
+    "sha256": "7182689286DAA601B73A30C63544D2E43BB94C505A99C0BCCB514E4B2A0BB7F0",
+    "bytes": 993978
+  },
+  {
+    "original": "C:\\BAYA\\BAYA_ResNet18.ipynb",
+    "destination": "C:\\BAYA\\research\\notebooks\\BAYA_ResNet18.ipynb",
+    "backup": "C:\\BAYA-cleanup-backups\\20261025\\research-originals\\BAYA_ResNet18.ipynb",
+    "sha256": "B6DE18B9D4A2D8E41A89CE73D21A21261CFAFC447BE91FCB3C2266A317F393F4",
+    "bytes": 597353
+  },
+  {
+    "original": "C:\\BAYA\\Custom_CNN_Model_8.ipynb",
+    "destination": "C:\\BAYA\\research\\notebooks\\Custom_CNN_Model_8.ipynb",
+    "backup": "C:\\BAYA-cleanup-backups\\20261025\\research-originals\\Custom_CNN_Model_8.ipynb",
+    "sha256": "1DBA63ACD076BD5460E7425C1347766563EDE2ABEB67B8F9412040FCEBF969F1",
+    "bytes": 922848
+  },
+  {
+    "original": "C:\\BAYA\\EfficientNetB0_Augmented_Comparison.ipynb",
+    "destination": "C:\\BAYA\\research\\notebooks\\EfficientNetB0_Augmented_Comparison.ipynb",
+    "backup": "C:\\BAYA-cleanup-backups\\20261025\\research-originals\\EfficientNetB0_Augmented_Comparison.ipynb",
+    "sha256": "A1AC35D853C62B9487EF6ADBB43D21A79BE27533E8535F8F5295711AA9E87754",
+    "bytes": 5446684
+  }
+]

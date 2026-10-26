@@ -1,0 +1,62 @@
+[
+  {
+    "path": "ml/training/BAYA_EfficientNetB0_BiLSTM_v1_1_Refinement.ipynb",
+    "bytes": 118345,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "f576fca139566e8b9c1f308b209d07842bda044b291c28f541b4b173aee60ba2",
+    "cells": 36,
+    "executedCells": 0,
+    "decision": "Retain distinct research methodology outside production"
+  },
+  {
+    "path": "ml/training/EfficientNet_B0\u2013BiLSTM.ipynb",
+    "bytes": 823610,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "ef289974391180a9cc34aa861db589527fb8ccc33cd921170d3eada3dfa66c63",
+    "cells": 53,
+    "executedCells": 28,
+    "decision": "Retain distinct research methodology outside production"
+  },
+  {
+    "path": "research/notebooks/BAYA_Dataset_Rescue.ipynb",
+    "bytes": 993978,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "7182689286daa601b73a30c63544d2e43bb94c505a99c0bccb514e4b2a0bb7f0",
+    "cells": 52,
+    "executedCells": 26,
+    "decision": "Retain distinct research methodology outside production"
+  },
+  {
+    "path": "research/notebooks/BAYA_ResNet18.ipynb",
+    "bytes": 597353,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "b6de18b9d4a2d8e41a89ce73d21a21261cfafc447be91fcb3c2266a317f393f4",
+    "cells": 32,
+    "executedCells": 14,
+    "decision": "Retain distinct research methodology outside production"
+  },
+  {
+    "path": "research/notebooks/Custom_CNN_Model_8.ipynb",
+    "bytes": 922848,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "1dba63acd076bd5460e7425c1347766563ede2abeb67b8f9412040fcebf969f1",
+    "cells": 44,
+    "executedCells": 20,
+    "decision": "Retain distinct research methodology outside production"
+  },
+  {
+    "path": "research/notebooks/EfficientNetB0_Augmented_Comparison.ipynb",
+    "bytes": 5446684,
+    "classification": "RESEARCH",
+    "reason": "Training/evaluation/source evidence retained pending individual review",
+    "sha256": "a1ac35d853c62b9487ef6adbb43d21a79be27533e8535f8f5295711aa9e87754",
+    "cells": 65,
+    "executedCells": 34,
+    "decision": "Retain distinct research methodology outside production"
+  }
+]

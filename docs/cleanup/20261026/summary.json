@@ -1,0 +1,7 @@
+{
+  "beforeFiles": 32047,
+  "afterFiles": 31670,
+  "beforeBytes": 10468233131,
+  "afterBytes": 10190503353,
+  "notes": "Excludes dependency/tool-cache trees and final cleanup evidence directory; classifications are conservative, not a proof of semantic reachability."
+}
