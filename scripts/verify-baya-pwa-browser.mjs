@@ -52,6 +52,7 @@ try {
   const installation = await evaluate(`(async()=>{
     await caches.open('baya-pwa-superseded-test');
     localStorage.setItem('baya-learner-preservation-test','preserved');
+    const started=performance.now();
     await navigator.serviceWorker.register('/sw.js');
     await navigator.serviceWorker.ready;
     if(!navigator.serviceWorker.controller) await new Promise(resolve=>navigator.serviceWorker.addEventListener('controllerchange',resolve,{once:true}));
@@ -62,7 +63,7 @@ try {
     const cache=await caches.open(cacheName);
     const urls=(await cache.keys()).map(x=>new URL(x.url).pathname);
     if(!urls.includes(${JSON.stringify(contract.modelUrl)}))throw Error('Model not precached');
-    return {cacheName,entryCount:urls.length,modelPrecached:true,controller:navigator.serviceWorker.controller.scriptURL};
+    return {installMs:performance.now()-started,cacheName,entryCount:urls.length,modelPrecached:true,controller:navigator.serviceWorker.controller.scriptURL};
   })()`);
   await call('Network.enable');
   await call('Network.emulateNetworkConditions', { offline: true, latency: 0, downloadThroughput: 0, uploadThroughput: 0 });

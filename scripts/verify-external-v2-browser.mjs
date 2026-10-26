@@ -10,15 +10,16 @@ import ts from 'typescript';
 const root = process.cwd();
 const artifacts = path.join(root, 'ml/deployment/onnx/artifacts/external-v2');
 const publicRoot = path.join(root, 'apps/mobile/public');
+const modelRoot = path.join(root, 'ml/rollback');
 const modelName = 'Baybayin_EfficientNetB0_ExternalFirst_v2.onnx';
 const optimization = process.env.BAYA_PARITY_OPTIMIZATION ?? 'all';
-const preprocess = ts.transpileModule(fs.readFileSync(path.join(root, 'apps/mobile/ml/efficientNetPreprocessing.ts'), 'utf8'), {
+const preprocess = ts.transpileModule(fs.readFileSync(path.join(root, 'apps/mobile/ml/inkImagePreprocessing.ts'), 'utf8'), {
   compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ES2022 },
 }).outputText;
 const appModules = new Map();
 for (const name of ['BayaModelError', 'bayaProbabilities', 'bayaModelConfig', 'bayaModel.web']) {
   let source = fs.readFileSync(path.join(root, 'apps/mobile/ml', `${name}.ts`), 'utf8');
-  if (name === 'bayaModelConfig') source = source.replace("import contract from './bayaActiveModel.json';", `const contract = ${fs.readFileSync(path.join(root, 'apps/mobile/ml/bayaActiveModel.json'), 'utf8')};`);
+  if (name === 'bayaModelConfig') source = source.replace("import contract from './bayaActiveModel.json';", `const contract = ${fs.readFileSync(path.join(modelRoot, 'models/baya/Baybayin_EfficientNetB0_ExternalFirst_v2_onnx_contract.json'), 'utf8')};`);
   appModules.set(`/app/${name}.js`, ts.transpileModule(source, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ES2022 } }).outputText.replace(/from '(\.\/[^']+)'/g, "from '$1.js'"));
 }
 const server = http.createServer((req, res) => {
@@ -29,8 +30,8 @@ const server = http.createServer((req, res) => {
   if (url === '/preprocess.js') { res.setHeader('Content-Type', 'text/javascript'); res.end(preprocess); return; }
   if (appModules.has(url)) { res.setHeader('Content-Type', 'text/javascript'); res.end(appModules.get(url)); return; }
   const file = url === '/cases.json' ? path.join(artifacts, 'browser-cases.json')
-    : url === '/model.onnx' ? path.join(artifacts, modelName)
-    : url.startsWith('/ort/') || url.startsWith('/models/') ? path.join(publicRoot, url) : null;
+    : url === '/model.onnx' ? path.join(modelRoot, 'models/baya', modelName)
+    : url.startsWith('/models/') ? path.join(modelRoot, url) : url.startsWith('/ort/') ? path.join(publicRoot, url) : null;
   if (!file || !file.startsWith(root + path.sep) || !fs.existsSync(file)) { res.writeHead(404).end(); return; }
   res.setHeader('Content-Type', file.endsWith('.wasm') ? 'application/wasm' : /\.(mjs|js)$/.test(file) ? 'text/javascript' : 'application/octet-stream');
   fs.createReadStream(file).pipe(res);

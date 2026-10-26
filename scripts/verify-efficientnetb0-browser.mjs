@@ -10,19 +10,20 @@ import ts from 'typescript';
 const root = process.cwd();
 const artifacts = path.join(root, 'ml/deployment/onnx/artifacts/efficientnetb0-model');
 const publicRoot = path.join(root, 'apps/mobile/public');
+const modelRoot = path.join(root, 'ml/rollback');
 const python = JSON.parse(fs.readFileSync('docs/ml/efficientnetb0-model-python-parity.json', 'utf8'));
-const contract = JSON.parse(fs.readFileSync(path.join(publicRoot,'models/baya/EfficientNetB0_model_onnx_contract.json'),'utf8'));
+const contract = JSON.parse(fs.readFileSync(path.join(modelRoot,'models/baya/EfficientNetB0_model_onnx_contract.json'),'utf8'));
 const phase=process.argv.includes('--before-cleanup')?'before-cleanup':'final';
 const compile = source => ts.transpileModule(source, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ES2022 } }).outputText.replace(/from '(\.\/[^']+)'/g, "from '$1.js'");
-const modules = new Map([['/preprocess.js', compile(fs.readFileSync('apps/mobile/ml/efficientNetPreprocessing.ts', 'utf8'))]]);
+const modules = new Map([['/preprocess.js', compile(fs.readFileSync('apps/mobile/ml/inkImagePreprocessing.ts', 'utf8'))]]);
 for (const [version, config] of [['active', contract]]) {
-  for (const name of ['BayaModelError', 'bayaProbabilities', 'bayaModelConfig', 'bayaModel.web', 'efficientNetPreprocessing', 'bayaPreprocessing']) {
-    let source = fs.readFileSync(`apps/mobile/ml/${name}.ts`, 'utf8');
+  for (const name of ['BayaModelError', 'bayaProbabilities', 'bayaModelConfig', 'bayaModel.web', 'inkImagePreprocessing', 'bayaPreprocessing']) {
+    let source = fs.readFileSync(name === 'bayaModel.web' ? 'ml/rollback/runtime/bayaModel.web.ts.txt' : `apps/mobile/ml/${name}.ts`, 'utf8');
     if (name === 'bayaModelConfig') source = `export const BAYA_MODEL_CONFIG=${JSON.stringify(config)}; export const BAYA_RECOGNITION_MODEL_NAME=BAYA_MODEL_CONFIG.modelName; export const BAYA_RECOGNITION_MODEL_VERSION=BAYA_MODEL_CONFIG.modelVersion; export const BAYA_RECOGNITION_MODEL_URL=BAYA_MODEL_CONFIG.modelUrl;`;
     modules.set(`/app/${version}/${name}.js`, compile(source));
   }
 }
-const modelFiles = { [contract.modelUrl]:path.join(publicRoot,contract.modelUrl) };
+const modelFiles = { [contract.modelUrl]:path.join(modelRoot,contract.modelUrl) };
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, 'http://localhost').pathname;
   res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');

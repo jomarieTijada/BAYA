@@ -28,8 +28,8 @@ ROOT = Path(__file__).resolve().parents[3]
 OUT = ROOT/'ml/deployment/onnx/artifacts/efficientnetb0-model'
 OUT.mkdir(parents=True, exist_ok=True)
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument('--source', type=Path, default=ROOT/'EfficientNetB0_model.keras')
-parser.add_argument('--onnx', type=Path, default=ROOT/'apps/mobile/public/models/baya/EfficientNetB0_model.onnx')
+parser.add_argument('--source', type=Path, default=ROOT/'research/models/EfficientNetB0_model.keras')
+parser.add_argument('--onnx', type=Path, default=ROOT/'ml/rollback/models/baya/EfficientNetB0_model.onnx')
 parser.add_argument('--training-artifacts', type=Path, default=Path('C:/Users/jomsa/Downloads/Baybayin_EfficientNetB0_imagenet_finetuned_1.0_artifacts'))
 args = parser.parse_args()
 sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
@@ -68,7 +68,7 @@ inspection = {'source':str(args.source),'bytes':args.source.stat().st_size,'sha2
     'outputs':[{'name':x.name,'shape':list(x.shape),'dtype':x.dtype} for x in model.outputs],
     'outputNames':model.output_names,'savedMetadata':saved,'compileConfig':compile_config,'layers':layers,'imageOnlyVerified':True}
 (ROOT/'docs/ml/efficientnetb0-model-inspection.json').write_text(json.dumps(inspection,indent=2)+'\n',encoding='utf-8')
-notebook_path = ROOT/'EfficientNetB0_Augmented_Comparison.ipynb'
+notebook_path = ROOT/'research/notebooks/EfficientNetB0_Augmented_Comparison.ipynb'
 cells = json.loads(notebook_path.read_text(encoding='utf-8'))['cells']
 code = lambda i: ''.join(cells[i]['source'])
 assert 'BACKBONE_WEIGHTS = "imagenet"' in code(4) and 'MODEL_VERSION = "1.0"' in code(4)

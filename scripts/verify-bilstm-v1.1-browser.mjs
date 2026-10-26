@@ -10,20 +10,21 @@ import ts from 'typescript';
 const root = process.cwd();
 const artifacts = path.join(root, 'ml/deployment/onnx/artifacts/bilstm-v1.1-replacement');
 const publicRoot = path.join(root, 'apps/mobile/public');
+const modelRoot = path.join(root, 'ml/rollback');
 const contract={modelUrl:'/candidate.onnx'};
 const compile=source=>ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ES2022}}).outputText;
 const modules=new Map([
- ['/image.js',compile(fs.readFileSync('apps/mobile/ml/efficientNetPreprocessing.ts','utf8'))],
+ ['/image.js',compile(fs.readFileSync('apps/mobile/ml/inkImagePreprocessing.ts','utf8'))],
  ['/sequence.js',compile(fs.readFileSync(path.join(artifacts,'bilstmSequence.ts'),'utf8'))]
 ]);
-const appContract=JSON.parse(fs.readFileSync('apps/mobile/ml/bayaActiveModel.json','utf8'));
+const appContract=JSON.parse(fs.readFileSync('ml/rollback/models/baya/Baybayin_EfficientNetB0_BiLSTM_1.1_onnx_contract.json','utf8'));
 for(const name of ['BayaModelError','bayaProbabilities','bayaModelConfig','bayaModel.web']){
  let source=fs.readFileSync(`apps/mobile/ml/${name}.ts`,'utf8');
  if(name==='bayaModelConfig')source=`export const BAYA_MODEL_CONFIG=${JSON.stringify(appContract)}; export const BAYA_RECOGNITION_MODEL_NAME=BAYA_MODEL_CONFIG.modelName;export const BAYA_RECOGNITION_MODEL_VERSION=BAYA_MODEL_CONFIG.modelVersion;export const BAYA_RECOGNITION_MODEL_URL=BAYA_MODEL_CONFIG.modelUrl;`;
  modules.set('/'+name+'.js',compile(source).replace(/from '(\.\/[^']+)'/g,"from '$1.js'"));
 }
-const modelFiles={'/candidate.onnx':path.join(publicRoot,appContract.modelUrl)};
-modelFiles[appContract.modelUrl]=path.join(publicRoot,appContract.modelUrl);
+const modelFiles={'/candidate.onnx':path.join(modelRoot,appContract.modelUrl)};
+modelFiles[appContract.modelUrl]=path.join(modelRoot,appContract.modelUrl);
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, 'http://localhost').pathname;
   res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');

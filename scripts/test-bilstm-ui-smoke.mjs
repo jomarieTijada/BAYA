@@ -8,7 +8,7 @@ import { setTimeout as sleep } from 'node:timers/promises';
 const DIST_DIR = path.resolve('apps/mobile/dist');
 const ACTIVE_MODEL_URL = JSON.parse(fs.readFileSync('apps/mobile/ml/bayaActiveModel.json', 'utf8')).modelUrl;
 const SERVER_PORT = 5058;
-const DRAWING=JSON.parse(fs.readFileSync('apps/mobile/ml/__tests__/fixtures/bilstm-v1.1/real-ka.json','utf8')).normalizedStrokes;
+const DRAWING=JSON.parse(fs.readFileSync('ml/rollback/fixtures/bilstm-v1.1/real-ka.json','utf8')).normalizedStrokes;
 const CHROME_PORT = 9341;
 const CHROME_PATH = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
 

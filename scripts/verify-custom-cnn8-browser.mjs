@@ -10,19 +10,20 @@ import ts from 'typescript';
 const root = process.cwd();
 const artifacts = path.join(root, 'ml/deployment/onnx/artifacts/custom-cnn8-1.1');
 const publicRoot = path.join(root, 'apps/mobile/public');
+const modelRoot = path.join(root, 'ml/rollback');
 const python = JSON.parse(fs.readFileSync('docs/ml/custom-cnn8-1.1-python-parity.json', 'utf8'));
-const external = JSON.parse(fs.readFileSync(path.join(publicRoot, 'models/baya/Baybayin_EfficientNetB0_ExternalFirst_v2_onnx_contract.json'), 'utf8'));
-const custom = JSON.parse(fs.readFileSync(path.join(publicRoot,'models/baya/Baybayin_CustomCNN8_1.1_onnx_contract.json'),'utf8'));
+const external = JSON.parse(fs.readFileSync(path.join(modelRoot, 'models/baya/Baybayin_EfficientNetB0_ExternalFirst_v2_onnx_contract.json'), 'utf8'));
+const custom = JSON.parse(fs.readFileSync(path.join(modelRoot,'models/baya/Baybayin_CustomCNN8_1.1_onnx_contract.json'),'utf8'));
 const compile = source => ts.transpileModule(source, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ES2022 } }).outputText.replace(/from '(\.\/[^']+)'/g, "from '$1.js'");
-const modules = new Map([['/preprocess.js', compile(fs.readFileSync('apps/mobile/ml/efficientNetPreprocessing.ts', 'utf8'))]]);
+const modules = new Map([['/preprocess.js', compile(fs.readFileSync('apps/mobile/ml/inkImagePreprocessing.ts', 'utf8'))]]);
 for (const [version, contract] of [['custom', custom], ['external', external]]) {
-  for (const name of ['BayaModelError', 'bayaProbabilities', 'bayaModelConfig', 'bayaModel.web', 'efficientNetPreprocessing', 'bayaPreprocessing']) {
-    let source = fs.readFileSync(`apps/mobile/ml/${name}.ts`, 'utf8');
+  for (const name of ['BayaModelError', 'bayaProbabilities', 'bayaModelConfig', 'bayaModel.web', 'inkImagePreprocessing', 'bayaPreprocessing']) {
+    let source = fs.readFileSync(name === 'bayaModel.web' ? 'ml/rollback/runtime/bayaModel.web.ts.txt' : `apps/mobile/ml/${name}.ts`, 'utf8');
     if (name === 'bayaModelConfig') source = `export const BAYA_MODEL_CONFIG=${JSON.stringify(contract)}; export const BAYA_RECOGNITION_MODEL_NAME=BAYA_MODEL_CONFIG.modelName; export const BAYA_RECOGNITION_MODEL_VERSION=BAYA_MODEL_CONFIG.modelVersion; export const BAYA_RECOGNITION_MODEL_URL=BAYA_MODEL_CONFIG.modelUrl;`;
     modules.set(`/app/${version}/${name}.js`, compile(source));
   }
 }
-const modelFiles = { [custom.modelUrl]: path.join(publicRoot, custom.modelUrl), [external.modelUrl]: path.join(publicRoot, external.modelUrl) };
+const modelFiles = { [custom.modelUrl]: path.join(modelRoot, custom.modelUrl), [external.modelUrl]: path.join(modelRoot, external.modelUrl) };
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, 'http://localhost').pathname;
   res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');

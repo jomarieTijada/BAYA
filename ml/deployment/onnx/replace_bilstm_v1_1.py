@@ -32,9 +32,9 @@ def main():
     args = parser.parse_args()
     src, out = args.source_dir, args.output_dir
     out.mkdir(parents=True, exist_ok=True)
-    fixtures = ROOT/'apps/mobile/ml/__tests__/fixtures/bilstm-v1.1'
+    fixtures = ROOT/'ml/rollback/fixtures/bilstm-v1.1'
     shutil.copytree(fixtures, out/'fixtures', dirs_exist_ok=True)
-    shutil.copyfile(ROOT/'apps/mobile/ml/bilstmSequence.ts', out/'bilstmSequence.ts')
+    shutil.copyfile(ROOT/'ml/rollback/runtime/bilstmSequence.ts.txt', out/'bilstmSequence.ts')
     notebook = ROOT/'ml/training/BAYA_EfficientNetB0_BiLSTM_v1_1_Refinement.ipynb'
     cells = json.loads(notebook.read_text(encoding='utf-8'))['cells']
     preprocessing = dict(np=np, Image=Image, INK_THRESHOLD=.08, IMAGE_PADDING_RATIO=.15,

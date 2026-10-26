@@ -3,14 +3,14 @@
   "runtimeVersion": "1.30.0",
   "classCount": 63,
   "preprocessingId": "ink-square-pillow-v1",
-  "model": "Baybayin_EfficientNetB0_BiLSTM_1.1.onnx",
-  "modelName": "Baybayin_EfficientNetB0_BiLSTM_1.1",
-  "modelVersion": "1.1",
-  "modelType": "EfficientNet-B0 + Bidirectional LSTM with feature fusion",
-  "imageOnly": false,
-  "sourceModel": "Baybayin_EfficientNetB0_BiLSTM_1.1.keras",
-  "sourceSha256": "067a7005b6f656fd3ba32648adee580af55cd5a05fbb03d76892627b5745c539",
-  "modelUrl": "/models/baya/Baybayin_EfficientNetB0_BiLSTM_1.1.onnx",
+  "model": "BAYA_ResNet18_1.0.onnx",
+  "modelName": "BAYA_ResNet18_1.0",
+  "modelVersion": "1.0",
+  "modelType": "ResNet18 image-only",
+  "imageOnly": true,
+  "sourceModel": "BAYA_ResNet18_1.0.keras",
+  "sourceSha256": "9a97b5d3933bef49b955b155369c58c32ccec3cf61bfbb4f213fad2d2ca1f7b8",
+  "modelUrl": "/models/baya/BAYA_ResNet18_1.0.onnx",
   "opset": 18,
   "logicalInputs": [
     {
@@ -20,15 +20,6 @@
         96,
         96,
         1
-      ],
-      "dtype": "float32"
-    },
-    {
-      "name": "sequence_input",
-      "shape": [
-        1,
-        512,
-        6
       ],
       "dtype": "float32"
     }
@@ -107,8 +98,8 @@
     "yo_yu"
   ],
   "preprocessing": {
-    "sourceNotebook": "ml/training/BAYA_EfficientNetB0_BiLSTM_v1_1_Refinement.ipynb",
-    "cell": 9,
+    "sourceNotebook": "BAYA_ResNet18.ipynb",
+    "cell": 15,
     "height": 96,
     "width": 96,
     "channels": 1,
@@ -125,23 +116,14 @@
     "centering": "zero-valued square, integer floor offsets",
     "resize": "uint8 Pillow BILINEAR",
     "normalization": "divide resized uint8 by 255",
-    "internal": "repeat grayscale to RGB; multiply ink by 255; saved EfficientNet normalization",
+    "internal": "ResNet convolution; no internal pixel normalization",
     "augmentation": "training only, disabled during inference",
-    "sequenceFeatures": [
-      "x_shape",
-      "y_shape",
-      "dx",
-      "dy",
-      "dt_norm",
-      "stroke_start"
-    ],
-    "sequenceLength": 512,
-    "sequencePadding": "zero rows, Masking(mask_value=0)",
-    "trajectoryPaddingRatio": 0.15,
-    "notebookSha256": "f576fca139566e8b9c1f308b209d07842bda044b291c28f541b4b173aee60ba2"
+    "notebookSha256": "b6de18b9d4a2d8e41a89ce73d21a21261cfafc447be91fcb3c2266a317f393f4",
+    "sourceCode": "docs/ml/resnet18-1.0/preprocessing-source.py",
+    "sourceCodeSha256": "f4a63df98614e21cb3f33c776766970646b79980452823d31c5b08c8609c4323"
   },
-  "onnxSha256": "32b63d2f36802e5792006c07f18bcc1aead2f9d20ed1181edc1feebf59ab70b1",
-  "onnxBytes": 17175276,
+  "onnxSha256": "fc41b21606b96b2a1fec6850259a8cbdc446d54f3d113ae8086e87310268f265",
+  "onnxBytes": 44974086,
   "converterVersions": {
     "tensorflow": "2.18.0",
     "keras": "3.13.2",
@@ -149,68 +131,30 @@
     "onnx": "1.18.0",
     "onnxruntime": "1.30.0"
   },
-  "labelsUrl": "/models/baya/Baybayin_EfficientNetB0_BiLSTM_labels_1.1.json",
-  "contractUrl": "/models/baya/Baybayin_EfficientNetB0_BiLSTM_1.1_onnx_contract.json",
-  "id": "bilstm-v1.1",
+  "labelsUrl": "/models/baya/BAYA_ResNet18_1.0_labels.json",
+  "contractUrl": "/models/baya/BAYA_ResNet18_1.0_onnx_contract.json",
+  "id": "resnet18-1.0",
   "labelsSha256": "c68ade6537c59ab2d55872a9e3ed8d75083c89e35722a5b3d63e715ce47d4b91",
   "parity": {
+    "conversionParityPassed": true,
     "preprocessingProvenanceConfirmed": true,
     "checkerPassed": true,
-    "sampleCount": 16,
-    "top1Matches": 16,
-    "top3Matches": 16,
-    "maximumAbsoluteDifference": 2.5033950805664062e-06
+    "sampleCount": 80,
+    "top1Matches": 80,
+    "maximumAbsoluteDifference": 9.5367431640625e-07
   },
   "browserParity": {
     "passed": true,
     "preprocessingMaximum": 0,
-    "sampleCount": 16,
-    "top1Matches": 16,
-    "top3Matches": 16,
-    "maximumAbsoluteDifference": 5.9604644775390625e-06,
+    "sampleCount": 80,
+    "top1Matches": 80,
+    "top3Matches": 80,
+    "maximumAbsoluteDifference": 8.046627044677734e-07,
     "productionServiceVerified": true,
     "sharedSessionVerified": true
   },
-  "staticNormalizationInputs": [
-    {
-      "name": "BAYA_EfficientNetB0_BiLSTM_1/efficientnetb0_1/normalization_1/Sub/y:0",
-      "semantic": "channel-wise normalization mean",
-      "shape": [
-        1,
-        1,
-        1,
-        3
-      ],
-      "dtype": "float32",
-      "values": [
-        0.48500001430511475,
-        0.4560000002384186,
-        0.4059999883174896
-      ],
-      "source": "efficientnetb0/normalization/mean"
-    },
-    {
-      "name": "BAYA_EfficientNetB0_BiLSTM_1/efficientnetb0_1/normalization_1/Sqrt/x:0",
-      "semantic": "channel-wise normalization variance (input to sqrt)",
-      "shape": [
-        1,
-        1,
-        1,
-        3
-      ],
-      "dtype": "float32",
-      "values": [
-        0.2290000021457672,
-        0.2240000069141388,
-        0.22499999403953552
-      ],
-      "source": "efficientnetb0/normalization/variance"
-    }
-  ],
+  "staticNormalizationInputs": [],
   "allOnnxInputNames": [
-    "image_input",
-    "sequence_input",
-    "BAYA_EfficientNetB0_BiLSTM_1/efficientnetb0_1/normalization_1/Sub/y:0",
-    "BAYA_EfficientNetB0_BiLSTM_1/efficientnetb0_1/normalization_1/Sqrt/x:0"
+    "image_input"
   ]
 }

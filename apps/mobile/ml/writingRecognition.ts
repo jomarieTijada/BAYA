@@ -1,8 +1,8 @@
-import { preprocessNotebookSequence } from './bilstmSequence';
+import { BAYA_MODEL_CONFIG } from './bayaModelConfig';
 import type { StrokeData } from '../content/writingEngine';
 import { runBayaInference } from './bayaModel';
-import { EFFICIENTNET_CLASS_LABELS } from './efficientNetClassLabels';
-import { INK_THRESHOLD } from './efficientNetPreprocessing';
+import { BAYA_CLASS_LABELS } from './bayaClassLabels';
+import { INK_THRESHOLD } from './inkImagePreprocessing';
 import { preprocessBayaImage } from './bayaPreprocessing';
 import { validateBayaProbabilities } from './bayaProbabilities';
 
@@ -13,7 +13,7 @@ export type BayaPrediction = { label: string; probability: number; classIndex: n
 export type WritingCanvasGeometry = { width: number; height: number };
 export type BayaRecognitionObserver = {
   onCaptureStarted?: () => void;
-  onCaptureCompleted?: (shapes: { imageShape: readonly number[]; sequenceShape: readonly number[] }) => void;
+  onCaptureCompleted?: (shapes: { imageShape: readonly number[] }) => void;
   onInferenceStarted?: () => void;
   onInferenceCompleted?: () => void;
 };
@@ -63,36 +63,30 @@ export function captureWritingRgba(strokes: StrokeData, geometry: WritingCanvasG
   return context.getImageData(0, 0, CAPTURE_SIZE, CAPTURE_SIZE).data;
 }
 
-function prepareCapturedInputs(strokes: StrokeData, geometry: WritingCanvasGeometry, imageRgba: Uint8ClampedArray) {
+function prepareCapturedInputs(imageRgba: Uint8ClampedArray) {
   const imageData = preprocessBayaImage({ width: CAPTURE_SIZE, height: CAPTURE_SIZE, data: imageRgba });
   if (!imageData.some(value => value > INK_THRESHOLD)) throw new Error('Write a visible character before asking BAYA to recognize it.');
-  const times = strokes.flat().map(point => point.t ?? 0);
-  if (!times.every(Number.isFinite)) throw new Error('Invalid stroke timestamps');
-  const sequenceData = preprocessNotebookSequence({
-    duration_ms: Math.max(0, Math.max(...times) - Math.min(...times)),
-    strokes: strokes.map(stroke => ({ points: stroke.map(point => ({ x: point.x * geometry.width, y: point.y * geometry.height, t: point.t ?? 0 })) })),
-  });
-  return { imageData, sequenceData };
+  return { imageData };
 }
 
 export function prepareBayaInputs(strokes: StrokeData, geometry: WritingCanvasGeometry = DEFAULT_GEOMETRY) {
-  return prepareCapturedInputs(strokes, geometry, captureWritingRgba(strokes, geometry));
+  return prepareCapturedInputs(captureWritingRgba(strokes, geometry));
 }
 
 export async function recognizeWriting(strokes: StrokeData, geometry: WritingCanvasGeometry = DEFAULT_GEOMETRY, topK = 3, observer?: BayaRecognitionObserver): Promise<BayaPrediction[]> {
   observer?.onCaptureStarted?.();
-  const { imageData, sequenceData } = prepareBayaInputs(strokes, geometry);
-  observer?.onCaptureCompleted?.({ imageShape: [1, 96, 96, 1], sequenceShape: [1, 512, 6] });
+  const { imageData } = prepareBayaInputs(strokes, geometry);
+  observer?.onCaptureCompleted?.({ imageShape: BAYA_MODEL_CONFIG.logicalInputs[0].shape });
   observer?.onInferenceStarted?.();
-  const probabilities = await runBayaInference(imageData, sequenceData);
+  const probabilities = await runBayaInference(imageData);
   validateBayaProbabilities(probabilities);
   observer?.onInferenceCompleted?.();
   const bestIndices = Array.from(probabilities, (_probability, index) => index)
     .sort((left, right) => probabilities[right] - probabilities[left] || left - right)
-    .slice(0, Math.min(Math.max(1, topK), EFFICIENTNET_CLASS_LABELS.length));
+    .slice(0, Math.min(Math.max(1, topK), BAYA_CLASS_LABELS.length));
   return bestIndices.map((classIndex) => ({
     classIndex,
-    label: EFFICIENTNET_CLASS_LABELS[classIndex],
+    label: BAYA_CLASS_LABELS[classIndex],
     probability: probabilities[classIndex],
   }));
 }

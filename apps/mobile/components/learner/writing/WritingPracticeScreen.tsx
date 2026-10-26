@@ -7,7 +7,7 @@ import { approvedCurriculum } from '../../../content/approvedCurriculum';
 import { type StrokeData } from '../../../content/writingEngine';
 import { BAYA_WRITING_MASTERY_POLICY, isValidWritingResult, nextValidCount, validPredictions, type ModelWritingAttempt } from '../../../content/writingMastery';
 import { validWritingCanvas } from '../../../content/writingCanvasValidation';
-import { EFFICIENTNET_CLASS_LABELS } from '../../../ml/efficientNetClassLabels';
+import { BAYA_CLASS_LABELS } from '../../../ml/bayaClassLabels';
 import { WritingMasteryIndicator } from './WritingMasteryIndicator';
 import { WritingInstructions } from './WritingInstructions';
 import { recognizeWriting } from '../../../ml/writingRecognition';
@@ -179,7 +179,7 @@ function WritingPracticeSession({ topicId, selection, setSelection, masteredChar
       const valid = isValidWritingResult(exercise.characterId, ranked);
       const result: ModelWritingAttempt = {
         characterId: exercise.characterId, strokeData: submittedStrokes, imageData: null,
-        recognizedClassId: EFFICIENTNET_CLASS_LABELS[top.classIndex], confidence: top.probability,
+        recognizedClassId: BAYA_CLASS_LABELS[top.classIndex], confidence: top.probability,
         result: valid ? 'valid' : 'invalid', attemptedAt: new Date().toISOString(),
       };
       try { await localLearnerService.recordWritingAttempt(topicId, result); }

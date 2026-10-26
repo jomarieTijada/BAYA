@@ -17,7 +17,7 @@ OUT.mkdir(parents=True, exist_ok=True)
 models = []
 rows = []
 for name in ['Baybayin_CustomCNN16_1.3', 'Baybayin_CustomCNN16_cp_1.3']:
-    path = ROOT/(name+'.keras')
+    path = ROOT/'research/models'/(name+'.keras')
     model = keras.models.load_model(path, compile=True)
     with zipfile.ZipFile(path) as archive:
         config = json.loads(archive.read('config.json'))

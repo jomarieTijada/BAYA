@@ -1,5 +1,5 @@
 import { BAYA_MODEL_CONFIG } from './bayaModelConfig';
-import { preprocessNotebookImage, type RgbaImage } from './efficientNetPreprocessing';
+import { preprocessNotebookImage, type RgbaImage } from './inkImagePreprocessing';
 
 export const INK_SQUARE_PREPROCESSING_ID = 'ink-square-pillow-v1';
 

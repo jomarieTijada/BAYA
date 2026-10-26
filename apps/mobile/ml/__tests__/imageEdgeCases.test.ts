@@ -1,4 +1,4 @@
-import { preprocessNotebookImage, type RgbaImage } from '../efficientNetPreprocessing';
+import { preprocessNotebookImage, type RgbaImage } from '../inkImagePreprocessing';
 
 function raster(width: number, height: number, ink: (x: number, y: number) => boolean, value = 0): RgbaImage {
   const data = new Uint8ClampedArray(width * height * 4).fill(255);

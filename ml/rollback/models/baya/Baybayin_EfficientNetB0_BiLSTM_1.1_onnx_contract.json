@@ -159,7 +159,8 @@
     "sampleCount": 16,
     "top1Matches": 16,
     "top3Matches": 16,
-    "maximumAbsoluteDifference": 2.5033950805664062e-06
+    "maximumAbsoluteDifference": 2.5033950805664062e-06,
+    "conversionParityPassed": true
   },
   "browserParity": {
     "passed": true,

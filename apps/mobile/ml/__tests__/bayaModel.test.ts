@@ -17,8 +17,7 @@ type MockSession = {
 };
 
 const IMAGE_NAME = 'image_input';
-const SEQUENCE_NAME = 'sequence_input';
-const OUTPUT_NAME = 'Identity:0';
+const OUTPUT_NAME = BAYA_MODEL_CONFIG.output.name;
 
 function setup() {
   jest.resetModules();
@@ -33,11 +32,10 @@ function setup() {
     return { type, data, dims, dispose: jest.fn(() => { tensorCount -= 1; }) } satisfies MockTensor;
   });
   const session: MockSession = {
-    inputNames: [IMAGE_NAME, SEQUENCE_NAME, ...BAYA_MODEL_CONFIG.staticNormalizationInputs.map(input => input.name)],
+    inputNames: [IMAGE_NAME],
     outputNames: [OUTPUT_NAME],
     inputMetadata: [
       { isTensor: true, type: 'float32', shape: [1, 96, 96, 1] },
-      { isTensor: true, type: 'float32', shape: [1, 512, 6] },
       ...BAYA_MODEL_CONFIG.staticNormalizationInputs.map(input => ({ isTensor: true as const, type: 'float32', shape: input.shape })),
     ],
     outputMetadata: [{ isTensor: true, type: 'float32', shape: [1, 63] }],
@@ -91,18 +89,18 @@ describe('BAYA ONNX web model service', () => {
     );
   });
 
-  it('supplies both image and trajectory tensors as the complete model feed', async () => {
+  it('supplies only the image tensor for ResNet18', async () => {
     const { ort, session, service, getTensorCount } = setup();
-    expect(service.runBayaInference).toHaveLength(2);
+    expect(service.runBayaInference).toHaveLength(1);
     const imageData = new Float32Array(96 * 96);
-    const output = await service.runBayaInference(imageData, new Float32Array(512 * 6));
+    const output = await service.runBayaInference(imageData);
 
     expect(output).toHaveLength(63);
     expect(session.run).toHaveBeenCalledTimes(1);
     const feeds = session.run.mock.calls[0][0] as Record<string, MockTensor>;
-    expect(Object.keys(feeds)).toEqual([IMAGE_NAME, SEQUENCE_NAME, ...BAYA_MODEL_CONFIG.staticNormalizationInputs.map(input => input.name)]);
+    expect(Object.keys(feeds)).toEqual([IMAGE_NAME]);
     expect(feeds[IMAGE_NAME].dims).toEqual([1, 96, 96, 1]);
-    expect(feeds[SEQUENCE_NAME].dims).toEqual([1, 512, 6]);
+    expect(feeds.sequence_input).toBeUndefined();
     expect(Object.values(feeds).every((tensor) => tensor.dispose.mock.calls.length === 1)).toBe(true);
     expect(getTensorCount()).toBe(0);
     expect(ort.env.wasm).toMatchObject({ numThreads: 1 });
@@ -119,7 +117,7 @@ describe('BAYA ONNX web model service', () => {
     await first;
     await service.preloadBayaModel();
     expect(session.run).toHaveBeenCalledTimes(1);
-    await service.runBayaInference(new Float32Array(96 * 96), new Float32Array(512 * 6));
+    await service.runBayaInference(new Float32Array(96 * 96));
     expect(session.run).toHaveBeenCalledTimes(2);
     expect(ort.InferenceSession.create).toHaveBeenCalledTimes(1);
     expect(getTensorCount()).toBe(0);
@@ -136,7 +134,7 @@ describe('BAYA ONNX web model service', () => {
 
   it('rejects malformed image length before loading the model', async () => {
     const { ort, service } = setup();
-    await expect(service.runBayaInference(new Float32Array(10), new Float32Array(512 * 6)))
+    await expect(service.runBayaInference(new Float32Array(10)))
       .rejects.toMatchObject({ code: 'INVALID_INPUT' });
     expect(ort.InferenceSession.create).not.toHaveBeenCalled();
   });
@@ -145,7 +143,7 @@ describe('BAYA ONNX web model service', () => {
     const { ort, service } = setup();
     const image = new Float32Array(96 * 96);
     image[3] = Number.NaN;
-    await expect(service.runBayaInference(image, new Float32Array(512 * 6)))
+    await expect(service.runBayaInference(image))
       .rejects.toMatchObject({ code: 'INVALID_INPUT' });
     expect(ort.InferenceSession.create).not.toHaveBeenCalled();
   });
@@ -184,32 +182,32 @@ describe('BAYA ONNX web model service', () => {
   ])('rejects %s', async (_label, outputFactory, expectedMessage) => {
     const { session, service } = setup();
     session.run.mockImplementation(outputFactory);
-    await expect(service.runBayaInference(new Float32Array(96 * 96), new Float32Array(512 * 6)))
+    await expect(service.runBayaInference(new Float32Array(96 * 96)))
       .rejects.toMatchObject({ code: 'INFERENCE_FAILED', cause: expect.objectContaining({ message: expect.stringContaining(expectedMessage) }) });
   });
 
   it('disposes the image on runtime failure and can infer again', async () => {
     const { session, service, getTensorCount } = setup();
     session.run.mockRejectedValueOnce(new Error('WASM execution failed'));
-    await expect(service.runBayaInference(new Float32Array(96 * 96), new Float32Array(512 * 6))).rejects.toMatchObject({ code: 'INFERENCE_FAILED' });
+    await expect(service.runBayaInference(new Float32Array(96 * 96))).rejects.toMatchObject({ code: 'INFERENCE_FAILED' });
     expect(getTensorCount()).toBe(0);
-    await expect(service.runBayaInference(new Float32Array(96 * 96), new Float32Array(512 * 6))).resolves.toHaveLength(63);
+    await expect(service.runBayaInference(new Float32Array(96 * 96))).resolves.toHaveLength(63);
   });
 
   it.each([null, new Float64Array(96 * 96), new Float32Array(96 * 96).fill(-0.1), new Float32Array(96 * 96).fill(1.1)])('rejects malformed image data before model loading', async data => {
     const { ort, service } = setup();
-    await expect(service.runBayaInference(data as Float32Array, new Float32Array(512 * 6))).rejects.toMatchObject({ code: 'INVALID_INPUT' });
+    await expect(service.runBayaInference(data as Float32Array)).rejects.toMatchObject({ code: 'INVALID_INPUT' });
     expect(ort.InferenceSession.create).not.toHaveBeenCalled();
   });
 
-  it('smokes three times, reports both model inputs, and reuses one session', async () => {
+  it('smokes three times, reports the image-only model input, and reuses one session', async () => {
     const { ort, session, service } = setup();
     const result = await service.runBayaSmokeTest();
     expect(result).toMatchObject({
       modelUrl: BAYA_RECOGNITION_MODEL_URL,
       runtimeVersion: '1.30.0',
       executionProvider: 'wasm',
-      inputNames: [IMAGE_NAME, SEQUENCE_NAME, ...BAYA_MODEL_CONFIG.staticNormalizationInputs.map(input => input.name)],
+      inputNames: [IMAGE_NAME],
       outputNames: [OUTPUT_NAME],
       outputShape: [1, 63],
       allFinite: true,
@@ -226,7 +224,7 @@ describe('BAYA ONNX web model service', () => {
     jest.resetModules();
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     const nativeService = require('../bayaModel') as typeof import('../bayaModel');
-    await expect(nativeService.runBayaInference(new Float32Array(1), new Float32Array(512 * 6)))
+    await expect(nativeService.runBayaInference(new Float32Array(1)))
       .rejects.toMatchObject({ code: 'UNSUPPORTED_PLATFORM' });
   });
 });

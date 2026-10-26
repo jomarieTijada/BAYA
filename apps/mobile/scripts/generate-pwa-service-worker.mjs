@@ -94,11 +94,22 @@ self.addEventListener('install', event => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_NAME);
     try {
-      for (const url of PRECACHE_URLS) {
-        const response = await fetch(new Request(url, { cache: 'reload' }));
-        if (!response.ok) throw new Error('PWA precache failed: ' + url + ' (' + response.status + ')');
-        await cache.put(url, response);
-      }
+      // Bound concurrent transfers to avoid serial request latency without flooding
+      // low-memory devices. Settle every worker before removing a failed cache.
+      let next = 0;
+      let failed = false;
+      const results = await Promise.allSettled(Array.from({ length: 4 }, async () => {
+        while (!failed && next < PRECACHE_URLS.length) {
+          const url = PRECACHE_URLS[next++];
+          try {
+            const response = await fetch(new Request(url, { cache: 'reload' }));
+            if (!response.ok) throw new Error('PWA precache failed: ' + url + ' (' + response.status + ')');
+            await cache.put(url, response);
+          } catch (error) { failed = true; throw error; }
+        }
+      }));
+      const failure = results.find(result => result.status === 'rejected');
+      if (failure) throw failure.reason;
       await self.skipWaiting();
     } catch (error) {
       await caches.delete(CACHE_NAME);

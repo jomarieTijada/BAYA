@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parents[3]
 OUT = ROOT/'ml/deployment/onnx/artifacts/custom-cnn-1.3'
 OUT.mkdir(parents=True, exist_ok=True)
 NAME = 'Baybayin_CustomCNN16_1.3'
-SOURCE = ROOT/(NAME+'.keras')
+SOURCE = ROOT/'research/models'/(NAME+'.keras')
 ARTIFACTS = Path('C:/Users/jomsa/Downloads/Baybayin_CustomCNN16_1.3_artifacts')
 NOTEBOOK = Path(os.environ.get('BAYA_CUSTOM_NOTEBOOK', 'C:/Users/jomsa/Downloads/Custom_CNN_8Layer_Augmented.ipynb'))
 sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
@@ -96,7 +96,7 @@ graph=onnx.load(str(path));onnx.checker.check_model(graph)
 session=ort.InferenceSession(str(path),providers=['CPUExecutionProvider'])
 assert len(session.get_inputs())==len(session.get_outputs())==1
 assert session.get_inputs()[0].shape==[1,96,96,1] and session.get_outputs()[0].shape==[1,63]
-external=ort.InferenceSession(str(ROOT/'apps/mobile/public/models/baya/Baybayin_EfficientNetB0_ExternalFirst_v2.onnx'),providers=['CPUExecutionProvider'])
+external=ort.InferenceSession(str(ROOT/'ml/rollback/models/baya/Baybayin_EfficientNetB0_ExternalFirst_v2.onnx'),providers=['CPUExecutionProvider'])
 rows=[];comparisons=[]
 for name,x in cases.items():
     expected=reference[name];actual=session.run(None,{session.get_inputs()[0].name:x})[0]

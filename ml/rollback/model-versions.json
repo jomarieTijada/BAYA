@@ -1,0 +1,7 @@
+{
+  "previous": "Baybayin_EfficientNetB0_imagenet_finetuned_finetune_1.0_onnx_contract.json",
+  "external-v2": "Baybayin_EfficientNetB0_ExternalFirst_v2_onnx_contract.json",
+  "custom-cnn8-1.1": "Baybayin_CustomCNN8_1.1_onnx_contract.json",
+  "bilstm-v1.1": "Baybayin_EfficientNetB0_BiLSTM_1.1_onnx_contract.json",
+  "resnet18-1.0": "BAYA_ResNet18_1.0_onnx_contract.json"
+}

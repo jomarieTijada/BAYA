@@ -1,0 +1,23 @@
+{
+  "image_size": [
+    96,
+    96
+  ],
+  "channels": 1,
+  "black_ink_1_white_0": true,
+  "bounding_box_crop": true,
+  "ink_threshold": 0.08,
+  "padding_ratio": 0.15,
+  "training_augmentation": {
+    "enabled": true,
+    "rotation_degrees": 8.0,
+    "scale_range": [
+      0.9,
+      1.1
+    ],
+    "translation_fraction": 0.03,
+    "probability": 0.8
+  },
+  "sequence_max_points": 512,
+  "sequence_used_in_this_notebook": false
+}

@@ -23,7 +23,7 @@ import tf2onnx
 
 ROOT = Path(__file__).resolve().parents[3]
 NAME = 'Baybayin_EfficientNetB0_ExternalFirst_v2'
-SOURCE = ROOT / (NAME + '.keras')
+SOURCE = ROOT / 'research/models' / (NAME + '.keras')
 LABELS = ROOT / (NAME + '_labels.json')
 OUT = ROOT / 'ml/deployment/onnx/artifacts/external-v2'
 OUT.mkdir(parents=True, exist_ok=True)
@@ -51,7 +51,7 @@ for layer in model.layers:
 (OUT / 'inspection.json').write_text(json.dumps(inspection, indent=2))
 print(json.dumps(inspection, indent=2), flush=True)
 
-notebook = ROOT / 'BAYA_Dataset_Rescue.ipynb'
+notebook = ROOT / 'research/notebooks/BAYA_Dataset_Rescue.ipynb'
 cells = json.loads(notebook.read_text(encoding='utf-8'))['cells']
 nodes = ast.parse(''.join(cells[4]['source']) + '\n' + ''.join(cells[36]['source'])).body
 selected = [n for n in nodes if (isinstance(n, ast.FunctionDef) and n.name == 'load_image_array') or

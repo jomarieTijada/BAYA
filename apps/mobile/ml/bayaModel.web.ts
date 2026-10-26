@@ -6,10 +6,9 @@ const MODEL_URL = BAYA_RECOGNITION_MODEL_URL;
 const ORT_SCRIPT_URL = '/ort/ort-wasm-runtime.min.js';
 const WASM_BASE_URL = '/ort/';
 const IMAGE_SHAPE = BAYA_MODEL_CONFIG.logicalInputs[0].shape;
-const SEQUENCE_SHAPE = BAYA_MODEL_CONFIG.logicalInputs[1].shape;
 const OUTPUT_SHAPE = BAYA_MODEL_CONFIG.output.shape;
 const OUTPUT_UNITS = BAYA_MODEL_CONFIG.classCount;
-const INPUT_NAMES = { image: BAYA_MODEL_CONFIG.logicalInputs[0].name, sequence: BAYA_MODEL_CONFIG.logicalInputs[1].name };
+const INPUT_NAMES = { image: BAYA_MODEL_CONFIG.logicalInputs[0].name };
 const OUTPUT_NAME = BAYA_MODEL_CONFIG.output.name;
 
 type OrtTensor = {
@@ -141,22 +140,20 @@ function tensorMetadataMatches(metadata: OrtMetadata | undefined, expectedShape:
 }
 
 function validateSession(session: BayaSession, runtime: OrtRuntime): LoadedModel {
-  const expectedInputNames = [...Object.values(INPUT_NAMES), ...BAYA_MODEL_CONFIG.staticNormalizationInputs.map(input => input.name)];
+  const expectedInputNames = [INPUT_NAMES.image];
   const inputNameSet = new Set(session.inputNames);
   const namesMatch = session.inputNames.length === expectedInputNames.length
     && expectedInputNames.every((name) => inputNameSet.has(name));
   const outputsMatch = session.outputNames.length === 1 && session.outputNames[0] === OUTPUT_NAME;
 
   const metadataByName = new Map(session.inputNames.map((name, index) => [name, session.inputMetadata[index]]));
-  const shapesMatch = BAYA_MODEL_CONFIG.staticNormalizationInputs.every(input => tensorMetadataMatches(metadataByName.get(input.name), input.shape))
-    && tensorMetadataMatches(metadataByName.get(INPUT_NAMES.image), IMAGE_SHAPE)
-    && tensorMetadataMatches(metadataByName.get(INPUT_NAMES.sequence), SEQUENCE_SHAPE)
+  const shapesMatch = tensorMetadataMatches(metadataByName.get(INPUT_NAMES.image), IMAGE_SHAPE)
     && tensorMetadataMatches(session.outputMetadata[0], OUTPUT_SHAPE);
 
   if (!namesMatch || !outputsMatch || !shapesMatch) {
     throw new BayaModelError(
       'MODEL_CONTRACT_INVALID',
-      `Expected float32 image (${IMAGE_SHAPE}) and sequence (${SEQUENCE_SHAPE}) inputs `
+      `Expected float32 image (${IMAGE_SHAPE}) input `
         + `and output ${OUTPUT_SHAPE} named ${OUTPUT_NAME}. `
         + `Received inputs: ${describeMetadata(session.inputNames, session.inputMetadata).join('; ')}. `
         + `Outputs: ${describeMetadata(session.outputNames, session.outputMetadata).join('; ')}.`,
@@ -223,7 +220,7 @@ export async function getBayaModel(): Promise<void> {
 export function preloadBayaModel(): Promise<void> {
   if (!preloadPromise) {
     preloadPromise = getBayaModel()
-      .then(() => runBayaInference(new Float32Array(IMAGE_SHAPE.reduce((a, b) => a * b, 1)), new Float32Array(512 * 6)))
+      .then(() => runBayaInference(new Float32Array(IMAGE_SHAPE.reduce((a, b) => a * b, 1))))
       .then(() => undefined)
       .catch((error: unknown) => { preloadPromise = null; throw error; });
   }
@@ -249,23 +246,16 @@ function validateProbabilities(values: Float32Array, shape: readonly number[]): 
   validateBayaProbabilities(values);
 }
 
-export async function runBayaInference(imageData: Float32Array, sequenceData: Float32Array): Promise<Float32Array> {
+export async function runBayaInference(imageData: Float32Array): Promise<Float32Array> {
   validateInput(imageData, IMAGE_SHAPE.reduce((a, b) => a * b, 1), 'imageData');
 
-  if (!(sequenceData instanceof Float32Array) || sequenceData.length !== 512 * 6 || !sequenceData.every(Number.isFinite)) {
-    throw new BayaModelError('INVALID_INPUT', 'sequenceData must contain 3072 finite float32 values.');
-  }
   const { runtime, session } = await getLoadedModel();
-  const sequence = new runtime.Tensor('float32', sequenceData, [...SEQUENCE_SHAPE]);
   const image = new runtime.Tensor('float32', imageData, [...IMAGE_SHAPE]);
-  const normalization = Object.fromEntries(BAYA_MODEL_CONFIG.staticNormalizationInputs.map(input => [input.name, new runtime.Tensor('float32', Float32Array.from(input.values), [...input.shape])]));
   let outputs: Record<string, OrtTensor> = {};
 
   try {
     outputs = await session.run({
       [INPUT_NAMES.image]: image,
-      [INPUT_NAMES.sequence]: sequence,
-      ...normalization,
     });
     const output = outputs?.[OUTPUT_NAME];
     if (!output) throw new Error(`ONNX Runtime did not return the expected output ${OUTPUT_NAME}.`);
@@ -278,8 +268,6 @@ export async function runBayaInference(imageData: Float32Array, sequenceData: Fl
     throw new BayaModelError('INFERENCE_FAILED', 'BAYA ONNX inference failed validation or execution.', cause);
   } finally {
     image.dispose();
-    sequence.dispose();
-    Object.values(normalization).forEach(tensor => tensor.dispose());
     if (outputs && typeof outputs === 'object') {
       Object.values(outputs).forEach((output) => {
         if (output && typeof output.dispose === 'function') output.dispose();
@@ -301,7 +289,7 @@ async function runSmoke(): Promise<BayaSmokeResult> {
   let probabilitySum = 0;
   const repeatedInferenceCount = 3;
   for (let run = 0; run < repeatedInferenceCount; run += 1) {
-    finalOutput = await runBayaInference(image, new Float32Array(512 * 6));
+    finalOutput = await runBayaInference(image);
     probabilitySum = finalOutput.reduce((sum, value) => sum + value, 0);
   }
   const sameSessionReused = (await getLoadedModel()).session === sessionBefore;
@@ -340,11 +328,11 @@ export async function runBayaBenchmark(): Promise<BayaBenchmarkResult> {
   const image = new Float32Array(96 * 96);
   const warmupRuns = 5;
   const timedRuns = 40;
-  for (let index = 0; index < warmupRuns; index += 1) await runBayaInference(image, new Float32Array(512 * 6));
+  for (let index = 0; index < warmupRuns; index += 1) await runBayaInference(image);
   const times: number[] = [];
   for (let index = 0; index < timedRuns; index += 1) {
     const start = performance.now();
-    await runBayaInference(image, new Float32Array(512 * 6));
+    await runBayaInference(image);
     times.push(performance.now() - start);
   }
   const sorted = [...times].sort((left, right) => left - right);

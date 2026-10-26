@@ -1,9 +1,9 @@
 import { runBayaInference } from '../bayaModel';
-import { preprocessNotebookImage } from '../efficientNetPreprocessing';
+import { preprocessNotebookImage } from '../inkImagePreprocessing';
 import { recognizeWriting } from '../writingRecognition';
 
 jest.mock('../bayaModel', () => ({ runBayaInference: jest.fn() }));
-jest.mock('../efficientNetPreprocessing', () => ({
+jest.mock('../inkImagePreprocessing', () => ({
   INK_THRESHOLD: 0.08,
   preprocessNotebookImage: jest.fn(),
 }));
@@ -40,7 +40,7 @@ it('captures the actual stroke image before starting ONNX inference', async () =
   const result = await recognizeWriting(strokes, { width: 200, height: 100 }, 3, {
     onCaptureStarted: () => phases.push('captureStarted'),
     onCaptureCompleted: shapes => {
-      expect(shapes).toEqual({ imageShape: [1, 96, 96, 1], sequenceShape: [1, 512, 6] });
+      expect(shapes).toEqual({ imageShape: [1, 96, 96, 1] });
       phases.push('captureCompleted');
     },
     onInferenceStarted: () => phases.push('inferenceStarted'),
@@ -50,7 +50,7 @@ it('captures the actual stroke image before starting ONNX inference', async () =
   expect(phases).toEqual(['captureStarted', 'captureCompleted', 'inferenceStarted', 'inferenceCompleted']);
   expect(drawing).toContain('line');
   expect(preprocessNotebookImage).toHaveBeenCalledWith(expect.objectContaining({ width: 256, height: 256 }));
-  expect(runBayaInference).toHaveBeenCalledWith(expect.any(Float32Array), expect.any(Float32Array));
+  expect(runBayaInference).toHaveBeenCalledWith(expect.any(Float32Array));
   expect(result[0].label).toBe('a');
   expect(result[0].probability).toBeCloseTo(0.7);
 });
@@ -97,12 +97,12 @@ it.each([null, new Float32Array(62), new Float32Array(64), new Float32Array(63).
   await expect(recognizeWriting(strokes)).rejects.toThrow();
 });
 
-it('keeps stable class-index ties and supplies both float32 arguments', async () => {
+it('keeps stable class-index ties and supplies the image tensor only', async () => {
   installCapture();
   const probabilities = new Float32Array(63);
   probabilities[0] = probabilities[1] = 0.5;
   (runBayaInference as jest.Mock).mockResolvedValue(probabilities);
   const ranked = await recognizeWriting(strokes);
   expect(ranked.map(p => p.classIndex)).toEqual([0, 1, 2]);
-  expect(jest.mocked(runBayaInference).mock.calls[0]).toHaveLength(2);
+  expect(jest.mocked(runBayaInference).mock.calls[0]).toHaveLength(1);
 });

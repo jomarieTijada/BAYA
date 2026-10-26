@@ -1,15 +1,9 @@
-# Production handwriting recognition
+# Recognition runtime
 
-The deployed ONNX is now the exact user-supplied file (SHA-256 `32b63d2f36802e5792006c07f18bcc1aead2f9d20ed1181edc1feebf59ab70b1`). Its two additional static normalization inputs are supplied from the verified contract. See `docs/ml/supplied-bilstm-replacement.md`.
+The active model is **BAYA_ResNet18_1.0.onnx**, an image-only ResNet18 with float32 input [1,96,96,1] and 63 output probabilities. The sole production selection is bayaActiveModel.json, consumed by bayaModelConfig.ts, the web loader and the service-worker generator.
 
-The sole active manifest is `bayaActiveModel.json`. It selects `Baybayin_EfficientNetB0_BiLSTM_1.1.onnx`, the unchanged stage B checkpoint selected by the supplied refinement metrics. Labels retain the exact 63 training indices.
+writingRecognition.ts coordinates canvas rasterization, bayaPreprocessing.ts, inference and feedback. inkImagePreprocessing.ts implements the verified Pillow-compatible image algorithm shared by ResNet and research comparisons. bayaClassLabels.ts reads the exact output-index order from the active manifest. It composites transparency over white, converts to grayscale, inverts ink, crops/pads a square, resizes and normalizes to [0,1]. The exact contract and label order are in the active manifest. Do not replace these with generic image transforms.
 
-`runBayaInference(imageData, sequenceData)` supplies float32 `image_input` [1,96,96,1] and `sequence_input` [1,512,6]. The private, shared ORT Web 1.30.0 WASM session returns `Identity:0` [1,63]. Warmup, retries, probability validation, stable ranking, learner feedback and mastery rules retain their existing behavior.
+bayaModel.web.ts owns the cached ONNX Runtime Web/WASM session. Native recognition reports unsupported explicitly. Stroke capture remains necessary for drawing, undo and persistence. Historical BiLSTM source and fixtures now live outside the app in ../../../ml/rollback/runtime and ../../../ml/rollback/fixtures. Shared Pillow golden-image tests remain here because they validate the active preprocessing algorithm.
 
-Image preprocessing is unchanged: white alpha composite, Pillow grayscale, inverted ink, threshold 0.08, bounding box, 15% padding, centered square, uint8 Pillow bilinear resize and float32 /255. The model itself repeats grayscale to RGB, multiplies ink by 255, and applies saved EfficientNet normalization.
-
-`bilstmSequence.ts` ports refinement-notebook cell 10: trajectory bounding box and 15% square padding; stroke-preserving proportional downsampling; features x_shape, y_shape, dx, dy, dt_norm, stroke_start; trailing zero rows for the model's zero mask. Canvas coordinates are converted to pixels before shape normalization. Signed dx/dy are preserved. Image and trajectory preprocessing match 15 paired notebook goldens exactly.
-
-The export service worker generator ships only the selected model and runtime metadata, hashes the selected bytes into its cache version, and removes previous BAYA asset caches on activation. It never clears SQLite/OPFS, profiles or progress. Unrelated research candidate source files are preserved but excluded from dist.
-
-See `docs/ml/bilstm-v1.1-replacement.md` for provenance, limitations, reproduction commands and validation results.
+The service-worker generator selects the active model and metadata, versions caches from file contents and leaves SQLite/OPFS untouched. Legacy binaries are in ../../../ml/rollback/models/baya, outside public assets. See ../../../docs/CODEBASE-CLEANUP-REPORT.md for relocation/recovery evidence.

@@ -11,7 +11,7 @@ import tensorflow as tf
 import keras,onnx,onnxruntime as ort,tf2onnx
 ROOT=Path(__file__).resolve().parents[3]
 NAME='Baybayin_EfficientNetB0_imagenet_finetuned_finetune_1.0'
-SOURCE=ROOT/(NAME+'.keras')
+SOURCE=ROOT/'research/models'/(NAME+'.keras')
 OUT=Path(__file__).parent/'artifacts'/'imagenet-finetune-1.0'
 OUT.mkdir(parents=True,exist_ok=True)
 source_hash=hashlib.sha256(SOURCE.read_bytes()).hexdigest()
@@ -19,7 +19,7 @@ model=keras.models.load_model(SOURCE,compile=False)
 assert len(model.inputs)==1 and tuple(model.inputs[0].shape)==(None,96,96,1)
 assert tuple(model.outputs[0].shape)==(None,63)
 assert str(model.inputs[0].dtype)==str(model.outputs[0].dtype)=='float32'
-NOTEBOOK=ROOT/'EfficientNetB0_Augmented_Comparison.ipynb'
+NOTEBOOK=ROOT/'research/notebooks/EfficientNetB0_Augmented_Comparison.ipynb'
 notebook=json.loads(NOTEBOOK.read_text(encoding='utf-8'))
 cell=lambda i: ''.join(notebook['cells'][i]['source'])
 namespace={'np':np,'Image':Image,'IMG_HEIGHT':96,'IMG_WIDTH':96}
@@ -37,7 +37,7 @@ assert 'classes = sorted(df["label"].astype(str).unique())' in cell(16)
 executed=''.join(''.join(o.get('text',[])) for o in notebook['cells'][35]['outputs'])
 for label in labels:
  assert re.search(r'^'+re.escape(label.replace('_','/'))+r'\s+[0-9.]+\s+[0-9.]+\s+[0-9.]+\s+10\s*$',executed,re.M),label
-app_labels=re.findall(r"'([^']+)'",(ROOT/'apps/mobile/ml/efficientNetClassLabels.ts').read_text().split('export const EFFICIENTNET_CLASS_LABELS = [')[1].split('] as const')[0])
+app_labels=json.loads((ROOT/'apps/mobile/ml/bayaActiveModel.json').read_text())['orderedLabels']
 assert labels==app_labels,'Active class mapping differs'
 fixtures=ROOT/'apps/mobile/ml/__tests__/fixtures/imagenet-finetune-1.0'
 fixtures.mkdir(parents=True,exist_ok=True)

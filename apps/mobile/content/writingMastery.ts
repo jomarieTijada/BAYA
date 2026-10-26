@@ -1,4 +1,4 @@
-import { EFFICIENTNET_CLASS_LABELS } from '../ml/efficientNetClassLabels';
+import { BAYA_CLASS_LABELS } from '../ml/bayaClassLabels';
 import type { BayaPrediction } from '../ml/writingRecognition';
 import type { StrokeData } from './writingEngine';
 
@@ -9,13 +9,13 @@ export const BAYA_WRITING_MASTERY_POLICY = Object.freeze({ minConfidence: RECOGN
 /** IDs are model output indices, never a target-biased display-label comparison. */
 export function writingClassId(label: string): number {
   const canonical = label.trim().toLowerCase().replace(/\s*\/\s*/g, '_');
-  return EFFICIENTNET_CLASS_LABELS.indexOf(canonical as typeof EFFICIENTNET_CLASS_LABELS[number]);
+  return BAYA_CLASS_LABELS.indexOf(canonical as typeof BAYA_CLASS_LABELS[number]);
 }
 
 export function validPredictions(predictions: readonly BayaPrediction[]): boolean {
   return Array.isArray(predictions) && predictions.length > 0 && new Set(predictions.map(p => p?.classIndex)).size === predictions.length
     && predictions.every(p => p && Number.isInteger(p.classIndex) && p.classIndex >= 0
-      && p.classIndex < EFFICIENTNET_CLASS_LABELS.length && typeof p.label === 'string'
+      && p.classIndex < BAYA_CLASS_LABELS.length && typeof p.label === 'string'
       && writingClassId(p.label) === p.classIndex
       && typeof p.probability === 'number' && Number.isFinite(p.probability) && p.probability >= 0 && p.probability <= 1);
 }

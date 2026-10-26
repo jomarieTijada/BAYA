@@ -1,33 +1,19 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { createHash } from 'node:crypto';
-import { preprocessNotebookImage } from '../efficientNetPreprocessing';
-import { EFFICIENTNET_CLASS_LABELS } from '../efficientNetClassLabels';
+import { preprocessNotebookImage } from '../inkImagePreprocessing';
+import { BAYA_CLASS_LABELS } from '../bayaClassLabels';
 
 const root = path.join(__dirname, 'fixtures/imagenet-finetune-1.0');
 const audit = JSON.parse(fs.readFileSync(path.join(root, 'training-audit.json'), 'utf8'));
 
-it('binds the exact fixtures to this EfficientNet model training loader', () => {
-  const repository = path.resolve(__dirname, '../../../../');
-  const verification = JSON.parse(fs.readFileSync(path.join(repository, 'docs/ml/efficientnetb0-model-preprocessing.json'), 'utf8'));
-  const notebook = fs.readFileSync(path.join(repository, verification.notebook));
-  expect(createHash('sha256').update(notebook).digest('hex')).toBe(verification.notebookSha256);
-  expect(verification.preprocessingCell).toBe(19);
-  expect(verification.classOrderingCell).toBe(16);
-  expect(verification.executedClassReportCell).toBe(36);
-  expect(verification.sampleCount).toBe(audit.samples.length);
-  expect(verification.maximumAbsoluteDifference).toBe(0);
-  expect(verification.originalFixtureNotebookSha256).toBe(audit.notebookSha256);
-});
-
 it('preserves the historical fixture class order at every output index', () => {
   expect(audit.orderedLabels).toHaveLength(63);
-  expect(audit.orderedLabels).toEqual([...EFFICIENTNET_CLASS_LABELS]);
+  expect(audit.orderedLabels).toEqual([...BAYA_CLASS_LABELS]);
   expect(audit.preprocessingCell).toBe(18);
   expect(audit.notebookSha256).toBe('20dc57f5bac5b7036377ea01e510d69fc02eb455689bf9302caf25264b07629e');
 });
 
-it('matches every float from the new notebook on 94 glyphs and 15 edge cases', () => {
+it('matches the shared Pillow pipeline golden floats on 94 glyphs and 15 edge cases', () => {
   expect(audit.samples).toHaveLength(109);
   let maximum = 0;
   for (const sample of audit.samples) {

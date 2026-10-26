@@ -14,7 +14,7 @@ export async function preloadBayaModel(): Promise<never> {
   throw unsupported();
 }
 
-export async function runBayaInference(_imageData: Float32Array, _sequenceData: Float32Array): Promise<never> {
+export async function runBayaInference(_imageData: Float32Array): Promise<never> {
   throw unsupported();
 }
 

@@ -1,22 +1,9 @@
-# Active hybrid model conversion
+# ONNX inspection and export
 
-Use `replace_bilstm_v1_1.py --source-dir <experiment-results-directory>` with the pinned Python 3.12 environment in `requirements.txt`. This script stages the original stage B model, checks selection/provenance, audits both Keras checkpoints, validates the graph, verifies notebook preprocessing, and compares every output probability. It never activates or deletes app assets. Then run `node scripts/verify-bilstm-v1.1-browser.mjs` for real Chromium WASM and application-service parity.
+Current source: research/models/BAYA_ResNet18_1.0.keras. Training notebook: research/notebooks/BAYA_ResNet18.ipynb. inspect_export_resnet18.py produces candidate artifacts and parity evidence under artifacts/resnet18-1.0. Use the existing pinned Python environment in requirements.txt. Run from the repository root.
 
-See `docs/ml/bilstm-v1.1-replacement.md`. The image-only scripts below remain historical research tools and do not select the production model.
+Production selection remains apps/mobile/ml/bayaActiveModel.json. Conversion alone must not change it. Verify source hashes, label order, preprocessing, probability parity, runtime loading and offline caching before selecting another model.
 
----
+Older custom-CNN, EfficientNet and BiLSTM scripts are retained research tools. Their checkpoint paths now point into research/models, and comparison assets into ml/rollback. Browser validators have model-specific contracts rather than borrowing the current active model. They were syntax-checked during cleanup but historical browser parity was not rerun. Some exporters intentionally regenerate their candidate ONNX into artifacts; that generated copy may be removed after hash comparison with its rollback copy.
 
-# EfficientNetB0_model validation
-
-The sole authoritative source is `C:/BAYA/EfficientNetB0_model.keras`, byte-for-byte restored from the exact user-selected source. Production artifacts are `apps/mobile/public/models/baya/EfficientNetB0_model.onnx`, `EfficientNetB0_model_labels.json` and `EfficientNetB0_model_onnx_contract.json`.
-
-```powershell
-.\ml\deployment\onnx\.venv\Scripts\python.exe ml/deployment/onnx/validate_efficientnetb0_model.py
-node scripts/verify-efficientnetb0-browser.mjs
-```
-
-The validator loads and inspects the exact source, reconstructs its own notebook preprocessing/class order, validates independently exported labels, recomputes 109 original fixture tensors, creates 114 golden references and compares all 63 probabilities through the existing ONNX. It runs ONNX checker and requires 100% Top-1/Top-3 order agreement plus maximum error <=1e-5. It never retrains, converts, publishes or changes selection. Browser validation uses the actual shared service and measures cached-session reuse, preload, exact input floats and raw probabilities.
-
-The existing ONNX passed strict source parity and was reused without conversion. For future missing/corrupt assets, use the retained compatible TensorFlow/Keras/tf2onnx/ONNX environment to export the authoritative source faithfully, then repeat all deployment gates. Re-conversion is not needed merely to change a filesystem filename. Tensor names stay unchanged.
-
-`artifacts/efficientnetb0-model` retains current summary, exact input/probability references, validation logs and starting repository state. Obsolete generated deployment artifacts are removed; original image fixtures, datasets, notebooks and historical evaluation/deployment reports remain protected. Full report: `docs/ml/efficientnetb0-model-restoration.md`.
+See ml/rollback/README.md for recovery, docs/ml/resnet18-1.0 for existing ResNet provenance, and docs/CODEBASE-CLEANUP-REPORT.md for this cleanup's results. Earlier EfficientNet/BiLSTM reports remain historical evidence.

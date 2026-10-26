@@ -23,7 +23,7 @@ export function downloadBayaCapture(targetClass: string, strokes: StrokeData, ge
   if (!isBayaCaptureEnabled() || predictions.length === 0) return null;
 
   const rgba = captureWritingRgba(strokes, geometry);
-  const { imageData, sequenceData } = prepareBayaInputs(strokes, geometry);
+  const { imageData } = prepareBayaInputs(strokes, geometry);
   const capturedAt = new Date().toISOString();
   const capture = {
     schemaVersion: 2,
@@ -35,7 +35,7 @@ export function downloadBayaCapture(targetClass: string, strokes: StrokeData, ge
     canvas: geometry,
     normalizedStrokes: strokes,
     raster: { width: RASTER_SIZE, height: RASTER_SIZE, rgbaBase64: encodeBase64(rgba) },
-    webInputs: { image: Array.from(imageData), sequence: Array.from(sequenceData) },
+    webInputs: { image: Array.from(imageData) },
   };
   const blob = new Blob([JSON.stringify(capture)], { type: 'application/json' });
   const url = URL.createObjectURL(blob);

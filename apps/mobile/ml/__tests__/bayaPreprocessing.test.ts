@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { resolveBayaPreprocessing, INK_SQUARE_PREPROCESSING_ID } from '../bayaPreprocessing';
-const contract = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../public/models/baya/Baybayin_EfficientNetB0_BiLSTM_1.1_onnx_contract.json'), 'utf8'));
+const contract = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../bayaActiveModel.json'), 'utf8'));
 
 it('validates the sole production model external preprocessing contract', () => {
   expect(resolveBayaPreprocessing(contract)).toBe(INK_SQUARE_PREPROCESSING_ID);

@@ -10,12 +10,13 @@ import ts from 'typescript';
 const root = process.cwd();
 const artifacts = path.join(root, 'ml/deployment/onnx/artifacts/custom-cnn-1.3');
 const publicRoot = path.join(root, 'apps/mobile/public');
+const modelRoot = path.join(root, 'ml/rollback');
 const python = JSON.parse(fs.readFileSync('docs/ml/custom-cnn-1.3-python-parity.json', 'utf8'));
-const external = JSON.parse(fs.readFileSync(path.join(publicRoot, 'models/baya/Baybayin_EfficientNetB0_ExternalFirst_v2_onnx_contract.json'), 'utf8'));
+const external = JSON.parse(fs.readFileSync(path.join(modelRoot, 'models/baya/Baybayin_EfficientNetB0_ExternalFirst_v2_onnx_contract.json'), 'utf8'));
 const custom = { ...external, model: 'Baybayin_CustomCNN16_1.3.onnx', modelName: 'Baybayin_CustomCNN16_1.3', modelVersion: 'custom-cnn-1.3',
   modelUrl: '/models/baya/Baybayin_CustomCNN16_1.3.onnx', onnxSha256: python.onnxSha256, orderedLabels: python.orderedLabels };
 const compile = source => ts.transpileModule(source, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ES2022 } }).outputText.replace(/from '(\.\/[^']+)'/g, "from '$1.js'");
-const modules = new Map([['/preprocess.js', compile(fs.readFileSync('apps/mobile/ml/efficientNetPreprocessing.ts', 'utf8'))]]);
+const modules = new Map([['/preprocess.js', compile(fs.readFileSync('apps/mobile/ml/inkImagePreprocessing.ts', 'utf8'))]]);
 for (const [version, contract] of [['custom', custom], ['external', external]]) {
   for (const name of ['BayaModelError', 'bayaProbabilities', 'bayaModelConfig', 'bayaModel.web']) {
     let source = fs.readFileSync(`apps/mobile/ml/${name}.ts`, 'utf8');
@@ -23,7 +24,7 @@ for (const [version, contract] of [['custom', custom], ['external', external]]) 
     modules.set(`/app/${version}/${name}.js`, compile(source));
   }
 }
-const modelFiles = { [custom.modelUrl]: path.join(artifacts, custom.model), [external.modelUrl]: path.join(publicRoot, external.modelUrl) };
+const modelFiles = { [custom.modelUrl]: path.join(artifacts, custom.model), [external.modelUrl]: path.join(modelRoot, external.modelUrl) };
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, 'http://localhost').pathname;
   res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');

@@ -1,4 +1,4 @@
-/** Pure TypeScript port of the EfficientNet image preprocessing (cell 18). */
+/** Shared ink-square Pillow preprocessing, verified against the active ResNet18 contract. */
 
 export const IMAGE_HEIGHT = 96;
 export const IMAGE_WIDTH = 96;
