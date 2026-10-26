@@ -1,38 +1,3 @@
-/* eslint-disable import/no-unresolved */
-/**
- * apps/mobile/components/DrawingCanvas.tsx
- *
- * Interactive Baybayin handwriting canvas.
- *
- * Architecture (Principle 4 — Testability):
- *   - The Skia path (visual ink) and the telemetry array are completely
- *     separate concerns. The `skiaPath` shared value drives the GPU render.
- *     The `telemetryRef` accumulates raw [x, y, t] points that are passed to
- *     the ML inference pipeline via the `onStrokeEnd` callback — which can be
- *     unit-tested independently of the React render lifecycle.
- *
- * Gesture threading:
- *   RNGH 3.x exposes `.runOnJS(true)` as a method on BaseGesture to force
- *   gesture callbacks to execute on the JS thread. We call this explicitly
- *   so the intent is clear and future-proof against any RNGH thread changes.
- *
- * Skia path reactivity:
- *   `useSharedValue<SkPath>` holds the accumulated ink path. Because SkPath
- *   is a mutable JSI object, we call `.copy()` on each gesture event and
- *   reassign `.value` to signal Reanimated that the value changed and the
- *   Skia Canvas should re-render. We also call `.setIsVolatile(true)` on
- *   fresh paths to hint to Skia that the path will be modified frequently,
- *   improving rasterisation performance during a live drawing session.
- *
- * Slice 2 additions (minimal — no existing behaviour changed):
- *   - forwardRef exposes DrawingCanvasHandle { captureImage, clear }
- *   - useCanvasRef() kept private inside the component
- *   - <Fill color="white"/> added as first Skia child (white background in captures)
- *   - Optional onGestureBegin/Move/End props for attempt-level recording
- *   - makeImageSnapshotAsync() used for async PNG capture
- *   - Existing onStrokeEnd callback unchanged
- */
-
 import React, { useRef, useCallback, forwardRef, useImperativeHandle } from 'react';
 import {
   StyleSheet,
@@ -63,8 +28,8 @@ import {
   type PanGestureHandlerEventPayload,
 } from 'react-native-gesture-handler';
 import { useSharedValue, useDerivedValue } from 'react-native-reanimated';
-import type { StrokePoint, BaybayinClass, RecordedStroke } from '@baya/shared-types';
-import { BAYBAYIN_REFERENCE_IMAGES } from '../src/data/baybayinReferenceImages';
+import type { StrokePoint, RecordedStroke } from '@baya/shared-types';
+import { findBaybayinTracingGuide } from '../content/baybayinTracingGuides';
 
 // ---------------------------------------------------------------------------
 // Public handle (Slice 2)
@@ -158,8 +123,7 @@ const DrawingCanvas = forwardRef<DrawingCanvasHandle, DrawingCanvasProps>(
     ref,
   ) {
     // Determine the correct reference image asset using the statically mapped registry
-    const validClass = targetClass.toLowerCase() as BaybayinClass;
-    const guideAssetId = BAYBAYIN_REFERENCE_IMAGES[validClass] ?? null;
+    const guideAssetId = findBaybayinTracingGuide(targetClass.trim().toLowerCase()) ?? null;
     
     // useImage handles loading the static require() asset into a Skia Image.
     // It returns null while loading, which safely hides the guide until ready.

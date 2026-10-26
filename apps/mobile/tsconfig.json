@@ -22,7 +22,6 @@
   ],
   "exclude": [
     "node_modules",
-    "components/DrawingCanvas.tsx",
     "dist",
     "../../sandbox",
     "../../dev-assets"

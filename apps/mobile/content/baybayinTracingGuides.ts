@@ -65,8 +65,12 @@ const tracingGuides: Readonly<Record<string, number>> = {
   yo_yu: require('../assets/illustrations/baybayin/guides-1024/yo_yu.png'),
 };
 
+export function findBaybayinTracingGuide(characterId: string): number | undefined {
+  return Object.prototype.hasOwnProperty.call(tracingGuides, characterId) ? tracingGuides[characterId] : undefined;
+}
+
 export function getBaybayinTracingGuide(characterId: string): number {
-  const guide = Object.prototype.hasOwnProperty.call(tracingGuides, characterId) ? tracingGuides[characterId] : undefined;
+  const guide = findBaybayinTracingGuide(characterId);
   if (guide === undefined) throw new Error(`Missing Baybayin tracing guide: ${characterId}`);
   return guide;
 }
