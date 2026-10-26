@@ -54,7 +54,7 @@ export function StoryNavigation({
         label={FilipinoLabels.back}
         onPress={() => onPrevious?.()}
         pill
-        style={styles.button}
+        style={[styles.button, landscapeCompact && { minHeight: 44 }]}
       />
       <AppButton
         accessibilityLabel={nextAccessibilityLabel ?? (isLast ? 'Bumalik sa mga paksa' : 'Susunod na paksa')}
@@ -65,7 +65,7 @@ export function StoryNavigation({
         label={nextLabel ?? (isLast ? FilipinoLabels.topics : FilipinoLabels.next)}
         onPress={onNext}
         pill
-        style={styles.button}
+        style={[styles.button, landscapeCompact && { minHeight: 44 }]}
       />
     </View>
   );
@@ -81,6 +81,6 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   navigationCompact: { paddingVertical: 4 },
-  navigationLandscapeCompact: { paddingVertical: 5 },
+  navigationLandscapeCompact: { paddingVertical: 2 },
   button: { flexShrink: 0, minWidth: 112 },
 });

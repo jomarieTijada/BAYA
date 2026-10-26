@@ -2,6 +2,7 @@ import React, { type ReactNode } from "react";
 
 import { useResponsiveLayout } from "../../../hooks/useResponsiveLayout";
 import type { SlideStepContent } from "../../../content/types";
+import { StoryMascotPopover } from "./StoryMascotPopover";
 import { StoryContent } from "./StoryContent";
 import { StoryIllustration } from "./StoryIllustration";
 import { StorybookTopicLayout } from "./StorybookTopicLayout";
@@ -11,6 +12,7 @@ export type StoryPageProps = {
   content: SlideStepContent;
   landscapeCompact?: boolean;
   visual?: ReactNode;
+  headerTitle?: string;
 };
 
 /** Shared topic template: visual on the left, narrative and BAYA on the right.
@@ -21,6 +23,7 @@ export function StoryPage({
   content,
   landscapeCompact = false,
   visual,
+  headerTitle,
 }: StoryPageProps) {
   const { isCompactHeight, isPhone, isPhoneLandscape, isTablet } = useResponsiveLayout();
   const effectiveCompact = compact || isPhone || isTablet || isCompactHeight;
@@ -28,6 +31,10 @@ export function StoryPage({
 
   return (
     <StorybookTopicLayout
+      key={content.title}
+      readingLayout
+      hasIllustration={Boolean(visual || content.illustration || content.imageSource || content.illustrationTheme)}
+      contentFooter={({ width, height }) => <StoryMascotPopover content={content} pageWidth={width} pageHeight={height} />}
       compactSpread={effectiveCompact}
       visual={visual ?? (
         <StoryIllustration
@@ -38,9 +45,11 @@ export function StoryPage({
           theme={content.illustrationTheme}
         />
       )}
-      content={(isStacked) => (
+      content={(isStacked, measurements) => (
         <StoryContent
           content={content}
+          constrained={measurements.constrained}
+          hideTitle={measurements.constrained && headerTitle === content.title}
           compact={effectiveCompact}
           landscapeCompact={effectiveLandscape}
           stackGuide={isStacked}

@@ -6,7 +6,7 @@ import {
   View,
 } from "react-native";
 
-import { Colors, FontFamily, Radius, Spacing } from "../../../constants/theme";
+import { FontFamily, Radius, Spacing } from "../../../constants/theme";
 
 export type StoryVisualLearningProps = {
   compact?: boolean;
@@ -51,7 +51,6 @@ const DARA_EXAMPLES = [
 
 export function StoryVisualLearning({
   compact = false,
-  landscapeCompact = false,
   theme,
 }: StoryVisualLearningProps) {
   if (theme === "seventeen-symbols") {

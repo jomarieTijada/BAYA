@@ -18,6 +18,8 @@ import { VideoCreditLink } from './VideoCreditLink';
 
 export type StoryContentProps = {
   compact?: boolean;
+  constrained?: boolean;
+  hideTitle?: boolean;
   content: SlideStepContent;
   stackLayout?: boolean;
   spreadLayout?: boolean;
@@ -67,6 +69,8 @@ function renderHighlightedStoryText(
  */
 export function StoryContent({
   compact = false,
+  constrained = false,
+  hideTitle = false,
   content,
   stackLayout = false,
   spreadLayout = false,
@@ -96,12 +100,12 @@ export function StoryContent({
     : 0;
   const clamp = (value: number, minimum: number, maximum: number) =>
     Math.min(maximum, Math.max(minimum, value));
-  const titleFontSize = clamp(
+  const titleFontSize = constrained ? 20 : clamp(
     readableWidth * 0.052,
     landscapeCompact ? FontSize.md : compact ? FontSize.lg : FontSize.xl,
     landscapeCompact ? FontSize.xxl - 2 : compact ? FontSize.xxl : 38,
   );
-  const bodyFontSize = clamp(
+  const bodyFontSize = constrained ? 16 : clamp(
     readableWidth * 0.028,
     landscapeCompact ? FontSize.sm : compact ? FontSize.md : FontSize.md + 1,
     landscapeCompact ? FontSize.md : compact ? FontSize.lg : 22,
@@ -143,6 +147,7 @@ export function StoryContent({
     >
       <ScrollView
         ref={storyScrollRef}
+        testID="story-reading-scroll"
         bounces={false}
         style={styles.storyScroll}
         contentContainerStyle={[
@@ -151,12 +156,13 @@ export function StoryContent({
           compact && styles.scrollContentCompact,
           landscapeCompact && styles.scrollContentLandscapeCompact,
           stackLayout && styles.scrollContentStacked,
+          constrained && styles.scrollContentCentered,
         ]}
         showsVerticalScrollIndicator
       >
         <View style={styles.storyHeaderAndBody}>
           {/* Big title begins the body directly; topic identity lives in the app header. */}
-          <Text
+          {!hideTitle && <Text
             accessibilityRole="header"
             testID="story-title"
             style={[
@@ -167,7 +173,7 @@ export function StoryContent({
             ]}
           >
             {content.title}
-          </Text>
+          </Text>}
 
           {/* Story body paragraphs */}
           <View
@@ -183,7 +189,7 @@ export function StoryContent({
                 testID={`story-paragraph-${index}`}
                 style={[
                   styles.bodyParagraph,
-                  { fontSize: bodyFontSize, lineHeight: bodyFontSize * 1.5 },
+                  { fontSize: bodyFontSize, lineHeight: bodyFontSize * (constrained ? 1.4 : 1.5) },
                 ]}
               >
                 {renderHighlightedStoryText(
@@ -196,17 +202,17 @@ export function StoryContent({
           </View>
           {content.videoCredit ? <VideoCreditLink credit={content.videoCredit} /> : content.reference ? <LessonSource reference={content.reference} /> : null}
           {content.examples ? (
-            <View style={styles.examples}>
+            <View style={[styles.examples, constrained && styles.examplesConstrained]}>
               <Text style={[styles.bodyParagraph, { fontSize: bodyFontSize }]}>{content.examplesLabel}</Text>
-              <Text style={styles.exampleSymbols}>{content.examples}</Text>
+              <Text style={[styles.exampleSymbols, constrained && styles.exampleSymbolsConstrained]}>{content.examples}</Text>
             </View>
           ) : null}
         </View>
 
         {/* BAYA mascot learning companion and speech bubble */}
-        {!spreadLayout ? storyGuide : null}
+        {!constrained && !spreadLayout ? storyGuide : null}
       </ScrollView>
-      {spreadLayout ? storyGuide : null}
+      {!constrained && spreadLayout ? storyGuide : null}
 
       {/* Accessible subtitle fallback if different from opening lead */}
       {content.subtitle && content.subtitle !== openingLead ? (
@@ -219,12 +225,14 @@ export function StoryContent({
 }
 
 const styles = StyleSheet.create({
+  examplesConstrained: { gap: 2, marginVertical: 4 },
+  exampleSymbolsConstrained: { fontSize: 20, lineHeight: 26 },
   examples: { gap: Spacing.sm, marginVertical: Spacing.md },
   exampleSymbols: { color: "#342214", fontSize: 30, lineHeight: 44, fontWeight: "600" },
   panel: {
     flex: 1,
     flexDirection: "column",
-    height: "100%",
+    minHeight: 0,
     paddingHorizontal: Spacing.md,
     paddingVertical: Spacing.xs,
     width: "100%",
@@ -246,9 +254,10 @@ const styles = StyleSheet.create({
     gap: Spacing.sm,
   },
   storyScroll: { flex: 1, minHeight: 0 },
+  scrollContentCentered: { flexGrow: 1, justifyContent: "center" },
   scrollContentCompact: { paddingBottom: 2, gap: Spacing.xs },
   scrollContentLandscapeCompact: { paddingBottom: 0, gap: 2 },
-  scrollContentSpread: { flexGrow: 1, justifyContent: "flex-start" },
+  scrollContentSpread: { flexGrow: 1, justifyContent: "center" },
   scrollContentStacked: { flexGrow: 1, justifyContent: "flex-start" },
   storyGuideSpread: { marginTop: "auto" },
   storyGuideSpreadCompact: { marginTop: Spacing.xs },

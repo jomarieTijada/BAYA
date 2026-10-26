@@ -22,7 +22,6 @@ export type StoryImagePlaceholderProps = {
 
 /** Reserves the illustration frame without presenting unvalidated artwork. */
 export function StoryImagePlaceholder({
-  caption,
   compact = false,
   landscapeCompact = false,
   style,

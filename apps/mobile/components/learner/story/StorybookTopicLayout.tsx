@@ -2,16 +2,26 @@ import React, { type ReactNode, useState } from "react";
 import { StyleSheet, type LayoutChangeEvent, View } from "react-native";
 
 import { Spacing } from "../../../constants/theme";
+import { useResponsiveLayout } from "../../../hooks/useResponsiveLayout";
 
 const STORY_CONTENT_MIN_WIDTH = 330;
 const STORY_CONTENT_SHARE = 0.58;
 const STORY_VISUAL_ASPECT_RATIO = 16 / 9;
 
+export type StoryPageMeasurements = {
+  constrained: boolean;
+  width: number;
+  height: number;
+};
+
 type StorybookTopicLayoutProps = {
   compactSpread?: boolean;
   visual: ReactNode;
   visualAspectRatio?: number;
-  content: (isStacked: boolean) => ReactNode;
+  readingLayout?: boolean;
+  hasIllustration?: boolean;
+  contentFooter?: (measurements: StoryPageMeasurements) => ReactNode;
+  content: (isStacked: boolean, measurements: StoryPageMeasurements) => ReactNode;
 };
 
 /** Places the visual and lesson in a spread until the measured page cannot fit both. */
@@ -20,8 +30,19 @@ export function StorybookTopicLayout({
   visual,
   visualAspectRatio = STORY_VISUAL_ASPECT_RATIO,
   content,
+  readingLayout = false,
+  hasIllustration = true,
+  contentFooter,
 }: StorybookTopicLayoutProps) {
-  const [availableWidth, setAvailableWidth] = useState<number | null>(null);
+  const viewport = useResponsiveLayout();
+  const [pageSize, setPageSize] = useState({ width: 0, height: 0 });
+  const measured = pageSize.width > 0 && pageSize.height > 0;
+  const availableWidth = pageSize.width || viewport.width;
+  const constrained = readingLayout && (measured
+    ? pageSize.height < 440 || pageSize.width < 820
+    : viewport.isCompactHeight || viewport.width < 820);
+  const measurements = { ...pageSize, constrained };
+  const visualShare = constrained ? hasIllustration ? 0.32 : 0.23 : 0.42;
   const horizontalPadding = compactSpread ? Spacing.sm * 2 : Spacing.md * 2;
   const columnGap = compactSpread ? Spacing.xs : Spacing.sm;
   const panelPadding = compactSpread ? Spacing.xs * 2 : Spacing.md * 2;
@@ -30,9 +51,11 @@ export function StorybookTopicLayout({
       horizontalPadding +
       columnGap,
   );
-  const isStacked = availableWidth !== null && availableWidth < minimumSpreadWidth;
+  const isStacked = availableWidth !== null && availableWidth < (readingLayout ? 480 : minimumSpreadWidth);
   const onLayout = ({ nativeEvent: { layout } }: LayoutChangeEvent) => {
-    setAvailableWidth((previous) => previous === layout.width ? previous : layout.width);
+    if (pageSize.width !== layout.width || pageSize.height !== layout.height) {
+      setPageSize({ width: layout.width, height: layout.height });
+    }
   };
 
   return (
@@ -42,17 +65,23 @@ export function StorybookTopicLayout({
         styles.container,
         isStacked ? styles.stacked : styles.spread,
         compactSpread && !isStacked && styles.compactSpread,
+        // A newly keyed topic must not paint the zero-measurement desktop
+        // arrangement while Yoga is calculating its actual content rectangle.
+        !measured && styles.measuring,
       ]}
+      pointerEvents={measured ? 'auto' : 'none'}
       testID="storybook-page"
     >
       <StoryVisualColumn
         isStacked={isStacked}
         aspectRatio={visualAspectRatio}
+        share={visualShare}
       >
         {visual}
       </StoryVisualColumn>
-      <StoryContentColumn isStacked={isStacked}>
-        {content(isStacked)}
+      <StoryContentColumn isStacked={isStacked} share={1 - visualShare}>
+        {content(isStacked, measurements)}
+        {constrained ? contentFooter?.(measurements) : null}
       </StoryContentColumn>
     </View>
   );
@@ -62,10 +91,12 @@ function StoryVisualColumn({
   children,
   isStacked,
   aspectRatio,
+  share,
 }: {
   children: ReactNode;
   isStacked: boolean;
   aspectRatio: number;
+  share: number;
 }) {
   const [columnSize, setColumnSize] = useState({ width: 0, height: 0 });
   const onLayout = ({ nativeEvent: { layout } }: LayoutChangeEvent) => {
@@ -81,14 +112,15 @@ function StoryVisualColumn({
 
   return (
     <View
-      onLayout={onLayout}
+      testID="story-visual-column"
       style={[
         styles.visualColumn,
+        { flex: share },
         isStacked && styles.visualColumnStacked,
         isStacked && { aspectRatio },
       ]}
-      testID="story-image-column"
     >
+      <View onLayout={onLayout} style={styles.mediaSpace} testID="story-image-column">
       <View
         style={[
           styles.visualFrame,
@@ -103,6 +135,7 @@ function StoryVisualColumn({
       >
         {children}
       </View>
+      </View>
     </View>
   );
 }
@@ -110,13 +143,15 @@ function StoryVisualColumn({
 function StoryContentColumn({
   children,
   isStacked,
+  share,
 }: {
   children: ReactNode;
   isStacked: boolean;
+  share: number;
 }) {
   return (
     <View
-      style={[styles.contentColumn, isStacked && styles.contentColumnStacked]}
+      style={[styles.contentColumn, { flex: share }, isStacked && styles.contentColumnStacked]}
       testID="story-content-column"
     >
       {children}
@@ -125,8 +160,12 @@ function StoryContentColumn({
 }
 
 const styles = StyleSheet.create({
+  measuring: { opacity: 0 },
   container: {
     flex: 1,
+    width: "100%",
+    maxWidth: 1440,
+    alignSelf: "center",
     minHeight: 0,
     paddingHorizontal: Spacing.md,
   },
@@ -145,6 +184,7 @@ const styles = StyleSheet.create({
     gap: Spacing.sm,
     paddingTop: Spacing.xs,
   },
+  mediaSpace: { flex: 1, minHeight: 0, width: "100%", alignItems: "center", justifyContent: "center" },
   visualColumn: {
     alignItems: "center",
     flex: 0.42,

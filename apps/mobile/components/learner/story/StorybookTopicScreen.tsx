@@ -135,6 +135,7 @@ function StorybookTopicSession({ topicId, initialPage }: { topicId: string; init
         <LessonVideoIntroduction introduction={data.video.introduction} compact={compact} landscapeCompact={isPhoneLandscape} />
       ) : <StoryPage
         content={content}
+        headerTitle={data.title}
         compact={compact}
         landscapeCompact={isPhoneLandscape}
         visual={data.video.isAvailable && data.video.source ? (

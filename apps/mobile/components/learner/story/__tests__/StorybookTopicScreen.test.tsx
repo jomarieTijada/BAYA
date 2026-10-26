@@ -14,6 +14,9 @@ const mockReplace = jest.fn();
 const mockPush = jest.fn();
 const mockSetParams = jest.fn();
 const mockDismissTo = jest.fn();
+const mockVideoMount = jest.fn();
+let mockReducedMotion = false;
+jest.mock('../../../../hooks/useReducedMotionPreference', () => ({ useReducedMotionPreference: () => mockReducedMotion }));
 let mockLayout = {
   isPhone: false,
   isPhonePortrait: false,
@@ -32,13 +35,74 @@ jest.mock('../../../ui/AppIcon', () => ({ AppIcon: () => null }));
 jest.mock('../../../branding/BayaMascot', () => ({ BayaMascot: () => null }));
 jest.mock('../../../media/VideoPlayer', () => ({
   VideoPlayer: ({ testID, title, startAtSeconds }: { testID: string; title: string; startAtSeconds: number }) => {
+    jest.requireActual('react').useEffect(() => { mockVideoMount(); }, []);
     const { Text, View } = jest.requireActual('react-native');
     return <View testID={testID} accessibilityValue={{ now: startAtSeconds }}><Text>{title}</Text></View>;
   },
 }));
 
 describe('Approved storybooks with a separate introductory slide', () => {
+  it('keeps desktop proportions and the inline guide when a long lesson needs scrolling', () => {
+    setViewport(1920, 900);
+    render(<StorybookTopicScreen topicId="topic-1-2" initialPage="content" />);
+    fireEvent(screen.getByTestId('storybook-page'), 'layout', {
+      nativeEvent: { layout: { x: 240, y: 0, width: 1440, height: 700 } },
+    });
+    fireEvent(screen.getByTestId('story-reading-scroll'), 'layout', {
+      nativeEvent: { layout: { x: 0, y: 0, width: 800, height: 300 } },
+    });
+    fireEvent(screen.getByTestId('story-reading-scroll'), 'contentSizeChange', 800, 600);
+    expect(screen.getByTestId('story-highlight')).toBeTruthy();
+    expect(screen.queryByTestId('story-interactive-guide')).toBeNull();
+    expect(StyleSheet.flatten(screen.getByTestId('story-visual-column').props.style).flex).toBe(0.42);
+    const pageStyle = StyleSheet.flatten(screen.getByTestId('storybook-page').props.style);
+    expect(pageStyle.maxWidth).toBe(1440);
+    expect(pageStyle.alignSelf).toBe('center');
+    expect(StyleSheet.flatten(screen.getByTestId('story-reading-scroll').props.contentContainerStyle).justifyContent).toBe('center');
+  });
+  it('never paints an unmeasured desktop layout during compact topic navigation', () => {
+    setViewport(872, 447);
+    const view = render(<StorybookTopicScreen topicId="topic-1-2" initialPage="content" />);
+    const measure = () => fireEvent(screen.getByTestId('storybook-page'), 'layout', {
+      nativeEvent: { layout: { x: 0, y: 0, width: 872, height: 347 } },
+    });
+    expect(StyleSheet.flatten(screen.getByTestId('storybook-page').props.style).opacity).toBe(0);
+    expect(screen.queryByTestId('story-highlight')).toBeNull();
+    measure();
+    expect(StyleSheet.flatten(screen.getByTestId('storybook-page').props.style).opacity).toBeUndefined();
+    view.rerender(<StorybookTopicScreen topicId="topic-1-3" initialPage="content" />);
+    expect(StyleSheet.flatten(screen.getByTestId('storybook-page').props.style).opacity).toBe(0);
+    expect(screen.queryByTestId('story-highlight')).toBeNull();
+    measure();
+    expect(screen.getByTestId('story-mascot-button')).toBeTruthy();
+    expect(screen.getByTestId('storybook-page').props.pointerEvents).toBe('auto');
+  });
+  it.each([false, true])('opens and dismisses without remounting video or shifting layout (reduced motion: %s)', reduced => {
+    mockReducedMotion = reduced;
+    setViewport(667, 375);
+    render(<StorybookTopicScreen topicId="topic-1-1" />);
+    fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
+    fireEvent(screen.getByTestId('storybook-page'), 'layout', {
+      nativeEvent: { layout: { x: 0, y: 0, width: 667, height: 275 } },
+    });
+    const mounts = mockVideoMount.mock.calls.length;
+    const frameStyle = StyleSheet.flatten(screen.getByTestId('story-visual-frame').props.style);
+    const navStyle = StyleSheet.flatten(screen.getByTestId('story-navigation').props.style);
+    expect(screen.queryByTestId('story-mascot-popover')).toBeNull();
+    fireEvent.press(screen.getByTestId('story-mascot-button'));
+    expect(screen.getByTestId('story-mascot-button').props.accessibilityState.expanded).toBe(true);
+    expect(screen.getByTestId('speech-tail-bottom', { includeHiddenElements: true })).toBeTruthy();
+    expect(StyleSheet.flatten(screen.getByTestId('story-mascot-popover').props.style).right).toBe(0);
+    fireEvent.press(screen.getByLabelText('Isara ang mensahe ni BAYA'));
+    expect(screen.getByTestId('story-mascot-button').props.accessibilityState.expanded).toBe(false);
+    if (reduced) expect(screen.queryByTestId('story-mascot-popover')).toBeNull();
+    expect(mockVideoMount.mock.calls.length).toBe(mounts);
+    expect(StyleSheet.flatten(screen.getByTestId('story-visual-frame').props.style)).toEqual(frameStyle);
+    expect(StyleSheet.flatten(screen.getByTestId('story-navigation').props.style)).toEqual(navStyle);
+    expect(screen.getByText(baybayinVideoCredit.label)).toBeTruthy();
+  });
   beforeEach(() => {
+    mockReducedMotion = false;
     mockReplace.mockClear(); mockPush.mockClear(); mockSetParams.mockClear(); mockDismissTo.mockClear();
     jest.requireMock('../../../../database/services/localLearnerService').localLearnerService.completeTopic.mockClear();
     setViewport(1440, 900);
@@ -178,6 +242,9 @@ describe('Approved storybooks with a separate introductory slide', () => {
     const open = jest.spyOn(Linking, 'openURL').mockResolvedValue(undefined);
     render(<StorybookTopicScreen topicId="topic-1-1" />);
     fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
+    fireEvent(screen.getByTestId('storybook-page'), 'layout', {
+      nativeEvent: { layout: { x: 0, y: 0, width: 1440, height: 700 } },
+    });
     fireEvent.press(screen.getByRole('link', { name: baybayinVideoCredit.label }));
     expect(open).toHaveBeenCalledWith('https://www.facebook.com/baybayincreativityworkshop');
     open.mockRestore();
@@ -326,7 +393,7 @@ describe('Approved storybooks with a separate introductory slide', () => {
   });
 
   it.each([
-    [390, 844], [726, 360], [844, 390], [768, 1024], [1440, 900],
+    [390, 844], [667, 375], [726, 360], [844, 390], [872, 447], [915, 412], [1024, 768], [1366, 768], [768, 1024], [1440, 900],
   ])('uses the same template and visual sizing for every topic at %s × %s', (width, height) => {
     setViewport(width, height);
     const view = render(<StorybookTopicScreen topicId="topic-1-1" />);
@@ -341,11 +408,26 @@ describe('Approved storybooks with a separate introductory slide', () => {
       fireEvent(screen.getByTestId('story-content'), 'layout', {
         nativeEvent: { layout: { x: 0, y: 0, width: 320, height: 240 } },
       });
-      return [
-        'storybook-page', 'story-image-column', 'story-visual-frame',
-        'story-content-column', 'story-title', 'story-paragraph-0',
-        'story-highlight', 'story-speech-bubble', 'baya-mascot', 'story-navigation',
-      ].map((id) => StyleSheet.flatten(screen.getByTestId(id).props.style));
+      const constrained = height - 152 < 440 || width < 820;
+      if (constrained) {
+        expect(screen.getByTestId('story-mascot-button')).toBeTruthy();
+        expect(within(screen.getByTestId('story-visual-column')).queryByTestId('story-mascot-button')).toBeNull();
+        expect(within(screen.getByTestId('story-content-column')).getByTestId('story-mascot-button')).toBeTruthy();
+        expect(screen.queryByText('Pindutin si BAYA')).toBeNull();
+        const guideStyle = StyleSheet.flatten(screen.getByTestId('story-interactive-guide').props.style);
+        expect(guideStyle.alignItems).toBe('flex-end');
+        expect(guideStyle.height).toBeGreaterThanOrEqual(78);
+        expect(guideStyle.height).toBeLessThanOrEqual(106);
+        const mascotStyle = StyleSheet.flatten(screen.getByTestId('story-mascot-button').props.style);
+        expect(mascotStyle.overflow).toBe('hidden');
+        expect(mascotStyle.height).toBe(Math.round(mascotStyle.width * 0.7));
+        expect(StyleSheet.flatten(screen.getByTestId('story-reading-scroll').props.contentContainerStyle).justifyContent).toBe('center');
+        expect(screen.queryByTestId('story-highlight')).toBeNull();
+      } else {
+        expect(screen.getByTestId('story-highlight')).toBeTruthy();
+      }
+      return ['storybook-page', 'story-image-column', 'story-visual-frame', 'story-navigation']
+        .map(id => StyleSheet.flatten(screen.getByTestId(id).props.style));
     };
     const topicOneTemplate = measureAndReadTemplate();
     view.rerender(<StorybookTopicScreen topicId="topic-1-2" />);
@@ -414,7 +496,7 @@ describe('Approved storybooks with a separate introductory slide', () => {
     [360, 740, true],
     [390, 844, true],
     [412, 915, true],
-    [590, 400, true],
+    [590, 400, false],
     [640, 360, false],
     [726, 360, false],
     [844, 390, false],
@@ -468,15 +550,12 @@ describe('Approved storybooks with a separate introductory slide', () => {
     expect(settingsButtonStyle.width).toBe(settingsControlSize);
     expect(settingsButtonStyle.height).toBe(settingsControlSize);
     if (stacked) {
-      const imageStyle = StyleSheet.flatten(screen.getByTestId('story-image-column').props.style);
-      expect(imageStyle.maxHeight).toBe('40%');
+      expect(StyleSheet.flatten(screen.getByTestId('story-visual-column').props.style).maxHeight).toBe('40%');
       expect(StyleSheet.flatten(screen.getByTestId('story-content').props.style).flexDirection).toBe('column');
-      const guideStyle = StyleSheet.flatten(screen.getByTestId('story-highlight').props.style);
-      expect(guideStyle.flexDirection).toBe('column');
-      expect(guideStyle.alignItems).toBe('flex-end');
-      const bubbleStyle = StyleSheet.flatten(screen.getByTestId('story-speech-bubble').props.style);
-      expect(bubbleStyle.flexShrink).toBe(0);
-      expect(bubbleStyle.flexBasis).toBe('auto');
+      expect(screen.getByTestId('story-interactive-guide')).toBeTruthy();
+      expect(screen.queryByTestId('story-mascot-popover')).toBeNull();
+      fireEvent.press(screen.getByTestId('story-mascot-button'));
+      expect(screen.getByTestId('story-mascot-popover')).toBeTruthy();
     }
   });
 });
