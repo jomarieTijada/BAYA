@@ -28,8 +28,16 @@ export function isValidWritingResult(target: string, ranked: readonly BayaPredic
 }
 
 export function nextValidCount(count: number, valid: boolean): number {
-  const current = Number.isInteger(count) && count >= 0 ? count : 0;
-  return Math.min(REQUIRED_SUCCESSFUL_TRIALS, current + (valid ? 1 : 0));
+  let current;
+  if (Number.isInteger(count) && count >= 0) {
+    current = count;
+  } else {
+    current = 0;
+  }
+  if (valid) {
+    current += 1;
+  }
+  return Math.min(REQUIRED_SUCCESSFUL_TRIALS, current);
 }
 
 export interface ModelWritingAttempt {

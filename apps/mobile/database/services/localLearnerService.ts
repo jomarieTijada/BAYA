@@ -57,7 +57,7 @@ export const localLearnerService = {
   },
 
   /** Store a validated raw model assessment and its original canvas metadata. */
-  async recordWritingAttempt(topicId: string, attempt: ModelWritingAttempt, dbOverride?: DatabaseConnection): Promise<void> {
+  async recordWritingAttempt(topicId: string, attempt: ModelWritingAttempt, dbOverride?: DatabaseConnection, expectedProfileId?: string): Promise<void> {
     const topic = getWritingTopic(topicId);
     if (!topic?.exercises.some(exercise => exercise.characterId === attempt.characterId)) throw new Error('Unknown writing exercise.');
     const pointCount = attempt.strokeData.reduce((total, stroke) => total + stroke.length, 0);
@@ -72,6 +72,7 @@ export const localLearnerService = {
     if (!db.withTransactionAsync) throw new Error('Writing attempt requires a transaction.');
     await db.withTransactionAsync(async transactionDb => {
       let learner = await activeLearner(transactionDb);
+      if (expectedProfileId && learner?.profile_id !== expectedProfileId) throw new Error('Learner changed during the activity.');
       if (!learner) {
         const now = new Date().toISOString();
         const id = await newId(transactionDb);
@@ -152,15 +153,16 @@ export const localLearnerService = {
     return rows.filter(row => approvedIds.has(row.activity_id)).length;
   },
 
-  async completeTopic(topicId: string, dbOverride?: DatabaseConnection): Promise<void> {
+  async completeTopic(topicId: string, dbOverride?: DatabaseConnection, expectedProfileId?: string): Promise<void> {
     const module = approvedCurriculum.find(item => item.topics.some(topic => topic.id === topicId));
     if (!module) throw new Error('Topic is not in the approved curriculum.');
 
+    const completionKey = `${expectedProfileId ?? 'active'}:${topicId}`;
     // If a completion for this topic is already in-flight on the default database,
     // join it rather than starting a duplicate transaction or throwing a race error.
-    if (!dbOverride && inFlightCompletions.has(topicId)) {
+    if (!dbOverride && inFlightCompletions.has(completionKey)) {
       if (__DEV__) console.info('[BAYA Progress] persist topicId=%s status=joinedExistingSave', topicId);
-      return inFlightCompletions.get(topicId)!;
+      return inFlightCompletions.get(completionKey)!;
     }
 
     const txId = `tx-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
@@ -171,11 +173,17 @@ export const localLearnerService = {
       await db.withTransactionAsync(async (transactionDb) => {
         const topicIndex = module.topics.findIndex(topic => topic.id === topicId);
         let learner = await activeLearner(transactionDb);
-        const priorRows = learner ? await transactionDb.getAllAsync<{ activity_id: string }>(
+      if (expectedProfileId && learner?.profile_id !== expectedProfileId) throw new Error('Learner changed during the activity.');
+        let priorRows: { activity_id: string }[];
+        if (learner) {
+          priorRows = await transactionDb.getAllAsync<{ activity_id: string }>(
           `SELECT DISTINCT activity_id FROM activity_attempts
            WHERE learner_profile_id = ? AND result_status = 'completed';`,
           [learner.profile_id]
-        ) : [];
+        );
+        } else {
+          priorRows = [];
+        }
         const priorIds = new Set(priorRows.map(row => row.activity_id));
         const priorModules = approvedCurriculum.slice(0, approvedCurriculum.indexOf(module));
         if (priorModules.some(item => item.topics.some(topic => !priorIds.has(topic.id))) ||
@@ -205,6 +213,7 @@ export const localLearnerService = {
            );`,
           [await newId(transactionDb), learnerId, topicId, now, learnerId, topicId]
         );
+        await transactionDb.runAsync('DELETE FROM local_app_state WHERE state_key = ?;', [`activity_resume:${learnerId}:${topicId}`]);
         const completedRows = await transactionDb.getAllAsync<{ activity_id: string }>(
           `SELECT DISTINCT activity_id FROM activity_attempts
            WHERE learner_profile_id = ? AND result_status = 'completed';`,
@@ -220,14 +229,38 @@ export const localLearnerService = {
           await transactionDb.runAsync(
             `UPDATE learner_progress SET status = ?, completed_at = CASE WHEN ? = 'completed' THEN COALESCE(completed_at, ?) ELSE NULL END, last_activity_at = ?, updated_at = ?
              WHERE learner_progress_id = ?;`,
-            [completed ? 'completed' : 'in_progress', completed ? 'completed' : 'in_progress', now, now, now, progress.learner_progress_id]
+            [(() => {
+              if (completed) {
+                return 'completed';
+              } else {
+                return 'in_progress';
+              }
+            })(), (() => {
+              if (completed) {
+                return 'completed';
+              } else {
+                return 'in_progress';
+              }
+            })(), now, now, now, progress.learner_progress_id]
           );
         } else {
           await transactionDb.runAsync(
             `INSERT INTO learner_progress
              (learner_progress_id, learner_profile_id, lesson_id, status, completed_at, last_activity_at, updated_at)
              VALUES (?, ?, ?, ?, ?, ?, ?);`,
-            [await newId(transactionDb), learnerId, module.id, completed ? 'completed' : 'in_progress', completed ? now : null, now, now]
+            [await newId(transactionDb), learnerId, module.id, (() => {
+              if (completed) {
+                return 'completed';
+              } else {
+                return 'in_progress';
+              }
+            })(), (() => {
+              if (completed) {
+                return now;
+              } else {
+                return null;
+              }
+            })(), now, now]
           );
         }
       });
@@ -239,14 +272,20 @@ export const localLearnerService = {
     }
 
     const task = runCompletion();
-    inFlightCompletions.set(topicId, task);
+    inFlightCompletions.set(completionKey, task);
     try {
       await task;
     } catch (error) {
-      if (__DEV__) console.error('[BAYA Progress] persist topicId=%s status=failed txId=%s error=%s', topicId, txId, error instanceof Error ? error.message : String(error));
+      if (__DEV__) console.error('[BAYA Progress] persist topicId=%s status=failed txId=%s error=%s', topicId, txId, (() => {
+        if (error instanceof Error) {
+          return error.message;
+        } else {
+          return String(error);
+        }
+      })());
       throw error;
     } finally {
-      inFlightCompletions.delete(topicId);
+      inFlightCompletions.delete(completionKey);
     }
   },
 };
@@ -257,10 +296,30 @@ export function applyCompletedTopics(modules: Module[], completedIds: ReadonlySe
   for (const module of modules) {
     let firstIncomplete = module.topics.findIndex(topic => !completedIds.has(topic.id));
     if (firstIncomplete < 0) firstIncomplete = module.topics.length;
-    module.status = firstIncomplete === module.topics.length ? 'completed' : priorModuleCompleted ? 'current' : 'locked';
+    module.status = (() => {
+      if (firstIncomplete === module.topics.length) {
+        return 'completed';
+      } else {
+        if (priorModuleCompleted) {
+          return 'current';
+        } else {
+          return 'locked';
+        }
+      }
+    })();
     module.topics.forEach((topic, index) => {
       topic.completed = completedIds.has(topic.id);
-      topic.status = topic.completed ? 'completed' : index === firstIncomplete && module.status !== 'locked' ? 'available' : 'locked';
+      topic.status = (() => {
+        if (topic.completed) {
+          return 'completed';
+        } else {
+          if (index === firstIncomplete && module.status !== 'locked') {
+            return 'available';
+          } else {
+            return 'locked';
+          }
+        }
+      })();
     });
     priorModuleCompleted = module.status === 'completed';
   }

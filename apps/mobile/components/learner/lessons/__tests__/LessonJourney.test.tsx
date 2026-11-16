@@ -13,7 +13,13 @@ const lessons = createApprovedModules();
 function layout(width = 600) {
   fireEvent(screen.getByTestId('lesson-journey'), 'layout', { nativeEvent: { layout: { width } } });
   fireEvent(screen.getByTestId('lesson-journey'), 'contentSizeChange', 900, 300);
-  lessons.forEach((lesson, index) => fireEvent(screen.getByTestId(`journey-slot-${lesson.id}`), 'layout', { nativeEvent: { layout: { height: index ? 170 : 300 } } }));
+  lessons.forEach((lesson, index) => fireEvent(screen.getByTestId(`journey-slot-${lesson.id}`), 'layout', { nativeEvent: { layout: { height: (() => {
+    if (index) {
+      return 170;
+    } else {
+      return 300;
+    }
+  })() } } }));
 }
 beforeEach(() => { mockViewport = { width: 667, height: 375 }; lessonJourneyHintSession.clear(); jest.useFakeTimers(); jest.replaceProperty(Platform, 'OS', 'web'); jest.spyOn(Animated, 'sequence').mockReturnValue({ start: jest.fn(), stop: jest.fn(), reset: jest.fn() }); });
 afterEach(() => { jest.useRealTimers(); jest.restoreAllMocks(); });
@@ -21,8 +27,8 @@ it('replaces arrows with bounded keyboard and accessibility scrolling', () => {
   const scrollTo = jest.spyOn(ScrollView.prototype, 'scrollTo').mockImplementation(() => {});
   render(<LessonJourney lessons={lessons} availableHeight={250} />); layout();
   const row = screen.getByTestId('lesson-journey');
-  expect(screen.queryByLabelText('Mga naunang modyul')).toBeNull();
-  expect(screen.queryByLabelText('Mga susunod na modyul')).toBeNull();
+  expect(screen.queryByLabelText("Previous modules")).toBeNull();
+  expect(screen.queryByLabelText("Next modules")).toBeNull();
   expect(screen.getByTestId('floating-swipe-hint')).toBeTruthy();
   expect(row.props.tabIndex).toBe(0);
   const target = {}, preventDefault = jest.fn();
@@ -66,7 +72,7 @@ it('hides when content fits and reevaluates after resize without changing card d
   expect(screen.getByTestId('floating-swipe-hint')).toBeTruthy();
   layout(1000);
   expect(screen.queryByTestId('floating-swipe-hint')).toBeNull();
-  expect(screen.queryByLabelText('Mga susunod na modyul')).toBeNull();
+  expect(screen.queryByLabelText("Next modules")).toBeNull();
   layout(); expect(screen.getByTestId('floating-swipe-hint')).toBeTruthy();
   expect(screen.getByTestId(`journey-slot-${lessons[0].id}`).props.style.width).toBe(width);
 });

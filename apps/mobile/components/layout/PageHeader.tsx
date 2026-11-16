@@ -1,5 +1,6 @@
+import { Text } from '../../localization/components';
 import React from 'react';
-import { StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { StyleSheet, View, useWindowDimensions } from 'react-native';
 import { Colors, FontFamily } from '../../constants/theme';
 import { BackButton } from '../ui/BackButton';
 

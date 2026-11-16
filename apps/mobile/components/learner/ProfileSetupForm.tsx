@@ -1,7 +1,9 @@
+import type { TextInput as NativeTextInput } from 'react-native';
+import { Text } from '../../localization/components';
 import { router } from 'expo-router';
 import { BayaDialog } from '../ui/BayaDialog';
 import React, { useRef, useState } from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { Colors, FontFamily, Spacing } from '../../constants/theme';
 import { AppButton } from '../ui/AppButton';
@@ -33,7 +35,7 @@ export function ProfileSetupForm({
   const [workspaceId, setWorkspaceId] = useState('');
   const [nameError, setNameError] = useState<string>();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const workspaceInputRef = useRef<TextInput>(null);
+  const workspaceInputRef = useRef<NativeTextInput>(null);
   const submissionLockedRef = useRef(false);
 
   const handleNameChange = (value: string) => {
@@ -130,12 +132,24 @@ export function ProfileSetupForm({
         <AppButton
           accessibilityLabel="Continue learner profile setup"
           compact={density !== 'regular'}
-          density={density === 'landscapeCompact' ? 'compact' : density}
+          density={(() => {
+            if (density === 'landscapeCompact') {
+              return 'compact';
+            } else {
+              return density;
+            }
+          })()}
           disabled={isSubmitting}
           icon="forward"
           label="CONTINUE"
           onPress={handleSubmit}
-          style={density === 'landscapeCompact' ? styles.continueButtonLandscapeCompact : undefined}
+          style={(() => {
+            if (density === 'landscapeCompact') {
+              return styles.continueButtonLandscapeCompact;
+            } else {
+              return undefined;
+            }
+          })()}
         />
         <Text
           style={[

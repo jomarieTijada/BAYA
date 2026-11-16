@@ -1,5 +1,6 @@
+import { Pressable } from '../../localization/components';
 import React, { useState } from 'react';
-import { View, Pressable } from 'react-native';
+import { View } from 'react-native';
 import { AppTextInput } from '../ui/AppTextInput';
 import { AppIcon } from '../ui/AppIcon';
 export function PasswordField({
@@ -31,13 +32,25 @@ export function PasswordField({
         editable={!disabled}
         secureTextEntry={!visible}
         autoComplete={
-          label === 'PASSWORD' ? 'current-password' : 'new-password'
+          (() => {
+            if (label === 'PASSWORD') {
+              return 'current-password';
+            } else {
+              return 'new-password';
+            }
+          })()
         }
         placeholder="Enter your password"
         trailing={
           <Pressable
             accessibilityRole="button"
-            accessibilityLabel={`${visible ? 'Hide' : 'Show'} ${label.toLowerCase()}`}
+            accessibilityLabel={`${(() => {
+              if (visible) {
+                return 'Hide';
+              } else {
+                return 'Show';
+              }
+            })()} ${label.toLowerCase()}`}
             onPress={() => setVisible(!visible)}
             style={{
               minWidth: 52,
@@ -46,7 +59,13 @@ export function PasswordField({
               alignItems: 'center',
             }}
           >
-            <AppIcon name={visible ? 'eyeOff' : 'eye'} color="muted" />
+            <AppIcon name={(() => {
+              if (visible) {
+                return 'eyeOff';
+              } else {
+                return 'eye';
+              }
+            })()} color="muted" />
           </Pressable>
         }
       />

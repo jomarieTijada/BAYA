@@ -33,7 +33,13 @@ export default function WorkspacePreview() {
   };
   if (['dashboard', 'progress-detail', 'settings-connected', 'settings-empty'].includes(screen)) {
     services.progress = progressPreviewServices.progress;
-    services.workspaces.memberships = screen === 'settings-empty' ? async () => ({ ok: true, data: [] }) : progressPreviewServices.workspaces.memberships;
+    services.workspaces.memberships = (() => {
+      if (screen === 'settings-empty') {
+        return async () => ({ ok: true, data: [] });
+      } else {
+        return progressPreviewServices.workspaces.memberships;
+      }
+    })();
   }
   if (screen === 'learner-account') services.learnerAuth = { ...fixtureServices.learnerAuth!, session: async () => ({ok:true,data:null}) };
   if (screen === 'manage') {
@@ -60,25 +66,79 @@ export default function WorkspacePreview() {
       >
         DEVELOPMENT PREVIEW · TEST DATA ONLY
       </Text>
-      {screen === 'independent' ? <><AppButton label="Open independent dialog" accessibilityLabel="Open independent dialog" onPress={() => setIndependent(true)} /><BayaDialog visible={independent} title="Continue as an Independent Learner?" description="Your progress will stay on this device until you join a workspace." onDismiss={() => setIndependent(false)} primaryAction={{label:'YES, CONTINUE',onPress:()=>setIndependent(false)}} secondaryAction={{label:'NO, ENTER WORKSPACE ID',onPress:()=>router.push('/learner/workspaces')}} /></> : screen === 'mentor-settings' ? <MentorActionMenu /> : screen === 'learner-account'  ? <LearnerCloudAccount /> : screen === 'manage' ? <WorkspaceManageScreen id="preview" /> : screen.startsWith('settings-') ? <SettingsScreen /> : screen === 'dashboard' ? <MentorDashboard id="preview" /> : screen === 'progress-detail' ? <LearnerProgressDetail workspaceId="preview" profileId="preview-learner" /> : screen === 'login' || screen === 'register' || screen === 'reset' ? (
+      {(() => {
+        if (screen === 'independent') {
+          return <><AppButton label="Open independent dialog" accessibilityLabel="Open independent dialog" onPress={() => setIndependent(true)} /><BayaDialog visible={independent} title="Continue as an Independent Learner?" description="Your progress will stay on this device until you join a workspace." onDismiss={() => setIndependent(false)} primaryAction={{label:'YES, CONTINUE',onPress:()=>setIndependent(false)}} secondaryAction={{label:'NO, ENTER WORKSPACE ID',onPress:()=>router.push('/learner/workspaces')}} /></>;
+        } else {
+          if (screen === 'mentor-settings') {
+            return <MentorActionMenu />;
+          } else {
+            if (screen === 'learner-account') {
+              return <LearnerCloudAccount />;
+            } else {
+              if (screen === 'manage') {
+                return <WorkspaceManageScreen id="preview" />;
+              } else {
+                if (screen.startsWith('settings-')) {
+                  return <SettingsScreen />;
+                } else {
+                  if (screen === 'dashboard') {
+                    return <MentorDashboard id="preview" />;
+                  } else {
+                    if (screen === 'progress-detail') {
+                      return <LearnerProgressDetail workspaceId="preview" profileId="preview-learner" />;
+                    } else {
+                      if (screen === 'login' || screen === 'register' || screen === 'reset') {
+                        return (
         <AuthScreen mode={screen} />
-      ) : screen === 'otp' ? (
+      );
+                      } else {
+                        if (screen === 'otp') {
+                          return (
         <OtpScreen
           challenge={{ id: 'test-only', email: 'mentor@example.test' }}
           onBack={() => router.back()}
           onOutcome={() => {}}
         />
-      ) : screen === 'create' ? (
+      );
+                        } else {
+                          if (screen === 'create') {
+                            return (
         <CreateWorkspaceScreen />
-      ) : screen === 'details' ? (
+      );
+                          } else {
+                            if (screen === 'details') {
+                              return (
         <WorkspaceDetailsScreen id="test-id" />
-      ) : screen === 'join' ? (
+      );
+                            } else {
+                              if (screen === 'join') {
+                                return (
         <LearnerMembershipScreen />
-      ) : screen === 'memberships' ? (
+      );
+                              } else {
+                                if (screen === 'memberships') {
+                                  return (
         <LearnerMembershipScreen />
-      ) : (
+      );
+                                } else {
+                                  return (
         <WorkspaceSelectionScreen />
-      )}
+      );
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      })()}
     </CloudServicesContext.Provider>
   );
 }

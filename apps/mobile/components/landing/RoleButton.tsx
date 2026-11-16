@@ -1,5 +1,6 @@
+import { Pressable, Text } from '../../localization/components';
 import React, { useState } from 'react';
-import { Pressable, StyleSheet, Text } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Colors, FontFamily, Radius } from '../../constants/theme';
 
 type RoleButtonProps = {
@@ -36,10 +37,34 @@ export function RoleButton({
       onPress={onPress}
       style={({ pressed }) => [
         styles.base,
-        compact ? styles.compact : styles.regular,
-        primary ? styles.primary : styles.secondary,
-        hovered && !disabled && (primary ? styles.primaryHovered : styles.secondaryHovered),
-        pressed && !disabled && (primary ? styles.primaryPressed : styles.secondaryPressed),
+        (() => {
+          if (compact) {
+            return styles.compact;
+          } else {
+            return styles.regular;
+          }
+        })(),
+        (() => {
+          if (primary) {
+            return styles.primary;
+          } else {
+            return styles.secondary;
+          }
+        })(),
+        hovered && !disabled && ((() => {
+          if (primary) {
+            return styles.primaryHovered;
+          } else {
+            return styles.secondaryHovered;
+          }
+        })()),
+        pressed && !disabled && ((() => {
+          if (primary) {
+            return styles.primaryPressed;
+          } else {
+            return styles.secondaryPressed;
+          }
+        })()),
         focused && styles.focused,
         disabled && styles.disabled,
       ]}
@@ -47,8 +72,20 @@ export function RoleButton({
       <Text
         style={[
           styles.label,
-          compact ? styles.compactLabel : styles.regularLabel,
-          primary ? styles.primaryLabel : styles.secondaryLabel,
+          (() => {
+            if (compact) {
+              return styles.compactLabel;
+            } else {
+              return styles.regularLabel;
+            }
+          })(),
+          (() => {
+            if (primary) {
+              return styles.primaryLabel;
+            } else {
+              return styles.secondaryLabel;
+            }
+          })(),
           disabled && styles.disabledLabel,
         ]}
       >

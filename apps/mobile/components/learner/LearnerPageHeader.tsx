@@ -1,5 +1,6 @@
+import { AccessibilityView, Pressable, Text } from '../../localization/components';
 import React, { useEffect, useState } from 'react';
-import { Animated, Easing, type LayoutChangeEvent, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Animated, Easing, type LayoutChangeEvent, StyleSheet, View } from 'react-native';
 
 import {
   Colors,
@@ -39,21 +40,34 @@ export function LearnerPageHeader({
   const { isCompactHeight, isPhone, isPhoneLandscape, isPhonePortrait } = useResponsiveLayout();
   const compact = isPhone || isCompactHeight;
   const landscapeCompact = isPhoneLandscape;
-  const metrics = landscapeCompact
-    ? LearnerHeaderMetrics.landscapeCompact
-    : compact
-      ? LearnerHeaderMetrics.compact
-      : LearnerHeaderMetrics.regular;
+  let metrics;
+  if (landscapeCompact) {
+    metrics = LearnerHeaderMetrics.landscapeCompact;
+  } else {
+    if (compact) {
+      metrics = LearnerHeaderMetrics.compact;
+    } else {
+      metrics = LearnerHeaderMetrics.regular;
+    }
+  }
   const [settingsFocused, setSettingsFocused] = useState(false);
   const [settingsHovered, setSettingsHovered] = useState(false);
-  const percentage = progress?.total
-    ? Math.min(100, Math.max(0, Math.round((progress.current / progress.total) * 100)))
-    : progressPercentage == null
-      ? null
-      : Math.min(100, Math.max(0, progressPercentage));
-  const progressLabel = progress
-    ? `Progress: Step ${progress.current} of ${progress.total}`
-    : `Progress: ${Math.round(percentage ?? 0)} percent`;
+  let percentage;
+  if (progress?.total) {
+    percentage = Math.min(100, Math.max(0, Math.round((progress.current / progress.total) * 100)));
+  } else {
+    if (progressPercentage == null) {
+      percentage = null;
+    } else {
+      percentage = Math.min(100, Math.max(0, progressPercentage));
+    }
+  }
+  let progressLabel;
+  if (progress) {
+    progressLabel = `Progress: Step ${progress.current} of ${progress.total}`;
+  } else {
+    progressLabel = `Progress: ${Math.round(percentage ?? 0)} percent`;
+  }
   const [animatedProgress] = useState(() => new Animated.Value(percentage ?? 0));
 
   useEffect(() => {
@@ -99,7 +113,17 @@ export function LearnerPageHeader({
           <BackButton
             accessibilityLabel="Back"
             onPress={onBack}
-            size={landscapeCompact ? 'landscape' : compact ? 'compact' : 'header'}
+            size={(() => {
+              if (landscapeCompact) {
+                return 'landscape';
+              } else {
+                if (compact) {
+                  return 'compact';
+                } else {
+                  return 'header';
+                }
+              }
+            })()}
           />
           <View style={styles.titleColumn}>
             <Text
@@ -114,7 +138,9 @@ export function LearnerPageHeader({
             >
               {title}
             </Text>
-            {subtitle ? (
+            {(() => {
+              if (subtitle) {
+                return (
               <Text
                 ellipsizeMode="tail"
                 numberOfLines={1}
@@ -126,11 +152,17 @@ export function LearnerPageHeader({
               >
                 {subtitle}
               </Text>
-            ) : null}
+            );
+              } else {
+                return null;
+              }
+            })()}
           </View>
         </View>
 
-        {onOpenSettings ? (
+        {(() => {
+          if (onOpenSettings) {
+            return (
           <View style={[styles.headerRight, compact && styles.headerRightCompact]}>
             <Pressable
               accessibilityLabel="Settings"
@@ -152,11 +184,17 @@ export function LearnerPageHeader({
               <AppIcon color="accent" name="settings" size={metrics.settingsIcon} />
             </Pressable>
           </View>
-        ) : null}
+        );
+          } else {
+            return null;
+          }
+        })()}
       </View>
 
-      {percentage != null ? (
-        <View
+      {(() => {
+        if (percentage != null) {
+          return (
+        <AccessibilityView
           accessibilityLabel={progressLabel}
           accessibilityRole="progressbar"
           accessibilityValue={{ min: 0, max: 100, now: percentage }}
@@ -180,8 +218,12 @@ export function LearnerPageHeader({
               },
             ]}
           />
-        </View>
-      ) : null}
+        </AccessibilityView>
+      );
+        } else {
+          return null;
+        }
+      })()}
     </View>
   );
 }

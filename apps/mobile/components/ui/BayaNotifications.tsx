@@ -1,5 +1,7 @@
+import { useLocalization } from '../../localization/LocalizationProvider';
+import { Pressable, Text } from '../../localization/components';
 import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
-import { AccessibilityInfo, Animated, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
+import { AccessibilityInfo, Animated, Platform, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Colors, FontFamily, Shadows } from '../../constants/theme';
 import { useReducedMotionPreference } from '../../hooks/useReducedMotionPreference';
@@ -12,6 +14,7 @@ export const useBayaToast = () => useContext(Context);
 
 /** One nonblocking live region persists across navigation; repeated messages coalesce. */
 export function BayaNotifications({ children }: React.PropsWithChildren) {
+  const { text } = useLocalization();
   const [toast, setToast] = useState<Toast>();
   const sequence = useRef(0);
   const reduced = useReducedMotionPreference();
@@ -20,11 +23,29 @@ export function BayaNotifications({ children }: React.PropsWithChildren) {
   const insets = useSafeAreaInsets();
   const dismiss = useCallback((id: number) => {
     if (reduced) {
-      setToast(current => current?.id === id ? undefined : current);
+      setToast(current => {
+        if (current?.id === id) {
+          return undefined;
+        } else {
+          return current;
+        }
+      });
       return;
     }
-    Animated.timing(opacity, { toValue: 0, duration: reduced ? 0 : 150, useNativeDriver: Platform.OS !== 'web' }).start(({ finished }) => {
-      if (finished) setToast(current => current?.id === id ? undefined : current);
+    Animated.timing(opacity, { toValue: 0, duration: (() => {
+      if (reduced) {
+        return 0;
+      } else {
+        return 150;
+      }
+    })(), useNativeDriver: Platform.OS !== 'web' }).start(({ finished }) => {
+      if (finished) setToast(current => {
+        if (current?.id === id) {
+          return undefined;
+        } else {
+          return current;
+        }
+      });
     });
   }, [opacity, reduced]);
   const show = useCallback((message: string, tone: Tone = 'success') => {
@@ -32,21 +53,55 @@ export function BayaNotifications({ children }: React.PropsWithChildren) {
     if (last.current.message === message && now - last.current.at < 1500) return;
     last.current = { message, at: now };
     setToast({ message, tone, id: ++sequence.current });
-    AccessibilityInfo.announceForAccessibility(message);
-  }, []);
+    AccessibilityInfo.announceForAccessibility(text(message));
+  }, [text]);
   useEffect(() => {
     if (!toast) return;
-    opacity.setValue(reduced ? 1 : 0);
-    const opening = Animated.timing(opacity, {toValue:1,duration:reduced ? 0 : 180,useNativeDriver:Platform.OS !== 'web'});
+    opacity.setValue((() => {
+      if (reduced) {
+        return 1;
+      } else {
+        return 0;
+      }
+    })());
+    const opening = Animated.timing(opacity, {toValue:1,duration:(() => {
+      if (reduced) {
+        return 0;
+      } else {
+        return 180;
+      }
+    })(),useNativeDriver:Platform.OS !== 'web'});
     opening.start();
-    const timer = setTimeout(() => dismiss(toast.id), toast.tone === 'error' ? 9000 : 6000);
+    const timer = setTimeout(() => dismiss(toast.id), (() => {
+      if (toast.tone === 'error') {
+        return 9000;
+      } else {
+        return 6000;
+      }
+    })());
     return () => { clearTimeout(timer); opening.stop(); };
   }, [toast, reduced, opacity, dismiss]);
   return <Context.Provider value={show}>
     {children}
     {!!toast && <View pointerEvents="box-none" style={[styles.host, { top: Math.max(12, insets.top) }]}>
       <Animated.View accessibilityLiveRegion="polite" style={[styles.toast, {opacity}]}>
-        <AppIcon name={toast.tone === 'success' ? 'check' : 'help'} color={toast.tone === 'success' ? 'success' : toast.tone === 'error' ? 'error' : 'accent'} size={24} />
+        <AppIcon name={(() => {
+          if (toast.tone === 'success') {
+            return 'check';
+          } else {
+            return 'help';
+          }
+        })()} color={(() => {
+          if (toast.tone === 'success') {
+            return 'success';
+          } else {
+            if (toast.tone === 'error') {
+              return 'error';
+            } else {
+              return 'accent';
+            }
+          }
+        })()} size={24} />
         <Text style={styles.text}>{toast.message}</Text>
         <Pressable accessibilityRole="button" accessibilityLabel="Dismiss notification" onPress={() => dismiss(toast.id)} style={styles.close}><AppIcon name="close" size={20} /></Pressable>
       </Animated.View>

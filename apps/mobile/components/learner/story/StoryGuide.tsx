@@ -53,23 +53,62 @@ export function StoryGuide({
   const mobileStack = stackGuide || layoutPhonePortrait;
   const effectiveLandscape = landscapeCompact || isPhoneLandscape;
 
-  const preferredMascotWidth = mobileStack
-    ? (effectiveLandscape ? 84 : 108)
-    : effectiveLandscape
-    ? 96
-    : isDesktop
-      ? 360
-      : isTablet
-        ? 270
-        : 190;
+  let preferredMascotWidth;
+  if (mobileStack) {
+    if (effectiveLandscape) {
+      preferredMascotWidth = 84;
+    } else {
+      preferredMascotWidth = 108;
+    }
+  } else {
+    if (effectiveLandscape) {
+      preferredMascotWidth = 96;
+    } else {
+      if (isDesktop) {
+        preferredMascotWidth = 360;
+      } else {
+        if (isTablet) {
+          preferredMascotWidth = 270;
+        } else {
+          preferredMascotWidth = 190;
+        }
+      }
+    }
+  }
 
-  const columnWidth = mobileStack ? width - 48 : (width - 64) * 0.57;
-  const baseMascotWidth = Number.isFinite(columnWidth)
-    ? Math.min(preferredMascotWidth, Math.max(mobileStack ? 72 : 100, Math.round(columnWidth * (mobileStack ? 0.26 : 0.48))))
-    : preferredMascotWidth;
+  let columnWidth;
+  if (mobileStack) {
+    columnWidth = width - 48;
+  } else {
+    columnWidth = (width - 64) * 0.57;
+  }
+  let baseMascotWidth;
+  if (Number.isFinite(columnWidth)) {
+    baseMascotWidth = Math.min(preferredMascotWidth, Math.max((() => {
+      if (mobileStack) {
+        return 72;
+      } else {
+        return 100;
+      }
+    })(), Math.round(columnWidth * ((() => {
+      if (mobileStack) {
+        return 0.26;
+      } else {
+        return 0.48;
+      }
+    })()))));
+  } else {
+    baseMascotWidth = preferredMascotWidth;
+  }
   const mascotWidth = Math.min(
     Math.round(baseMascotWidth * MASCOT_PROMINENCE_SCALE),
-    isDesktop || isTablet ? maxSpreadMascotWidth : Infinity,
+    (() => {
+      if (isDesktop || isTablet) {
+        return maxSpreadMascotWidth;
+      } else {
+        return Infinity;
+      }
+    })(),
   );
 
   // Intentional half-body height: exactly 70% of mascot width

@@ -22,8 +22,8 @@ const storyBodies: Readonly<Record<string, StoryBody>> = Object.freeze({
     openingNarration: "Maligayang pagdating sa mundo ng mga simbolo!",
     content:
       "Ang Baybayin ay binubuo ng labimpitong (17) payak na simbolo.\n\nMay tatlong (3) patinig at labing-apat (14) na katinig.",
-    storyHighlight: "17 simbolo lang ang kailangan mong matutunan!",
-    storyMessage: "17 simbolo lang ang kailangan mong matutunan!",
+    storyHighlight: "Magsimula tayo sa 17 payak na simbolo!",
+    storyMessage: "Magsimula tayo sa 17 payak na simbolo!",
     highlightWords: [
       "17 simbolo",
       "labimpitong (17)",
@@ -67,7 +67,7 @@ const storyBodies: Readonly<Record<string, StoryBody>> = Object.freeze({
       "Da at Ra",
       "iisang simbolo",
       "patinig",
-      "nagiging R",
+      "maging R",
       "ᜇ",
       "titik D",
       "R",

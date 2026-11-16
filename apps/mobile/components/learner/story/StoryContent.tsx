@@ -1,14 +1,8 @@
+import { storyParagraphs, storyTextSegments } from './storyText';
+import { useLocalization } from '../../../localization/LocalizationProvider';
+import { Text } from '../../../localization/components';
 import React, { useEffect, useRef, useState } from "react";
-import {
-  type LayoutChangeEvent,
-  ScrollView,
-  type StyleProp,
-  StyleSheet,
-  Text,
-  TextStyle,
-  View,
-  type ViewStyle,
-} from "react-native";
+import { type LayoutChangeEvent, ScrollView, type StyleProp, StyleSheet, TextStyle, View, type ViewStyle } from 'react-native';
 
 import { FontFamily, FontSize, Spacing } from "../../../constants/theme";
 import type { SlideStepContent } from "../../../content/types";
@@ -36,28 +30,9 @@ function renderHighlightedStoryText(
   highlightWords: string[] = [],
   highlightStyle?: TextStyle,
 ) {
-  if (!highlightWords || highlightWords.length === 0) {
-    return text;
-  }
-  const escaped = highlightWords.map((w) =>
-    w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"),
-  );
-  const regex = new RegExp(`\\b(${escaped.join("|")})\\b`, "gi");
-  const parts = text.split(regex);
-
-  return parts.map((part, index) => {
-    const isHighlight = highlightWords.some(
-      (w) => w.toLowerCase() === part.toLowerCase(),
-    );
-    if (isHighlight) {
-      return (
-        <Text key={index} style={highlightStyle}>
-          {part}
-        </Text>
-      );
-    }
-    return part;
-  });
+  return storyTextSegments(text, highlightWords).map((part, index) => part.highlighted
+    ? <Text key={index} verbatim style={highlightStyle}>{part.text}</Text>
+    : part.text);
 }
 
 /**
@@ -78,15 +53,20 @@ export function StoryContent({
   landscapeCompact = false,
   style,
 }: StoryContentProps) {
+  const { text: localized } = useLocalization();
   const [panelSize, setPanelSize] = useState({ width: 0, height: 0 });
   const storyScrollRef = useRef<ScrollView | null>(null);
-  const openingLead = content.openingNarration || content.subtitle || "";
-  const highlightWords = content.highlightWords || [];
+  const openingLead = localized(content.openingNarration || content.subtitle || "");
+  const highlightWords = (content.highlightWords || []).map(localized);
   const onPanelLayout = ({ nativeEvent: { layout } }: LayoutChangeEvent) => {
     setPanelSize((previous) =>
-      previous.width === layout.width && previous.height === layout.height
-        ? previous
-        : { width: layout.width, height: layout.height },
+      {
+      if (previous.width === layout.width && previous.height === layout.height) {
+        return previous;
+      } else {
+        return { width: layout.width, height: layout.height };
+      }
+    },
     );
   };
   useEffect(() => {
@@ -95,32 +75,85 @@ export function StoryContent({
     // appear halfway down at the previous topic's offset.
     storyScrollRef.current?.scrollTo({ x: 0, y: 0, animated: false });
   }, [content.title]);
-  const readableWidth = panelSize.height > 0
-    ? Math.min(panelSize.width, panelSize.height * 1.65)
-    : 0;
+  let readableWidth;
+  if (panelSize.height > 0) {
+    readableWidth = Math.min(panelSize.width, panelSize.height * 1.65);
+  } else {
+    readableWidth = 0;
+  }
   const clamp = (value: number, minimum: number, maximum: number) =>
     Math.min(maximum, Math.max(minimum, value));
-  const titleFontSize = constrained ? 20 : clamp(
+  let titleFontSize;
+  if (constrained) {
+    titleFontSize = 20;
+  } else {
+    titleFontSize = clamp(
     readableWidth * 0.052,
-    landscapeCompact ? FontSize.md : compact ? FontSize.lg : FontSize.xl,
-    landscapeCompact ? FontSize.xxl - 2 : compact ? FontSize.xxl : 38,
+    (() => {
+      if (landscapeCompact) {
+        return FontSize.md;
+      } else {
+        if (compact) {
+          return FontSize.lg;
+        } else {
+          return FontSize.xl;
+        }
+      }
+    })(),
+    (() => {
+      if (landscapeCompact) {
+        return FontSize.xxl - 2;
+      } else {
+        if (compact) {
+          return FontSize.xxl;
+        } else {
+          return 38;
+        }
+      }
+    })(),
   );
-  const bodyFontSize = constrained ? 16 : clamp(
+  }
+  let bodyFontSize;
+  if (constrained) {
+    bodyFontSize = 16;
+  } else {
+    bodyFontSize = clamp(
     readableWidth * 0.028,
-    landscapeCompact ? FontSize.sm : compact ? FontSize.md : FontSize.md + 1,
-    landscapeCompact ? FontSize.md : compact ? FontSize.lg : 22,
+    (() => {
+      if (landscapeCompact) {
+        return FontSize.sm;
+      } else {
+        if (compact) {
+          return FontSize.md;
+        } else {
+          return FontSize.md + 1;
+        }
+      }
+    })(),
+    (() => {
+      if (landscapeCompact) {
+        return FontSize.md;
+      } else {
+        if (compact) {
+          return FontSize.lg;
+        } else {
+          return 22;
+        }
+      }
+    })(),
   );
+  }
   // Split narrative content into clean paragraphs
-  const bodyParagraphs = (content.content || "")
-    .split("\n\n")
-    .map((p) => p.trim())
-    .filter(Boolean);
-  const paragraphs = openingLead
-    ? [
+  const bodyParagraphs = storyParagraphs(content.content || '', localized);
+  let paragraphs;
+  if (openingLead) {
+    paragraphs = [
         openingLead,
         ...bodyParagraphs.filter((paragraph) => paragraph !== openingLead),
-      ]
-    : bodyParagraphs;
+      ];
+  } else {
+    paragraphs = bodyParagraphs;
+  }
   const storyGuide = (
     <StoryGuide
       compact={compact}
@@ -129,7 +162,17 @@ export function StoryContent({
       highlightWords={highlightWords}
       landscapeCompact={landscapeCompact}
       message={content.storyMessage}
-      style={spreadLayout ? compact ? styles.storyGuideSpreadCompact : styles.storyGuideSpread : undefined}
+      style={(() => {
+        if (spreadLayout) {
+          if (compact) {
+            return styles.storyGuideSpreadCompact;
+          } else {
+            return styles.storyGuideSpread;
+          }
+        } else {
+          return undefined;
+        }
+      })()}
     />
   );
 
@@ -187,9 +230,16 @@ export function StoryContent({
               <Text
                 key={index}
                 testID={`story-paragraph-${index}`}
+                verbatim
                 style={[
                   styles.bodyParagraph,
-                  { fontSize: bodyFontSize, lineHeight: bodyFontSize * (constrained ? 1.4 : 1.5) },
+                  { fontSize: bodyFontSize, lineHeight: bodyFontSize * ((() => {
+                    if (constrained) {
+                      return 1.4;
+                    } else {
+                      return 1.5;
+                    }
+                  })()) },
                 ]}
               >
                 {renderHighlightedStoryText(
@@ -200,26 +250,60 @@ export function StoryContent({
               </Text>
             ))}
           </View>
-          {content.videoCredit ? <VideoCreditLink credit={content.videoCredit} /> : content.reference ? <LessonSource reference={content.reference} /> : null}
-          {content.examples ? (
+          {(() => {
+            if (content.videoCredit) {
+              return <VideoCreditLink credit={content.videoCredit} />;
+            } else {
+              if (content.reference) {
+                return <LessonSource reference={content.reference} />;
+              } else {
+                return null;
+              }
+            }
+          })()}
+          {(() => {
+            if (content.examples) {
+              return (
             <View style={[styles.examples, constrained && styles.examplesConstrained]}>
               <Text style={[styles.bodyParagraph, { fontSize: bodyFontSize }]}>{content.examplesLabel}</Text>
-              <Text style={[styles.exampleSymbols, constrained && styles.exampleSymbolsConstrained]}>{content.examples}</Text>
+              <Text verbatim testID="story-examples" style={[styles.exampleSymbols, constrained && styles.exampleSymbolsConstrained]}>{content.examples}</Text>
             </View>
-          ) : null}
+          );
+            } else {
+              return null;
+            }
+          })()}
         </View>
 
         {/* BAYA mascot learning companion and speech bubble */}
-        {!constrained && !spreadLayout ? storyGuide : null}
+        {(() => {
+          if (!constrained && !spreadLayout) {
+            return storyGuide;
+          } else {
+            return null;
+          }
+        })()}
       </ScrollView>
-      {!constrained && spreadLayout ? storyGuide : null}
+      {(() => {
+        if (!constrained && spreadLayout) {
+          return storyGuide;
+        } else {
+          return null;
+        }
+      })()}
 
       {/* Accessible subtitle fallback if different from opening lead */}
-      {content.subtitle && content.subtitle !== openingLead ? (
+      {(() => {
+        if (content.subtitle && content.subtitle !== openingLead) {
+          return (
         <View style={styles.accessibleSummaryText}>
           <Text>{content.subtitle}</Text>
         </View>
-      ) : null}
+      );
+        } else {
+          return null;
+        }
+      })()}
     </View>
   );
 }

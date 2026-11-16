@@ -5,6 +5,18 @@ export function menuPosition(anchor: MenuAnchor, width: number, height: number, 
   const roomBelow = height - insets.bottom - 12 - below;
   const roomAbove = anchor.y - insets.top - 20;
   const above = roomBelow < desiredHeight && roomAbove > roomBelow;
-  const maxHeight = Math.max(44, above ? roomAbove : roomBelow);
-  return { width: menuWidth, maxHeight, left: Math.max(insets.left + 12, Math.min(anchor.x + anchor.width - menuWidth, width - insets.right - menuWidth - 12)), top: above ? Math.max(insets.top + 12, anchor.y - 8 - Math.min(desiredHeight, maxHeight)) : below };
+  const maxHeight = Math.max(44, (() => {
+    if (above) {
+      return roomAbove;
+    } else {
+      return roomBelow;
+    }
+  })());
+  return { width: menuWidth, maxHeight, left: Math.max(insets.left + 12, Math.min(anchor.x + anchor.width - menuWidth, width - insets.right - menuWidth - 12)), top: (() => {
+    if (above) {
+      return Math.max(insets.top + 12, anchor.y - 8 - Math.min(desiredHeight, maxHeight));
+    } else {
+      return below;
+    }
+  })() };
 }

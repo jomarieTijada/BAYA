@@ -22,11 +22,38 @@ type WritingNavigationProps = {
 /** Exactly one primary next action, derived from the authoritative screen state. */
 export function WritingNavigation({ phase, busy, canCheck, canEdit, canAdvance, isLast, targetRef, onCheck, onNext, onRetry, compact }: WritingNavigationProps) {
   const loadingDots = useLoadingEllipsis(busy);
-  const primary = phase === 'complete'
-    ? { label: busy ? `Sandali${loadingDots}` : isLast ? 'Mga Paksa' : 'Susunod', accessibilityLabel: isLast ? 'Bumalik sa mga paksa' : 'Susunod na simbolo', onPress: onNext, disabled: !canAdvance || busy }
-    : phase === 'retry'
-      ? { label: 'Ulitin', accessibilityLabel: 'Ulitin ang pagsulat', onPress: onRetry, disabled: !canEdit || busy }
-      : { label: phase === 'checking' ? `Sinusuri${loadingDots}` : 'Suriin', accessibilityLabel: 'Suriin ang isinulat', onPress: onCheck, disabled: !canCheck || busy };
+  let primary;
+  if (phase === 'complete') {
+    primary = { label: (() => {
+      if (busy) {
+        return `Sandali${loadingDots}`;
+      } else {
+        if (isLast) {
+          return 'Mga Paksa';
+        } else {
+          return 'Susunod';
+        }
+      }
+    })(), accessibilityLabel: (() => {
+      if (isLast) {
+        return 'Bumalik sa mga paksa';
+      } else {
+        return 'Susunod na simbolo';
+      }
+    })(), onPress: onNext, disabled: !canAdvance || busy };
+  } else {
+    if (phase === 'retry') {
+      primary = { label: 'Ulitin', accessibilityLabel: 'Ulitin ang pagsulat', onPress: onRetry, disabled: !canEdit || busy };
+    } else {
+      primary = { label: (() => {
+        if (phase === 'checking') {
+          return `Sinusuri${loadingDots}`;
+        } else {
+          return 'Suriin';
+        }
+      })(), accessibilityLabel: 'Suriin ang isinulat', onPress: onCheck, disabled: !canCheck || busy };
+    }
+  }
   return <View ref={targetRef} collapsable={false} style={styles.container} testID="writing-navigation">
     <AppButton {...primary} compact fullWidth={false} style={[styles.action, compact && styles.compactAction]} />
   </View>;

@@ -1,5 +1,6 @@
+import { Pressable, Text } from '../../../localization/components';
 import React, { useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { Colors, FontFamily, Shadows } from '../../../constants/theme';
 import { useResponsiveLayout } from '../../../hooks/useResponsiveLayout';
@@ -82,33 +83,73 @@ export function ActivityNavigationControls({
   const [nextFocused, setNextFocused] = useState(false);
 
   // Button size: 44px - 48px circle
-  const buttonSize = isLandscapeMode ? 42 : compact ? 44 : 48;
-  const iconSize = isLandscapeMode ? 19 : compact ? 20 : 22;
+  let buttonSize;
+  if (isLandscapeMode) {
+    buttonSize = 42;
+  } else {
+    if (compact) {
+      buttonSize = 44;
+    } else {
+      buttonSize = 48;
+    }
+  }
+  let iconSize;
+  if (isLandscapeMode) {
+    iconSize = 19;
+  } else {
+    if (compact) {
+      iconSize = 20;
+    } else {
+      iconSize = 22;
+    }
+  }
 
   // Responsive safe positioning outside the native controls zone
-  const bottomPosition = isVideoStep
-    ? isLandscapeMode
-      ? VIDEO_CONTROL_SAFE_BOTTOM_LANDSCAPE
-      : isDesktop
-        ? VIDEO_CONTROL_SAFE_BOTTOM
-        : isTablet
-          ? VIDEO_CONTROL_SAFE_BOTTOM_TABLET
-          : VIDEO_CONTROL_SAFE_BOTTOM_MOBILE
-    : isLandscapeMode
-      ? DEFAULT_NAVIGATION_BOTTOM_LANDSCAPE
-      : DEFAULT_NAVIGATION_BOTTOM;
+  let bottomPosition;
+  if (isVideoStep) {
+    if (isLandscapeMode) {
+      bottomPosition = VIDEO_CONTROL_SAFE_BOTTOM_LANDSCAPE;
+    } else {
+      if (isDesktop) {
+        bottomPosition = VIDEO_CONTROL_SAFE_BOTTOM;
+      } else {
+        if (isTablet) {
+          bottomPosition = VIDEO_CONTROL_SAFE_BOTTOM_TABLET;
+        } else {
+          bottomPosition = VIDEO_CONTROL_SAFE_BOTTOM_MOBILE;
+        }
+      }
+    }
+  } else {
+    if (isLandscapeMode) {
+      bottomPosition = DEFAULT_NAVIGATION_BOTTOM_LANDSCAPE;
+    } else {
+      bottomPosition = DEFAULT_NAVIGATION_BOTTOM;
+    }
+  }
 
-  const horizontalPosition = isVideoStep
-    ? isLandscapeMode
-      ? 16
-      : isDesktop
-        ? 28
-        : isTablet
-          ? 24
-          : 18
-    : isLandscapeMode
-      ? 10
-      : 12;
+  let horizontalPosition;
+  if (isVideoStep) {
+    if (isLandscapeMode) {
+      horizontalPosition = 16;
+    } else {
+      if (isDesktop) {
+        horizontalPosition = 28;
+      } else {
+        if (isTablet) {
+          horizontalPosition = 24;
+        } else {
+          horizontalPosition = 18;
+        }
+      }
+    }
+  } else {
+    if (isLandscapeMode) {
+      horizontalPosition = 10;
+    } else {
+      horizontalPosition = 12;
+    }
+  }
 
   const handleNextPress = () => { if (nextEnabled) onNext(); };
 
@@ -127,7 +168,9 @@ export function ActivityNavigationControls({
       testID="activity-navigation-controls"
     >
       {/* Bottom-Left: Circular Back Button (Visible when showBack = true) */}
-      {showBack ? (
+      {(() => {
+        if (showBack) {
+          return (
         <Pressable
           accessibilityHint="Bumalik sa nakaraang hakbang"
           accessibilityLabel="Nakaraang hakbang"
@@ -155,21 +198,39 @@ export function ActivityNavigationControls({
         >
           <AppIcon color="primaryText" name="arrowLeft" size={iconSize} />
         </Pressable>
-      ) : (
+      );
+        } else {
+          return (
         <View pointerEvents="none" style={styles.placeholder} />
-      )}
+      );
+        }
+      })()}
 
       {/* Bottom-Right: Circular Next Button (Visible when showNext = true) */}
-      {showNext ? (
+      {(() => {
+        if (showNext) {
+          return (
         <Pressable
           accessibilityHint={
-            !nextEnabled
-              ? disabledHint
-              : isFinalStep
-                ? 'Tapusin ang aralin'
-                : 'Pumunta sa susunod na hakbang'
+            (() => {
+              if (!nextEnabled) {
+                return disabledHint;
+              } else {
+                if (isFinalStep) {
+                  return 'Tapusin ang aralin';
+                } else {
+                  return 'Pumunta sa susunod na hakbang';
+                }
+              }
+            })()
           }
-          accessibilityLabel={isFinalStep ? 'Tapusin ang aralin' : 'Ituloy ang aralin'}
+          accessibilityLabel={(() => {
+            if (isFinalStep) {
+              return 'Tapusin ang aralin';
+            } else {
+              return 'Ituloy ang aralin';
+            }
+          })()}
           accessibilityRole="button"
           accessibilityState={{ disabled: !nextEnabled }}
           hitSlop={10}
@@ -183,21 +244,45 @@ export function ActivityNavigationControls({
           style={({ pressed }) => [
             styles.circularButton,
             styles.nextButton,
-            nextLabel ? styles.pillButton : null,
+            (() => {
+              if (nextLabel) {
+                return styles.pillButton;
+              } else {
+                return null;
+              }
+            })(),
             {
               borderRadius: buttonSize / 2,
               cursor: 'pointer' as any,
               height: buttonSize,
               pointerEvents: 'auto' as any,
-              width: nextLabel ? 'auto' : buttonSize,
-              paddingHorizontal: nextLabel ? (compact ? 16 : 20) : 0,
+              width: (() => {
+                if (nextLabel) {
+                  return 'auto';
+                } else {
+                  return buttonSize;
+                }
+              })(),
+              paddingHorizontal: (() => {
+                if (nextLabel) {
+                  if (compact) {
+                    return 16;
+                  } else {
+                    return 20;
+                  }
+                } else {
+                  return 0;
+                }
+              })(),
             },
             !nextEnabled && styles.nextButtonDisabled,
             nextEnabled && (nextHovered || nextFocused) && styles.nextButtonHovered,
             pressed && styles.buttonPressed,
           ]}
         >
-          {nextLabel ? (
+          {(() => {
+            if (nextLabel) {
+              return (
             <Text
               style={[
                 styles.nextLabelText,
@@ -208,16 +293,36 @@ export function ActivityNavigationControls({
             >
               {nextLabel}
             </Text>
-          ) : null}
+          );
+            } else {
+              return null;
+            }
+          })()}
           <AppIcon
-            color={nextEnabled ? 'onPrimary' : 'muted'}
-            name={nextIcon || (isFinalStep ? 'check' : 'arrowRight')}
+            color={(() => {
+              if (nextEnabled) {
+                return 'onPrimary';
+              } else {
+                return 'muted';
+              }
+            })()}
+            name={nextIcon || ((() => {
+              if (isFinalStep) {
+                return 'check';
+              } else {
+                return 'arrowRight';
+              }
+            })())}
             size={iconSize}
           />
         </Pressable>
-      ) : (
+      );
+        } else {
+          return (
         <View pointerEvents="none" style={styles.placeholder} />
-      )}
+      );
+        }
+      })()}
     </View>
   );
 }

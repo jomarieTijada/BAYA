@@ -44,6 +44,20 @@ describe('live canvas capture guards', () => {
     fireEvent(screen.getByTestId('writing-canvas'), 'responderGrant', event(20, 20));
     expect(onChange).not.toHaveBeenCalled();
   });
+  it('ends the active stroke when a second finger joins instead of connecting unrelated touches', () => {
+    canvas(); const area = screen.getByTestId('writing-canvas');
+    fireEvent(area, 'responderGrant', event(20, 20));
+    fireEvent(area, 'responderMove', {nativeEvent:{locationX:180, locationY:80, touches:[{},{}]}});
+    fireEvent(area, 'responderMove', event(160, 70));
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
+  it('ends an active gesture when canvas geometry changes during rotation', () => {
+    canvas(); const area = screen.getByTestId('writing-canvas');
+    fireEvent(area, 'responderGrant', event(20, 20));
+    fireEvent(area, 'layout', {nativeEvent:{layout:{width:300,height:150}}});
+    fireEvent(area, 'responderMove', event(160, 70));
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
   it('blocks drawing while disabled and clears an active gesture on reset', () => {
     const view = canvas([], true);
     fireEvent(screen.getByTestId('writing-canvas'), 'responderGrant', event(20, 20));

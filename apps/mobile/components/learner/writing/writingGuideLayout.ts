@@ -8,6 +8,12 @@ export function placeWritingGuide(width: number, height: number, cardWidth: numb
   const right = Math.max(left, width - insets.right - cardWidth - 12);
   const bottom = Math.max(top, height - insets.bottom - cardHeight - 12);
   const positions = [{ x: right, y: top }, { x: left, y: top }, { x: right, y: bottom }, { x: left, y: bottom }];
-  const overlap = (p: { x: number; y: number }) => target ? Math.max(0, Math.min(p.x + cardWidth, target.x + target.width + 8) - Math.max(p.x, target.x - 8)) * Math.max(0, Math.min(p.y + cardHeight, target.y + target.height + 8) - Math.max(p.y, target.y - 8)) : 0;
+  const overlap = (p: { x: number; y: number }) => {
+    if (target) {
+      return Math.max(0, Math.min(p.x + cardWidth, target.x + target.width + 8) - Math.max(p.x, target.x - 8)) * Math.max(0, Math.min(p.y + cardHeight, target.y + target.height + 8) - Math.max(p.y, target.y - 8));
+    } else {
+      return 0;
+    }
+  };
   return positions.sort((a, b) => overlap(a) - overlap(b))[0];
 }

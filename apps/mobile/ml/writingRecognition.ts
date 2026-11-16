@@ -2,8 +2,7 @@ import { BAYA_MODEL_CONFIG } from './bayaModelConfig';
 import type { StrokeData } from '../content/writingEngine';
 import { runBayaInference } from './bayaModel';
 import { BAYA_CLASS_LABELS } from './bayaClassLabels';
-import { INK_THRESHOLD } from './inkImagePreprocessing';
-import { preprocessBayaImage } from './bayaPreprocessing';
+import { preprocessBayaImageWithTransform } from './bayaPreprocessing';
 import { validateBayaProbabilities } from './bayaProbabilities';
 
 const CAPTURE_SIZE = 256;
@@ -19,7 +18,7 @@ export type BayaRecognitionObserver = {
 };
 const DEFAULT_GEOMETRY: WritingCanvasGeometry = { width: 1, height: 1 };
 
-/** Rasterize active writing strokes to the RGBA boundary accepted by the pure preprocessing port. */
+/** Rasterize active writing strokes to RGBA */
 export function captureWritingRgba(strokes: StrokeData, geometry: WritingCanvasGeometry = DEFAULT_GEOMETRY): Uint8ClampedArray {
   if (!Array.isArray(strokes) || !strokes.some(stroke => Array.isArray(stroke) && stroke.length > 0)) {
     throw new Error('Write a character before asking BAYA to recognize it.');
@@ -64,9 +63,7 @@ export function captureWritingRgba(strokes: StrokeData, geometry: WritingCanvasG
 }
 
 function prepareCapturedInputs(imageRgba: Uint8ClampedArray) {
-  const imageData = preprocessBayaImage({ width: CAPTURE_SIZE, height: CAPTURE_SIZE, data: imageRgba });
-  if (!imageData.some(value => value > INK_THRESHOLD)) throw new Error('Write a visible character before asking BAYA to recognize it.');
-  return { imageData };
+  return preprocessBayaImageWithTransform({ width: CAPTURE_SIZE, height: CAPTURE_SIZE, data: imageRgba });
 }
 
 export function prepareBayaInputs(strokes: StrokeData, geometry: WritingCanvasGeometry = DEFAULT_GEOMETRY) {

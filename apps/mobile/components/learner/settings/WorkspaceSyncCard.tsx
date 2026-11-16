@@ -1,6 +1,7 @@
+import { Text } from '../../../localization/components';
 import { router } from 'expo-router';
 import React from 'react';
-import { StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { StyleSheet, View, useWindowDimensions } from 'react-native';
 import { Colors, FontFamily } from '../../../constants/theme';
 import { AppButton } from '../../ui/AppButton';
 import { AppIcon } from '../../ui/AppIcon';
@@ -16,37 +17,107 @@ export function WorkspaceSyncCard({ initialInfo = defaultWorkspaceInfo, onJoinPr
   const { width } = useWindowDimensions();
   const compact = width < 750;
   const connected = initialInfo.status === 'connected';
-  return <View testID="workspace-sync-card" style={[p.card, styles.card, { padding: compact ? 20 : 24 }]}>
+  return <View testID="workspace-sync-card" style={[p.card, styles.card, { padding: (() => {
+    if (compact) {
+      return 20;
+    } else {
+      return 24;
+    }
+  })() }]}>
     <View style={[p.row, { justifyContent: 'space-between' }]}>
       <View style={[p.row, { flexShrink: 1, flexWrap: 'nowrap' }]}>
         <View style={styles.icon}><AppIcon name="cloud" color="accent" size={30} /></View>
-        <View style={{ flexShrink: 1 }}><Text style={[p.name, { fontSize: compact ? 23 : 29 }]}>{SETTINGS_COPY.workspaceTitle}</Text><Text style={p.subtitle}>{SETTINGS_COPY.workspaceSubtitle}</Text></View>
+        <View style={{ flexShrink: 1 }}><Text style={[p.name, { fontSize: (() => {
+          if (compact) {
+            return 23;
+          } else {
+            return 29;
+          }
+        })() }]}>{SETTINGS_COPY.workspaceTitle}</Text><Text style={p.subtitle}>{SETTINGS_COPY.workspaceSubtitle}</Text></View>
       </View>
       <ConnectionStatusBadge connected={connected} landscapeCompact={compact} />
     </View>
     <View style={styles.inset}>
-      {connected ? <>
+      {(() => {
+        if (connected) {
+          return <>
         <View style={[p.row, { justifyContent: 'space-between', alignItems: 'flex-start' }]}>
-          <View style={{ flex: 1, minWidth: 150 }}><Text style={styles.label}>{SETTINGS_COPY.workspaceLabel}</Text><Text style={p.name}>{initialInfo.workspaceName}</Text></View>
-          <View style={{ maxWidth: '100%' }}><Text style={[styles.label, { textAlign: 'right' }]}>{SETTINGS_COPY.workspaceCodeLabel}</Text><Text selectable style={styles.code}>{initialInfo.workspaceCode}</Text></View>
+          <View style={{ flex: 1, minWidth: 150 }}><Text style={styles.label}>{SETTINGS_COPY.workspaceLabel}</Text><Text style={p.name} verbatim>{initialInfo.workspaceName}</Text></View>
+          <View style={{ maxWidth: '100%' }}><Text style={[styles.label, { textAlign: 'right' }]}>{SETTINGS_COPY.workspaceCodeLabel}</Text><Text selectable style={styles.code} verbatim>{initialInfo.workspaceCode}</Text></View>
         </View>
         <View style={styles.divider} />
         <View style={[p.row, { justifyContent: 'space-between' }]}>
           <View style={[p.row, { gap: 8 }]}>{initialInfo.lastSyncedText && initialInfo.lastSyncedText !== 'Not synchronized yet' && <AppIcon name="circleCheck" color="goal" size={22} />}<Text style={p.text}>{SETTINGS_COPY.lastSynchronized}</Text></View>
           <Text style={[p.text, { fontWeight: '700' }]}>{initialInfo.lastSyncedText ?? 'Not synchronized yet'}</Text>
         </View>
-      </> : <>
-        <View style={[p.row, { flexWrap: 'nowrap' }]}><View style={styles.dot} /><Text style={[p.name, { fontSize: compact ? 20 : 23, flex: 1 }]}>{pending ? 'Your request is with your mentor.' : SETTINGS_COPY.independentHeadline}</Text></View>
-        <Text style={[p.text, { marginTop: 16 }]}>{pending ? 'You can keep learning while you wait. Sync becomes available after approval.' : SETTINGS_COPY.independentDescription}</Text>
-      </>}
+      </>;
+        } else {
+          return <>
+        <View style={[p.row, { flexWrap: 'nowrap' }]}><View style={styles.dot} /><Text style={[p.name, { fontSize: (() => {
+          if (compact) {
+            return 20;
+          } else {
+            return 23;
+          }
+        })(), flex: 1 }]}>{(() => {
+          if (pending) {
+            return 'Your request is with your mentor.';
+          } else {
+            return SETTINGS_COPY.independentHeadline;
+          }
+        })()}</Text></View>
+        <Text style={[p.text, { marginTop: 16 }]}>{(() => {
+          if (pending) {
+            return 'You can keep learning while you wait. Sync becomes available after approval.';
+          } else {
+            return SETTINGS_COPY.independentDescription;
+          }
+        })()}</Text>
+      </>;
+        }
+      })()}
     </View>
     <View style={styles.actions}>
       {!!message && <Text accessibilityLiveRegion="polite" style={[p.text, { textAlign: 'center' }]}>{message}</Text>}
-      {(connected || !pending) && <AppButton accessibilityLabel={connected ? SETTINGS_COPY.syncAccessibility : SETTINGS_COPY.joinAccessibility} label={busy ? 'SYNCHRONIZING…' : connected ? SETTINGS_COPY.syncNow : SETTINGS_COPY.joinWorkspace}
-        icon={connected ? 'sync' : 'add'} iconPosition="leading" disabled={busy || (connected && !onSyncPress)}
-        onPress={connected ? () => onSyncPress?.() : onJoinPress ?? (() => router.push('/learner/workspaces'))}
+      {(connected || !pending) && <AppButton accessibilityLabel={(() => {
+        if (connected) {
+          return SETTINGS_COPY.syncAccessibility;
+        } else {
+          return SETTINGS_COPY.joinAccessibility;
+        }
+      })()} label={(() => {
+        if (busy) {
+          return 'SYNCHRONIZING…';
+        } else {
+          if (connected) {
+            return SETTINGS_COPY.syncNow;
+          } else {
+            return SETTINGS_COPY.joinWorkspace;
+          }
+        }
+      })()}
+        icon={(() => {
+          if (connected) {
+            return 'sync';
+          } else {
+            return 'add';
+          }
+        })()} iconPosition="leading" disabled={busy || (connected && !onSyncPress)}
+        onPress={(() => {
+          if (connected) {
+            return () => onSyncPress?.();
+          } else {
+            return onJoinPress ?? (() => router.push('/learner/workspaces'));
+          }
+        })()}
         style={{ width: '100%', maxWidth: 620, minHeight: 64, borderRadius: 22 }} />}
-      <Text style={[p.text, { color: Colors.textMuted, textAlign: 'center' }]}>{connected ? SETTINGS_COPY.connectedFooter : 'Your learning stays saved on this device.'}</Text>
+      <Text style={[p.text, { color: Colors.textMuted, textAlign: 'center' }]}>{(() => {
+        if (connected) {
+          return SETTINGS_COPY.connectedFooter;
+        } else {
+          return 'Your learning stays saved on this device.';
+        }
+      })()}</Text>
     </View>
   </View>;
 }

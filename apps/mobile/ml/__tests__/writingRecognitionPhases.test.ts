@@ -1,11 +1,10 @@
 import { runBayaInference } from '../bayaModel';
-import { preprocessNotebookImage } from '../inkImagePreprocessing';
+import { preprocessBayaImageWithTransform } from '../bayaPreprocessing';
 import { recognizeWriting } from '../writingRecognition';
 
 jest.mock('../bayaModel', () => ({ runBayaInference: jest.fn() }));
-jest.mock('../inkImagePreprocessing', () => ({
-  INK_THRESHOLD: 0.08,
-  preprocessNotebookImage: jest.fn(),
+jest.mock('../bayaPreprocessing', () => ({
+  preprocessBayaImageWithTransform: jest.fn(),
 }));
 
 const strokes = [[
@@ -20,7 +19,7 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-it('captures the actual stroke image before starting ONNX inference', async () => {
+it('captures the actual stroke image before starting LiteRT inference', async () => {
   const drawing: string[] = [];
   const context = {
     fillRect: jest.fn(), beginPath: jest.fn(), moveTo: jest.fn(() => drawing.push('move')),
@@ -30,7 +29,7 @@ it('captures the actual stroke image before starting ONNX inference', async () =
   Object.defineProperty(global, 'document', { configurable: true, value: {
     createElement: jest.fn(() => ({ getContext: () => context })),
   } });
-  jest.mocked(preprocessNotebookImage).mockReturnValue(new Float32Array(96 * 96).fill(0.5));
+  jest.mocked(preprocessBayaImageWithTransform).mockReturnValue({ imageData: new Float32Array(3 * 160 * 160).fill(0.5), transform: {} as never });
   const probabilities = new Float32Array(63);
   probabilities[0] = 0.7;
   probabilities[1] = 0.3;
@@ -40,7 +39,7 @@ it('captures the actual stroke image before starting ONNX inference', async () =
   const result = await recognizeWriting(strokes, { width: 200, height: 100 }, 3, {
     onCaptureStarted: () => phases.push('captureStarted'),
     onCaptureCompleted: shapes => {
-      expect(shapes).toEqual({ imageShape: [1, 96, 96, 1] });
+      expect(shapes).toEqual({ imageShape: [1, 3, 160, 160] });
       phases.push('captureCompleted');
     },
     onInferenceStarted: () => phases.push('inferenceStarted'),
@@ -49,7 +48,7 @@ it('captures the actual stroke image before starting ONNX inference', async () =
 
   expect(phases).toEqual(['captureStarted', 'captureCompleted', 'inferenceStarted', 'inferenceCompleted']);
   expect(drawing).toContain('line');
-  expect(preprocessNotebookImage).toHaveBeenCalledWith(expect.objectContaining({ width: 256, height: 256 }));
+  expect(preprocessBayaImageWithTransform).toHaveBeenCalledWith(expect.objectContaining({ width: 256, height: 256 }));
   expect(runBayaInference).toHaveBeenCalledWith(expect.any(Float32Array));
   expect(result[0].label).toBe('a');
   expect(result[0].probability).toBeCloseTo(0.7);
@@ -75,7 +74,10 @@ function installCapture(visible = true) {
       getImageData: jest.fn(() => ({ data: new Uint8ClampedArray(256 * 256 * 4) })),
     }) })),
   } });
-  jest.mocked(preprocessNotebookImage).mockReturnValue(new Float32Array(96 * 96).fill(visible ? 0.5 : 0));
+  jest.mocked(preprocessBayaImageWithTransform).mockImplementation(() => {
+    if (!visible) throw new Error('Write a visible character');
+    return { imageData: new Float32Array(3 * 160 * 160).fill(0.5), transform: {} as never };
+  });
 }
 
 it('does not infer a blank rendered image even if stroke metadata exists', async () => {
@@ -87,7 +89,7 @@ it('does not infer a blank rendered image even if stroke metadata exists', async
 it.each([[], [[{ x: NaN, y: 0.5 }]], [[{ x: 1.1, y: 0.5 }]]].map(value => ({ value })))('rejects invalid drawing metadata before preprocessing', async ({ value }) => {
   installCapture();
   await expect(recognizeWriting(value)).rejects.toThrow();
-  expect(preprocessNotebookImage).not.toHaveBeenCalled();
+  expect(preprocessBayaImageWithTransform).not.toHaveBeenCalled();
   expect(runBayaInference).not.toHaveBeenCalled();
 });
 
@@ -106,3 +108,4 @@ it('keeps stable class-index ties and supplies the image tensor only', async () 
   expect(ranked.map(p => p.classIndex)).toEqual([0, 1, 2]);
   expect(jest.mocked(runBayaInference).mock.calls[0]).toHaveLength(1);
 });
+

@@ -21,7 +21,12 @@ export async function initDatabase(options: InitDatabaseOptions = {}): Promise<I
   if (!migrationResult.success) {
     throw migrationResult.error || new Error('Database migration failed.');
   }
-  const seedResult = options.seed ? await seedCurriculum(db) : undefined;
+  let seedResult;
+  if (options.seed) {
+    seedResult = await seedCurriculum(db);
+  } else {
+    seedResult = undefined;
+  }
   return { initialized: true, migrationResult, seedResult };
 }
 

@@ -22,24 +22,24 @@ it('opens a guided popup beside Pagsusuri and keeps feedback mounted', () => {
   function Feedback() { React.useEffect(mounts, []); return <Text>Saved result</Text>; }
   render(<ConfidenceCard embedded dense><Feedback /></ConfidenceCard>);
   const header = within(screen.getByTestId('writing-feedback-header'));
-  expect(header.getByText('Pagsusuri')).toBeTruthy();
+  expect(header.getByText("Check Results")).toBeTruthy();
   expect(header.getByText('help')).toBeTruthy();
-  const button = header.getByRole('button', { name: 'Tulong sa pagsusuri' });
+  const button = header.getByRole('button', { name: "Help with checking" });
   expect(button.props.accessibilityState.expanded).toBe(false);
   expect(screen.queryByTestId('writing-help-popup')).toBeNull();
   fireEvent.press(button);
   expect(button.props.accessibilityState.expanded).toBe(true);
   expect(screen.getByTestId('writing-help-popup')).toBeTruthy();
-  expect(screen.getByText('Paano Makakuha ng Bituin?')).toBeTruthy();
+  expect(screen.getByText("How Do I Earn a Star?")).toBeTruthy();
   expect(screen.queryByText(/80%/)).toBeNull();
   fireEvent.press(screen.getByTestId('writing-technical-toggle'));
-  expect(screen.getByText(/unang nakilalang simbolo.*hindi bababa sa 80%/)).toBeTruthy();
-  expect(screen.getByText(/80%.*hindi grado ng iyong sulat/)).toBeTruthy();
-  fireEvent.press(screen.getByLabelText('Isara ang gabay'));
+  expect(screen.getByText(/first recognized character.*at least 80%/)).toBeTruthy();
+  expect(screen.getByText(/80%.*not a grade for your writing/)).toBeTruthy();
+  fireEvent.press(screen.getByLabelText("Close the guide"));
   expect(screen.queryByTestId('writing-help-popup')).toBeNull();
   expect(screen.getByText('Saved result')).toBeTruthy();
   expect(mounts).toHaveBeenCalledTimes(1);
-  fireEvent.press(screen.getByLabelText('Tulong sa pagsusuri'));
+  fireEvent.press(screen.getByLabelText("Help with checking"));
   expect(screen.queryByTestId('writing-technical-details')).toBeNull();
 });
 
@@ -47,8 +47,8 @@ it('pulses once, with no replay on rerender, disclosure or preference changes', 
   const view = render(<ConfidenceCard />);
   expect(sequence).toHaveBeenCalledTimes(1);
   view.rerender(<ConfidenceCard dense />);
-  fireEvent.press(screen.getByLabelText('Tulong sa pagsusuri'));
-  fireEvent.press(screen.getByLabelText('Isara ang gabay'));
+  fireEvent.press(screen.getByLabelText("Help with checking"));
+  fireEvent.press(screen.getByLabelText("Close the guide"));
   (useReducedMotionPreference as jest.Mock).mockReturnValue(true);
   view.rerender(<ConfidenceCard />);
   (useReducedMotionPreference as jest.Mock).mockReturnValue(false);
@@ -60,8 +60,8 @@ it('stays static for reduced motion and does not pulse after help has already be
   (useReducedMotionPreference as jest.Mock).mockReturnValue(true);
   const view = render(<ConfidenceCard />);
   expect(sequence).not.toHaveBeenCalled();
-  fireEvent.press(screen.getByLabelText('Tulong sa pagsusuri'));
-  fireEvent.press(screen.getByLabelText('Isara ang gabay'));
+  fireEvent.press(screen.getByLabelText("Help with checking"));
+  fireEvent.press(screen.getByLabelText("Close the guide"));
   (useReducedMotionPreference as jest.Mock).mockReturnValue(false);
   view.rerender(<ConfidenceCard />);
   expect(sequence).not.toHaveBeenCalled();
@@ -70,6 +70,6 @@ it('stays static for reduced motion and does not pulse after help has already be
 it('keeps help usable if animation setup fails', () => {
   sequence.mockImplementation(() => { throw new Error('animation unavailable'); });
   render(<ConfidenceCard />);
-  fireEvent.press(screen.getByLabelText('Tulong sa pagsusuri'));
-  expect(screen.getByText('Paano Makakuha ng Bituin?')).toBeTruthy();
+  fireEvent.press(screen.getByLabelText("Help with checking"));
+  expect(screen.getByText("How Do I Earn a Star?")).toBeTruthy();
 });

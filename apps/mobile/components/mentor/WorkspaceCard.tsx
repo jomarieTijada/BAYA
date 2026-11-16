@@ -1,6 +1,9 @@
+import { useLocalization } from '../../localization/LocalizationProvider';
+import { localeFor } from '../../localization/core';
+import { Pressable, Text } from '../../localization/components';
 import { useBayaToast } from '../ui/BayaNotifications';
 import React, { useState } from 'react';
-import { Platform, Pressable, Share, Text, View } from 'react-native';
+import { Platform, Share, View } from 'react-native';
 import { BaseCard } from '../ui/cards/BaseCard';
 import { AppButton } from '../ui/AppButton';
 import { AppIcon } from '../ui/AppIcon';
@@ -16,6 +19,7 @@ export function WorkspaceCard({
   onEnter?: () => void;
   onManage?: () => void;
 }) {
+  const { language } = useLocalization();
   const toast = useBayaToast();
   const [feedback, setFeedback] = useState('');
   const copy = async () => {
@@ -43,7 +47,7 @@ export function WorkspaceCard({
         <Text
           accessibilityRole="header"
           style={[s.title, { fontSize: 25, textAlign: 'left', flex: 1 }]}
-        >
+         verbatim>
           {workspace.workspace_name}
         </Text>
       </View>
@@ -51,13 +55,23 @@ export function WorkspaceCard({
         style={{
           fontFamily: FontFamily.body,
           color:
-            workspace.status === 'active'
-              ? Colors.success
-              : Colors.textSecondary,
+            (() => {
+              if (workspace.status === 'active') {
+                return Colors.success;
+              } else {
+                return Colors.textSecondary;
+              }
+            })(),
           fontSize: 18,
         }}
       >
-        {workspace.status === 'active' ? '● Active' : workspace.status}
+        {(() => {
+          if (workspace.status === 'active') {
+            return '● Active';
+          } else {
+            return workspace.status;
+          }
+        })()}
       </Text>
       <View
         style={{
@@ -80,13 +94,19 @@ export function WorkspaceCard({
             fontWeight: '700',
             color: Colors.textPrimary,
           }}
-        >
+         verbatim>
           CODE: {workspace.workspace_code}
         </Text>
         <Pressable
           accessibilityRole="button"
           accessibilityLabel={
-            Platform.OS === 'web' ? 'Copy code' : 'Share code'
+            (() => {
+              if (Platform.OS === 'web') {
+                return 'Copy code';
+              } else {
+                return 'Share code';
+              }
+            })()
           }
           onPress={() => {
             void copy();
@@ -108,7 +128,7 @@ export function WorkspaceCard({
       {workspace.lastSyncedAt &&
         !Number.isNaN(Date.parse(workspace.lastSyncedAt)) && (
           <Text style={s.notice}>
-            Last synced: {new Date(workspace.lastSyncedAt).toLocaleString()}
+            Last synced: {new Date(workspace.lastSyncedAt).toLocaleString(localeFor(language))}
           </Text>
         )}
       <Notice text={feedback} />

@@ -10,7 +10,11 @@ import { applyCompletedTopics, localLearnerService } from './localLearnerService
 
 export function normalizeLessonId(id: string | number): string {
   const value = String(id).trim();
-  return /^\d+$/.test(value) ? `module-${Number(value)}` : value;
+  if (/^\d+$/.test(value)) {
+    return `module-${Number(value)}`;
+  } else {
+    return value;
+  }
 }
 
 export const curriculumService = {
@@ -37,7 +41,12 @@ export const curriculumService = {
       // SQLite can be unavailable on first launch/offline web. The manifest is
       // independently approved, so it is also the complete safe fallback.
     }
-    const content = dbOverride ? activityContentFromDatabase(dbOverride) : activityContentService;
+    let content;
+    if (dbOverride) {
+      content = activityContentFromDatabase(dbOverride);
+    } else {
+      content = activityContentService;
+    }
     await Promise.all(modules.flatMap(module => module.topics.map(async topic => {
       topic.contentAvailable = getBaybayinCharacterTopic(topic.id) !== null || getWritingTopic(topic.id) !== null || !!(await content.getByTopicId(topic.id));
     })));

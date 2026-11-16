@@ -16,7 +16,7 @@ it('floats without intercepting input, demonstrates two gestures and dismisses o
   const hint = screen.getByTestId('floating-swipe-hint');
   expect(hint.props.pointerEvents).toBe('none');
   expect(StyleSheet.flatten(hint.props.style)).toMatchObject({ position: 'absolute', left: 320, top: 180, width: 48, height: 48, backgroundColor: 'transparent' });
-  expect(screen.queryByText('I-swipe pakaliwa')).toBeNull();
+  expect(screen.queryByText("Swipe left")).toBeNull();
   expect(timing.mock.calls.filter(call => call[1].toValue === -32)).toHaveLength(2);
   expect(timing.mock.calls.some(call => call[1].duration === 220 && call[1].toValue === 0)).toBe(true);
   view.rerender(<FloatingSwipeHint left={340} top={180} onDismiss={dismiss} />);

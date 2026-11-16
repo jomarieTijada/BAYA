@@ -1,13 +1,7 @@
+import { Text } from '../../localization/components';
 import React from 'react';
 import { Stack, useRouter } from 'expo-router';
-import {
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ProfileSetupForm } from '../../components/learner/ProfileSetupForm';
@@ -25,11 +19,16 @@ export default function LearnerSetupScreen() {
     isPhonePortrait,
   } = useResponsiveLayout();
   const isLandscapeCompact = isPhoneLandscape && height <= 500;
-  const density = isLandscapeCompact
-    ? 'landscapeCompact'
-    : isPhonePortrait
-      ? 'mobile'
-      : 'regular';
+  let density: 'landscapeCompact' | 'mobile' | 'regular';
+  if (isLandscapeCompact) {
+    density = 'landscapeCompact';
+  } else {
+    if (isPhonePortrait) {
+      density = 'mobile';
+    } else {
+      density = 'regular';
+    }
+  }
   const compact = density !== 'regular';
 
   const goBack = () => {
@@ -43,14 +42,26 @@ export default function LearnerSetupScreen() {
 
   return (
     <SafeAreaView
-      edges={isLandscapeCompact ? ['left', 'right', 'bottom'] : ['top', 'bottom', 'left', 'right']}
+      edges={(() => {
+        if (isLandscapeCompact) {
+          return ['left', 'right', 'bottom'];
+        } else {
+          return ['top', 'bottom', 'left', 'right'];
+        }
+      })()}
       style={styles.safeArea}
       testID="setup-screen-root"
     >
       <Stack.Screen options={{ title: 'BAYA · Set Up Your Profile' }} />
 
       <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        behavior={(() => {
+          if (Platform.OS === 'ios') {
+            return 'padding';
+          } else {
+            return undefined;
+          }
+        })()}
         style={styles.keyboardArea}
         testID="setup-screen-wrapper"
       >
@@ -81,7 +92,17 @@ export default function LearnerSetupScreen() {
               accessibilityLabel="Back"
               compact={compact}
               onPress={goBack}
-              size={isLandscapeCompact ? 'landscape' : compact ? 'compact' : 'regular'}
+              size={(() => {
+                if (isLandscapeCompact) {
+                  return 'landscape';
+                } else {
+                  if (compact) {
+                    return 'compact';
+                  } else {
+                    return 'regular';
+                  }
+                }
+              })()}
             />
           </View>
 

@@ -69,7 +69,10 @@ for i,path in enumerate(paths):
     sources[name] = str(path.relative_to(ROOT))
     raw = path.stem.removeprefix('Gavino Baybayin - ').upper()
     target = aliases.get(raw,raw.lower())
-    targets[name] = target if target in mapping['label_to_id'] else None
+    if target in mapping['label_to_id']:
+        targets[name] = target
+    else:
+        targets[name] = None
     rgba=Image.open(path).convert('RGBA')
     rasters[name]={'width':rgba.width,'height':rgba.height,'rgba':base64.b64encode(rgba.tobytes()).decode()}
 for path in sorted((ROOT/'ml/diagnostics/captures').glob('*.json')):

@@ -1,8 +1,3 @@
-/**
- * Validator-approved curriculum. This is the sole authority for module/topic
- * membership, order and titles. Add content here only after validator approval.
- * Approval of a title does not approve teaching materials or descriptions.
- */
 export interface ApprovedModule {
   readonly id: string;
   readonly title: string;

@@ -31,8 +31,20 @@ function toExercise(character: BaybayinCharacter): WritingExercise {
 }
 
 export const writingTopics: readonly WritingTopic[] = baybayinCharacterTopics.map((topic, index) => ({
-  id: index === 0 ? 'topic-3-1' as const : 'topic-3-2' as const,
-  title: index === 0 ? 'Mga Patinig' : 'Mga Katinig',
+  id: (() => {
+    if (index === 0) {
+      return 'topic-3-1' as const;
+    } else {
+      return 'topic-3-2' as const;
+    }
+  })(),
+  title: (() => {
+    if (index === 0) {
+      return 'Mga Patinig';
+    } else {
+      return 'Mga Katinig';
+    }
+  })(),
   exercises: topic.characters.map(toExercise),
 }));
 

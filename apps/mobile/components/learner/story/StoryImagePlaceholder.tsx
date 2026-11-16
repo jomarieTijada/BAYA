@@ -1,12 +1,6 @@
+import { Text } from '../../../localization/components';
 import React from "react";
-import {
-  Platform,
-  type StyleProp,
-  StyleSheet,
-  Text,
-  View,
-  type ViewStyle,
-} from "react-native";
+import { Platform, type StyleProp, StyleSheet, View, type ViewStyle } from 'react-native';
 
 import { FontFamily, Radius, Spacing } from "../../../constants/theme";
 
@@ -42,19 +36,25 @@ export function StoryImagePlaceholder({
       ]}
       testID="story-illustration-area"
     >
-      {isSpecialVisualTheme ? (
+      {(() => {
+        if (isSpecialVisualTheme) {
+          return (
         <StoryVisualLearning
           compact={compact}
           landscapeCompact={landscapeCompact}
           theme={theme}
         />
-      ) : (
+      );
+        } else {
+          return (
         <View style={styles.content} testID="story-image-placeholder">
           <Text style={[styles.label, compact && styles.labelCompact]}>
-            Add Image Here
+            Illustration not yet available.
           </Text>
         </View>
-      )}
+      );
+        }
+      })()}
     </View>
   );
 }

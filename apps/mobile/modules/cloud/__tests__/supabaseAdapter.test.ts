@@ -205,3 +205,17 @@ it('accepts only public credentials and fails closed when configuration is missi
   const token = `header.${btoa(JSON.stringify({ role: 'service_role' }))}.signature`;
   expect(() => readCloudConfig('https://project.supabase.co', token)).toThrow();
 });
+it('keeps known authorization denial distinct from offline connectivity', () => {
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'navigator');
+  Object.defineProperty(globalThis, 'navigator', { configurable: true, value: { onLine: false } });
+  try {
+    expect(cloudFailure({ code: '42501' })).toEqual({ ok: false, code: 'unauthorized' });
+    expect(cloudFailure({ status: 403 })).toEqual({ ok: false, code: 'unauthorized' });
+    expect(cloudFailure({ code: 'session_not_found' })).toEqual({ ok: false, code: 'unauthorized' });
+    expect(cloudFailure({ code: 'P0001' })).toEqual({ ok: false, code: 'inactive' });
+    expect(cloudFailure(new Error('Connection lost'))).toEqual({ ok: false, code: 'offline' });
+  } finally {
+    if (original) Object.defineProperty(globalThis, 'navigator', original);
+    else Reflect.deleteProperty(globalThis, 'navigator');
+  }
+});

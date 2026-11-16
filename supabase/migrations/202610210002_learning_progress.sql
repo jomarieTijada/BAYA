@@ -1,4 +1,3 @@
--- Canonical IDs map the existing approved offline curriculum into cloud UUIDs.
 begin;
 alter table public.lessons add column source_key text;
 alter table public.activities add column source_key text;

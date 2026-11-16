@@ -1,5 +1,6 @@
+import { Pressable, Text } from '../../localization/components';
 import React from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from 'react-native';
 import { Colors, Spacing } from "../../constants/theme";
 
 export function MediaFallback({
@@ -16,7 +17,9 @@ export function MediaFallback({
   return (
     <View accessibilityRole="summary" style={styles.container} testID={testID}>
       <Text style={styles.text}>{title}</Text>
-      {onRetry ? (
+      {(() => {
+        if (onRetry) {
+          return (
         <Pressable
           accessibilityRole="button"
           onPress={onRetry}
@@ -24,9 +27,13 @@ export function MediaFallback({
         >
           <Text style={styles.retryText}>{retryLabel}</Text>
         </Pressable>
-      ) : (
+      );
+        } else {
+          return (
         <Text style={styles.text}>Bumalik sa aralin o subukan muli mamaya.</Text>
-      )}
+      );
+        }
+      })()}
     </View>
   );
 }

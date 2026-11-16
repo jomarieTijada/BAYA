@@ -1,3 +1,4 @@
+import { useLocalization } from '../../../localization/LocalizationProvider';
 import React, { useEffect, useRef, useState } from 'react';
 import { Animated, Platform, StyleSheet, View } from 'react-native';
 import { AppIcon } from '../../ui/AppIcon';
@@ -7,6 +8,7 @@ import { Colors } from '../../../constants/theme';
 export function WritingMilestoneBadge({ step, completed, reducedMotion, compact = false, next = false, final = false }: {
   step: number; completed: boolean; reducedMotion: boolean; compact?: boolean; next?: boolean; final?: boolean;
 }) {
+  const { text } = useLocalization();
   const [scale] = useState(() => new Animated.Value(1));
   const [glow] = useState(() => new Animated.Value(0));
   const previous = useRef(completed);
@@ -23,8 +25,20 @@ export function WritingMilestoneBadge({ step, completed, reducedMotion, compact 
       if (newlyCompleted) {
         scale.setValue(0.85);
         animation = Animated.parallel([
-          Animated.sequence([Animated.timing(scale, { toValue: final ? 1.16 : 1.1, duration: 140, ...driver }), Animated.spring(scale, { toValue: 1, stiffness: 260, damping: 18, mass: 0.5, ...driver })]),
-          Animated.sequence([Animated.timing(glow, { toValue: 1, duration: 180, ...driver }), Animated.timing(glow, { toValue: 0, duration: final ? 500 : 320, ...driver })]),
+          Animated.sequence([Animated.timing(scale, { toValue: (() => {
+            if (final) {
+              return 1.16;
+            } else {
+              return 1.1;
+            }
+          })(), duration: 140, ...driver }), Animated.spring(scale, { toValue: 1, stiffness: 260, damping: 18, mass: 0.5, ...driver })]),
+          Animated.sequence([Animated.timing(glow, { toValue: 1, duration: 180, ...driver }), Animated.timing(glow, { toValue: 0, duration: (() => {
+            if (final) {
+              return 500;
+            } else {
+              return 320;
+            }
+          })(), ...driver })]),
         ]);
       } else {
         // One quiet breathing cycle for the next available star; no endless timer.
@@ -37,10 +51,46 @@ export function WritingMilestoneBadge({ step, completed, reducedMotion, compact 
     } catch { scale.setValue(1); glow.setValue(0); }
     return () => { animation?.stop(); scale.setValue(1); glow.setValue(0); };
   }, [completed, reducedMotion, scale, glow, next, final]);
-  return <Animated.View accessible accessibilityLabel={`Bituin ${step}: ${completed ? 'natanggap' : 'hindi pa natatanggap'}`} style={[styles.star, { transform: [{ scale }] }]} testID={`writing-milestone-${step}-${completed ? 'complete' : 'pending'}`}>
+  return <Animated.View accessible accessibilityLabel={text(`Bituin ${step}: ${(() => {
+    if (completed) {
+      return 'natanggap';
+    } else {
+      return 'hindi pa natatanggap';
+    }
+  })()}`)} style={[styles.star, { transform: [{ scale }] }]} testID={`writing-milestone-${step}-${(() => {
+    if (completed) {
+      return 'complete';
+    } else {
+      return 'pending';
+    }
+  })()}`}>
     <Animated.View pointerEvents="none" style={[styles.glow, { opacity: glow }]} testID={`writing-star-glow-${step}`} />
-    <AppIcon name={completed ? 'star' : 'starOutline'} size={compact ? 34 : 40} color={completed ? 'achievement' : 'secondaryText'} />
-    {completed && <View pointerEvents="none" style={styles.check}><AppIcon name="check" size={compact ? 13 : 15} color="primaryText" /></View>}
+    <AppIcon name={(() => {
+      if (completed) {
+        return 'star';
+      } else {
+        return 'starOutline';
+      }
+    })()} size={(() => {
+      if (compact) {
+        return 34;
+      } else {
+        return 40;
+      }
+    })()} color={(() => {
+      if (completed) {
+        return 'achievement';
+      } else {
+        return 'secondaryText';
+      }
+    })()} />
+    {completed && <View pointerEvents="none" style={styles.check}><AppIcon name="check" size={(() => {
+      if (compact) {
+        return 13;
+      } else {
+        return 15;
+      }
+    })()} color="primaryText" /></View>}
   </Animated.View>;
 }
 const styles = StyleSheet.create({

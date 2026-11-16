@@ -77,7 +77,13 @@ function StepCircle({
   const [pulseAnim] = useState(() => new Animated.Value(0));
 
   // Dedicated persistent driver for the one-time completion confirmation pop
-  const [completeAnim] = useState(() => new Animated.Value(isCompleted ? 1 : 0));
+  const [completeAnim] = useState(() => new Animated.Value((() => {
+    if (isCompleted) {
+      return 1;
+    } else {
+      return 0;
+    }
+  })()));
   const prevStatusRef = useRef(status);
 
   // Looping pulse animation for current step
@@ -132,26 +138,35 @@ function StepCircle({
   }, [status, isReduceMotion, completeAnim]);
 
   // Interpolations from master pulse driver
-  const circleScale = isCurrent
-    ? pulseAnim.interpolate({
+  let circleScale;
+  if (isCurrent) {
+    circleScale = pulseAnim.interpolate({
         inputRange: [0, 1],
         outputRange: [1.0, 1.06],
-      })
-    : 1.0;
+      });
+  } else {
+    circleScale = 1.0;
+  }
 
-  const haloScale = isCurrent
-    ? pulseAnim.interpolate({
+  let haloScale;
+  if (isCurrent) {
+    haloScale = pulseAnim.interpolate({
         inputRange: [0, 1],
         outputRange: [1.0, 1.18],
-      })
-    : 1.0;
+      });
+  } else {
+    haloScale = 1.0;
+  }
 
-  const haloOpacity = isCurrent
-    ? pulseAnim.interpolate({
+  let haloOpacity;
+  if (isCurrent) {
+    haloOpacity = pulseAnim.interpolate({
         inputRange: [0, 1],
         outputRange: [0.10, 0.35],
-      })
-    : 0;
+      });
+  } else {
+    haloOpacity = 0;
+  }
 
   // Completion pop interpolations
   const completionScale = completeAnim.interpolate({
@@ -169,12 +184,24 @@ function StepCircle({
     outputRange: [0, 1],
   });
 
-  const activeHaloOpacity = isReduceMotion ? 0.25 : haloOpacity;
-  const activeHaloScale = isReduceMotion ? 1.12 : haloScale;
+  let activeHaloOpacity;
+  if (isReduceMotion) {
+    activeHaloOpacity = 0.25;
+  } else {
+    activeHaloOpacity = haloOpacity;
+  }
+  let activeHaloScale;
+  if (isReduceMotion) {
+    activeHaloScale = 1.12;
+  } else {
+    activeHaloScale = haloScale;
+  }
 
   return (
     <View style={styles.stepWrapper}>
-      {isCurrent ? (
+      {(() => {
+        if (isCurrent) {
+          return (
         <Animated.View
           accessibilityElementsHidden
           style={[
@@ -186,27 +213,55 @@ function StepCircle({
             },
           ]}
         />
-      ) : null}
+      );
+        } else {
+          return null;
+        }
+      })()}
       <Animated.View
         accessibilityElementsHidden
         style={[
           styles.step,
           compact && styles.stepCompact,
           isLandscapeCompact && styles.stepLandscapeCompact,
-          reached ? styles.stepReached : styles.stepUpcoming,
+          (() => {
+            if (reached) {
+              return styles.stepReached;
+            } else {
+              return styles.stepUpcoming;
+            }
+          })(),
           isCurrent && (
-            isLandscapeCompact
-              ? styles.stepCurrentLandscapeCompact
-              : compact
-                ? styles.stepCurrentCompact
-                : styles.stepCurrent
+            (() => {
+              if (isLandscapeCompact) {
+                return styles.stepCurrentLandscapeCompact;
+              } else {
+                if (compact) {
+                  return styles.stepCurrentCompact;
+                } else {
+                  return styles.stepCurrent;
+                }
+              }
+            })()
           ),
           {
-            transform: [{ scale: isCurrent ? circleScale : isCompleted ? completionScale : 1.0 }],
+            transform: [{ scale: (() => {
+              if (isCurrent) {
+                return circleScale;
+              } else {
+                if (isCompleted) {
+                  return completionScale;
+                } else {
+                  return 1.0;
+                }
+              }
+            })() }],
           },
         ]}
       >
-        {isCompleted ? (
+        {(() => {
+          if (isCompleted) {
+            return (
           <Animated.View
             style={{
               opacity: checkOpacity,
@@ -216,10 +271,24 @@ function StepCircle({
             <AppIcon
               color="onPrimary"
               name="check"
-              size={isLandscapeCompact ? 12 : compact ? 18 : 22}
+              size={(() => {
+                if (isLandscapeCompact) {
+                  return 12;
+                } else {
+                  if (compact) {
+                    return 18;
+                  } else {
+                    return 22;
+                  }
+                }
+              })()}
             />
           </Animated.View>
-        ) : null}
+        );
+          } else {
+            return null;
+          }
+        })()}
       </Animated.View>
     </View>
   );
@@ -238,7 +307,13 @@ function StepConnector({
   isLandscapeCompact,
   isReduceMotion,
 }: StepConnectorProps) {
-  const [fillOpacityAnim] = useState(() => new Animated.Value(isCompleted ? 1 : 0));
+  const [fillOpacityAnim] = useState(() => new Animated.Value((() => {
+    if (isCompleted) {
+      return 1;
+    } else {
+      return 0;
+    }
+  })()));
   const prevCompletedRef = useRef(isCompleted);
 
   useEffect(() => {
@@ -319,14 +394,20 @@ export function LessonStepProgress({
               isReduceMotion={isReduceMotion}
               status={step.status}
             />
-            {index < steps.length - 1 ? (
+            {(() => {
+              if (index < steps.length - 1) {
+                return (
               <StepConnector
                 compact={compact}
                 isCompleted={isCompleted}
                 isLandscapeCompact={isLandscapeCompact}
                 isReduceMotion={isReduceMotion}
               />
-            ) : null}
+            );
+              } else {
+                return null;
+              }
+            })()}
           </React.Fragment>
         );
       })}

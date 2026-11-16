@@ -1,10 +1,6 @@
+import { Text } from '../../../localization/components';
 import React from "react";
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { ScrollView, StyleSheet, View } from 'react-native';
 
 import { FontFamily, Radius, Spacing } from "../../../constants/theme";
 
@@ -98,7 +94,7 @@ export function StoryVisualLearning({
             <View style={styles.glyphRow}>
               {PATINIG_LIST.map((item) => (
                 <View key={item.glyph} style={styles.glyphCardVowel}>
-                  <Text style={styles.glyphSymbol}>{item.glyph}</Text>
+                  <Text style={styles.glyphSymbol} verbatim>{item.glyph}</Text>
                   <Text style={styles.glyphLatin}>{item.latin}</Text>
                 </View>
               ))}
@@ -114,7 +110,7 @@ export function StoryVisualLearning({
             <View style={styles.glyphGrid}>
               {KATINIG_LIST.map((item) => (
                 <View key={item.glyph} style={styles.glyphCardConsonant}>
-                  <Text style={styles.glyphSymbolConsonant}>{item.glyph}</Text>
+                  <Text style={styles.glyphSymbolConsonant} verbatim>{item.glyph}</Text>
                   <Text style={styles.glyphLatinConsonant}>{item.latin}</Text>
                 </View>
               ))}

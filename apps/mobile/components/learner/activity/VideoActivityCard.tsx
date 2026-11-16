@@ -1,5 +1,6 @@
+import { Text } from '../../../localization/components';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { Colors, FontFamily, Radius, Shadows, Spacing } from '../../../constants/theme';
 import { AppIcon } from '../../ui/AppIcon';
@@ -49,7 +50,12 @@ export function VideoActivityCard({
 }: VideoActivityCardProps) {
   const displayTitle = content.title || title || 'Video';
   const displayBadge = content.badge || 'PANOORIN';
-  const resolvedSource = videoSource !== undefined ? videoSource : content.source;
+  let resolvedSource;
+  if (videoSource !== undefined) {
+    resolvedSource = videoSource;
+  } else {
+    resolvedSource = content.source;
+  }
   const [showIntroduction, setShowIntroduction] = useState(Boolean(content.introduction));
 
   if (showIntroduction && content.introduction) {
@@ -73,7 +79,13 @@ export function VideoActivityCard({
       {/* Category Badge & Video Title */}
       <View style={styles.titleRow}>
         <View style={styles.videoBadge}>
-          <AppIcon color="accent" name="video" size={landscapeCompact ? 12 : 14} />
+          <AppIcon color="accent" name="video" size={(() => {
+            if (landscapeCompact) {
+              return 12;
+            } else {
+              return 14;
+            }
+          })()} />
           <Text style={styles.videoBadgeText}>{displayBadge.toUpperCase()}</Text>
         </View>
 
@@ -90,7 +102,13 @@ export function VideoActivityCard({
         </Text>
       </View>
 
-      {content.credit ? <VideoCreditLink credit={content.credit} /> : null}
+      {(() => {
+        if (content.credit) {
+          return <VideoCreditLink credit={content.credit} />;
+        } else {
+          return null;
+        }
+      })()}
       {/* Main Video Learning Viewport: Delegated to VideoPlayer */}
       <VideoPlayer
         compact={compact}

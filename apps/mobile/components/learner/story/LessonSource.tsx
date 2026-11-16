@@ -1,26 +1,41 @@
+import { useLocalizedAlert } from '../../../localization/useLocalizedAlert';
+import { Pressable, Text } from '../../../localization/components';
 import React, { useState } from 'react';
-import { Alert, Linking, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Linking, StyleSheet, View } from 'react-native';
 import type { LessonReference } from '../../../content/types';
 import { FontFamily, Spacing } from '../../../constants/theme';
 
 /** Short attribution stays visible; bibliographic details are available on demand. */
 export function LessonSource({ reference }: { reference: LessonReference }) {
+  const localizedAlert = useLocalizedAlert();
   const [expanded, setExpanded] = useState(false);
   return <View style={styles.source} testID="lesson-source">
     <Text style={styles.caption}>Sanggunian: {reference.abbreviation}</Text>
     <Pressable accessibilityRole="button" accessibilityState={{ expanded }} onPress={() => setExpanded(value => !value)} style={styles.action}>
-      <Text style={styles.link}>{expanded ? 'Itago ang Sanggunian' : 'Alamin ang Sanggunian'}</Text>
+      <Text style={styles.link}>{(() => {
+        if (expanded) {
+          return 'Itago ang Sanggunian';
+        } else {
+          return 'Alamin ang Sanggunian';
+        }
+      })()}</Text>
     </Pressable>
-    {expanded ? <View style={styles.details} testID="lesson-source-details">
+    {(() => {
+      if (expanded) {
+        return <View style={styles.details} testID="lesson-source-details">
       <Text style={styles.detailText}>{reference.organization} ({reference.abbreviation})</Text>
       <Text style={styles.detailText}>{reference.title}</Text>
       <Text style={styles.detailText}>{reference.author}</Text>
       <Pressable accessibilityRole="link" accessibilityLabel={`Basahin ang ${reference.title} sa ${reference.abbreviation}`} onPress={() => {
-        void Linking.openURL(reference.url).catch(() => Alert.alert('Hindi mabuksan ang sanggunian', 'Subukan muli kapag may koneksiyon sa internet.'));
+        void Linking.openURL(reference.url).catch(() => localizedAlert('Hindi mabuksan ang sanggunian', 'Subukan muli kapag may koneksiyon sa internet.'));
       }} style={styles.action}>
         <Text style={styles.link}>Basahin sa {reference.abbreviation}</Text>
       </Pressable>
-    </View> : null}
+    </View>;
+      } else {
+        return null;
+      }
+    })()}
   </View>;
 }
 

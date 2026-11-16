@@ -32,24 +32,55 @@ export function BayaFrameRenderer({
       ],
     },
   ];
-  const webSource = Platform.OS === 'web' ? Asset.fromModule(source).uri : null;
+  let webSource;
+  if (Platform.OS === 'web') {
+    webSource = Asset.fromModule(source).uri;
+  } else {
+    webSource = null;
+  }
 
   return (
     <View
       accessible={!decorative}
       accessibilityElementsHidden={decorative}
-      accessibilityLabel={decorative ? undefined : accessibilityLabel}
-      accessibilityRole={decorative ? undefined : 'image'}
+      accessibilityLabel={(() => {
+        if (decorative) {
+          return undefined;
+        } else {
+          return accessibilityLabel;
+        }
+      })()}
+      accessibilityRole={(() => {
+        if (decorative) {
+          return undefined;
+        } else {
+          return 'image';
+        }
+      })()}
       aria-hidden={decorative}
-      importantForAccessibility={decorative ? 'no-hide-descendants' : 'auto'}
+      importantForAccessibility={(() => {
+        if (decorative) {
+          return 'no-hide-descendants';
+        } else {
+          return 'auto';
+        }
+      })()}
       style={[
         styles.viewport,
-        { height: upperBody ? Math.round(size * 0.82) : size, width: size },
+        { height: (() => {
+          if (upperBody) {
+            return Math.round(size * 0.82);
+          } else {
+            return size;
+          }
+        })(), width: size },
         style,
       ]}
       testID="baya-mascot"
     >
-      {Platform.OS === 'web' ? (
+      {(() => {
+        if (Platform.OS === 'web') {
+          return (
         // Keep the same DOM image mounted while its already loaded source changes.
         // The React Native web Image loader clears its background during each swap.
         <img
@@ -65,13 +96,19 @@ export function BayaFrameRenderer({
             objectFit: 'contain',
             position: 'absolute',
             top: 0,
-            transform: upperBody
-              ? `scale(1.7) translateY(${Math.round(size * 0.04)}px)`
-              : 'scale(1.42)',
+            transform: (() => {
+              if (upperBody) {
+                return `scale(1.7) translateY(${Math.round(size * 0.04)}px)`;
+              } else {
+                return 'scale(1.42)';
+              }
+            })(),
             width: '100%',
           }}
         />
-      ) : (
+      );
+        } else {
+          return (
         <ExpoImage
           accessible={false}
           aria-hidden
@@ -83,7 +120,9 @@ export function BayaFrameRenderer({
           style={frameStyle}
           transition={0}
         />
-      )}
+      );
+        }
+      })()}
     </View>
   );
 }

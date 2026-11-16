@@ -1,5 +1,7 @@
+import { Image, AccessibilityView, Pressable, Text } from '../../../localization/components';
+import { useLocalization } from '../../../localization/LocalizationProvider';
 import React, { useEffect, useRef, useState } from 'react';
-import { Animated, Image, Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Animated, Platform, ScrollView, StyleSheet, View } from 'react-native';
 
 import { SwipeHint, swipeDirection } from '../../ui/SwipeHint';
 import { Colors, FontFamily, Radius, Spacing } from '../../../constants/theme';
@@ -25,7 +27,13 @@ function CharacterExampleGuide({ character, compact, large, short, isStacked }: 
       landscapeCompact={short}
       mascotAccessibilityLabel={`Pakinggan si BAYA sa pagbigkas ng ${character.latinEquivalent}`}
       mascotSpeaking={speaking}
-      maxSpreadMascotWidth={large ? 360 : undefined}
+      maxSpreadMascotWidth={(() => {
+        if (large) {
+          return 360;
+        } else {
+          return undefined;
+        }
+      })()}
       fullBodyMascot={large}
       onMascotPress={() => { void pronounce(); }}
       stackGuide={isStacked}
@@ -44,38 +52,88 @@ function ExampleWord({ character, large, short }: { character: BaybayinCharacter
     else parts.push(symbol);
     return parts;
   }, []);
-  const baseFontSize = short ? 32 : large ? 58 : 48;
-  const baseLineHeight = short ? 44 : large ? 74 : 64;
-  const widthUnits = glyphMeasure?.word === baybayinWord ? glyphMeasure.units : glyphs.length;
+  let baseFontSize;
+  if (short) {
+    baseFontSize = 32;
+  } else {
+    if (large) {
+      baseFontSize = 58;
+    } else {
+      baseFontSize = 48;
+    }
+  }
+  let baseLineHeight;
+  if (short) {
+    baseLineHeight = 44;
+  } else {
+    if (large) {
+      baseLineHeight = 74;
+    } else {
+      baseLineHeight = 64;
+    }
+  }
+  let widthUnits;
+  if (glyphMeasure?.word === baybayinWord) {
+    widthUnits = glyphMeasure.units;
+  } else {
+    widthUnits = glyphs.length;
+  }
   // Measure the font's actual glyph widths; longer modern spellings must fit
   // the existing speech bubble without separating a mark from its character.
-  const fontSize = availableWidth > 1
-    ? Math.min(baseFontSize, Math.max(1, Math.floor((availableWidth - 1) / widthUnits)))
-    : baseFontSize;
+  let fontSize;
+  if (availableWidth > 1) {
+    fontSize = Math.min(baseFontSize, Math.max(1, Math.floor((availableWidth - 1) / widthUnits)));
+  } else {
+    fontSize = baseFontSize;
+  }
   const glyphTypeStyle = { fontSize, lineHeight: Math.round(baseLineHeight * fontSize / baseFontSize) };
   const start = word.toLowerCase().indexOf(highlightedSyllable.toLowerCase());
   const end = start + highlightedSyllable.length;
   return (
-    <View onLayout={({ nativeEvent: { layout } }) => setAvailableWidth(previous => previous === layout.width ? previous : layout.width)} style={[styles.exampleWord, short && styles.exampleWordShort]} testID="character-example-container">
+    <View onLayout={({ nativeEvent: { layout } }) => setAvailableWidth(previous => {
+      if (previous === layout.width) {
+        return previous;
+      } else {
+        return layout.width;
+      }
+    })} style={[styles.exampleWord, short && styles.exampleWordShort]} testID="character-example-container">
       <Text style={[styles.exampleCaption, large && styles.exampleCaptionLarge]}>Halimbawa</Text>
-      <View accessible accessibilityRole="text" accessibilityLabel={`Baybayin: ${baybayinWord}`} onLayout={({ nativeEvent: { layout } }) => {
+      <AccessibilityView accessible accessibilityRole="text" accessibilityLabel={`Baybayin: ${baybayinWord}`} onLayout={({ nativeEvent: { layout } }) => {
         const units = layout.width / fontSize;
-        if (units > 0) setGlyphMeasure(previous => previous?.word === baybayinWord && Math.abs(previous.units - units) < 0.001 ? previous : { word: baybayinWord, units });
+        if (units > 0) setGlyphMeasure(previous => {
+          if (previous?.word === baybayinWord && Math.abs(previous.units - units) < 0.001) {
+            return previous;
+          } else {
+            return { word: baybayinWord, units };
+          }
+        });
       }} style={styles.exampleGlyphRow} testID="character-example-baybayin">
         {glyphs.map((glyph, index) => (
-          <View key={index} accessibilityLabel={glyph} style={styles.exampleGlyphCell}>
-            <Text style={[styles.exampleBaybayin, glyphTypeStyle, index === highlightIndex && styles.highlightedGlyph]} testID={index === highlightIndex ? 'character-example-highlighted-glyph' : undefined}>{glyph.replace(/\u1714$/, '')}</Text>
+          <AccessibilityView key={index} accessibilityLabel={glyph} style={styles.exampleGlyphCell}>
+            <Text style={[styles.exampleBaybayin, glyphTypeStyle, index === highlightIndex && styles.highlightedGlyph]} testID={(() => {
+              if (index === highlightIndex) {
+                return 'character-example-highlighted-glyph';
+              } else {
+                return undefined;
+              }
+            })()} verbatim>{glyph.replace(/\u1714$/, '')}</Text>
             {glyph.endsWith('\u1714') && <Text accessible={false} aria-hidden style={[styles.exampleCancellationMark, { fontSize: Math.round(fontSize * 0.28), lineHeight: Math.round(fontSize * 0.32) }]} testID="character-example-cancellation-mark">×</Text>}
             {index === highlightIndex && <View style={styles.exampleGlyphGuide} testID="character-example-guide-line" />}
-          </View>
+          </AccessibilityView>
         ))}
-      </View>
+      </AccessibilityView>
       <Text accessibilityLabel={word} style={[styles.exampleLatin, large && styles.exampleLatinLarge, short && styles.exampleLatinShort]} testID="character-example-latin">
-        {start >= 0 ? <>
+        {(() => {
+          if (start >= 0) {
+            return <>
           {word.slice(0, start)}
           <Text style={styles.highlightedSyllable} testID="character-example-syllable">{word.slice(start, end)}</Text>
           {word.slice(end)}
-        </> : word}
+        </>;
+          } else {
+            return word;
+          }
+        })()}
       </Text>
     </View>
   );
@@ -83,6 +141,7 @@ function ExampleWord({ character, large, short }: { character: BaybayinCharacter
 
 /** The same media/example/selector presentation is used by both Module 2 topics. */
 export function CharacterViewer({ characters, topicId, selectedIndex, onSelectCharacter }: Props) {
+  const { text } = useLocalization();
   const { isCompactHeight, isDesktop, isPhone, isTablet } = useResponsiveLayout();
   const compact = isCompactHeight || isPhone || isTablet;
   const large = isDesktop && !isCompactHeight;
@@ -118,10 +177,10 @@ export function CharacterViewer({ characters, topicId, selectedIndex, onSelectCh
         visual={(
           <View style={[styles.glyphCard, compact && styles.glyphCardCompact]}>
             <View style={styles.glyphFrame}>
-              <Image accessibilityLabel={`Simbolo ng ${character.latinEquivalent}`} resizeMode="contain" source={character.imageAsset} style={styles.glyphImage} testID="character-glyph" />
+              <Image accessibilityLabel={text(`Simbolo ng ${character.latinEquivalent}`)} resizeMode="contain" source={character.imageAsset} style={styles.glyphImage} testID="character-glyph" />
               <View style={[styles.latinBadgeAnchor, large && styles.latinBadgeAnchorLarge]}>
                 <View style={[styles.latinBadge, compact && styles.latinBadgeCompact, large && styles.latinBadgeLarge]}>
-                  <Text style={[styles.latinBadgeText, large && styles.latinBadgeTextLarge]}>{character.latinEquivalent}</Text>
+                  <Text style={[styles.latinBadgeText, large && styles.latinBadgeTextLarge]} verbatim>{character.latinEquivalent}</Text>
                 </View>
               </View>
             </View>
@@ -135,7 +194,13 @@ export function CharacterViewer({ characters, topicId, selectedIndex, onSelectCh
                 {characters.map((item, index) => {
                   const selected = index === selectedIndex;
                   return (
-                    <Animated.View key={item.id} onLayout={event => { chipLayouts.current[index] = { x: event.nativeEvent.layout.x, width: event.nativeEvent.layout.width }; }} style={selected ? { transform: [{ scale: activeScale }] } : undefined}>
+                    <Animated.View key={item.id} onLayout={event => { chipLayouts.current[index] = { x: event.nativeEvent.layout.x, width: event.nativeEvent.layout.width }; }} style={(() => {
+                      if (selected) {
+                        return { transform: [{ scale: activeScale }] };
+                      } else {
+                        return undefined;
+                      }
+                    })()}>
                       <Pressable
                         accessibilityLabel={`Piliin ang ${item.latinEquivalent}`}
                         accessibilityRole="button"
@@ -145,7 +210,7 @@ export function CharacterViewer({ characters, topicId, selectedIndex, onSelectCh
                         testID={`character-chip-${item.id}`}
                       >
                         <Image resizeMode="contain" source={item.imageAsset} style={[styles.chipGlyph, large && styles.chipGlyphLarge, compact && styles.chipGlyphShort]} />
-                        <Text style={[styles.chipLabel, large && styles.chipLabelLarge, selected && styles.chipLabelSelected]}>{item.latinEquivalent}</Text>
+                        <Text style={[styles.chipLabel, large && styles.chipLabelLarge, selected && styles.chipLabelSelected]} verbatim>{item.latinEquivalent}</Text>
                       </Pressable>
                     </Animated.View>
                   );

@@ -42,7 +42,12 @@ export function onDatabaseClose(listener: DatabaseCloseListener): () => void {
 export function isOpfsLockConflictError(error: unknown): boolean {
   if (!error) return false;
   if ((error as { code?: string }).code === OPFS_LOCK_CONFLICT) return true;
-  const msg = error instanceof Error ? `${error.name}: ${error.message}` : String(error);
+  let msg;
+  if (error instanceof Error) {
+    msg = `${error.name}: ${error.message}`;
+  } else {
+    msg = String(error);
+  }
   return ['createSyncAccessHandle', 'another open Access Handle', 'WritableStream associated with the same file', 'Invalid VFS state', 'NoModificationAllowedError', OPFS_LOCK_CONFLICT]
     .some((part) => msg.includes(part));
 }
@@ -164,7 +169,12 @@ export async function getDatabaseConnection(): Promise<DatabaseConnection> {
   connectionPromise = (async () => {
     if (Platform.OS === 'web') {
       if (!isOpfsSupported()) {
-        const origin = typeof window !== 'undefined' ? window.location.origin : 'unknown';
+        let origin;
+        if (typeof window !== 'undefined') {
+          origin = window.location.origin;
+        } else {
+          origin = 'unknown';
+        }
         throw new Error(`Secure Context required for OPFS persistence. Current origin: ${origin}`);
       }
       setState('ACQUIRING_OWNERSHIP');
@@ -209,7 +219,13 @@ export async function getDatabaseConnection(): Promise<DatabaseConnection> {
 export function setDatabaseConnection(db: DatabaseConnection | null): void {
   activeConnection = db;
   connectionPromise = null;
-  setState(db ? 'READY' : 'CLOSED');
+  setState((() => {
+    if (db) {
+      return 'READY';
+    } else {
+      return 'CLOSED';
+    }
+  })());
 }
 
 export function isDatabaseConnected(): boolean {

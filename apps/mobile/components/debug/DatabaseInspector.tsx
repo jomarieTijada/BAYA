@@ -74,7 +74,17 @@ function Btn({ label, onPress, color = C.accent, disabled = false, small = false
       style={({ pressed }) => [
         styles.btn,
         small && styles.btnSmall,
-        { borderColor: color + '88', opacity: disabled ? 0.4 : pressed ? 0.7 : 1 },
+        { borderColor: color + '88', opacity: (() => {
+          if (disabled) {
+            return 0.4;
+          } else {
+            if (pressed) {
+              return 0.7;
+            } else {
+              return 1;
+            }
+          }
+        })() },
       ]}
     >
       <Text style={[styles.btnLabel, small && styles.btnLabelSmall, { color }]}>{label}</Text>
@@ -122,7 +132,13 @@ export default function DatabaseInspector() {
       const m = await getDatabaseMetadata();
       setMetadata(m);
     } catch (e) {
-      setError(e instanceof Error ? e.message : String(e));
+      setError((() => {
+        if (e instanceof Error) {
+          return e.message;
+        } else {
+          return String(e);
+        }
+      })());
     }
   }, []);
 
@@ -133,7 +149,13 @@ export default function DatabaseInspector() {
       setTables(t);
       setError(null);
     } catch (e) {
-      setError(e instanceof Error ? e.message : String(e));
+      setError((() => {
+        if (e instanceof Error) {
+          return e.message;
+        } else {
+          return String(e);
+        }
+      })());
     } finally {
       setLoading(false);
     }
@@ -146,7 +168,13 @@ export default function DatabaseInspector() {
       setTableData(data);
       setError(null);
     } catch (e) {
-      setError(e instanceof Error ? e.message : String(e));
+      setError((() => {
+        if (e instanceof Error) {
+          return e.message;
+        } else {
+          return String(e);
+        }
+      })());
     } finally {
       setLoading(false);
     }
@@ -157,7 +185,13 @@ export default function DatabaseInspector() {
       const s = await getTableSchema(name);
       setTableSchema(s);
     } catch (e) {
-      setError(e instanceof Error ? e.message : String(e));
+      setError((() => {
+        if (e instanceof Error) {
+          return e.message;
+        } else {
+          return String(e);
+        }
+      })());
     }
   }, []);
 
@@ -170,7 +204,13 @@ export default function DatabaseInspector() {
       setTables(nextTables);
       setError(null);
     }).catch((cause: unknown) => {
-      if (active) setError(cause instanceof Error ? cause.message : String(cause));
+      if (active) setError((() => {
+        if (cause instanceof Error) {
+          return cause.message;
+        } else {
+          return String(cause);
+        }
+      })());
     }).finally(() => { if (active) setLoading(false); });
     return () => { active = false; };
   }, []);
@@ -213,7 +253,13 @@ export default function DatabaseInspector() {
       const result = await executeReadOnlyQuery(sqlInput);
       setQueryResult(result);
     } catch (e) {
-      setQueryError(e instanceof Error ? e.message : String(e));
+      setQueryError((() => {
+        if (e instanceof Error) {
+          return e.message;
+        } else {
+          return String(e);
+        }
+      })());
     } finally {
       setQueryRunning(false);
     }
@@ -239,7 +285,13 @@ export default function DatabaseInspector() {
       a.click();
       URL.revokeObjectURL(url);
     } catch (e) {
-      setError(e instanceof Error ? e.message : String(e));
+      setError((() => {
+        if (e instanceof Error) {
+          return e.message;
+        } else {
+          return String(e);
+        }
+      })());
     } finally {
       setExporting(false);
     }
@@ -287,17 +339,31 @@ export default function DatabaseInspector() {
   const renderCellValue = (value: unknown): string => {
     if (value === null) return 'NULL';
     if (value === undefined) return 'undefined';
-    if (typeof value === 'boolean') return value ? 'true' : 'false';
+    if (typeof value === 'boolean') {
+      if (value) {
+        return 'true';
+      } else {
+        return 'false';
+      }
+    }
     if (typeof value === 'object') {
       try {
         const json = JSON.stringify(value);
-        return json.length > 120 ? json.slice(0, 117) + '\u2026' : json;
+        if (json.length > 120) {
+          return json.slice(0, 117) + '\u2026';
+        } else {
+          return json;
+        }
       } catch {
         return '[Object]';
       }
     }
     const str = String(value);
-    return str.length > 200 ? str.slice(0, 197) + '\u2026' : str;
+    if (str.length > 200) {
+      return str.slice(0, 197) + '\u2026';
+    } else {
+      return str;
+    }
   };
 
   const renderDataTable = (rows: Record<string, unknown>[], columns?: string[]) => {
@@ -340,7 +406,16 @@ export default function DatabaseInspector() {
 
   const renderMetadata = () => {
     if (!metadata) return <ActivityIndicator color={C.accent} />;
-    const stateColor = metadata.state === 'READY' ? C.green : metadata.state === 'ERROR' ? C.red : C.yellow;
+    let stateColor;
+    if (metadata.state === 'READY') {
+      stateColor = C.green;
+    } else {
+      if (metadata.state === 'ERROR') {
+        stateColor = C.red;
+      } else {
+        stateColor = C.yellow;
+      }
+    }
     return (
       <View style={styles.metadataSection}>
         <Text style={styles.title}>BAYA SQLite Database Inspector</Text>
@@ -429,7 +504,13 @@ export default function DatabaseInspector() {
       <View style={styles.tabContent}>
         <View style={styles.dataToolbar}>
           <Text style={styles.dataInfo}>
-            Showing {filteredRows.length > 0 ? `${(tableData.page - 1) * tableData.pageSize + 1}\u2013${Math.min(tableData.page * tableData.pageSize, tableData.totalRows)}` : '0'} of {tableData.totalRows} rows
+            Showing {(() => {
+              if (filteredRows.length > 0) {
+                return `${(tableData.page - 1) * tableData.pageSize + 1}\u2013${Math.min(tableData.page * tableData.pageSize, tableData.totalRows)}`;
+              } else {
+                return '0';
+              }
+            })()} of {tableData.totalRows} rows
           </Text>
           <View style={styles.filterRow}>
             <TextInput
@@ -444,7 +525,13 @@ export default function DatabaseInspector() {
             )}
           </View>
         </View>
-        {loading ? <ActivityIndicator color={C.accent} /> : renderDataTable(filteredRows)}
+        {(() => {
+          if (loading) {
+            return <ActivityIndicator color={C.accent} />;
+          } else {
+            return renderDataTable(filteredRows);
+          }
+        })()}
         {/* Pagination */}
         <View style={styles.pagination}>
           <View style={styles.pageSizeRow}>
@@ -487,9 +574,21 @@ export default function DatabaseInspector() {
               <View key={col.name} style={[styles.dataRow, i % 2 === 0 && styles.dataRowAlt]}>
                 <View style={styles.dataCell}><Text style={styles.dataCellText}>{col.name}</Text></View>
                 <View style={styles.dataCell}><Text style={styles.dataCellText}>{col.type || '\u2014'}</Text></View>
-                <View style={styles.dataCell}><Text style={styles.dataCellText}>{col.notnull ? 'Yes' : 'No'}</Text></View>
+                <View style={styles.dataCell}><Text style={styles.dataCellText}>{(() => {
+                  if (col.notnull) {
+                    return 'Yes';
+                  } else {
+                    return 'No';
+                  }
+                })()}</Text></View>
                 <View style={styles.dataCell}><Text style={[styles.dataCellText, !col.dflt_value && styles.nullText]}>{col.dflt_value ?? '\u2014'}</Text></View>
-                <View style={styles.dataCell}><Text style={styles.dataCellText}>{col.pk ? '\u2713' : ''}</Text></View>
+                <View style={styles.dataCell}><Text style={styles.dataCellText}>{(() => {
+                  if (col.pk) {
+                    return '\u2713';
+                  } else {
+                    return '';
+                  }
+                })()}</Text></View>
               </View>
             ))}
           </View>
@@ -511,7 +610,13 @@ export default function DatabaseInspector() {
               <View key={idx.name} style={styles.indexItem}>
                 <Text style={styles.indexName}>{idx.name}</Text>
                 <Text style={styles.dimText}>
-                  {idx.unique ? 'UNIQUE ' : ''}({idx.columns.map(c => c.name).join(', ')})
+                  {(() => {
+                    if (idx.unique) {
+                      return 'UNIQUE ';
+                    } else {
+                      return '';
+                    }
+                  })()}({idx.columns.map(c => c.name).join(', ')})
                 </Text>
               </View>
             ))}
@@ -537,7 +642,13 @@ export default function DatabaseInspector() {
         autoCorrect={false}
       />
       <View style={styles.actionRow}>
-        <Btn label={queryRunning ? 'Running\u2026' : '\u25b6 Run Query'} onPress={handleRunQuery} disabled={queryRunning || !sqlInput.trim()} />
+        <Btn label={(() => {
+          if (queryRunning) {
+            return 'Running\u2026';
+          } else {
+            return '\u25b6 Run Query';
+          }
+        })()} onPress={handleRunQuery} disabled={queryRunning || !sqlInput.trim()} />
         {queryResult && (
           <Btn
             label="Clear"
@@ -578,7 +689,9 @@ export default function DatabaseInspector() {
       <View style={[styles.mainLayout, !isMobile && styles.mainLayoutDesktop]}>
         {renderTableList()}
         <View style={styles.contentPanel}>
-          {selectedTable ? (
+          {(() => {
+            if (selectedTable) {
+              return (
             <>
               <Text style={styles.selectedTableTitle}>Selected: {selectedTable}</Text>
               {renderTabs()}
@@ -588,11 +701,15 @@ export default function DatabaseInspector() {
                 {activeTab === 'sql' && renderSqlTab()}
               </ScrollView>
             </>
-          ) : (
+          );
+            } else {
+              return (
             <View style={styles.emptyState}>
               <Text style={styles.dimText}>Select a table from the list to inspect it.</Text>
             </View>
-          )}
+          );
+            }
+          })()}
         </View>
       </View>
     </View>

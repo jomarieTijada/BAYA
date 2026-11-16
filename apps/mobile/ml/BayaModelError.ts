@@ -3,6 +3,7 @@ export type BayaModelErrorCode =
   | 'MODEL_LOAD_FAILED'
   | 'MODEL_CONTRACT_INVALID'
   | 'INVALID_INPUT'
+  | 'INSUFFICIENT_INPUT'
   | 'INFERENCE_FAILED';
 
 export class BayaModelError extends Error {

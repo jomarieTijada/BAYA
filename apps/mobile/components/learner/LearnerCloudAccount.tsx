@@ -1,7 +1,8 @@
+import { Text } from '../../localization/components';
 import { useBayaToast } from '../ui/BayaNotifications';
 import React, { useCallback, useState } from 'react';
 import { router } from 'expo-router';
-import { Text } from 'react-native';
+
 import { useCloudServices, failureMessage, type Challenge } from '../../modules/cloud/services';
 import { useCloudRead } from '../../modules/progress/useCloudRead';
 import { useOperation } from '../../modules/cloud/useOperation';
@@ -19,7 +20,13 @@ export function LearnerCloudAccount({ children }: React.PropsWithChildren) {
   const [code,setCode] = useState('');
   const [challenge,setChallenge] = useState<Challenge>();
   const [error,setError] = useState<string>();
-  const {result,refresh} = useCloudRead(useCallback(() => learnerAuth ? learnerAuth.session() : Promise.resolve({ok:false as const,code:'unavailable' as const}),[learnerAuth]));
+  const {result,refresh} = useCloudRead(useCallback(() => {
+    if (learnerAuth) {
+      return learnerAuth.session();
+    } else {
+      return Promise.resolve({ok:false as const,code:'unavailable' as const});
+    }
+  },[learnerAuth]));
   if (result?.ok && result.data) {
     if (children) return <>{children}</>;
     return <FeatureScreen title="LEARNER CLOUD ACCOUNT" subtitle={result.data.email || 'This device has a verified learner identity.'} onBack={() => router.replace('/learner/settings')}>
@@ -30,18 +37,55 @@ export function LearnerCloudAccount({ children }: React.PropsWithChildren) {
     </FeatureScreen>;
   }
   return <FeatureScreen title="LEARNER CLOUD ACCOUNT" subtitle="Verify your learner email to join a workspace and share progress. Offline learning remains available." onBack={() => router.replace('/learner/home')}>
-    {!result ? <Notice busy text="Checking your learner account…" /> : !result.ok ? <><Notice text={failureMessage[result.code]} />{learnerAuth && <TextAction label="Clear learner sign-in" disabled={op.busy} onPress={() => {void op.run(() => learnerAuth.signOut(),refresh);}} />}<Notice text={op.message} busy={op.busy} /><TextAction label="Retry account" onPress={refresh} /><TextAction label="Return to learner profile" onPress={() => router.replace('/learner/home')} /></> : <>
+    {(() => {
+      if (!result) {
+        return <Notice busy text="Checking your learner account…" />;
+      } else {
+        if (!result.ok) {
+          return <><Notice text={failureMessage[result.code]} />{learnerAuth && <TextAction label="Clear learner sign-in" disabled={op.busy} onPress={() => {void op.run(() => learnerAuth.signOut(),refresh);}} />}<Notice text={op.message} busy={op.busy} /><TextAction label="Retry account" onPress={refresh} /><TextAction label="Return to learner profile" onPress={() => router.replace('/learner/home')} /></>;
+        } else {
+          return <>
       <Text style={s.notice}>Use a separate email for each learner. Use a different email from your mentor account. This local profile stays linked to its first verified learner account.</Text>
-      <AppTextInput density="form" label="LEARNER EMAIL" keyboardType="email-address" autoCapitalize="none" autoComplete="email" value={email} onChangeText={setEmail} editable={!op.busy && !challenge} error={!challenge ? error : undefined} />
+      <AppTextInput density="form" label="LEARNER EMAIL" keyboardType="email-address" autoCapitalize="none" autoComplete="email" value={email} onChangeText={setEmail} editable={!op.busy && !challenge} error={(() => {
+        if (!challenge) {
+          return error;
+        } else {
+          return undefined;
+        }
+      })()} />
       {challenge && <AppTextInput density="form" label="VERIFICATION CODE" autoComplete="one-time-code" keyboardType="number-pad" value={code} onChangeText={setCode} editable={!op.busy} error={error} />}
       <Notice busy={op.busy} text={op.message} />
-      <AppButton label={challenge ? 'VERIFY EMAIL' : 'SEND CODE'} accessibilityLabel={challenge ? 'Verify learner email' : 'Send learner code'} disabled={op.busy} onPress={() => {
-        const issue = challenge ? (!code.trim() ? 'Enter the code from your email.' : undefined) : emailError(email); setError(issue); if(issue) return;
+      <AppButton label={(() => {
+        if (challenge) {
+          return 'VERIFY EMAIL';
+        } else {
+          return 'SEND CODE';
+        }
+      })()} accessibilityLabel={(() => {
+        if (challenge) {
+          return 'Verify learner email';
+        } else {
+          return 'Send learner code';
+        }
+      })()} disabled={op.busy} onPress={() => {
+        let issue;
+        if (challenge) {
+          if (!code.trim()) {
+            issue = 'Enter the code from your email.';
+          } else {
+            issue = undefined;
+          }
+        } else {
+          issue = emailError(email);
+        } setError(issue); if(issue) return;
         if(challenge) void op.run(() => learnerAuth!.verify(challenge.id,code.trim()),() => {toast('Learner account verified.');setCode('');setChallenge(undefined);refresh();});
         else void op.run(() => learnerAuth!.request(email),next=>{setChallenge(next);setResendAt(Date.now()+60000);toast('Verification code requested. Check your email.');});
       }} />
       {challenge && <><TextAction label="Resend learner code" disabled={op.busy} onPress={() => {if(Date.now()<resendAt){op.setMessage('Please wait one minute before requesting another code.');return;}void op.run(() => learnerAuth!.request(challenge.email),next => {setChallenge(next);setCode('');setResendAt(Date.now()+60000);toast('Verification code requested. Check your email.');});}} /><TextAction label="Use another email" disabled={op.busy} onPress={() => {setChallenge(undefined);setCode('');setError(undefined);}} /></>}
-    </>}
+    </>;
+        }
+      }
+    })()}
   </FeatureScreen>;
 }
 

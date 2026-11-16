@@ -1,5 +1,8 @@
+import { useLocalization } from '../../localization/LocalizationProvider';
+import { localeFor } from '../../localization/core';
+import { Text } from '../../localization/components';
 import React, { useCallback, useRef, useState } from 'react';
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import * as Clipboard from 'expo-clipboard';
 import { useCloudServices, failureMessage, type JoinRequest } from '../../modules/cloud/services';
 import { useCloudRead } from '../../modules/progress/useCloudRead';
@@ -15,7 +18,13 @@ import { WorkspaceSection, ws } from './WorkspaceSection';
 
 export function PendingJoinRequests({ workspaceId, onReviewed }: { workspaceId: string; onReviewed: () => void }) {
   const services = useCloudServices();
-  const { result, refresh, refreshing } = useCloudRead(useCallback(() => services.workspaces.pendingRequests ? services.workspaces.pendingRequests(workspaceId) : Promise.resolve({ ok: false as const, code: 'unavailable' as const }), [services, workspaceId]), true);
+  const { result, refresh, refreshing } = useCloudRead(useCallback(() => {
+    if (services.workspaces.pendingRequests) {
+      return services.workspaces.pendingRequests(workspaceId);
+    } else {
+      return Promise.resolve({ ok: false as const, code: 'unavailable' as const });
+    }
+  }, [services, workspaceId]), true);
   const [refreshError, setRefreshError] = useState('');
   const refreshLock = useRef(false);
   const reload = async () => {
@@ -26,16 +35,38 @@ export function PendingJoinRequests({ workspaceId, onReviewed }: { workspaceId: 
       if (response && !response.ok) setRefreshError(failureMessage[response.code]);
     } finally { refreshLock.current = false; }
   };
-  return <WorkspaceSection compact title="PENDING JOIN REQUESTS" icon="personFilled" description="Review learners requesting access." badge={result?.ok ? `${result.data.length} Pending` : undefined}
+  return <WorkspaceSection compact title="PENDING JOIN REQUESTS" icon="personFilled" description="Review learners requesting access." badge={(() => {
+    if (result?.ok) {
+      return `${result.data.length} Pending`;
+    } else {
+      return undefined;
+    }
+  })()}
     action={<View style={styles.refresh}>
       <AppButton compact label="" icon="sync" tone="outlinePrimary" fullWidth={false} accessibilityLabel="Refresh pending join requests" disabled={refreshing} onPress={() => { void reload(); }} style={styles.iconButton} />
       {refreshing && <ActivityIndicator accessibilityLabel="Refreshing pending join requests" size="small" color={Colors.rolePrimary} />}
     </View>}>
     <View style={styles.reminder}><AppIcon name="help" color="muted" size={18} /><Text style={[ws.reference, { flex: 1 }]}>Verify the learner and their request reference before approving.</Text></View>
-    {!result ? <Notice busy text="Loading join requests…" /> : !result.ok ? <Notice text={failureMessage[result.code]} /> : <>
+    {(() => {
+      if (!result) {
+        return <Notice busy text="Loading join requests…" />;
+      } else {
+        if (!result.ok) {
+          return <Notice text={failureMessage[result.code]} />;
+        } else {
+          return <>
       {!!refreshError && <Notice text={refreshError} />}
-      {result.data.length === 0 ? <Text style={ws.description}>No pending join requests.</Text> : result.data.map(request => <RequestController key={request.request_id} request={request} onReviewed={() => { void reload(); onReviewed(); }} />)}
-    </>}
+      {(() => {
+        if (result.data.length === 0) {
+          return <Text style={ws.description}>No pending join requests.</Text>;
+        } else {
+          return result.data.map(request => <RequestController key={request.request_id} request={request} onReviewed={() => { void reload(); onReviewed(); }} />);
+        }
+      })()}
+    </>;
+        }
+      }
+    })()}
   </WorkspaceSection>;
 }
 
@@ -43,8 +74,20 @@ export function PendingJoinRequests({ workspaceId, onReviewed }: { workspaceId: 
 function RequestController({ request, onReviewed }: { request: JoinRequest; onReviewed: () => void }) {
   const services = useCloudServices(); const op = useOperation(); const toast = useBayaToast();
   const review = (decision: 'approved' | 'rejected') => {
-    void op.run(() => services.workspaces.reviewRequest ? services.workspaces.reviewRequest(request.request_id, decision) : Promise.resolve({ ok: false as const, code: 'unavailable' as const }), () => {
-      toast(decision === 'approved' ? 'Request approved.' : 'Request rejected.'); onReviewed();
+    void op.run(() => {
+      if (services.workspaces.reviewRequest) {
+        return services.workspaces.reviewRequest(request.request_id, decision);
+      } else {
+        return Promise.resolve({ ok: false as const, code: 'unavailable' as const });
+      }
+    }, () => {
+      toast((() => {
+        if (decision === 'approved') {
+          return 'Request approved.';
+        } else {
+          return 'Request rejected.';
+        }
+      })()); onReviewed();
     });
   };
   return <RequestRow request={request} busy={op.busy} message={op.message} onReview={review} />;
@@ -57,7 +100,13 @@ function RequestRow({ request, busy, message, onReview }: { request: JoinRequest
   const toast = useBayaToast();
   const name = request.display_name?.trim() || 'Learner';
   const date = new Date(request.requested_at);
-  const timestamp = Number.isNaN(date.getTime()) ? 'Request time unavailable' : date.toLocaleString(undefined, { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' });
+  const { language } = useLocalization();
+  let timestamp;
+  if (Number.isNaN(date.getTime())) {
+    timestamp = 'Request time unavailable';
+  } else {
+    timestamp = date.toLocaleString(localeFor(language), { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' });
+  }
   const copy = async () => {
     setCopying(true); setCopyError('');
     try {
@@ -71,10 +120,10 @@ function RequestRow({ request, busy, message, onReview }: { request: JoinRequest
       <View style={styles.identity}>
         <AppIcon name="personFilled" color="accent" size={22} />
         <View style={styles.copy}>
-          <Text style={[ws.name, ws.compactName]}>{name}</Text>
+          <Text style={[ws.name, ws.compactName]} verbatim>{name}</Text>
           <Text style={ws.reference}>{timestamp}</Text>
           <View style={styles.reference}>
-            <Text style={ws.reference}>Ref: {request.request_id.slice(0, 8)}…</Text>
+            <Text style={ws.reference} verbatim>Ref: {request.request_id.slice(0, 8)}…</Text>
             <AppButton compact fullWidth={false} tone="outlinePrimary" label="View reference" accessibilityLabel={`View reference for ${name}`} onPress={() => { setCopyError(''); setDetails(true); }} style={styles.detailButton} />
           </View>
         </View>
@@ -87,7 +136,13 @@ function RequestRow({ request, busy, message, onReview }: { request: JoinRequest
     <Notice busy={busy} text={message} />
     <BayaDialog visible={details} variant="information" icon="personFilled" title="REQUEST REFERENCE"
       description={`${name}: compare this full reference with the learner’s screen. A matching reference or display name alone is not proof of identity.`}
-      detail={`${copyError ? `${copyError}\n\n` : ''}${request.request_id}`} detailSelectable
+      detail={`${(() => {
+        if (copyError) {
+          return `${copyError}\n\n`;
+        } else {
+          return '';
+        }
+      })()}${request.request_id}`} detailSelectable
       onDismiss={() => { if (!copying) setDetails(false); }}
       primaryAction={{ label: 'COPY REFERENCE', loading: copying, onPress: () => { void copy(); } }}
       secondaryAction={{ label: 'CLOSE', onPress: () => setDetails(false) }} />

@@ -1,5 +1,6 @@
 # Dependencies
 node_modules/
+/apps/mobile/public/litert/
 
 # Expo and JavaScript build output
 .expo/
@@ -94,3 +95,7 @@ ml/deployment/onnx/artifacts/
 .ipynb_checkpoints/
 /baybayin_guides_1024/
 /Baybayin_EfficientNetB0_ExternalFirst_v2_labels.json
+
+# Local agent scratch data and generated compliance export
+/.codex-tmp/
+/docs/compliance/evidence/web-export/

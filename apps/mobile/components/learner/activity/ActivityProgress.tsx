@@ -1,5 +1,6 @@
+import { AccessibilityView, Text } from '../../../localization/components';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { Colors, FontFamily, Radius, Spacing } from '../../../constants/theme';
 
@@ -24,12 +25,16 @@ export function ActivityProgress({
   topicTitle,
   totalSteps,
 }: ActivityProgressProps) {
-  const percentage =
-    totalSteps > 0 ? Math.min(100, Math.round((currentStep / totalSteps) * 100)) : 0;
+  let percentage;
+  if (totalSteps > 0) {
+    percentage = Math.min(100, Math.round((currentStep / totalSteps) * 100));
+  } else {
+    percentage = 0;
+  }
   const stepText = stepLabel || `Hakbang ${currentStep} ng ${totalSteps}`;
 
   return (
-    <View
+    <AccessibilityView
       accessibilityLabel={`Progress: ${stepText}. Topic: ${topicTitle}`}
       accessibilityRole="progressbar"
       accessibilityValue={{ min: 1, max: totalSteps, now: currentStep }}
@@ -67,7 +72,7 @@ export function ActivityProgress({
       <View style={styles.track}>
         <View style={[styles.fill, { width: `${percentage}%` }]} />
       </View>
-    </View>
+    </AccessibilityView>
   );
 }
 

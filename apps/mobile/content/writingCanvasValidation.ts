@@ -1,6 +1,5 @@
 import type { StrokeData } from './writingEngine';
 
-/** Reuses the existing writingEngine limits; separate from model confidence. */
 export const WRITING_INPUT_LIMITS = Object.freeze({ minPoints: 3, minTravel: 0.07, maxPoints: 4000, pointSpacing: 0.002, minExtent: 13 / 1000 });
 
 export function validWritingCanvas(strokes: unknown, geometry: { width: number; height: number }): strokes is StrokeData {
@@ -22,7 +21,12 @@ export function validWritingCanvas(strokes: unknown, geometry: { width: number; 
         firstTime ??= point.t;
         lastTime = point.t;
       }
-      const distance = previous ? Math.hypot(point.x - previous.x, point.y - previous.y) : 0;
+      let distance;
+      if (previous) {
+        distance = Math.hypot(point.x - previous.x, point.y - previous.y);
+      } else {
+        distance = 0;
+      }
       if (!previous || distance >= WRITING_INPUT_LIMITS.pointSpacing) meaningfulPoints++;
       travel += distance;
       minX = Math.min(minX, point.x); maxX = Math.max(maxX, point.x);

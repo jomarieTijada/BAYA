@@ -40,7 +40,13 @@ export function getActivitySteps(data: TopicActivityData): ActivityStep[] {
         id: `${data.id}-${s.id}`,
         type: "slide",
         title: s.title,
-        ctaLabel: idx === total - 1 ? "Tapusin ang Aralin" : "Susunod na Slide",
+        ctaLabel: (() => {
+          if (idx === total - 1) {
+            return "Tapusin ang Aralin";
+          } else {
+            return "Susunod na Slide";
+          }
+        })(),
         content: {
           ...s,
           badge: data.moduleTitle,

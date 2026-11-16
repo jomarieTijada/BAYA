@@ -25,27 +25,39 @@ export function LessonJourney({ lessons, availableHeight = 0, onContinueLesson }
   const scroller = useRef<ScrollView>(null);
 
   const maxOffset = Math.max(0, contentWidth - viewportWidth);
-  const cardWidth = isPhoneLandscape
-    ? LessonCardWidth.landscapeCompact
-    : isPhone || isCompactHeight
-      ? LessonCardWidth.compact
-      : LessonCardWidth.regular;
+  let cardWidth;
+  if (isPhoneLandscape) {
+    cardWidth = LessonCardWidth.landscapeCompact;
+  } else {
+    if (isPhone || isCompactHeight) {
+      cardWidth = LessonCardWidth.compact;
+    } else {
+      cardWidth = LessonCardWidth.regular;
+    }
+  }
   const overflow = viewportWidth > 0 && contentWidth > viewportWidth + 1;
   const rowHeight = Math.max(0, ...Object.values(cardHeights));
   // Anchor the gesture to the visible right edge, independent of card gaps.
   // It floats over the row without taking space or intercepting card presses.
   const visibleHeight = Math.min(rowHeight, availableHeight);
-  const hintSlot = visibleHeight >= 64 && viewportWidth >= 92 ? {
+  let hintSlot;
+  if (visibleHeight >= 64 && viewportWidth >= 92) {
+    hintSlot = {
     left: viewportWidth - 48 - 12,
     top: (visibleHeight - 48) / 2,
     size: 48,
     travel: 32,
-  } : undefined;
+  };
+  } else {
+    hintSlot = undefined;
+  }
   const navigate = (x: number) => {
     dismissHint();
     scroller.current?.scrollTo({ x: Math.min(maxOffset, Math.max(0, x)), animated: false });
   };
-  const webNavigation = Platform.OS === 'web' ? {
+  let webNavigation;
+  if (Platform.OS === 'web') {
+    webNavigation = {
     tabIndex: 0 as const,
     role: 'region' as const,
     onWheel: dismissHint,
@@ -54,7 +66,10 @@ export function LessonJourney({ lessons, availableHeight = 0, onContinueLesson }
       const destinations: Record<string, number> = { ArrowRight: offset + cardWidth + Spacing.lg, ArrowLeft: offset - cardWidth - Spacing.lg, Home: 0, End: maxOffset };
       if (event.key in destinations) { event.preventDefault(); navigate(destinations[event.key]); }
     },
-  } : {};
+  };
+  } else {
+    webNavigation = {};
+  }
 
   return (
     <View style={styles.root} testID="lesson-journey-frame">
@@ -83,7 +98,13 @@ export function LessonJourney({ lessons, availableHeight = 0, onContinueLesson }
       testID="lesson-journey"
     >
       {lessons.map((lesson) => (
-        <View key={lesson.id} style={{ width: cardWidth, flexShrink: 0 }} onLayout={event => { const h = event.nativeEvent.layout.height; setCardHeights(previous => previous[lesson.id] === h ? previous : { ...previous, [lesson.id]: h }); }} testID={`journey-slot-${lesson.id}`}>
+        <View key={lesson.id} style={{ width: cardWidth, flexShrink: 0 }} onLayout={event => { const h = event.nativeEvent.layout.height; setCardHeights(previous => {
+          if (previous[lesson.id] === h) {
+            return previous;
+          } else {
+            return { ...previous, [lesson.id]: h };
+          }
+        }); }} testID={`journey-slot-${lesson.id}`}>
           <LessonCard compact={isPhone || isCompactHeight}
             isLandscapeCompact={isPhoneLandscape} lesson={lesson}
             onContinue={() => { dismissHint(); onContinueLesson?.(lesson); }} totalLessons={lessons.length} />

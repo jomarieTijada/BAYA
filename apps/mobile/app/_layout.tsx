@@ -1,3 +1,4 @@
+import { LocalizationProvider } from '../localization/LocalizationProvider';
 /**
  * app/_layout.tsx
  *
@@ -13,7 +14,7 @@
 
 import React, { useEffect } from 'react';
 import { Platform } from 'react-native';
-import { Stack } from 'expo-router';
+import { Stack, usePathname } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -29,6 +30,7 @@ let hasTriggeredMlSmoke = false;
 let hasTriggeredMlBenchmark = false;
 
 export default function RootLayout() {
+  const pathname = usePathname();
   const { isPhoneLandscape } = useResponsiveLayout();
 
   useEffect(() => {
@@ -59,7 +61,13 @@ export default function RootLayout() {
       .then(({ runBayaSmokeTest }) => runBayaSmokeTest())
       .catch((error: unknown) => console.error(
         '[BAYA ML] Smoke test failed:', error,
-        error instanceof Error && 'cause' in error ? error.cause : undefined,
+        (() => {
+          if (error instanceof Error && 'cause' in error) {
+            return error.cause;
+          } else {
+            return undefined;
+          }
+        })(),
       ));
   }, []);
 
@@ -69,13 +77,13 @@ export default function RootLayout() {
         hidden={isPhoneLandscape}
         style="dark"
       />
-      <CloudProvider><BayaNotifications><LandscapeGuard><Stack
+      <LocalizationProvider><CloudProvider><BayaNotifications><LandscapeGuard allowPortrait={pathname === '/'}><Stack
         screenOptions={{
           animation: 'fade',
           contentStyle: { backgroundColor: Colors.background, flex: 1 },
           headerShown: false,
         }}
-      /></LandscapeGuard></BayaNotifications></CloudProvider>
+      /></LandscapeGuard></BayaNotifications></CloudProvider></LocalizationProvider>
     </SafeAreaProvider>
   );
 }

@@ -1,5 +1,6 @@
+import { Pressable, Text } from '../../../localization/components';
 import React, { useEffect, useRef, useState } from 'react';
-import { Animated, Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Animated, Platform, ScrollView, StyleSheet, View } from 'react-native';
 import { Colors, FontFamily, Radius, Spacing } from '../../../constants/theme';
 import { useReducedMotionPreference } from '../../../hooks/useReducedMotionPreference';
 import { AppIcon } from '../../ui/AppIcon';

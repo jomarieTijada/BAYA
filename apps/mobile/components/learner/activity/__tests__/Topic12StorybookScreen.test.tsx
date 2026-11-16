@@ -1,3 +1,4 @@
+import { translateText } from '../../../../localization/core';
 import React from 'react';
 import { render as renderComponent, fireEvent, screen } from '@testing-library/react-native';
 
@@ -5,6 +6,7 @@ import { render as renderComponent, fireEvent, screen } from '@testing-library/r
 import { ActivityScreen } from '../ActivityScreen';
 import { getActivityData, topic12ActivityData } from '../activityData';
 import { baybayinSyllabaryParagraphs } from '../../../../content/baybayinSyllabary';
+const english = (source: string) => translateText('en', source);
 
 // React Native's test renderer does not dispatch native layout events.
 function render(element: React.ReactElement) {
@@ -59,7 +61,7 @@ jest.mock('../../../../hooks/useResponsiveLayout', () => ({
   useResponsiveLayout: () => mockResponsiveState,
 }));
 
-describe('Topic 1.2 — Fullscreen Storybook Learning Screen (Paano ba gumagana ang Baybayin?)', () => {
+describe('Topic 1.2 — Fullscreen Storybook Learning Screen (Baybayin: Isang Silabaryo (Pantigan))', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     mockResponsiveState = {
@@ -78,7 +80,7 @@ describe('Topic 1.2 — Fullscreen Storybook Learning Screen (Paano ba gumagana 
     const data = getActivityData('topic-1-2');
     expect(data).toBeDefined();
     expect(data.id).toBe('topic-1-2');
-    expect(data.title).toBe('Paano ba gumagana ang Baybayin?');
+    expect(data.title).toBe('Baybayin: Isang Silabaryo (Pantigan)');
     expect(data.activityIndex).toBe(2);
     expect(data.steps).toHaveLength(1);
     expect(data.steps[0].type).toBe('slide');
@@ -87,9 +89,9 @@ describe('Topic 1.2 — Fullscreen Storybook Learning Screen (Paano ba gumagana 
   it('2. renders Topic 1.2 with ONE SCREEN = ONE TOPIC storybook layout', () => {
     render(<ActivityScreen data={topic12ActivityData} />);
 
-    // Header verifies Topic 2 of 3
-    expect(screen.getByText('Pagkilala sa Baybayin')).toBeTruthy();
-    expect(screen.getByText('Topic 2 of 3')).toBeTruthy();
+    // Header verifies Topic 2 of 5
+    expect(screen.getByText(english(topic12ActivityData.moduleTitle))).toBeTruthy();
+    expect(screen.getByText('Topic 2 of 5')).toBeTruthy();
 
     // No video activity card is mounted (pure concept/slide)
     expect(screen.queryByTestId('video-activity-card')).toBeNull();
@@ -103,7 +105,7 @@ describe('Topic 1.2 — Fullscreen Storybook Learning Screen (Paano ba gumagana 
   it('3. reserves the left panel with a placeholder and removes unvalidated mockups', () => {
     render(<ActivityScreen data={topic12ActivityData} />);
 
-    expect(screen.getByText('Add Image Here')).toBeTruthy();
+    expect(screen.getByText('Illustration not yet available.')).toBeTruthy();
     expect(screen.getByTestId('story-image-placeholder')).toBeTruthy();
     expect(screen.queryByTestId('bamboo-illustration-area')).toBeNull();
     expect(screen.queryByText('PAANO GUMAGANA ANG TUNOG')).toBeNull();
@@ -114,18 +116,18 @@ describe('Topic 1.2 — Fullscreen Storybook Learning Screen (Paano ba gumagana 
     render(<ActivityScreen data={topic12ActivityData} />);
 
     // Topic identity belongs in the header, not as a repeated body badge.
-    expect(screen.queryByText('KASAYSAYAN AT KAHALAGAHAN')).toBeNull();
+    expect(screen.queryByText("HISTORY AND IMPORTANCE")).toBeNull();
 
     // Big Storybook Title
-    expect(screen.getByText('Paano ba gumagana ang Baybayin?')).toBeTruthy();
+    expect(screen.getByText(english(topic12ActivityData.title))).toBeTruthy();
 
     // Opening Emphasized Lead
     expect(
-      screen.getByText(baybayinSyllabaryParagraphs[0])
+      screen.getByText(english(baybayinSyllabaryParagraphs[0]))
     ).toBeTruthy();
 
     // Body narration text
-    expect(screen.getByText(baybayinSyllabaryParagraphs[1])).toBeTruthy();
+    expect(screen.getByText(english(baybayinSyllabaryParagraphs[1]))).toBeTruthy();
   });
 
   it('5. renders BAYA mascot learning guide and speech bubble with custom line without "Sabi ni BAYA"', () => {
@@ -136,7 +138,7 @@ describe('Topic 1.2 — Fullscreen Storybook Learning Screen (Paano ba gumagana 
 
     // Speech bubble with takeaway line
     expect(screen.getByTestId('story-highlight')).toBeTruthy();
-    expect(screen.getByText(/Basa tayo ng pantig, hindi paisa-isang letra!/)).toBeTruthy();
+    expect(screen.getByText(/Let's read syllables, not one letter at a time!/)).toBeTruthy();
 
     // Strictly NO "Sabi ni BAYA" label
     expect(screen.queryByText(/Sabi ni BAYA/i)).toBeNull();
@@ -155,13 +157,13 @@ describe('Topic 1.2 — Fullscreen Storybook Learning Screen (Paano ba gumagana 
     );
 
     // Floating circular Back button (bottom-left) is present
-    const backBtn = screen.getByLabelText('Nakaraang hakbang');
+    const backBtn = screen.getByLabelText("Previous step");
     expect(backBtn).toBeTruthy();
     fireEvent.press(backBtn);
     expect(handleBack).toHaveBeenCalledTimes(1);
 
     // Floating circular Next button (bottom-right) has checkmark for completion
-    const completeBtn = screen.getByLabelText('Tapusin ang aralin');
+    const completeBtn = screen.getByLabelText("Finish the lesson");
     expect(completeBtn).toBeTruthy();
     fireEvent.press(completeBtn);
     expect(handleComplete).toHaveBeenCalledTimes(1);

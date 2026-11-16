@@ -17,8 +17,11 @@ type Dependencies = {
 };
 const ok = <T>(data: T): Result<T> => ({ ok: true, data });
 export function cloudFailure(error: unknown): { ok: false; code: FailureCode } {
-  if (typeof navigator !== 'undefined' && navigator.onLine === false) return { ok: false, code: 'offline' };
   const e = error as { code?: string; message?: string; status?: number } | null;
+  // A known access denial must never become a retainable offline result.
+  if (e?.status === 401 || e?.status === 403 || ['42501', 'session_not_found', 'refresh_token_not_found'].includes(e?.code ?? '')) return { ok: false, code: 'unauthorized' };
+  if (e?.code === 'P0001') return { ok: false, code: 'inactive' };
+  if (typeof navigator !== 'undefined' && navigator.onLine === false) return { ok: false, code: 'offline' };
   const codes: Record<string, FailureCode> = {
     '42501': 'unauthorized', 'P0002': 'not_found', 'P0001': 'inactive',
     '22023': 'invalid_code', '23505': 'conflict', invalid_credentials: 'credentials',
@@ -33,7 +36,17 @@ export function cloudFailure(error: unknown): { ok: false; code: FailureCode } {
     mentor_profile_missing: 'mentor_profile_missing', PGRST116: 'unavailable',
     learner_login_required: 'learner_login_required', account_mismatch: 'account_mismatch',
   };
-  return { ok: false, code: codes[e?.code ?? ''] ?? (e?.status === 429 ? 'rate_limited' : e?.status === 401 ? 'unauthorized' : 'network') };
+  return { ok: false, code: codes[e?.code ?? ''] ?? ((() => {
+    if (e?.status === 429) {
+      return 'rate_limited';
+    } else {
+      if (e?.status === 401) {
+        return 'unauthorized';
+      } else {
+        return 'network';
+      }
+    }
+  })()) };
 }
 function object(value: unknown): Record<string, unknown> {
   if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error('Invalid cloud response');
@@ -49,8 +62,20 @@ export function parseWorkspace(value: unknown): WorkspaceSummary {
     workspace_id: field(row, 'workspace_id'), mentor_profile_id: field(row, 'mentor_profile_id'),
     workspace_code: field(row, 'workspace_code'), workspace_name: field(row, 'workspace_name'),
     status: field(row, 'status'), created_at: field(row, 'created_at'),
-    ...(typeof row.learnerCount === 'number' ? { learnerCount: row.learnerCount } : {}),
-    ...(typeof row.pendingCount === 'number' ? { pendingCount: row.pendingCount } : {}),
+    ...((() => {
+      if (typeof row.learnerCount === 'number') {
+        return { learnerCount: row.learnerCount };
+      } else {
+        return {};
+      }
+    })()),
+    ...((() => {
+      if (typeof row.pendingCount === 'number') {
+        return { pendingCount: row.pendingCount };
+      } else {
+        return {};
+      }
+    })()),
   };
 }
 function joined(value: unknown): JoinedWorkspace {
@@ -59,7 +84,13 @@ function joined(value: unknown): JoinedWorkspace {
   return { workspace: parseWorkspace(row.workspace), alreadyJoined: row.alreadyJoined,
     membership: { membership_id: field(m, 'membership_id'), learner_profile_id: field(m, 'learner_profile_id'),
       workspace_id: field(m, 'workspace_id'), joined_at: field(m, 'joined_at'),
-      last_synced_at: m.last_synced_at === null ? null : field(m, 'last_synced_at'), is_active: m.is_active } };
+      last_synced_at: (() => {
+        if (m.last_synced_at === null) {
+          return null;
+        } else {
+          return field(m, 'last_synced_at');
+        }
+      })(), is_active: m.is_active } };
 }
 function array<T>(value: unknown, parse: (v: unknown) => T): T[] {
   if (!Array.isArray(value)) throw new Error('Invalid cloud list');
@@ -113,9 +144,27 @@ export function createSupabaseServices({ mentor, learnerClient, recoveryClient, 
     learnerAuth,
     progress: createProgressServices({ mentor, learnerClient, snapshot: progressSnapshot ?? (async () => { throw { code: 'PGRST202' }; }), failure: cloudFailure }),
     policy: {
-      passwordError: p => p.length < 8 ? 'Use at least 8 characters.' : undefined,
-      workspaceNameError: n => n.length > 100 ? 'Use 100 characters or fewer.' : undefined,
-      workspaceCodeError: c => /^BAYA-[A-F0-9]{12}$/.test(c) ? undefined : 'Enter the full workspace code from your mentor.',
+      passwordError: p => {
+        if (p.length < 8) {
+          return 'Use at least 8 characters.';
+        } else {
+          return undefined;
+        }
+      },
+      workspaceNameError: n => {
+        if (n.length > 100) {
+          return 'Use 100 characters or fewer.';
+        } else {
+          return undefined;
+        }
+      },
+      workspaceCodeError: c => {
+        if (/^BAYA-[A-F0-9]{12}$/.test(c)) {
+          return undefined;
+        } else {
+          return 'Enter the full workspace code from your mentor.';
+        }
+      },
     },
     auth: {
       session: () => attempt(async () => {
@@ -203,7 +252,11 @@ export function createSupabaseServices({ mentor, learnerClient, recoveryClient, 
       })),
       myRequests: () => attempt(async () => {
         const client = await learner(false);
-        return client ? rpc(client, 'list_my_join_requests', {}, v => array(v, parseJoinRequest)) : [];
+        if (client) {
+          return rpc(client, 'list_my_join_requests', {}, v => array(v, parseJoinRequest));
+        } else {
+          return [];
+        }
       }),
       pendingRequests: id => attempt(() => rpc(mentor, 'list_workspace_join_requests', { p_workspace_id: id }, v => array(v, parseJoinRequest))),
       reviewRequest: (id, decision) => attempt(() => rpc(mentor, 'review_workspace_join_request', { p_request_id: id, p_decision: decision }, v => {
@@ -228,7 +281,11 @@ export function createSupabaseServices({ mentor, learnerClient, recoveryClient, 
       join: code => attempt(async () => rpc((await learner(true))!, 'join_workspace', { p_code: code.trim().toUpperCase() }, joined)),
       memberships: () => attempt(async () => {
         const client = await learner(false);
-        return client ? rpc(client, 'list_my_memberships', {}, v => array(v, joined)) : [];
+        if (client) {
+          return rpc(client, 'list_my_memberships', {}, v => array(v, joined));
+        } else {
+          return [];
+        }
       }),
     },
   };

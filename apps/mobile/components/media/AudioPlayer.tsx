@@ -1,5 +1,6 @@
+import { Text } from '../../localization/components';
 import React, { useEffect, useRef, useState } from "react";
-import { Button, Text, View } from "react-native";
+import { Button, View } from 'react-native';
 import { useAudioPlayer, useAudioPlayerStatus } from "expo-audio";
 import type { MediaSource } from "./MediaSource";
 import { useMediaSource } from "./mediaResolver";
@@ -41,7 +42,13 @@ function AudioSurface({
     <View>
       <Text>{title}</Text>
       <Button
-        title={status.playing ? "I-pause" : "Pakinggan"}
+        title={(() => {
+          if (status.playing) {
+            return "I-pause";
+          } else {
+            return "Pakinggan";
+          }
+        })()}
         disabled={!status.isLoaded}
         onPress={() => {
           try {

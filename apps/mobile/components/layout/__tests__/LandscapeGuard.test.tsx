@@ -10,6 +10,16 @@ jest.mock('react-native/Libraries/Utilities/useWindowDimensions', () => ({
 jest.mock('react-native-safe-area-context', () => ({ SafeAreaView: jest.requireActual('react-native').View }));
 jest.mock('../../ui/AppIcon', () => ({ AppIcon: () => null }));
 
+it('allows portrait reading when explicitly enabled for the welcome screen', () => {
+  mockDimensions = { ...mockDimensions, width: 390, height: 844 };
+  const view = render(<LandscapeGuard allowPortrait><Text>Welcome story</Text></LandscapeGuard>);
+  expect(view.queryByTestId('landscape-orientation-guard')).toBeNull();
+  expect(view.getByText('Welcome story')).toBeTruthy();
+  view.rerender(<LandscapeGuard><Text>Welcome story</Text></LandscapeGuard>);
+  expect(view.getByTestId('landscape-orientation-guard')).toBeTruthy();
+  mockDimensions = { ...mockDimensions, width: 844, height: 390 };
+});
+
 it('keeps the same child state across portrait and landscape', () => {
   let mounts = 0;
   function Lesson() {

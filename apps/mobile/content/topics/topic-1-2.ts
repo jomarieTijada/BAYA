@@ -1,3 +1,4 @@
+import { approvedCurriculum } from '../approvedCurriculum';
 import type {
   ActivityStep,
   SlideItem,
@@ -6,17 +7,20 @@ import type {
 } from "../types";
 import { baybayinSyllabaryHighlights, baybayinSyllabaryText } from '../baybayinSyllabary';
 
+const moduleOne = approvedCurriculum.find(item => item.id === 'module-1')!;
+const topic = moduleOne.topics.find(item => item.id === 'topic-1-2')!;
+
 export const topic12Steps: ActivityStep[] = [
   {
     id: "topic-1-2-step-1",
     type: "slide",
-    title: "Paano ba gumagana ang Baybayin?",
+    title: topic.title,
     ctaLabel: "Tapusin ang Aralin",
     content: {
       badge: "KASAYSAYAN AT KAHALAGAHAN",
       number: 1,
       totalInDeck: 1,
-      title: "Paano ba gumagana ang Baybayin?",
+      title: topic.title,
       content: baybayinSyllabaryText,
       storyHighlight: "Ang Baybayin ay isang SILABARYO, hindi alpabeto.",
       storyMessage: "Basa tayo ng pantig, hindi paisa-isang letra!",
@@ -37,15 +41,15 @@ export const topic12Slides: SlideItem[] = topic12Steps
 export const topic12ActivityData: TopicActivityData = {
   id: "topic-1-2",
   moduleId: "module-1",
-  moduleTitle: "Pagkilala sa Baybayin",
-  title: "Paano ba gumagana ang Baybayin?",
+  moduleTitle: moduleOne.title,
+  title: topic.title,
   type: "concept",
   activityIndex: 2,
-  totalActivitiesInModule: 3,
+  totalActivitiesInModule: moduleOne.topics.length,
   steps: topic12Steps,
   slides: topic12Slides,
   video: {
-    title: "Paano ba gumagana ang Baybayin?",
+    title: topic.title,
     source: null,
     isAvailable: false,
   },

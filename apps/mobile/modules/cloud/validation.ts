@@ -2,37 +2,69 @@ import type { CloudServices } from './services';
 export const normalizeEmail = (value: string) => value.trim().toLowerCase();
 export const normalizeCode = (value: string) => value.trim().toUpperCase();
 export const emailError = (value: string) =>
-  !value.trim()
-    ? 'Enter your email address.'
-    : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())
-      ? 'Enter a valid email address.'
-      : undefined;
+  {
+  if (!value.trim()) {
+    return 'Enter your email address.';
+  } else {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())) {
+      return 'Enter a valid email address.';
+    } else {
+      return undefined;
+    }
+  }
+};
 export function authErrors(
   values: { name: string; email: string; password: string; confirm: string },
   register: boolean,
   policy: CloudServices['policy'],
 ) {
   return {
-    name: register && !values.name.trim() ? 'Enter your full name.' : undefined,
+    name: (() => {
+      if (register && !values.name.trim()) {
+        return 'Enter your full name.';
+      } else {
+        return undefined;
+      }
+    })(),
     email: emailError(values.email),
-    password: !values.password
-      ? 'Enter your password.'
-      : register
-        ? policy.passwordError?.(values.password)
-        : undefined,
+    password: (() => {
+      if (!values.password) {
+        return 'Enter your password.';
+      } else {
+        if (register) {
+          return policy.passwordError?.(values.password);
+        } else {
+          return undefined;
+        }
+      }
+    })(),
     confirm:
-      register && (!values.confirm || values.confirm !== values.password)
-        ? 'Passwords must match.'
-        : undefined,
+      (() => {
+        if (register && (!values.confirm || values.confirm !== values.password)) {
+          return 'Passwords must match.';
+        } else {
+          return undefined;
+        }
+      })(),
   };
 }
 export const nameError = (value: string, policy: CloudServices['policy']) =>
-  !value.trim()
-    ? 'Enter a workspace name.'
-    : policy.workspaceNameError?.(value.trim());
+  {
+  if (!value.trim()) {
+    return 'Enter a workspace name.';
+  } else {
+    return policy.workspaceNameError?.(value.trim());
+  }
+};
 export const codeError = (value: string, policy: CloudServices['policy']) =>
-  !value.trim()
-    ? 'Enter the code from your mentor.'
-    : /\s/.test(value.trim())
-      ? 'Check the code. It should not contain spaces.'
-      : policy.workspaceCodeError?.(normalizeCode(value));
+  {
+  if (!value.trim()) {
+    return 'Enter the code from your mentor.';
+  } else {
+    if (/\s/.test(value.trim())) {
+      return 'Check the code. It should not contain spaces.';
+    } else {
+      return policy.workspaceCodeError?.(normalizeCode(value));
+    }
+  }
+};

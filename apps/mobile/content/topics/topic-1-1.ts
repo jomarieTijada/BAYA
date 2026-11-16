@@ -1,3 +1,4 @@
+import { approvedCurriculum } from '../approvedCurriculum';
 import { baybayinHistoryContent, baybayinVideoCredit, baybayinVideoIntroduction } from '../baybayinIntroduction';
 import type {
   ActivityStep,
@@ -7,6 +8,9 @@ import type {
   VideoSource,
   VideoStepContent,
 } from "../types";
+
+const moduleOne = approvedCurriculum.find(item => item.id === 'module-1')!;
+const topic = moduleOne.topics.find(item => item.id === 'topic-1-1')!;
 
 export const baybayinSongVideoSource: VideoSource = {
   type: "asset",
@@ -71,9 +75,9 @@ export const topic11Steps: ActivityStep[] = [
       subtitle: "Mga Sinaunang Kagamitan sa Pagsulat",
       openingNarration: "Alamin natin kung paano sumulat ang ating mga ninuno.",
       content:
-        "Dahil wala pang papel noon, sa mga puno, kawayan, at dahon sila umuukit gamit ang matutulis na bagay para magsulat ng mga tula at mensahe.",
+        "May mga sinaunang sulat-Baybayin na iniukit sa kawayan gamit ang matutulis na bagay. Mayroon ding isinulat sa mga dahon gamit ang pangkulay.",
       storyHighlight:
-        "Umuukit gamit ang sipol sa mga biyas ng kawayan at dahon.",
+        "Matutulis na bagay ang ginamit sa pag-ukit sa kawayan.",
       storyMessage:
         "Ginagamit ang Baybayin sa pagpapadala ng liham, tula, at mensahe ng pakikipagkapwa.",
       highlightWords: [
@@ -81,9 +85,8 @@ export const topic11Steps: ActivityStep[] = [
         "pagsusulat",
         "kawayan",
         "dahon",
-        "puno",
-        "papel",
-        "sipol",
+        "pangkulay",
+        "matutulis na bagay",
         "tula",
         "mensahe",
       ],
@@ -148,11 +151,11 @@ export const topic11Slides: SlideItem[] = topic11Steps
 export const topic11ActivityData: TopicActivityData = {
   id: "topic-1-1",
   moduleId: "module-1",
-  moduleTitle: "What is Baybayin?",
-  title: "Kasaysayan at Kahalagahan ng Baybayin",
+  moduleTitle: moduleOne.title,
+  title: topic.title,
   type: "video",
   activityIndex: 1,
-  totalActivitiesInModule: 3,
+  totalActivitiesInModule: moduleOne.topics.length,
   steps: topic11Steps,
   video: {
     title: "Ang Kuwento ng Baybayin",

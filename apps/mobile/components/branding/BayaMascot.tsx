@@ -29,7 +29,12 @@ export function BayaMascot({
   style,
 }: BayaMascotProps) {
   const { source } = useBayaAnimation({ state, autoplay, loop });
-  const normalizedCrop = crop === 'upperBodyOnly' ? 'upperBody' : crop;
+  let normalizedCrop: 'default' | 'upperBody';
+  if (crop === 'upperBodyOnly') {
+    normalizedCrop = 'upperBody';
+  } else {
+    normalizedCrop = crop;
+  }
 
   return (
     <BayaFrameRenderer

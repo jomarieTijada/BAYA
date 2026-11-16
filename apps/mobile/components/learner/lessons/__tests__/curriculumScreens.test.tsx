@@ -59,8 +59,8 @@ describe('Approved curriculum rendered in learner screens', () => {
       .toEqual(['Home', 'Lessons', 'Achievements', 'Profile']);
     await waitFor(() => expect(curriculumService.getCurriculumModules).toHaveBeenCalled());
     expect(screen.getAllByTestId(/^lesson-card-/)).toHaveLength(3);
-    expect(screen.getByTestId('lesson-card-module-1').props.accessibilityLabel).toContain('Modyul 1');
-    expect(screen.getByText('Pagkilala sa Baybayin')).toBeTruthy();
+    expect(screen.getByTestId('lesson-card-module-1').props.accessibilityLabel).toContain('Module 1');
+    expect(screen.getByText("Introduction to Baybayin")).toBeTruthy();
     expectOnlyApprovedTopics();
     fireEvent.press(screen.getByRole('button', { name: /Simulan ang mga Paksa/ }));
     expect(mockPush).toHaveBeenCalledWith({ pathname: '/learner/activities/[topicId]', params: { topicId: 'topic-1-1' } });

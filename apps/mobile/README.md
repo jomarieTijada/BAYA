@@ -26,5 +26,5 @@ Supports the complete learner-facing BAYA experience, including offline practice
 
 ## Future Implementation Notes
 
-Expo, React Native, SQLite, Skia, and ONNX Runtime are planned technologies only and are not initialized here.
+The app uses Expo/React Native Web, local SQLite, and browser-only LiteRT handwriting inference. See `ml/README.md` for the active model and offline runtime contract.
 

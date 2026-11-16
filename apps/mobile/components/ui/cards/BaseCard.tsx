@@ -1,5 +1,6 @@
+import { Pressable } from '../../../localization/components';
 import React from "react";
-import { Pressable, StyleSheet, View, type ViewProps } from "react-native";
+import { StyleSheet, View, type ViewProps } from 'react-native';
 import { Colors, Radius, Spacing } from "../../../constants/theme";
 import { CardHeader } from "./CardHeader";
 import { CardContent } from "./CardContent";
@@ -42,11 +43,17 @@ export function BaseCard({
     styles.base,
     {
       padding:
-        size === "small"
-          ? Spacing.sm
-          : size === "large"
-            ? Spacing.lg
-            : Spacing.md,
+        (() => {
+          if (size === "small") {
+            return Spacing.sm;
+          } else {
+            if (size === "large") {
+              return Spacing.lg;
+            } else {
+              return Spacing.md;
+            }
+          }
+        })(),
     },
     theme === "warm" && styles.warm,
     variant === "filled" && styles.warm,
@@ -60,7 +67,8 @@ export function BaseCard({
     ...props.accessibilityState,
     disabled: status === "locked" || props.accessibilityState?.disabled,
   };
-  return onPress ? (
+  if (onPress) {
+    return (
     <Pressable
       {...props}
       accessibilityRole="button"
@@ -71,11 +79,14 @@ export function BaseCard({
     >
       {body}
     </Pressable>
-  ) : (
+  );
+  } else {
+    return (
     <View {...props} accessibilityState={accessibilityState} style={cardStyle}>
       {body}
     </View>
   );
+  }
 }
 export const Card = BaseCard;
 const styles = StyleSheet.create({

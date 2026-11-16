@@ -1,5 +1,6 @@
 import 'react-native-url-polyfill/auto';
-import React, { useEffect } from 'react';
+import { MentorSessionRevisionContext } from './mentorSessionRevision';
+import React, { useEffect, useState } from 'react';
 import { AppState, Platform } from 'react-native';
 import * as SecureStore from 'expo-secure-store';
 import { createClient, processLock, type SupabaseClient } from '@supabase/supabase-js';
@@ -10,13 +11,31 @@ import { createSupabaseServices } from './supabaseAdapter';
 import { readProgressSnapshot } from '../progress/localProgressSnapshot';
 
 const storage = {
-  getItem: (key: string) => Platform.OS === 'web'
-    ? (typeof window !== 'undefined' ? window.localStorage.getItem(key) : null)
-    : SecureStore.getItemAsync(key),
-  setItem: (key: string, value: string) => Platform.OS === 'web'
-    ? window.localStorage.setItem(key, value) : SecureStore.setItemAsync(key, value),
-  removeItem: (key: string) => Platform.OS === 'web'
-    ? window.localStorage.removeItem(key) : SecureStore.deleteItemAsync(key),
+  getItem: (key: string) => {
+    if (Platform.OS === 'web') {
+      if (typeof window !== 'undefined') {
+        return window.localStorage.getItem(key);
+      } else {
+        return null;
+      }
+    } else {
+      return SecureStore.getItemAsync(key);
+    }
+  },
+  setItem: (key: string, value: string) => {
+    if (Platform.OS === 'web') {
+      return window.localStorage.setItem(key, value);
+    } else {
+      return SecureStore.setItemAsync(key, value);
+    }
+  },
+  removeItem: (key: string) => {
+    if (Platform.OS === 'web') {
+      return window.localStorage.removeItem(key);
+    } else {
+      return SecureStore.deleteItemAsync(key);
+    }
+  },
 };
 let services: CloudServices | undefined;
 const clients = new Map<string, SupabaseClient>();
@@ -30,7 +49,13 @@ function configuredServices(): CloudServices {
       let client = clients.get(key);
       if (!client) {
         client = createClient(config.url, config.key, { auth: { storage, storageKey: `${namespace}.${key}`,
-          ...(Platform.OS !== 'web' ? { lock: processLock } : {}),
+          ...((() => {
+            if (Platform.OS !== 'web') {
+              return { lock: processLock };
+            } else {
+              return {};
+            }
+          })()),
           persistSession: true, autoRefreshToken: Platform.OS === 'web' || AppState.currentState === 'active', detectSessionInUrl: false } });
         clients.set(key, client);
       }
@@ -52,6 +77,13 @@ function configuredServices(): CloudServices {
 }
 export function CloudProvider({ children }: React.PropsWithChildren) {
   const value = configuredServices();
+  const [mentorRevision, setMentorRevision] = useState(0);
+  useEffect(() => {
+    const subscription = clients.get('mentor.auth')?.auth.onAuthStateChange(event => {
+      if (event === 'SIGNED_OUT' || event === 'SIGNED_IN' || event === 'USER_UPDATED') setMentorRevision(n => n + 1);
+    }).data.subscription;
+    return () => subscription?.unsubscribe();
+  }, []);
   useEffect(() => {
     if (Platform.OS === 'web') return;
     const subscription = AppState.addEventListener('change', state => {
@@ -62,5 +94,5 @@ export function CloudProvider({ children }: React.PropsWithChildren) {
     });
     return () => { subscription.remove(); for (const client of clients.values()) client.auth.stopAutoRefresh(); };
   }, []);
-  return <CloudServicesContext.Provider value={value}>{children}</CloudServicesContext.Provider>;
+  return <CloudServicesContext.Provider value={value}><MentorSessionRevisionContext.Provider value={mentorRevision}>{children}</MentorSessionRevisionContext.Provider></CloudServicesContext.Provider>;
 }

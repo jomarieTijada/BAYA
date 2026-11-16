@@ -1,5 +1,6 @@
+import { Text } from '../../localization/components';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useRouter } from 'expo-router';
 
 import { Colors, FontFamily, Radius, Spacing } from '../../constants/theme';

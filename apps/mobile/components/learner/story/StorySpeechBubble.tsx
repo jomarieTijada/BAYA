@@ -1,31 +1,15 @@
+import { storyTextSegments } from './storyText';
+import { useLocalization } from '../../../localization/LocalizationProvider';
+import { Text, Pressable } from '../../../localization/components';
 import React, { type ReactNode } from "react";
 import { SpeechBubbleTail } from "../../ui/SpeechBubbleTail";
-import { View, Text, ScrollView, Pressable } from "react-native";
+import { View, ScrollView } from 'react-native';
 import { AppIcon } from "../../ui/AppIcon";
 import { storyGuideStyles as styles } from "./storyGuideStyles";
 function renderHighlightedText(text: string, highlightWords: string[] = []) {
-  if (!highlightWords || highlightWords.length === 0) {
-    return text;
-  }
-  const escaped = highlightWords.map((w) =>
-    w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"),
-  );
-  const regex = new RegExp(`\\b(${escaped.join("|")})\\b`, "gi");
-  const parts = text.split(regex);
-
-  return parts.map((part, index) => {
-    const isHighlight = highlightWords.some(
-      (w) => w.toLowerCase() === part.toLowerCase(),
-    );
-    if (isHighlight) {
-      return (
-        <Text key={index} style={styles.highlightKeyword}>
-          {part}
-        </Text>
-      );
-    }
-    return part;
-  });
+  return storyTextSegments(text, highlightWords).map((part, index) => part.highlighted
+    ? <Text key={index} verbatim style={styles.highlightKeyword}>{part.text}</Text>
+    : part.text);
 }
 
 export function StorySpeechBubble({
@@ -53,7 +37,8 @@ export function StorySpeechBubble({
   maxHeight?: number;
   onClose?: () => void;
 }) {
-  const message = children ?? <Text style={[
+  const { text: localized } = useLocalization();
+  const message = children ?? <Text verbatim style={[
     styles.bubbleText,
     isDesktop && styles.bubbleTextDesktop,
     isTablet && styles.bubbleTextTablet,
@@ -61,7 +46,7 @@ export function StorySpeechBubble({
     effectiveLandscape && styles.bubbleTextLandscape,
     stackGuide && styles.bubbleTextPhonePortrait,
     floating && { fontSize: 16, lineHeight: 22, textAlign: 'left' },
-  ]}>{renderHighlightedText(takeawayText, highlightWords)}</Text>;
+  ]}>{renderHighlightedText(localized(takeawayText), highlightWords?.map(localized))}</Text>;
   return (
     <View
       style={[
@@ -75,15 +60,41 @@ export function StorySpeechBubble({
       ]}
       testID="story-speech-bubble"
     >
-      {floating ? <>
+      {(() => {
+        if (floating) {
+          return <>
         <Pressable accessibilityRole="button" accessibilityLabel="Isara ang mensahe ni BAYA" onPress={onClose}
-          style={({ pressed }) => ({ position: 'absolute', right: 0, top: 0, width: 44, height: 44, alignItems: 'center', justifyContent: 'center', opacity: pressed ? 0.6 : 1 })}>
+          style={({ pressed }) => ({ position: 'absolute', right: 0, top: 0, width: 44, height: 44, alignItems: 'center', justifyContent: 'center', opacity: (() => {
+            if (pressed) {
+              return 0.6;
+            } else {
+              return 1;
+            }
+          })() })}>
           <AppIcon name="close" color="accent" size={22} />
         </Pressable>
         <ScrollView style={{ flexShrink: 1 }} testID="story-message-scroll">{message}</ScrollView>
-      </> : message}
+      </>;
+        } else {
+          return message;
+        }
+      })()}
 
-      {!floating && !stackGuide && <SpeechBubbleTail position="right" size={effectiveLandscape ? 'landscape' : compact ? 'compact' : isTablet ? 'tablet' : 'regular'} />}
+      {!floating && !stackGuide && <SpeechBubbleTail position="right" size={(() => {
+        if (effectiveLandscape) {
+          return 'landscape';
+        } else {
+          if (compact) {
+            return 'compact';
+          } else {
+            if (isTablet) {
+              return 'tablet';
+            } else {
+              return 'regular';
+            }
+          }
+        }
+      })()} />}
     </View>
   );
 }

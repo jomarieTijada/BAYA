@@ -1,6 +1,7 @@
+import { Text } from '../../../localization/components';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Colors, FontFamily, Spacing } from '../../../constants/theme';
+import { StyleSheet, View } from 'react-native';
+import { FontFamily, Spacing } from '../../../constants/theme';
 import { SpeechBubbleTail } from '../../ui/SpeechBubbleTail';
 import { speechBubbleStyles, SpeechBubbleColors } from '../../ui/speechBubbleStyles';
 import { BayaMascot } from '../../branding/BayaMascot';
@@ -12,31 +13,87 @@ import { useLoadingEllipsis } from './useLoadingEllipsis';
 export function BayaWritingGuide({ recognition, targetClass, mascotSize, dense = false, fillHeight = false, showMascot = true }: { recognition: RecognitionState; targetClass: string; mascotSize: number; dense?: boolean; fillHeight?: boolean; showMascot?: boolean }) {
   const [bubbleWidth, setBubbleWidth] = useState(0);
   const loadingDots = useLoadingEllipsis(recognition.status === 'analyzing');
-  const result = recognition.status === 'success' ? recognition : null;
-  const top = result?.predictions[0];
-  const matchesTarget = Boolean(result && isValidWritingResult(targetClass, result.predictions));
-  const density = bubbleWidth > 0 && bubbleWidth < 170 ? 'tight' : dense || (bubbleWidth > 0 && bubbleWidth < 240) ? 'compact' : 'regular';
+  let result;
+  if (recognition.status === 'success') {
+    result = recognition;
+  } else {
+    result = null;
+  }
+  const top = result?.prediction;
+  const matchesTarget = Boolean(result && isValidWritingResult(targetClass, [result.prediction]));
+  let density: 'regular' | 'tight' | 'compact';
+  if (bubbleWidth > 0 && bubbleWidth < 170) {
+    density = 'tight';
+  } else {
+    if (dense || (bubbleWidth > 0 && bubbleWidth < 240)) {
+      density = 'compact';
+    } else {
+      density = 'regular';
+    }
+  }
 
   return <View style={[styles.root, dense && styles.denseRoot, fillHeight && styles.fillHeight]} testID="baya-writing-guide">
     <View accessibilityLiveRegion="polite" onLayout={event => { const width = event.nativeEvent.layout.width; if (Math.abs(width - bubbleWidth) > 1) setBubbleWidth(width); }} style={[styles.bubble, dense && styles.denseBubble, result && styles.resultBubble, result && density !== 'regular' && styles.compactResultBubble, result && density === 'tight' && styles.tightResultBubble]} testID="baya-result-bubble">
-      {result && top ? <View style={[styles.resultContent, density !== 'regular' && styles.compactResultContent]}>
-        <RecognitionMatchRow density={density} label={top.label} primary probability={top.probability} rank={1} />
-        <Text style={[styles.status, density !== 'regular' && styles.compactStatus, matchesTarget ? styles.correctStatus : styles.retryStatus]} testID="baya-correctness-message">
-          {matchesTarget ? 'Mahusay!' : 'Malapit na!'}
+      {(() => {
+        if (result && top) {
+          return <View style={[styles.resultContent, density !== 'regular' && styles.compactResultContent]}>
+        <RecognitionMatchRow density={density} prediction={top} />
+        <Text style={[styles.status, density !== 'regular' && styles.compactStatus, (() => {
+          if (matchesTarget) {
+            return styles.correctStatus;
+          } else {
+            return styles.retryStatus;
+          }
+        })()]} testID="baya-correctness-message">
+          {(() => {
+            if (matchesTarget) {
+              return 'Mahusay!';
+            } else {
+              return 'Malapit na!';
+            }
+          })()}
         </Text>
-        {result.predictions.length > 1 && <View style={[styles.otherMatches, density !== 'regular' && styles.compactOtherMatches]}>
-          {showMascot && <Text style={[styles.otherHeading, density !== 'regular' && styles.compactOtherHeading]}>Iba pang nasuri</Text>}
-          {result.predictions.slice(1, 3).map((prediction, index) => <RecognitionMatchRow density={density} key={`${prediction.classIndex}-${index}`} label={prediction.label} probability={prediction.probability} rank={index + 2} />)}
-        </View>}
-      </View> : <Text style={[styles.message, dense && styles.denseMessage]} testID="baya-status-message">
-        {recognition.status === 'analyzing' ? `Sinusuri ang sulat${loadingDots}`
-          : recognition.status === 'empty' ? 'Magsulat muna sa kahon bago suriin.'
-            : recognition.status === 'error' ? 'Hindi masuri ni BAYA ang sulat. Subukan muli.'
-              : 'Magsulat na!'}
-      </Text>}
-      {showMascot && <SpeechBubbleTail position="bottom" size={dense ? 'landscape' : 'compact'} />}
+
+      </View>;
+        } else {
+          return <Text style={[styles.message, dense && styles.denseMessage]} testID="baya-status-message">
+        {(() => {
+          if (recognition.status === 'analyzing') {
+            return `Sinusuri ang sulat${loadingDots}`;
+          } else if (recognition.status === 'rejected') {
+            return 'No recognizable Baybayin character detected. Try again.';
+          } else if (recognition.status === 'uncertain') {
+            return 'Your writing is unclear. Try writing the character again.';
+          } else {
+            if (recognition.status === 'empty') {
+              return 'Magsulat muna sa kahon bago suriin.';
+            } else {
+              if (recognition.status === 'error') {
+                return 'Hindi masuri ni BAYA ang sulat. Subukan muli.';
+              } else {
+                return 'Magsulat na!';
+              }
+            }
+          }
+        })()}
+      </Text>;
+        }
+      })()}
+      {showMascot && <SpeechBubbleTail position="bottom" size={(() => {
+        if (dense) {
+          return 'landscape';
+        } else {
+          return 'compact';
+        }
+      })()} />}
     </View>
-    {showMascot && <View style={[styles.mascot, fillHeight && styles.fillMascot]}><BayaMascot crop="upperBody" decorative size={mascotSize} state={matchesTarget ? 'wave' : 'ambient'} /></View>}
+    {showMascot && <View style={[styles.mascot, fillHeight && styles.fillMascot]}><BayaMascot crop="upperBody" decorative size={mascotSize} state={(() => {
+      if (matchesTarget) {
+        return 'wave';
+      } else {
+        return 'ambient';
+      }
+    })()} /></View>}
   </View>;
 }
 
@@ -59,8 +116,4 @@ const styles = StyleSheet.create({
   compactStatus: { fontSize: 12, lineHeight: 13 },
   correctStatus: { color: '#216E38' },
   retryStatus: { color: '#865600' },
-  otherMatches: { borderTopColor: Colors.border, borderTopWidth: 1, gap: 1, marginTop: 2, paddingTop: 4 },
-  compactOtherMatches: { marginTop: 0, paddingTop: 1 },
-  otherHeading: { color: Colors.textSecondary, fontFamily: FontFamily.rounded, fontSize: 12, fontWeight: '800', marginBottom: 1, textAlign: 'center' },
-  compactOtherHeading: { fontSize: 10, lineHeight: 12, marginBottom: 0 },
 });

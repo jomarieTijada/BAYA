@@ -53,18 +53,17 @@
   [headers.values]
     Cache-Control = "no-cache, must-revalidate"
 
-# ONNX Model Artifacts (binary octet-stream, immutable)
+# Versioned LiteRT model assets
 [[headers]]
-  for = "/models/*"
+  for = "/models/baya/resnet18-v1/*.tflite"
   [headers.values]
     Content-Type = "application/octet-stream"
     Cache-Control = "public, max-age=31536000, immutable"
 
 # WebAssembly Files (application/wasm, immutable)
 [[headers]]
-  for = "/ort/*.wasm"
+  for = "/litert/*"
   [headers.values]
-    Content-Type = "application/wasm"
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
@@ -82,4 +81,10 @@
 [[headers]]
   for = "/assets/*"
   [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/models/baya/resnet18-v1/*.json"
+  [headers.values]
+    Content-Type = "application/json; charset=utf-8"
     Cache-Control = "public, max-age=31536000, immutable"

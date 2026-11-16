@@ -37,20 +37,20 @@ describe('Module 2 letter navigation', () => {
     render(<Topic2_1Screen />);
     const vowels = getBaybayinCharacterTopic('topic-2-1')!;
     expect(screen.getByTestId('character-glyph').props.source).toBe(vowels.characters[0].imageAsset);
-    expect(screen.queryByLabelText('Susunod na paksa')).toBeNull();
+    expect(screen.queryByLabelText("Next topic")).toBeNull();
 
-    fireEvent.press(screen.getByLabelText('Susunod na simbolo'));
+    fireEvent.press(screen.getByLabelText("Next character"));
     expect(screen.getByTestId('character-glyph').props.source).toBe(vowels.characters[1].imageAsset);
     expect(localLearnerService.completeTopic).not.toHaveBeenCalled();
 
-    fireEvent.press(screen.getByLabelText('Bumalik sa nakaraang simbolo'));
+    fireEvent.press(screen.getByLabelText("Go back to the previous character"));
     expect(screen.getByTestId('character-glyph').props.source).toBe(vowels.characters[0].imageAsset);
 
-    fireEvent.press(screen.getByLabelText('Susunod na simbolo'));
-    fireEvent.press(screen.getByLabelText('Susunod na simbolo'));
+    fireEvent.press(screen.getByLabelText("Next character"));
+    fireEvent.press(screen.getByLabelText("Next character"));
     expect(screen.getByTestId('character-glyph').props.source).toBe(vowels.characters[2].imageAsset);
-    expect(screen.getByLabelText('Susunod na paksa')).toBeTruthy();
-    fireEvent.press(screen.getByLabelText('Susunod na paksa'));
+    expect(screen.getByLabelText("Next topic")).toBeTruthy();
+    fireEvent.press(screen.getByLabelText("Next topic"));
     await waitFor(() => expect(localLearnerService.completeTopic).toHaveBeenCalledWith('topic-2-1'));
     expect(mockSetParams).toHaveBeenCalledWith({ topicId: 'topic-2-2' });
   });
@@ -58,12 +58,12 @@ describe('Module 2 letter navigation', () => {
   it('keeps the final topic button as Susunod until the final consonant', async () => {
     render(<Topic2_2Screen />);
     const consonants = getBaybayinCharacterTopic('topic-2-2')!;
-    expect(screen.getByLabelText('Susunod na simbolo')).toBeTruthy();
-    expect(screen.queryByLabelText('Bumalik sa mga paksa')).toBeNull();
+    expect(screen.getByLabelText("Next character")).toBeTruthy();
+    expect(screen.queryByLabelText("Back to topics")).toBeNull();
     fireEvent.press(screen.getByTestId('character-chip-ya'));
     expect(screen.getByTestId('character-glyph').props.source).toBe(consonants.characters[13].imageAsset);
-    expect(within(screen.getByTestId('story-content-column')).getByText('Mga simbolo')).toBeTruthy();
-    fireEvent.press(screen.getByLabelText('Bumalik sa mga paksa'));
+    expect(within(screen.getByTestId('story-content-column')).getByText("Characters")).toBeTruthy();
+    fireEvent.press(screen.getByLabelText("Back to topics"));
     await waitFor(() => expect(localLearnerService.completeTopic).toHaveBeenCalledWith('topic-2-2'));
     expect(mockDismissTo).toHaveBeenCalledWith('/learner/lessons');
   });

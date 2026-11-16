@@ -1,5 +1,6 @@
+import { Text } from '../../../localization/components';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { BAYA_WRITING_MASTERY_POLICY } from '../../../content/writingMastery';
 import { Colors, FontFamily, Spacing } from '../../../constants/theme';
 
@@ -8,11 +9,24 @@ export function WritingInstructions({ count = 0, unsuccessful = false, compact =
 }) {
   const { requiredValidAttempts } = BAYA_WRITING_MASTERY_POLICY;
   const remaining = Math.max(0, requiredValidAttempts - count);
-  const message = remaining === 0 ? 'Mahusay! Maaari ka nang magpatuloy!'
-    : unsuccessful ? 'Subukan muli! Isulat ulit ang simbolo.'
-      : count === 0 ? 'Isulat ang simbolo at makakuha ng bituin!'
-        : remaining === 1 ? 'Magaling! Isa pa para makapagpatuloy!'
-          : `Magaling! ${remaining} pa para makapagpatuloy!`;
+  let message;
+  if (remaining === 0) {
+    message = 'Mahusay! Maaari ka nang magpatuloy!';
+  } else {
+    if (unsuccessful) {
+      message = 'Subukan muli! Isulat ulit ang simbolo.';
+    } else {
+      if (count === 0) {
+        message = 'Isulat ang simbolo at makakuha ng bituin!';
+      } else {
+        if (remaining === 1) {
+          message = 'Magaling! Isa pa para makapagpatuloy!';
+        } else {
+          message = `Magaling! ${remaining} pa para makapagpatuloy!`;
+        }
+      }
+    }
+  }
   return <View style={styles.container} testID="writing-instructions">
     <Text accessibilityLiveRegion="polite" style={[styles.instruction, compact && styles.compactInstruction]} testID="writing-mastery-message">{message}</Text>
     <View style={styles.actions}>

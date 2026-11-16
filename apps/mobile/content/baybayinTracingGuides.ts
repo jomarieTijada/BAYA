@@ -66,7 +66,11 @@ const tracingGuides: Readonly<Record<string, number>> = {
 };
 
 export function findBaybayinTracingGuide(characterId: string): number | undefined {
-  return Object.prototype.hasOwnProperty.call(tracingGuides, characterId) ? tracingGuides[characterId] : undefined;
+  if (Object.prototype.hasOwnProperty.call(tracingGuides, characterId)) {
+    return tracingGuides[characterId];
+  } else {
+    return undefined;
+  }
 }
 
 export function getBaybayinTracingGuide(characterId: string): number {

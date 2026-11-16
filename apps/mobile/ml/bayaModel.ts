@@ -1,6 +1,6 @@
 import { BayaModelError } from './BayaModelError';
 
-// Metro resolves bayaModel.web.ts in the PWA. Native never imports ONNX Runtime Web.
+// Metro resolves bayaModel.web.ts in the PWA. Native never imports the browser LiteRT runtime.
 const unsupported = () => new BayaModelError(
   'UNSUPPORTED_PLATFORM',
   'BAYA recognition is currently available only in the web/PWA runtime.',
@@ -25,3 +25,8 @@ export async function runBayaSmokeTest(): Promise<never> {
 export async function runBayaBenchmark(): Promise<never> {
   throw unsupported();
 }
+
+export async function runBayaSpatialInference(_imageData: Float32Array): Promise<import('./bayaOutputs').SpatialRecognition> {
+  throw unsupported();
+}
+export async function disposeBayaModel(): Promise<void> {}

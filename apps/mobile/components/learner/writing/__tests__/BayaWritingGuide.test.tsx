@@ -1,3 +1,4 @@
+import { presentTopPrediction } from '../recognitionPresentation';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { render, screen } from '@testing-library/react-native';
@@ -13,17 +14,17 @@ it('shares the lesson paper, border, radius and shadow while pointing to the mas
   expect(writing.backgroundColor).toBe(SpeechBubbleColors.paper);
   expect(screen.getByTestId('speech-tail-bottom', { includeHiddenElements: true })).toBeTruthy();
   expect(screen.getByTestId('speech-tail-right', { includeHiddenElements: true })).toBeTruthy();
-  expect(screen.getByText('Magsulat na!')).toBeTruthy();
+  expect(screen.getByText("Let's write!")).toBeTruthy();
 });
 it('preserves accepted/rejected feedback and raw probabilities with the same bubble treatment', () => {
   const prediction = { classIndex: 0, label: 'A', probability: .92 };
-  const view = render(<BayaWritingGuide recognition={{ status: 'success', predictions: [prediction] }} targetClass="A" mascotSize={64} dense />);
-  expect(screen.getByText('Mahusay!')).toBeTruthy();
+  const view = render(<BayaWritingGuide recognition={{ status: 'success', prediction: presentTopPrediction(prediction) }} targetClass="A" mascotSize={64} dense />);
+  expect(screen.getByText("Great!")).toBeTruthy();
   expect(screen.getByText('92.0%')).toBeTruthy();
-  view.rerender(<BayaWritingGuide recognition={{ status: 'success', predictions: [{ ...prediction, probability: .79 }] }} targetClass="A" mascotSize={64} dense />);
-  expect(screen.getByText('Malapit na!')).toBeTruthy();
+  view.rerender(<BayaWritingGuide recognition={{ status: 'success', prediction: presentTopPrediction({ ...prediction, probability: .79 }) }} targetClass="A" mascotSize={64} dense />);
+  expect(screen.getByText("Almost there!")).toBeTruthy();
   expect(StyleSheet.flatten(screen.getByTestId('baya-result-bubble').props.style).borderColor).toBe(SpeechBubbleColors.border);
   view.rerender(<BayaWritingGuide recognition={{ status: 'error' }} targetClass="A" mascotSize={64} dense />);
-  const message = screen.getByText('Hindi masuri ni BAYA ang sulat. Subukan muli.');
+  const message = screen.getByText("BAYA couldn't check your writing. Try again.");
   expect(message.props.numberOfLines).toBeUndefined();
 });

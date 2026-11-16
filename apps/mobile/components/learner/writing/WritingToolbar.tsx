@@ -1,15 +1,28 @@
+import { Pressable } from '../../../localization/components';
 import React from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Colors, Radius } from '../../../constants/theme';
 import { AppIcon } from '../../ui/AppIcon';
 
 export function WritingToolbar({ onClear, onUndo, canEdit, dense = false }: { onClear: () => void; onUndo: () => void; canEdit: boolean; dense?: boolean }) {
   return <View style={styles.row}>
     <Pressable accessibilityLabel="Bawiin ang huling guhit" accessibilityRole="button" accessibilityState={{ disabled: !canEdit }} disabled={!canEdit} hitSlop={6} onPress={onUndo} style={[styles.button, dense && styles.denseButton, !canEdit && styles.disabled]} testID="writing-undo-button">
-      <AppIcon name="undo" color="secondaryText" size={dense ? 18 : 22} />
+      <AppIcon name="undo" color="secondaryText" size={(() => {
+        if (dense) {
+          return 18;
+        } else {
+          return 22;
+        }
+      })()} />
     </Pressable>
     <Pressable accessibilityLabel="Burahin ang lahat ng guhit" accessibilityRole="button" accessibilityState={{ disabled: !canEdit }} disabled={!canEdit} hitSlop={6} onPress={onClear} style={[styles.button, dense && styles.denseButton, !canEdit && styles.disabled]} testID="writing-clear-button">
-      <AppIcon name="trash" color="accent" size={dense ? 18 : 22} />
+      <AppIcon name="trash" color="accent" size={(() => {
+        if (dense) {
+          return 18;
+        } else {
+          return 22;
+        }
+      })()} />
     </Pressable>
   </View>;
 }

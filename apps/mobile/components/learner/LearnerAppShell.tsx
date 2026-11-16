@@ -30,14 +30,26 @@ export function LearnerAppShell({
 
   return (
     <SafeAreaView
-      edges={isPhoneLandscape ? ['left', 'right', 'bottom'] : ['top', 'bottom', 'left', 'right']}
+      edges={(() => {
+        if (isPhoneLandscape) {
+          return ['left', 'right', 'bottom'];
+        } else {
+          return ['top', 'bottom', 'left', 'right'];
+        }
+      })()}
       style={[styles.root, { backgroundColor }]}
       testID={testID}
     >
       {header}
       <View style={styles.content}>{children}</View>
       {footer}
-      {showBottomNavigation ? <LearnerBottomNav activeRoute={activeRoute} /> : null}
+      {(() => {
+        if (showBottomNavigation) {
+          return <LearnerBottomNav activeRoute={activeRoute} />;
+        } else {
+          return null;
+        }
+      })()}
     </SafeAreaView>
   );
 }

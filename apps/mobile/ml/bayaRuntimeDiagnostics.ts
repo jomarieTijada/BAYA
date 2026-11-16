@@ -12,20 +12,57 @@ export type BayaRuntimeProbe = {
 /** Report the JavaScript runtime separately from the device OS and install mode. */
 export function classifyBayaRuntime(probe: BayaRuntimeProbe) {
   const browserDomAvailable = probe.hasWindow && probe.hasDocument;
-  const deviceOs = browserDomAvailable
-    ? /Android/i.test(probe.userAgent) ? 'android'
-      : /iPad|iPhone|iPod/i.test(probe.userAgent) ? 'ios' : 'unknown'
-    : probe.bundlePlatform;
-  const userAgentCategory = !probe.userAgent ? 'unavailable'
-    : /iPad|Tablet|Android(?!.*Mobile)/i.test(probe.userAgent) ? 'tablet'
-      : /Mobile|iPhone|iPod/i.test(probe.userAgent) ? 'phone' : 'desktop';
+  let deviceOs;
+  if (browserDomAvailable) {
+    if (/Android/i.test(probe.userAgent)) {
+      deviceOs = 'android';
+    } else {
+      if (/iPad|iPhone|iPod/i.test(probe.userAgent)) {
+        deviceOs = 'ios';
+      } else {
+        deviceOs = 'unknown';
+      }
+    }
+  } else {
+    deviceOs = probe.bundlePlatform;
+  }
+  let userAgentCategory;
+  if (!probe.userAgent) {
+    userAgentCategory = 'unavailable';
+  } else {
+    if (/iPad|Tablet|Android(?!.*Mobile)/i.test(probe.userAgent)) {
+      userAgentCategory = 'tablet';
+    } else {
+      if (/Mobile|iPhone|iPod/i.test(probe.userAgent)) {
+        userAgentCategory = 'phone';
+      } else {
+        userAgentCategory = 'desktop';
+      }
+    }
+  }
 
   return {
-    runtime: browserDomAvailable ? 'web-dom' : 'native-or-headless-js',
+    runtime: (() => {
+      if (browserDomAvailable) {
+        return 'web-dom';
+      } else {
+        return 'native-or-headless-js';
+      }
+    })(),
     bundlePlatform: probe.bundlePlatform,
     browserDomAvailable,
     deviceOs,
-    displayMode: browserDomAvailable ? (probe.standalone ? 'standalone' : 'browser') : 'unavailable',
+    displayMode: (() => {
+      if (browserDomAvailable) {
+        if (probe.standalone) {
+          return 'standalone';
+        } else {
+          return 'browser';
+        }
+      } else {
+        return 'unavailable';
+      }
+    })(),
     userAgentCategory,
     serviceWorkerControlled: browserDomAvailable && probe.serviceWorkerControlled,
   };
@@ -43,7 +80,13 @@ export function getBayaRuntimeDiagnostics() {
     bundlePlatform: Platform.OS,
     hasWindow,
     hasDocument,
-    userAgent: hasNavigator ? navigator.userAgent : '',
+    userAgent: (() => {
+      if (hasNavigator) {
+        return navigator.userAgent;
+      } else {
+        return '';
+      }
+    })(),
     standalone,
     serviceWorkerControlled: hasNavigator && Boolean(navigator.serviceWorker?.controller),
   });

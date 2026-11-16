@@ -1,5 +1,6 @@
+import { Text } from '../../../localization/components';
 import React, { type PropsWithChildren } from 'react';
-import { type StyleProp, StyleSheet, Text, View, type ViewStyle } from 'react-native';
+import { type StyleProp, StyleSheet, View, type ViewStyle } from 'react-native';
 
 import { Colors, FontFamily, Radius } from '../../../constants/theme';
 
@@ -36,11 +37,17 @@ export function DashboardCard({ action, children, compact = false, label, style,
       <View style={[styles.body, compact && styles.bodyCompact]}>
         {children}
       </View>
-      {action ? (
+      {(() => {
+        if (action) {
+          return (
         <View style={[styles.action, compact && styles.actionCompact]}>
           {action}
         </View>
-      ) : null}
+      );
+        } else {
+          return null;
+        }
+      })()}
     </View>
   );
 }

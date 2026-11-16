@@ -3,7 +3,15 @@ import { AccessibilityInfo, Text } from 'react-native';
 import { act, render, screen } from '@testing-library/react-native';
 import { useReducedMotionPreference } from '../useReducedMotionPreference';
 
-function Preference() { return <Text>{useReducedMotionPreference() ? 'static' : 'motion'}</Text>; }
+function Preference() {
+  const reduced = useReducedMotionPreference();
+  return <Text>{(() => {
+  if (reduced) {
+    return 'static';
+  } else {
+    return 'motion';
+  }
+})()}</Text>; }
 afterEach(() => jest.restoreAllMocks());
 it('defaults to static and does not overwrite a newer preference event with a delayed query', async () => {
   let resolve!: (enabled: boolean) => void;

@@ -70,18 +70,18 @@ describe('Activity lifecycle', () => {
   });
   it('requires the video end event before advancing', () => {
     render(<ActivityScreen data={topic11ActivityData} />);
-    fireEvent.press(screen.getByLabelText('Ituloy ang aralin'));
+    fireEvent.press(screen.getByLabelText("Continue the lesson"));
     expect(screen.queryByTestId('activity-renderer-slide')).toBeNull();
-    fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
+    fireEvent.press(screen.getByLabelText("Watch the Video"));
     fireEvent.press(screen.getByLabelText('Finish test video'));
-    fireEvent.press(screen.getByLabelText('Ituloy ang aralin'));
+    fireEvent.press(screen.getByLabelText("Continue the lesson"));
     expect(screen.getByTestId('activity-renderer-slide')).toBeTruthy();
   });
   it('resets step state when the supplied topic changes and tolerates empty content', () => {
     const view = render(<ActivityScreen data={topic11ActivityData} />);
-    fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
+    fireEvent.press(screen.getByLabelText("Watch the Video"));
     fireEvent.press(screen.getByLabelText('Finish test video'));
-    fireEvent.press(screen.getByLabelText('Ituloy ang aralin'));
+    fireEvent.press(screen.getByLabelText("Continue the lesson"));
     view.rerender(<ActivityScreen data={{ ...topic11ActivityData, id: 'topic-new' }} />);
     expect(screen.getByTestId('lesson-video-introduction')).toBeTruthy();
     view.rerender(<ActivityScreen data={{ ...topic11ActivityData, steps: [], slides: [], video: { title: '', source: null } }} />);
@@ -89,10 +89,10 @@ describe('Activity lifecycle', () => {
   });
   it('does not reuse the first video completion for a second video', () => {
     render(<ActivityScreen data={{ ...topic11ActivityData, steps: [topic11ActivityData.steps[0], { ...topic11ActivityData.steps[0], id: 'second-video' }] }} />);
-    fireEvent.press(screen.getByLabelText('Panoorin ang Video'));
+    fireEvent.press(screen.getByLabelText("Watch the Video"));
     fireEvent.press(screen.getByLabelText('Finish test video'));
-    fireEvent.press(screen.getByLabelText('Ituloy ang aralin'));
-    expect(screen.getByLabelText('Tapusin ang aralin').props.accessibilityState?.disabled).toBe(true);
+    fireEvent.press(screen.getByLabelText("Continue the lesson"));
+    expect(screen.getByLabelText("Finish the lesson").props.accessibilityState?.disabled).toBe(true);
   });
   it.each([
     [390, 844, true, false, false, false, VIDEO_CONTROL_SAFE_BOTTOM_MOBILE],

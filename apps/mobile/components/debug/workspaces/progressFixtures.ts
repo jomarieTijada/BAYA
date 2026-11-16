@@ -15,6 +15,12 @@ export const progressPreviewServices: CloudServices = {
   progress: {
     sync: async () => ({ ok: true, data: { syncedAt: new Date().toISOString() } }),
     dashboard: async () => ({ ok: true, data: { workspace: workspaceFixture, learnerCount: 3, lastSyncedAt: now, learners, nextOffset: null } }),
-    learner: async () => ({ ok: true, data: { learner: learners[0], topics: approvedCurriculum.flatMap(m => m.topics.map(t => ({ topicKey: t.id, title: t.title, moduleTitle: m.title, completedAt: t.id < 'topic-1-5' ? now : null }))) } }),
+    learner: async () => ({ ok: true, data: { learner: learners[0], topics: approvedCurriculum.flatMap(m => m.topics.map(t => ({ topicKey: t.id, title: t.title, moduleTitle: m.title, completedAt: (() => {
+      if (t.id < 'topic-1-5') {
+        return now;
+      } else {
+        return null;
+      }
+    })() }))) } }),
   },
 };

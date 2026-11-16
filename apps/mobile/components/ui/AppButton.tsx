@@ -1,5 +1,6 @@
+import { Pressable, Text } from '../../localization/components';
 import React, { useState } from 'react';
-import { Pressable, type StyleProp, StyleSheet, Text, View, type ViewStyle } from 'react-native';
+import { type StyleProp, StyleSheet, View, type ViewStyle, type TextStyle } from 'react-native';
 
 import { Colors, FontFamily, Radius } from '../../constants/theme';
 import { AppIcon, type AppIconName } from './AppIcon';
@@ -17,6 +18,7 @@ type AppButtonProps = {
   density?: 'regular' | 'mobile' | 'compact' | 'heroCompact' | 'landscapeCompact';
   pill?: boolean;
   style?: StyleProp<ViewStyle>;
+  labelStyle?: StyleProp<TextStyle>;
 };
 
 /** Shared primary action with consistent pointer, touch, focus, and disabled states. */
@@ -32,6 +34,7 @@ export function AppButton({
   onPress,
   pill = false,
   style,
+  labelStyle,
   tone = 'primary',
 }: AppButtonProps) {
   const [focused, setFocused] = useState(false);
@@ -62,20 +65,56 @@ export function AppButton({
         pill && styles.pillButton,
         hovered && !disabled && styles[`${tone}Hovered`],
         pressed && !disabled && styles[`${tone}Pressed`],
-        focused && (tone === 'outlinePrimary' ? styles.outlinePrimaryFocused : styles.focused),
+        focused && ((() => {
+          if (tone === 'outlinePrimary') {
+            return styles.outlinePrimaryFocused;
+          } else {
+            return styles.focused;
+          }
+        })()),
         disabled && tone !== 'muted' && tone !== 'outlinePrimary' && styles.disabledSolid,
         disabled && styles.disabled,
         style,
       ]}
     >
       <View style={styles.content}>
-        {icon && iconPosition === 'leading' ? (
+        {(() => {
+          if (icon && iconPosition === 'leading') {
+            return (
           <AppIcon
             name={icon}
-            size={isLandscapeCompact ? 12 : isHeroCompact ? 16 : isCompact ? 'md' : 'lg'}
-            color={tone === 'muted' ? 'secondaryText' : tone === 'outlinePrimary' ? 'accent' : 'onPrimary'}
+            size={(() => {
+              if (isLandscapeCompact) {
+                return 12;
+              } else {
+                if (isHeroCompact) {
+                  return 16;
+                } else {
+                  if (isCompact) {
+                    return 'md';
+                  } else {
+                    return 'lg';
+                  }
+                }
+              }
+            })()}
+            color={(() => {
+              if (tone === 'muted') {
+                return 'secondaryText';
+              } else {
+                if (tone === 'outlinePrimary') {
+                  return 'accent';
+                } else {
+                  return 'onPrimary';
+                }
+              }
+            })()}
           />
-        ) : null}
+        );
+          } else {
+            return null;
+          }
+        })()}
         {!!label && <Text
           style={[
             styles.label,
@@ -85,17 +124,48 @@ export function AppButton({
             tone === 'muted' && styles.mutedLabel,
             tone === 'outlinePrimary' && styles.outlinePrimaryLabel,
             disabled && styles.disabledLabel,
+            labelStyle,
           ]}
         >
           {label}
         </Text>}
-        {icon && iconPosition === 'trailing' ? (
+        {(() => {
+          if (icon && iconPosition === 'trailing') {
+            return (
           <AppIcon
             name={icon}
-            size={isLandscapeCompact ? 12 : isHeroCompact ? 16 : isCompact ? 'md' : 'lg'}
-            color={tone === 'muted' ? 'secondaryText' : tone === 'outlinePrimary' ? 'accent' : 'onPrimary'}
+            size={(() => {
+              if (isLandscapeCompact) {
+                return 12;
+              } else {
+                if (isHeroCompact) {
+                  return 16;
+                } else {
+                  if (isCompact) {
+                    return 'md';
+                  } else {
+                    return 'lg';
+                  }
+                }
+              }
+            })()}
+            color={(() => {
+              if (tone === 'muted') {
+                return 'secondaryText';
+              } else {
+                if (tone === 'outlinePrimary') {
+                  return 'accent';
+                } else {
+                  return 'onPrimary';
+                }
+              }
+            })()}
           />
-        ) : null}
+        );
+          } else {
+            return null;
+          }
+        })()}
       </View>
     </Pressable>
   );

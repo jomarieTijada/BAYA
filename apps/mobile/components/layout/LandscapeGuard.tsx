@@ -1,12 +1,7 @@
+import { Text } from '../../localization/components';
 import type { PropsWithChildren } from 'react';
 import React, { useEffect, useRef, useSyncExternalStore } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  useWindowDimensions,
-  View,
-} from 'react-native';
+import { Platform, StyleSheet, useWindowDimensions, View } from 'react-native';
 
 import { Colors, FontFamily, FontSize, Spacing } from '../../constants/theme';
 import { AppIcon } from '../ui/AppIcon';
@@ -18,15 +13,19 @@ const getDevice = () => Platform.OS !== 'web' || (typeof window !== 'undefined' 
 const getServerDevice = () => Platform.OS !== 'web';
 
 /** Overlay, never replace, the lesson so rotation retains the learner's work. */
-export function LandscapeGuard({ children }: PropsWithChildren) {
+export function LandscapeGuard({ children, allowPortrait = false }: PropsWithChildren<{ allowPortrait?: boolean }>) {
   const { height, width } = useWindowDimensions();
   const mobile = useSyncExternalStore(subscribeToDevice, getDevice, getServerDevice);
   const content = useRef<View>(null);
-  const blocked = mobile && height > width;
+  const blocked = !allowPortrait && mobile && height > width;
   useEffect(() => {
     if (Platform.OS !== 'web' || typeof window === 'undefined') return;
+    if (allowPortrait) {
+      window.screen.orientation?.unlock?.();
+      return;
+    }
     return installLandscapeLock(window);
-  }, []);
+  }, [allowPortrait]);
   useEffect(() => {
     if (Platform.OS !== 'web') return;
     const element = content.current as unknown as HTMLElement | null;
@@ -36,7 +35,19 @@ export function LandscapeGuard({ children }: PropsWithChildren) {
 
   return (
     <View style={styles.root}>
-    <View ref={content} style={[styles.root, blocked && styles.hidden]} pointerEvents={blocked ? 'none' : 'auto'} accessibilityElementsHidden={blocked} importantForAccessibility={blocked ? 'no-hide-descendants' : 'auto'}>
+    <View ref={content} style={[styles.root, blocked && styles.hidden]} pointerEvents={(() => {
+      if (blocked) {
+        return 'none';
+      } else {
+        return 'auto';
+      }
+    })()} accessibilityElementsHidden={blocked} importantForAccessibility={(() => {
+      if (blocked) {
+        return 'no-hide-descendants';
+      } else {
+        return 'auto';
+      }
+    })()}>
       {children}
     </View>
     {blocked && <SafeAreaView

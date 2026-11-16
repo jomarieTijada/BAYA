@@ -25,15 +25,24 @@ export function StoryNavigation({
   const { isCompactHeight, isDesktop, isPhone, isPhoneLandscape, isTablet } = useResponsiveLayout();
   const compact = isPhone || isCompactHeight;
   const landscapeCompact = isPhoneLandscape;
-  const pagePadding = landscapeCompact
-    ? ResponsiveLayout.pagePadding.landscapePhone
-    : isPhone
-      ? ResponsiveLayout.pagePadding.phone
-      : isTablet
-        ? ResponsiveLayout.pagePadding.tablet
-        : isDesktop
-          ? ResponsiveLayout.pagePadding.desktop
-          : ResponsiveLayout.pagePadding.tablet;
+  let pagePadding;
+  if (landscapeCompact) {
+    pagePadding = ResponsiveLayout.pagePadding.landscapePhone;
+  } else {
+    if (isPhone) {
+      pagePadding = ResponsiveLayout.pagePadding.phone;
+    } else {
+      if (isTablet) {
+        pagePadding = ResponsiveLayout.pagePadding.tablet;
+      } else {
+        if (isDesktop) {
+          pagePadding = ResponsiveLayout.pagePadding.desktop;
+        } else {
+          pagePadding = ResponsiveLayout.pagePadding.tablet;
+        }
+      }
+    }
+  }
 
   return (
     <View
@@ -48,7 +57,13 @@ export function StoryNavigation({
       <AppButton
         accessibilityLabel={previousAccessibilityLabel ?? 'Bumalik sa nakaraang paksa'}
         compact={compact}
-        density={landscapeCompact ? 'heroCompact' : undefined}
+        density={(() => {
+          if (landscapeCompact) {
+            return 'heroCompact';
+          } else {
+            return undefined;
+          }
+        })()}
         disabled={disabled || !onPrevious}
         fullWidth={false}
         label={FilipinoLabels.back}
@@ -57,12 +72,30 @@ export function StoryNavigation({
         style={[styles.button, landscapeCompact && { minHeight: 44 }]}
       />
       <AppButton
-        accessibilityLabel={nextAccessibilityLabel ?? (isLast ? 'Bumalik sa mga paksa' : 'Susunod na paksa')}
+        accessibilityLabel={nextAccessibilityLabel ?? ((() => {
+          if (isLast) {
+            return 'Bumalik sa mga paksa';
+          } else {
+            return 'Susunod na paksa';
+          }
+        })())}
         compact={compact}
-        density={landscapeCompact ? 'heroCompact' : undefined}
+        density={(() => {
+          if (landscapeCompact) {
+            return 'heroCompact';
+          } else {
+            return undefined;
+          }
+        })()}
         disabled={disabled}
         fullWidth={false}
-        label={nextLabel ?? (isLast ? FilipinoLabels.topics : FilipinoLabels.next)}
+        label={nextLabel ?? ((() => {
+          if (isLast) {
+            return FilipinoLabels.topics;
+          } else {
+            return FilipinoLabels.next;
+          }
+        })())}
         onPress={onNext}
         pill
         style={[styles.button, landscapeCompact && { minHeight: 44 }]}

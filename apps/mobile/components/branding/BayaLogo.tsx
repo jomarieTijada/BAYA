@@ -1,5 +1,6 @@
+import { AccessibilityView, Text } from '../../localization/components';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Colors, FontFamily } from '../../constants/theme';
 
 type BayaLogoProps = {
@@ -15,7 +16,7 @@ const LETTERS = [
 
 export function BayaLogo({ size = 96 }: BayaLogoProps) {
   return (
-    <View
+    <AccessibilityView
       accessible
       accessibilityLabel="BAYA"
       accessibilityRole="header"
@@ -30,7 +31,7 @@ export function BayaLogo({ size = 96 }: BayaLogoProps) {
           {letter}
         </Text>
       ))}
-    </View>
+    </AccessibilityView>
   );
 }
 

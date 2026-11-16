@@ -24,11 +24,11 @@ it('demonstrates the gesture twice, then stays static across rerenders and bound
   expect(timing).not.toHaveBeenCalled();
   view.rerender(<SwipeHint direction="left" />);
   expect(screen.getByTestId('lesson-swipe-hint').props.pointerEvents).toBe('none');
-  expect(screen.getByLabelText('I-swipe pakaliwa')).toBeTruthy();
+  expect(screen.getByLabelText("Swipe left")).toBeTruthy();
   expect(timing.mock.calls.map(call => call[1].toValue)).toEqual([-7, 0, -7, 0]);
   view.rerender(<SwipeHint direction="left" />);
   view.rerender(<SwipeHint direction="right" />);
-  expect(screen.getByLabelText('I-swipe pakanan')).toBeTruthy();
+  expect(screen.getByLabelText("Swipe right")).toBeTruthy();
   expect(timing).toHaveBeenCalledTimes(4);
   expect(stop).toHaveBeenCalled();
   view.rerender(<SwipeHint direction={null} />);
@@ -38,6 +38,6 @@ it('keeps a visible static cue for reduced motion', () => {
   (useReducedMotionPreference as jest.Mock).mockReturnValue(true);
   const timing = jest.spyOn(Animated, 'timing');
   render(<SwipeHint direction="left" />);
-  expect(screen.getByLabelText('I-swipe pakaliwa')).toBeTruthy();
+  expect(screen.getByLabelText("Swipe left")).toBeTruthy();
   expect(timing).not.toHaveBeenCalled();
 });

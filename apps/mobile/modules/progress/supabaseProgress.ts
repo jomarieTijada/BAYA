@@ -12,10 +12,13 @@ const validDate = (value: string | null) => value === null || (typeof value === 
 function validLearner(value: LearnerProgressSummary): boolean {
   return !!value && typeof value.profileId === 'string' && typeof value.displayName === 'string'
     && typeof value.currentTopic === 'string' && validDate(value.lastSyncedAt)
-    && Number.isInteger(value.totalTopics) && value.totalTopics > 0
+    && Number.isInteger(value.totalTopics) && value.totalTopics >= 0
     && Number.isInteger(value.completedTopics) && value.completedTopics >= 0 && value.completedTopics <= value.totalTopics
     && Number.isInteger(value.stage) && value.stage > 0 && Number.isInteger(value.totalStages) && value.stage <= value.totalStages
-    && (value.percentage === null || (Number.isFinite(value.percentage) && value.percentage >= 0 && value.percentage <= 100));
+    && (value.lastSyncedAt === null || value.totalTopics === 0
+      ? value.percentage === null
+      : value.percentage === Math.round(100 * value.completedTopics / value.totalTopics)
+        && (value.percentage !== 100 || value.completedTopics === value.totalTopics));
 }
 export function createProgressServices({ mentor, learnerClient, snapshot, failure }: Dependencies): ProgressServices {
   const syncInFlight = new Map<string, Promise<Result<{ syncedAt: string }>>>();
@@ -55,7 +58,10 @@ export function createProgressServices({ mentor, learnerClient, snapshot, failur
     },
     dashboard: (id, offset = 0) => run(async () => {
       const result = await rpc<ProgressDashboard>(mentor, 'get_progress_dashboard', { p_workspace_id: id, p_offset: offset });
+      if (result.workspace?.workspace_id !== id) throw { code: '42501' };
       if (!Array.isArray(result.learners) || !result.learners.every(validLearner) || !result.workspace
+        || new Set(result.learners.map(learner => learner.profileId)).size !== result.learners.length
+        || result.learners.length > 50
         || typeof result.workspace.workspace_name !== 'string' || typeof result.workspace.workspace_code !== 'string'
         || !Number.isInteger(result.learnerCount) || result.learnerCount < result.learners.length || !validDate(result.lastSyncedAt)
         || !(result.nextOffset === null || (Number.isInteger(result.nextOffset) && result.nextOffset > offset))) throw new Error('Invalid dashboard');
@@ -63,6 +69,7 @@ export function createProgressServices({ mentor, learnerClient, snapshot, failur
     }),
     learner: (id, profileId) => run(async () => {
       const result = await rpc<{ learner: LearnerProgressSummary; topics: TopicProgress[] }>(mentor, 'get_learner_progress', { p_workspace_id: id, p_profile_id: profileId });
+      if (result.learner?.profileId !== profileId) throw { code: '42501' };
       if (!validLearner(result.learner) || !Array.isArray(result.topics) || !result.topics.every(t => t && typeof t.topicKey === 'string'
         && typeof t.title === 'string' && typeof t.moduleTitle === 'string' && validDate(t.completedAt))) throw new Error('Invalid learner progress');
       return result;

@@ -7,7 +7,9 @@ import { CloudServicesContext, pendingCloudServices, type CloudServices } from '
 import { progressPreviewServices } from '../../../debug/workspaces/progressFixtures';
 const mockPush=jest.fn();
 const mockReplace=jest.fn();
-jest.mock('expo-router',()=>({router:{push:(...args:unknown[])=>mockPush(...args),replace:(...args:unknown[])=>mockReplace(...args)},useFocusEffect:(cb:()=>void)=>require('react').useEffect(cb,[cb])}));
+const mockBack=jest.fn();
+const mockCanGoBack=jest.fn(()=>true);
+jest.mock('expo-router',()=>({router:{back:()=>mockBack(),canGoBack:()=>mockCanGoBack(),push:(...args:unknown[])=>mockPush(...args),replace:(...args:unknown[])=>mockReplace(...args)},useFocusEffect:(cb:()=>void)=>require('react').useEffect(cb,[cb])}));
 jest.mock('react-native-safe-area-context',()=>({SafeAreaView:require('react-native').View,useSafeAreaInsets:()=>({top:0,bottom:0,left:0,right:0})}));
 jest.mock('../../../ui/AppIcon',()=>({AppIcon:()=>null}));
 const mount=(services:CloudServices)=>render(<CloudServicesContext.Provider value={services}><SettingsScreen /></CloudServicesContext.Provider>);
@@ -68,4 +70,11 @@ it('explains pending approval without inviting another join or enabling sync',()
  expect(screen.getByText('Your request is with your mentor.')).toBeTruthy();
  expect(screen.queryByLabelText('Join workspace')).toBeNull();
  expect(screen.queryByLabelText('Sync learning progress')).toBeNull();
+});
+
+it('returns to the mounted activity when Settings was pushed over it',async()=>{
+ mount(pendingCloudServices);
+ fireEvent.press(screen.getByLabelText('Back'));
+ expect(mockBack).toHaveBeenCalledTimes(1);
+ expect(mockReplace).not.toHaveBeenCalled();
 });

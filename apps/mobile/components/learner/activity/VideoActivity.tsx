@@ -1,5 +1,6 @@
+import { AccessibilityView, Pressable, Text } from '../../../localization/components';
 import React, { useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { Colors, FontFamily, Radius, Shadows, Spacing } from '../../../constants/theme';
 import { AppIcon } from '../../ui/AppIcon';
@@ -46,7 +47,13 @@ export function VideoActivity({
       {/* Top Badge & Video Title */}
       <View style={styles.header}>
         <View style={styles.badge}>
-          <AppIcon color="accent" name="video" size={landscapeCompact ? 13 : 16} />
+          <AppIcon color="accent" name="video" size={(() => {
+            if (landscapeCompact) {
+              return 13;
+            } else {
+              return 16;
+            }
+          })()} />
           <Text style={styles.badgeText}>PANIMULANG VIDEO</Text>
         </View>
         <Text
@@ -62,7 +69,7 @@ export function VideoActivity({
       </View>
 
       {/* Video Player Card Frame */}
-      <View
+      <AccessibilityView
         accessibilityLabel={`Pampalabas ng video: ${video.title}`}
         accessibilityRole="image"
         style={[
@@ -72,9 +79,21 @@ export function VideoActivity({
         ]}
       >
         <Pressable
-          accessibilityHint={isPlaying ? 'Ihinto muna ang video' : 'Panoorin ang video tungkol sa Baybayin'}
+          accessibilityHint={(() => {
+            if (isPlaying) {
+              return 'Ihinto muna ang video';
+            } else {
+              return 'Panoorin ang video tungkol sa Baybayin';
+            }
+          })()}
           accessibilityLabel={
-            isPlaying ? 'Ihinto muna ang panimulang video' : 'Panoorin ang panimulang video'
+            (() => {
+              if (isPlaying) {
+                return 'Ihinto muna ang panimulang video';
+              } else {
+                return 'Panoorin ang panimulang video';
+              }
+            })()
           }
           accessibilityRole="button"
           onBlur={() => setPlayFocused(false)}
@@ -104,22 +123,50 @@ export function VideoActivity({
           >
             <AppIcon
               color="onPrimary"
-              name={isPlaying ? 'close' : 'play'}
-              size={landscapeCompact ? 24 : compact ? 28 : 36}
+              name={(() => {
+                if (isPlaying) {
+                  return 'close';
+                } else {
+                  return 'play';
+                }
+              })()}
+              size={(() => {
+                if (landscapeCompact) {
+                  return 24;
+                } else {
+                  if (compact) {
+                    return 28;
+                  } else {
+                    return 36;
+                  }
+                }
+              })()}
             />
           </View>
 
           {/* Video Status Meta Overlay */}
           <View style={styles.playerMeta}>
             <Text style={styles.playerStatusText}>
-              {isPlaying ? 'Ipinapalabas ang Video' : video.durationText ? `Panoorin · ${video.durationText}` : 'Panoorin ang Video'}
+              {(() => {
+                if (isPlaying) {
+                  return 'Ipinapalabas ang Video';
+                } else {
+                  if (video.durationText) {
+                    return `Panoorin · ${video.durationText}`;
+                  } else {
+                    return 'Panoorin ang Video';
+                  }
+                }
+              })()}
             </Text>
           </View>
         </Pressable>
-      </View>
+      </AccessibilityView>
 
       {/* Video Content Placeholder Layout */}
-      {!video.isAvailable ? (
+      {(() => {
+        if (!video.isAvailable) {
+          return (
         <View
           style={[
             styles.placeholderCard,
@@ -127,7 +174,13 @@ export function VideoActivity({
             landscapeCompact && styles.placeholderCardLandscapeCompact,
           ]}
         >
-          <AppIcon color="muted" name="cloud" size={compact ? 18 : 22} />
+          <AppIcon color="muted" name="cloud" size={(() => {
+            if (compact) {
+              return 18;
+            } else {
+              return 22;
+            }
+          })()} />
           <View style={styles.placeholderTextWrapper}>
             <Text
               style={[
@@ -148,14 +201,24 @@ export function VideoActivity({
               Ang video na &ldquo;{video.title}&rdquo; ay awtomatikong maglo-load kapag nakakabit ang media file o remote stream.
             </Text>
           </View>
-          {isWatched ? (
+          {(() => {
+            if (isWatched) {
+              return (
             <View style={styles.watchedBadge}>
               <AppIcon color="success" name="check" size={14} />
               <Text style={styles.watchedText}>Napanood na</Text>
             </View>
-          ) : null}
+          );
+            } else {
+              return null;
+            }
+          })()}
         </View>
-      ) : null}
+      );
+        } else {
+          return null;
+        }
+      })()}
     </View>
   );
 }

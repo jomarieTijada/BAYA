@@ -35,7 +35,7 @@ describe('writing achievement stars', () => {
     expect(screen.getByTestId('writing-milestone-1-complete')).toBeTruthy();
     expect(screen.getByTestId('writing-milestone-2-pending')).toBeTruthy();
     expect(spring).toHaveBeenCalledTimes(1);
-    expect(screen.getByLabelText('Isa sa dalawang bituin ang nakuha.')).toBeTruthy();
+    expect(screen.getByLabelText("One of two stars earned.")).toBeTruthy();
     view.rerender(<WritingMasteryIndicator count={1} />);
     expect(spring).toHaveBeenCalledTimes(1);
     view.rerender(<WritingMasteryIndicator count={2} />);

@@ -1,5 +1,6 @@
+import { Text } from '../../../localization/components';
 import React from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import type { VideoIntroduction } from '../../../content/types';
 import { FontFamily, Spacing } from '../../../constants/theme';
 import { BayaMascot } from '../../branding/BayaMascot';
@@ -8,7 +9,17 @@ import { BayaMascot } from '../../branding/BayaMascot';
 export function LessonVideoIntroduction({ introduction, compact = false, landscapeCompact = false }: { introduction: VideoIntroduction; compact?: boolean; landscapeCompact?: boolean }) {
   return <ScrollView style={styles.slide} contentContainerStyle={[styles.introduction, compact && styles.compact, landscapeCompact && styles.landscape]} testID="lesson-video-introduction">
     <View style={[styles.content, landscapeCompact && styles.contentLandscape]}>
-      <BayaMascot decorative size={landscapeCompact ? 80 : compact ? 144 : 220} state="wave" autoplay={process.env.NODE_ENV !== 'test'} />
+      <BayaMascot decorative size={(() => {
+        if (landscapeCompact) {
+          return 80;
+        } else {
+          if (compact) {
+            return 144;
+          } else {
+            return 220;
+          }
+        }
+      })()} state="wave" autoplay={process.env.NODE_ENV !== 'test'} />
       <Text accessibilityRole="header" style={[styles.title, compact && styles.titleCompact, landscapeCompact && styles.titleLandscape]}>{introduction.title}</Text>
       <Text style={[styles.body, compact && styles.bodyCompact, landscapeCompact && styles.bodyLandscape]}>{introduction.body}</Text>
     </View>

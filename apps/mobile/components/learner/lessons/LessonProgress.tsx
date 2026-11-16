@@ -1,5 +1,6 @@
+import { AccessibilityView, Text } from '../../../localization/components';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { Colors, FontFamily, Radius, Spacing } from '../../../constants/theme';
 
@@ -23,7 +24,7 @@ export function LessonProgress({
   const clampedPercentage = Math.min(Math.max(percentage, 0), 100);
 
   return (
-    <View
+    <AccessibilityView
       accessibilityLabel={`Overall Basics Progress: ${clampedPercentage}%`}
       accessibilityRole="progressbar"
       accessibilityValue={{
@@ -73,7 +74,7 @@ export function LessonProgress({
           />
         </View>
       </View>
-    </View>
+    </AccessibilityView>
   );
 }
 

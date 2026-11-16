@@ -1,5 +1,8 @@
+import { useActivityResume } from '../../../modules/resume/ActivityResumeBoundary';
+import { useLocalizedAlert } from '../../../localization/useLocalizedAlert';
+import { Text } from '../../../localization/components';
 import React, { useEffect, useRef, useState } from 'react';
-import { Alert, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useRouter } from 'expo-router';
 
 import { useResponsiveLayout } from '../../../hooks/useResponsiveLayout';
@@ -19,22 +22,40 @@ import { LessonVideoIntroduction } from './LessonVideoIntroduction';
 
 /** Renders every approved topic section inside one shared storybook shell. */
 export function StorybookTopicScreen({ topicId, initialPage = 'introduction' }: { topicId: string; initialPage?: 'introduction' | 'content' }) {
+  const resume = useActivityResume();
+  if (resume?.initial.draft.kind === 'story') initialPage = resume.initial.draft.page;
   return <StorybookTopicSession key={`${topicId}:${initialPage}`} topicId={topicId} initialPage={initialPage} />;
 }
 
 function StorybookTopicSession({ topicId, initialPage }: { topicId: string; initialPage: 'introduction' | 'content' }) {
+  const resume = useActivityResume();
+  const localizedAlert = useLocalizedAlert();
   const router = useRouter();
   const { isCompactHeight, isPhone, isPhoneLandscape, isTablet } = useResponsiveLayout();
   const compact = isPhone || isTablet || isCompactHeight;
   const [loaded, setLoaded] = useState<TopicActivityData | null>(null);
   const [isAdvancing, setIsAdvancing] = useState(false);
-  const [videoTopic, setVideoTopic] = useState<string | null>(initialPage === 'content' ? topicId : null);
+  const [videoTopic, setVideoTopic] = useState<string | null>((() => {
+    if (initialPage === 'content') {
+      return topicId;
+    } else {
+      return null;
+    }
+  })());
   const advancing = useRef(false);
-  const data = getApprovedStorybookActivity(topicId) ?? (loaded?.id === topicId ? loaded : null);
+  const data = getApprovedStorybookActivity(topicId) ?? ((() => {
+    if (loaded?.id === topicId) {
+      return loaded;
+    } else {
+      return null;
+    }
+  })());
   const module = approvedCurriculum.find((item) => item.topics.some((topic) => topic.id === topicId));
   const index = module?.topics.findIndex((topic) => topic.id === topicId) ?? -1;
   const hasIntroduction = Boolean(data?.video.introduction && data.video.isAvailable && data.video.source);
   const showIntroduction = hasIntroduction && videoTopic !== topicId;
+  const updateResume = resume?.update;
+  useEffect(() => { updateResume?.({ kind: 'story', page: showIntroduction ? 'introduction' : 'content' }, true); }, [showIntroduction, updateResume]);
 
   useEffect(() => {
     // Approved story content is already available synchronously. Avoid starting
@@ -58,16 +79,29 @@ function StorybookTopicSession({ topicId, initialPage }: { topicId: string; init
     if (advancing.current || !module) return;
     advancing.current = true;
     setIsAdvancing(true);
-    const target = index < module.topics.length - 1 ? module.topics[index + 1].id : '/learner/lessons';
+    let target;
+    if (index < module.topics.length - 1) {
+      target = module.topics[index + 1].id;
+    } else {
+      target = '/learner/lessons';
+    }
     try {
       if (__DEV__) console.info('[BAYA Progress] request topicId=%s source=story_next target=%s', topicId, target);
-      await localLearnerService.completeTopic(topicId);
+      if (resume) await localLearnerService.completeTopic(topicId, undefined, resume.initial.profileId);
+      else await localLearnerService.completeTopic(topicId);
+      if (resume && !resume.isActive()) return;
       if (__DEV__) console.info('[BAYA Progress] navigate topicId=%s target=%s', topicId, target);
       if (index < module.topics.length - 1) openTopic(module.topics[index + 1].id);
       else backToTopics();
     } catch (error) {
-      if (__DEV__) console.warn('[BAYA Progress] request topicId=%s status=failed', topicId, { error, stack: error instanceof Error ? error.stack : undefined });
-      Alert.alert('Could not save progress', 'Please try again.');
+      if (__DEV__) console.warn('[BAYA Progress] request topicId=%s status=failed', topicId, { error, stack: (() => {
+        if (error instanceof Error) {
+          return error.stack;
+        } else {
+          return undefined;
+        }
+      })() });
+      localizedAlert('Could not save progress', 'Please try again.');
     } finally {
       advancing.current = false;
       setIsAdvancing(false);
@@ -75,9 +109,12 @@ function StorybookTopicSession({ topicId, initialPage }: { topicId: string; init
   };
 
   const step = data?.steps[0] ?? null;
-  const content = step && ['story', 'slide', 'concept'].includes(step.type) && step.content && 'content' in step.content
-    ? step.content
-    : null;
+  let content;
+  if (step && ['story', 'slide', 'concept'].includes(step.type) && step.content && 'content' in step.content) {
+    content = step.content;
+  } else {
+    content = null;
+  }
   if (!module || !data || !content) {
     return (
       <LearnerAppShell
@@ -109,13 +146,45 @@ function StorybookTopicSession({ topicId, initialPage }: { topicId: string; init
       footer={(
         <StoryNavigation
           disabled={isAdvancing}
-          onPrevious={!showIntroduction && hasIntroduction
-            ? () => setVideoTopic(null)
-            : index > 0 ? () => openTopic(module.topics[index - 1].id) : undefined}
-          previousAccessibilityLabel={!showIntroduction && hasIntroduction ? 'Bumalik sa panimula' : undefined}
-          onNext={showIntroduction ? () => setVideoTopic(topicId) : completeAndNext}
-          nextLabel={showIntroduction ? 'Panoorin ang Video' : undefined}
-          nextAccessibilityLabel={showIntroduction ? 'Panoorin ang Video' : undefined}
+          onPrevious={(() => {
+            if (!showIntroduction && hasIntroduction) {
+              return () => setVideoTopic(null);
+            } else {
+              if (index > 0) {
+                return () => openTopic(module.topics[index - 1].id);
+              } else {
+                return undefined;
+              }
+            }
+          })()}
+          previousAccessibilityLabel={(() => {
+            if (!showIntroduction && hasIntroduction) {
+              return 'Bumalik sa panimula';
+            } else {
+              return undefined;
+            }
+          })()}
+          onNext={(() => {
+            if (showIntroduction) {
+              return () => setVideoTopic(topicId);
+            } else {
+              return completeAndNext;
+            }
+          })()}
+          nextLabel={(() => {
+            if (showIntroduction) {
+              return 'Panoorin ang Video';
+            } else {
+              return undefined;
+            }
+          })()}
+          nextAccessibilityLabel={(() => {
+            if (showIntroduction) {
+              return 'Panoorin ang Video';
+            } else {
+              return undefined;
+            }
+          })()}
           isLast={index === module.topics.length - 1}
         />
       )}
@@ -131,24 +200,42 @@ function StorybookTopicSession({ topicId, initialPage }: { topicId: string; init
       )}
       testID="storybook-topic-screen"
     >
-      {showIntroduction && data.video.introduction ? (
+      {(() => {
+        if (showIntroduction && data.video.introduction) {
+          return (
         <LessonVideoIntroduction introduction={data.video.introduction} compact={compact} landscapeCompact={isPhoneLandscape} />
-      ) : <StoryPage
+      );
+        } else {
+          return <StoryPage
         content={content}
         headerTitle={data.title}
         compact={compact}
         landscapeCompact={isPhoneLandscape}
-        visual={data.video.isAvailable && data.video.source ? (
+        visual={(() => {
+          if (data.video.isAvailable && data.video.source) {
+            return (
           <VideoPlayer
             compact={compact}
             isLandscapeCompact={isPhoneLandscape}
             source={data.video.source}
-            startAtSeconds={data.id === 'topic-1-1' ? BAYBAYIN_VIDEO_START_SECONDS : 0}
+            startAtSeconds={(() => {
+              if (data.id === 'topic-1-1') {
+                return BAYBAYIN_VIDEO_START_SECONDS;
+              } else {
+                return 0;
+              }
+            })()}
             title={data.video.title}
             testID="topic-intro-video-player"
           />
-        ) : undefined}
-      />}
+        );
+          } else {
+            return undefined;
+          }
+        })()}
+      />;
+        }
+      })()}
     </LearnerAppShell>
   );
 }

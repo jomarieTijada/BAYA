@@ -1,8 +1,9 @@
+import { Text } from '../../localization/components';
 import { useCloudRead } from '../../modules/progress/useCloudRead';
 import { JoinRequestStatus } from './JoinRequestStatus';
 import React, { useCallback, useState } from 'react';
 import { Redirect, router, useLocalSearchParams } from 'expo-router';
-import { Text, View, useWindowDimensions } from 'react-native';
+import { View, useWindowDimensions } from 'react-native';
 import {
   useCloudServices,
   failureMessage,
@@ -24,7 +25,13 @@ const joinMessages = {
 };
 export function LearnerJoinWorkspaceScreen() {
   const { code } = useLocalSearchParams<{ code?: string }>();
-  return <Redirect href={typeof code === 'string' ? { pathname: '/learner/workspaces', params: { code } } : '/learner/workspaces'} />;
+  return <Redirect href={(() => {
+    if (typeof code === 'string') {
+      return { pathname: '/learner/workspaces', params: { code } };
+    } else {
+      return '/learner/workspaces';
+    }
+  })()} />;
 }
 function JoinWorkspaceForm({ visible, onClose, onSubmitted, initialCode }: {
   visible: boolean; onClose: () => void; onSubmitted: () => void; initialCode: string;
@@ -39,20 +46,110 @@ function JoinWorkspaceForm({ visible, onClose, onSubmitted, initialCode }: {
   const close = () => { if (!op.busy) { setConfirmation(undefined); onClose(); } };
   const submit = () => {
       const issue = codeError(code, services.policy); setError(issue); if (issue) return;
-      void op.run(() => services.workspaces.requestJoin ? services.workspaces.requestJoin(normalizeCode(code)) : Promise.resolve({ ok: false as const, code: 'unavailable' as const }), result => {
-        setConfirmation(result.kind === 'already_member' ? 'member' : result.kind === 'already_pending' ? 'pending' : 'sent');
+      void op.run(() => {
+        if (services.workspaces.requestJoin) {
+          return services.workspaces.requestJoin(normalizeCode(code));
+        } else {
+          return Promise.resolve({ ok: false as const, code: 'unavailable' as const });
+        }
+      }, result => {
+        setConfirmation((() => {
+          if (result.kind === 'already_member') {
+            return 'member';
+          } else {
+            if (result.kind === 'already_pending') {
+              return 'pending';
+            } else {
+              return 'sent';
+            }
+          }
+        })());
         setCode(''); onSubmitted();
       });
   };
-  return <BayaDialog visible={visible} variant={!confirmation ? 'form' : confirmation === 'member' ? 'success' : 'information'} icon="workspace"
-    title={!confirmation ? 'JOIN WORKSPACE' : confirmation === 'member' ? 'WORKSPACE JOINED!' : confirmation === 'pending' ? 'WAITING FOR APPROVAL' : 'JOIN REQUEST SENT!'}
-    description={!confirmation ? 'Enter the workspace code given by your mentor.' : confirmation === 'member' ? 'You are now connected to your mentor’s workspace.' : 'Your mentor will review your request.'}
-    detail={confirmation ? confirmation === 'member' ? 'Your workspace is available in My Workspaces.' : 'You can keep learning while you wait.' : undefined}
-    closeLabel={!confirmation ? 'Close join workspace' : undefined} onDismiss={close}
-    primaryAction={confirmation ? { label: confirmation === 'member' ? 'MY WORKSPACES' : 'CONTINUE LEARNING', onPress: () => { close(); if (confirmation !== 'member') router.replace('/learner/home'); } } : { label: 'JOIN WORKSPACE', loading: op.busy, onPress: submit }}>
+  return <BayaDialog visible={visible} variant={(() => {
+    if (!confirmation) {
+      return 'form';
+    } else {
+      if (confirmation === 'member') {
+        return 'success';
+      } else {
+        return 'information';
+      }
+    }
+  })()} icon="workspace"
+    title={(() => {
+      if (!confirmation) {
+        return 'JOIN WORKSPACE';
+      } else {
+        if (confirmation === 'member') {
+          return 'WORKSPACE JOINED!';
+        } else {
+          if (confirmation === 'pending') {
+            return 'WAITING FOR APPROVAL';
+          } else {
+            return 'JOIN REQUEST SENT!';
+          }
+        }
+      }
+    })()}
+    description={(() => {
+      if (!confirmation) {
+        return 'Enter the workspace code given by your mentor.';
+      } else {
+        if (confirmation === 'member') {
+          return 'You are now connected to your mentor’s workspace.';
+        } else {
+          return 'Your mentor will review your request.';
+        }
+      }
+    })()}
+    detail={(() => {
+      if (confirmation) {
+        if (confirmation === 'member') {
+          return 'Your workspace is available in My Workspaces.';
+        } else {
+          return 'You can keep learning while you wait.';
+        }
+      } else {
+        return undefined;
+      }
+    })()}
+    closeLabel={(() => {
+      if (!confirmation) {
+        return 'Close join workspace';
+      } else {
+        return undefined;
+      }
+    })()} onDismiss={close}
+    primaryAction={(() => {
+      if (confirmation) {
+        return { label: (() => {
+      if (confirmation === 'member') {
+        return 'MY WORKSPACES';
+      } else {
+        return 'CONTINUE LEARNING';
+      }
+    })(), onPress: () => { close(); if (confirmation !== 'member') router.replace('/learner/home'); } };
+      } else {
+        return { label: 'JOIN WORKSPACE', loading: op.busy, onPress: submit };
+      }
+    })()}>
     {!confirmation && <View style={{ gap: 10 }}>
-      <AppTextInput density={compact ? 'compact' : 'form'} label="WORKSPACE CODE" required placeholder="Code from your mentor" autoCapitalize="characters" autoCorrect={false} returnKeyType="go" onSubmitEditing={submit} value={code} onChangeText={value => { setCode(value); setError(undefined); op.setMessage(''); }} error={error} editable={!op.busy} />
-      <Notice busy={op.busy} text={op.busy ? 'Sending your request…' : op.message} />
+      <AppTextInput density={(() => {
+        if (compact) {
+          return 'compact';
+        } else {
+          return 'form';
+        }
+      })()} label="WORKSPACE CODE" required placeholder="Code from your mentor" autoCapitalize="characters" autoCorrect={false} returnKeyType="go" onSubmitEditing={submit} value={code} onChangeText={value => { setCode(value); setError(undefined); op.setMessage(''); }} error={error} editable={!op.busy} />
+      <Notice busy={op.busy} text={(() => {
+        if (op.busy) {
+          return 'Sending your request…';
+        } else {
+          return op.message;
+        }
+      })()} />
     </View>}
   </BayaDialog>;
 }
@@ -76,9 +173,14 @@ export function LearnerMembershipScreen() {
         onPress={() => setJoining(true)}
       />
       <JoinRequestStatus revision={revision} onPendingChange={setPending} onApproved={refresh} suppressApprovedDialog={joining} />
-      {!result ? (
+      {(() => {
+        if (!result) {
+          return (
         <Notice busy text="Checking your workspaces…" />
-      ) : !result.ok ? (
+      );
+        } else {
+          if (!result.ok) {
+            return (
         <>
           <Notice text={failureMessage[result.code]} />
           <AppButton
@@ -87,28 +189,59 @@ export function LearnerMembershipScreen() {
             onPress={refresh}
           />
         </>
-      ) : result.data.length === 0 ? (
+      );
+          } else {
+            if (result.data.length === 0) {
+              return (
         <Text style={s.notice}>
-          {pending ? 'Your request is waiting for mentor approval.' : 'You haven’t joined a workspace yet. Ask your mentor for a code.'}
+          {(() => {
+            if (pending) {
+              return 'Your request is waiting for mentor approval.';
+            } else {
+              return 'You haven’t joined a workspace yet. Ask your mentor for a code.';
+            }
+          })()}
         </Text>
-      ) : (
+      );
+            } else {
+              return (
         result.data.map(({ workspace, membership }) => (
           <BaseCard key={membership.membership_id}>
             <View>
-              <Text style={[s.title, { fontSize: 24 }]}>
+              <Text style={[s.title, { fontSize: 24 }]} verbatim>
                 {workspace.workspace_name}
               </Text>
-              <Text selectable style={s.subtitle}>
+              <Text selectable style={s.subtitle} verbatim>
                 {workspace.workspace_code}
               </Text>
               <Text style={s.notice}>
-                {workspace.status !== 'active' ? 'Workspace inactive' : membership.is_active ? 'Joined' : 'Membership inactive'}
+                {(() => {
+                  if (workspace.status !== 'active') {
+                    return 'Workspace inactive';
+                  } else {
+                    if (membership.is_active) {
+                      return 'Joined';
+                    } else {
+                      return 'Membership inactive';
+                    }
+                  }
+                })()}
               </Text>
             </View>
           </BaseCard>
         ))
-      )}
-      <JoinWorkspaceForm visible={joining} onClose={() => setJoining(false)} initialCode={typeof params.code === 'string' ? params.code : ''} onSubmitted={() => { void refresh(); setRevision(value => value + 1); }} />
+      );
+            }
+          }
+        }
+      })()}
+      <JoinWorkspaceForm visible={joining} onClose={() => setJoining(false)} initialCode={(() => {
+        if (typeof params.code === 'string') {
+          return params.code;
+        } else {
+          return '';
+        }
+      })()} onSubmitted={() => { void refresh(); setRevision(value => value + 1); }} />
     </FeatureScreen>
   );
 }

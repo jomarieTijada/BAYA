@@ -1,5 +1,7 @@
+import { useLocalization } from '../../localization/LocalizationProvider';
+import { Text } from '../../localization/components';
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { ActivityIndicator, Platform, StyleSheet, Text, View } from "react-native";
+import { ActivityIndicator, Platform, StyleSheet, View } from 'react-native';
 import { useVideoPlayer, VideoView } from "expo-video";
 import { Colors, Radius, Spacing } from "../../constants/theme";
 import type { VideoPlayerProps } from "./MediaSource";
@@ -8,6 +10,7 @@ import { MediaFallback } from "./MediaFallback";
 import { createInitialVideoSeek } from './initialVideoSeek';
 
 export function VideoPlayer(props: VideoPlayerProps) {
+  const { text } = useLocalization();
   const [retryToken, setRetryToken] = useState(0);
   const media = useMediaSource(props.source, retryToken);
   const [failedUri, setFailedUri] = useState<string | null>(null);
@@ -66,17 +69,25 @@ export function VideoPlayer(props: VideoPlayerProps) {
       ]}
       testID={
         testID ||
-        `video-player-media-${Platform.OS === "web" ? "web" : "native"}`
+        `video-player-media-${(() => {
+          if (Platform.OS === "web") {
+            return "web";
+          } else {
+            return "native";
+          }
+        })()}`
       }
       >
-      {Platform.OS === "web" ? (
+      {(() => {
+        if (Platform.OS === "web") {
+          return (
         <video
           key={`${uri}:${retryToken}`}
           controls
           playsInline
           preload="metadata"
           src={uri}
-          aria-label={title}
+          aria-label={text(title)}
           style={{
             width: "100%",
             height: "100%",
@@ -115,7 +126,9 @@ export function VideoPlayer(props: VideoPlayerProps) {
             });
           }}
         />
-      ) : (
+      );
+        } else {
+          return (
         <NativeVideo
           key={`${uri}:${retryToken}:${startAtSeconds}`}
           uri={uri}
@@ -126,7 +139,9 @@ export function VideoPlayer(props: VideoPlayerProps) {
           onPlay={onPlay}
           onError={fail}
         />
-      )}
+      );
+        }
+      })()}
     </View>
   );
 }
@@ -191,11 +206,21 @@ function logVideoStatus(
     resolvedUri,
     platform: Platform.OS,
     event: status,
-    ...(details instanceof Error
-      ? { message: details.message }
-      : details && typeof details === "object"
-        ? details
-        : details ? { message: String(details) } : {}),
+    ...((() => {
+      if (details instanceof Error) {
+        return { message: details.message };
+      } else {
+        if (details && typeof details === "object") {
+          return details;
+        } else {
+          if (details) {
+            return { message: String(details) };
+          } else {
+            return {};
+          }
+        }
+      }
+    })()),
   });
 }
 

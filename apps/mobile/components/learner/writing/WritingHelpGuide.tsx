@@ -1,5 +1,7 @@
+import { AccessibilityView, Pressable, Text } from '../../../localization/components';
+import { useLocalization } from '../../../localization/LocalizationProvider';
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { Modal, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Modal, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
 import { SafeAreaInsetsContext } from 'react-native-safe-area-context';
 import { Colors, FontFamily, Radius, Spacing } from '../../../constants/theme';
 import { BAYA_WRITING_MASTERY_POLICY } from '../../../content/writingMastery';
@@ -18,6 +20,7 @@ const steps: { target: keyof WritingGuideTargets; emphasis: string; message: str
 
 /** Only measures targets and presents guidance. Never invokes a lesson action. */
 export function WritingHelpGuide({ targets, phase, onClose }: { targets?: WritingGuideTargets; phase: WritingActionPhase; onClose: () => void }) {
+  const { text: localized } = useLocalization();
   const [step, setStep] = useState(0);
   const [technical, setTechnical] = useState(false);
   const [measurement, setMeasurement] = useState<{ key: string; rect: GuideRect } | null>(null);
@@ -27,10 +30,29 @@ export function WritingHelpGuide({ targets, phase, onClose }: { targets?: Writin
   const { width, height } = useWindowDimensions();
   const insets = useContext(SafeAreaInsetsContext) ?? { top: 0, left: 0, right: 0, bottom: 0 };
   const current = steps[step];
-  const actualAction = step === 2 ? phase === 'ready' : step === 4 ? phase === 'complete' : true;
-  const targetRef = actualAction ? targets?.[current.target] : undefined;
+  let actualAction;
+  if (step === 2) {
+    actualAction = phase === 'ready';
+  } else {
+    if (step === 4) {
+      actualAction = phase === 'complete';
+    } else {
+      actualAction = true;
+    }
+  }
+  let targetRef;
+  if (actualAction) {
+    targetRef = targets?.[current.target];
+  } else {
+    targetRef = undefined;
+  }
   const measurementKey = `${step}:${width}:${height}:${actualAction}:${insets.top}:${insets.right}:${insets.bottom}:${insets.left}`;
-  const target = measurement?.key === measurementKey ? measurement.rect : null;
+  let target;
+  if (measurement?.key === measurementKey) {
+    target = measurement.rect;
+  } else {
+    target = null;
+  }
   useEffect(() => {
     let active = true;
     // Remeasure after responsive layout has settled, including orientation changes.
@@ -44,28 +66,50 @@ export function WritingHelpGuide({ targets, phase, onClose }: { targets?: Writin
     }), 120);
     return () => { active = false; clearTimeout(timer); };
   }, [targetRef, measurementKey, width, height, insets.top, insets.right, insets.bottom, insets.left]);
-  const cardWidth = Math.min(width < 900 ? 280 : 370, width - insets.left - insets.right - 24);
+  const cardWidth = Math.min((() => {
+    if (width < 900) {
+      return 280;
+    } else {
+      return 370;
+    }
+  })(), width - insets.left - insets.right - 24);
   const maxHeight = Math.max(100, height - insets.top - insets.bottom - 24);
   const position = placeWritingGuide(width, height, cardWidth, Math.min(cardHeight, maxHeight), insets, target);
   const { requiredValidAttempts, minConfidence } = BAYA_WRITING_MASTERY_POLICY;
-  const goal = requiredValidAttempts === 2 ? 'dalawang bituin' : `${requiredValidAttempts} bituin`;
-  const message = current.message.replace('dalawang bituin', goal);
-  const emphasis = current.emphasis.replace('dalawang bituin', goal);
-  const parts = message.includes(emphasis) ? message.split(emphasis) : ['', message];
+  let goal;
+  if (requiredValidAttempts === 2) {
+    goal = 'dalawang bituin';
+  } else {
+    goal = `${requiredValidAttempts} bituin`;
+  }
+  const message = localized(current.message.replace('dalawang bituin', goal));
+  const emphasis = localized(current.emphasis.replace('dalawang bituin', goal));
+  let parts;
+  if (message.includes(emphasis)) {
+    parts = message.split(emphasis);
+  } else {
+    parts = ['', message];
+  }
   const changeStep = (next: number) => { setStep(next); setTechnical(false); content.current?.scrollTo({ y: 0, animated: false }); };
 
   return <Modal transparent visible animationType="none" statusBarTranslucent onRequestClose={onClose} onShow={() => closeButton.current?.focus()}>
     <View style={styles.overlay} testID="writing-help-overlay">
       <View pointerEvents="none" style={StyleSheet.absoluteFill}>
-        {target ? <>
+        {(() => {
+          if (target) {
+            return <>
           <View style={[styles.shade, { left: 0, top: 0, right: 0, height: target.y }]} />
           <View style={[styles.shade, { left: 0, top: target.y + target.height, right: 0, bottom: 0 }]} />
           <View style={[styles.shade, { left: 0, top: target.y, width: target.x, height: target.height }]} />
           <View style={[styles.shade, { left: target.x + target.width, right: 0, top: target.y, height: target.height }]} />
           <View testID={`writing-guide-highlight-${current.target}`} style={[styles.highlight, { left: target.x, top: target.y, width: target.width, height: target.height }]} />
-        </> : <View style={[StyleSheet.absoluteFill, styles.shade]} />}
+        </>;
+          } else {
+            return <View style={[StyleSheet.absoluteFill, styles.shade]} />;
+          }
+        })()}
       </View>
-      <View accessibilityViewIsModal aria-modal accessibilityLabel="Gabay sa pagsulat" style={[styles.popup, { left: position.x, top: position.y, width: cardWidth, maxHeight }]} onLayout={event => setCardHeight(event.nativeEvent.layout.height)} testID="writing-help-popup">
+      <AccessibilityView accessibilityViewIsModal aria-modal accessibilityLabel="Gabay sa pagsulat" style={[styles.popup, { left: position.x, top: position.y, width: cardWidth, maxHeight }]} onLayout={event => setCardHeight(event.nativeEvent.layout.height)} testID="writing-help-popup">
         <View style={styles.header}>
           <Text accessibilityRole="header" style={styles.title}>Paano Makakuha ng Bituin?</Text>
           <Pressable ref={closeButton} accessibilityRole="button" accessibilityLabel="Isara ang gabay" onPress={onClose} style={styles.close}><AppIcon name="close" size={24} /></Pressable>
@@ -73,15 +117,57 @@ export function WritingHelpGuide({ targets, phase, onClose }: { targets?: Writin
         <ScrollView ref={content} style={styles.scroll} contentContainerStyle={styles.body} keyboardShouldPersistTaps="handled">
           <Text style={styles.step}>Gabay {step + 1} ng {steps.length}</Text>
           <Text accessibilityLiveRegion="polite" style={styles.message}>{parts[0]}<Text style={styles.emphasis}>{emphasis}</Text>{parts[1]}</Text>
-          {!target && <View style={styles.illustration} testID="writing-guide-illustration"><AppIcon name={current.icon} size={24} color="primaryText" /><Text style={styles.illustrationText}>{step === 2 ? 'Suriin' : step === 4 ? 'Susunod' : step === 3 ? goal : step === 1 ? 'Lugar ng pagsusulat' : 'Simbolong isusulat'}</Text></View>}
-          <Pressable accessibilityRole="button" aria-expanded={technical} accessibilityState={{ expanded: technical }} onPress={() => setTechnical(value => !value)} style={styles.disclosure} testID="writing-technical-toggle"><Text style={styles.disclosureText}>{technical ? 'Isara ang paliwanag' : 'Dagdag na Paliwanag'}</Text><AppIcon name={technical ? 'close' : 'add'} size={16} /></Pressable>
+          {!target && <View style={styles.illustration} testID="writing-guide-illustration"><AppIcon name={current.icon} size={24} color="primaryText" /><Text style={styles.illustrationText}>{(() => {
+            if (step === 2) {
+              return 'Suriin';
+            } else {
+              if (step === 4) {
+                return 'Susunod';
+              } else {
+                if (step === 3) {
+                  return goal;
+                } else {
+                  if (step === 1) {
+                    return 'Lugar ng pagsusulat';
+                  } else {
+                    return 'Simbolong isusulat';
+                  }
+                }
+              }
+            }
+          })()}</Text></View>}
+          <Pressable accessibilityRole="button" aria-expanded={technical} accessibilityState={{ expanded: technical }} onPress={() => setTechnical(value => !value)} style={styles.disclosure} testID="writing-technical-toggle"><Text style={styles.disclosureText}>{(() => {
+            if (technical) {
+              return 'Isara ang paliwanag';
+            } else {
+              return 'Dagdag na Paliwanag';
+            }
+          })()}</Text><AppIcon name={(() => {
+            if (technical) {
+              return 'close';
+            } else {
+              return 'add';
+            }
+          })()} size={16} /></Pressable>
           {technical && <View style={styles.technical} testID="writing-technical-details"><Text style={styles.note}>Kailangang ang unang nakilalang simbolo ni BAYA ay ang ipinapasulat, na may hindi bababa sa {Math.round(minConfidence * 100)}% kumpiyansa.</Text><Text style={styles.note}>Ang {Math.round(minConfidence * 100)}% ay kumpiyansa ni BAYA sa pagkilala, hindi grado ng iyong sulat.</Text><Text style={styles.note}>Bawat natanggap at bagong naitalang sulat ay isang bituin. Hindi binibilang muli ang parehong guhit. Kailangan ng {requiredValidAttempts} bituin upang magpatuloy.</Text></View>}
         </ScrollView>
         <View style={styles.navigation}>
           {step > 0 && <Pressable accessibilityRole="button" onPress={() => changeStep(step - 1)} style={styles.previous}><Text style={styles.previousText}>Bumalik</Text></Pressable>}
-          <Pressable accessibilityRole="button" onPress={() => step === steps.length - 1 ? onClose() : changeStep(step + 1)} style={styles.next}><Text style={styles.nextText}>{step === steps.length - 1 ? 'Tapos Na' : 'Susunod na Gabay'}</Text></Pressable>
+          <Pressable accessibilityRole="button" onPress={() => {
+            if (step === steps.length - 1) {
+              return onClose();
+            } else {
+              return changeStep(step + 1);
+            }
+          }} style={styles.next}><Text style={styles.nextText}>{(() => {
+            if (step === steps.length - 1) {
+              return 'Tapos Na';
+            } else {
+              return 'Susunod na Gabay';
+            }
+          })()}</Text></Pressable>
         </View>
-      </View>
+      </AccessibilityView>
     </View>
   </Modal>;
 }

@@ -1,6 +1,7 @@
+import { Pressable, Text } from '../../localization/components';
 import { useBayaToast } from '../ui/BayaNotifications';
 import React, { useState } from 'react';
-import { Platform, Pressable, Share, Text, View } from 'react-native';
+import { Platform, Share, View } from 'react-native';
 import { AppIcon } from '../ui/AppIcon';
 import { Colors } from '../../constants/theme';
 import { p } from './ProgressPage';

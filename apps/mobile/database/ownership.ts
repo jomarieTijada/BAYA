@@ -5,9 +5,13 @@ const OWNERSHIP_WAIT_MS = 8000;
 export type OwnershipState = 'idle' | 'acquiring' | 'waiting' | 'owner' | 'yielding' | 'releasing' | 'failed';
 
 export class DatabaseOwnershipController {
-  readonly sessionId = typeof crypto !== 'undefined' && 'randomUUID' in crypto
-    ? crypto.randomUUID()
-    : Math.random().toString(36).slice(2);
+  readonly sessionId = (() => {
+    if (typeof crypto !== 'undefined' && 'randomUUID' in crypto) {
+      return crypto.randomUUID();
+    } else {
+      return Math.random().toString(36).slice(2);
+    }
+  })();
 
   private state: OwnershipState = 'idle';
   private channel: BroadcastChannel | null = null;
@@ -56,7 +60,13 @@ export class DatabaseOwnershipController {
   }
 
   private log(state: OwnershipState): void {
-    console.info(`[BAYA DB Owner] session=${this.sessionId} state=${state}${this.knownOwner ? ` owner=${this.knownOwner}` : ''}`);
+    console.info(`[BAYA DB Owner] session=${this.sessionId} state=${state}${(() => {
+      if (this.knownOwner) {
+        return ` owner=${this.knownOwner}`;
+      } else {
+        return '';
+      }
+    })()}`);
     if (typeof navigator !== 'undefined' && navigator.locks?.query) {
       void navigator.locks.query().then(({ held, pending }) => {
         const relevant = (locks: LockInfo[]) => locks
@@ -130,7 +140,13 @@ export class DatabaseOwnershipController {
             (busy as Error & { code: string }).code = 'OPFS_LOCK_CONFLICT';
             reject(busy);
           } else {
-            reject(error instanceof Error ? error : new Error(String(error)));
+            reject((() => {
+              if (error instanceof Error) {
+                return error;
+              } else {
+                return new Error(String(error));
+              }
+            })());
           }
         }
       });

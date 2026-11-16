@@ -86,7 +86,13 @@ describe('Learner Home — English copy consistency', () => {
 
   describe('DashboardCards', () => {
     it.each(viewports)('shows English button labels at %ipx — no Filipino', (width) => {
-      mockViewport = { width, height: width < 600 ? 844 : 900 };
+      mockViewport = { width, height: (() => {
+        if (width < 600) {
+          return 844;
+        } else {
+          return 900;
+        }
+      })() };
       const view = renderDashboard();
 
       // English labels that MUST appear
@@ -132,7 +138,13 @@ describe('Learner Home — English copy consistency', () => {
 
   describe('LearnerHeader', () => {
     it.each(viewports)('keeps workspace actions inside settings at %ipx', async (width) => {
-      mockViewport = { width, height: width < 600 ? 844 : 900 };
+      mockViewport = { width, height: (() => {
+        if (width < 600) {
+          return 844;
+        } else {
+          return 900;
+        }
+      })() };
       const view = renderHeader();
 
       expect(screen.queryByText('Join Workspace')).toBeNull();

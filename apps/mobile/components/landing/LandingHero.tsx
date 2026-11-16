@@ -1,10 +1,8 @@
-import React from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { MascotOrigin } from './MascotOrigin';
+import { OriginStorybook } from './OriginStorybook';
+import { Text } from '../../localization/components';
+import React, { useState } from 'react';
+import { Platform, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { BayaLogo } from '../branding/BayaLogo';
 import { BayaMascot } from '../branding/BayaMascot';
@@ -23,6 +21,8 @@ type LandingHeroProps = {
 };
 
 export function LandingHero({ onLearnerPress, onMentorPress }: LandingHeroProps) {
+  // Keep the reading session mounted when the welcome layout changes on rotation.
+  const [storyOpen, setStoryOpen] = useState(false);
   const insets = useSafeAreaInsets();
   const {
     height,
@@ -38,26 +38,56 @@ export function LandingHero({ onLearnerPress, onMentorPress }: LandingHeroProps)
   const useWideLayout = isDesktop || isPhoneLandscape || isTabletLandscape;
   const compactControls = isPhone || isCompactHeight;
 
-  const mascotSize = isPhoneLandscape
-    ? Math.min(width * 0.42, height * 0.8, 300)
-    : useWideLayout
-      ? Math.min(width * 0.52, height * 0.86, isTablet ? 500 : 820)
-      : isPhonePortrait
-        ? Math.min(width - 64, height * 0.34, 280)
-        : Math.min(width * 0.58, height * 0.4, 390);
-  const logoSize = isPhoneLandscape
-    ? Math.min(66, height * 0.17)
-    : isPhonePortrait
-      ? width < 360 ? 52 : 60
-      : useWideLayout
-        ? Math.min(104, Math.max(72, width * 0.07))
-        : 76;
+  let mascotSize;
+  if (isPhoneLandscape) {
+    mascotSize = Math.min(width * 0.42, height * 0.8, 300);
+  } else {
+    if (useWideLayout) {
+      mascotSize = Math.min(width * 0.52, height * 0.86, (() => {
+        if (isTablet) {
+          return 500;
+        } else {
+          return 820;
+        }
+      })());
+    } else {
+      if (isPhonePortrait) {
+        mascotSize = Math.min(width - 64, height * 0.34, 280);
+      } else {
+        mascotSize = Math.min(width * 0.58, height * 0.4, 390);
+      }
+    }
+  }
+  let logoSize;
+  if (isPhoneLandscape) {
+    logoSize = Math.min(66, height * 0.17);
+  } else {
+    if (isPhonePortrait) {
+      if (width < 360) {
+        logoSize = 52;
+      } else {
+        logoSize = 60;
+      }
+    } else {
+      if (useWideLayout) {
+        logoSize = Math.min(104, Math.max(72, width * 0.07));
+      } else {
+        logoSize = 76;
+      }
+    }
+  }
 
   const tagline = (
     <Text
       style={[
         styles.tagline,
-        useWideLayout ? styles.taglineWide : styles.taglineStacked,
+        (() => {
+          if (useWideLayout) {
+            return styles.taglineWide;
+          } else {
+            return styles.taglineStacked;
+          }
+        })(),
         isPhone && styles.taglinePhone,
       ]}
     >
@@ -67,14 +97,26 @@ export function LandingHero({ onLearnerPress, onMentorPress }: LandingHeroProps)
 
   return (
     <SafeAreaView
-      edges={isPhoneLandscape ? ['left', 'right', 'bottom'] : ['top', 'bottom', 'left', 'right']}
+      edges={(() => {
+        if (isPhoneLandscape) {
+          return ['left', 'right', 'bottom'];
+        } else {
+          return ['top', 'bottom', 'left', 'right'];
+        }
+      })()}
       style={styles.safeArea}
     >
       <ScrollView
         bounces={false}
         contentContainerStyle={[
           styles.scrollContent,
-          useWideLayout ? styles.scrollContentWide : styles.scrollContentStacked,
+          (() => {
+            if (useWideLayout) {
+              return styles.scrollContentWide;
+            } else {
+              return styles.scrollContentStacked;
+            }
+          })(),
           isPhoneLandscape && styles.scrollContentPhoneLandscape,
           isPhonePortrait && styles.scrollContentPhonePortrait,
           { paddingBottom: Math.max(insets.bottom + Spacing.sm, Spacing.md) },
@@ -82,7 +124,9 @@ export function LandingHero({ onLearnerPress, onMentorPress }: LandingHeroProps)
         showsVerticalScrollIndicator={false}
         style={styles.scrollView}
       >
-        {useWideLayout ? (
+        {(() => {
+          if (useWideLayout) {
+            return (
           <View style={[styles.wideHero, isPhoneLandscape && styles.wideHeroPhone]}>
             <View style={[styles.mascotPane, isPhoneLandscape && styles.mascotPanePhone]}>
               <BayaMascot size={mascotSize} state="ambient" />
@@ -100,9 +144,12 @@ export function LandingHero({ onLearnerPress, onMentorPress }: LandingHeroProps)
                   onMentorPress={onMentorPress}
                 />
               </View>
+              <MascotOrigin compact={compactControls} onOpen={() => setStoryOpen(true)} />
             </View>
           </View>
-        ) : (
+        );
+          } else {
+            return (
           <View style={[styles.stackedHero, isPhonePortrait && styles.stackedHeroPhone]}>
             <BayaLogo size={logoSize} />
             <BayaMascot size={mascotSize} state="ambient" />
@@ -114,9 +161,16 @@ export function LandingHero({ onLearnerPress, onMentorPress }: LandingHeroProps)
                 onMentorPress={onMentorPress}
               />
             </View>
+            <MascotOrigin compact={compactControls} onOpen={() => setStoryOpen(true)} />
           </View>
-        )}
+        );
+          }
+        })()}
       </ScrollView>
+      {storyOpen && <OriginStorybook onClose={() => {
+        setStoryOpen(false);
+        if (Platform.OS === 'web') requestAnimationFrame(() => document.querySelector<HTMLElement>('[data-testid="mascot-origin-teaser"]')?.focus());
+      }} />}
     </SafeAreaView>
   );
 }

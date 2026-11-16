@@ -43,7 +43,13 @@ function loadWebFrame(source: number): Promise<void> {
 function useAnimationAssets(state: BayaMascotState) {
   const isTest = process.env.NODE_ENV === 'test';
   const [loadedState, setLoadedState] = useState<BayaMascotState | null>(
-    isTest ? state : null
+    (() => {
+      if (isTest) {
+        return state;
+      } else {
+        return null;
+      }
+    })()
   );
   const sources = useMemo(
     () => [...new Set(BAYA_PLAYBACK_TIMELINES[state].map((step) => step.source))],
@@ -56,9 +62,12 @@ function useAnimationAssets(state: BayaMascotState) {
     }
     let mounted = true;
 
-    const preload = Platform.OS === 'web' && typeof window !== 'undefined'
-      ? Promise.all(sources.map(loadWebFrame))
-      : Asset.loadAsync(sources);
+    let preload;
+    if (Platform.OS === 'web' && typeof window !== 'undefined') {
+      preload = Promise.all(sources.map(loadWebFrame));
+    } else {
+      preload = Asset.loadAsync(sources);
+    }
 
     preload
       .catch(() => [])
@@ -132,7 +141,11 @@ export function useBayaAnimation({
     const timer = setTimeout(() => {
       setStepIndex((currentIndex) => {
         const nextIndex = currentIndex + 1;
-        return nextIndex < timeline.length ? nextIndex : 0;
+        if (nextIndex < timeline.length) {
+          return nextIndex;
+        } else {
+          return 0;
+        }
       });
     }, currentStep.durationMs);
 

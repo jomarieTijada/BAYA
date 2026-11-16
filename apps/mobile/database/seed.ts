@@ -22,7 +22,13 @@ export const SEED_ACTIVITIES: readonly Activity[] = approvedCurriculum.flatMap((
   module.topics.map((topic, index) => ({
     activity_id: topic.id,
     lesson_id: module.id,
-    activity_type: module.id === 'module-3' ? 'writing' : 'concept',
+    activity_type: (() => {
+      if (module.id === 'module-3') {
+        return 'writing';
+      } else {
+        return 'concept';
+      }
+    })(),
     title: topic.title,
     sequence_no: index + 1,
   }))

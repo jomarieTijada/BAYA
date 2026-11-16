@@ -1,5 +1,6 @@
+import { Pressable } from '../../../localization/components';
 import React from "react";
-import { Pressable, View } from "react-native";
+import { View } from 'react-native';
 import { BayaMascot } from "../../branding/BayaMascot";
 import { AppIcon } from "../../ui/AppIcon";
 import { storyGuideStyles as styles } from "./storyGuideStyles";
@@ -31,14 +32,26 @@ export function StoryMascot({
     crop="default"
     decorative
     size={mascotWidth}
-    state={onPress ? "idle" : "wave"}
+    state={(() => {
+      if (onPress) {
+        return "idle";
+      } else {
+        return "wave";
+      }
+    })()}
   />;
   return (
     <View
       style={[
         styles.mascotContainer,
         {
-          height: fullBody ? mascotWidth : halfBodyHeight,
+          height: (() => {
+            if (fullBody) {
+              return mascotWidth;
+            } else {
+              return halfBodyHeight;
+            }
+          })(),
           width: mascotWidth,
         },
         isDesktop && styles.mascotContainerDesktop,
@@ -48,7 +61,9 @@ export function StoryMascot({
       ]}
       testID="baya-mascot"
     >
-      {onPress ? <Pressable
+      {(() => {
+        if (onPress) {
+          return <Pressable
         accessibilityLabel={accessibilityLabel}
         accessibilityRole="button"
         accessibilityState={{ selected: speaking }}
@@ -58,7 +73,11 @@ export function StoryMascot({
       >
         {mascot}
         <View style={[styles.mascotSoundIcon, fullBody && { bottom: Math.round(mascotWidth * 0.17), right: Math.round(mascotWidth * 0.21) }]}><AppIcon name="sound" color="onPrimary" size={16} /></View>
-      </Pressable> : mascot}
+      </Pressable>;
+        } else {
+          return mascot;
+        }
+      })()}
     </View>
   );
 }

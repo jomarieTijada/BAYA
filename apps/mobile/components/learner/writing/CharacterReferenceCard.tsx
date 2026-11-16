@@ -1,5 +1,6 @@
+import { Image, Pressable, Text } from '../../../localization/components';
 import React from 'react';
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Colors, FontFamily, Radius, Spacing } from '../../../constants/theme';
 import type { WritingExercise } from '../../../content/writingLessonData';
 import { AppIcon } from '../../ui/AppIcon';
@@ -18,7 +19,13 @@ export function CharacterReferenceCard({ exercise, fullHeight = false, compact =
         <Text style={[styles.sound, dense && styles.denseSound]}>{exercise.sound}</Text>
       </View>
       <Pressable accessibilityLabel={`Pakinggan ang tunog ng ${exercise.romanization}`} accessibilityRole="button" onPress={() => { void pronounce(); }} style={({ pressed }) => [styles.soundButton, dense && styles.denseSoundButton, speaking && styles.speaking, pressed && styles.pressed]} testID="writing-sound-button">
-        <AppIcon name="sound" color="accent" size={dense ? 18 : 22} />
+        <AppIcon name="sound" color="accent" size={(() => {
+          if (dense) {
+            return 18;
+          } else {
+            return 22;
+          }
+        })()} />
       </Pressable>
     </View>
   </View>;

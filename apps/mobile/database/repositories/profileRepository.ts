@@ -83,9 +83,24 @@ export const profileRepository = {
     }
 
     const updatedAt = new Date().toISOString();
-    const displayName = updates.display_name !== undefined ? updates.display_name : existing.display_name;
-    const role = updates.role !== undefined ? updates.role : existing.role;
-    const authUserId = updates.auth_user_id !== undefined ? updates.auth_user_id : existing.auth_user_id;
+    let displayName;
+    if (updates.display_name !== undefined) {
+      displayName = updates.display_name;
+    } else {
+      displayName = existing.display_name;
+    }
+    let role;
+    if (updates.role !== undefined) {
+      role = updates.role;
+    } else {
+      role = existing.role;
+    }
+    let authUserId;
+    if (updates.auth_user_id !== undefined) {
+      authUserId = updates.auth_user_id;
+    } else {
+      authUserId = existing.auth_user_id;
+    }
 
     await db.runAsync(
       `UPDATE profiles

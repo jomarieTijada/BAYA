@@ -1,4 +1,4 @@
-import { appendStrokePoint, clampPoint, strokePath } from '../writingEngine';
+import { appendTouchPoint, clampTouchPoint, strokePath } from '../writingEngine';
 import { writingTopics } from '../writingLessonData';
 
 describe('Module 3 writing data and local feedback', () => {
@@ -9,9 +9,9 @@ describe('Module 3 writing data and local feedback', () => {
   });
 
   it('keeps normalized input bounded and produces drawable paths', () => {
-    const point = clampPoint(-2, 3);
+    const point = clampTouchPoint(-2, 3);
     expect(point).toEqual({ x: 0, y: 1 });
-    const strokes = appendStrokePoint([[{ x: 0.1, y: 0.2 }]], { x: 0.2, y: 0.3 });
+    const strokes = appendTouchPoint([[{ x: 0.1, y: 0.2 }]], { x: 0.2, y: 0.3 });
     expect(strokePath(strokes[0])).toContain('L200.0,300.0');
     const curved = strokePath([{ x: 0, y: 0 }, { x: 0.5, y: 1 }, { x: 1, y: 0 }]);
     expect(curved).toContain('Q500.0,1000.0 750.0,500.0');

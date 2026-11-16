@@ -15,9 +15,13 @@ export function StoryIllustration({
   caption = "Larawan ng aralin",
   ...props
 }: StoryIllustrationProps) {
-  return source ? (
+  if (source) {
+    return (
     <ImageViewer source={source} label={caption} />
-  ) : (
+  );
+  } else {
+    return (
     <StoryImagePlaceholder {...props} />
   );
+  }
 }

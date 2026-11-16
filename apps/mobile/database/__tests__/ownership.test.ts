@@ -37,7 +37,13 @@ class FakeLocks {
 
   query(): Promise<LockManagerSnapshot> {
     return Promise.resolve({
-      held: this.held ? [{ name: 'baya_sqlite_opfs', mode: 'exclusive' }] : [],
+      held: (() => {
+        if (this.held) {
+          return [{ name: 'baya_sqlite_opfs', mode: 'exclusive' }];
+        } else {
+          return [];
+        }
+      })(),
       pending: this.pending.map(() => ({ name: 'baya_sqlite_opfs', mode: 'exclusive' })),
     } as LockManagerSnapshot);
   }

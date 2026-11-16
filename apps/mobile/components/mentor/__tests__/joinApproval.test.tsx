@@ -124,7 +124,13 @@ it.each(['approved', 'rejected'] as const)('reviews a request as %s then refresh
   });
   mount(<PendingJoinRequests workspaceId={request.workspace_id} onReviewed={onReviewed} />, { pendingRequests, reviewRequest });
   await screen.findByText('1 Pending');
-  fireEvent.press(screen.getByLabelText(`${decision === 'approved' ? 'Approve' : 'Reject'} Sample Learner`));
+  fireEvent.press(screen.getByLabelText(`${(() => {
+    if (decision === 'approved') {
+      return 'Approve';
+    } else {
+      return 'Reject';
+    }
+  })()} Sample Learner`));
   await screen.findByText('No pending join requests.');
   expect(reviewRequest).toHaveBeenCalledWith(request.request_id, decision);
   expect(onReviewed).toHaveBeenCalledTimes(1);
@@ -157,7 +163,13 @@ it('opens and copies the authoritative reference without reviewing the request',
 
 it('keeps a large list visible during refresh and a failed refresh, without duplicate reads', async () => {
   let resolve!: (r: Result<JoinRequest[]>) => void;
-  const requests = Array.from({ length: 24 }, (_, i) => ({ ...request, request_id: `request-${i}`, display_name: i ? `Learner ${i}` : '  ' }));
+  const requests = Array.from({ length: 24 }, (_, i) => ({ ...request, request_id: `request-${i}`, display_name: (() => {
+    if (i) {
+      return `Learner ${i}`;
+    } else {
+      return '  ';
+    }
+  })() }));
   const pendingRequests = jest.fn().mockResolvedValueOnce({ ok: true, data: requests }).mockImplementation(() => new Promise<Result<JoinRequest[]>>(r => { resolve = r; }));
   mount(<PendingJoinRequests workspaceId={request.workspace_id} onReviewed={jest.fn()} />, { pendingRequests });
   await screen.findByText('24 Pending');

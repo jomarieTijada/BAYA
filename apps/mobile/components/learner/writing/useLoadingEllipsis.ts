@@ -23,5 +23,9 @@ export function useLoadingEllipsis(active: boolean) {
     return () => clearInterval(interval);
   }, [active, reduceMotion]);
 
-  return !active || reduceMotion ? '...' : '.'.repeat(dots);
+  if (!active || reduceMotion) {
+    return '...';
+  } else {
+    return '.'.repeat(dots);
+  }
 }

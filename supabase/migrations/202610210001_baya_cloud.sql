@@ -1,5 +1,3 @@
--- Fresh-project migration. Fails rather than overwriting an existing schema.
--- The approved mentor link is profile_id (the ERD calls it learner_profile_id).
 begin;
 create schema if not exists baya_private;
 revoke all on schema baya_private from public;

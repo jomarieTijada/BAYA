@@ -135,7 +135,7 @@ describe("Media resilience", () => {
     });
     expect(screen.getByTestId("video-player-placeholder")).toBeTruthy();
     expect(onError).toHaveBeenCalledTimes(1);
-    fireEvent.press(screen.getByRole("button", { name: "Subukan muli" }));
+    fireEvent.press(screen.getByRole("button", { name: "Try again" }));
     expect(screen.getByLabelText("Lesson video").props.src).toBe(videoUri);
     expect(screen.queryByTestId("video-player-placeholder")).toBeNull();
     Platform.OS = old;
@@ -182,9 +182,9 @@ describe("Media resilience", () => {
     });
     (Asset.fromModule as jest.Mock).mockReturnValue(failingAsset);
     render(<VideoPlayer source={{ type: "local", source: 456 }} />);
-    expect(await screen.findByText("Handa na ang video para sa aralin na ito.")).toBeTruthy();
+    expect(await screen.findByText("The video is ready for this lesson.")).toBeTruthy();
     expect(screen.queryByText("private network detail")).toBeNull();
-    fireEvent.press(screen.getByRole("button", { name: "Subukan muli" }));
+    fireEvent.press(screen.getByRole("button", { name: "Try again" }));
     expect(await screen.findByTestId("video-player-media-native")).toBeTruthy();
     expect(failingAsset.downloadAsync).toHaveBeenCalledTimes(2);
     expect(useVideoPlayer).toHaveBeenLastCalledWith(
@@ -229,8 +229,8 @@ describe("Media resilience", () => {
       events.statusChange({ status: "error", error: { message: "failed" } }),
     );
     expect(screen.getByTestId("video-player-placeholder")).toBeTruthy();
-    expect(screen.getByText("Handa na ang video para sa aralin na ito.")).toBeTruthy();
-    expect(screen.getByRole("button", { name: "Subukan muli" })).toBeTruthy();
+    expect(screen.getByText("The video is ready for this lesson.")).toBeTruthy();
+    expect(screen.getByRole("button", { name: "Try again" })).toBeTruthy();
     view.unmount();
     expect(remove).toHaveBeenCalled();
     Platform.OS = old;

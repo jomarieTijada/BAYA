@@ -1,5 +1,7 @@
+import { useLocalization } from '../../../localization/LocalizationProvider';
+import { Text } from '../../../localization/components';
 import React from 'react';
-import { type LayoutChangeEvent, StyleSheet, Text, View } from 'react-native';
+import { type LayoutChangeEvent, StyleSheet, View } from 'react-native';
 
 import { BayaMascot } from '../../branding/BayaMascot';
 import { AppButton } from '../../ui/AppButton';
@@ -22,6 +24,7 @@ type ContinueLessonHeroProps = {
 };
 
 export function ContinueLessonHero({ lesson, onContinue, onLayout }: ContinueLessonHeroProps) {
+  const { t, text } = useLocalization();
   const {
     width,
     isCompactHeight,
@@ -32,14 +35,42 @@ export function ContinueLessonHero({ lesson, onContinue, onLayout }: ContinueLes
   const stacked = isPhonePortrait || isTabletPortrait;
   const compact = isPhoneLandscape || isCompactHeight;
   const landscapeCompact = isPhoneLandscape;
-  const mascotSize = stacked ? 190 : landscapeCompact ? 116 : compact ? 165 : width < 1100 ? 220 : 265;
+  let mascotSize;
+  if (stacked) {
+    mascotSize = 190;
+  } else {
+    if (landscapeCompact) {
+      mascotSize = 116;
+    } else {
+      if (compact) {
+        mascotSize = 165;
+      } else {
+        if (width < 1100) {
+          mascotSize = 220;
+        } else {
+          mascotSize = 265;
+        }
+      }
+    }
+  }
   const isComplete = lesson.status === 'completed';
-  const hasStarted = lesson.status
-    ? lesson.status === 'in_progress'
-    : lesson.steps.some((step) => step.status === 'completed');
-  const cleanCourse = lesson.course.trim();
-  const eyebrowText = `${isComplete ? FilipinoLabels.complete : hasStarted ? FilipinoLabels.continue : FilipinoLabels.begin} ${cleanCourse}`.toUpperCase();
-  const ctaLabel = isComplete ? FilipinoLabels.review : hasStarted ? FilipinoLabels.continue : FilipinoLabels.begin;
+  let hasStarted;
+  if (lesson.status) {
+    hasStarted = lesson.status === 'in_progress';
+  } else {
+    hasStarted = lesson.steps.some((step) => step.status === 'completed');
+  }
+  const eyebrowText = t(isComplete ? 'home.complete' : hasStarted ? 'home.continue' : 'home.begin', { course: text(lesson.course.trim()) }).toUpperCase();
+  let ctaLabel;
+  if (isComplete) {
+    ctaLabel = FilipinoLabels.review;
+  } else {
+    if (hasStarted) {
+      ctaLabel = FilipinoLabels.continue;
+    } else {
+      ctaLabel = FilipinoLabels.begin;
+    }
+  }
 
   return (
     <View
@@ -102,7 +133,17 @@ export function ContinueLessonHero({ lesson, onContinue, onLayout }: ContinueLes
             <AppIcon
               color="accent"
               name="pencil"
-              size={landscapeCompact ? 14 : compact ? 20 : 25}
+              size={(() => {
+                if (landscapeCompact) {
+                  return 14;
+                } else {
+                  if (compact) {
+                    return 20;
+                  } else {
+                    return 25;
+                  }
+                }
+              })()}
             />
           </View>
           <View style={styles.titleCopy}>
@@ -123,13 +164,25 @@ export function ContinueLessonHero({ lesson, onContinue, onLayout }: ContinueLes
                 landscapeCompact && styles.subtitleLandscapeCompact,
               ]}
             >
-              {isComplete ? 'Tapos na ang lahat ng paksa' : `Paksa ${lesson.currentStep} sa ${lesson.totalSteps}`}
+              {(() => {
+                if (isComplete) {
+                  return 'Tapos na ang lahat ng paksa';
+                } else {
+                  return `Paksa ${lesson.currentStep} sa ${lesson.totalSteps}`;
+                }
+              })()}
             </Text>
           </View>
         </View>
         <LessonStepProgress
           compact={compact}
-          density={landscapeCompact ? 'landscapeCompact' : undefined}
+          density={(() => {
+            if (landscapeCompact) {
+              return 'landscapeCompact';
+            } else {
+              return undefined;
+            }
+          })()}
           currentStep={lesson.currentStep}
           steps={lesson.steps}
           totalSteps={lesson.totalSteps}
@@ -145,12 +198,19 @@ export function ContinueLessonHero({ lesson, onContinue, onLayout }: ContinueLes
         ]}
       >
         <AppButton
-          accessibilityLabel={`${ctaLabel} ${lesson.title}`}
+          accessibilityLabel={`${text(ctaLabel)} ${text(lesson.title)}`}
           compact={stacked || compact}
-          density={landscapeCompact ? 'heroCompact' : undefined}
+          density={(() => {
+            if (landscapeCompact) {
+              return 'heroCompact';
+            } else {
+              return undefined;
+            }
+          })()}
           fullWidth={stacked}
           icon="chevronRight"
           label={ctaLabel}
+          style={{ minHeight: 44 }}
           onPress={onContinue}
           pill
         />

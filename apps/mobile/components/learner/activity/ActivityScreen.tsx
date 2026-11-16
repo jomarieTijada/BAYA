@@ -47,8 +47,20 @@ export function ActivityScreen(props: ActivityScreenProps) {
   }, [props.data, props.topicId]);
   const data =
     props.data ??
-    (loaded?.id === props.topicId ? loaded : null) ??
-    (props.topicId ? getActivityData(props.topicId) : null) ??
+    ((() => {
+      if (loaded?.id === props.topicId) {
+        return loaded;
+      } else {
+        return null;
+      }
+    })()) ??
+    ((() => {
+      if (props.topicId) {
+        return getActivityData(props.topicId);
+      } else {
+        return null;
+      }
+    })()) ??
     unavailableActivity(props.topicId ?? "");
   return <ActivitySession key={JSON.stringify(data)} {...props} data={data} />;
 }
@@ -69,11 +81,16 @@ function ActivitySession({
   // - Mobile: 100% width
   // - Tablet: max-width ~760px
   // - Desktop: max-width ~960px (900-1000px) centered
-  const contentMaxWidth: number | `${number}%` = isDesktop
-    ? 960
-    : isTablet
-      ? 760
-      : "100%";
+  let contentMaxWidth: number | `${number}%`;
+  if (isDesktop) {
+    contentMaxWidth = 960;
+  } else {
+    if (isTablet) {
+      contentMaxWidth = 760;
+    } else {
+      contentMaxWidth = "100%";
+    }
+  }
 
   // Retrieve data-driven activity content and sequential steps
   const activityData = data || unavailableActivity(topicId);
@@ -171,7 +188,13 @@ function ActivitySession({
   return (
     <LearnerAppShell
       activeRoute="/learner/lessons"
-      backgroundColor={!isVideoStep ? "#FFFDF7" : Colors.background}
+      backgroundColor={(() => {
+        if (!isVideoStep) {
+          return "#FFFDF7";
+        } else {
+          return Colors.background;
+        }
+      })()}
       header={(
         <ActivityHeader
           currentStep={currentStepIndex + 1}
@@ -195,12 +218,16 @@ function ActivitySession({
         <View
           style={[
             styles.learningCardContainer,
-            isVideoStep
-              ? { maxWidth: contentMaxWidth }
-              : [
+            (() => {
+              if (isVideoStep) {
+                return { maxWidth: contentMaxWidth };
+              } else {
+                return [
                   styles.storySpreadContainer,
                   isDesktop && styles.storySpreadContainerDesktop,
-                ],
+                ];
+              }
+            })(),
           ]}
           testID="activity-card-container"
         >
@@ -221,11 +248,17 @@ function ActivitySession({
             landscapeCompact={landscapeCompact}
             nextEnabled={isCurrentStepCompleted}
             nextIcon={
-              isVideoStep && isCurrentStepCompleted
-                ? "check"
-                : isFinalStep
-                  ? "arrowRight"
-                  : "arrowRight"
+              (() => {
+                if (isVideoStep && isCurrentStepCompleted) {
+                  return "check";
+                } else {
+                  if (isFinalStep) {
+                    return "arrowRight";
+                  } else {
+                    return "arrowRight";
+                  }
+                }
+              })()
             }
             nextLabel={currentStep.ctaLabel}
             onBack={handleBack}

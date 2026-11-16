@@ -24,7 +24,13 @@ export function ActivityHeader({
     <LearnerPageHeader
       onBack={onBack}
       onOpenSettings={onOpenSettings}
-      progress={totalSteps ? { current: currentStep ?? 1, total: totalSteps } : undefined}
+      progress={(() => {
+        if (totalSteps) {
+          return { current: currentStep ?? 1, total: totalSteps };
+        } else {
+          return undefined;
+        }
+      })()}
       subtitle={subtitle}
       testID="activity-header"
       title={title}

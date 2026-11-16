@@ -1,6 +1,8 @@
+import { useActivityResume } from '../../../modules/resume/ActivityResumeBoundary';
+import { useLocalizedAlert } from '../../../localization/useLocalizedAlert';
 import { getBaybayinTracingGuide } from '../../../content/baybayinTracingGuides';
 import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { Alert, Platform, ScrollView, StyleSheet, View } from 'react-native';
+import { Platform, ScrollView, StyleSheet, View } from 'react-native';
 import { useRouter } from 'expo-router';
 
 import { approvedCurriculum } from '../../../content/approvedCurriculum';
@@ -11,8 +13,10 @@ import { BAYA_CLASS_LABELS } from '../../../ml/bayaClassLabels';
 import { WritingMasteryIndicator } from './WritingMasteryIndicator';
 import { WritingInstructions } from './WritingInstructions';
 import { recognizeWriting } from '../../../ml/writingRecognition';
+import { assessRecognition, canAwardWritingMastery } from '../../../ml/recognitionReliability';
+import { BayaModelError } from '../../../ml/BayaModelError';
 import { preloadBayaModel } from '../../../ml/bayaModel';
-import { BAYA_RECOGNITION_MODEL_NAME, BAYA_RECOGNITION_MODEL_VERSION, BAYA_RECOGNITION_MODEL_URL } from '../../../ml/bayaModelConfig';
+import { BAYA_MODEL_CONFIG, BAYA_RECOGNITION_MODEL_NAME, BAYA_RECOGNITION_MODEL_VERSION, BAYA_RECOGNITION_MODEL_URL } from '../../../ml/bayaModelConfig';
 import { getBayaRuntimeDiagnostics } from '../../../ml/bayaRuntimeDiagnostics';
 import { getWritingTopic, writingTopics } from '../../../content/writingLessonData';
 import { Colors, Radius, ResponsiveLayout, Spacing } from '../../../constants/theme';
@@ -28,18 +32,24 @@ import { WritingCanvas, type WritingCanvasSize } from './WritingCanvas';
 import { WritingNavigation } from './WritingNavigation';
 import { WritingToolbar } from './WritingToolbar';
 import { getWritingLayout } from './writingLayout';
-import { rankPredictions, type RecognitionState } from './recognitionPresentation';
+import { presentTopPrediction, rankPredictions, type RecognitionState } from './recognitionPresentation';
 
 const module = approvedCurriculum.find(item => item.id === 'module-3')!;
 const totalExercises = writingTopics.reduce((sum, topic) => sum + topic.exercises.length, 0);
 
 function initialSelection(topicId: 'topic-3-1' | 'topic-3-2') {
-  const requestedClass = isBayaCaptureEnabled() ? new URLSearchParams(window.location.search).get('bayaTarget') : null;
+  let requestedClass;
+  if (isBayaCaptureEnabled()) {
+    requestedClass = new URLSearchParams(window.location.search).get('bayaTarget');
+  } else {
+    requestedClass = null;
+  }
   const requestedIndex = writingTopics.find(topic => topic.id === topicId)?.exercises.findIndex(exercise => exercise.characterId === requestedClass) ?? -1;
   return { topicId, index: Math.max(0, requestedIndex) };
 }
 
 export function WritingPracticeScreen({ topicId }: { topicId: 'topic-3-1' | 'topic-3-2' }) {
+  const resume = useActivityResume();
   useEffect(() => {
     if (Platform.OS === 'web') {
       void preloadBayaModel().catch(error => {
@@ -49,8 +59,8 @@ export function WritingPracticeScreen({ topicId }: { topicId: 'topic-3-1' | 'top
   }, []);
   // Preserve the explicit previous/next character selection across topic routes,
   // while remounting transient capture and mastery state for the new activity.
-  const [selection, setSelection] = useState(() => initialSelection(topicId));
-  const masteredCharacters = useRef(new Set<string>());
+  const [selection, setSelection] = useState(() => ({ ...initialSelection(topicId), ...(resume?.initial.draft.kind === 'writing' ? { index: resume.initial.draft.index } : {}) }));
+  const masteredCharacters = useRef(new Set<string>(Object.entries(resume?.counts ?? {}).filter(([, count]) => count >= BAYA_WRITING_MASTERY_POLICY.requiredValidAttempts).map(([id]) => `${topicId}:${id}`)));
   return <WritingPracticeSession key={topicId} topicId={topicId} selection={selection} setSelection={setSelection} masteredCharacters={masteredCharacters} />;
 }
 
@@ -60,6 +70,10 @@ function WritingPracticeSession({ topicId, selection, setSelection, masteredChar
   setSelection: React.Dispatch<React.SetStateAction<ReturnType<typeof initialSelection>>>;
   masteredCharacters: React.RefObject<Set<string>>;
 }) {
+  const resume = useActivityResume();
+  const restored = resume?.initial.draft.kind === 'writing' ? resume.initial.draft : null;
+  const initialCount = restored ? resume?.counts[restored.characterId] ?? 0 : 0;
+  const localizedAlert = useLocalizedAlert();
   const router = useRouter();
   const { width, height } = useResponsiveLayout();
   const referenceTarget = useRef<View>(null);
@@ -69,21 +83,24 @@ function WritingPracticeSession({ topicId, selection, setSelection, masteredChar
   const guideTargets = { reference: referenceTarget, canvas: canvasTarget, stars: starsTarget, action: actionTarget };
   const [available, setAvailable] = useState({ width, height });
   const { columns, compact, dense } = getWritingLayout(available.width, available.height);
-  const [strokes, setStrokes] = useState<StrokeData>([]);
-  const [canvasSize, setCanvasSize] = useState<WritingCanvasSize>({ width: 1, height: 1 });
+  const [strokes, setStrokes] = useState<StrokeData>(() => restored?.strokes ?? []);
+  const [canvasSize, setCanvasSize] = useState<WritingCanvasSize>({ width: restored?.width ?? 1, height: restored?.height ?? 1 });
   const currentStrokes = useRef(strokes);
   const currentSize = useRef(canvasSize);
-  const [requiresRedraw, setRequiresRedraw] = useState(false);
-  const [validCount, setValidCount] = useState(0);
-  const mastery = useRef(0);
-  const needsRedraw = useRef(false);
+  const [requiresRedraw, setRequiresRedraw] = useState(restored?.submitted ?? false);
+  const [validCount, setValidCount] = useState(initialCount);
+  const mastery = useRef(initialCount);
+  const needsRedraw = useRef(restored?.submitted ?? false);
   const evaluatedVersion = useRef(-1);
   const [recognition, setRecognition] = useState<RecognitionState>({ status: 'idle' });
   const [captureDownload, setCaptureDownload] = useState<BayaCaptureDownload | null>(null);
   useEffect(() => () => { if (captureDownload) URL.revokeObjectURL(captureDownload.url); }, [captureDownload]);
-  const mascotSize = dense
-    ? Math.min(64, Math.max(48, available.height * 0.17))
-    : Math.min(220, available.width * 0.17, available.height * 0.3);
+  let mascotSize;
+  if (dense) {
+    mascotSize = Math.min(64, Math.max(48, available.height * 0.17));
+  } else {
+    mascotSize = Math.min(220, available.width * 0.17, available.height * 0.3);
+  }
   const [busy, setBusy] = useState(false);
   const advancing = useRef(false);
   const completed = useRef(false);
@@ -91,8 +108,17 @@ function WritingPracticeSession({ topicId, selection, setSelection, masteredChar
   const drawingVersion = useRef(0);
   const topic = getWritingTopic(topicId);
   const topicIndex = writingTopics.findIndex(item => item.id === topicId);
-  const selectedIndex = selection.topicId === topicId ? selection.index : 0;
+  let selectedIndex;
+  if (selection.topicId === topicId) {
+    selectedIndex = selection.index;
+  } else {
+    selectedIndex = 0;
+  }
   const exercise = topic?.exercises[selectedIndex];
+  const updateResume = resume?.update;
+  useEffect(() => {
+    if (exercise) updateResume?.({ kind: 'writing', index: selectedIndex, characterId: exercise.characterId, strokes, width: canvasSize.width, height: canvasSize.height, submitted: requiresRedraw }, requiresRedraw || strokes.length === 0);
+  }, [selectedIndex, exercise, strokes, canvasSize, requiresRedraw, updateResume]);
   const lastExercise = selectedIndex === (topic?.exercises.length ?? 1) - 1;
   const lastTopic = topicIndex === writingTopics.length - 1;
 
@@ -113,7 +139,7 @@ function WritingPracticeSession({ topicId, selection, setSelection, masteredChar
   const switchTopic = (nextId: 'topic-3-1' | 'topic-3-2', index = 0) => {
     resetCharacter();
     setSelection({ topicId: nextId, index });
-    router.setParams({ topicId: nextId });
+    router.setParams({ topicId: nextId, writingIndex: String(index) });
   };
   const backToLessons = () => { drawingVersion.current += 1; router.dismissTo('/learner/lessons'); };
   const onChangeStrokes = (nextStrokes: StrokeData) => { if (checking.current || needsRedraw.current || mastery.current >= BAYA_WRITING_MASTERY_POLICY.requiredValidAttempts) return; drawingVersion.current += 1; currentStrokes.current = nextStrokes; setStrokes(nextStrokes); setRecognition({ status: 'idle' }); setCaptureDownload(null); };
@@ -134,10 +160,11 @@ function WritingPracticeSession({ topicId, selection, setSelection, masteredChar
     checking.current = true;
     const version = drawingVersion.current;
     const submittedTarget = targetKey;
-    const isCurrent = () => mounted.current && version === drawingVersion.current && submittedTarget === activeTarget.current;
+    const isCurrent = () => (!resume || resume.isActive()) && mounted.current && version === drawingVersion.current && submittedTarget === activeTarget.current;
     evaluatedVersion.current = version;
     needsRedraw.current = true;
     setRequiresRedraw(true);
+    resume?.update({ kind: 'writing', index: selectedIndex, characterId: exercise.characterId, strokes, width: canvasSize.width, height: canvasSize.height, submitted: true }, true);
     const submittedStrokes = strokes;
     const submittedSize = canvasSize;
     const diagnostic = {
@@ -145,7 +172,7 @@ function WritingPracticeSession({ topicId, selection, setSelection, masteredChar
       modelName: BAYA_RECOGNITION_MODEL_NAME,
       modelVersion: BAYA_RECOGNITION_MODEL_VERSION,
       modelUrl: BAYA_RECOGNITION_MODEL_URL,
-      wasmPath: '/ort/ort-wasm-simd-threaded.wasm',
+      wasmPath: BAYA_MODEL_CONFIG.runtimeBaseUrl,
       target: exercise.characterId,
       strokeCount: submittedStrokes.length,
       pointCount: submittedStrokes.reduce((count, stroke) => count + stroke.length, 0),
@@ -175,23 +202,39 @@ function WritingPracticeSession({ topicId, selection, setSelection, masteredChar
       if (!isCurrent()) return;
       if (!validPredictions(predictions)) throw new Error('BAYA recognition returned malformed predictions.');
       const ranked = rankPredictions(predictions);
-      const top = ranked[0];
-      const valid = isValidWritingResult(exercise.characterId, ranked);
+      const decision = assessRecognition(ranked);
+      // All non-recognized outcomes stop before presentation, persistence and mastery.
+      if (decision.status !== 'recognized') {
+        setRecognition({ status: decision.status === 'insufficient-input' ? 'empty' : decision.status });
+        return;
+      }
+      const top = decision.prediction;
+      const presentation = presentTopPrediction(top);
+      const valid = canAwardWritingMastery({ strokes: submittedStrokes, geometry: submittedSize, target: exercise.characterId, decision });
       const result: ModelWritingAttempt = {
         characterId: exercise.characterId, strokeData: submittedStrokes, imageData: null,
         recognizedClassId: BAYA_CLASS_LABELS[top.classIndex], confidence: top.probability,
-        result: valid ? 'valid' : 'invalid', attemptedAt: new Date().toISOString(),
+        result: (() => {
+          if (valid) {
+            return 'valid';
+          } else {
+            return 'invalid';
+          }
+        })(), attemptedAt: new Date().toISOString(),
       };
-      try { await localLearnerService.recordWritingAttempt(topicId, result); }
+      try {
+        if (resume) await localLearnerService.recordWritingAttempt(topicId, result, undefined, resume.initial.profileId);
+        else await localLearnerService.recordWritingAttempt(topicId, result);
+      }
       catch (error) {
-        if (isCurrent()) Alert.alert('Hindi naitala ang pagsasanay', 'Subukan muli.');
+        if (isCurrent()) localizedAlert('Hindi naitala ang pagsasanay', 'Subukan muli.');
         throw error;
       }
       if (!isCurrent()) return;
       mastery.current = nextValidCount(mastery.current, valid);
       setValidCount(mastery.current);
       if (mastery.current === BAYA_WRITING_MASTERY_POLICY.requiredValidAttempts) masteredCharacters.current.add(submittedTarget);
-      setRecognition({ status: 'success', predictions: ranked });
+      setRecognition({ status: 'success', prediction: presentation });
       if (__DEV__) console.info('[BAYA Recognition] Result', JSON.stringify({ ...diagnostic, ...phases, top1: top.label, top1Confidence: top.probability, top3: ranked.map(prediction => prediction.label), isCorrect: valid, stateUpdated: true }));
       if (captureEnabled) {
         try { setCaptureDownload(downloadBayaCapture(exercise.characterId, submittedStrokes, submittedSize, ranked)); }
@@ -199,8 +242,14 @@ function WritingPracticeSession({ topicId, selection, setSelection, masteredChar
       }
     } catch (error) {
       const stateUpdated = isCurrent();
-      if (__DEV__) console.warn('[BAYA Recognition] Failed', JSON.stringify({ ...diagnostic, ...phases, stateUpdated, error: error instanceof Error ? error.message : String(error) }));
-      if (stateUpdated) setRecognition({ status: 'error' });
+      if (__DEV__) console.warn('[BAYA Recognition] Failed', JSON.stringify({ ...diagnostic, ...phases, stateUpdated, error: (() => {
+        if (error instanceof Error) {
+          return error.message;
+        } else {
+          return String(error);
+        }
+      })() }));
+      if (stateUpdated) setRecognition({ status: error instanceof BayaModelError && error.code === 'INSUFFICIENT_INPUT' ? 'empty' : 'error' });
     } finally { checking.current = false; if (mounted.current) setBusy(false); }
   };
   const onNext = async () => {
@@ -210,25 +259,44 @@ function WritingPracticeSession({ topicId, selection, setSelection, masteredChar
     advancing.current = true;
     setBusy(true);
     const completionTarget = targetKey;
-    const target = !lastTopic ? writingTopics[topicIndex + 1].id : '/learner/lessons';
+    let target;
+    if (!lastTopic) {
+      target = writingTopics[topicIndex + 1].id;
+    } else {
+      target = '/learner/lessons';
+    }
     try {
       if (__DEV__) console.info('[BAYA Progress] request topicId=%s source=writing_next target=%s', topicId, target);
-      await localLearnerService.completeTopic(topicId);
+      if (resume) await localLearnerService.completeTopic(topicId, undefined, resume.initial.profileId);
+      else await localLearnerService.completeTopic(topicId);
       completed.current = true;
-      if (!mounted.current || completionTarget !== activeTarget.current) return;
+      if (!mounted.current || (resume && !resume.isActive()) || completionTarget !== activeTarget.current) return;
       if (__DEV__) console.info('[BAYA Progress] navigate topicId=%s target=%s', topicId, target);
       if (!lastTopic) switchTopic(writingTopics[topicIndex + 1].id);
       else backToLessons();
     } catch (error) {
       if (__DEV__) console.warn('[BAYA Progress] request topicId=%s status=failed', topicId, { error });
-      Alert.alert('Could not save progress', 'Please try again.');
+      localizedAlert('Could not save progress', 'Please try again.');
     } finally { advancing.current = false; if (mounted.current) setBusy(false); }
   };
 
   if (!topic || !exercise) return null;
   const previousCount = writingTopics.slice(0, topicIndex).reduce((sum, item) => sum + item.exercises.length, 0);
-  const unsuccessful = recognition.status === 'error' || (recognition.status === 'success' && !isValidWritingResult(exercise.characterId, recognition.predictions));
-  const actionPhase = canProceed ? 'complete' : busy ? 'checking' : requiresRedraw ? 'retry' : 'ready';
+  const unsuccessful = recognition.status === 'error' || recognition.status === 'uncertain' || recognition.status === 'rejected' || (recognition.status === 'success' && !isValidWritingResult(exercise.characterId, [recognition.prediction]));
+  let actionPhase: 'complete' | 'checking' | 'retry' | 'ready';
+  if (canProceed) {
+    actionPhase = 'complete';
+  } else {
+    if (busy) {
+      actionPhase = 'checking';
+    } else {
+      if (requiresRedraw) {
+        actionPhase = 'retry';
+      } else {
+        actionPhase = 'ready';
+      }
+    }
+  }
   const navigation = <WritingNavigation phase={actionPhase} busy={busy} canAdvance={canProceed && !busy} canCheck={strokes.some(stroke => stroke.length > 0) && !busy && !requiresRedraw && !canProceed} canEdit={!busy} compact={compact} isLast={lastTopic && lastExercise} targetRef={actionTarget} onCheck={() => { void onCheck(); }} onNext={() => { void onNext(); }} onRetry={onRetry} />;
   return <LearnerAppShell
     activeRoute="/learner/lessons"
@@ -238,8 +306,20 @@ function WritingPracticeSession({ topicId, selection, setSelection, masteredChar
 
     testID={`writing-practice-screen-${topicId}`}
   >
-    <ScrollView contentContainerStyle={[styles.scrollContent, dense && styles.denseScrollContent, { paddingHorizontal: available.width < 700 || dense ? ResponsiveLayout.pagePadding.phone : ResponsiveLayout.pagePadding.desktop }]} keyboardShouldPersistTaps="handled" onLayout={event => { const { width: measuredWidth, height: measuredHeight } = event.nativeEvent.layout; if (measuredWidth !== available.width || measuredHeight !== available.height) setAvailable({ width: measuredWidth, height: measuredHeight }); }} style={styles.scroll}>
-      <View style={[styles.columns, dense && styles.denseColumns, columns === 1 && styles.stack, columns === 3 && styles.desktopColumns, columns === 3 && { minHeight: Math.max(0, available.height - (dense ? Spacing.xs * 2 : Spacing.md + Spacing.lg)) }]}>
+    <ScrollView contentContainerStyle={[styles.scrollContent, dense && styles.denseScrollContent, { paddingHorizontal: (() => {
+      if (available.width < 700 || dense) {
+        return ResponsiveLayout.pagePadding.phone;
+      } else {
+        return ResponsiveLayout.pagePadding.desktop;
+      }
+    })() }]} keyboardShouldPersistTaps="handled" onLayout={event => { const { width: measuredWidth, height: measuredHeight } = event.nativeEvent.layout; if (measuredWidth !== available.width || measuredHeight !== available.height) setAvailable({ width: measuredWidth, height: measuredHeight }); }} style={styles.scroll}>
+      <View style={[styles.columns, dense && styles.denseColumns, columns === 1 && styles.stack, columns === 3 && styles.desktopColumns, columns === 3 && { minHeight: Math.max(0, available.height - ((() => {
+        if (dense) {
+          return Spacing.xs * 2;
+        } else {
+          return Spacing.md + Spacing.lg;
+        }
+      })())) }]}>
         <View ref={referenceTarget} collapsable={false} testID="writing-reference-panel" style={[styles.referenceColumn, columns === 1 && styles.stackColumn, columns === 2 && styles.twoColumn]}>
           <CharacterReferenceCard compact={compact} dense={dense} exercise={exercise} fullHeight={columns === 3} />
         </View>
@@ -248,10 +328,16 @@ function WritingPracticeSession({ topicId, selection, setSelection, masteredChar
             <WritingInstructions key={targetKey} count={validCount} unsuccessful={unsuccessful} compact={dense}>
               <WritingToolbar canEdit={strokes.length > 0 && !busy && !requiresRedraw && !canProceed} dense={dense} onClear={onClear} onUndo={onUndo} />
             </WritingInstructions>
-            <WritingCanvas targetRef={canvasTarget} disabled={busy || requiresRedraw || canProceed} compact={compact} dense={dense} fillHeight={columns === 3} hintImage={getBaybayinTracingGuide(exercise.characterId)} onChange={onChangeStrokes} onSizeChange={size => { if (size.width !== canvasSize.width || size.height !== canvasSize.height) { drawingVersion.current += 1; currentSize.current = size; setCanvasSize(size); if (checking.current) setRecognition({ status: 'idle' }); } }} strokes={strokes} />
+            <WritingCanvas onStrokeEnd={draft => { if (exercise) resume?.update({ kind: 'writing', index: selectedIndex, characterId: exercise.characterId, strokes: draft, width: currentSize.current.width, height: currentSize.current.height, submitted: needsRedraw.current }, true); }} targetRef={canvasTarget} disabled={busy || requiresRedraw || canProceed} compact={compact} dense={dense} fillHeight={columns === 3} hintImage={getBaybayinTracingGuide(exercise.characterId)} onChange={onChangeStrokes} onSizeChange={size => { if (size.width !== canvasSize.width || size.height !== canvasSize.height) { drawingVersion.current += 1; currentSize.current = size; setCanvasSize(size); if (checking.current) setRecognition({ status: 'idle' }); } }} strokes={strokes} />
           </View>
         </View>
-        <View testID="writing-feedback-panel" style={[styles.feedbackColumn, dense && styles.denseFeedbackColumn, columns === 1 && styles.stackColumn, columns === 2 && styles.rowFullColumn, columns === 3 && { maxHeight: Math.max(0, available.height - (dense ? Spacing.xs * 2 : Spacing.md + Spacing.lg)) }]}>
+        <View testID="writing-feedback-panel" style={[styles.feedbackColumn, dense && styles.denseFeedbackColumn, columns === 1 && styles.stackColumn, columns === 2 && styles.rowFullColumn, columns === 3 && { maxHeight: Math.max(0, available.height - ((() => {
+          if (dense) {
+            return Spacing.xs * 2;
+          } else {
+            return Spacing.md + Spacing.lg;
+          }
+        })())) }]}>
           <ConfidenceCard dense={dense} embedded guideTargets={guideTargets} phase={actionPhase} action={navigation} progress={<WritingMasteryIndicator targetRef={starsTarget} key={targetKey} count={validCount} required={BAYA_WRITING_MASTERY_POLICY.requiredValidAttempts} compact={dense} />}>
 
           <BayaWritingGuide dense={dense} mascotSize={mascotSize} recognition={recognition} targetClass={exercise.characterId} />

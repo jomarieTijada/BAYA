@@ -21,7 +21,12 @@ export function buildLearnerHomeModel(
 
   const firstIncomplete = module.topics.findIndex(topic => !topic.completed);
   const isComplete = firstIncomplete < 0;
-  const currentIndex = isComplete ? module.topics.length - 1 : firstIncomplete;
+  let currentIndex;
+  if (isComplete) {
+    currentIndex = module.topics.length - 1;
+  } else {
+    currentIndex = firstIncomplete;
+  }
   const currentTopic = module.topics[currentIndex];
   const completedCount = module.topics.filter(topic => topic.completed).length;
 
@@ -30,15 +35,53 @@ export function buildLearnerHomeModel(
     learner: { ...learnerHomeDemo.learner, name: profile?.display_name ?? 'Learner' },
     currentLesson: {
       moduleId: module.id,
-      topicId: isComplete ? null : currentTopic.id,
+      topicId: (() => {
+        if (isComplete) {
+          return null;
+        } else {
+          return currentTopic.id;
+        }
+      })(),
       course: module.title,
-      title: isComplete ? module.title : currentTopic.title,
-      currentStep: isComplete ? module.topics.length : currentIndex + 1,
+      title: (() => {
+        if (isComplete) {
+          return module.title;
+        } else {
+          return currentTopic.title;
+        }
+      })(),
+      currentStep: (() => {
+        if (isComplete) {
+          return module.topics.length;
+        } else {
+          return currentIndex + 1;
+        }
+      })(),
       totalSteps: module.topics.length,
-      status: isComplete ? 'completed' : completedCount > 0 ? 'in_progress' : 'not_started',
+      status: (() => {
+        if (isComplete) {
+          return 'completed';
+        } else {
+          if (completedCount > 0) {
+            return 'in_progress';
+          } else {
+            return 'not_started';
+          }
+        }
+      })(),
       steps: module.topics.map((topic, index) => ({
         id: index + 1,
-        status: topic.completed ? 'completed' as const : index === currentIndex ? 'current' as const : 'upcoming' as const,
+        status: (() => {
+          if (topic.completed) {
+            return 'completed' as const;
+          } else {
+            if (index === currentIndex) {
+              return 'current' as const;
+            } else {
+              return 'upcoming' as const;
+            }
+          }
+        })(),
       })),
     },
     dailyGoal: { completed: completedToday, target: dailyTarget },

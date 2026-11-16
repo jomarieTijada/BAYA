@@ -38,16 +38,40 @@ export function LessonPathConnector({
       aria-hidden
       importantForAccessibility="no-hide-descendants"
       style={[
-        isHorizontal ? styles.horizontalContainer : styles.verticalContainer,
-        compact && (isHorizontal ? styles.horizontalCompact : styles.verticalCompact),
+        (() => {
+          if (isHorizontal) {
+            return styles.horizontalContainer;
+          } else {
+            return styles.verticalContainer;
+          }
+        })(),
+        compact && ((() => {
+          if (isHorizontal) {
+            return styles.horizontalCompact;
+          } else {
+            return styles.verticalCompact;
+          }
+        })()),
         isLandscapeCompact && styles.horizontalLandscapeCompact,
       ]}
     >
       <View
         style={[
-          isHorizontal ? styles.horizontalLine : styles.verticalLine,
+          (() => {
+            if (isHorizontal) {
+              return styles.horizontalLine;
+            } else {
+              return styles.verticalLine;
+            }
+          })(),
           { borderColor: color },
-          compact && (isHorizontal ? styles.horizontalLineCompact : styles.verticalLineCompact),
+          compact && ((() => {
+            if (isHorizontal) {
+              return styles.horizontalLineCompact;
+            } else {
+              return styles.verticalLineCompact;
+            }
+          })()),
         ]}
       />
     </View>

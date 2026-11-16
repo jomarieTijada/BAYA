@@ -1,6 +1,7 @@
+import { Text } from '../../localization/components';
 import React from 'react';
 import { useRouter } from 'expo-router';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors, FontFamily, Spacing } from '../../constants/theme';
 import { AppButton } from '../ui/AppButton';

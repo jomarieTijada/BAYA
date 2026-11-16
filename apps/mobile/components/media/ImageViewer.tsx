@@ -1,5 +1,6 @@
+import { Image } from '../../localization/components';
 import React, { useState } from "react";
-import { Image, type ImageStyle, type StyleProp } from "react-native";
+import { type ImageStyle, type StyleProp } from 'react-native';
 import type { MediaSource } from "./MediaSource";
 import { useMediaSource } from "./mediaResolver";
 import { MediaFallback } from "./MediaFallback";

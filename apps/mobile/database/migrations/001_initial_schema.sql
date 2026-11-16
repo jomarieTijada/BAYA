@@ -1,6 +1,5 @@
 -- 001_initial_schema.sql
 -- BAYA SQLite Schema Creation
--- Derived from ERD-ERD LOCAL.drawio.png
 
 -- Tracking table for migrations
 CREATE TABLE IF NOT EXISTS schema_migrations (

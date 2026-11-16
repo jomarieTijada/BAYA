@@ -5,6 +5,7 @@
   "dependencies": {
     "@expo/metro-runtime": "~57.0.16",
     "@expo/vector-icons": "^15.1.1",
+    "@litertjs/core": "2.6.0",
     "@shopify/react-native-skia": "2.6.2",
     "@supabase/supabase-js": "^2.118.0",
     "expo": "~57.0.25",
@@ -21,7 +22,6 @@
     "expo-sqlite": "~57.0.3",
     "expo-status-bar": "~57.0.1",
     "expo-video": "~57.0.5",
-    "onnxruntime-web": "1.30.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-native": "0.86.3",
@@ -48,16 +48,16 @@
     "typescript": "~6.0.3"
   },
   "scripts": {
-    "copy:ort-wasm": "node ./scripts/copy-ort-wasm.mjs",
+    "copy:litert-wasm": "node ./scripts/copy-litert-wasm.mjs",
     "patch:expo-sqlite": "node ./scripts/patch-expo-sqlite-web.mjs",
     "postinstall": "npm run patch:expo-sqlite",
-    "prestart": "npm run copy:ort-wasm && npm run patch:expo-sqlite",
+    "prestart": "npm run copy:litert-wasm && npm run patch:expo-sqlite",
     "start": "expo start",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "preweb": "npm run copy:ort-wasm && npm run patch:expo-sqlite",
+    "preweb": "npm run copy:litert-wasm && npm run patch:expo-sqlite",
     "web": "expo start --web",
-    "preexport:web": "npm run copy:ort-wasm && npm run patch:expo-sqlite",
+    "preexport:web": "npm run copy:litert-wasm && npm run patch:expo-sqlite",
     "export:web": "expo export --platform web",
     "postexport:web": "node ./scripts/generate-pwa-service-worker.mjs",
     "lint": "expo lint",
@@ -73,7 +73,8 @@
       "^react-native/setup-env$": "<rootDir>/jest.setup-env.js"
     },
     "setupFilesAfterEnv": [
-      "<rootDir>/jest.setup-media.js"
+      "<rootDir>/jest.setup-media.js",
+      "<rootDir>/jest.setup-channels.js"
     ]
   },
   "private": true

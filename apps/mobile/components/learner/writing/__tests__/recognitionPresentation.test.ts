@@ -1,6 +1,39 @@
-import { displayPredictedClass, getConfidencePresentation, rankPredictions } from '../recognitionPresentation';
+import { displayPredictedClass, getConfidencePresentation, rankPredictions, presentTopPrediction } from '../recognitionPresentation';
+import { BAYA_CLASS_LABELS } from '../../../../ml/bayaClassLabels';
+import { getBaybayinTracingGuide } from '../../../../content/baybayinTracingGuides';
 
 describe('BAYA confidence presentation', () => {
+  it('maps every model class to its existing glyph without retaining additional prediction fields', () => {
+    BAYA_CLASS_LABELS.forEach((label, classIndex) => {
+      const internal = { label, classIndex, probability: 0.86, scores: [0.86, 0.14] };
+      expect(presentTopPrediction(internal)).toEqual({ label, classIndex, probability: 0.86, glyphSource: getBaybayinTracingGuide(label) });
+      expect(presentTopPrediction(internal)).not.toHaveProperty('scores');
+    });
+  });
+
+  it('processes all 63 scores without mutation and preserves the supplied stable order for ties', () => {
+    const scores = BAYA_CLASS_LABELS.map((label, classIndex) => ({ label, classIndex, probability: 1 / 63 })).reverse();
+    expect(rankPredictions(scores).map(p => p.classIndex)).toEqual([62, 61, 60]);
+    expect(scores[0].classIndex).toBe(62);
+    expect(presentTopPrediction(rankPredictions(scores)[0]).label).toBe(BAYA_CLASS_LABELS[62]);
+  });
+
+  it.each([
+    [], [{ label: 'a', classIndex: -1, probability: .8 }],
+    [{ label: 'a', classIndex: 63, probability: .8 }],
+    [{ label: 'a', classIndex: 1, probability: .8 }],
+    [{ label: 'a', classIndex: 0, probability: NaN }],
+    [{ label: 'a', classIndex: 0, probability: Infinity }],
+    [{ label: 'a', classIndex: 0, probability: 1.1 }],
+    [{ label: 'a', classIndex: 0, probability: -.1 }],
+  ].map(predictions => ({ predictions })))('rejects malformed candidate input %# instead of manufacturing a character', ({ predictions }) => {
+    expect(() => rankPredictions(predictions)).toThrow();
+  });
+
+  it('rejects invalid single-class presentation input', () => {
+    expect(() => presentTopPrediction({ label: 'ba', classIndex: 0, probability: .9 })).toThrow();
+  });
+
   it.each([0.9, 0.976, 1])('uses high treatment at or above 90%% (%s)', (confidence) => {
     const result = getConfidencePresentation(confidence);
     expect(result.level).toBe('high');

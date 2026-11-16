@@ -1,3 +1,4 @@
+import { activityResumeService } from '../../../database/services/activityResumeService';
 import React, { useCallback, useState } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { useFocusEffect, useRouter } from 'expo-router';
@@ -28,7 +29,16 @@ export function LearnerHomeScreen() {
           curriculumService.getCurriculumModules(),
           localLearnerService.getTodayCompletedTopicCount(),
         ]);
-        if (active) setData(buildLearnerHomeModel(profile, modules, completedToday));
+        const model = buildLearnerHomeModel(profile, modules, completedToday);
+        const checkpoint = profile ? await activityResumeService.read(profile.profile_id).catch(() => null) : null;
+        const savedModule = modules.find(m => m.topics.some(t => t.id === checkpoint?.topicId));
+        const savedTopic = savedModule?.topics.find(t => t.id === checkpoint?.topicId);
+        if (savedModule && savedTopic && !savedTopic.completed) model.currentLesson = {
+          ...model.currentLesson, moduleId: savedModule.id, topicId: savedTopic.id, course: savedModule.title, title: savedTopic.title,
+          currentStep: savedModule.topics.indexOf(savedTopic) + 1, totalSteps: savedModule.topics.length, status: 'in_progress',
+          steps: savedModule.topics.map((t, i) => ({ id: i + 1, status: t.completed ? 'completed' : t.id === savedTopic.id ? 'current' : 'upcoming' })),
+        };
+        if (active) setData(model);
       } catch (error) {
         if (__DEV__) console.warn('[LearnerHomeScreen] Could not read local learner data', error);
       }
@@ -68,9 +78,13 @@ export function LearnerHomeScreen() {
         >
           <ContinueLessonHero
             lesson={data.currentLesson}
-            onContinue={() => data.currentLesson.topicId
-              ? router.push({ pathname: '/learner/activities/[topicId]', params: { topicId: data.currentLesson.topicId } })
-              : router.dismissTo('/learner/lessons')}
+            onContinue={() => {
+              if (data.currentLesson.topicId) {
+                return router.push({ pathname: '/learner/activities/[topicId]', params: { topicId: data.currentLesson.topicId } });
+              } else {
+                return router.dismissTo('/learner/lessons');
+              }
+            }}
           />
           <DashboardCards
             adventure={data.adventure}

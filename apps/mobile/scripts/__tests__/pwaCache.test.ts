@@ -34,9 +34,8 @@ beforeEach(() => {
   write(activeModel.labelsUrl.slice(1), 'production labels');
   write(activeModel.contractUrl.slice(1), 'production contract');
   write('models/baya/unselected.onnx', 'unselected bytes');
-  write('ort/ort-wasm-runtime.min.js', 'runtime');
-  write('ort/ort-wasm-simd-threaded.mjs', 'loader');
-  write('ort/ort-wasm-simd-threaded.wasm', 'wasm');
+  write('models/baya/old-version/old.tflite', 'stale version');
+  for (const file of activeModel.runtimeFiles) write(activeModel.runtimeBaseUrl.slice(1) + file, 'runtime bytes');
   write('_expo/static/js/web/entry-test.js', 'bundle v1');
   write('_expo/static/js/web/worker-test.js', 'worker');
   write('assets/reference.png', 'reference');
@@ -52,18 +51,21 @@ afterEach(() => {
   rmSync(resolved, { recursive: true, force: true });
 });
 
-it('exports and precaches only the active model, ORT WASM, and app shell', () => {
+it('exports and precaches only the active model, LiteRT WASM, and app shell', () => {
   generate();
   const worker = readFileSync(path.join(outputRoot, 'sw.js'), 'utf8');
   expect(worker).toContain(`/models/baya/${model}`);
-  expect(worker).toContain('/ort/ort-wasm-runtime.min.js');
-  expect(worker).toContain('/ort/ort-wasm-simd-threaded.mjs');
-  expect(worker).toContain('/ort/ort-wasm-simd-threaded.wasm');
+  expect(worker).toContain(activeModel.runtimeBaseUrl + 'litert_wasm_internal.js');
+  expect(worker).toContain(activeModel.runtimeBaseUrl + 'litert_wasm_internal.wasm');
+  expect(worker).toContain(activeModel.runtimeBaseUrl + 'litert_wasm_compat_internal.wasm');
+  expect(worker).not.toContain('litert_wasm_threaded_internal');
+  expect(worker).not.toContain('litert_wasm_jspi_internal');
   expect(worker).toContain('/_expo/static/js/web/entry-test.js');
   expect(worker).toContain('/_expo/static/js/web/worker-test.js');
   expect(worker).toContain('/assets/reference.png');
   expect(worker).not.toContain('unselected.onnx');
   expect(existsSync(path.join(outputRoot, 'models/baya/unselected.onnx'))).toBe(false);
+  expect(existsSync(path.join(outputRoot, 'models/baya/old-version/old.tflite'))).toBe(false);
   expect(worker).not.toContain('lesson.mp4');
   expect(worker).not.toContain('baybayin-song.test.mp4');
   expect(generate('--check')).toContain('Verified baya-pwa-');
@@ -119,9 +121,47 @@ it('changes the cache version when an exported bundle changes', () => {
   expect(version(after)).not.toBe(version(before));
 });
 
-it('keeps recognition free of a native ONNX module', () => {
+it('uses LiteRT without legacy or native inference dependencies', () => {
   const packageJson = readFileSync(path.resolve(__dirname, '../../package.json'), 'utf8');
-  expect(packageJson).toContain('"onnxruntime-web"');
-  expect(packageJson).not.toContain('onnxruntime-android');
+  expect(packageJson).toContain('"@litertjs/core"');
+  expect(packageJson).not.toContain('onnxruntime');
   expect(existsSync(path.resolve(__dirname, '../../modules/baya-native/expo-module.config.json'))).toBe(false);
+});
+
+it('pins offline fetches to each exported asset checksum', () => {
+  generate();
+  const worker = readFileSync(path.join(outputRoot, 'sw.js'), 'utf8');
+  const integrity = JSON.parse(worker.match(/const ASSET_INTEGRITY = (.+);/)![1]);
+  const crypto = require('node:crypto');
+  const bytes = readFileSync(path.join(outputRoot, activeModel.modelUrl));
+  expect(integrity[activeModel.modelUrl]).toBe('sha256-' + crypto.createHash('sha256').update(bytes).digest('base64'));
+  expect(worker).toContain('integrity: ASSET_INTEGRITY[url]');
+  expect(Object.keys(integrity)).toContain(activeModel.runtimeBaseUrl + 'litert_wasm_internal.wasm');
+});
+
+it('removes obsolete BAYA caches on activation and preserves unrelated caches', async () => {
+  generate();
+  const worker = readFileSync(path.join(outputRoot, 'sw.js'), 'utf8');
+  const current = worker.match(/const CACHE_NAME = "([^"]+)"/)![1];
+  const listeners: Record<string, (event: { waitUntil: (work: Promise<void>) => void }) => void> = {};
+  const remove = jest.fn(async () => true), claim = jest.fn(async () => undefined);
+  runInNewContext(worker, { self: { addEventListener: (name: string, listener: typeof listeners[string]) => { listeners[name] = listener; }, clients: { claim } },
+    caches: { keys: async () => ['baya-pwa-old-onnx', current, 'unrelated'], delete: remove }, Set });
+  let work: Promise<void> | undefined;
+  listeners.activate({ waitUntil: value => { work = value; } }); await work;
+  expect(remove).toHaveBeenCalledTimes(1); expect(remove).toHaveBeenCalledWith('baya-pwa-old-onnx'); expect(claim).toHaveBeenCalled();
+});
+
+it('deletes a partial install cache on download failure without activating it', async () => {
+  generate();
+  const worker = readFileSync(path.join(outputRoot, 'sw.js'), 'utf8');
+  const listeners: Record<string, (event: { waitUntil: (work: Promise<void>) => void }) => void> = {};
+  const remove = jest.fn(async () => true), skipWaiting = jest.fn();
+  runInNewContext(worker, { self: { addEventListener: (name: string, listener: typeof listeners[string]) => { listeners[name] = listener; }, skipWaiting },
+    caches: { open: async () => ({ put: jest.fn() }), delete: remove },
+    Request: class { constructor(public url: string) {} }, fetch: async () => ({ ok: false, status: 503 }), Set });
+  let work: Promise<void> | undefined;
+  listeners.install({ waitUntil: value => { work = value; } });
+  await expect(work).rejects.toThrow('PWA precache failed');
+  expect(remove).toHaveBeenCalledTimes(1); expect(skipWaiting).not.toHaveBeenCalled();
 });

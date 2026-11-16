@@ -15,14 +15,14 @@ export type ActivityType = "practice" | "quiz" | "recognition";
 // ---------------------------------------------------------------------------
 // Stroke telemetry — the raw data captured from the Skia canvas
 // ---------------------------------------------------------------------------
-export interface StrokePoint {
+export interface TouchPoint {
   x: number;       // raw canvas-local logical-pixel X coordinate
   y: number;       // raw canvas-local logical-pixel Y coordinate
   t: number;       // Unix timestamp in ms (Date.now())
   pressure?: number; // optional — stylus only
 }
 
-export type Stroke = StrokePoint[];
+export type Stroke = TouchPoint[];
 export type StrokeSession = Stroke[];
 
 // ---------------------------------------------------------------------------
@@ -144,17 +144,17 @@ export function getCollectionProgress(
 // ---------------------------------------------------------------------------
 // New dataset-format stroke types
 //
-// NOTE: These are intentionally separate from the legacy StrokePoint/Stroke
+// NOTE: These are intentionally separate from the legacy TouchPoint/Stroke
 // types above.
 //
-//   StrokePoint.t         = absolute Date.now() epoch ms  (legacy, unchanged)
-//   RecordedStrokePoint.t = elapsed ms from attempt start  (performance.now() delta)
+//   TouchPoint.t         = absolute Date.now() epoch ms  (legacy, unchanged)
+//   RecordedTouchPoint.t = elapsed ms from attempt start  (performance.now() delta)
 //
 // Both types coexist in the codebase. Do not merge them.
 // ---------------------------------------------------------------------------
 
 /** A single coordinate sample within a recorded stroke. */
-export interface RecordedStrokePoint {
+export interface RecordedTouchPoint {
   /** Raw canvas pixel X coordinate — NOT normalised. */
   x: number;
   /** Raw canvas pixel Y coordinate — NOT normalised. */
@@ -184,7 +184,7 @@ export interface RecordedStroke {
    */
   endedAtMs: number;
   /** Ordered sequence of coordinate samples within this stroke. */
-  points: RecordedStrokePoint[];
+  points: RecordedTouchPoint[];
 }
 
 /** Review lifecycle state of a handwriting sample. */

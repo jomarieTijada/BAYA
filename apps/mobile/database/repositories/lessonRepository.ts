@@ -15,7 +15,11 @@ export const lessonRepository = {
     );
     return approvedCurriculum.flatMap((module, index) => {
       const row = rows.find((item) => item.lesson_id === module.id && item.title === module.title && item.stage_number === index + 1);
-      return row ? [{ ...row, description: null }] : [];
+      if (row) {
+        return [{ ...row, description: null }];
+      } else {
+        return [];
+      }
     });
   },
 
@@ -33,7 +37,17 @@ export const lessonRepository = {
     );
     return module.topics.flatMap((topic, index) => {
       const row = rows.find((item) => item.activity_id === topic.id && item.title === topic.title && item.sequence_no === index + 1);
-      return row ? [{ ...row, activity_type: module.id === 'module-3' ? 'writing' : 'concept' }] : [];
+      if (row) {
+        return [{ ...row, activity_type: (() => {
+        if (module.id === 'module-3') {
+          return 'writing';
+        } else {
+          return 'concept';
+        }
+      })() }];
+      } else {
+        return [];
+      }
     });
   },
 

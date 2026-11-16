@@ -1,11 +1,7 @@
+import { AccessibilityView, Text } from '../../../localization/components';
 import { router } from 'expo-router';
 import React from 'react';
-import {
-  type LayoutChangeEvent,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { type LayoutChangeEvent, StyleSheet, View } from 'react-native';
 
 import {
   Colors,
@@ -32,11 +28,16 @@ export function LearnerHeader({ learner, onOpenSettings, onLayout }: LearnerHead
   const { isCompactHeight, isPhone, isPhoneLandscape, isPhonePortrait } = useResponsiveLayout();
   const compact = isPhone || isCompactHeight;
   const landscapeCompact = isPhoneLandscape;
-  const metrics = landscapeCompact
-    ? LearnerHeaderMetrics.landscapeCompact
-    : compact
-      ? LearnerHeaderMetrics.compact
-      : LearnerHeaderMetrics.regular;
+  let metrics;
+  if (landscapeCompact) {
+    metrics = LearnerHeaderMetrics.landscapeCompact;
+  } else {
+    if (compact) {
+      metrics = LearnerHeaderMetrics.compact;
+    } else {
+      metrics = LearnerHeaderMetrics.regular;
+    }
+  }
 
   return (
     <View
@@ -74,7 +75,7 @@ export function LearnerHeader({ learner, onOpenSettings, onLayout }: LearnerHead
                 compact && styles.nameCompact,
                 landscapeCompact && styles.nameLandscapeCompact,
               ]}
-            >
+             verbatim>
               {learner.name || 'Learner'}
             </Text>
             <View
@@ -86,7 +87,17 @@ export function LearnerHeader({ learner, onOpenSettings, onLayout }: LearnerHead
               <AppIcon
                 color="accent"
                 name="devicePortrait"
-                size={landscapeCompact ? 10 : compact ? 13 : 15}
+                size={(() => {
+                  if (landscapeCompact) {
+                    return 10;
+                  } else {
+                    if (compact) {
+                      return 13;
+                    } else {
+                      return 15;
+                    }
+                  }
+                })()}
               />
               <Text
                 style={[
@@ -105,7 +116,17 @@ export function LearnerHeader({ learner, onOpenSettings, onLayout }: LearnerHead
               <AppIcon
                 color="achievement"
                 name="bookmark"
-                size={landscapeCompact ? 12 : compact ? 14 : 17}
+                size={(() => {
+                  if (landscapeCompact) {
+                    return 12;
+                  } else {
+                    if (compact) {
+                      return 14;
+                    } else {
+                      return 17;
+                    }
+                  }
+                })()}
               />
               <Text
                 style={[
@@ -131,11 +152,17 @@ export function LearnerHeader({ learner, onOpenSettings, onLayout }: LearnerHead
       >
         <XpProgress
           compact={compact}
-          density={landscapeCompact ? 'landscapeCompact' : undefined}
+          density={(() => {
+            if (landscapeCompact) {
+              return 'landscapeCompact';
+            } else {
+              return undefined;
+            }
+          })()}
           goal={learner.xpGoal}
           value={learner.xp}
         />
-        <View
+        <AccessibilityView
           accessibilityLabel={`Level ${learner.level}`}
           accessibilityRole="text"
           style={[
@@ -153,7 +180,7 @@ export function LearnerHeader({ learner, onOpenSettings, onLayout }: LearnerHead
           >
             LVL {learner.level}
           </Text>
-        </View>
+        </AccessibilityView>
         <LearnerActionMenu groups={[
           { label: 'Workspace', actions: [
             { label: 'Join Workspace', icon: 'workspace', onPress: () => router.push('/learner/workspaces') },

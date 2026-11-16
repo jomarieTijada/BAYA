@@ -112,9 +112,24 @@ export const progressRepository = {
     }
 
     const updatedAt = new Date().toISOString();
-    const status = updates.status !== undefined ? updates.status : existing.status;
-    const completedAt = updates.completed_at !== undefined ? updates.completed_at : existing.completed_at;
-    const lastActivityAt = updates.last_activity_at !== undefined ? updates.last_activity_at : existing.last_activity_at;
+    let status;
+    if (updates.status !== undefined) {
+      status = updates.status;
+    } else {
+      status = existing.status;
+    }
+    let completedAt;
+    if (updates.completed_at !== undefined) {
+      completedAt = updates.completed_at;
+    } else {
+      completedAt = existing.completed_at;
+    }
+    let lastActivityAt;
+    if (updates.last_activity_at !== undefined) {
+      lastActivityAt = updates.last_activity_at;
+    } else {
+      lastActivityAt = existing.last_activity_at;
+    }
 
     await db.runAsync(
       `UPDATE learner_progress
@@ -171,7 +186,12 @@ export const progressRepository = {
     const db = dbOverride || (await getDatabaseConnection());
     const attemptedAt = input.attempted_at || new Date().toISOString();
     const recognizedResult = input.recognized_result || null;
-    const confidenceValue = input.confidence_value !== undefined ? input.confidence_value : null;
+    let confidenceValue;
+    if (input.confidence_value !== undefined) {
+      confidenceValue = input.confidence_value;
+    } else {
+      confidenceValue = null;
+    }
     const feedbackCode = input.feedback_code || null;
 
     await db.runAsync(

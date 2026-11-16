@@ -76,8 +76,28 @@ function rowToAttempt(
     strokes:       parseStrokes(row.strokesJson),
     imageUri:      row.imageUri ?? null,
     reviewStatus:  (row.reviewStatus as ReviewStatus) ?? 'unreviewed',
-    visualValid:   row.visualValid === 1 ? true : row.visualValid === 0 ? false : null,
-    strokeValid:   row.strokeValid  === 1 ? true : row.strokeValid  === 0 ? false : null,
+    visualValid:   (() => {
+      if (row.visualValid === 1) {
+        return true;
+      } else {
+        if (row.visualValid === 0) {
+          return false;
+        } else {
+          return null;
+        }
+      }
+    })(),
+    strokeValid:   (() => {
+      if (row.strokeValid  === 1) {
+        return true;
+      } else {
+        if (row.strokeValid  === 0) {
+          return false;
+        } else {
+          return null;
+        }
+      }
+    })(),
     rubricVersion: row.rubricVersion ?? null,
     createdAt:     row.createdAt,
   };
@@ -177,7 +197,11 @@ export async function getHandwritingSample(
     .where(eq(handwritingSamples.id, id))
     .limit(1);
 
-  return rows[0] != null ? rowToAttempt(rows[0]) : null;
+  if (rows[0] != null) {
+    return rowToAttempt(rows[0]);
+  } else {
+    return null;
+  }
 }
 
 /** Retrieve the most recently created attempt. Returns null if table is empty. */
@@ -190,7 +214,11 @@ export async function getLatestHandwritingSample(
     .orderBy(desc(handwritingSamples.createdAt))
     .limit(1);
 
-  return rows[0] != null ? rowToAttempt(rows[0]) : null;
+  if (rows[0] != null) {
+    return rowToAttempt(rows[0]);
+  } else {
+    return null;
+  }
 }
 
 /** List attempts ordered by most recent first, with an optional row limit. */
@@ -298,7 +326,12 @@ function parseCollectionSessionReferences(rawJson: string): SessionAttemptRefere
   const references: SessionAttemptReference[] = [];
   for (const [rawTarget, rawIds] of Object.entries(parsed)) {
     if (!isBaybayinClass(rawTarget)) continue;
-    const ids = Array.isArray(rawIds) ? rawIds : [rawIds];
+    let ids;
+    if (Array.isArray(rawIds)) {
+      ids = rawIds;
+    } else {
+      ids = [rawIds];
+    }
     for (const attemptId of ids) {
       if (typeof attemptId === 'string') {
         references.push({ attemptId, expectedTarget: rawTarget });

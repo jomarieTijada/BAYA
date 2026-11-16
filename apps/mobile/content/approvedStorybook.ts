@@ -32,7 +32,12 @@ export function getApprovedStorybookActivity(id: string): TopicActivityData | nu
   const splitTopicActivity = approvedTopicActivities[id];
   if (splitTopicActivity) return splitTopicActivity;
   const module = approvedCurriculum.find((item) => item.topics.some((topic) => topic.id === id));
-  const story = Object.prototype.hasOwnProperty.call(approvedStories, id) ? approvedStories[id] : undefined;
+  let story;
+  if (Object.prototype.hasOwnProperty.call(approvedStories, id)) {
+    story = approvedStories[id];
+  } else {
+    story = undefined;
+  }
   if (!module || !story) return null;
   const index = module.topics.findIndex((topic) => topic.id === id);
   const topic = module.topics[index];
@@ -40,9 +45,13 @@ export function getApprovedStorybookActivity(id: string): TopicActivityData | nu
     id, moduleId: module.id, moduleTitle: module.title, title: topic.title,
     activityIndex: index + 1, totalActivitiesInModule: module.topics.length,
     type: 'story', slides: [],
-    video: id === 'topic-1-1'
-      ? { title: 'Baybayin Song', introduction: baybayinVideoIntroduction, source: { type: 'asset', assetId: 'baybayin-song' }, isAvailable: true }
-      : { title: '', source: null, isAvailable: false },
+    video: (() => {
+      if (id === 'topic-1-1') {
+        return { title: 'Baybayin Song', introduction: baybayinVideoIntroduction, source: { type: 'asset', assetId: 'baybayin-song' }, isAvailable: true };
+      } else {
+        return { title: '', source: null, isAvailable: false };
+      }
+    })(),
     steps: [{ id: `${id}-story`, type: 'story', title: story.title,
       content: { ...story, badge: topic.title, number: 1, totalInDeck: 1 } }],
   };
@@ -50,6 +59,10 @@ export function getApprovedStorybookActivity(id: string): TopicActivityData | nu
 export function getApprovedStorybookActivities(): TopicActivityData[] {
   return approvedCurriculum.flatMap((module) => module.topics.flatMap((topic) => {
     const activity = getApprovedStorybookActivity(topic.id);
-    return activity ? [activity] : [];
+    if (activity) {
+      return [activity];
+    } else {
+      return [];
+    }
   }));
 }

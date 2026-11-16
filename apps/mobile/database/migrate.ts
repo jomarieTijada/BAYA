@@ -96,7 +96,12 @@ export async function runMigrations(
       await applyMigration(db, migration);
       newlyApplied.push(migration.name);
     } catch (err) {
-      const error = err instanceof Error ? err : new Error(String(err));
+      let error;
+      if (err instanceof Error) {
+        error = err;
+      } else {
+        error = new Error(String(err));
+      }
       console.error(`Migration ${migration.name} (v${migration.version}) failed:`, error.message);
       return {
         success: false,

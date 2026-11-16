@@ -26,7 +26,19 @@ function toggleMenu(label = 'Workspace options') {
 }
 it.each(['email', 'anonymous', 'local'] as const)('confirms learner logout and preserves access for %s learners', async kind => {
  const signOut = jest.fn(async () => ({ ok: true as const, data: undefined }));
- const session = jest.fn(async () => ({ ok: true as const, data: kind === 'local' ? null : { email: kind === 'email' ? 'learner@example.test' : '', profileId: 'learner-one' } }));
+ const session = jest.fn(async () => ({ ok: true as const, data: (() => {
+   if (kind === 'local') {
+     return null;
+   } else {
+     return { email: (() => {
+   if (kind === 'email') {
+     return 'learner@example.test';
+   } else {
+     return '';
+   }
+ })(), profileId: 'learner-one' };
+   }
+ })() }));
  const learnerAuth = { session, signOut, request: jest.fn(), verify: jest.fn() };
  mount(<LearnerActionMenu groups={[]} />, { ...progressPreviewServices, learnerAuth });
  toggleMenu('Settings');
@@ -38,7 +50,13 @@ it.each(['email', 'anonymous', 'local'] as const)('confirms learner logout and p
  fireEvent.press(await screen.findByLabelText('Log Out'));
  fireEvent.press(screen.getByLabelText('YES, LOG OUT', { includeHiddenElements: true }));
  await waitFor(() => expect(mockReplace).toHaveBeenCalledWith('/'));
- expect(signOut).toHaveBeenCalledTimes(kind === 'email' ? 1 : 0);
+ expect(signOut).toHaveBeenCalledTimes((() => {
+   if (kind === 'email') {
+     return 1;
+   } else {
+     return 0;
+   }
+ })());
 });
 it('keeps learner logout open when account sign-out fails', async () => {
  const signOut = jest.fn(async () => ({ ok: false as const, code: 'network' as const }));
@@ -75,16 +93,16 @@ it('shows synchronized data and opens the correct learner within its workspace',
 it('shows a true empty state only after a successful read',async()=>{
  const data=await progressPreviewServices.progress.dashboard('preview');if(!data.ok)throw new Error();
  mount(<MentorDashboard id="class" />,{...progressPreviewServices,progress:{...progressPreviewServices.progress,dashboard:async()=>({ok:true,data:{...data.data,learners:[],learnerCount:0,lastSyncedAt:null}})}});
- expect(screen.queryByText('No learners yet')).toBeNull();await screen.findByText('No learners yet');
+ expect(screen.queryByText('No approved learners yet')).toBeNull();await screen.findByText('No approved learners yet');
 });
 it('does not render mock learners or zero progress when the provider is unavailable',async()=>{
  mount(<MentorDashboard id="class" />,pendingCloudServices);await screen.findByText(/not available yet/);
- expect(screen.queryByText('Jomarie')).toBeNull();expect(screen.queryByText('No learners yet')).toBeNull();
+ expect(screen.queryByText('Jomarie')).toBeNull();expect(screen.queryByText('No approved learners yet')).toBeNull();
 });
 it('shows topic detail from the service',async()=>{
  mount(<LearnerProgressDetail workspaceId="class" profileId="profile" />);
  await screen.findByText('4 of 9 topics completed · 44%');
- expect(screen.getByText('Kasaysayan at Kahalagahan ng Baybayin')).toBeTruthy();
+ expect(screen.getByText("History and Importance of Baybayin")).toBeTruthy();
  expect(screen.getAllByText('Not completed').length).toBe(5);
 });
 it('opens and toggles options without reloading the dashboard, then navigates with workspace context',async()=>{

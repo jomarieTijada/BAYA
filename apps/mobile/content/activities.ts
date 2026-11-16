@@ -28,9 +28,11 @@ export const activityRegistry: Record<string, TopicActivityData> = {
  * Retrieves activity data for a given topic ID, returning an explicit empty topic if not yet registered.
  */
 export function getActivityData(topicId: string): TopicActivityData {
-  return Object.hasOwn(activityRegistry, topicId)
-    ? activityRegistry[topicId]
-    : unavailableActivity(topicId);
+  if (Object.hasOwn(activityRegistry, topicId)) {
+    return activityRegistry[topicId];
+  } else {
+    return unavailableActivity(topicId);
+  }
 }
 
 export { getActivitySteps, unavailableActivity } from "./activitySteps";

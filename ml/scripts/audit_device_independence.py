@@ -40,7 +40,10 @@ def _finite_number(value: Any) -> float | None:
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         return None
     number = float(value)
-    return number if isfinite(number) else None
+    if isfinite(number):
+        return number
+    else:
+        return None
 
 
 def _percentile(sorted_values: list[float], percentile: float) -> float | None:
@@ -101,7 +104,10 @@ def _layout_groups(summaries: list[dict[str, Any]]) -> dict[str, dict[str, Any]]
     grouped: defaultdict[str, list[dict[str, Any]]] = defaultdict(list)
     for summary in summaries:
         raw_layout = summary.get("layoutMode")
-        layout = raw_layout if isinstance(raw_layout, str) and raw_layout else "unknown"
+        if isinstance(raw_layout, str) and raw_layout:
+            layout = raw_layout
+        else:
+            layout = "unknown"
         grouped[layout].append(summary)
 
     result: dict[str, dict[str, Any]] = {}
@@ -166,7 +172,10 @@ def audit(source: Path) -> dict[str, Any]:
             continue
 
         attempt_id = attempt.get("attemptId")
-        attempt_label = attempt_id if isinstance(attempt_id, str) and attempt_id else f"attempt {attempt_index}"
+        if isinstance(attempt_id, str) and attempt_id:
+            attempt_label = attempt_id
+        else:
+            attempt_label = f"attempt {attempt_index}"
         schema_version = get_attempt_schema_version(attempt)
         if schema_version in SUPPORTED_ATTEMPT_SCHEMA_VERSIONS:
             schema_counts[schema_version] += 1
@@ -207,7 +216,11 @@ def audit(source: Path) -> dict[str, Any]:
                     seen_ordinals.add(ordinal_key)
 
         raw_layout = attempt.get("layoutMode")
-        layout_counts[raw_layout if isinstance(raw_layout, str) and raw_layout else "unknown"] += 1
+        if isinstance(raw_layout, str) and raw_layout:
+            layout_key = raw_layout
+        else:
+            layout_key = "unknown"
+        layout_counts[layout_key] += 1
 
         if not isinstance(attempt_id, str) or not attempt_id:
             pairing_errors.append("attempt has a missing or invalid attemptId")
@@ -231,16 +244,18 @@ def audit(source: Path) -> dict[str, Any]:
 
         summaries.append(summarize_attempt(attempt))
 
-    archive_images = (
-        {
+    if archive_names is not None:
+        archive_images = ({
             name
             for name in archive_names
             if name.startswith("images/") and name.lower().endswith(".png")
-        }
-        if archive_names is not None
-        else None
-    )
-    orphan_images = sorted(archive_images - expected_images) if archive_images is not None else []
+        })
+    else:
+        archive_images = None
+    if archive_images is not None:
+        orphan_images = sorted(archive_images - expected_images)
+    else:
+        orphan_images = []
     pairing_errors.extend(f"orphan PNG not referenced by attempts.json: {name}" for name in orphan_images)
 
     coordinate_errors: list[dict[str, Any]] = []
@@ -264,6 +279,11 @@ def audit(source: Path) -> dict[str, Any]:
     ]
     point_counts = [summary["pointCount"] for summary in summaries]
     stroke_counts = [summary["strokeCount"] for summary in summaries]
+
+    if archive_images is not None:
+        archive_image_count = len(archive_images)
+    else:
+        archive_image_count = None
 
     return {
         "source": str(source),
@@ -294,7 +314,7 @@ def audit(source: Path) -> dict[str, Any]:
         "strokeCountStatistics": _distribution(stroke_counts),
         "durationMsStatistics": _distribution(durations),
         "layoutModeGroups": _layout_groups(summaries),
-        "archiveImageCount": len(archive_images) if archive_images is not None else None,
+        "archiveImageCount": archive_image_count,
         "missingImages": missing_images,
         "orphanImages": orphan_images,
         "duplicateAttemptIds": duplicate_attempt_ids,

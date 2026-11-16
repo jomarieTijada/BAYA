@@ -1,5 +1,6 @@
+import { Pressable, Text } from '../../../localization/components';
 import React, { useState } from 'react';
-import { type LayoutChangeEvent, Pressable, StyleSheet, Text, View } from 'react-native';
+import { type LayoutChangeEvent, StyleSheet, View } from 'react-native';
 import { useRouter } from 'expo-router';
 
 import { Colors, FontFamily, Radius, Spacing } from '../../../constants/theme';
@@ -51,7 +52,12 @@ function LearnerNavItem({
   const router = useRouter();
   const [focused, setFocused] = useState(false);
   const [hovered, setHovered] = useState(false);
-  const icon = active ? activeIcon : inactiveIcon;
+  let icon;
+  if (active) {
+    icon = activeIcon;
+  } else {
+    icon = inactiveIcon;
+  }
 
   return (
     <Pressable
@@ -76,9 +82,25 @@ function LearnerNavItem({
       ]}
     >
       <AppIcon
-        color={active ? 'accent' : 'muted'}
+        color={(() => {
+          if (active) {
+            return 'accent';
+          } else {
+            return 'muted';
+          }
+        })()}
         name={icon}
-        size={landscapeCompact ? 20 : compact ? 21 : 26}
+        size={(() => {
+          if (landscapeCompact) {
+            return 20;
+          } else {
+            if (compact) {
+              return 21;
+            } else {
+              return 26;
+            }
+          }
+        })()}
       />
       <Text
         style={[

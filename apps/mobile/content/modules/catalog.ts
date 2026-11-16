@@ -71,13 +71,37 @@ export function createApprovedModules(): Module[] {
     id: module.id,
     number: moduleIndex + 1,
     title: module.title,
-    status: moduleIndex === 0 ? "current" : "locked",
+    status: (() => {
+      if (moduleIndex === 0) {
+        return "current";
+      } else {
+        return "locked";
+      }
+    })(),
     icon: "lessons",
-    ctaLabel: moduleIndex === 0 ? "Simulan" : undefined,
+    ctaLabel: (() => {
+      if (moduleIndex === 0) {
+        return "Simulan";
+      } else {
+        return undefined;
+      }
+    })(),
     topics: module.topics.map((topic, topicIndex) => ({
       ...topic,
-      type: module.id === 'module-3' ? "writing" : "concept",
-      status: moduleIndex === 0 && topicIndex === 0 ? "available" : "locked",
+      type: (() => {
+        if (module.id === 'module-3') {
+          return "writing";
+        } else {
+          return "concept";
+        }
+      })(),
+      status: (() => {
+        if (moduleIndex === 0 && topicIndex === 0) {
+          return "available";
+        } else {
+          return "locked";
+        }
+      })(),
       completed: false,
       contentAvailable: getApprovedStorybookActivity(topic.id) !== null || getBaybayinCharacterTopic(topic.id) !== null || getWritingTopic(topic.id) !== null,
     })),
@@ -128,8 +152,12 @@ export function getLessonProgress(
     }
   }
 
-  const percentage =
-    totalTopics > 0 ? Math.round((completedTopics / totalTopics) * 100) : 0;
+  let percentage;
+  if (totalTopics > 0) {
+    percentage = Math.round((completedTopics / totalTopics) * 100);
+  } else {
+    percentage = 0;
+  }
 
   return {
     completedCount: completedLessons,

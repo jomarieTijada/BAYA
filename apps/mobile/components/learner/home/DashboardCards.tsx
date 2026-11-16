@@ -1,5 +1,6 @@
+import { AccessibilityView, Text } from '../../../localization/components';
 import React from 'react';
-import { type LayoutChangeEvent, StyleSheet, Text, View } from 'react-native';
+import { type LayoutChangeEvent, StyleSheet, View } from 'react-native';
 
 import { Colors, FontFamily, Radius, Spacing } from '../../../constants/theme';
 import { FilipinoLabels } from '../../../constants/filipinoLabels';
@@ -31,20 +32,48 @@ export function DashboardCards({
   const landscapeCompact = isPhoneLandscape;
   const completed = Math.min(Math.max(dailyGoal.completed, 0), dailyGoal.target);
   const remaining = Math.max(dailyGoal.target - completed, 0);
-  const goalMessage = dailyGoal.target === 0
-    ? 'All approved topics complete!'
-    : remaining === 0
-    ? 'Daily goal complete!'
-    : completed === 0
-      ? `Complete ${dailyGoal.target} ${dailyGoal.target === 1 ? 'activity' : 'activities'}`
-      : `Complete ${remaining} more ${remaining === 1 ? 'activity' : 'activities'}`;
+  let goalMessage;
+  if (dailyGoal.target === 0) {
+    goalMessage = 'All approved topics complete!';
+  } else {
+    if (remaining === 0) {
+      goalMessage = 'Daily goal complete!';
+    } else {
+      if (completed === 0) {
+        goalMessage = `Complete ${dailyGoal.target} ${(() => {
+        if (dailyGoal.target === 1) {
+          return 'activity';
+        } else {
+          return 'activities';
+        }
+      })()}`;
+      } else {
+        goalMessage = `Complete ${remaining} more ${(() => {
+        if (remaining === 1) {
+          return 'activity';
+        } else {
+          return 'activities';
+        }
+      })()}`;
+      }
+    }
+  }
 
   const hasAchievement = Boolean(recentAchievement);
   const achievementTitle = recentAchievement?.title ?? 'No achievements yet';
   const achievementDescription =
     recentAchievement?.description ?? 'Complete lessons to earn your first achievement.';
 
-  const cardLayoutStyle = singleColumn ? styles.cardSingle : landscapeCompact ? styles.cardThirdCompact : styles.cardThird;
+  let cardLayoutStyle;
+  if (singleColumn) {
+    cardLayoutStyle = styles.cardSingle;
+  } else {
+    if (landscapeCompact) {
+      cardLayoutStyle = styles.cardThirdCompact;
+    } else {
+      cardLayoutStyle = styles.cardThird;
+    }
+  }
 
   return (
     <View
@@ -61,7 +90,13 @@ export function DashboardCards({
           <AppButton
             accessibilityLabel="Go to lessons"
             compact
-            density={landscapeCompact ? 'landscapeCompact' : 'compact'}
+            density={(() => {
+              if (landscapeCompact) {
+                return 'landscapeCompact';
+              } else {
+                return 'compact';
+              }
+            })()}
             fullWidth
             label={FilipinoLabels.lessons}
             onPress={onGoToLessons}
@@ -76,13 +111,21 @@ export function DashboardCards({
       >
         <Text style={[styles.title, landscapeCompact && styles.titleCompact]}>Daily Progress</Text>
         <Text
-          numberOfLines={landscapeCompact ? 1 : undefined}
+          numberOfLines={(() => {
+            if (landscapeCompact) {
+              return 1;
+            } else {
+              return undefined;
+            }
+          })()}
           style={[styles.description, styles.goalDescription, landscapeCompact && styles.descriptionCompact]}
         >
           {goalMessage}
         </Text>
-        {dailyGoal.target > 0 ? (
-          <View
+        {(() => {
+          if (dailyGoal.target > 0) {
+            return (
+          <AccessibilityView
             accessibilityLabel={`${completed} of ${dailyGoal.target} daily goal activities completed`}
             accessibilityRole="progressbar"
             accessibilityValue={{ max: dailyGoal.target, min: 0, now: completed }}
@@ -90,14 +133,30 @@ export function DashboardCards({
           >
             {Array.from({ length: dailyGoal.target }, (_, index) => (
               <AppIcon
-                color={index < completed ? 'achievement' : 'starMuted'}
+                color={(() => {
+                  if (index < completed) {
+                    return 'achievement';
+                  } else {
+                    return 'starMuted';
+                  }
+                })()}
                 key={index}
                 name="star"
-                size={landscapeCompact ? 14 : 35}
+                size={(() => {
+                  if (landscapeCompact) {
+                    return 14;
+                  } else {
+                    return 35;
+                  }
+                })()}
               />
             ))}
-          </View>
-        ) : null}
+          </AccessibilityView>
+        );
+          } else {
+            return null;
+          }
+        })()}
       </DashboardCard>
 
       <DashboardCard
@@ -105,7 +164,13 @@ export function DashboardCards({
           <AppButton
             accessibilityLabel="Adventure is locked"
             compact
-            density={landscapeCompact ? 'landscapeCompact' : 'compact'}
+            density={(() => {
+              if (landscapeCompact) {
+                return 'landscapeCompact';
+              } else {
+                return 'compact';
+              }
+            })()}
             disabled
             fullWidth
             icon="lock"
@@ -121,7 +186,13 @@ export function DashboardCards({
         style={cardLayoutStyle}
         tone="adventure"
       >
-        <View style={landscapeCompact ? styles.horizontalHeader : styles.verticalHeader}>
+        <View style={(() => {
+          if (landscapeCompact) {
+            return styles.horizontalHeader;
+          } else {
+            return styles.verticalHeader;
+          }
+        })()}>
           <View
             style={[
               styles.featureIcon,
@@ -129,12 +200,24 @@ export function DashboardCards({
               landscapeCompact && styles.featureIconCompact,
             ]}
           >
-            <AppIcon color="adventure" name="lock" size={landscapeCompact ? 11 : 26} />
+            <AppIcon color="adventure" name="lock" size={(() => {
+              if (landscapeCompact) {
+                return 11;
+              } else {
+                return 26;
+              }
+            })()} />
           </View>
           <Text style={[styles.title, landscapeCompact && styles.titleCompact]}>{adventure.title}</Text>
         </View>
         <Text
-          numberOfLines={landscapeCompact ? 2 : undefined}
+          numberOfLines={(() => {
+            if (landscapeCompact) {
+              return 2;
+            } else {
+              return undefined;
+            }
+          })()}
           style={[styles.description, styles.adventureDescription, landscapeCompact && styles.descriptionCompact]}
         >
           {adventure.description}
@@ -144,15 +227,45 @@ export function DashboardCards({
       <DashboardCard
         action={
           <AppButton
-            accessibilityLabel={hasAchievement ? 'View rewards' : 'No rewards yet'}
+            accessibilityLabel={(() => {
+              if (hasAchievement) {
+                return 'View rewards';
+              } else {
+                return 'No rewards yet';
+              }
+            })()}
             compact
-            density={landscapeCompact ? 'landscapeCompact' : 'compact'}
+            density={(() => {
+              if (landscapeCompact) {
+                return 'landscapeCompact';
+              } else {
+                return 'compact';
+              }
+            })()}
             disabled={!hasAchievement}
             fullWidth
-            label={hasAchievement ? 'Rewards' : 'None Yet'}
-            onPress={hasAchievement ? onViewRewards : () => undefined}
+            label={(() => {
+              if (hasAchievement) {
+                return 'Rewards';
+              } else {
+                return 'None Yet';
+              }
+            })()}
+            onPress={(() => {
+              if (hasAchievement) {
+                return onViewRewards;
+              } else {
+                return () => undefined;
+              }
+            })()}
             pill
-            tone={hasAchievement ? 'achievement' : 'muted'}
+            tone={(() => {
+              if (hasAchievement) {
+                return 'achievement';
+              } else {
+                return 'muted';
+              }
+            })()}
           />
         }
         compact={landscapeCompact}
@@ -160,27 +273,69 @@ export function DashboardCards({
         style={cardLayoutStyle}
         tone="achievement"
       >
-        <View style={landscapeCompact ? styles.horizontalHeader : styles.verticalHeader}>
+        <View style={(() => {
+          if (landscapeCompact) {
+            return styles.horizontalHeader;
+          } else {
+            return styles.verticalHeader;
+          }
+        })()}>
           <View
             style={[
               styles.featureIcon,
-              hasAchievement ? styles.achievementIcon : styles.achievementIconEmpty,
+              (() => {
+                if (hasAchievement) {
+                  return styles.achievementIcon;
+                } else {
+                  return styles.achievementIconEmpty;
+                }
+              })(),
               landscapeCompact && styles.featureIconCompact,
             ]}
           >
             <AppIcon
-              color={hasAchievement ? 'achievement' : 'starMuted'}
-              name={hasAchievement ? 'star' : 'starOutline'}
-              size={landscapeCompact ? 12 : 29}
+              color={(() => {
+                if (hasAchievement) {
+                  return 'achievement';
+                } else {
+                  return 'starMuted';
+                }
+              })()}
+              name={(() => {
+                if (hasAchievement) {
+                  return 'star';
+                } else {
+                  return 'starOutline';
+                }
+              })()}
+              size={(() => {
+                if (landscapeCompact) {
+                  return 12;
+                } else {
+                  return 29;
+                }
+              })()}
             />
           </View>
           <Text style={[styles.title, landscapeCompact && styles.titleCompact]}>{achievementTitle}</Text>
         </View>
         <Text
-          numberOfLines={landscapeCompact ? 2 : undefined}
+          numberOfLines={(() => {
+            if (landscapeCompact) {
+              return 2;
+            } else {
+              return undefined;
+            }
+          })()}
           style={[
             styles.description,
-            hasAchievement ? styles.achievementDescription : styles.achievementDescriptionEmpty,
+            (() => {
+              if (hasAchievement) {
+                return styles.achievementDescription;
+              } else {
+                return styles.achievementDescriptionEmpty;
+              }
+            })(),
             landscapeCompact && styles.descriptionCompact,
           ]}
         >

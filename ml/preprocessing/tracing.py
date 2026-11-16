@@ -22,7 +22,10 @@ def _number(value: Any) -> float | None:
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         return None
     result = float(value)
-    return result if isfinite(result) else None
+    if isfinite(result):
+        return result
+    else:
+        return None
 
 
 def get_attempt_schema_version(attempt: Mapping[str, Any]) -> int | None:
@@ -115,7 +118,10 @@ def validate_attempt(
             errors.append(f"stroke {stroke_index} must contain at least one point")
             continue
 
-        previous_time = started if started is not None else 0.0
+        if started is not None:
+            previous_time = started
+        else:
+            previous_time = 0.0
         for point_index, point in enumerate(points):
             point_count += 1
             if not isinstance(point, Mapping):
@@ -165,7 +171,10 @@ def summarize_attempt(attempt: Mapping[str, Any]) -> dict[str, Any]:
 
     errors = validate_attempt(attempt)
     raw_strokes = attempt.get("strokes", [])
-    safe_strokes = raw_strokes if isinstance(raw_strokes, list) else []
+    if isinstance(raw_strokes, list):
+        safe_strokes = raw_strokes
+    else:
+        safe_strokes = []
     raw_points: list[Mapping[str, Any]] = []
     for stroke in safe_strokes:
         if not isinstance(stroke, Mapping):

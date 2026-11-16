@@ -38,20 +38,54 @@ export function StorybookTopicLayout({
   const [pageSize, setPageSize] = useState({ width: 0, height: 0 });
   const measured = pageSize.width > 0 && pageSize.height > 0;
   const availableWidth = pageSize.width || viewport.width;
-  const constrained = readingLayout && (measured
-    ? pageSize.height < 440 || pageSize.width < 820
-    : viewport.isCompactHeight || viewport.width < 820);
+  const constrained = readingLayout && ((() => {
+    if (measured) {
+      return pageSize.height < 440 || pageSize.width < 820;
+    } else {
+      return viewport.isCompactHeight || viewport.width < 820;
+    }
+  })());
   const measurements = { ...pageSize, constrained };
-  const visualShare = constrained ? hasIllustration ? 0.32 : 0.23 : 0.42;
-  const horizontalPadding = compactSpread ? Spacing.sm * 2 : Spacing.md * 2;
-  const columnGap = compactSpread ? Spacing.xs : Spacing.sm;
-  const panelPadding = compactSpread ? Spacing.xs * 2 : Spacing.md * 2;
+  let visualShare;
+  if (constrained) {
+    if (hasIllustration) {
+      visualShare = 0.32;
+    } else {
+      visualShare = 0.23;
+    }
+  } else {
+    visualShare = 0.42;
+  }
+  let horizontalPadding;
+  if (compactSpread) {
+    horizontalPadding = Spacing.sm * 2;
+  } else {
+    horizontalPadding = Spacing.md * 2;
+  }
+  let columnGap;
+  if (compactSpread) {
+    columnGap = Spacing.xs;
+  } else {
+    columnGap = Spacing.sm;
+  }
+  let panelPadding;
+  if (compactSpread) {
+    panelPadding = Spacing.xs * 2;
+  } else {
+    panelPadding = Spacing.md * 2;
+  }
   const minimumSpreadWidth = Math.ceil(
     (STORY_CONTENT_MIN_WIDTH + panelPadding) / STORY_CONTENT_SHARE +
       horizontalPadding +
       columnGap,
   );
-  const isStacked = availableWidth !== null && availableWidth < (readingLayout ? 480 : minimumSpreadWidth);
+  const isStacked = availableWidth !== null && availableWidth < ((() => {
+    if (readingLayout) {
+      return 480;
+    } else {
+      return minimumSpreadWidth;
+    }
+  })());
   const onLayout = ({ nativeEvent: { layout } }: LayoutChangeEvent) => {
     if (pageSize.width !== layout.width || pageSize.height !== layout.height) {
       setPageSize({ width: layout.width, height: layout.height });
@@ -63,13 +97,25 @@ export function StorybookTopicLayout({
       onLayout={onLayout}
       style={[
         styles.container,
-        isStacked ? styles.stacked : styles.spread,
+        (() => {
+          if (isStacked) {
+            return styles.stacked;
+          } else {
+            return styles.spread;
+          }
+        })(),
         compactSpread && !isStacked && styles.compactSpread,
         // A newly keyed topic must not paint the zero-measurement desktop
         // arrangement while Yoga is calculating its actual content rectangle.
         !measured && styles.measuring,
       ]}
-      pointerEvents={measured ? 'auto' : 'none'}
+      pointerEvents={(() => {
+        if (measured) {
+          return 'auto';
+        } else {
+          return 'none';
+        }
+      })()}
       testID="storybook-page"
     >
       <StoryVisualColumn
@@ -81,7 +127,13 @@ export function StorybookTopicLayout({
       </StoryVisualColumn>
       <StoryContentColumn isStacked={isStacked} share={1 - visualShare}>
         {content(isStacked, measurements)}
-        {constrained ? contentFooter?.(measurements) : null}
+        {(() => {
+          if (constrained) {
+            return contentFooter?.(measurements);
+          } else {
+            return null;
+          }
+        })()}
       </StoryContentColumn>
     </View>
   );
@@ -101,14 +153,21 @@ function StoryVisualColumn({
   const [columnSize, setColumnSize] = useState({ width: 0, height: 0 });
   const onLayout = ({ nativeEvent: { layout } }: LayoutChangeEvent) => {
     setColumnSize((previous) =>
-      previous.width === layout.width && previous.height === layout.height
-        ? previous
-        : { width: layout.width, height: layout.height },
+      {
+      if (previous.width === layout.width && previous.height === layout.height) {
+        return previous;
+      } else {
+        return { width: layout.width, height: layout.height };
+      }
+    },
     );
   };
-  const visualWidth = columnSize.width > 0 && columnSize.height > 0
-    ? Math.min(760, columnSize.width, columnSize.height * aspectRatio)
-    : undefined;
+  let visualWidth;
+  if (columnSize.width > 0 && columnSize.height > 0) {
+    visualWidth = Math.min(760, columnSize.width, columnSize.height * aspectRatio);
+  } else {
+    visualWidth = undefined;
+  }
 
   return (
     <View

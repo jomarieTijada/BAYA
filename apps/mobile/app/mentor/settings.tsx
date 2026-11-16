@@ -1,4 +1,8 @@
 import React from 'react';
-import { Redirect } from 'expo-router';
-// Keep old links usable without an extra settings screen.
-export default function Settings() { return <Redirect href="/mentor/workspaces" />; }
+import { router } from 'expo-router';
+import { FeatureScreen } from '../../components/mentor/FeatureScreen';
+import { LanguageSelector } from '../../localization/LanguageSelector';
+/** Device preference is available offline and does not require authentication. */
+export default function Settings() {
+  return <FeatureScreen title="Settings" subtitle="Language" onBack={() => { if (router.canGoBack()) router.back(); else router.replace('/mentor/workspaces'); }}><LanguageSelector /></FeatureScreen>;
+}

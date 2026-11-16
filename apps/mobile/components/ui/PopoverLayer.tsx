@@ -1,5 +1,6 @@
+import { Pressable } from '../../localization/components';
 import React from 'react';
-import { Modal, Pressable, StyleSheet, View } from 'react-native';
+import { Modal, StyleSheet, View } from 'react-native';
 
 /** Native overlay has no dimming or blur; only the anchored menu is visible. */
 export function PopoverLayer({ children, onDismiss }: React.PropsWithChildren<{ onDismiss: () => void }>) {

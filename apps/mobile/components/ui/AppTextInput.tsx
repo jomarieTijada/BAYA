@@ -1,11 +1,7 @@
+
+import { Text, TextInput } from '../../localization/components';
 import React, { forwardRef, useState } from 'react';
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  type TextInputProps,
-  View,
-} from 'react-native';
+import { StyleSheet, type TextInputProps, type TextInput as NativeTextInput, View } from 'react-native';
 
 import { Colors, FontFamily, Radius, Spacing } from '../../constants/theme';
 
@@ -27,7 +23,7 @@ export type AppControlDensity =
   | 'landscapeCompact';
 
 /** Labelled input with reusable required, optional, helper, focus, and error states. */
-export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
+export const AppTextInput = forwardRef<NativeTextInput, AppTextInputProps>(
   function AppTextInput(
     {
       accessibilityHint,
@@ -50,7 +46,17 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
     const [focused, setFocused] = useState(false);
     const accessibleLabel =
       accessibilityLabel ??
-      `${label}${required ? ', required' : optional ? ', optional' : ''}`;
+      `${label}${(() => {
+        if (required) {
+          return ', required';
+        } else {
+          if (optional) {
+            return ', optional';
+          } else {
+            return '';
+          }
+        }
+      })()}`;
     const isLandscape = density === 'landscapeCompact';
     const isCompact = density === 'compact' || isLandscape;
     const hasSupport = Boolean(error || helperText);
@@ -74,10 +80,18 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
             ]}
           >
             {label}
-            {required ? <Text style={styles.required}>*</Text> : null}
+            {(() => {
+              if (required) {
+                return <Text style={styles.required}>*</Text>;
+              } else {
+                return null;
+              }
+            })()}
           </Text>
           {labelAction}
-          {optional ? (
+          {(() => {
+            if (optional) {
+              return (
             <Text
               style={[
                 styles.optionalBadge,
@@ -88,7 +102,11 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
             >
               OPTIONAL
             </Text>
-          ) : null}
+          );
+            } else {
+              return null;
+            }
+          })()}
         </View>
 
         <View style={{ position: 'relative' }}>
@@ -114,7 +132,13 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
             style={[
               styles.input,
               density === 'form' && { borderRadius: 24 },
-              trailing ? { paddingRight: 64 } : undefined,
+              (() => {
+                if (trailing) {
+                  return { paddingRight: 64 };
+                } else {
+                  return undefined;
+                }
+              })(),
               density === 'mobile' && styles.inputMobile,
               density === 'compact' && styles.inputCompact,
               isLandscape && styles.inputLandscapeCompact,
@@ -123,13 +147,21 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
             ]}
           />
 
-          {trailing ? (
+          {(() => {
+            if (trailing) {
+              return (
             <View style={{ position: 'absolute', right: 8, top: 8 }}>
               {trailing}
             </View>
-          ) : null}
+          );
+            } else {
+              return null;
+            }
+          })()}
         </View>
-        {hasSupport ? (
+        {(() => {
+          if (hasSupport) {
+            return (
           <View
             style={[
               styles.supportArea,
@@ -138,7 +170,9 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
               isLandscape && styles.supportAreaLandscapeCompact,
             ]}
           >
-            {error ? (
+            {(() => {
+              if (error) {
+                return (
               <Text
                 accessibilityLiveRegion="polite"
                 accessibilityRole="alert"
@@ -151,7 +185,9 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
               >
                 {error}
               </Text>
-            ) : (
+            );
+              } else {
+                return (
               <Text
                 style={[
                   styles.helper,
@@ -162,9 +198,14 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
               >
                 {helperText}
               </Text>
-            )}
+            );
+              }
+            })()}
           </View>
-        ) : density === 'regular' || density === 'mobile' ? (
+        );
+          } else {
+            if (density === 'regular' || density === 'mobile') {
+              return (
           <View
             style={[
               styles.supportArea,
@@ -175,7 +216,12 @@ export const AppTextInput = forwardRef<TextInput, AppTextInputProps>(
               {' '}
             </Text>
           </View>
-        ) : null}
+        );
+            } else {
+              return null;
+            }
+          }
+        })()}
       </View>
     );
   },

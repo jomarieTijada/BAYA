@@ -1,7 +1,9 @@
+import { MentorSessionRevisionContext } from '../../modules/cloud/mentorSessionRevision';
+import { Text } from '../../localization/components';
 import { useCloudRead } from '../../modules/progress/useCloudRead';
 import { useBayaToast } from '../ui/BayaNotifications';
-import React, { useCallback, useState } from 'react';
-import { Text, View, useWindowDimensions } from 'react-native';
+import React, { useCallback, useContext, useState } from 'react';
+import { View, useWindowDimensions } from 'react-native';
 import { router, useFocusEffect } from 'expo-router';
 import {
   useCloudServices,
@@ -20,6 +22,8 @@ import { MentorActionMenu } from './MentorActionMenu';
 /** Route guard is presentation only; adapters must separately authorize every operation. */
 export function MentorBoundary({ children }: React.PropsWithChildren) {
   const services = useCloudServices();
+  const sessionRevision = useContext(MentorSessionRevisionContext);
+  const [authorizedRevision, setAuthorizedRevision] = useState(-1);
   const [state, setState] = useState<'loading' | 'ready' | 'error'>('loading');
   const [message, setMessage] = useState('');
   const [retry, setRetry] = useState(0);
@@ -33,13 +37,17 @@ export function MentorBoundary({ children }: React.PropsWithChildren) {
         .session()
         .then((result) => {
           if (!active) return;
-          if (result.ok && result.data) setState('ready');
+          if (result.ok && result.data) { setAuthorizedRevision(sessionRevision); setState('ready'); }
           else {
             setState('error');
             setMessage(
-              result.ok
-                ? 'Please log in to access your workspaces.'
-                : failureMessage[result.code],
+              (() => {
+                if (result.ok) {
+                  return 'Please log in to access your workspaces.';
+                } else {
+                  return failureMessage[result.code];
+                }
+              })(),
             );
           }
         })
@@ -51,10 +59,11 @@ export function MentorBoundary({ children }: React.PropsWithChildren) {
         });
       return () => {
         active = false;
+        setState('loading');
       };
-    }, [services, retry]),
+    }, [services, retry, sessionRevision]),
   );
-  if (state === 'ready') return <>{children}</>;
+  if (state === 'ready' && authorizedRevision === sessionRevision) return <>{children}</>;
   return (
     <FeatureScreen
       title="MENTOR WORKSPACES"
@@ -63,7 +72,13 @@ export function MentorBoundary({ children }: React.PropsWithChildren) {
     >
       <Notice
         busy={state === 'loading'}
-        text={state === 'loading' ? 'Checking your session…' : message}
+        text={(() => {
+          if (state === 'loading') {
+            return 'Checking your session…';
+          } else {
+            return message;
+          }
+        })()}
       />
       {state === 'error' && (
         <>
@@ -95,9 +110,14 @@ export function WorkspaceSelectionScreen() {
       subtitle="Select a workspace to manage learner progress."
       action={<MentorActionMenu />}
     >
-      {!result ? (
+      {(() => {
+        if (!result) {
+          return (
         <Notice busy text="Loading your workspaces…" />
-      ) : !result.ok ? (
+      );
+        } else {
+          if (!result.ok) {
+            return (
         <>
           <Notice text={failureMessage[result.code]} />
           <AppButton
@@ -110,11 +130,16 @@ export function WorkspaceSelectionScreen() {
             onPress={() => router.replace('/mentor')}
           />
         </>
-      ) : result.data.length === 0 ? (
+      );
+          } else {
+            if (result.data.length === 0) {
+              return (
         <WorkspaceEmptyState
           onCreate={() => router.push('/mentor/workspaces/create')}
         />
-      ) : (
+      );
+            } else {
+              return (
         <>
           <View
             style={[
@@ -142,7 +167,13 @@ export function WorkspaceSelectionScreen() {
             {result.data.map((workspace) => (
               <View
                 key={workspace.workspace_id}
-                style={{ width: width >= 1000 ? '48%' : '100%' }}
+                style={{ width: (() => {
+                  if (width >= 1000) {
+                    return '48%';
+                  } else {
+                    return '100%';
+                  }
+                })() }}
               >
                 <WorkspaceCard
                   workspace={workspace}
@@ -158,7 +189,11 @@ export function WorkspaceSelectionScreen() {
             ))}
           </View>
         </>
-      )}
+      );
+            }
+          }
+        }
+      })()}
     </FeatureScreen>
   );
 }
@@ -224,7 +259,13 @@ export function CreateWorkspaceScreen() {
       />
       <Notice busy={op.busy} text={op.message} />
       <AppButton
-        label={op.busy ? 'CREATING…' : 'CREATE WORKSPACE'}
+        label={(() => {
+          if (op.busy) {
+            return 'CREATING…';
+          } else {
+            return 'CREATE WORKSPACE';
+          }
+        })()}
         accessibilityLabel="Create workspace"
         icon="arrowRight"
         disabled={op.busy}
@@ -258,9 +299,14 @@ export function WorkspaceDetailsScreen({ id }: { id: string }) {
       subtitle="Share the workspace code with your learners."
       onBack={() => router.replace('/mentor/workspaces')}
     >
-      {!result ? (
+      {(() => {
+        if (!result) {
+          return (
         <Notice busy text="Loading workspace…" />
-      ) : !result.ok ? (
+      );
+        } else {
+          if (!result.ok) {
+            return (
         <>
           <Notice text={failureMessage[result.code]} />
           <AppButton
@@ -269,9 +315,14 @@ export function WorkspaceDetailsScreen({ id }: { id: string }) {
             onPress={retry}
           />
         </>
-      ) : (
+      );
+          } else {
+            return (
         <WorkspaceCard workspace={result.data} />
-      )}
+      );
+          }
+        }
+      })()}
     </FeatureScreen>
   );
 }

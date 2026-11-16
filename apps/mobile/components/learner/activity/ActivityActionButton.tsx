@@ -1,5 +1,6 @@
+import { Text } from '../../../localization/components';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { FontFamily, Spacing } from '../../../constants/theme';
 import { AppButton } from '../../ui/AppButton';
@@ -41,7 +42,13 @@ export function ActivityActionButton({
       <AppButton
         accessibilityLabel={accessibilityLabel}
         compact={compact}
-        density={landscapeCompact ? 'compact' : density}
+        density={(() => {
+          if (landscapeCompact) {
+            return 'compact';
+          } else {
+            return density;
+          }
+        })()}
         disabled={!isEnabled}
         fullWidth={false}
         icon="chevronRight"
@@ -57,7 +64,9 @@ export function ActivityActionButton({
         tone="primary"
       />
 
-      {!isEnabled && disabledHint ? (
+      {(() => {
+        if (!isEnabled && disabledHint) {
+          return (
         <Text
           style={[
             styles.hintText,
@@ -67,7 +76,11 @@ export function ActivityActionButton({
         >
           {disabledHint}
         </Text>
-      ) : null}
+      );
+        } else {
+          return null;
+        }
+      })()}
     </View>
   );
 }

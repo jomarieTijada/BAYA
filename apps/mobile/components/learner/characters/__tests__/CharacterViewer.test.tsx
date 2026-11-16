@@ -1,3 +1,4 @@
+import { translateText } from '../../../../localization/core';
 import React, { useState } from 'react';
 import { fireEvent, render as renderComponent, screen, waitFor, within } from '@testing-library/react-native';
 
@@ -8,6 +9,7 @@ import * as Speech from 'expo-speech';
 import { Colors } from '../../../../constants/theme';
 import { CharacterViewer } from '../CharacterViewer';
 import { getBaybayinCharacterTopic, type BaybayinCharacterTopic } from '../../../../content/baybayinCharactersData';
+const english = (source: string) => translateText('en', source);
 
 // React Native's test renderer does not dispatch native layout events.
 function render(element: React.ReactElement) {
@@ -27,7 +29,13 @@ function ViewerHarness({ topic }: { topic: BaybayinCharacterTopic }) {
   return <CharacterViewer
     topicId={topic.id}
     characters={topic.characters}
-    selectedIndex={selection.topicId === topic.id ? selection.index : 0}
+    selectedIndex={(() => {
+      if (selection.topicId === topic.id) {
+        return selection.index;
+      } else {
+        return 0;
+      }
+    })()}
     onSelectCharacter={index => setSelection({ topicId: topic.id, index })}
   />;
 }
@@ -39,9 +47,9 @@ describe('CharacterViewer', () => {
     fireEvent(row, 'layout', { nativeEvent: { layout: { width: 300 } } });
     fireEvent(row, 'contentSizeChange', 900, 50);
     expect(screen.getAllByTestId('lesson-swipe-hint')).toHaveLength(1);
-    expect(screen.getByLabelText('I-swipe pakaliwa')).toBeTruthy();
+    expect(screen.getByLabelText("Swipe left")).toBeTruthy();
     fireEvent.scroll(row, { nativeEvent: { contentOffset: { x: 600, y: 0 } } });
-    expect(screen.getByLabelText('I-swipe pakanan')).toBeTruthy();
+    expect(screen.getByLabelText("Swipe right")).toBeTruthy();
     fireEvent(row, 'layout', { nativeEvent: { layout: { width: 1000 } } });
     expect(screen.queryByTestId('lesson-swipe-hint')).toBeNull();
   });
@@ -63,7 +71,7 @@ describe('CharacterViewer', () => {
     expect(StyleSheet.flatten(screen.getByTestId('character-example-highlighted-glyph').props.style).textDecorationLine).toBeUndefined();
     expect(StyleSheet.flatten(screen.getByTestId('character-example-guide-line').props.style)).toEqual(expect.objectContaining({ backgroundColor: Colors.textMuted, height: 1 }));
     expect(screen.getAllByTestId('character-example-guide-line')).toHaveLength(1);
-    for (const oldWord of ['Kama', 'Ngipin', 'Yaya']) expect(screen.queryByLabelText(oldWord)).toBeNull();
+    for (const oldWord of ['Kama', 'Ngipin', 'Yaya']) expect(screen.queryByLabelText(english(oldWord))).toBeNull();
     fireEvent.press(screen.getByTestId('baya-pronunciation-button'));
     await waitFor(() => expect(Speech.speak).toHaveBeenCalledWith(character.latinEquivalent, expect.objectContaining({ language: 'fil-PH' })));
   });
@@ -77,7 +85,13 @@ describe('CharacterViewer', () => {
         expect(screen.getAllByTestId('character-example-guide-line')).toHaveLength(1);
         expect(StyleSheet.flatten(screen.getByTestId('character-example-guide-line').props.style)).toEqual(expect.objectContaining({ backgroundColor: Colors.textMuted, height: 1 }));
         const cancellationMarks = screen.queryAllByTestId('character-example-cancellation-mark', { includeHiddenElements: true });
-        expect(cancellationMarks).toHaveLength(character.example.baybayinWord.includes('᜔') ? 1 : 0);
+        expect(cancellationMarks).toHaveLength((() => {
+          if (character.example.baybayinWord.includes('᜔')) {
+            return 1;
+          } else {
+            return 0;
+          }
+        })());
         for (const mark of cancellationMarks) expect(mark.props.children).toBe('×');
       }
       view.unmount();
@@ -104,10 +118,10 @@ describe('CharacterViewer', () => {
   it('uses the same example, BAYA control, and selector for vowels and consonants', () => {
     const vowels = getBaybayinCharacterTopic('topic-2-1')!;
     const { rerender } = render(<ViewerHarness topic={vowels} />);
-    expect(within(screen.getByTestId('story-content-column')).getByText('Halimbawa')).toBeTruthy();
-    expect(within(screen.getByTestId('story-content-column')).getByText('Mga simbolo')).toBeTruthy();
-    expect(within(screen.getByTestId('story-image-column')).queryByText('Mga simbolo')).toBeNull();
-    expect(screen.queryByText(vowels.description)).toBeNull();
+    expect(within(screen.getByTestId('story-content-column')).getByText("Example")).toBeTruthy();
+    expect(within(screen.getByTestId('story-content-column')).getByText("Characters")).toBeTruthy();
+    expect(within(screen.getByTestId('story-image-column')).queryByText("Characters")).toBeNull();
+    expect(screen.queryByText(english(vowels.description))).toBeNull();
     expect(within(screen.getByTestId('story-image-column')).getByTestId('character-glyph')).toBeTruthy();
     expect(within(screen.getByTestId('story-content-column')).getByTestId('character-selector')).toBeTruthy();
     expect(within(screen.getByTestId('story-content-column')).getByTestId('baya-mascot')).toBeTruthy();
@@ -125,9 +139,9 @@ describe('CharacterViewer', () => {
 
     const consonants = getBaybayinCharacterTopic('topic-2-2')!;
     rerender(<ViewerHarness topic={consonants} />);
-    expect(screen.queryByText(consonants.description)).toBeNull();
+    expect(screen.queryByText(english(consonants.description))).toBeNull();
     expect(within(screen.getByTestId('story-content-column')).getByTestId('character-selector')).toBeTruthy();
-    expect(within(screen.getByTestId('story-content-column')).getByText('Halimbawa')).toBeTruthy();
+    expect(within(screen.getByTestId('story-content-column')).getByText("Example")).toBeTruthy();
     expect(screen.getAllByTestId(/^character-chip-/)).toHaveLength(14);
     fireEvent.press(screen.getByTestId('character-chip-ya'));
     expect(screen.getByTestId('character-glyph').props.source).toBe(consonants.characters[13].imageAsset);

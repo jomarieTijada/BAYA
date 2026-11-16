@@ -1,5 +1,6 @@
+import { Pressable } from '../../localization/components';
 import React, { useState } from 'react';
-import { Pressable, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import { Colors, LearnerHeaderMetrics, Radius, Shadows } from '../../constants/theme';
 import { AppIcon } from './AppIcon';
@@ -21,7 +22,13 @@ export function BackButton({
 }: BackButtonProps) {
   const [focused, setFocused] = useState(false);
   const [hovered, setHovered] = useState(false);
-  const resolvedSize = size ?? (compact ? 'compact' : 'regular');
+  const resolvedSize = size ?? ((() => {
+    if (compact) {
+      return 'compact';
+    } else {
+      return 'regular';
+    }
+  })());
 
   return (
     <Pressable
@@ -36,13 +43,21 @@ export function BackButton({
       style={({ pressed }) => [
         styles.button,
         Shadows.card,
-        resolvedSize === 'landscape'
-          ? styles.landscape
-          : resolvedSize === 'header'
-            ? styles.header
-          : resolvedSize === 'compact'
-            ? styles.compact
-            : styles.regular,
+        (() => {
+          if (resolvedSize === 'landscape') {
+            return styles.landscape;
+          } else {
+            if (resolvedSize === 'header') {
+              return styles.header;
+            } else {
+              if (resolvedSize === 'compact') {
+                return styles.compact;
+              } else {
+                return styles.regular;
+              }
+            }
+          }
+        })(),
         hovered && styles.hovered,
         pressed && styles.pressed,
         focused && styles.focused,
@@ -50,7 +65,17 @@ export function BackButton({
     >
       <AppIcon
         name="back"
-        size={resolvedSize === 'landscape' ? 'md' : resolvedSize === 'compact' ? 'lg' : 'xl'}
+        size={(() => {
+          if (resolvedSize === 'landscape') {
+            return 'md';
+          } else {
+            if (resolvedSize === 'compact') {
+              return 'lg';
+            } else {
+              return 'xl';
+            }
+          }
+        })()}
       />
     </Pressable>
   );

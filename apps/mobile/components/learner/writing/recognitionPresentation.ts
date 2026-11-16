@@ -1,15 +1,30 @@
 import type { BayaPrediction } from '../../../ml/writingRecognition';
+import { BAYA_CLASS_LABELS } from '../../../ml/bayaClassLabels';
+import { validPredictions } from '../../../content/writingMastery';
+import { getBaybayinTracingGuide } from '../../../content/baybayinTracingGuides';
+
+export type TopPrediction = Readonly<BayaPrediction & { glyphSource: number }>;
+
+/** Copy only the selected class into UI state; never carry candidate arrays. */
+export function presentTopPrediction(top: BayaPrediction): TopPrediction {
+  if (!validPredictions([top])) throw new Error('Invalid top prediction.');
+  const label = BAYA_CLASS_LABELS[top.classIndex];
+  return { label, classIndex: top.classIndex, probability: top.probability, glyphSource: getBaybayinTracingGuide(label) };
+}
 
 /** Learner-facing state for the existing BAYA recognition request. */
 export type RecognitionState =
   | { status: 'idle' }
   | { status: 'analyzing' }
-  | { status: 'success'; predictions: BayaPrediction[] }
+  | { status: 'success'; prediction: TopPrediction }
   | { status: 'empty' }
+  | { status: 'uncertain' }
+  | { status: 'rejected' }
   | { status: 'error' };
 
 /** Rank existing model probabilities without changing their values. */
 export function rankPredictions(predictions: BayaPrediction[]): BayaPrediction[] {
+  if (!validPredictions(predictions)) throw new Error('Invalid recognition predictions.');
   return [...predictions].sort((left, right) => right.probability - left.probability).slice(0, 3);
 }
 

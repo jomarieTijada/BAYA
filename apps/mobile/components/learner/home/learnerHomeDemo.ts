@@ -59,7 +59,13 @@ export const learnerHomeDemo: LearnerHomeViewModel = {
     status: 'not_started',
     steps: approvedCurriculum[0].topics.map((_, index) => ({
       id: index + 1,
-      status: index === 0 ? 'current' : 'upcoming',
+      status: (() => {
+        if (index === 0) {
+          return 'current';
+        } else {
+          return 'upcoming';
+        }
+      })(),
     })),
   },
   dailyGoal: {

@@ -1,15 +1,7 @@
+import { AccessibilityView, Pressable, Text } from '../../../localization/components';
 import { TopicCard } from "./TopicCard";
 import React, { useEffect, useState } from "react";
-import {
-  AccessibilityInfo,
-  Animated,
-  Easing,
-  Platform,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { AccessibilityInfo, Animated, Easing, Platform, StyleSheet, View } from 'react-native';
 
 import { Colors, FontFamily, Radius, Spacing } from "../../../constants/theme";
 import { FilipinoLabels } from '../../../constants/filipinoLabels';
@@ -140,20 +132,30 @@ export function LessonCard({
   const topics = lesson.topics || [];
   const completedTopicsCount = topics.filter((t) => t.completed).length;
   const totalTopicsCount = topics.length;
-  const topicsButtonLabel = isCompleted
-    ? 'Balikan ang mga Paksa'
-    : completedTopicsCount > 0
-      ? 'Magpatuloy sa mga Paksa'
-      : 'Simulan ang mga Paksa';
+  let topicsButtonLabel;
+  if (isCompleted) {
+    topicsButtonLabel = 'Balikan ang mga Paksa';
+  } else {
+    if (completedTopicsCount > 0) {
+      topicsButtonLabel = 'Magpatuloy sa mga Paksa';
+    } else {
+      topicsButtonLabel = 'Simulan ang mga Paksa';
+    }
+  }
 
-  const accessibilityLabel = isCurrent
-    ? `Kasalukuyang modyul, ${lesson.title}, Modyul ${lesson.number} sa ${totalLessons}. ${completedTopicsCount} sa ${totalTopicsCount} paksa ang natapos.`
-    : isCompleted
-      ? `Natapos na ang modyul na ${lesson.title}. Tapos na ang lahat ng ${totalTopicsCount} paksa.`
-      : `Naka-lock ang modyul na ${lesson.title}. May ${totalTopicsCount} paksa.`;
+  let accessibilityLabel;
+  if (isCurrent) {
+    accessibilityLabel = `Kasalukuyang modyul, ${lesson.title}, Modyul ${lesson.number} sa ${totalLessons}. ${completedTopicsCount} sa ${totalTopicsCount} paksa ang natapos.`;
+  } else {
+    if (isCompleted) {
+      accessibilityLabel = `Natapos na ang modyul na ${lesson.title}. Tapos na ang lahat ng ${totalTopicsCount} paksa.`;
+    } else {
+      accessibilityLabel = `Naka-lock ang modyul na ${lesson.title}. May ${totalTopicsCount} paksa.`;
+    }
+  }
 
   return (
-    <View
+    <AccessibilityView
       accessibilityLabel={accessibilityLabel}
       accessibilityRole="summary"
       accessibilityState={{ disabled: isLocked }}
@@ -194,9 +196,36 @@ export function LessonCard({
           >
             {topics.map((topic, index) => {
               const angle = (index / Math.max(totalTopicsCount, 1)) * Math.PI * 2 - Math.PI / 2;
-              const center = isLandscapeCompact ? 20 : compact ? 21 : 28;
-              const radius = isLandscapeCompact ? 16 : compact ? 18 : 25;
-              const markerSize = isLandscapeCompact ? 4 : compact ? 5 : 6;
+              let center;
+              if (isLandscapeCompact) {
+                center = 20;
+              } else {
+                if (compact) {
+                  center = 21;
+                } else {
+                  center = 28;
+                }
+              }
+              let radius;
+              if (isLandscapeCompact) {
+                radius = 16;
+              } else {
+                if (compact) {
+                  radius = 18;
+                } else {
+                  radius = 25;
+                }
+              }
+              let markerSize;
+              if (isLandscapeCompact) {
+                markerSize = 4;
+              } else {
+                if (compact) {
+                  markerSize = 5;
+                } else {
+                  markerSize = 6;
+                }
+              }
               const completed = topic.completed;
               const available = topic.status === "available" || topic.status === "in_progress";
               return (
@@ -220,7 +249,17 @@ export function LessonCard({
             <Animated.View
               style={[
                 styles.badge,
-                isCompleted ? styles.badgeCompleted : isCurrent ? styles.badgeCurrent : styles.badgeLocked,
+                (() => {
+                  if (isCompleted) {
+                    return styles.badgeCompleted;
+                  } else {
+                    if (isCurrent) {
+                      return styles.badgeCurrent;
+                    } else {
+                      return styles.badgeLocked;
+                    }
+                  }
+                })(),
                 compact && styles.badgeCompact,
                 isLandscapeCompact && styles.badgeLandscapeCompact,
                 isCurrent && !isReduceMotion && { transform: [{ scale: badgeScale }] },
@@ -255,13 +294,23 @@ export function LessonCard({
               style={[styles.completedCheck, compact && styles.completedCheckCompact]}
               testID={`lesson-completed-check-${lesson.id}`}
             >
-              <AppIcon color="success" name="check" size={isLandscapeCompact ? 16 : compact ? 18 : 22} />
+              <AppIcon color="success" name="check" size={(() => {
+                if (isLandscapeCompact) {
+                  return 16;
+                } else {
+                  if (compact) {
+                    return 18;
+                  } else {
+                    return 22;
+                  }
+                }
+              })()} />
             </View>
           )}
         </View>
 
         {/* Topic rows use one compact line: icon, number, and approved title. */}
-        <View
+        <AccessibilityView
           accessibilityLabel={`Mga paksa sa ${lesson.title}`}
           accessibilityRole="list"
           style={[
@@ -273,11 +322,13 @@ export function LessonCard({
           {topics.map((topic, index) => (
             <TopicCard dense={isLandscapeCompact} key={topic.id} topic={topic} number={index + 1} />
           ))}
-        </View>
+        </AccessibilityView>
 
         {/* The card opens the topic flow directly; no module-detail screen. */}
         <View style={[styles.footer, compact && styles.footerCompact, isLandscapeCompact && { marginTop: 4 }]}>
-          {!isLocked ? (
+          {(() => {
+            if (!isLocked) {
+              return (
             <View style={[styles.currentFooter, isLandscapeCompact && { gap: 2 }]}>
               <Pressable
                 accessibilityHint="Buksan ang susunod na maaaring araling paksa"
@@ -309,11 +360,23 @@ export function LessonCard({
                 <AppIcon
                   color="onPrimary"
                   name="chevronRight"
-                  size={isLandscapeCompact ? 12 : compact ? 15 : 18}
+                  size={(() => {
+                    if (isLandscapeCompact) {
+                      return 12;
+                    } else {
+                      if (compact) {
+                        return 15;
+                      } else {
+                        return 18;
+                      }
+                    }
+                  })()}
                 />
               </Pressable>
             </View>
-          ) : (
+          );
+            } else {
+              return (
             <View
               style={[
                 styles.lockedPill,
@@ -324,7 +387,17 @@ export function LessonCard({
               <AppIcon
                 color="level"
                 name="lock"
-                size={isLandscapeCompact ? 11 : compact ? 13 : 15}
+                size={(() => {
+                  if (isLandscapeCompact) {
+                    return 11;
+                  } else {
+                    if (compact) {
+                      return 13;
+                    } else {
+                      return 15;
+                    }
+                  }
+                })()}
               />
               <Text
                 style={[
@@ -336,11 +409,13 @@ export function LessonCard({
                 {FilipinoLabels.locked}
               </Text>
             </View>
-          )}
+          );
+            }
+          })()}
         </View>
         </BaseCard>
       </Animated.View>
-    </View>
+    </AccessibilityView>
   );
 }
 

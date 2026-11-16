@@ -155,7 +155,12 @@ export function AppIcon({
   size = 'lg',
 }: AppIconProps) {
   const decorative = !accessibilityLabel;
-  const resolvedSize = typeof size === 'number' ? size : IconSize[size];
+  let resolvedSize;
+  if (typeof size === 'number') {
+    resolvedSize = size;
+  } else {
+    resolvedSize = IconSize[size];
+  }
 
   if (name === 'layers') return <Svg aria-hidden={decorative} accessibilityLabel={accessibilityLabel} width={resolvedSize} height={resolvedSize} viewBox="0 0 24 24">
     <Path d="M3 7 12 2 21 7 12 12 3 7 M3 12 12 17 21 12 M3 17 12 22 21 17" fill="none" stroke={iconColors[color]} strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" />
@@ -166,7 +171,13 @@ export function AppIcon({
       <Svg
         aria-hidden={decorative}
         aria-label={accessibilityLabel}
-        role={decorative ? undefined : 'img'}
+        role={(() => {
+          if (decorative) {
+            return undefined;
+          } else {
+            return 'img';
+          }
+        })()}
         focusable={false}
         height={resolvedSize}
         viewBox={`0 0 ${ioniconUnits} ${ioniconUnits}`}
@@ -188,7 +199,13 @@ export function AppIcon({
       accessible={!decorative}
       aria-hidden={decorative}
       color={iconColors[color]}
-      importantForAccessibility={decorative ? 'no-hide-descendants' : 'auto'}
+      importantForAccessibility={(() => {
+        if (decorative) {
+          return 'no-hide-descendants';
+        } else {
+          return 'auto';
+        }
+      })()}
       name={iconNames[name]}
       size={resolvedSize}
     />

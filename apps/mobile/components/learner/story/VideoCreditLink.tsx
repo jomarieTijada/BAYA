@@ -1,15 +1,18 @@
+import { useLocalizedAlert } from '../../../localization/useLocalizedAlert';
+import { Pressable, Text } from '../../../localization/components';
 import React from 'react';
-import { Alert, Linking, Pressable, StyleSheet, Text } from 'react-native';
+import { Linking, StyleSheet } from 'react-native';
 import { FontFamily } from '../../../constants/theme';
 import type { VideoCredit } from '../../../content/types';
 
 export function VideoCreditLink({ credit }: { credit: VideoCredit }) {
+  const localizedAlert = useLocalizedAlert();
   return <Pressable
     accessibilityLabel={credit.label}
     accessibilityRole="link"
     accessibilityHint="Bubukas sa labas ng aralin. Kailangan ng internet."
     onPress={() => {
-      void Linking.openURL(credit.url).catch(() => Alert.alert('Hindi mabuksan ang website', 'Subukan muli kapag may koneksiyon sa internet.'));
+      void Linking.openURL(credit.url).catch(() => localizedAlert('Hindi mabuksan ang website', 'Subukan muli kapag may koneksiyon sa internet.'));
     }}
     style={styles.link}
     testID="video-credit-link"

@@ -1,5 +1,7 @@
+import { useLocalization } from '../../../localization/LocalizationProvider';
+import { Pressable } from '../../../localization/components';
 import React, { useEffect, useRef, useState } from 'react';
-import { AccessibilityInfo, Animated, Easing, Platform, Pressable, StyleSheet, View } from 'react-native';
+import { AccessibilityInfo, Animated, Easing, Platform, StyleSheet, View } from 'react-native';
 import type { SlideStepContent } from '../../../content/types';
 import { Colors } from '../../../constants/theme';
 import { useReducedMotionPreference } from '../../../hooks/useReducedMotionPreference';
@@ -11,6 +13,7 @@ import { StorySpeechBubble } from './StorySpeechBubble';
 export function StoryMascotPopover({ content, pageWidth, pageHeight }: {
   content: SlideStepContent; pageWidth: number; pageHeight: number;
 }) {
+  const { text } = useLocalization();
   const [open, setOpen] = useState(false);
   const [presented, setPresented] = useState(false);
   const [columnWidth, setColumnWidth] = useState(0);
@@ -25,23 +28,46 @@ export function StoryMascotPopover({ content, pageWidth, pageHeight }: {
   if (open && !presented) setPresented(true);
   if (!open && reduced && presented) setPresented(false);
 
+  const announcement = text(message);
+  useEffect(() => { if (open) AccessibilityInfo.announceForAccessibility(announcement); }, [open, announcement]);
   useEffect(() => {
-    if (open) {
-      AccessibilityInfo.announceForAccessibility(message);
-    }
     if (reduced) {
-      motion.setValue(open ? 1 : 0);
+      motion.setValue((() => {
+        if (open) {
+          return 1;
+        } else {
+          return 0;
+        }
+      })());
       return;
     }
     try {
       const animation = Animated.timing(motion, {
-        toValue: open ? 1 : 0, duration: open ? 300 : 180,
+        toValue: (() => {
+          if (open) {
+            return 1;
+          } else {
+            return 0;
+          }
+        })(), duration: (() => {
+          if (open) {
+            return 300;
+          } else {
+            return 180;
+          }
+        })(),
         easing: Easing.out(Easing.cubic), useNativeDriver: Platform.OS !== 'web',
       });
       animation.start(({ finished }) => { if (finished && !open) setPresented(false); });
       return () => animation.stop();
     } catch {
-      motion.setValue(open ? 1 : 0);
+      motion.setValue((() => {
+        if (open) {
+          return 1;
+        } else {
+          return 0;
+        }
+      })());
       const frame = requestAnimationFrame(() => setPresented(open));
       return () => cancelAnimationFrame(frame);
     }

@@ -193,10 +193,22 @@ export async function getDatabaseMetadata(): Promise<DatabaseMetadata> {
     }
   }
 
-  const environment = Platform.OS === 'web'
-    ? (typeof window !== 'undefined' && (window as { matchMedia?: (q: string) => { matches: boolean } }).matchMedia?.('(display-mode: standalone)')?.matches ? 'PWA' : 'Web')
-    : Platform.OS;
-  const origin = Platform.OS === 'web' && typeof window !== 'undefined' ? window.location.origin : 'N/A';
+  let environment;
+  if (Platform.OS === 'web') {
+    if (typeof window !== 'undefined' && (window as { matchMedia?: (q: string) => { matches: boolean } }).matchMedia?.('(display-mode: standalone)')?.matches) {
+      environment = 'PWA';
+    } else {
+      environment = 'Web';
+    }
+  } else {
+    environment = Platform.OS;
+  }
+  let origin;
+  if (Platform.OS === 'web' && typeof window !== 'undefined') {
+    origin = window.location.origin;
+  } else {
+    origin = 'N/A';
+  }
 
   return {
     state,
@@ -304,12 +316,27 @@ export async function executeReadOnlyQuery(sql: string): Promise<QueryResult> {
     finalSql = `${finalSql} LIMIT ${MAX_QUERY_ROWS}`;
   }
 
-  const start = typeof performance !== 'undefined' ? performance.now() : Date.now();
+  let start;
+  if (typeof performance !== 'undefined') {
+    start = performance.now();
+  } else {
+    start = Date.now();
+  }
   const rows = await db.getAllAsync<Record<string, unknown>>(finalSql + ';');
-  const end = typeof performance !== 'undefined' ? performance.now() : Date.now();
+  let end;
+  if (typeof performance !== 'undefined') {
+    end = performance.now();
+  } else {
+    end = Date.now();
+  }
   const executionTimeMs = Math.round((end - start) * 100) / 100;
 
-  const columns = rows.length > 0 ? Object.keys(rows[0]) : [];
+  let columns: string[];
+  if (rows.length > 0) {
+    columns = Object.keys(rows[0]);
+  } else {
+    columns = [];
+  }
 
   return {
     columns,

@@ -1,6 +1,7 @@
+import { Text } from '../../localization/components';
 import { useBayaToast } from '../ui/BayaNotifications';
 import React, { useEffect, useState } from 'react';
-import { Text, View, useWindowDimensions } from 'react-native';
+import { View, useWindowDimensions } from 'react-native';
 import { router } from 'expo-router';
 import { AppTextInput } from '../ui/AppTextInput';
 import { AppButton } from '../ui/AppButton';
@@ -62,10 +63,12 @@ export function AuthScreen({
     <RecoveryScreen email={resetEmail} onBack={() => setResetEmail(undefined)} />
   );
   const submit = () => {
-    const next =
-      mode === 'reset'
-        ? { email: emailError(values.email) }
-        : authErrors(values, register, services.policy);
+    let next;
+    if (mode === 'reset') {
+      next = { email: emailError(values.email) };
+    } else {
+      next = authErrors(values, register, services.policy);
+    }
     setErrors(next);
     if (Object.values(next).some(Boolean)) return;
     if (mode === 'reset')
@@ -82,16 +85,20 @@ export function AuthScreen({
     else
       void op.run(
         () =>
-          register
-            ? services.auth.register(
+          {
+          if (register) {
+            return services.auth.register(
                 values.name.trim(),
                 normalizeEmail(values.email),
                 values.password,
-              )
-            : services.auth.login(
+              );
+          } else {
+            return services.auth.login(
                 normalizeEmail(values.email),
                 values.password,
-              ),
+              );
+          }
+        },
         outcome,
       );
   };
@@ -112,34 +119,66 @@ export function AuthScreen({
   return (
     <FeatureScreen
       footer={
-        mode === 'login' ? (
+        (() => {
+          if (mode === 'login') {
+            return (
           <TextAction
             label="Don’t have a mentor account? Create Account"
             onPress={() => router.replace('/mentor/register')}
           />
-        ) : undefined
+        );
+          } else {
+            return undefined;
+          }
+        })()
       }
       wide={register}
       title={
-        register
-          ? 'CREATE MENTOR ACCOUNT'
-          : mode === 'reset'
-            ? 'RESET PASSWORD'
-            : 'MENTOR LOGIN'
+        (() => {
+          if (register) {
+            return 'CREATE MENTOR ACCOUNT';
+          } else {
+            if (mode === 'reset') {
+              return 'RESET PASSWORD';
+            } else {
+              return 'MENTOR LOGIN';
+            }
+          }
+        })()
       }
       subtitle={
-        register
-          ? 'Set up your mentor account for managing learner workspaces.'
-          : mode === 'reset'
-            ? 'Enter your email to request password reset instructions.'
-            : 'Access your workspaces and learner progress.'
+        (() => {
+          if (register) {
+            return 'Set up your mentor account for managing learner workspaces.';
+          } else {
+            if (mode === 'reset') {
+              return 'Enter your email to request password reset instructions.';
+            } else {
+              return 'Access your workspaces and learner progress.';
+            }
+          }
+        })()
       }
       onBack={() =>
-        router.replace(register || mode === 'reset' ? '/mentor' : '/')
+        router.replace((() => {
+          if (register || mode === 'reset') {
+            return '/mentor';
+          } else {
+            return '/';
+          }
+        })())
       }
     >
-      {register ? (
-        <View style={width >= 900 ? s.row : { gap: 22 }}>
+      {(() => {
+        if (register) {
+          return (
+        <View style={(() => {
+          if (width >= 900) {
+            return s.row;
+          } else {
+            return { gap: 22 };
+          }
+        })()}>
           <View style={s.field}>
             <AppTextInput
               density="form"
@@ -156,20 +195,36 @@ export function AuthScreen({
           </View>
           <View style={s.field}>{email}</View>
         </View>
-      ) : (
+      );
+        } else {
+          return (
         email
-      )}
+      );
+        }
+      })()}
       {mode !== 'reset' && (
-        <View style={register && width >= 900 ? s.row : { gap: 22 }}>
+        <View style={(() => {
+          if (register && width >= 900) {
+            return s.row;
+          } else {
+            return { gap: 22 };
+          }
+        })()}>
           <View style={s.field}>
             <PasswordField
               labelAction={
-                mode === 'login' ? (
+                (() => {
+                  if (mode === 'login') {
+                    return (
                   <TextAction
                     label="Forgot Password?"
                     onPress={() => router.push('/mentor/reset-password')}
                   />
-                ) : undefined
+                );
+                  } else {
+                    return undefined;
+                  }
+                })()
               }
               label="PASSWORD"
               value={values.password}
@@ -196,20 +251,34 @@ export function AuthScreen({
       <AppButton
         style={s.action}
         accessibilityLabel={
-          register
-            ? 'Create Account'
-            : mode === 'reset'
-              ? 'Request reset'
-              : 'Log In'
+          (() => {
+            if (register) {
+              return 'Create Account';
+            } else {
+              if (mode === 'reset') {
+                return 'Request reset';
+              } else {
+                return 'Log In';
+              }
+            }
+          })()
         }
         label={
-          op.busy
-            ? 'PLEASE WAIT…'
-            : register
-              ? 'CREATE ACCOUNT'
-              : mode === 'reset'
-                ? 'REQUEST RESET'
-                : 'LOG IN'
+          (() => {
+            if (op.busy) {
+              return 'PLEASE WAIT…';
+            } else {
+              if (register) {
+                return 'CREATE ACCOUNT';
+              } else {
+                if (mode === 'reset') {
+                  return 'REQUEST RESET';
+                } else {
+                  return 'LOG IN';
+                }
+              }
+            }
+          })()
         }
         disabled={op.busy}
         icon="arrowRight"
@@ -218,12 +287,22 @@ export function AuthScreen({
       {register && (
         <TextAction
           label={
-            register
-              ? 'Already have a mentor account? Log in'
-              : 'Don’t have a mentor account? Create Account'
+            (() => {
+              if (register) {
+                return 'Already have a mentor account? Log in';
+              } else {
+                return 'Don’t have a mentor account? Create Account';
+              }
+            })()
           }
           onPress={() =>
-            router.replace(register ? '/mentor' : '/mentor/register')
+            router.replace((() => {
+              if (register) {
+                return '/mentor';
+              } else {
+                return '/mentor/register';
+              }
+            })())
           }
         />
       )}
@@ -260,9 +339,13 @@ export function OtpScreen({
     <FeatureScreen
       title="VERIFY YOUR EMAIL"
       subtitle={
-        current
-          ? `Enter the verification code sent to ${current.email}.`
-          : 'Start from Mentor Login to request a verification code.'
+        (() => {
+          if (current) {
+            return `Enter the verification code sent to ${current.email}.`;
+          } else {
+            return 'Start from Mentor Login to request a verification code.';
+          }
+        })()
       }
       onBack={onBack}
     >
@@ -278,9 +361,13 @@ export function OtpScreen({
       />
       <Notice text={op.message} busy={op.busy} />
       {current && <Text style={s.notice}>
-        {remainingSeconds > 0
-          ? `You can request another code in ${Math.floor(remainingSeconds / 60)}:${String(remainingSeconds % 60).padStart(2, '0')}.`
-          : 'You can now request another code.'}
+        {(() => {
+          if (remainingSeconds > 0) {
+            return `You can request another code in ${Math.floor(remainingSeconds / 60)}:${String(remainingSeconds % 60).padStart(2, '0')}.`;
+          } else {
+            return 'You can now request another code.';
+          }
+        })()}
       </Text>}
       <AppButton
         label="VERIFY"
@@ -328,14 +415,39 @@ function RecoveryScreen({ email, onBack }: { email: string; onBack: () => void }
   const [confirm, setConfirm] = useState('');
   const [error, setError] = useState('');
   const [done, setDone] = useState(false);
-  return <FeatureScreen title="RESET PASSWORD" subtitle={done ? 'Your password has been updated. Log in with your new password.' : `If an eligible account exists, a reset code was sent to ${email}.`} onBack={onBack}>
-    {done ? <AppButton label="GO TO LOGIN" accessibilityLabel="Go to login" onPress={() => router.replace('/mentor')} /> : <>
+  return <FeatureScreen title="RESET PASSWORD" subtitle={(() => {
+    if (done) {
+      return 'Your password has been updated. Log in with your new password.';
+    } else {
+      return `If an eligible account exists, a reset code was sent to ${email}.`;
+    }
+  })()} onBack={onBack}>
+    {(() => {
+      if (done) {
+        return <AppButton label="GO TO LOGIN" accessibilityLabel="Go to login" onPress={() => router.replace('/mentor')} />;
+      } else {
+        return <>
       <AppTextInput density="form" label="RESET CODE" required value={code} onChangeText={setCode} autoComplete="one-time-code" editable={!op.busy} />
       <PasswordField label="NEW PASSWORD" value={password} onChangeText={setPassword} disabled={op.busy} />
       <PasswordField label="CONFIRM PASSWORD" value={confirm} onChangeText={setConfirm} disabled={op.busy} />
       <Notice text={error || op.message} busy={op.busy} />
       <AppButton label="UPDATE PASSWORD" accessibilityLabel="Update password" disabled={op.busy} onPress={() => {
-        const issue = !code.trim() ? 'Enter the reset code.' : !password ? 'Enter a new password.' : services.policy.passwordError?.(password) || (password !== confirm ? 'Passwords must match.' : '');
+        let issue;
+        if (!code.trim()) {
+          issue = 'Enter the reset code.';
+        } else {
+          if (!password) {
+            issue = 'Enter a new password.';
+          } else {
+            issue = services.policy.passwordError?.(password) || ((() => {
+          if (password !== confirm) {
+            return 'Passwords must match.';
+          } else {
+            return '';
+          }
+        })());
+          }
+        }
         setError(issue || '');
         if (issue) return;
         void op.run(() => services.auth.completePasswordReset!(email, code.trim(), password), () => {
@@ -344,6 +456,8 @@ function RecoveryScreen({ email, onBack }: { email: string; onBack: () => void }
         });
       }} />
       <TextAction label="Request another code" onPress={onBack} disabled={op.busy} />
-    </>}
+    </>;
+      }
+    })()}
   </FeatureScreen>;
 }

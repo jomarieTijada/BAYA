@@ -1,11 +1,6 @@
+import { Text } from '../localization/components';
 import React, { useRef, useCallback, forwardRef, useImperativeHandle } from 'react';
-import {
-  StyleSheet,
-  View,
-  TouchableOpacity,
-  Text,
-  type ViewStyle,
-} from 'react-native';
+import { StyleSheet, View, TouchableOpacity, type ViewStyle } from 'react-native';
 import {
   Canvas,
   Path,
@@ -28,7 +23,7 @@ import {
   type PanGestureHandlerEventPayload,
 } from 'react-native-gesture-handler';
 import { useSharedValue, useDerivedValue } from 'react-native-reanimated';
-import type { StrokePoint, RecordedStroke } from '@baya/shared-types';
+import type { TouchPoint, RecordedStroke } from '@baya/shared-types';
 import { findBaybayinTracingGuide } from '../content/baybayinTracingGuides';
 
 // ---------------------------------------------------------------------------
@@ -62,7 +57,7 @@ export interface DrawingCanvasHandle {
 
 interface DrawingCanvasProps {
   /** Called when the user lifts their finger at the end of a stroke. */
-  onStrokeEnd?: (telemetry: StrokePoint[]) => void;
+  onStrokeEnd?: (telemetry: TouchPoint[]) => void;
   /** Canvas width in logical pixels. Defaults to 350. */
   width?: number;
   /** Canvas height in logical pixels. Defaults to 350. */
@@ -146,7 +141,7 @@ const DrawingCanvas = forwardRef<DrawingCanvasHandle, DrawingCanvasProps>(
     // Plain ref — no re-renders needed, no Reanimated overhead.
     // Stores the points of the *current stroke* only.
     // Reset on each onBegin so that onStrokeEnd receives a clean single-stroke array.
-    const telemetryRef = useRef<StrokePoint[]>([]);
+    const telemetryRef = useRef<TouchPoint[]>([]);
 
     // ── Pan gesture ───────────────────────────────────────────────────────
     const panGesture = Gesture.Pan()

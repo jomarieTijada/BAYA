@@ -12,7 +12,13 @@ export default function HomeScreen() {
     openingLearner.current = true;
     try {
       const profile = await localLearnerService.getActiveLearner();
-      router.push(profile ? '/learner/home' : '/learner/setup');
+      router.push((() => {
+        if (profile) {
+          return '/learner/home';
+        } else {
+          return '/learner/setup';
+        }
+      })());
     } catch (error) {
       if (__DEV__) console.warn('[HomeScreen] Could not read saved learner', error);
       router.push('/learner/setup');

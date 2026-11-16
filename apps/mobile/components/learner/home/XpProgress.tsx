@@ -1,5 +1,6 @@
+import { AccessibilityView, Text } from '../../../localization/components';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { Colors, FontFamily, Radius, Spacing } from '../../../constants/theme';
 import { AppIcon } from '../../ui/AppIcon';
@@ -18,7 +19,7 @@ export function XpProgress({ compact = false, density, goal, value }: XpProgress
   const isLandscapeCompact = density === 'landscapeCompact';
 
   return (
-    <View
+    <AccessibilityView
       accessibilityLabel={`${safeValue} of ${goal} experience points`}
       accessibilityRole="progressbar"
       accessibilityValue={{ max: goal, min: 0, now: safeValue }}
@@ -31,7 +32,17 @@ export function XpProgress({ compact = false, density, goal, value }: XpProgress
       <AppIcon
         color="achievement"
         name="star"
-        size={isLandscapeCompact ? 14 : compact ? 22 : 27}
+        size={(() => {
+          if (isLandscapeCompact) {
+            return 14;
+          } else {
+            if (compact) {
+              return 22;
+            } else {
+              return 27;
+            }
+          }
+        })()}
       />
       <View
         style={[
@@ -69,7 +80,7 @@ export function XpProgress({ compact = false, density, goal, value }: XpProgress
           <View style={[styles.fill, { width: `${percentage}%` }]} />
         </View>
       </View>
-    </View>
+    </AccessibilityView>
   );
 }
 

@@ -1,5 +1,7 @@
+import { useDialogBack } from '../../hooks/useDialogBack';
+import { Pressable, Text } from '../../localization/components';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, Animated, BackHandler, Platform, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { ActivityIndicator, Animated, BackHandler, Platform, ScrollView, StyleSheet, View, useWindowDimensions } from 'react-native';
 import { useFocusEffect } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Colors, FontFamily, Shadows } from '../../constants/theme';
@@ -31,11 +33,28 @@ export function BayaActionMenu({ groups, label = 'Workspace options' }: { groups
     if (reduced) setPresent(false);
     if (restore) trigger.current?.focus?.();
   }, [reduced]);
+  useDialogBack(open, close, false);
   const measure = useCallback(() => trigger.current?.measureInWindow((x, y, w, h) => setAnchor({ x, y, width: w, height: h })), []);
   useFocusEffect(useCallback(() => () => close(false), [close]));
   useEffect(() => {
     if (!present) return;
-    const animation = Animated.timing(motion, { toValue: open ? 1 : 0, duration: reduced ? 0 : open ? 180 : 120, useNativeDriver: Platform.OS !== 'web' });
+    const animation = Animated.timing(motion, { toValue: (() => {
+      if (open) {
+        return 1;
+      } else {
+        return 0;
+      }
+    })(), duration: (() => {
+      if (reduced) {
+        return 0;
+      } else {
+        if (open) {
+          return 180;
+        } else {
+          return 120;
+        }
+      }
+    })(), useNativeDriver: Platform.OS !== 'web' });
     animation.start(({ finished }) => { if (finished && !open) setPresent(false); });
     return () => animation.stop();
   }, [open, present, motion, reduced]);
@@ -66,7 +85,24 @@ export function BayaActionMenu({ groups, label = 'Workspace options' }: { groups
       if (!menu()?.contains(document.activeElement)) return;
       const items = Array.from(menu()?.querySelectorAll<HTMLElement>('[role="menuitem"]:not([aria-disabled="true"])') ?? []);
       const index = items.indexOf(document.activeElement as HTMLElement);
-      const next = event.key === 'ArrowDown' ? (index + 1) % items.length : event.key === 'ArrowUp' ? (index - 1 + items.length) % items.length : event.key === 'Home' ? 0 : event.key === 'End' ? items.length - 1 : -1;
+      let next;
+      if (event.key === 'ArrowDown') {
+        next = (index + 1) % items.length;
+      } else {
+        if (event.key === 'ArrowUp') {
+          next = (index - 1 + items.length) % items.length;
+        } else {
+          if (event.key === 'Home') {
+            next = 0;
+          } else {
+            if (event.key === 'End') {
+              next = items.length - 1;
+            } else {
+              next = -1;
+            }
+          }
+        }
+      }
       if (next >= 0) { event.preventDefault(); items[next]?.focus(); }
     };
     const focus = (event: FocusEvent) => { if (!menu()?.contains(event.target as Node) && !button()?.contains(event.target as Node)) close(false); };
@@ -83,20 +119,50 @@ export function BayaActionMenu({ groups, label = 'Workspace options' }: { groups
     <Pressable ref={trigger} accessibilityRole="button" accessibilityLabel={label} accessibilityState={{ expanded: open }} aria-expanded={open} aria-haspopup="menu"
       onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
       onPress={() => { if (open) close(); else { measure(); setOpen(true); } }} style={[styles.trigger, focused && styles.focused]}>
-      {busy ? <ActivityIndicator color={Colors.rolePrimary} size="small" /> : <AppIcon name="settings" color="accent" size={26} />}
+      {(() => {
+        if (busy) {
+          return <ActivityIndicator color={Colors.rolePrimary} size="small" />;
+        } else {
+          return <AppIcon name="settings" color="accent" size={26} />;
+        }
+      })()}
     </Pressable>
     {present && anchor && <PopoverLayer onDismiss={close}>
       {Platform.OS !== 'web' && <Pressable accessibilityLabel="Close workspace options" accessibilityRole="button" onPress={() => close()} style={{ position: 'absolute', left: anchor.x, top: anchor.y, width: anchor.width, height: anchor.height }} />}
       <Animated.View ref={panel} accessibilityRole="menu" accessibilityLabel="Workspace settings" testID="workspace-settings-menu"
-        pointerEvents={open ? 'auto' : 'none'} style={[styles.panel, menuPosition(anchor, width, height, size, insets), { opacity: motion, transform: [{ translateY: motion.interpolate({ inputRange: [0, 1], outputRange: [-6, 0] }) }] }]}>
+        pointerEvents={(() => {
+          if (open) {
+            return 'auto';
+          } else {
+            return 'none';
+          }
+        })()} style={[styles.panel, menuPosition(anchor, width, height, size, insets), { opacity: motion, transform: [{ translateY: motion.interpolate({ inputRange: [0, 1], outputRange: [-6, 0] }) }] }]}>
         <ScrollView bounces={false} keyboardShouldPersistTaps="handled">
-          {groups.map((group, groupIndex) => <View key={group.label} style={groupIndex > 0 ? styles.divider : undefined}>
+          {groups.map((group, groupIndex) => <View key={group.label} style={(() => {
+            if (groupIndex > 0) {
+              return styles.divider;
+            } else {
+              return undefined;
+            }
+          })()}>
             <Text style={styles.group}>{group.label}</Text>
-            {group.actions.map(action => <Pressable key={action.label} accessibilityRole="menuitem" accessibilityLabel={action.label} tabIndex={action.disabled ? -1 : 0} disabled={action.disabled} aria-disabled={!!action.disabled} accessibilityState={{ disabled: !!action.disabled, busy: !!action.busy }}
+            {group.actions.map(action => <Pressable key={action.label} accessibilityRole="menuitem" accessibilityLabel={action.label} tabIndex={(() => {
+              if (action.disabled) {
+                return -1;
+              } else {
+                return 0;
+              }
+            })()} disabled={action.disabled} aria-disabled={!!action.disabled} accessibilityState={{ disabled: !!action.disabled, busy: !!action.busy }}
               onFocus={() => setActiveRow(action.label)} onBlur={() => setActiveRow(undefined)} onHoverIn={() => setActiveRow(action.label)} onHoverOut={() => setActiveRow(undefined)}
               onPress={() => { if (!action.keepOpen) close(); action.onPress(); }}
               style={({ pressed }) => [styles.item, (pressed || activeRow === action.label) && styles.highlight, action.disabled && { opacity: 0.55 }]}>
-              {action.busy ? <ActivityIndicator size="small" color={Colors.rolePrimary} /> : <AppIcon name={action.icon} size={20} color="accent" />}
+              {(() => {
+                if (action.busy) {
+                  return <ActivityIndicator size="small" color={Colors.rolePrimary} />;
+                } else {
+                  return <AppIcon name={action.icon} size={20} color="accent" />;
+                }
+              })()}
               <Text style={styles.label}>{action.label}</Text>
             </Pressable>)}
           </View>)}

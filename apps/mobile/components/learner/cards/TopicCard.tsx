@@ -1,5 +1,6 @@
+import { Text } from '../../../localization/components';
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from 'react-native';
 import { Colors, FontFamily, Radius, Spacing } from "../../../constants/theme";
 import { useResponsiveLayout } from "../../../hooks/useResponsiveLayout";
 import { AppIcon } from "../../ui/AppIcon";
@@ -19,20 +20,76 @@ export function TopicCard({
   return (
     <BaseCard
       {...props}
-      size={dense || compact ? "small" : "medium"}
+      size={(() => {
+        if (dense || compact) {
+          return "small";
+        } else {
+          return "medium";
+        }
+      })()}
       status={
         props.status ??
-        (locked ? "locked" : topic.completed ? "completed" : "available")
+        ((() => {
+          if (locked) {
+            return "locked";
+          } else {
+            if (topic.completed) {
+              return "completed";
+            } else {
+              return "available";
+            }
+          }
+        })())
       }
-      accessibilityLabel={`Paksa ${number ?? 1}: ${topic.title}, ${locked ? 'naka-lock' : topic.completed ? 'tapos na' : 'maaari nang buksan'}`}
+      accessibilityLabel={`Paksa ${number ?? 1}: ${topic.title}, ${(() => {
+        if (locked) {
+          return 'naka-lock';
+        } else {
+          if (topic.completed) {
+            return 'tapos na';
+          } else {
+            return 'maaari nang buksan';
+          }
+        }
+      })()}`}
       accessibilityState={{ disabled: locked }}
       style={[styles.card, compact && styles.cardCompact, dense && styles.cardDense]}
       testID={`topic-card-${topic.id}`}
     >
       <AppIcon
-        name={locked ? "lock" : topic.completed ? "check" : "lessons"}
-        color={locked ? "muted" : topic.completed ? "success" : "accent"}
-        size={dense ? 15 : compact ? 18 : 20}
+        name={(() => {
+          if (locked) {
+            return "lock";
+          } else {
+            if (topic.completed) {
+              return "check";
+            } else {
+              return "lessons";
+            }
+          }
+        })()}
+        color={(() => {
+          if (locked) {
+            return "muted";
+          } else {
+            if (topic.completed) {
+              return "success";
+            } else {
+              return "accent";
+            }
+          }
+        })()}
+        size={(() => {
+          if (dense) {
+            return 15;
+          } else {
+            if (compact) {
+              return 18;
+            } else {
+              return 20;
+            }
+          }
+        })()}
       />
       <View style={styles.copy}>
         <Text

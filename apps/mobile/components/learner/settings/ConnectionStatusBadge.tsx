@@ -1,5 +1,6 @@
+import { Pressable, Text } from '../../../localization/components';
 import React from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { Colors, FontFamily, Radius } from '../../../constants/theme';
 import { SETTINGS_COPY } from './settingsCopy';
@@ -15,26 +16,62 @@ export function ConnectionStatusBadge({ connected, landscapeCompact, onPress }: 
   return (
     <Pressable
       accessibilityHint={undefined}
-      accessibilityLabel={connected ? SETTINGS_COPY.connectedAccessibility : SETTINGS_COPY.disconnectedAccessibility}
-      accessibilityRole={onPress ? "button" : "text"}
+      accessibilityLabel={(() => {
+        if (connected) {
+          return SETTINGS_COPY.connectedAccessibility;
+        } else {
+          return SETTINGS_COPY.disconnectedAccessibility;
+        }
+      })()}
+      accessibilityRole={(() => {
+        if (onPress) {
+          return "button";
+        } else {
+          return "text";
+        }
+      })()}
       onPress={onPress}
       style={({ pressed }) => [
         styles.pill,
-        connected ? styles.pillConnected : styles.pillNone,
+        (() => {
+          if (connected) {
+            return styles.pillConnected;
+          } else {
+            return styles.pillNone;
+          }
+        })(),
         landscapeCompact && styles.pillLandscapeCompact,
         pressed && styles.pillPressed,
       ]}
       testID="workspace-status-pill"
     >
-      <View style={[styles.dot, connected ? styles.dotConnected : styles.dotNone]} />
+      <View style={[styles.dot, (() => {
+        if (connected) {
+          return styles.dotConnected;
+        } else {
+          return styles.dotNone;
+        }
+      })()]} />
       <Text
         style={[
           styles.text,
-          connected ? styles.textConnected : styles.textNone,
+          (() => {
+            if (connected) {
+              return styles.textConnected;
+            } else {
+              return styles.textNone;
+            }
+          })(),
           landscapeCompact && styles.textLandscapeCompact,
         ]}
       >
-        {connected ? SETTINGS_COPY.connected : SETTINGS_COPY.disconnected}
+        {(() => {
+          if (connected) {
+            return SETTINGS_COPY.connected;
+          } else {
+            return SETTINGS_COPY.disconnected;
+          }
+        })()}
       </Text>
     </Pressable>
   );

@@ -15,12 +15,18 @@ export interface ResolvedMediaState {
 
 function localModule(source: MediaSource | undefined): number | null {
   if (source?.type === "asset")
-    return Object.hasOwn(mediaAssets, source.assetId)
-      ? mediaAssets[source.assetId]
-      : null;
-  return source?.type === "local" && typeof source.source === "number"
-    ? source.source
-    : null;
+    {
+      if (Object.hasOwn(mediaAssets, source.assetId)) {
+        return mediaAssets[source.assetId];
+      } else {
+        return null;
+      }
+    }
+  if (source?.type === "local" && typeof source.source === "number") {
+    return source.source;
+  } else {
+    return null;
+  }
 }
 
 export function resolveStaticMediaUri(
@@ -28,7 +34,13 @@ export function resolveStaticMediaUri(
 ): string | null {
   if (!source) return null;
   if (source.type === "remote")
-    return isValidRemoteUrl(source.source) ? source.source : null;
+    {
+      if (isValidRemoteUrl(source.source)) {
+        return source.source;
+      } else {
+        return null;
+      }
+    }
   const module = localModule(source);
   if (module === null) return null;
   try {
@@ -51,17 +63,30 @@ export function useMediaSource(
   const module = localModule(source);
   const requiresDeviceUri = module !== null && Platform.OS !== "web";
   // Resolve bundled media to a cached device file before native playback.
-  const initialUri = requiresDeviceUri ? null : resolveStaticMediaUri(source);
+  let initialUri;
+  if (requiresDeviceUri) {
+    initialUri = null;
+  } else {
+    initialUri = resolveStaticMediaUri(source);
+  }
   const initial: ResolvedMediaState = {
     uri: initialUri,
     isLocal: !!source && source.type !== "remote",
-    status: !source
-      ? "idle"
-      : requiresDeviceUri
-        ? "resolving"
-        : initialUri
-          ? "ready"
-          : "error",
+    status: (() => {
+      if (!source) {
+        return "idle";
+      } else {
+        if (requiresDeviceUri) {
+          return "resolving";
+        } else {
+          if (initialUri) {
+            return "ready";
+          } else {
+            return "error";
+          }
+        }
+      }
+    })(),
   };
   useEffect(() => {
     let active = true;
@@ -128,7 +153,13 @@ export function useMediaSource(
                 status: "error",
                 uri: null,
                 isLocal: true,
-                error: error instanceof Error ? error.message : String(error),
+                error: (() => {
+                  if (error instanceof Error) {
+                    return error.message;
+                  } else {
+                    return String(error);
+                  }
+                })(),
               },
             });
         });
@@ -138,5 +169,9 @@ export function useMediaSource(
     };
   }, [module, requestKey, sourceKey]);
   // Never display the previous topic's media while a new source resolves.
-  return resolved?.key === requestKey ? resolved.value : initial;
+  if (resolved?.key === requestKey) {
+    return resolved.value;
+  } else {
+    return initial;
+  }
 }

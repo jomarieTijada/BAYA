@@ -1,5 +1,6 @@
+import { Text } from '../../localization/components';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Colors, FontFamily } from '../../constants/theme';
 import { AppIcon, type AppIconName } from '../ui/AppIcon';
 import { BaseCard } from '../ui/cards/BaseCard';
@@ -9,7 +10,13 @@ export function WorkspaceSection({ title, description, icon, badge, children, co
 }>) {
   return <BaseCard style={[ws.section, compact && { padding: 16, gap: 12 }]}>
     <View style={ws.headingRow}>
-      <View style={[ws.icon, compact && { width: 36, height: 36, borderRadius: 12 }]}><AppIcon name={icon} color="accent" size={compact ? 20 : 24} /></View>
+      <View style={[ws.icon, compact && { width: 36, height: 36, borderRadius: 12 }]}><AppIcon name={icon} color="accent" size={(() => {
+        if (compact) {
+          return 20;
+        } else {
+          return 24;
+        }
+      })()} /></View>
       <View style={ws.headingCopy}>
         <Text accessibilityRole="header" style={[ws.heading, compact && { fontSize: 18 }]}>{title}</Text>
         {description && <Text style={ws.description}>{description}</Text>}

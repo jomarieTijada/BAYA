@@ -1,15 +1,6 @@
+import { Pressable, Text } from '../../localization/components';
 import React from 'react';
-import {
-  ActivityIndicator,
-  KeyboardAvoidingView,
-  Platform,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  useWindowDimensions,
-} from 'react-native';
+import { ActivityIndicator, KeyboardAvoidingView, Platform, ScrollView, StyleSheet, View, useWindowDimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors, FontFamily, Shadows } from '../../constants/theme';
 import { PageHeader } from '../layout/PageHeader';
@@ -42,7 +33,13 @@ export function FeatureScreen({
     <SafeAreaView style={s.screen}>
       <KeyboardAvoidingView
         style={s.screen}
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        behavior={(() => {
+          if (Platform.OS === 'ios') {
+            return 'padding';
+          } else {
+            return undefined;
+          }
+        })()}
       >
         <ScrollView
           keyboardShouldPersistTaps="handled"
@@ -51,21 +48,39 @@ export function FeatureScreen({
             (width < 800 || compact) && { padding: 16 },
           ]}
         >
-          <View style={[s.body, { maxWidth: wide ? 1180 : 780 }]}>
-            {card ? (
+          <View style={[s.body, { maxWidth: (() => {
+            if (wide) {
+              return 1180;
+            } else {
+              return 780;
+            }
+          })() }]}>
+            {(() => {
+              if (card) {
+                return (
               <BaseCard
-                style={[s.card, (width < 800 || compact) && { padding: 22 }, dense && { gap: compact ? 10 : 16 }]}
+                style={[s.card, (width < 800 || compact) && { padding: 22 }, dense && { gap: (() => {
+                  if (compact) {
+                    return 10;
+                  } else {
+                    return 16;
+                  }
+                })() }]}
               >
                 {icon && <View style={{ alignItems: 'center' }}>{icon}</View>}
                 <PageHeader title={title} subtitle={subtitle} onBack={onBack} compact={dense} action={action} />
                 {children}
               </BaseCard>
-            ) : (
+            );
+              } else {
+                return (
               <>
                 <PageHeader title={title} subtitle={subtitle} onBack={onBack} action={action} />
                 {children}
               </>
-            )}
+            );
+              }
+            })()}
             {footer}
           </View>
         </ScrollView>
@@ -99,10 +114,12 @@ export function Notice({
 }
 export function TextAction({
   label,
+  verbatim = false,
   onPress,
   disabled = false,
 }: {
   label: string;
+  verbatim?: boolean;
   onPress: () => void;
   disabled?: boolean;
 }) {
@@ -110,14 +127,21 @@ export function TextAction({
     <Pressable
       accessibilityRole="button"
       accessibilityLabel={label}
+      verbatim={verbatim}
       disabled={disabled}
       accessibilityState={{ disabled }}
       onPress={onPress}
       style={s.link}
     >
-      <Text
+      <Text verbatim={verbatim}
         style={{
-          color: disabled ? Colors.textMuted : Colors.rolePrimary,
+          color: (() => {
+            if (disabled) {
+              return Colors.textMuted;
+            } else {
+              return Colors.rolePrimary;
+            }
+          })(),
           fontSize: 17,
           fontFamily: FontFamily.body,
         }}
