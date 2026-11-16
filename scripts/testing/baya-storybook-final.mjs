@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import { setTimeout as delay } from 'node:timers/promises';
 import { openTestBrowser } from './device-browser.mjs';
-const out = process.env.BAYA_STORYBOOK_OUTPUT || 'docs/verification/baya-storybook-final'; fs.mkdirSync(out, {recursive:true});
+const out = process.env.BAYA_STORYBOOK_OUTPUT || 'docs/verification/baya-storybook-enhancement'; fs.mkdirSync(out, {recursive:true});
 const browser = await openTestBrowser(5055);
 const ws = new WebSocket(browser.target.webSocketDebuggerUrl);
 await new Promise(r=>ws.addEventListener('open',r,{once:true}));
@@ -22,7 +22,7 @@ const click = label => evaluate(`${button(label)}.click()`);
 const key = async (key,code=key,modifiers=0) => {const vk={Enter:13,Tab:9,Escape:27,' ':32}[key]||0;await send('Input.dispatchKeyEvent',{type:'keyDown',key,code,modifiers,windowsVirtualKeyCode:vk,nativeVirtualKeyCode:vk,text:key==='Enter'?'\r':key===' '?' ':undefined});await send('Input.dispatchKeyEvent',{type:'keyUp',key,code,modifiers,windowsVirtualKeyCode:vk,nativeVirtualKeyCode:vk});};
 const waitFor=async exp=>{for(let i=0;i<100;i++){if(await evaluate(exp))return;await delay(100);}throw Error('Timeout '+exp);};
 const nav=async route=>{await send('Page.navigate',{url:'http://127.0.0.1:5055'+route});await delay(500);await waitFor("document.readyState==='complete' && !!document.querySelector('[role=button],[role=radio]')");};
-const locale=async lang=>{await nav('/learner/settings');await waitFor(`!!document.querySelector('[role=radio][aria-label="${lang==='en'?'English':'Tagalog'}"]')`);await evaluate(`document.querySelector('[role=radio][aria-label="${lang==='en'?'English':'Tagalog'}"]').click()`);await delay(300);await nav('/');await ready();};
+const locale=async lang=>{await nav('/learner/settings');await waitFor(`!!document.querySelector('[role=radio][aria-label="${lang==='en'?'English':'Tagalog'}"]')`);await evaluate(`document.querySelector('[role=radio][aria-label="${lang==='en'?'English':'Tagalog'}"]').click()`);await delay(300);await nav('/');await ready();await delay(150);if(await evaluate("!!document.querySelector('[data-testid=origin-storybook]')"))await press(lang==='en'?'Close the story':'Isara ang kuwento');};
 const scrollElement = `document.querySelector('[data-testid=origin-scroll]')`;
 const layout=async name=>{
  const r=await evaluate(`(()=>{const book=document.querySelector('[data-testid=origin-storybook]'),s=${scrollElement};const controls=[...book.querySelectorAll('[role=button]')].map(e=>{const r=e.getBoundingClientRect();return {label:e.getAttribute('aria-label'),x:r.x,y:r.y,w:r.width,h:r.height,b:r.bottom,right:r.right}});return {w:innerWidth,h:innerHeight,overflow:s.scrollWidth>s.clientWidth+1,controls,images:[...book.querySelectorAll('img')].every(i=>i.complete&&i.naturalWidth>0),scrollHeight:s.scrollHeight,clientHeight:s.clientHeight}})()`);
@@ -42,7 +42,9 @@ try {
    if(!browser.physical)await send('Emulation.setDeviceMetricsOverride',{width:w,height:h,deviceScaleFactor:1,mobile:false});
    await delay(250);await shot(`${lang}-${w}x${h}-welcome`);await open();
    for(let p=1;p<=5;p++){
-    await layout(`${lang}-${w}x${h}-page-${p}`);await shot(`${lang}-${w}x${h}-page-${p}`);
+    await layout(`${lang}-${w}x${h}-page-${p}`);
+    if(p===2){check('supplied collage and source '+lang+w,await evaluate(`(()=>{const v=document.querySelector('[data-testid=origin-illustration]');return v.querySelectorAll('img').length===1 && v.querySelector('img').src.includes('bayani_pic')&&v.querySelector('a')?.href==='https://www.philippineeaglefoundation.org/post/princess-maasim-from-near-tragedy-to-conservation-legacy'})()`));}
+    await shot(`${lang}-${w}x${h}-page-${p}`);
     check('starts at top '+lang+w+p,await evaluate(`${scrollElement}.scrollTop===0`));
     await evaluate(`${scrollElement}.scrollTop=${scrollElement}.scrollHeight`);await delay(80);
     await shot(`${lang}-${w}x${h}-page-${p}-reading`);
@@ -50,6 +52,14 @@ try {
    }
   }
  }
+ // Greeting evidence: original rest, supplied wave, exact return, no loop.
+ await locale('en');
+ await evaluate("document.querySelector('[data-testid=mascot-origin-teaser]').click()");await delay(50);
+ const mascotSrc=()=>evaluate("document.querySelector('[data-testid=origin-illustration] img').src");
+ const resting=await mascotSrc();await shot('greeting-rest');await delay(700);
+ check('greeting changes existing frame',await mascotSrc()!==resting);await shot('greeting-mid-wave');await delay(1500);
+ check('greeting returns to canonical rest',await mascotSrc()===resting);await shot('greeting-returned');await delay(500);
+ check('greeting does not loop',await mascotSrc()===resting);await press('Close the story');
  // Keyboard opening, reverse tab, and semantic tree (not a claim of TalkBack testing).
  if(!browser.physical)await send('Emulation.setDeviceMetricsOverride',{width:1280,height:800,deviceScaleFactor:1,mobile:false});
  await locale('en');await delay(500);await send('Page.bringToFront');await evaluate("document.querySelector('[data-testid=mascot-origin-teaser]').focus()");report.keyboardBefore=await evaluate("({focus:document.activeElement.outerHTML,hasFocus:document.hasFocus()})");await key('Enter');await delay(200);
@@ -67,20 +77,20 @@ try {
  const begin=Date.now();await click('Next');await delay(90);await shot('forward-turn');await waitFor(`${button('Next')}.getAttribute('aria-disabled')!=='true'`);report.turnDurationMs=Date.now()-begin;
  await click('Previous');await delay(90);await shot('backward-turn');await delay(500);
  await evaluate(`(()=>{const n=${button('Next')},p=${button('Previous')};for(let i=0;i<12;i++){n.click();p.click()}})()`);await delay(600);
- check('alternating clicks locked',await evaluate("document.body.innerText.includes('Page 2 of 5')"));
+ check('alternating clicks locked',await evaluate("document.querySelector('[data-testid=origin-progress]').getAttribute('aria-valuenow')==='40'"));
  if(!browser.physical)await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:false});await delay(150);
  await evaluate(`${scrollElement}.scrollTop=120`);await click('Next');await delay(40);
  check('outgoing scroll retained',await evaluate(`${scrollElement}.scrollTop===120`));
  if(!browser.physical)await send('Emulation.setDeviceMetricsOverride',{width:844,height:390,deviceScaleFactor:1,mobile:false});await delay(600);
- check('resize during turn commits once',await evaluate("document.body.innerText.includes('Page 3 of 5')"));
+ check('resize during turn commits once',await evaluate("document.querySelector('[data-testid=origin-progress]').getAttribute('aria-valuenow')==='60'"));
  await click('Next');await click('Close the story');await open();await delay(600);
- check('cancel and immediate reopen',await evaluate("document.body.innerText.includes('Page 1 of 5')"));
+ check('cancel and immediate reopen',await evaluate("document.querySelector('[data-testid=origin-progress]').getAttribute('aria-valuenow')==='20'"));
  const traceDone=new Promise(resolve=>ws.addEventListener('message',function handler(e){const m=JSON.parse(e.data);if(m.method==='Tracing.tracingComplete'){ws.removeEventListener('message',handler);resolve(m.params.stream)}}));
  await send('Tracing.end');const stream=await traceDone;let trace='';for(;;){const r=await send('IO.read',{handle:stream});trace+=r.data;if(r.eof)break;}await send('IO.close',{handle:stream});fs.writeFileSync(`${out}/animation-trace.json`,trace);
  report.longTasks=await evaluate('window.qaLongTasks');await evaluate('window.qaObserver.disconnect()');
  if(!browser.physical){
   await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});await delay(100);await click('Next');await delay(50);
-  check('reduced motion',await evaluate("document.body.innerText.includes('Page 2 of 5')&&document.getAnimations().length===0"));await shot('reduced-motion');
+  check('reduced motion',await evaluate("document.querySelector('[data-testid=origin-progress]').getAttribute('aria-valuenow')==='40'&&document.getAnimations().length===0"));await shot('reduced-motion');
   await press('Close the story');
   // Reduced CSS viewport plus DPR models zoom reflow; not browser-toolbar zoom.
   for(const zoom of [1.25,1.5,2]){

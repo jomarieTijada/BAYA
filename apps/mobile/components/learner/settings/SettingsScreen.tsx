@@ -1,3 +1,4 @@
+import { StorybookSettings } from '../../landing/StorybookSettings';
 import { useLocalization } from '../../../localization/LocalizationProvider';
 import { LanguageSelector } from '../../../localization/LanguageSelector';
 import { Text } from '../../../localization/components';
@@ -42,6 +43,7 @@ export function SettingsScreen() {
   const membership = active.find(m => m.workspace.workspace_id === selected) ?? active[0];
   return <ProgressPage title="Settings" onBack={() => { if (router.canGoBack()) router.back(); else router.replace('/learner/home'); }}>
     <LanguageSelector />
+    <StorybookSettings />
     <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', rowGap: 22, alignItems: 'flex-start' }}>
     <View style={{ display: (() => {
       if (showRequests) {

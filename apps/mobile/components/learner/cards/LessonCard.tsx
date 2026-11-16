@@ -29,6 +29,7 @@ type LessonCardProps = Pick<
   compact?: boolean;
   isLandscapeCompact?: boolean;
   lesson: LessonItem;
+  onTopicPress?: (topicId: string) => void;
   onContinue?: () => void;
   onPress?: () => void;
   totalLessons: number;
@@ -78,6 +79,7 @@ export function LessonCard({
   isLandscapeCompact = false,
   lesson,
   onContinue,
+  onTopicPress,
   onPress,
   totalLessons,
   ...cardProps
@@ -320,7 +322,7 @@ export function LessonCard({
           ]}
         >
           {topics.map((topic, index) => (
-            <TopicCard dense={isLandscapeCompact} key={topic.id} topic={topic} number={index + 1} />
+            <TopicCard onPress={!isLocked && topic.status !== "locked" && topic.contentAvailable && onTopicPress ? () => onTopicPress(topic.id) : undefined} dense={isLandscapeCompact} key={topic.id} topic={topic} number={index + 1} />
           ))}
         </AccessibilityView>
 

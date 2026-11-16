@@ -23,19 +23,19 @@ export const educationalMessages = [
   {
     "source": "Payak na Simbolo",
     "en": "Basic Characters",
-    "tl": "Payak na Simbolo",
+    "tl": "Payak (basic) na Simbolo",
     "validation": "pending-subject-matter-review"
   },
   {
     "source": "3 Patinig",
     "en": "3 Vowels",
-    "tl": "3 Patinig",
+    "tl": "3 Patinig (vowels)",
     "validation": "pending-subject-matter-review"
   },
   {
     "source": "14 Katinig",
     "en": "14 Consonants",
-    "tl": "14 Katinig",
+    "tl": "14 Katinig (consonants)",
     "validation": "pending-subject-matter-review"
   },
   {
@@ -83,13 +83,13 @@ export const educationalMessages = [
   {
     "source": "Dahil magkalapit ang tunog ng E at I, pati na rin ng O at U, iisang simbolo lang ang ginamit ng ating mga ninuno!",
     "en": "Because E and I, and O and U, sound similar, our ancestors used one character for each pair!",
-    "tl": "Dahil magkalapit ang tunog ng E at I, pati na rin ng O at U, iisang simbolo lang ang ginamit ng ating mga ninuno!",
+    "tl": "Dahil magkalapit ang tunog ng E at I, pati na rin ng O at U, iisang simbolo lang ang ginamit ng ating mga ninuno (ancestors)!",
     "validation": "pending-subject-matter-review"
   },
   {
     "source": "Pagbabagong Morpoponemiko",
     "en": "Morphophonemic Change",
-    "tl": "Pagbabagong Morpoponemiko",
+    "tl": "Pagbabagong Morpoponemiko (sound change in word forms)",
     "validation": "pending-subject-matter-review"
   },
   {
@@ -113,13 +113,13 @@ export const educationalMessages = [
   {
     "source": "Kapag napagigitnaan ng patinig",
     "en": "When between vowels",
-    "tl": "Kapag napagigitnaan ng patinig",
+    "tl": "Kapag nasa pagitan ng mga patinig (vowels)",
     "validation": "pending-subject-matter-review"
   },
   {
     "source": "Ang titik D ay madalas maging R kapag napagigitnaan ng mga patinig sa wikang Tagalog!",
     "en": "In Tagalog, D often becomes R when it is between vowels!",
-    "tl": "Ang titik D ay madalas maging R kapag napagigitnaan ng mga patinig sa wikang Tagalog!",
+    "tl": "Ang titik D ay madalas maging R kapag nasa pagitan ng mga patinig (vowels) sa wikang Tagalog!",
     "validation": "pending-subject-matter-review"
   },
   {
@@ -137,7 +137,7 @@ export const educationalMessages = [
   {
     "source": "Baybayin: Isang Silabaryo (Pantigan)",
     "en": "Baybayin: A Syllabary",
-    "tl": "Baybayin: Isang Silabaryo (Pantigan)",
+    "tl": "Baybayin: Isang Silabaryo (syllabary)",
     "validation": "pending-subject-matter-review"
   },
   {
@@ -167,13 +167,13 @@ export const educationalMessages = [
   {
     "source": "Ang mga Patinig",
     "en": "The Vowels",
-    "tl": "Ang mga Patinig",
+    "tl": "Ang mga Patinig (vowels)",
     "validation": "pending-subject-matter-review"
   },
   {
     "source": "Kilalanin ang mga Katinig",
     "en": "Meet the Consonants",
-    "tl": "Kilalanin ang mga Katinig",
+    "tl": "Kilalanin ang mga Katinig (consonants)",
     "validation": "pending-subject-matter-review"
   },
   {
@@ -185,13 +185,13 @@ export const educationalMessages = [
   {
     "source": "Mga Patinig",
     "en": "Vowels",
-    "tl": "Mga Patinig",
+    "tl": "Mga Patinig (vowels)",
     "validation": "pending-subject-matter-review"
   },
   {
     "source": "Mga Katinig",
     "en": "Consonants",
-    "tl": "Mga Katinig",
+    "tl": "Mga Katinig (consonants)",
     "validation": "pending-subject-matter-review"
   },
   {
@@ -203,7 +203,7 @@ export const educationalMessages = [
   {
     "source": "Isang simbolo, isang pantig! Ganoon kadali ang Baybayin.",
     "en": "One character, one syllable! That's how Baybayin works.",
-    "tl": "Isang simbolo, isang pantig! Ganoon kadali ang Baybayin.",
+    "tl": "Isang simbolo, isang pantig (syllable)! Ganoon kadali ang Baybayin.",
     "validation": "pending-subject-matter-review"
   },
   {
@@ -215,13 +215,13 @@ export const educationalMessages = [
   {
     "source": "Unahin natin ang tatlong Patinig. Ito ang mga letrang kayang tumayong mag-isa: ang A, E/I, at O/U. Pansinin na sa Baybayin, pinagsasama ang E at I sa iisang simbolo, pati na rin ang O at U!",
     "en": "Let's start with the three vowels. These letters can stand on their own: A, E/I, and O/U. Notice that Baybayin uses one character for E and I, and one for O and U!",
-    "tl": "Unahin natin ang tatlong Patinig. Ito ang mga letrang kayang tumayong mag-isa: ang A, E/I, at O/U. Pansinin na sa Baybayin, pinagsasama ang E at I sa iisang simbolo, pati na rin ang O at U!",
+    "tl": "Unahin natin ang tatlong Patinig (vowels). Ito ang mga letrang kayang tumayong mag-isa: ang A, E/I, at O/U. Pansinin na sa Baybayin, pinagsasama ang E at I sa iisang simbolo, pati na rin ang O at U!",
     "validation": "pending-subject-matter-review"
   },
   {
     "source": "Sunod naman ang 14 na Katinig. Tandaan, bawat isa rito ay may automatic na tunog na 'A' sa dulo. Nandito ang Ba, Ka, Da/Ra (pareho ng simbolo), Ga, Ha, La, Ma, Na, Nga, Pa, Sa, Ta, Wa, at Ya.",
     "en": "Next are the 14 consonants. Remember, each has an automatic “A” sound at the end. They are Ba, Ka, Da/Ra (which share a character), Ga, Ha, La, Ma, Na, Nga, Pa, Sa, Ta, Wa, and Ya.",
-    "tl": "Sunod naman ang 14 na Katinig. Tandaan, bawat isa rito ay may automatic na tunog na 'A' sa dulo. Nandito ang Ba, Ka, Da/Ra (pareho ng simbolo), Ga, Ha, La, Ma, Na, Nga, Pa, Sa, Ta, Wa, at Ya.",
+    "tl": "Sunod naman ang 14 na Katinig (consonants). Tandaan, bawat isa rito ay may automatic na tunog na 'A' sa dulo. Nandito ang Ba, Ka, Da/Ra (pareho ng simbolo), Ga, Ha, La, Ma, Na, Nga, Pa, Sa, Ta, Wa, at Ya.",
     "validation": "pending-subject-matter-review"
   },
   {
@@ -233,7 +233,7 @@ export const educationalMessages = [
   {
     "source": "Panoorin ang maikling video at tuklasin ang Baybayin—isang sinaunang paraan ng pagsulat sa Pilipinas. Pagkatapos, sabay nating kilalanin, basahin, at isulat ang mga karakter nito!",
     "en": "Watch the short video and discover Baybayin—an ancient way of writing in the Philippines. Then let's learn to recognize, read, and write its characters together!",
-    "tl": "Panoorin ang maikling video at tuklasin ang Baybayin—isang sinaunang paraan ng pagsulat sa Pilipinas. Pagkatapos, sabay nating kilalanin, basahin, at isulat ang mga karakter nito!",
+    "tl": "Panoorin ang maikling video at tuklasin ang Baybayin—isang sinaunang (ancient) paraan ng pagsulat sa Pilipinas. Pagkatapos, sabay nating kilalanin, basahin, at isulat ang mga karakter nito!",
     "validation": "pending-subject-matter-review"
   },
   {
@@ -251,7 +251,7 @@ export const educationalMessages = [
   {
     "source": "Ang Baybayin ay isa sa mga sinaunang paraan ng pagsulat sa Pilipinas. Sa mga tala ng kasaysayan, iniuugnay ito sa mga sinaunang Tagalog. Bahagi ito ng ating kultura at pamana bilang mga Pilipino.",
     "en": "Baybayin is one of the ancient ways of writing in the Philippines. Historical records associate it with the early Tagalog people. It is part of our culture and heritage as Filipinos.",
-    "tl": "Ang Baybayin ay isa sa mga sinaunang paraan ng pagsulat sa Pilipinas. Sa mga tala ng kasaysayan, iniuugnay ito sa mga sinaunang Tagalog. Bahagi ito ng ating kultura at pamana bilang mga Pilipino.",
+    "tl": "Ang Baybayin ay isa sa mga sinaunang (ancient) paraan ng pagsulat sa Pilipinas. Sa mga tala ng kasaysayan, iniuugnay ito sa mga sinaunang Tagalog. Bahagi ito ng ating kultura at pamana (heritage) bilang mga Pilipino.",
     "validation": "pending-subject-matter-review"
   },
   {
@@ -263,13 +263,13 @@ export const educationalMessages = [
   {
     "source": "Ang Baybayin ay hindi alpabeto na tulad ng ginagamit natin ngayon kundi SILABARYO. Bawat simbolo nito ay katumbas ng isang pantig (syllable), hindi tulad ng ating alpabeto na bawat titik ay isang tunog.",
     "en": "Baybayin is not an alphabet like the one we use today. It is a SYLLABARY. Each character represents a syllable, unlike an alphabet, where each letter represents a sound.",
-    "tl": "Ang Baybayin ay hindi alpabeto na tulad ng ginagamit natin ngayon kundi SILABARYO. Bawat simbolo nito ay katumbas ng isang pantig (syllable), hindi tulad ng ating alpabeto na bawat titik ay isang tunog.",
+    "tl": "Ang Baybayin ay hindi alpabeto (alphabet) na tulad ng ginagamit natin ngayon kundi SILABARYO (syllabary). Bawat simbolo nito ay katumbas ng isang pantig (syllable), hindi tulad ng ating alpabeto na bawat titik ay isang tunog.",
     "validation": "pending-subject-matter-review"
   },
   {
     "source": "Mula sa ugat na salitang “baybáy” o ang pagbabaybay ng mga salita (to spell, to syllabicate).",
     "en": "It comes from the root word “baybáy,” meaning to spell or divide words into syllables.",
-    "tl": "Mula sa ugat na salitang “baybáy” o ang pagbabaybay ng mga salita (to spell, to syllabicate).",
+    "tl": "Mula sa salitang-ugat (root word) na “baybáy” o ang pagbabaybay (spelling) ng mga salita.",
     "validation": "pending-subject-matter-review"
   },
   {
@@ -299,31 +299,31 @@ export const educationalMessages = [
   {
     "source": "Mga Sinaunang Kagamitan sa Pagsulat",
     "en": "Ancient Writing Tools",
-    "tl": "Mga Sinaunang Kagamitan sa Pagsulat",
+    "tl": "Mga Sinaunang (ancient) Kagamitan sa Pagsulat",
     "validation": "pending-subject-matter-review"
   },
   {
     "source": "Alamin natin kung paano sumulat ang ating mga ninuno.",
     "en": "Let's learn how our ancestors wrote.",
-    "tl": "Alamin natin kung paano sumulat ang ating mga ninuno.",
+    "tl": "Alamin natin kung paano sumulat ang ating mga ninuno (ancestors).",
     "validation": "pending-subject-matter-review"
   },
   {
     "source": "May mga sinaunang sulat-Baybayin na iniukit sa kawayan gamit ang matutulis na bagay. Mayroon ding isinulat sa mga dahon gamit ang pangkulay.",
     "en": "Some early Baybayin writing was carved on bamboo with sharp tools. People also wrote on leaves using pigments.",
-    "tl": "May mga sinaunang sulat-Baybayin na iniukit sa kawayan gamit ang matutulis na bagay. Mayroon ding isinulat sa mga dahon gamit ang pangkulay.",
+    "tl": "May mga sinaunang (ancient) sulat-Baybayin na iniukit (carved) sa kawayan gamit ang matutulis na bagay. Mayroon ding isinulat sa mga dahon gamit ang pangkulay.",
     "validation": "pending-subject-matter-review"
   },
   {
     "source": "Matutulis na bagay ang ginamit sa pag-ukit sa kawayan.",
     "en": "Sharp tools were used to carve on bamboo.",
-    "tl": "Matutulis na bagay ang ginamit sa pag-ukit sa kawayan.",
+    "tl": "Matutulis na bagay ang ginamit sa pag-ukit (carving) sa kawayan.",
     "validation": "pending-subject-matter-review"
   },
   {
     "source": "Ginagamit ang Baybayin sa pagpapadala ng liham, tula, at mensahe ng pakikipagkapwa.",
     "en": "Baybayin is used to send letters, poems, and messages to others.",
-    "tl": "Ginagamit ang Baybayin sa pagpapadala ng liham, tula, at mensahe ng pakikipagkapwa.",
+    "tl": "Ginagamit ang Baybayin sa pagpapadala ng liham (letter), tula, at mensahe ng pakikipagkapwa (connecting with others).",
     "validation": "pending-subject-matter-review"
   },
   {
@@ -341,7 +341,7 @@ export const educationalMessages = [
   {
     "source": "Ang Ating Pamana at Pagkakakilanlan",
     "en": "Our Heritage and Identity",
-    "tl": "Ang Ating Pamana at Pagkakakilanlan",
+    "tl": "Ang Ating Pamana (heritage) at Pagkakakilanlan (identity)",
     "validation": "pending-subject-matter-review"
   },
   {
@@ -353,7 +353,7 @@ export const educationalMessages = [
   {
     "source": "Ang Baybayin ay mahalagang bahagi ng ating pagkatao, kultura, at pamana bilang mga Pilipino.",
     "en": "Baybayin is an important part of our identity, culture, and heritage as Filipinos.",
-    "tl": "Ang Baybayin ay mahalagang bahagi ng ating pagkatao, kultura, at pamana bilang mga Pilipino.",
+    "tl": "Ang Baybayin ay mahalagang bahagi ng ating pagkatao, kultura, at pamana (heritage) bilang mga Pilipino.",
     "validation": "pending-subject-matter-review"
   },
   {
@@ -365,13 +365,13 @@ export const educationalMessages = [
   {
     "source": "Ito ay salamin ng ating mayamang kasaysayan bago pa dumating ang mga banyaga.",
     "en": "It reflects our rich history before foreigners arrived.",
-    "tl": "Ito ay salamin ng ating mayamang kasaysayan bago pa dumating ang mga banyaga.",
+    "tl": "Ito ay salamin ng ating mayamang kasaysayan bago pa dumating ang mga banyaga (foreigners).",
     "validation": "pending-subject-matter-review"
   },
   {
     "source": "Pamanang Kultural ng Pilipino",
     "en": "Filipino Cultural Heritage",
-    "tl": "Pamanang Kultural ng Pilipino",
+    "tl": "Pamanang (heritage) Kultural ng Pilipino",
     "validation": "pending-subject-matter-review"
   },
   {
@@ -401,7 +401,7 @@ export const educationalMessages = [
   {
     "source": "Magkasama nating tuklasin ang sining ng ating mga ninuno!",
     "en": "Let's discover the art of our ancestors together!",
-    "tl": "Magkasama nating tuklasin ang sining ng ating mga ninuno!",
+    "tl": "Magkasama nating tuklasin ang sining (art) ng ating mga ninuno (ancestors)!",
     "validation": "pending-subject-matter-review"
   },
   {
@@ -431,19 +431,19 @@ export const educationalMessages = [
   {
     "source": "Ang Baybayin ay isang SILABARYO, hindi alpabeto.",
     "en": "Baybayin is a SYLLABARY, not an alphabet.",
-    "tl": "Ang Baybayin ay isang SILABARYO, hindi alpabeto.",
+    "tl": "Ang Baybayin ay isang SILABARYO (syllabary), hindi alpabeto (alphabet).",
     "validation": "pending-subject-matter-review"
   },
   {
     "source": "Basa tayo ng pantig, hindi paisa-isang letra!",
     "en": "Let's read syllables, not one letter at a time!",
-    "tl": "Basa tayo ng pantig, hindi paisa-isang letra!",
+    "tl": "Basa tayo ng pantig (syllable), hindi paisa-isang letra!",
     "validation": "pending-subject-matter-review"
   },
   {
     "source": "Paano Gumagana ang Baybayin (Silabaryo)",
     "en": "How Baybayin Works (Syllabary)",
-    "tl": "Paano Gumagana ang Baybayin (Silabaryo)",
+    "tl": "Paano Gumagana ang Baybayin — Silabaryo (syllabary)",
     "validation": "pending-subject-matter-review"
   },
   {
@@ -455,13 +455,13 @@ export const educationalMessages = [
   {
     "source": "Ang Baybayin ay binubuo ng labimpitong (17) payak na simbolo. May tatlong (3) patinig at labing-apat (14) na katinig.",
     "en": "Baybayin has seventeen (17) basic characters.\n\nThere are three (3) vowels and fourteen (14) consonants.",
-    "tl": "Ang Baybayin ay binubuo ng labimpitong (17) payak na simbolo.\n\nMay tatlong (3) patinig at labing-apat (14) na katinig.",
+    "tl": "Ang Baybayin ay binubuo ng labimpitong (17) payak (basic) na simbolo.\n\nMay tatlong (3) patinig (vowel) at labing-apat (14) na katinig (consonant).",
     "validation": "pending-subject-matter-review"
   },
   {
     "source": "Magsimula tayo sa 17 payak na simbolo!",
     "en": "Let’s start with the 17 basic characters!",
-    "tl": "Magsimula tayo sa 17 payak na simbolo!",
+    "tl": "Magsimula tayo sa 17 payak (basic) na simbolo!",
     "validation": "pending-subject-matter-review"
   },
   {
@@ -533,7 +533,7 @@ export const educationalMessages = [
   {
     "source": "Ang tunog ng Da at Ra ay iisa lang din ang simbolo sa Baybayin (ᜇ). Sa ating wika, ang titik D ay madalas maging R kapag napagigitnaan ng mga patinig. Kaya sa sinaunang pagsulat, iisang simbolo lang ang kailangan para sa dalawang tunog na ito!",
     "en": "Da and Ra also share one Baybayin character (ᜇ).\n\nIn our language, D often becomes R when it is between vowels. So in ancient writing, only one character was needed for these two sounds!",
-    "tl": "Ang tunog ng Da at Ra ay iisa lang din ang simbolo sa Baybayin (ᜇ).\n\nSa ating wika, ang titik D ay madalas maging R kapag napagigitnaan ng mga patinig. Kaya sa sinaunang pagsulat, iisang simbolo lang ang kailangan para sa dalawang tunog na ito!",
+    "tl": "Ang tunog ng Da at Ra ay iisa lang din ang simbolo sa Baybayin (ᜇ).\n\nSa ating wika, ang titik D ay madalas maging R kapag nasa pagitan ng mga patinig (vowels). Kaya sa sinaunang (ancient) pagsulat, iisang simbolo lang ang kailangan para sa dalawang tunog na ito!",
     "validation": "pending-subject-matter-review"
   },
   {
@@ -569,31 +569,31 @@ export const educationalMessages = [
   {
     "source": "SILABARYO",
     "en": "SYLLABARY",
-    "tl": "SILABARYO",
+    "tl": "SILABARYO (syllabary)",
     "validation": "pending-subject-matter-review"
   },
   {
     "source": "pantig",
     "en": "syllable",
-    "tl": "pantig",
+    "tl": "pantig (syllable)",
     "validation": "pending-subject-matter-review"
   },
   {
     "source": "pagbabaybay",
     "en": "spell",
-    "tl": "pagbabaybay",
+    "tl": "pagbabaybay (spelling)",
     "validation": "pending-subject-matter-review"
   },
   {
     "source": "patinig",
     "en": "vowels",
-    "tl": "patinig",
+    "tl": "patinig (vowel)",
     "validation": "pending-subject-matter-review"
   },
   {
     "source": "katinig",
     "en": "consonants",
-    "tl": "katinig",
+    "tl": "katinig (consonant)",
     "validation": "pending-subject-matter-review"
   },
   {

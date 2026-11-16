@@ -1,8 +1,11 @@
 import React from 'react';
+import { activityResumeService } from '../../../../database/services/activityResumeService';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
 import { LessonScreen } from '../LessonScreen';
 import { curriculumService } from '../../../../database/services/curriculumService';
 import { createApprovedModules } from '../lessonData';
+
+jest.mock('../../../../database/services/activityResumeService', () => ({ activityResumeService: { lastOpened: jest.fn() } }));
 
 // Render the real card tree; cold React Native setup can exceed Jest's 5s
 // default when the complete workspace suite runs on a busy development host.
@@ -50,6 +53,7 @@ function expectOnlyApprovedTopics() {
 describe('Approved curriculum rendered in learner screens', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    jest.mocked(activityResumeService.lastOpened).mockResolvedValue(null);
     jest.mocked(curriculumService.getCurriculumModules).mockResolvedValue(createApprovedModules());
   });
   it('shows all three modules and nine topic cards before and after hydration', async () => {
@@ -91,4 +95,27 @@ describe('Approved curriculum rendered in learner screens', () => {
     fireEvent.press(screen.getByRole('button', { name: /Magpatuloy sa mga Paksa/ }));
     expect(mockPush).toHaveBeenCalledWith({ pathname: '/learner/activities/[topicId]', params: { topicId: 'topic-1-2' } });
   });
+  it('opens a completed topic row directly and resumes the last viewed topic', async () => {
+    const module = createApprovedModules()[0];
+    module.status = 'completed';
+    module.topics = module.topics.map(topic => ({ ...topic, completed: true, status: 'completed' }));
+    jest.mocked(curriculumService.getCurriculumModules).mockResolvedValue([module]);
+    jest.mocked(activityResumeService.lastOpened).mockResolvedValue('topic-1-4');
+    render(<LessonScreen />);
+    await waitFor(() => expect(activityResumeService.lastOpened).toHaveBeenCalledWith('module-1'));
+    fireEvent.press(screen.getByTestId('topic-card-topic-1-3'));
+    expect(mockPush).toHaveBeenLastCalledWith({ pathname: '/learner/activities/[topicId]', params: { topicId: 'topic-1-3' } });
+    fireEvent.press(screen.getByRole('button', { name: /Balikan ang mga Paksa/ }));
+    expect(mockPush).toHaveBeenLastCalledWith({ pathname: '/learner/activities/[topicId]', params: { topicId: 'topic-1-4' } });
+  });
+  it('does not open locked topic rows or resume a locked bookmark', async () => {
+    jest.mocked(activityResumeService.lastOpened).mockResolvedValue('topic-1-5');
+    render(<LessonScreen />);
+    await waitFor(() => expect(activityResumeService.lastOpened).toHaveBeenCalled());
+    fireEvent.press(screen.getByTestId('topic-card-topic-1-5'));
+    expect(mockPush).not.toHaveBeenCalled();
+    fireEvent.press(screen.getByRole('button', { name: /Simulan ang mga Paksa/ }));
+    expect(mockPush).toHaveBeenLastCalledWith({ pathname: '/learner/activities/[topicId]', params: { topicId: 'topic-1-1' } });
+  });
+
 });

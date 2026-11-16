@@ -1,5 +1,10 @@
 /** Bundled English UI messages. Source phrases are stable lookup keys. */
 export const en = {
+  "Language & BAYA Story": "Language & BAYA Story",
+  "About BAYA": "About BAYA",
+  "Read BAYA’s Story": "Read BAYA’s Story",
+  "Discover Bayani, the inspiration behind BAYA, and the people who helped bring our learning journey to life.": "Discover Bayani, the inspiration behind BAYA, and the people who helped bring our learning journey to life.",
+
   "No recognizable Baybayin character detected. Try again.": "No recognizable Baybayin character detected. Try again.",
   "Your writing is unclear. Try writing the character again.": "Your writing is unclear. Try writing the character again.",
   "All topics completed": "All topics completed",

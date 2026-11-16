@@ -1,10 +1,11 @@
 import React, { useRef } from 'react';
-import { Stack, useRouter } from 'expo-router';
+import { Stack, useRouter, usePathname } from 'expo-router';
 import { LandingHero } from '../components/landing/LandingHero';
 import { localLearnerService } from '../database/services/localLearnerService';
 
 export default function HomeScreen() {
   const router = useRouter();
+  const pathname = usePathname();
   const openingLearner = useRef(false);
 
   const openLearner = async () => {
@@ -31,6 +32,7 @@ export default function HomeScreen() {
     <>
       <Stack.Screen options={{ title: 'BAYA · Learn Baybayin' }} />
       <LandingHero
+        introductionEligible={pathname === '/'}
         onLearnerPress={() => { void openLearner(); }}
         onMentorPress={() => router.push('/mentor')}
       />

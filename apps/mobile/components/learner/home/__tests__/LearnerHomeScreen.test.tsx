@@ -162,6 +162,7 @@ describe('Learner Home — English copy consistency', () => {
     it.each([
       ['Join Workspace', '/learner/workspaces'],
       ['Learner Account', '/learner/workspaces/account'],
+      ['Language & BAYA Story', '/learner/settings'],
     ])('navigates from %s and closes the menu', async (label, route) => {
       renderHeader();
       openSettings();

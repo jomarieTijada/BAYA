@@ -1,0 +1,470 @@
+{
+  "screens": [
+    "touch-0-page-1",
+    "touch-0-page-1-swiped",
+    "touch-0-page-2",
+    "touch-0-source",
+    "touch-0-page-2-swiped",
+    "touch-0-page-3",
+    "touch-0-page-3-swiped",
+    "touch-0-page-4",
+    "touch-0-page-4-swiped",
+    "touch-0-page-5",
+    "touch-0-page-5-swiped",
+    "touch-1-page-1",
+    "touch-1-page-1-swiped",
+    "touch-1-page-2",
+    "touch-1-source",
+    "touch-1-page-2-swiped",
+    "touch-1-page-3",
+    "touch-1-page-3-swiped",
+    "touch-1-page-4",
+    "touch-1-page-4-swiped",
+    "touch-1-page-5",
+    "touch-1-page-5-swiped"
+  ],
+  "checks": [
+    {
+      "name": "touch-0-1 readable",
+      "pass": true
+    },
+    {
+      "name": "touch-0-2 readable",
+      "pass": true
+    },
+    {
+      "name": "source reachable 0",
+      "pass": true
+    },
+    {
+      "name": "touch-0-3 readable",
+      "pass": true
+    },
+    {
+      "name": "touch-0-4 readable",
+      "pass": true
+    },
+    {
+      "name": "touch-0-5 readable",
+      "pass": true
+    },
+    {
+      "name": "touch-1-1 readable",
+      "pass": true
+    },
+    {
+      "name": "touch-1-2 readable",
+      "pass": true
+    },
+    {
+      "name": "source reachable 1",
+      "pass": true
+    },
+    {
+      "name": "touch-1-3 readable",
+      "pass": true
+    },
+    {
+      "name": "touch-1-4 readable",
+      "pass": true
+    },
+    {
+      "name": "touch-1-5 readable",
+      "pass": true
+    },
+    {
+      "name": "touch opens official PEF source",
+      "pass": true
+    }
+  ],
+  "physical": true,
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/157.0.8103.51",
+    "revision": "@653674df293788cf4932c40d914e9e15b41a2d31",
+    "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+    "jsVersion": "15.7.112.23"
+  },
+  "layouts": [
+    {
+      "name": "touch-0-1",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 613.1666870117188,
+          "w": 100.25521087646484,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 123.25521087646484
+        },
+        {
+          "label": "Next",
+          "x": 268.2083435058594,
+          "y": 613.1666870117188,
+          "w": 68.79167175292969,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 337.00001525878906
+        }
+      ],
+      "images": true,
+      "scrollHeight": 861,
+      "clientHeight": 512
+    },
+    {
+      "name": "touch-0-2",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 613.1666870117188,
+          "w": 100.25521087646484,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 123.25521087646484
+        },
+        {
+          "label": "Next",
+          "x": 268.2083435058594,
+          "y": 613.1666870117188,
+          "w": 68.79167175292969,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 337.00001525878906
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1203,
+      "clientHeight": 512
+    },
+    {
+      "name": "touch-0-3",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 613.1666870117188,
+          "w": 100.25521087646484,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 123.25521087646484
+        },
+        {
+          "label": "Next",
+          "x": 268.2083435058594,
+          "y": 613.1666870117188,
+          "w": 68.79167175292969,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 337.00001525878906
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1146,
+      "clientHeight": 512
+    },
+    {
+      "name": "touch-0-4",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 613.1666870117188,
+          "w": 100.25521087646484,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 123.25521087646484
+        },
+        {
+          "label": "Next",
+          "x": 268.2083435058594,
+          "y": 613.1666870117188,
+          "w": 68.79167175292969,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 337.00001525878906
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1239,
+      "clientHeight": 512
+    },
+    {
+      "name": "touch-0-5",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 613.1666870117188,
+          "w": 100.25521087646484,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 123.25521087646484
+        },
+        {
+          "label": "Finish Reading",
+          "x": 217.6822967529297,
+          "y": 613.1666870117188,
+          "w": 119.31771087646484,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 337.00000762939453
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1744,
+      "clientHeight": 512
+    },
+    {
+      "name": "touch-1-1",
+      "w": 747,
+      "h": 274,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 666.3333740234375,
+          "y": 19,
+          "w": 44,
+          "h": 44,
+          "b": 63,
+          "right": 710.3333740234375
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 196,
+          "w": 100.25521087646484,
+          "h": 48,
+          "b": 244,
+          "right": 123.25521087646484
+        },
+        {
+          "label": "Next",
+          "x": 655.5416870117188,
+          "y": 196,
+          "w": 68.79167175292969,
+          "h": 48,
+          "b": 244,
+          "right": 724.3333587646484
+        }
+      ],
+      "images": true,
+      "scrollHeight": 612,
+      "clientHeight": 111
+    },
+    {
+      "name": "touch-1-2",
+      "w": 747,
+      "h": 274,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 666.3333740234375,
+          "y": 19,
+          "w": 44,
+          "h": 44,
+          "b": 63,
+          "right": 710.3333740234375
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 196,
+          "w": 100.25521087646484,
+          "h": 48,
+          "b": 244,
+          "right": 123.25521087646484
+        },
+        {
+          "label": "Next",
+          "x": 655.5416870117188,
+          "y": 196,
+          "w": 68.79167175292969,
+          "h": 48,
+          "b": 244,
+          "right": 724.3333587646484
+        }
+      ],
+      "images": true,
+      "scrollHeight": 894,
+      "clientHeight": 111
+    },
+    {
+      "name": "touch-1-3",
+      "w": 747,
+      "h": 274,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 666.3333740234375,
+          "y": 19,
+          "w": 44,
+          "h": 44,
+          "b": 63,
+          "right": 710.3333740234375
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 196,
+          "w": 100.25521087646484,
+          "h": 48,
+          "b": 244,
+          "right": 123.25521087646484
+        },
+        {
+          "label": "Next",
+          "x": 655.5416870117188,
+          "y": 196,
+          "w": 68.79167175292969,
+          "h": 48,
+          "b": 244,
+          "right": 724.3333587646484
+        }
+      ],
+      "images": true,
+      "scrollHeight": 870,
+      "clientHeight": 111
+    },
+    {
+      "name": "touch-1-4",
+      "w": 747,
+      "h": 274,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 666.3333740234375,
+          "y": 19,
+          "w": 44,
+          "h": 44,
+          "b": 63,
+          "right": 710.3333740234375
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 196,
+          "w": 100.25521087646484,
+          "h": 48,
+          "b": 244,
+          "right": 123.25521087646484
+        },
+        {
+          "label": "Next",
+          "x": 655.5416870117188,
+          "y": 196,
+          "w": 68.79167175292969,
+          "h": 48,
+          "b": 244,
+          "right": 724.3333587646484
+        }
+      ],
+      "images": true,
+      "scrollHeight": 934,
+      "clientHeight": 111
+    },
+    {
+      "name": "touch-1-5",
+      "w": 747,
+      "h": 274,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 666.3333740234375,
+          "y": 19,
+          "w": 44,
+          "h": 44,
+          "b": 63,
+          "right": 710.3333740234375
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 196,
+          "w": 100.25521087646484,
+          "h": 48,
+          "b": 244,
+          "right": 123.25521087646484
+        },
+        {
+          "label": "Finish Reading",
+          "x": 578.7291870117188,
+          "y": 196,
+          "w": 145.6041717529297,
+          "h": 48,
+          "b": 244,
+          "right": 724.3333587646484
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1049,
+      "clientHeight": 111
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "file": "apps\\mobile\\assets\\storybook\\bayani-real\\bayani_pic.avif",
+    "dimensions": [
+      1024,
+      614
+    ],
+    "bytes": 55163,
+    "sha256": "054331e695ae806053ae71dd79657e9e43ab8f782f12c94bc789257372364834",
+    "status": "owner-supplied-local-preview; public redistribution permission pending"
+  },
+  {
+    "file": "apps\\mobile\\assets\\storybook\\acknowledgements\\baybayin_buhayin_logo.jpg",
+    "dimensions": [
+      960,
+      948
+    ],
+    "bytes": 81951,
+    "sha256": "61e7fb3de5a02ff71e8d01b90cb3a44cdedb62d10278d509db8fb81ae87d70a9",
+    "status": "owner-supplied-local-preview; public redistribution permission pending"
+  },
+  {
+    "file": "apps\\mobile\\assets\\storybook\\acknowledgements\\baybayin_creativity_workshops_classes_logo.jpg",
+    "dimensions": [
+      2048,
+      2048
+    ],
+    "bytes": 781459,
+    "sha256": "de6bbb4f5260e8d518f2777cfda4e15c8f7044761660dde68bebc1077ea5b4c5",
+    "status": "owner-supplied-local-preview; public redistribution permission pending"
+  },
+  {
+    "file": "apps\\mobile\\assets\\storybook\\acknowledgements\\ms-mini-gavino.jpg",
+    "dimensions": [
+      447,
+      447
+    ],
+    "bytes": 32157,
+    "sha256": "64334162bd0ee35b0e85035b7ab02ae8ad8f992596f8b87f5f9b50821f9b82f9",
+    "status": "owner-supplied-local-preview; public redistribution permission pending"
+  }
+]

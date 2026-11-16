@@ -1,0 +1,404 @@
+{
+  "screens": [
+    "desktop-welcome",
+    "desktop-page-1",
+    "desktop-page-2",
+    "desktop-page-3",
+    "desktop-page-4",
+    "desktop-page-5",
+    "forward-turn",
+    "backward-turn",
+    "320x568-page-1",
+    "320x568-page-1-reading",
+    "320x568-page-2",
+    "320x568-page-2-reading",
+    "320x568-page-3",
+    "320x568-page-3-reading",
+    "320x568-page-4",
+    "320x568-page-4-reading",
+    "320x568-page-5",
+    "320x568-page-5-reading",
+    "390x844-page-1",
+    "390x844-page-1-reading",
+    "390x844-page-2",
+    "390x844-page-2-reading",
+    "390x844-page-3",
+    "390x844-page-3-reading",
+    "390x844-page-4",
+    "390x844-page-4-reading",
+    "390x844-page-5",
+    "390x844-page-5-reading",
+    "430x932-page-1",
+    "430x932-page-1-reading",
+    "430x932-page-2",
+    "430x932-page-2-reading",
+    "430x932-page-3",
+    "430x932-page-3-reading",
+    "430x932-page-4",
+    "430x932-page-4-reading",
+    "430x932-page-5",
+    "430x932-page-5-reading",
+    "844x390-page-1",
+    "844x390-page-1-reading",
+    "844x390-page-2",
+    "844x390-page-2-reading",
+    "844x390-page-3",
+    "844x390-page-3-reading",
+    "844x390-page-4",
+    "844x390-page-4-reading",
+    "844x390-page-5",
+    "844x390-page-5-reading",
+    "768x1024-page-1",
+    "768x1024-page-2",
+    "768x1024-page-3",
+    "768x1024-page-4",
+    "768x1024-page-5",
+    "1024x768-page-1",
+    "1024x768-page-2",
+    "1024x768-page-3",
+    "1024x768-page-4",
+    "1024x768-page-5",
+    "1280x800-page-1",
+    "1280x800-page-2",
+    "1280x800-page-3",
+    "1280x800-page-4",
+    "1280x800-page-5",
+    "1440x900-page-1",
+    "1440x900-page-2",
+    "1440x900-page-3",
+    "1440x900-page-4",
+    "1440x900-page-5",
+    "offline-final-page"
+  ],
+  "checks": [
+    {
+      "name": "desktop spread 1",
+      "pass": true
+    },
+    {
+      "name": "images loaded 1",
+      "pass": true
+    },
+    {
+      "name": "desktop spread 2",
+      "pass": true
+    },
+    {
+      "name": "images loaded 2",
+      "pass": true
+    },
+    {
+      "name": "real eagle link and no mascot",
+      "pass": true
+    },
+    {
+      "name": "desktop spread 3",
+      "pass": true
+    },
+    {
+      "name": "images loaded 3",
+      "pass": true
+    },
+    {
+      "name": "desktop spread 4",
+      "pass": true
+    },
+    {
+      "name": "images loaded 4",
+      "pass": true
+    },
+    {
+      "name": "desktop spread 5",
+      "pass": true
+    },
+    {
+      "name": "images loaded 5",
+      "pass": true
+    },
+    {
+      "name": "backward navigation",
+      "pass": true
+    },
+    {
+      "name": "focus restored",
+      "pass": true
+    },
+    {
+      "name": "keyboard focus stays in book",
+      "pass": true
+    },
+    {
+      "name": "forward turn animates",
+      "pass": true
+    },
+    {
+      "name": "rapid next advances once",
+      "pass": true
+    },
+    {
+      "name": "backward turn animates",
+      "pass": true
+    },
+    {
+      "name": "rapid previous advances once",
+      "pass": true
+    },
+    {
+      "name": "interrupted turn resets on reopen",
+      "pass": true
+    },
+    {
+      "name": "escape dismisses",
+      "pass": true
+    },
+    {
+      "name": "layout 320x568 page 1",
+      "pass": true
+    },
+    {
+      "name": "stacked 320 page 1",
+      "pass": true
+    },
+    {
+      "name": "layout 320x568 page 2",
+      "pass": true
+    },
+    {
+      "name": "stacked 320 page 2",
+      "pass": true
+    },
+    {
+      "name": "layout 320x568 page 3",
+      "pass": true
+    },
+    {
+      "name": "stacked 320 page 3",
+      "pass": true
+    },
+    {
+      "name": "layout 320x568 page 4",
+      "pass": true
+    },
+    {
+      "name": "stacked 320 page 4",
+      "pass": true
+    },
+    {
+      "name": "layout 320x568 page 5",
+      "pass": true
+    },
+    {
+      "name": "stacked 320 page 5",
+      "pass": true
+    },
+    {
+      "name": "layout 390x844 page 1",
+      "pass": true
+    },
+    {
+      "name": "stacked 390 page 1",
+      "pass": true
+    },
+    {
+      "name": "layout 390x844 page 2",
+      "pass": true
+    },
+    {
+      "name": "stacked 390 page 2",
+      "pass": true
+    },
+    {
+      "name": "layout 390x844 page 3",
+      "pass": true
+    },
+    {
+      "name": "stacked 390 page 3",
+      "pass": true
+    },
+    {
+      "name": "layout 390x844 page 4",
+      "pass": true
+    },
+    {
+      "name": "stacked 390 page 4",
+      "pass": true
+    },
+    {
+      "name": "layout 390x844 page 5",
+      "pass": true
+    },
+    {
+      "name": "stacked 390 page 5",
+      "pass": true
+    },
+    {
+      "name": "layout 430x932 page 1",
+      "pass": true
+    },
+    {
+      "name": "stacked 430 page 1",
+      "pass": true
+    },
+    {
+      "name": "layout 430x932 page 2",
+      "pass": true
+    },
+    {
+      "name": "stacked 430 page 2",
+      "pass": true
+    },
+    {
+      "name": "layout 430x932 page 3",
+      "pass": true
+    },
+    {
+      "name": "stacked 430 page 3",
+      "pass": true
+    },
+    {
+      "name": "layout 430x932 page 4",
+      "pass": true
+    },
+    {
+      "name": "stacked 430 page 4",
+      "pass": true
+    },
+    {
+      "name": "layout 430x932 page 5",
+      "pass": true
+    },
+    {
+      "name": "stacked 430 page 5",
+      "pass": true
+    },
+    {
+      "name": "layout 844x390 page 1",
+      "pass": true
+    },
+    {
+      "name": "layout 844x390 page 2",
+      "pass": true
+    },
+    {
+      "name": "layout 844x390 page 3",
+      "pass": true
+    },
+    {
+      "name": "layout 844x390 page 4",
+      "pass": true
+    },
+    {
+      "name": "layout 844x390 page 5",
+      "pass": true
+    },
+    {
+      "name": "layout 768x1024 page 1",
+      "pass": true
+    },
+    {
+      "name": "layout 768x1024 page 2",
+      "pass": true
+    },
+    {
+      "name": "layout 768x1024 page 3",
+      "pass": true
+    },
+    {
+      "name": "layout 768x1024 page 4",
+      "pass": true
+    },
+    {
+      "name": "layout 768x1024 page 5",
+      "pass": true
+    },
+    {
+      "name": "layout 1024x768 page 1",
+      "pass": true
+    },
+    {
+      "name": "layout 1024x768 page 2",
+      "pass": true
+    },
+    {
+      "name": "layout 1024x768 page 3",
+      "pass": true
+    },
+    {
+      "name": "layout 1024x768 page 4",
+      "pass": true
+    },
+    {
+      "name": "layout 1024x768 page 5",
+      "pass": true
+    },
+    {
+      "name": "layout 1280x800 page 1",
+      "pass": true
+    },
+    {
+      "name": "layout 1280x800 page 2",
+      "pass": true
+    },
+    {
+      "name": "layout 1280x800 page 3",
+      "pass": true
+    },
+    {
+      "name": "layout 1280x800 page 4",
+      "pass": true
+    },
+    {
+      "name": "layout 1280x800 page 5",
+      "pass": true
+    },
+    {
+      "name": "layout 1440x900 page 1",
+      "pass": true
+    },
+    {
+      "name": "layout 1440x900 page 2",
+      "pass": true
+    },
+    {
+      "name": "layout 1440x900 page 3",
+      "pass": true
+    },
+    {
+      "name": "layout 1440x900 page 4",
+      "pass": true
+    },
+    {
+      "name": "layout 1440x900 page 5",
+      "pass": true
+    },
+    {
+      "name": "reduced motion instant and no animation",
+      "pass": true
+    },
+    {
+      "name": "rotation preserves current page",
+      "pass": true
+    },
+    {
+      "name": "offline page 1",
+      "pass": true
+    },
+    {
+      "name": "offline page 2",
+      "pass": true
+    },
+    {
+      "name": "offline page 3",
+      "pass": true
+    },
+    {
+      "name": "offline page 4",
+      "pass": true
+    },
+    {
+      "name": "offline page 5",
+      "pass": true
+    }
+  ],
+  "physical": false
+}

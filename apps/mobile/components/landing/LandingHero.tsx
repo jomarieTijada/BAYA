@@ -1,7 +1,7 @@
-import { MascotOrigin } from './MascotOrigin';
 import { OriginStorybook } from './OriginStorybook';
 import { Text } from '../../localization/components';
-import React, { useState } from 'react';
+import React from 'react';
+import { useStorybookIntroduction } from './useStorybookIntroduction';
 import { Platform, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { BayaLogo } from '../branding/BayaLogo';
@@ -16,13 +16,16 @@ import { useResponsiveLayout } from '../../hooks/useResponsiveLayout';
 import { RoleSelector } from './RoleSelector';
 
 type LandingHeroProps = {
+  introductionEligible?: boolean;
   onLearnerPress: () => void;
   onMentorPress: () => void;
 };
 
-export function LandingHero({ onLearnerPress, onMentorPress }: LandingHeroProps) {
+export function LandingHero({ onLearnerPress, onMentorPress, introductionEligible = false }: LandingHeroProps) {
   // Keep the reading session mounted when the welcome layout changes on rotation.
-  const [storyOpen, setStoryOpen] = useState(false);
+  const story = useStorybookIntroduction(introductionEligible);
+  const learner = () => { story.leaveWelcome(); onLearnerPress(); };
+  const mentor = () => { story.leaveWelcome(); onMentorPress(); };
   const insets = useSafeAreaInsets();
   const {
     height,
@@ -137,14 +140,13 @@ export function LandingHero({ onLearnerPress, onMentorPress }: LandingHeroProps)
                 <BayaLogo size={logoSize} />
                 {tagline}
               </View>
-              <View style={[styles.selectorWide, compactControls && styles.selectorCompact]}>
+              <View testID="welcome-role-selector" style={[styles.selectorWide, compactControls && styles.selectorCompact]}>
                 <RoleSelector
                   compact={compactControls}
-                  onLearnerPress={onLearnerPress}
-                  onMentorPress={onMentorPress}
+                  onLearnerPress={learner}
+                  onMentorPress={mentor}
                 />
               </View>
-              <MascotOrigin compact={compactControls} onOpen={() => setStoryOpen(true)} />
             </View>
           </View>
         );
@@ -154,22 +156,21 @@ export function LandingHero({ onLearnerPress, onMentorPress }: LandingHeroProps)
             <BayaLogo size={logoSize} />
             <BayaMascot size={mascotSize} state="ambient" />
             {tagline}
-            <View style={[styles.selectorStacked, isPhonePortrait && styles.selectorStackedPhone]}>
+            <View testID="welcome-role-selector" style={[styles.selectorStacked, isPhonePortrait && styles.selectorStackedPhone]}>
               <RoleSelector
                 compact
-                onLearnerPress={onLearnerPress}
-                onMentorPress={onMentorPress}
+                onLearnerPress={learner}
+                onMentorPress={mentor}
               />
             </View>
-            <MascotOrigin compact={compactControls} onOpen={() => setStoryOpen(true)} />
           </View>
         );
           }
         })()}
       </ScrollView>
-      {storyOpen && <OriginStorybook onClose={() => {
-        setStoryOpen(false);
-        if (Platform.OS === 'web') requestAnimationFrame(() => document.querySelector<HTMLElement>('[data-testid="mascot-origin-teaser"]')?.focus());
+      {story.mode && <OriginStorybook onClose={() => {
+        story.close();
+        if (Platform.OS === 'web') requestAnimationFrame(() => document.querySelector<HTMLElement>('[data-testid="welcome-role-selector"] [role="button"]')?.focus());
       }} />}
     </SafeAreaView>
   );

@@ -1,6 +1,6 @@
 /** Complete-message templates; captured names and identifiers are never translated. */
 export const messages = [
-  { "source": "Confidence: {v0}", "en": "Confidence: {v0}", "tl": "Kumpiyansa: {v0}" },
+  { "source": "Confidence: {v0}", "en": "Confidence: {v0}", "tl": "Kumpiyansa (confidence): {v0}" },
   {
     "source": "Hakbang {v0} ng {v1}",
     "en": "Step {v0} of {v1}",
@@ -224,7 +224,7 @@ export const messages = [
   {
     "source": "View reference for {v0}",
     "en": "View reference for {v0}",
-    "tl": "Tingnan ang sanggunian para kay {v0}"
+    "tl": "Tingnan ang sanggunian (reference) para kay {v0}"
   },
   {
     "source": "Approve {v0}",
@@ -239,7 +239,7 @@ export const messages = [
   {
     "source": "{v0}: compare this full reference with the learner’s screen. A matching reference or display name alone is not proof of identity.",
     "en": "{v0}: compare this full reference with the learner’s screen. A matching reference or display name alone is not proof of identity.",
-    "tl": "{v0}: ihambing ang buong sanggunian sa screen ng mag-aaral. Hindi sapat na patunay ng pagkakakilanlan ang parehong sanggunian o pangalan lamang."
+    "tl": "{v0}: ihambing ang buong sanggunian (reference) sa screen ng mag-aaral. Hindi sapat na patunay ng pagkakakilanlan (identity) ang parehong sanggunian o pangalan lamang."
   },
   {
     "source": "Enter {v0}",

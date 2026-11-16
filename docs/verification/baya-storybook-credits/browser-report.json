@@ -1,0 +1,81 @@
+{
+  "checks": [
+    {
+      "name": "fresh automatic page one, single dialog",
+      "pass": true
+    },
+    {
+      "name": "automatic portrait layout",
+      "pass": true
+    },
+    {
+      "name": "focus enters automatic dialog",
+      "pass": true
+    },
+    {
+      "name": "Escape dismisses automatic introduction",
+      "pass": true
+    },
+    {
+      "name": "Escape acknowledgement survives a fresh runtime",
+      "pass": true
+    },
+    {
+      "name": "desktop page 2",
+      "pass": true
+    },
+    {
+      "name": "desktop page 3",
+      "pass": true
+    },
+    {
+      "name": "desktop page 4",
+      "pass": true
+    },
+    {
+      "name": "desktop page 5",
+      "pass": true
+    },
+    {
+      "name": "thanks is in left visual",
+      "pass": true
+    },
+    {
+      "name": "no repeated notices or journey label",
+      "pass": true
+    },
+    {
+      "name": "mobile acknowledgements",
+      "pass": true
+    },
+    {
+      "name": "keyboard focus remains in replay",
+      "pass": true
+    },
+    {
+      "name": "Escape restores Settings trigger focus",
+      "pass": true
+    }
+  ],
+  "screens": [
+    "automatic-portrait",
+    "returning-desktop",
+    "settings-desktop",
+    "settings-desktop-replay",
+    "desktop-page-2",
+    "desktop-page-3",
+    "desktop-page-4",
+    "desktop-page-5",
+    "mobile-page-5",
+    "mobile-page-5-credits"
+  ],
+  "physical": false,
+  "warnings": [],
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/157.0.8103.52",
+    "revision": "@0985600c06a688b9c669e74afde7dacd5aaed047",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+    "jsVersion": "15.7.112.23"
+  }
+}

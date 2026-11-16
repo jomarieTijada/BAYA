@@ -1,0 +1,4606 @@
+{
+  "screens": [
+    "en-320x568-welcome",
+    "en-320x568-page-1",
+    "en-320x568-page-1-reading",
+    "en-320x568-page-2",
+    "en-320x568-page-2-reading",
+    "en-320x568-page-3",
+    "en-320x568-page-3-reading",
+    "en-320x568-page-4",
+    "en-320x568-page-4-reading",
+    "en-320x568-page-5",
+    "en-320x568-page-5-reading",
+    "en-390x844-welcome",
+    "en-390x844-page-1",
+    "en-390x844-page-1-reading",
+    "en-390x844-page-2",
+    "en-390x844-page-2-reading",
+    "en-390x844-page-3",
+    "en-390x844-page-3-reading",
+    "en-390x844-page-4",
+    "en-390x844-page-4-reading",
+    "en-390x844-page-5",
+    "en-390x844-page-5-reading",
+    "en-430x932-welcome",
+    "en-430x932-page-1",
+    "en-430x932-page-1-reading",
+    "en-430x932-page-2",
+    "en-430x932-page-2-reading",
+    "en-430x932-page-3",
+    "en-430x932-page-3-reading",
+    "en-430x932-page-4",
+    "en-430x932-page-4-reading",
+    "en-430x932-page-5",
+    "en-430x932-page-5-reading",
+    "en-844x390-welcome",
+    "en-844x390-page-1",
+    "en-844x390-page-1-reading",
+    "en-844x390-page-2",
+    "en-844x390-page-2-reading",
+    "en-844x390-page-3",
+    "en-844x390-page-3-reading",
+    "en-844x390-page-4",
+    "en-844x390-page-4-reading",
+    "en-844x390-page-5",
+    "en-844x390-page-5-reading",
+    "en-768x1024-welcome",
+    "en-768x1024-page-1",
+    "en-768x1024-page-1-reading",
+    "en-768x1024-page-2",
+    "en-768x1024-page-2-reading",
+    "en-768x1024-page-3",
+    "en-768x1024-page-3-reading",
+    "en-768x1024-page-4",
+    "en-768x1024-page-4-reading",
+    "en-768x1024-page-5",
+    "en-768x1024-page-5-reading",
+    "en-1024x768-welcome",
+    "en-1024x768-page-1",
+    "en-1024x768-page-1-reading",
+    "en-1024x768-page-2",
+    "en-1024x768-page-2-reading",
+    "en-1024x768-page-3",
+    "en-1024x768-page-3-reading",
+    "en-1024x768-page-4",
+    "en-1024x768-page-4-reading",
+    "en-1024x768-page-5",
+    "en-1024x768-page-5-reading",
+    "en-1280x800-welcome",
+    "en-1280x800-page-1",
+    "en-1280x800-page-1-reading",
+    "en-1280x800-page-2",
+    "en-1280x800-page-2-reading",
+    "en-1280x800-page-3",
+    "en-1280x800-page-3-reading",
+    "en-1280x800-page-4",
+    "en-1280x800-page-4-reading",
+    "en-1280x800-page-5",
+    "en-1280x800-page-5-reading",
+    "en-1440x900-welcome",
+    "en-1440x900-page-1",
+    "en-1440x900-page-1-reading",
+    "en-1440x900-page-2",
+    "en-1440x900-page-2-reading",
+    "en-1440x900-page-3",
+    "en-1440x900-page-3-reading",
+    "en-1440x900-page-4",
+    "en-1440x900-page-4-reading",
+    "en-1440x900-page-5",
+    "en-1440x900-page-5-reading",
+    "tl-320x568-welcome",
+    "tl-320x568-page-1",
+    "tl-320x568-page-1-reading",
+    "tl-320x568-page-2",
+    "tl-320x568-page-2-reading",
+    "tl-320x568-page-3",
+    "tl-320x568-page-3-reading",
+    "tl-320x568-page-4",
+    "tl-320x568-page-4-reading",
+    "tl-320x568-page-5",
+    "tl-320x568-page-5-reading",
+    "tl-390x844-welcome",
+    "tl-390x844-page-1",
+    "tl-390x844-page-1-reading",
+    "tl-390x844-page-2",
+    "tl-390x844-page-2-reading",
+    "tl-390x844-page-3",
+    "tl-390x844-page-3-reading",
+    "tl-390x844-page-4",
+    "tl-390x844-page-4-reading",
+    "tl-390x844-page-5",
+    "tl-390x844-page-5-reading",
+    "tl-430x932-welcome",
+    "tl-430x932-page-1",
+    "tl-430x932-page-1-reading",
+    "tl-430x932-page-2",
+    "tl-430x932-page-2-reading",
+    "tl-430x932-page-3",
+    "tl-430x932-page-3-reading",
+    "tl-430x932-page-4",
+    "tl-430x932-page-4-reading",
+    "tl-430x932-page-5",
+    "tl-430x932-page-5-reading",
+    "tl-844x390-welcome",
+    "tl-844x390-page-1",
+    "tl-844x390-page-1-reading",
+    "tl-844x390-page-2",
+    "tl-844x390-page-2-reading",
+    "tl-844x390-page-3",
+    "tl-844x390-page-3-reading",
+    "tl-844x390-page-4",
+    "tl-844x390-page-4-reading",
+    "tl-844x390-page-5",
+    "tl-844x390-page-5-reading",
+    "tl-768x1024-welcome",
+    "tl-768x1024-page-1",
+    "tl-768x1024-page-1-reading",
+    "tl-768x1024-page-2",
+    "tl-768x1024-page-2-reading",
+    "tl-768x1024-page-3",
+    "tl-768x1024-page-3-reading",
+    "tl-768x1024-page-4",
+    "tl-768x1024-page-4-reading",
+    "tl-768x1024-page-5",
+    "tl-768x1024-page-5-reading",
+    "tl-1024x768-welcome",
+    "tl-1024x768-page-1",
+    "tl-1024x768-page-1-reading",
+    "tl-1024x768-page-2",
+    "tl-1024x768-page-2-reading",
+    "tl-1024x768-page-3",
+    "tl-1024x768-page-3-reading",
+    "tl-1024x768-page-4",
+    "tl-1024x768-page-4-reading",
+    "tl-1024x768-page-5",
+    "tl-1024x768-page-5-reading",
+    "tl-1280x800-welcome",
+    "tl-1280x800-page-1",
+    "tl-1280x800-page-1-reading",
+    "tl-1280x800-page-2",
+    "tl-1280x800-page-2-reading",
+    "tl-1280x800-page-3",
+    "tl-1280x800-page-3-reading",
+    "tl-1280x800-page-4",
+    "tl-1280x800-page-4-reading",
+    "tl-1280x800-page-5",
+    "tl-1280x800-page-5-reading",
+    "tl-1440x900-welcome",
+    "tl-1440x900-page-1",
+    "tl-1440x900-page-1-reading",
+    "tl-1440x900-page-2",
+    "tl-1440x900-page-2-reading",
+    "tl-1440x900-page-3",
+    "tl-1440x900-page-3-reading",
+    "tl-1440x900-page-4",
+    "tl-1440x900-page-4-reading",
+    "tl-1440x900-page-5",
+    "tl-1440x900-page-5-reading",
+    "greeting-rest",
+    "greeting-mid-wave",
+    "greeting-returned",
+    "forward-turn",
+    "backward-turn",
+    "reduced-motion",
+    "zoom-equivalent-1.25",
+    "zoom-equivalent-1.5",
+    "zoom-equivalent-2",
+    "150-percent-text",
+    "offline-en",
+    "offline-tl"
+  ],
+  "checks": [
+    {
+      "name": "en-320x568-page-1 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en3201",
+      "pass": true
+    },
+    {
+      "name": "en-320x568-page-2 readable",
+      "pass": true
+    },
+    {
+      "name": "supplied collage and source en320",
+      "pass": true
+    },
+    {
+      "name": "starts at top en3202",
+      "pass": true
+    },
+    {
+      "name": "en-320x568-page-3 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en3203",
+      "pass": true
+    },
+    {
+      "name": "en-320x568-page-4 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en3204",
+      "pass": true
+    },
+    {
+      "name": "en-320x568-page-5 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en3205",
+      "pass": true
+    },
+    {
+      "name": "en-390x844-page-1 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en3901",
+      "pass": true
+    },
+    {
+      "name": "en-390x844-page-2 readable",
+      "pass": true
+    },
+    {
+      "name": "supplied collage and source en390",
+      "pass": true
+    },
+    {
+      "name": "starts at top en3902",
+      "pass": true
+    },
+    {
+      "name": "en-390x844-page-3 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en3903",
+      "pass": true
+    },
+    {
+      "name": "en-390x844-page-4 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en3904",
+      "pass": true
+    },
+    {
+      "name": "en-390x844-page-5 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en3905",
+      "pass": true
+    },
+    {
+      "name": "en-430x932-page-1 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en4301",
+      "pass": true
+    },
+    {
+      "name": "en-430x932-page-2 readable",
+      "pass": true
+    },
+    {
+      "name": "supplied collage and source en430",
+      "pass": true
+    },
+    {
+      "name": "starts at top en4302",
+      "pass": true
+    },
+    {
+      "name": "en-430x932-page-3 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en4303",
+      "pass": true
+    },
+    {
+      "name": "en-430x932-page-4 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en4304",
+      "pass": true
+    },
+    {
+      "name": "en-430x932-page-5 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en4305",
+      "pass": true
+    },
+    {
+      "name": "en-844x390-page-1 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en8441",
+      "pass": true
+    },
+    {
+      "name": "en-844x390-page-2 readable",
+      "pass": true
+    },
+    {
+      "name": "supplied collage and source en844",
+      "pass": true
+    },
+    {
+      "name": "starts at top en8442",
+      "pass": true
+    },
+    {
+      "name": "en-844x390-page-3 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en8443",
+      "pass": true
+    },
+    {
+      "name": "en-844x390-page-4 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en8444",
+      "pass": true
+    },
+    {
+      "name": "en-844x390-page-5 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en8445",
+      "pass": true
+    },
+    {
+      "name": "en-768x1024-page-1 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en7681",
+      "pass": true
+    },
+    {
+      "name": "en-768x1024-page-2 readable",
+      "pass": true
+    },
+    {
+      "name": "supplied collage and source en768",
+      "pass": true
+    },
+    {
+      "name": "starts at top en7682",
+      "pass": true
+    },
+    {
+      "name": "en-768x1024-page-3 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en7683",
+      "pass": true
+    },
+    {
+      "name": "en-768x1024-page-4 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en7684",
+      "pass": true
+    },
+    {
+      "name": "en-768x1024-page-5 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en7685",
+      "pass": true
+    },
+    {
+      "name": "en-1024x768-page-1 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en10241",
+      "pass": true
+    },
+    {
+      "name": "en-1024x768-page-2 readable",
+      "pass": true
+    },
+    {
+      "name": "supplied collage and source en1024",
+      "pass": true
+    },
+    {
+      "name": "starts at top en10242",
+      "pass": true
+    },
+    {
+      "name": "en-1024x768-page-3 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en10243",
+      "pass": true
+    },
+    {
+      "name": "en-1024x768-page-4 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en10244",
+      "pass": true
+    },
+    {
+      "name": "en-1024x768-page-5 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en10245",
+      "pass": true
+    },
+    {
+      "name": "en-1280x800-page-1 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en12801",
+      "pass": true
+    },
+    {
+      "name": "en-1280x800-page-2 readable",
+      "pass": true
+    },
+    {
+      "name": "supplied collage and source en1280",
+      "pass": true
+    },
+    {
+      "name": "starts at top en12802",
+      "pass": true
+    },
+    {
+      "name": "en-1280x800-page-3 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en12803",
+      "pass": true
+    },
+    {
+      "name": "en-1280x800-page-4 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en12804",
+      "pass": true
+    },
+    {
+      "name": "en-1280x800-page-5 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en12805",
+      "pass": true
+    },
+    {
+      "name": "en-1440x900-page-1 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en14401",
+      "pass": true
+    },
+    {
+      "name": "en-1440x900-page-2 readable",
+      "pass": true
+    },
+    {
+      "name": "supplied collage and source en1440",
+      "pass": true
+    },
+    {
+      "name": "starts at top en14402",
+      "pass": true
+    },
+    {
+      "name": "en-1440x900-page-3 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en14403",
+      "pass": true
+    },
+    {
+      "name": "en-1440x900-page-4 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en14404",
+      "pass": true
+    },
+    {
+      "name": "en-1440x900-page-5 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en14405",
+      "pass": true
+    },
+    {
+      "name": "tl-320x568-page-1 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl3201",
+      "pass": true
+    },
+    {
+      "name": "tl-320x568-page-2 readable",
+      "pass": true
+    },
+    {
+      "name": "supplied collage and source tl320",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl3202",
+      "pass": true
+    },
+    {
+      "name": "tl-320x568-page-3 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl3203",
+      "pass": true
+    },
+    {
+      "name": "tl-320x568-page-4 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl3204",
+      "pass": true
+    },
+    {
+      "name": "tl-320x568-page-5 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl3205",
+      "pass": true
+    },
+    {
+      "name": "tl-390x844-page-1 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl3901",
+      "pass": true
+    },
+    {
+      "name": "tl-390x844-page-2 readable",
+      "pass": true
+    },
+    {
+      "name": "supplied collage and source tl390",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl3902",
+      "pass": true
+    },
+    {
+      "name": "tl-390x844-page-3 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl3903",
+      "pass": true
+    },
+    {
+      "name": "tl-390x844-page-4 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl3904",
+      "pass": true
+    },
+    {
+      "name": "tl-390x844-page-5 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl3905",
+      "pass": true
+    },
+    {
+      "name": "tl-430x932-page-1 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl4301",
+      "pass": true
+    },
+    {
+      "name": "tl-430x932-page-2 readable",
+      "pass": true
+    },
+    {
+      "name": "supplied collage and source tl430",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl4302",
+      "pass": true
+    },
+    {
+      "name": "tl-430x932-page-3 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl4303",
+      "pass": true
+    },
+    {
+      "name": "tl-430x932-page-4 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl4304",
+      "pass": true
+    },
+    {
+      "name": "tl-430x932-page-5 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl4305",
+      "pass": true
+    },
+    {
+      "name": "tl-844x390-page-1 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl8441",
+      "pass": true
+    },
+    {
+      "name": "tl-844x390-page-2 readable",
+      "pass": true
+    },
+    {
+      "name": "supplied collage and source tl844",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl8442",
+      "pass": true
+    },
+    {
+      "name": "tl-844x390-page-3 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl8443",
+      "pass": true
+    },
+    {
+      "name": "tl-844x390-page-4 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl8444",
+      "pass": true
+    },
+    {
+      "name": "tl-844x390-page-5 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl8445",
+      "pass": true
+    },
+    {
+      "name": "tl-768x1024-page-1 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl7681",
+      "pass": true
+    },
+    {
+      "name": "tl-768x1024-page-2 readable",
+      "pass": true
+    },
+    {
+      "name": "supplied collage and source tl768",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl7682",
+      "pass": true
+    },
+    {
+      "name": "tl-768x1024-page-3 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl7683",
+      "pass": true
+    },
+    {
+      "name": "tl-768x1024-page-4 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl7684",
+      "pass": true
+    },
+    {
+      "name": "tl-768x1024-page-5 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl7685",
+      "pass": true
+    },
+    {
+      "name": "tl-1024x768-page-1 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl10241",
+      "pass": true
+    },
+    {
+      "name": "tl-1024x768-page-2 readable",
+      "pass": true
+    },
+    {
+      "name": "supplied collage and source tl1024",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl10242",
+      "pass": true
+    },
+    {
+      "name": "tl-1024x768-page-3 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl10243",
+      "pass": true
+    },
+    {
+      "name": "tl-1024x768-page-4 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl10244",
+      "pass": true
+    },
+    {
+      "name": "tl-1024x768-page-5 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl10245",
+      "pass": true
+    },
+    {
+      "name": "tl-1280x800-page-1 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl12801",
+      "pass": true
+    },
+    {
+      "name": "tl-1280x800-page-2 readable",
+      "pass": true
+    },
+    {
+      "name": "supplied collage and source tl1280",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl12802",
+      "pass": true
+    },
+    {
+      "name": "tl-1280x800-page-3 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl12803",
+      "pass": true
+    },
+    {
+      "name": "tl-1280x800-page-4 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl12804",
+      "pass": true
+    },
+    {
+      "name": "tl-1280x800-page-5 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl12805",
+      "pass": true
+    },
+    {
+      "name": "tl-1440x900-page-1 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl14401",
+      "pass": true
+    },
+    {
+      "name": "tl-1440x900-page-2 readable",
+      "pass": true
+    },
+    {
+      "name": "supplied collage and source tl1440",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl14402",
+      "pass": true
+    },
+    {
+      "name": "tl-1440x900-page-3 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl14403",
+      "pass": true
+    },
+    {
+      "name": "tl-1440x900-page-4 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl14404",
+      "pass": true
+    },
+    {
+      "name": "tl-1440x900-page-5 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl14405",
+      "pass": true
+    },
+    {
+      "name": "greeting changes existing frame",
+      "pass": true
+    },
+    {
+      "name": "greeting returns to canonical rest",
+      "pass": true
+    },
+    {
+      "name": "greeting does not loop",
+      "pass": true
+    },
+    {
+      "name": "Enter opens",
+      "pass": true
+    },
+    {
+      "name": "reverse tab contained",
+      "pass": true
+    },
+    {
+      "name": "named dialog",
+      "pass": true
+    },
+    {
+      "name": "meaningful mascot alternative",
+      "pass": true
+    },
+    {
+      "name": "Escape restores focus",
+      "pass": true
+    },
+    {
+      "name": "Space opens",
+      "pass": true
+    },
+    {
+      "name": "alternating clicks locked",
+      "pass": true
+    },
+    {
+      "name": "outgoing scroll retained",
+      "pass": true
+    },
+    {
+      "name": "resize during turn commits once",
+      "pass": true
+    },
+    {
+      "name": "cancel and immediate reopen",
+      "pass": true
+    },
+    {
+      "name": "reduced motion",
+      "pass": true
+    },
+    {
+      "name": "zoom-equivalent-1.25 readable",
+      "pass": true
+    },
+    {
+      "name": "zoom-equivalent-1.5 readable",
+      "pass": true
+    },
+    {
+      "name": "zoom-equivalent-2 readable",
+      "pass": true
+    },
+    {
+      "name": "150-percent-text readable",
+      "pass": true
+    },
+    {
+      "name": "offline-en-1 readable",
+      "pass": true
+    },
+    {
+      "name": "offline-en-2 readable",
+      "pass": true
+    },
+    {
+      "name": "offline-en-3 readable",
+      "pass": true
+    },
+    {
+      "name": "offline-en-4 readable",
+      "pass": true
+    },
+    {
+      "name": "offline-en-5 readable",
+      "pass": true
+    },
+    {
+      "name": "offline-tl-1 readable",
+      "pass": true
+    },
+    {
+      "name": "offline-tl-2 readable",
+      "pass": true
+    },
+    {
+      "name": "offline-tl-3 readable",
+      "pass": true
+    },
+    {
+      "name": "offline-tl-4 readable",
+      "pass": true
+    },
+    {
+      "name": "offline-tl-5 readable",
+      "pass": true
+    },
+    {
+      "name": "learner destination",
+      "pass": true
+    },
+    {
+      "name": "mentor destination",
+      "pass": true
+    }
+  ],
+  "physical": false,
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/157.0.8103.52",
+    "revision": "@0985600c06a688b9c669e74afde7dacd5aaed047",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+    "jsVersion": "15.7.112.23"
+  },
+  "layouts": [
+    {
+      "name": "en-320x568-page-1",
+      "w": 320,
+      "h": 568,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 239,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 283
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 493,
+          "w": 100.90625,
+          "h": 48,
+          "b": 541,
+          "right": 123.90625
+        },
+        {
+          "label": "Next",
+          "x": 226.921875,
+          "y": 493,
+          "w": 70.078125,
+          "h": 48,
+          "b": 541,
+          "right": 297
+        }
+      ],
+      "images": true,
+      "scrollHeight": 934,
+      "clientHeight": 392
+    },
+    {
+      "name": "en-320x568-page-2",
+      "w": 320,
+      "h": 568,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 239,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 283
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 493,
+          "w": 100.90625,
+          "h": 48,
+          "b": 541,
+          "right": 123.90625
+        },
+        {
+          "label": "Next",
+          "x": 226.921875,
+          "y": 493,
+          "w": 70.078125,
+          "h": 48,
+          "b": 541,
+          "right": 297
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1378,
+      "clientHeight": 392
+    },
+    {
+      "name": "en-320x568-page-3",
+      "w": 320,
+      "h": 568,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 239,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 283
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 493,
+          "w": 100.90625,
+          "h": 48,
+          "b": 541,
+          "right": 123.90625
+        },
+        {
+          "label": "Next",
+          "x": 226.921875,
+          "y": 493,
+          "w": 70.078125,
+          "h": 48,
+          "b": 541,
+          "right": 297
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1325,
+      "clientHeight": 392
+    },
+    {
+      "name": "en-320x568-page-4",
+      "w": 320,
+      "h": 568,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 239,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 283
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 493,
+          "w": 100.90625,
+          "h": 48,
+          "b": 541,
+          "right": 123.90625
+        },
+        {
+          "label": "Next",
+          "x": 226.921875,
+          "y": 493,
+          "w": 70.078125,
+          "h": 48,
+          "b": 541,
+          "right": 297
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1389,
+      "clientHeight": 392
+    },
+    {
+      "name": "en-320x568-page-5",
+      "w": 320,
+      "h": 568,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 239,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 283
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 493,
+          "w": 100.90625,
+          "h": 48,
+          "b": 541,
+          "right": 123.90625
+        },
+        {
+          "label": "Finish Reading",
+          "x": 192.890625,
+          "y": 493,
+          "w": 104.109375,
+          "h": 48,
+          "b": 541,
+          "right": 297
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1961,
+      "clientHeight": 392
+    },
+    {
+      "name": "en-390x844-page-1",
+      "w": 390,
+      "h": 844,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 309,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 353
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 769,
+          "w": 100.90625,
+          "h": 48,
+          "b": 817,
+          "right": 123.90625
+        },
+        {
+          "label": "Next",
+          "x": 296.921875,
+          "y": 769,
+          "w": 70.078125,
+          "h": 48,
+          "b": 817,
+          "right": 367
+        }
+      ],
+      "images": true,
+      "scrollHeight": 839,
+      "clientHeight": 668
+    },
+    {
+      "name": "en-390x844-page-2",
+      "w": 390,
+      "h": 844,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 309,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 353
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 769,
+          "w": 100.90625,
+          "h": 48,
+          "b": 817,
+          "right": 123.90625
+        },
+        {
+          "label": "Next",
+          "x": 296.921875,
+          "y": 769,
+          "w": 70.078125,
+          "h": 48,
+          "b": 817,
+          "right": 367
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1135,
+      "clientHeight": 668
+    },
+    {
+      "name": "en-390x844-page-3",
+      "w": 390,
+      "h": 844,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 309,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 353
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 769,
+          "w": 100.90625,
+          "h": 48,
+          "b": 817,
+          "right": 123.90625
+        },
+        {
+          "label": "Next",
+          "x": 296.921875,
+          "y": 769,
+          "w": 70.078125,
+          "h": 48,
+          "b": 817,
+          "right": 367
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1117,
+      "clientHeight": 668
+    },
+    {
+      "name": "en-390x844-page-4",
+      "w": 390,
+      "h": 844,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 309,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 353
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 769,
+          "w": 100.90625,
+          "h": 48,
+          "b": 817,
+          "right": 123.90625
+        },
+        {
+          "label": "Next",
+          "x": 296.921875,
+          "y": 769,
+          "w": 70.078125,
+          "h": 48,
+          "b": 817,
+          "right": 367
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1186,
+      "clientHeight": 668
+    },
+    {
+      "name": "en-390x844-page-5",
+      "w": 390,
+      "h": 844,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 309,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 353
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 769,
+          "w": 100.90625,
+          "h": 48,
+          "b": 817,
+          "right": 123.90625
+        },
+        {
+          "label": "Finish Reading",
+          "x": 236.28125,
+          "y": 769,
+          "w": 130.71875,
+          "h": 48,
+          "b": 817,
+          "right": 367
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1742,
+      "clientHeight": 668
+    },
+    {
+      "name": "en-430x932-page-1",
+      "w": 430,
+      "h": 932,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 349,
+          "y": 71,
+          "w": 44,
+          "h": 44,
+          "b": 115,
+          "right": 393
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 813,
+          "w": 100.90625,
+          "h": 48,
+          "b": 861,
+          "right": 123.90625
+        },
+        {
+          "label": "Next",
+          "x": 336.921875,
+          "y": 813,
+          "w": 70.078125,
+          "h": 48,
+          "b": 861,
+          "right": 407
+        }
+      ],
+      "images": true,
+      "scrollHeight": 783,
+      "clientHeight": 668
+    },
+    {
+      "name": "en-430x932-page-2",
+      "w": 430,
+      "h": 932,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 349,
+          "y": 71,
+          "w": 44,
+          "h": 44,
+          "b": 115,
+          "right": 393
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 813,
+          "w": 100.90625,
+          "h": 48,
+          "b": 861,
+          "right": 123.90625
+        },
+        {
+          "label": "Next",
+          "x": 336.921875,
+          "y": 813,
+          "w": 70.078125,
+          "h": 48,
+          "b": 861,
+          "right": 407
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1096,
+      "clientHeight": 668
+    },
+    {
+      "name": "en-430x932-page-3",
+      "w": 430,
+      "h": 932,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 349,
+          "y": 71,
+          "w": 44,
+          "h": 44,
+          "b": 115,
+          "right": 393
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 813,
+          "w": 100.90625,
+          "h": 48,
+          "b": 861,
+          "right": 123.90625
+        },
+        {
+          "label": "Next",
+          "x": 336.921875,
+          "y": 813,
+          "w": 70.078125,
+          "h": 48,
+          "b": 861,
+          "right": 407
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1017,
+      "clientHeight": 668
+    },
+    {
+      "name": "en-430x932-page-4",
+      "w": 430,
+      "h": 932,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 349,
+          "y": 71,
+          "w": 44,
+          "h": 44,
+          "b": 115,
+          "right": 393
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 813,
+          "w": 100.90625,
+          "h": 48,
+          "b": 861,
+          "right": 123.90625
+        },
+        {
+          "label": "Next",
+          "x": 336.921875,
+          "y": 813,
+          "w": 70.078125,
+          "h": 48,
+          "b": 861,
+          "right": 407
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1158,
+      "clientHeight": 668
+    },
+    {
+      "name": "en-430x932-page-5",
+      "w": 430,
+      "h": 932,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 349,
+          "y": 71,
+          "w": 44,
+          "h": 44,
+          "b": 115,
+          "right": 393
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 813,
+          "w": 100.90625,
+          "h": 48,
+          "b": 861,
+          "right": 123.90625
+        },
+        {
+          "label": "Finish Reading",
+          "x": 261.09375,
+          "y": 813,
+          "w": 145.90625,
+          "h": 48,
+          "b": 861,
+          "right": 407
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1633,
+      "clientHeight": 668
+    },
+    {
+      "name": "en-844x390-page-1",
+      "w": 844,
+      "h": 390,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 763,
+          "y": 19,
+          "w": 44,
+          "h": 44,
+          "b": 63,
+          "right": 807
+        },
+        {
+          "label": "Previous",
+          "x": 41,
+          "y": 315,
+          "w": 100.90625,
+          "h": 48,
+          "b": 363,
+          "right": 141.90625
+        },
+        {
+          "label": "Next",
+          "x": 732.921875,
+          "y": 315,
+          "w": 70.078125,
+          "h": 48,
+          "b": 363,
+          "right": 803
+        }
+      ],
+      "images": true,
+      "scrollHeight": 490,
+      "clientHeight": 230
+    },
+    {
+      "name": "en-844x390-page-2",
+      "w": 844,
+      "h": 390,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 763,
+          "y": 19,
+          "w": 44,
+          "h": 44,
+          "b": 63,
+          "right": 807
+        },
+        {
+          "label": "Previous",
+          "x": 41,
+          "y": 315,
+          "w": 100.90625,
+          "h": 48,
+          "b": 363,
+          "right": 141.90625
+        },
+        {
+          "label": "Next",
+          "x": 732.921875,
+          "y": 315,
+          "w": 70.078125,
+          "h": 48,
+          "b": 363,
+          "right": 803
+        }
+      ],
+      "images": true,
+      "scrollHeight": 686,
+      "clientHeight": 230
+    },
+    {
+      "name": "en-844x390-page-3",
+      "w": 844,
+      "h": 390,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 763,
+          "y": 19,
+          "w": 44,
+          "h": 44,
+          "b": 63,
+          "right": 807
+        },
+        {
+          "label": "Previous",
+          "x": 41,
+          "y": 315,
+          "w": 100.90625,
+          "h": 48,
+          "b": 363,
+          "right": 141.90625
+        },
+        {
+          "label": "Next",
+          "x": 732.921875,
+          "y": 315,
+          "w": 70.078125,
+          "h": 48,
+          "b": 363,
+          "right": 803
+        }
+      ],
+      "images": true,
+      "scrollHeight": 527,
+      "clientHeight": 230
+    },
+    {
+      "name": "en-844x390-page-4",
+      "w": 844,
+      "h": 390,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 763,
+          "y": 19,
+          "w": 44,
+          "h": 44,
+          "b": 63,
+          "right": 807
+        },
+        {
+          "label": "Previous",
+          "x": 41,
+          "y": 315,
+          "w": 100.90625,
+          "h": 48,
+          "b": 363,
+          "right": 141.90625
+        },
+        {
+          "label": "Next",
+          "x": 732.921875,
+          "y": 315,
+          "w": 70.078125,
+          "h": 48,
+          "b": 363,
+          "right": 803
+        }
+      ],
+      "images": true,
+      "scrollHeight": 584,
+      "clientHeight": 230
+    },
+    {
+      "name": "en-844x390-page-5",
+      "w": 844,
+      "h": 390,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 763,
+          "y": 19,
+          "w": 44,
+          "h": 44,
+          "b": 63,
+          "right": 807
+        },
+        {
+          "label": "Previous",
+          "x": 41,
+          "y": 315,
+          "w": 100.90625,
+          "h": 48,
+          "b": 363,
+          "right": 141.90625
+        },
+        {
+          "label": "Finish Reading",
+          "x": 656.015625,
+          "y": 315,
+          "w": 146.984375,
+          "h": 48,
+          "b": 363,
+          "right": 803
+        }
+      ],
+      "images": true,
+      "scrollHeight": 847,
+      "clientHeight": 230
+    },
+    {
+      "name": "en-768x1024-page-1",
+      "w": 768,
+      "h": 1024,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 687,
+          "y": 117,
+          "w": 44,
+          "h": 44,
+          "b": 161,
+          "right": 731
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 859,
+          "w": 100.90625,
+          "h": 48,
+          "b": 907,
+          "right": 123.90625
+        },
+        {
+          "label": "Next",
+          "x": 674.921875,
+          "y": 859,
+          "w": 70.078125,
+          "h": 48,
+          "b": 907,
+          "right": 745
+        }
+      ],
+      "images": true,
+      "scrollHeight": 668,
+      "clientHeight": 668
+    },
+    {
+      "name": "en-768x1024-page-2",
+      "w": 768,
+      "h": 1024,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 687,
+          "y": 117,
+          "w": 44,
+          "h": 44,
+          "b": 161,
+          "right": 731
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 859,
+          "w": 100.90625,
+          "h": 48,
+          "b": 907,
+          "right": 123.90625
+        },
+        {
+          "label": "Next",
+          "x": 674.921875,
+          "y": 859,
+          "w": 70.078125,
+          "h": 48,
+          "b": 907,
+          "right": 745
+        }
+      ],
+      "images": true,
+      "scrollHeight": 929,
+      "clientHeight": 668
+    },
+    {
+      "name": "en-768x1024-page-3",
+      "w": 768,
+      "h": 1024,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 687,
+          "y": 117,
+          "w": 44,
+          "h": 44,
+          "b": 161,
+          "right": 731
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 859,
+          "w": 100.90625,
+          "h": 48,
+          "b": 907,
+          "right": 123.90625
+        },
+        {
+          "label": "Next",
+          "x": 674.921875,
+          "y": 859,
+          "w": 70.078125,
+          "h": 48,
+          "b": 907,
+          "right": 745
+        }
+      ],
+      "images": true,
+      "scrollHeight": 877,
+      "clientHeight": 668
+    },
+    {
+      "name": "en-768x1024-page-4",
+      "w": 768,
+      "h": 1024,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 687,
+          "y": 117,
+          "w": 44,
+          "h": 44,
+          "b": 161,
+          "right": 731
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 859,
+          "w": 100.90625,
+          "h": 48,
+          "b": 907,
+          "right": 123.90625
+        },
+        {
+          "label": "Next",
+          "x": 674.921875,
+          "y": 859,
+          "w": 70.078125,
+          "h": 48,
+          "b": 907,
+          "right": 745
+        }
+      ],
+      "images": true,
+      "scrollHeight": 969,
+      "clientHeight": 668
+    },
+    {
+      "name": "en-768x1024-page-5",
+      "w": 768,
+      "h": 1024,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 687,
+          "y": 117,
+          "w": 44,
+          "h": 44,
+          "b": 161,
+          "right": 731
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 859,
+          "w": 100.90625,
+          "h": 48,
+          "b": 907,
+          "right": 123.90625
+        },
+        {
+          "label": "Finish Reading",
+          "x": 598.015625,
+          "y": 859,
+          "w": 146.984375,
+          "h": 48,
+          "b": 907,
+          "right": 745
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1055,
+      "clientHeight": 668
+    },
+    {
+      "name": "en-1024x768-page-1",
+      "w": 1024,
+      "h": 768,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 943,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 987
+        },
+        {
+          "label": "Previous",
+          "x": 41,
+          "y": 693,
+          "w": 100.90625,
+          "h": 48,
+          "b": 741,
+          "right": 141.90625
+        },
+        {
+          "label": "Next",
+          "x": 912.921875,
+          "y": 693,
+          "w": 70.078125,
+          "h": 48,
+          "b": 741,
+          "right": 983
+        }
+      ],
+      "images": true,
+      "scrollHeight": 592,
+      "clientHeight": 592
+    },
+    {
+      "name": "en-1024x768-page-2",
+      "w": 1024,
+      "h": 768,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 943,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 987
+        },
+        {
+          "label": "Previous",
+          "x": 41,
+          "y": 693,
+          "w": 100.90625,
+          "h": 48,
+          "b": 741,
+          "right": 141.90625
+        },
+        {
+          "label": "Next",
+          "x": 912.921875,
+          "y": 693,
+          "w": 70.078125,
+          "h": 48,
+          "b": 741,
+          "right": 983
+        }
+      ],
+      "images": true,
+      "scrollHeight": 641,
+      "clientHeight": 592
+    },
+    {
+      "name": "en-1024x768-page-3",
+      "w": 1024,
+      "h": 768,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 943,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 987
+        },
+        {
+          "label": "Previous",
+          "x": 41,
+          "y": 693,
+          "w": 100.90625,
+          "h": 48,
+          "b": 741,
+          "right": 141.90625
+        },
+        {
+          "label": "Next",
+          "x": 912.921875,
+          "y": 693,
+          "w": 70.078125,
+          "h": 48,
+          "b": 741,
+          "right": 983
+        }
+      ],
+      "images": true,
+      "scrollHeight": 592,
+      "clientHeight": 592
+    },
+    {
+      "name": "en-1024x768-page-4",
+      "w": 1024,
+      "h": 768,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 943,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 987
+        },
+        {
+          "label": "Previous",
+          "x": 41,
+          "y": 693,
+          "w": 100.90625,
+          "h": 48,
+          "b": 741,
+          "right": 141.90625
+        },
+        {
+          "label": "Next",
+          "x": 912.921875,
+          "y": 693,
+          "w": 70.078125,
+          "h": 48,
+          "b": 741,
+          "right": 983
+        }
+      ],
+      "images": true,
+      "scrollHeight": 592,
+      "clientHeight": 592
+    },
+    {
+      "name": "en-1024x768-page-5",
+      "w": 1024,
+      "h": 768,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 943,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 987
+        },
+        {
+          "label": "Previous",
+          "x": 41,
+          "y": 693,
+          "w": 100.90625,
+          "h": 48,
+          "b": 741,
+          "right": 141.90625
+        },
+        {
+          "label": "Finish Reading",
+          "x": 836.015625,
+          "y": 693,
+          "w": 146.984375,
+          "h": 48,
+          "b": 741,
+          "right": 983
+        }
+      ],
+      "images": true,
+      "scrollHeight": 804,
+      "clientHeight": 592
+    },
+    {
+      "name": "en-1280x800-page-1",
+      "w": 1280,
+      "h": 800,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 1191,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 1235
+        },
+        {
+          "label": "Previous",
+          "x": 49,
+          "y": 725,
+          "w": 100.90625,
+          "h": 48,
+          "b": 773,
+          "right": 149.90625
+        },
+        {
+          "label": "Next",
+          "x": 1160.921875,
+          "y": 725,
+          "w": 70.078125,
+          "h": 48,
+          "b": 773,
+          "right": 1231
+        }
+      ],
+      "images": true,
+      "scrollHeight": 624,
+      "clientHeight": 624
+    },
+    {
+      "name": "en-1280x800-page-2",
+      "w": 1280,
+      "h": 800,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 1191,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 1235
+        },
+        {
+          "label": "Previous",
+          "x": 49,
+          "y": 725,
+          "w": 100.90625,
+          "h": 48,
+          "b": 773,
+          "right": 149.90625
+        },
+        {
+          "label": "Next",
+          "x": 1160.921875,
+          "y": 725,
+          "w": 70.078125,
+          "h": 48,
+          "b": 773,
+          "right": 1231
+        }
+      ],
+      "images": true,
+      "scrollHeight": 624,
+      "clientHeight": 624
+    },
+    {
+      "name": "en-1280x800-page-3",
+      "w": 1280,
+      "h": 800,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 1191,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 1235
+        },
+        {
+          "label": "Previous",
+          "x": 49,
+          "y": 725,
+          "w": 100.90625,
+          "h": 48,
+          "b": 773,
+          "right": 149.90625
+        },
+        {
+          "label": "Next",
+          "x": 1160.921875,
+          "y": 725,
+          "w": 70.078125,
+          "h": 48,
+          "b": 773,
+          "right": 1231
+        }
+      ],
+      "images": true,
+      "scrollHeight": 624,
+      "clientHeight": 624
+    },
+    {
+      "name": "en-1280x800-page-4",
+      "w": 1280,
+      "h": 800,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 1191,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 1235
+        },
+        {
+          "label": "Previous",
+          "x": 49,
+          "y": 725,
+          "w": 100.90625,
+          "h": 48,
+          "b": 773,
+          "right": 149.90625
+        },
+        {
+          "label": "Next",
+          "x": 1160.921875,
+          "y": 725,
+          "w": 70.078125,
+          "h": 48,
+          "b": 773,
+          "right": 1231
+        }
+      ],
+      "images": true,
+      "scrollHeight": 624,
+      "clientHeight": 624
+    },
+    {
+      "name": "en-1280x800-page-5",
+      "w": 1280,
+      "h": 800,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 1191,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 1235
+        },
+        {
+          "label": "Previous",
+          "x": 49,
+          "y": 725,
+          "w": 100.90625,
+          "h": 48,
+          "b": 773,
+          "right": 149.90625
+        },
+        {
+          "label": "Finish Reading",
+          "x": 1084.015625,
+          "y": 725,
+          "w": 146.984375,
+          "h": 48,
+          "b": 773,
+          "right": 1231
+        }
+      ],
+      "images": true,
+      "scrollHeight": 701,
+      "clientHeight": 624
+    },
+    {
+      "name": "en-1440x900-page-1",
+      "w": 1440,
+      "h": 900,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 1271,
+          "y": 55,
+          "w": 44,
+          "h": 44,
+          "b": 99,
+          "right": 1315
+        },
+        {
+          "label": "Previous",
+          "x": 129,
+          "y": 797,
+          "w": 100.90625,
+          "h": 48,
+          "b": 845,
+          "right": 229.90625
+        },
+        {
+          "label": "Next",
+          "x": 1240.921875,
+          "y": 797,
+          "w": 70.078125,
+          "h": 48,
+          "b": 845,
+          "right": 1311
+        }
+      ],
+      "images": true,
+      "scrollHeight": 668,
+      "clientHeight": 668
+    },
+    {
+      "name": "en-1440x900-page-2",
+      "w": 1440,
+      "h": 900,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 1271,
+          "y": 55,
+          "w": 44,
+          "h": 44,
+          "b": 99,
+          "right": 1315
+        },
+        {
+          "label": "Previous",
+          "x": 129,
+          "y": 797,
+          "w": 100.90625,
+          "h": 48,
+          "b": 845,
+          "right": 229.90625
+        },
+        {
+          "label": "Next",
+          "x": 1240.921875,
+          "y": 797,
+          "w": 70.078125,
+          "h": 48,
+          "b": 845,
+          "right": 1311
+        }
+      ],
+      "images": true,
+      "scrollHeight": 668,
+      "clientHeight": 668
+    },
+    {
+      "name": "en-1440x900-page-3",
+      "w": 1440,
+      "h": 900,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 1271,
+          "y": 55,
+          "w": 44,
+          "h": 44,
+          "b": 99,
+          "right": 1315
+        },
+        {
+          "label": "Previous",
+          "x": 129,
+          "y": 797,
+          "w": 100.90625,
+          "h": 48,
+          "b": 845,
+          "right": 229.90625
+        },
+        {
+          "label": "Next",
+          "x": 1240.921875,
+          "y": 797,
+          "w": 70.078125,
+          "h": 48,
+          "b": 845,
+          "right": 1311
+        }
+      ],
+      "images": true,
+      "scrollHeight": 668,
+      "clientHeight": 668
+    },
+    {
+      "name": "en-1440x900-page-4",
+      "w": 1440,
+      "h": 900,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 1271,
+          "y": 55,
+          "w": 44,
+          "h": 44,
+          "b": 99,
+          "right": 1315
+        },
+        {
+          "label": "Previous",
+          "x": 129,
+          "y": 797,
+          "w": 100.90625,
+          "h": 48,
+          "b": 845,
+          "right": 229.90625
+        },
+        {
+          "label": "Next",
+          "x": 1240.921875,
+          "y": 797,
+          "w": 70.078125,
+          "h": 48,
+          "b": 845,
+          "right": 1311
+        }
+      ],
+      "images": true,
+      "scrollHeight": 668,
+      "clientHeight": 668
+    },
+    {
+      "name": "en-1440x900-page-5",
+      "w": 1440,
+      "h": 900,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 1271,
+          "y": 55,
+          "w": 44,
+          "h": 44,
+          "b": 99,
+          "right": 1315
+        },
+        {
+          "label": "Previous",
+          "x": 129,
+          "y": 797,
+          "w": 100.90625,
+          "h": 48,
+          "b": 845,
+          "right": 229.90625
+        },
+        {
+          "label": "Finish Reading",
+          "x": 1164.015625,
+          "y": 797,
+          "w": 146.984375,
+          "h": 48,
+          "b": 845,
+          "right": 1311
+        }
+      ],
+      "images": true,
+      "scrollHeight": 701,
+      "clientHeight": 668
+    },
+    {
+      "name": "tl-320x568-page-1",
+      "w": 320,
+      "h": 568,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 239,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 283
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 493,
+          "w": 95.390625,
+          "h": 48,
+          "b": 541,
+          "right": 118.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 199.484375,
+          "y": 493,
+          "w": 97.515625,
+          "h": 48,
+          "b": 541,
+          "right": 297
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1053,
+      "clientHeight": 392
+    },
+    {
+      "name": "tl-320x568-page-2",
+      "w": 320,
+      "h": 568,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 239,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 283
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 493,
+          "w": 95.390625,
+          "h": 48,
+          "b": 541,
+          "right": 118.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 199.484375,
+          "y": 493,
+          "w": 97.515625,
+          "h": 48,
+          "b": 541,
+          "right": 297
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1422,
+      "clientHeight": 392
+    },
+    {
+      "name": "tl-320x568-page-3",
+      "w": 320,
+      "h": 568,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 239,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 283
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 493,
+          "w": 95.390625,
+          "h": 48,
+          "b": 541,
+          "right": 118.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 199.484375,
+          "y": 493,
+          "w": 97.515625,
+          "h": 48,
+          "b": 541,
+          "right": 297
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1297,
+      "clientHeight": 392
+    },
+    {
+      "name": "tl-320x568-page-4",
+      "w": 320,
+      "h": 568,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 239,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 283
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 493,
+          "w": 95.390625,
+          "h": 48,
+          "b": 541,
+          "right": 118.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 199.484375,
+          "y": 493,
+          "w": 97.515625,
+          "h": 48,
+          "b": 541,
+          "right": 297
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1389,
+      "clientHeight": 392
+    },
+    {
+      "name": "tl-320x568-page-5",
+      "w": 320,
+      "h": 568,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 239,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 283
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 488.5,
+          "w": 95.390625,
+          "h": 48,
+          "b": 536.5,
+          "right": 118.390625
+        },
+        {
+          "label": "Tapusin ang Pagbasa",
+          "x": 192.890625,
+          "y": 484,
+          "w": 104.109375,
+          "h": 57,
+          "b": 541,
+          "right": 297
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1986,
+      "clientHeight": 383
+    },
+    {
+      "name": "tl-390x844-page-1",
+      "w": 390,
+      "h": 844,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 309,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 353
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 769,
+          "w": 95.390625,
+          "h": 48,
+          "b": 817,
+          "right": 118.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 269.484375,
+          "y": 769,
+          "w": 97.515625,
+          "h": 48,
+          "b": 817,
+          "right": 367
+        }
+      ],
+      "images": true,
+      "scrollHeight": 916,
+      "clientHeight": 668
+    },
+    {
+      "name": "tl-390x844-page-2",
+      "w": 390,
+      "h": 844,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 309,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 353
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 769,
+          "w": 95.390625,
+          "h": 48,
+          "b": 817,
+          "right": 118.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 269.484375,
+          "y": 769,
+          "w": 97.515625,
+          "h": 48,
+          "b": 817,
+          "right": 367
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1231,
+      "clientHeight": 668
+    },
+    {
+      "name": "tl-390x844-page-3",
+      "w": 390,
+      "h": 844,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 309,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 353
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 769,
+          "w": 95.390625,
+          "h": 48,
+          "b": 817,
+          "right": 118.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 269.484375,
+          "y": 769,
+          "w": 97.515625,
+          "h": 48,
+          "b": 817,
+          "right": 367
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1133,
+      "clientHeight": 668
+    },
+    {
+      "name": "tl-390x844-page-4",
+      "w": 390,
+      "h": 844,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 309,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 353
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 769,
+          "w": 95.390625,
+          "h": 48,
+          "b": 817,
+          "right": 118.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 269.484375,
+          "y": 769,
+          "w": 97.515625,
+          "h": 48,
+          "b": 817,
+          "right": 367
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1202,
+      "clientHeight": 668
+    },
+    {
+      "name": "tl-390x844-page-5",
+      "w": 390,
+      "h": 844,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 309,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 353
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 769,
+          "w": 95.390625,
+          "h": 48,
+          "b": 817,
+          "right": 118.390625
+        },
+        {
+          "label": "Tapusin ang Pagbasa",
+          "x": 236.28125,
+          "y": 769,
+          "w": 130.71875,
+          "h": 48,
+          "b": 817,
+          "right": 367
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1797,
+      "clientHeight": 668
+    },
+    {
+      "name": "tl-430x932-page-1",
+      "w": 430,
+      "h": 932,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 349,
+          "y": 71,
+          "w": 44,
+          "h": 44,
+          "b": 115,
+          "right": 393
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 813,
+          "w": 95.390625,
+          "h": 48,
+          "b": 861,
+          "right": 118.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 309.484375,
+          "y": 813,
+          "w": 97.515625,
+          "h": 48,
+          "b": 861,
+          "right": 407
+        }
+      ],
+      "images": true,
+      "scrollHeight": 860,
+      "clientHeight": 668
+    },
+    {
+      "name": "tl-430x932-page-2",
+      "w": 430,
+      "h": 932,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 349,
+          "y": 71,
+          "w": 44,
+          "h": 44,
+          "b": 115,
+          "right": 393
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 813,
+          "w": 95.390625,
+          "h": 48,
+          "b": 861,
+          "right": 118.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 309.484375,
+          "y": 813,
+          "w": 97.515625,
+          "h": 48,
+          "b": 861,
+          "right": 407
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1144,
+      "clientHeight": 668
+    },
+    {
+      "name": "tl-430x932-page-3",
+      "w": 430,
+      "h": 932,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 349,
+          "y": 71,
+          "w": 44,
+          "h": 44,
+          "b": 115,
+          "right": 393
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 813,
+          "w": 95.390625,
+          "h": 48,
+          "b": 861,
+          "right": 118.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 309.484375,
+          "y": 813,
+          "w": 97.515625,
+          "h": 48,
+          "b": 861,
+          "right": 407
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1065,
+      "clientHeight": 668
+    },
+    {
+      "name": "tl-430x932-page-4",
+      "w": 430,
+      "h": 932,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 349,
+          "y": 71,
+          "w": 44,
+          "h": 44,
+          "b": 115,
+          "right": 393
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 813,
+          "w": 95.390625,
+          "h": 48,
+          "b": 861,
+          "right": 118.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 309.484375,
+          "y": 813,
+          "w": 97.515625,
+          "h": 48,
+          "b": 861,
+          "right": 407
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1126,
+      "clientHeight": 668
+    },
+    {
+      "name": "tl-430x932-page-5",
+      "w": 430,
+      "h": 932,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 349,
+          "y": 71,
+          "w": 44,
+          "h": 44,
+          "b": 115,
+          "right": 393
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 813,
+          "w": 95.390625,
+          "h": 48,
+          "b": 861,
+          "right": 118.390625
+        },
+        {
+          "label": "Tapusin ang Pagbasa",
+          "x": 261.09375,
+          "y": 813,
+          "w": 145.90625,
+          "h": 48,
+          "b": 861,
+          "right": 407
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1686,
+      "clientHeight": 668
+    },
+    {
+      "name": "tl-844x390-page-1",
+      "w": 844,
+      "h": 390,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 763,
+          "y": 19,
+          "w": 44,
+          "h": 44,
+          "b": 63,
+          "right": 807
+        },
+        {
+          "label": "Bumalik",
+          "x": 41,
+          "y": 315,
+          "w": 95.390625,
+          "h": 48,
+          "b": 363,
+          "right": 136.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 705.484375,
+          "y": 315,
+          "w": 97.515625,
+          "h": 48,
+          "b": 363,
+          "right": 803
+        }
+      ],
+      "images": true,
+      "scrollHeight": 546,
+      "clientHeight": 230
+    },
+    {
+      "name": "tl-844x390-page-2",
+      "w": 844,
+      "h": 390,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 763,
+          "y": 19,
+          "w": 44,
+          "h": 44,
+          "b": 63,
+          "right": 807
+        },
+        {
+          "label": "Bumalik",
+          "x": 41,
+          "y": 315,
+          "w": 95.390625,
+          "h": 48,
+          "b": 363,
+          "right": 136.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 705.484375,
+          "y": 315,
+          "w": 97.515625,
+          "h": 48,
+          "b": 363,
+          "right": 803
+        }
+      ],
+      "images": true,
+      "scrollHeight": 714,
+      "clientHeight": 230
+    },
+    {
+      "name": "tl-844x390-page-3",
+      "w": 844,
+      "h": 390,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 763,
+          "y": 19,
+          "w": 44,
+          "h": 44,
+          "b": 63,
+          "right": 807
+        },
+        {
+          "label": "Bumalik",
+          "x": 41,
+          "y": 315,
+          "w": 95.390625,
+          "h": 48,
+          "b": 363,
+          "right": 136.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 705.484375,
+          "y": 315,
+          "w": 97.515625,
+          "h": 48,
+          "b": 363,
+          "right": 803
+        }
+      ],
+      "images": true,
+      "scrollHeight": 547,
+      "clientHeight": 230
+    },
+    {
+      "name": "tl-844x390-page-4",
+      "w": 844,
+      "h": 390,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 763,
+          "y": 19,
+          "w": 44,
+          "h": 44,
+          "b": 63,
+          "right": 807
+        },
+        {
+          "label": "Bumalik",
+          "x": 41,
+          "y": 315,
+          "w": 95.390625,
+          "h": 48,
+          "b": 363,
+          "right": 136.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 705.484375,
+          "y": 315,
+          "w": 97.515625,
+          "h": 48,
+          "b": 363,
+          "right": 803
+        }
+      ],
+      "images": true,
+      "scrollHeight": 584,
+      "clientHeight": 230
+    },
+    {
+      "name": "tl-844x390-page-5",
+      "w": 844,
+      "h": 390,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 763,
+          "y": 19,
+          "w": 44,
+          "h": 44,
+          "b": 63,
+          "right": 807
+        },
+        {
+          "label": "Bumalik",
+          "x": 41,
+          "y": 315,
+          "w": 95.390625,
+          "h": 48,
+          "b": 363,
+          "right": 136.390625
+        },
+        {
+          "label": "Tapusin ang Pagbasa",
+          "x": 612.703125,
+          "y": 315,
+          "w": 190.296875,
+          "h": 48,
+          "b": 363,
+          "right": 803
+        }
+      ],
+      "images": true,
+      "scrollHeight": 847,
+      "clientHeight": 230
+    },
+    {
+      "name": "tl-768x1024-page-1",
+      "w": 768,
+      "h": 1024,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 687,
+          "y": 117,
+          "w": 44,
+          "h": 44,
+          "b": 161,
+          "right": 731
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 859,
+          "w": 95.390625,
+          "h": 48,
+          "b": 907,
+          "right": 118.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 647.484375,
+          "y": 859,
+          "w": 97.515625,
+          "h": 48,
+          "b": 907,
+          "right": 745
+        }
+      ],
+      "images": true,
+      "scrollHeight": 668,
+      "clientHeight": 668
+    },
+    {
+      "name": "tl-768x1024-page-2",
+      "w": 768,
+      "h": 1024,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 687,
+          "y": 117,
+          "w": 44,
+          "h": 44,
+          "b": 161,
+          "right": 731
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 859,
+          "w": 95.390625,
+          "h": 48,
+          "b": 907,
+          "right": 118.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 647.484375,
+          "y": 859,
+          "w": 97.515625,
+          "h": 48,
+          "b": 907,
+          "right": 745
+        }
+      ],
+      "images": true,
+      "scrollHeight": 957,
+      "clientHeight": 668
+    },
+    {
+      "name": "tl-768x1024-page-3",
+      "w": 768,
+      "h": 1024,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 687,
+          "y": 117,
+          "w": 44,
+          "h": 44,
+          "b": 161,
+          "right": 731
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 859,
+          "w": 95.390625,
+          "h": 48,
+          "b": 907,
+          "right": 118.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 647.484375,
+          "y": 859,
+          "w": 97.515625,
+          "h": 48,
+          "b": 907,
+          "right": 745
+        }
+      ],
+      "images": true,
+      "scrollHeight": 877,
+      "clientHeight": 668
+    },
+    {
+      "name": "tl-768x1024-page-4",
+      "w": 768,
+      "h": 1024,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 687,
+          "y": 117,
+          "w": 44,
+          "h": 44,
+          "b": 161,
+          "right": 731
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 859,
+          "w": 95.390625,
+          "h": 48,
+          "b": 907,
+          "right": 118.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 647.484375,
+          "y": 859,
+          "w": 97.515625,
+          "h": 48,
+          "b": 907,
+          "right": 745
+        }
+      ],
+      "images": true,
+      "scrollHeight": 934,
+      "clientHeight": 668
+    },
+    {
+      "name": "tl-768x1024-page-5",
+      "w": 768,
+      "h": 1024,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 687,
+          "y": 117,
+          "w": 44,
+          "h": 44,
+          "b": 161,
+          "right": 731
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 859,
+          "w": 95.390625,
+          "h": 48,
+          "b": 907,
+          "right": 118.390625
+        },
+        {
+          "label": "Tapusin ang Pagbasa",
+          "x": 554.703125,
+          "y": 859,
+          "w": 190.296875,
+          "h": 48,
+          "b": 907,
+          "right": 745
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1083,
+      "clientHeight": 668
+    },
+    {
+      "name": "tl-1024x768-page-1",
+      "w": 1024,
+      "h": 768,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 943,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 987
+        },
+        {
+          "label": "Bumalik",
+          "x": 41,
+          "y": 693,
+          "w": 95.390625,
+          "h": 48,
+          "b": 741,
+          "right": 136.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 885.484375,
+          "y": 693,
+          "w": 97.515625,
+          "h": 48,
+          "b": 741,
+          "right": 983
+        }
+      ],
+      "images": true,
+      "scrollHeight": 592,
+      "clientHeight": 592
+    },
+    {
+      "name": "tl-1024x768-page-2",
+      "w": 1024,
+      "h": 768,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 943,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 987
+        },
+        {
+          "label": "Bumalik",
+          "x": 41,
+          "y": 693,
+          "w": 95.390625,
+          "h": 48,
+          "b": 741,
+          "right": 136.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 885.484375,
+          "y": 693,
+          "w": 97.515625,
+          "h": 48,
+          "b": 741,
+          "right": 983
+        }
+      ],
+      "images": true,
+      "scrollHeight": 665,
+      "clientHeight": 592
+    },
+    {
+      "name": "tl-1024x768-page-3",
+      "w": 1024,
+      "h": 768,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 943,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 987
+        },
+        {
+          "label": "Bumalik",
+          "x": 41,
+          "y": 693,
+          "w": 95.390625,
+          "h": 48,
+          "b": 741,
+          "right": 136.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 885.484375,
+          "y": 693,
+          "w": 97.515625,
+          "h": 48,
+          "b": 741,
+          "right": 983
+        }
+      ],
+      "images": true,
+      "scrollHeight": 592,
+      "clientHeight": 592
+    },
+    {
+      "name": "tl-1024x768-page-4",
+      "w": 1024,
+      "h": 768,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 943,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 987
+        },
+        {
+          "label": "Bumalik",
+          "x": 41,
+          "y": 693,
+          "w": 95.390625,
+          "h": 48,
+          "b": 741,
+          "right": 136.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 885.484375,
+          "y": 693,
+          "w": 97.515625,
+          "h": 48,
+          "b": 741,
+          "right": 983
+        }
+      ],
+      "images": true,
+      "scrollHeight": 612,
+      "clientHeight": 592
+    },
+    {
+      "name": "tl-1024x768-page-5",
+      "w": 1024,
+      "h": 768,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 943,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 987
+        },
+        {
+          "label": "Bumalik",
+          "x": 41,
+          "y": 693,
+          "w": 95.390625,
+          "h": 48,
+          "b": 741,
+          "right": 136.390625
+        },
+        {
+          "label": "Tapusin ang Pagbasa",
+          "x": 792.703125,
+          "y": 693,
+          "w": 190.296875,
+          "h": 48,
+          "b": 741,
+          "right": 983
+        }
+      ],
+      "images": true,
+      "scrollHeight": 801,
+      "clientHeight": 592
+    },
+    {
+      "name": "tl-1280x800-page-1",
+      "w": 1280,
+      "h": 800,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 1191,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 1235
+        },
+        {
+          "label": "Bumalik",
+          "x": 49,
+          "y": 725,
+          "w": 95.390625,
+          "h": 48,
+          "b": 773,
+          "right": 144.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 1133.484375,
+          "y": 725,
+          "w": 97.515625,
+          "h": 48,
+          "b": 773,
+          "right": 1231
+        }
+      ],
+      "images": true,
+      "scrollHeight": 624,
+      "clientHeight": 624
+    },
+    {
+      "name": "tl-1280x800-page-2",
+      "w": 1280,
+      "h": 800,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 1191,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 1235
+        },
+        {
+          "label": "Bumalik",
+          "x": 49,
+          "y": 725,
+          "w": 95.390625,
+          "h": 48,
+          "b": 773,
+          "right": 144.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 1133.484375,
+          "y": 725,
+          "w": 97.515625,
+          "h": 48,
+          "b": 773,
+          "right": 1231
+        }
+      ],
+      "images": true,
+      "scrollHeight": 624,
+      "clientHeight": 624
+    },
+    {
+      "name": "tl-1280x800-page-3",
+      "w": 1280,
+      "h": 800,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 1191,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 1235
+        },
+        {
+          "label": "Bumalik",
+          "x": 49,
+          "y": 725,
+          "w": 95.390625,
+          "h": 48,
+          "b": 773,
+          "right": 144.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 1133.484375,
+          "y": 725,
+          "w": 97.515625,
+          "h": 48,
+          "b": 773,
+          "right": 1231
+        }
+      ],
+      "images": true,
+      "scrollHeight": 624,
+      "clientHeight": 624
+    },
+    {
+      "name": "tl-1280x800-page-4",
+      "w": 1280,
+      "h": 800,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 1191,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 1235
+        },
+        {
+          "label": "Bumalik",
+          "x": 49,
+          "y": 725,
+          "w": 95.390625,
+          "h": 48,
+          "b": 773,
+          "right": 144.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 1133.484375,
+          "y": 725,
+          "w": 97.515625,
+          "h": 48,
+          "b": 773,
+          "right": 1231
+        }
+      ],
+      "images": true,
+      "scrollHeight": 624,
+      "clientHeight": 624
+    },
+    {
+      "name": "tl-1280x800-page-5",
+      "w": 1280,
+      "h": 800,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 1191,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 1235
+        },
+        {
+          "label": "Bumalik",
+          "x": 49,
+          "y": 725,
+          "w": 95.390625,
+          "h": 48,
+          "b": 773,
+          "right": 144.390625
+        },
+        {
+          "label": "Tapusin ang Pagbasa",
+          "x": 1040.703125,
+          "y": 725,
+          "w": 190.296875,
+          "h": 48,
+          "b": 773,
+          "right": 1231
+        }
+      ],
+      "images": true,
+      "scrollHeight": 701,
+      "clientHeight": 624
+    },
+    {
+      "name": "tl-1440x900-page-1",
+      "w": 1440,
+      "h": 900,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 1271,
+          "y": 55,
+          "w": 44,
+          "h": 44,
+          "b": 99,
+          "right": 1315
+        },
+        {
+          "label": "Bumalik",
+          "x": 129,
+          "y": 797,
+          "w": 95.390625,
+          "h": 48,
+          "b": 845,
+          "right": 224.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 1213.484375,
+          "y": 797,
+          "w": 97.515625,
+          "h": 48,
+          "b": 845,
+          "right": 1311
+        }
+      ],
+      "images": true,
+      "scrollHeight": 668,
+      "clientHeight": 668
+    },
+    {
+      "name": "tl-1440x900-page-2",
+      "w": 1440,
+      "h": 900,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 1271,
+          "y": 55,
+          "w": 44,
+          "h": 44,
+          "b": 99,
+          "right": 1315
+        },
+        {
+          "label": "Bumalik",
+          "x": 129,
+          "y": 797,
+          "w": 95.390625,
+          "h": 48,
+          "b": 845,
+          "right": 224.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 1213.484375,
+          "y": 797,
+          "w": 97.515625,
+          "h": 48,
+          "b": 845,
+          "right": 1311
+        }
+      ],
+      "images": true,
+      "scrollHeight": 668,
+      "clientHeight": 668
+    },
+    {
+      "name": "tl-1440x900-page-3",
+      "w": 1440,
+      "h": 900,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 1271,
+          "y": 55,
+          "w": 44,
+          "h": 44,
+          "b": 99,
+          "right": 1315
+        },
+        {
+          "label": "Bumalik",
+          "x": 129,
+          "y": 797,
+          "w": 95.390625,
+          "h": 48,
+          "b": 845,
+          "right": 224.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 1213.484375,
+          "y": 797,
+          "w": 97.515625,
+          "h": 48,
+          "b": 845,
+          "right": 1311
+        }
+      ],
+      "images": true,
+      "scrollHeight": 668,
+      "clientHeight": 668
+    },
+    {
+      "name": "tl-1440x900-page-4",
+      "w": 1440,
+      "h": 900,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 1271,
+          "y": 55,
+          "w": 44,
+          "h": 44,
+          "b": 99,
+          "right": 1315
+        },
+        {
+          "label": "Bumalik",
+          "x": 129,
+          "y": 797,
+          "w": 95.390625,
+          "h": 48,
+          "b": 845,
+          "right": 224.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 1213.484375,
+          "y": 797,
+          "w": 97.515625,
+          "h": 48,
+          "b": 845,
+          "right": 1311
+        }
+      ],
+      "images": true,
+      "scrollHeight": 668,
+      "clientHeight": 668
+    },
+    {
+      "name": "tl-1440x900-page-5",
+      "w": 1440,
+      "h": 900,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 1271,
+          "y": 55,
+          "w": 44,
+          "h": 44,
+          "b": 99,
+          "right": 1315
+        },
+        {
+          "label": "Bumalik",
+          "x": 129,
+          "y": 797,
+          "w": 95.390625,
+          "h": 48,
+          "b": 845,
+          "right": 224.390625
+        },
+        {
+          "label": "Tapusin ang Pagbasa",
+          "x": 1120.703125,
+          "y": 797,
+          "w": 190.296875,
+          "h": 48,
+          "b": 845,
+          "right": 1311
+        }
+      ],
+      "images": true,
+      "scrollHeight": 701,
+      "clientHeight": 668
+    },
+    {
+      "name": "zoom-equivalent-1.25",
+      "w": 1024,
+      "h": 640,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 943,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 987
+        },
+        {
+          "label": "Previous",
+          "x": 41,
+          "y": 565,
+          "w": 100.90625,
+          "h": 48,
+          "b": 613,
+          "right": 141.90625
+        },
+        {
+          "label": "Next",
+          "x": 912.921875,
+          "y": 565,
+          "w": 70.078125,
+          "h": 48,
+          "b": 613,
+          "right": 983
+        }
+      ],
+      "images": true,
+      "scrollHeight": 473,
+      "clientHeight": 464
+    },
+    {
+      "name": "zoom-equivalent-1.5",
+      "w": 853,
+      "h": 533,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 772,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 816
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 458,
+          "w": 100.90625,
+          "h": 48,
+          "b": 506,
+          "right": 123.90625
+        },
+        {
+          "label": "Next",
+          "x": 759.921875,
+          "y": 458,
+          "w": 70.078125,
+          "h": 48,
+          "b": 506,
+          "right": 830
+        }
+      ],
+      "images": true,
+      "scrollHeight": 619,
+      "clientHeight": 357
+    },
+    {
+      "name": "zoom-equivalent-2",
+      "w": 640,
+      "h": 400,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 559,
+          "y": 19,
+          "w": 44,
+          "h": 44,
+          "b": 63,
+          "right": 603
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 325,
+          "w": 100.90625,
+          "h": 48,
+          "b": 373,
+          "right": 123.90625
+        },
+        {
+          "label": "Next",
+          "x": 546.921875,
+          "y": 325,
+          "w": 70.078125,
+          "h": 48,
+          "b": 373,
+          "right": 617
+        }
+      ],
+      "images": true,
+      "scrollHeight": 667,
+      "clientHeight": 240
+    },
+    {
+      "name": "150-percent-text",
+      "w": 390,
+      "h": 844,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 309,
+          "y": 36,
+          "w": 44,
+          "h": 44,
+          "b": 80,
+          "right": 353
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 769,
+          "w": 130.71875,
+          "h": 48,
+          "b": 817,
+          "right": 153.71875
+        },
+        {
+          "label": "Next",
+          "x": 280.5,
+          "y": 769,
+          "w": 86.5,
+          "h": 48,
+          "b": 817,
+          "right": 367
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1350,
+      "clientHeight": 650
+    },
+    {
+      "name": "offline-en-1",
+      "w": 390,
+      "h": 844,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 309,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 353
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 769,
+          "w": 100.90625,
+          "h": 48,
+          "b": 817,
+          "right": 123.90625
+        },
+        {
+          "label": "Next",
+          "x": 296.921875,
+          "y": 769,
+          "w": 70.078125,
+          "h": 48,
+          "b": 817,
+          "right": 367
+        }
+      ],
+      "images": true,
+      "scrollHeight": 839,
+      "clientHeight": 668
+    },
+    {
+      "name": "offline-en-2",
+      "w": 390,
+      "h": 844,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 309,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 353
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 769,
+          "w": 100.90625,
+          "h": 48,
+          "b": 817,
+          "right": 123.90625
+        },
+        {
+          "label": "Next",
+          "x": 296.921875,
+          "y": 769,
+          "w": 70.078125,
+          "h": 48,
+          "b": 817,
+          "right": 367
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1135,
+      "clientHeight": 668
+    },
+    {
+      "name": "offline-en-3",
+      "w": 390,
+      "h": 844,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 309,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 353
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 769,
+          "w": 100.90625,
+          "h": 48,
+          "b": 817,
+          "right": 123.90625
+        },
+        {
+          "label": "Next",
+          "x": 296.921875,
+          "y": 769,
+          "w": 70.078125,
+          "h": 48,
+          "b": 817,
+          "right": 367
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1117,
+      "clientHeight": 668
+    },
+    {
+      "name": "offline-en-4",
+      "w": 390,
+      "h": 844,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 309,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 353
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 769,
+          "w": 100.90625,
+          "h": 48,
+          "b": 817,
+          "right": 123.90625
+        },
+        {
+          "label": "Next",
+          "x": 296.921875,
+          "y": 769,
+          "w": 70.078125,
+          "h": 48,
+          "b": 817,
+          "right": 367
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1186,
+      "clientHeight": 668
+    },
+    {
+      "name": "offline-en-5",
+      "w": 390,
+      "h": 844,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 309,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 353
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 769,
+          "w": 100.90625,
+          "h": 48,
+          "b": 817,
+          "right": 123.90625
+        },
+        {
+          "label": "Finish Reading",
+          "x": 236.28125,
+          "y": 769,
+          "w": 130.71875,
+          "h": 48,
+          "b": 817,
+          "right": 367
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1742,
+      "clientHeight": 668
+    },
+    {
+      "name": "offline-tl-1",
+      "w": 390,
+      "h": 844,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 309,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 353
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 769,
+          "w": 95.390625,
+          "h": 48,
+          "b": 817,
+          "right": 118.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 269.484375,
+          "y": 769,
+          "w": 97.515625,
+          "h": 48,
+          "b": 817,
+          "right": 367
+        }
+      ],
+      "images": true,
+      "scrollHeight": 916,
+      "clientHeight": 668
+    },
+    {
+      "name": "offline-tl-2",
+      "w": 390,
+      "h": 844,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 309,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 353
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 769,
+          "w": 95.390625,
+          "h": 48,
+          "b": 817,
+          "right": 118.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 269.484375,
+          "y": 769,
+          "w": 97.515625,
+          "h": 48,
+          "b": 817,
+          "right": 367
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1231,
+      "clientHeight": 668
+    },
+    {
+      "name": "offline-tl-3",
+      "w": 390,
+      "h": 844,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 309,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 353
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 769,
+          "w": 95.390625,
+          "h": 48,
+          "b": 817,
+          "right": 118.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 269.484375,
+          "y": 769,
+          "w": 97.515625,
+          "h": 48,
+          "b": 817,
+          "right": 367
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1133,
+      "clientHeight": 668
+    },
+    {
+      "name": "offline-tl-4",
+      "w": 390,
+      "h": 844,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 309,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 353
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 769,
+          "w": 95.390625,
+          "h": 48,
+          "b": 817,
+          "right": 118.390625
+        },
+        {
+          "label": "Susunod",
+          "x": 269.484375,
+          "y": 769,
+          "w": 97.515625,
+          "h": 48,
+          "b": 817,
+          "right": 367
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1202,
+      "clientHeight": 668
+    },
+    {
+      "name": "offline-tl-5",
+      "w": 390,
+      "h": 844,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 309,
+          "y": 27,
+          "w": 44,
+          "h": 44,
+          "b": 71,
+          "right": 353
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 769,
+          "w": 95.390625,
+          "h": 48,
+          "b": 817,
+          "right": 118.390625
+        },
+        {
+          "label": "Tapusin ang Pagbasa",
+          "x": 236.28125,
+          "y": 769,
+          "w": 130.71875,
+          "h": 48,
+          "b": 817,
+          "right": 367
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1797,
+      "clientHeight": 668
+    }
+  ],
+  "keyboardBefore": {
+    "focus": "<button aria-label=\"The Story Behind BAYA. Read the story\" role=\"button\" tabindex=\"0\" class=\"css-g5y9jx r-1loqt21 r-1otgn73 r-1ixrtw5 r-1867qdf r-d045u9 r-1444osr r-1ik5qf4 r-nsbfu8 r-13qz1uu\" data-testid=\"mascot-origin-teaser\" type=\"button\" style=\"border-color: rgb(44, 107, 177);\"><div class=\"css-g5y9jx r-ojf8lh\"><div dir=\"auto\" class=\"css-146c3p1 r-19mfsaj r-4271lp r-1inkyih r-1vr29t4\">The Story Behind BAYA</div><div dir=\"auto\" class=\"css-146c3p1 r-1fukqpi r-njc6nk r-1b43r93 r-rjixqe\">Meet Bayani and discover the people, culture, and inspiration behind our learning journey.</div><div dir=\"auto\" class=\"css-146c3p1 r-1jog3jc r-njc6nk r-1b43r93 r-b88u0q\">Read the story  →</div></div></button>",
+    "hasFocus": true
+  },
+  "turnDurationMs": 628,
+  "longTasks": []
+}

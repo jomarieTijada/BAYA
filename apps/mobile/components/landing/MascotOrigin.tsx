@@ -33,5 +33,5 @@ const styles = StyleSheet.create({
   compact: { marginTop: 10, padding: 10 }, text: { gap: 6 },
   title: { fontFamily: FontFamily.rounded, fontSize: 17, fontWeight: '800', color: Colors.textPrimary },
   body: { fontFamily: FontFamily.body, fontSize: 14, lineHeight: 20, color: Colors.textSecondary },
-  link: { fontFamily: FontFamily.body, fontSize: 14, fontWeight: '700', color: '#965125' },
+  link: { fontFamily: FontFamily.body, fontSize: 14, fontWeight: '700', color: Colors.accent },
 });

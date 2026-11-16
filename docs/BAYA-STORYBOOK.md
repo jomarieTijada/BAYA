@@ -1,5 +1,11 @@
 # BAYA illustrated origin storybook
 
+**Latest lifecycle update:** [Automatic first-launch introduction and Settings replay](BAYA-STORYBOOK-INTRODUCTION.md), including persistence, Android Back handling and current verification evidence.
+
+**Latest local-preview update:** [Supplied imagery and greeting enhancement](BAYA-STORYBOOK-ENHANCEMENT.md) supersedes the earlier photo-placeholder status. Publication permissions remain pending.
+
+**Update, 16 November 2026:** See [the complete five-page audit](BAYA-STORYBOOK-AUDIT.md) for current visuals, verified biography, photo-permission fallback, source register and fresh browser/device evidence. The implementation and counts below describe the earlier version.
+
 Implemented locally on November 15, 2026. Existing unrelated working-tree changes were retained; no publication, commits, or database changes were made.
 
 ## Implementation

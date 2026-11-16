@@ -11,7 +11,7 @@ export function MentorActionMenu({ groups = [], label = 'Settings' }: { groups?:
   const [confirm, setConfirm] = useState(false);
   return <>
     <BayaActionMenu label={label} groups={[...groups, { label: 'Account', actions: [
-      { label: 'Language', icon: 'settings', onPress: () => router.push('/mentor/settings') },
+      { label: 'Settings', icon: 'settings', onPress: () => router.push('/mentor/settings') },
       { label: 'Log Out', icon: 'arrowRight', disabled: !services.auth.signOut || op.busy, onPress: () => { op.setMessage(''); setConfirm(true); } },
     ] }]} />
     <BayaDialog visible={confirm} title="Log out of BAYA?" description="You can log in again to manage your workspaces."

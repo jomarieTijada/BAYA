@@ -10,6 +10,7 @@ import { LearnerAppShell } from '../LearnerAppShell';
 import { LessonHeader } from './LessonHeader';
 import { LessonJourney } from './LessonJourney';
 import { createApprovedModules, getLessonProgress, type LessonItem } from './lessonData';
+import { activityResumeService } from '../../../database/services/activityResumeService';
 import { curriculumService } from '../../../database/services/curriculumService';
 
 /**
@@ -19,6 +20,7 @@ import { curriculumService } from '../../../database/services/curriculumService'
  */
 export function LessonScreen() {
   const router = useRouter();
+  const [lastTopics, setLastTopics] = useState<Record<string, string | null>>({});
   const [availableHeight, setAvailableHeight] = useState(0);
   const [lessons, setLessons] = useState<readonly LessonItem[]>(createApprovedModules);
 
@@ -29,6 +31,8 @@ export function LessonScreen() {
         const modules = await curriculumService.getCurriculumModules();
         if (isMounted && modules && modules.length > 0) {
           setLessons(modules);
+          const bookmarks = await Promise.all(modules.map(async module => [module.id, await activityResumeService.lastOpened(module.id)] as const));
+          if (isMounted) setLastTopics(Object.fromEntries(bookmarks));
         }
       } catch (err) {
         if (__DEV__) {
@@ -46,7 +50,8 @@ export function LessonScreen() {
 
   const handleContinueLesson = (lesson: LessonItem) => {
     if (lesson.status === 'locked') return;
-    const topic = lesson.topics.find((item) => !item.completed && item.status !== 'locked' && item.contentAvailable)
+    const topic = lesson.topics.find(item => item.id === lastTopics[lesson.id] && item.status !== 'locked' && item.contentAvailable)
+      ?? lesson.topics.find((item) => !item.completed && item.status !== 'locked' && item.contentAvailable)
       ?? lesson.topics.find((item) => item.status !== 'locked' && item.contentAvailable);
     if (topic) router.push({ pathname: '/learner/activities/[topicId]', params: { topicId: topic.id } });
   };
@@ -88,6 +93,7 @@ export function LessonScreen() {
         <LessonJourney
           lessons={lessons}
           availableHeight={availableHeight}
+          onTopicPress={topicId => router.push({ pathname: '/learner/activities/[topicId]', params: { topicId } })}
           onContinueLesson={handleContinueLesson}
         />
       </LearnerScreenContainer>

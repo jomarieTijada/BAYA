@@ -135,4 +135,22 @@ describe('profile-owned activity resume (real SQLite)', () => {
     await resume.save(JSON.parse(raw), db);
     expect((await db.getFirstAsync<{state_value: string}>('SELECT state_value FROM local_app_state WHERE state_key = ?', [`activity_resume:${owner}:${c.topicId}`]))?.state_value).not.toContain('not-retained');
   });
+  it('keeps last-opened bookmarks per module, including completed review topics', async () => {
+    await resume.rememberOpened(owner, 'topic-1-1', db);
+    await resume.rememberOpened(owner, 'topic-1-2', db);
+    await resume.rememberOpened(owner, 'topic-2-1', db);
+    await localLearnerService.completeTopic('topic-1-1', db, owner);
+    await localLearnerService.completeTopic('topic-1-2', db, owner);
+    expect(await resume.lastOpened('module-1', db)).toBe('topic-1-2');
+    expect(await resume.lastOpened('module-2', db)).toBe('topic-2-1');
+    await resume.rememberOpened(owner, '/mentor', db);
+    expect(await resume.lastOpened('module-1', db)).toBe('topic-1-2');
+    await db.runAsync("DELETE FROM local_app_state WHERE state_key = 'active_learner_profile_id'");
+    await localLearnerService.saveProfile('Other learner', '', db);
+    expect(await resume.lastOpened('module-1', db)).toBeNull();
+    await resume.rememberOpened(owner, 'topic-1-3', db);
+    await db.runAsync("UPDATE local_app_state SET state_value = ? WHERE state_key = 'active_learner_profile_id'", [owner]);
+    expect(await resume.lastOpened('module-1', db)).toBe('topic-1-2');
+  });
+
 });

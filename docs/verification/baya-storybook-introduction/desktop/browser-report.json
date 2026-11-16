@@ -1,0 +1,268 @@
+{
+  "checks": [
+    {
+      "name": "fresh automatic page one, single dialog",
+      "pass": true
+    },
+    {
+      "name": "automatic portrait layout",
+      "pass": true
+    },
+    {
+      "name": "focus enters automatic dialog",
+      "pass": true
+    },
+    {
+      "name": "rotation preserves automatic reading page",
+      "pass": true
+    },
+    {
+      "name": "automatic landscape layout",
+      "pass": true
+    },
+    {
+      "name": "reload before acknowledgement offers again",
+      "pass": true
+    },
+    {
+      "name": "another tab acknowledgement closes automatic introduction",
+      "pass": true
+    },
+    {
+      "name": "reload suppresses acknowledged introduction",
+      "pass": true
+    },
+    {
+      "name": "Escape closes manual replay",
+      "pass": true
+    },
+    {
+      "name": "welcome focus restored",
+      "pass": true
+    },
+    {
+      "name": "learner navigation remains available",
+      "pass": true
+    },
+    {
+      "name": "mentor navigation remains available",
+      "pass": true
+    },
+    {
+      "name": "en learner replay starts at page one",
+      "pass": true
+    },
+    {
+      "name": "en learner page 1",
+      "pass": true
+    },
+    {
+      "name": "en learner page 2",
+      "pass": true
+    },
+    {
+      "name": "en learner page 3",
+      "pass": true
+    },
+    {
+      "name": "en learner page 4",
+      "pass": true
+    },
+    {
+      "name": "en learner page 5",
+      "pass": true
+    },
+    {
+      "name": "en learner finish returns to Settings",
+      "pass": true
+    },
+    {
+      "name": "en learner focus returns to Settings row",
+      "pass": true
+    },
+    {
+      "name": "en learner replay does not reset acknowledgement",
+      "pass": true
+    },
+    {
+      "name": "en mentor replay starts at page one",
+      "pass": true
+    },
+    {
+      "name": "en mentor page 1",
+      "pass": true
+    },
+    {
+      "name": "en mentor page 2",
+      "pass": true
+    },
+    {
+      "name": "en mentor page 3",
+      "pass": true
+    },
+    {
+      "name": "en mentor page 4",
+      "pass": true
+    },
+    {
+      "name": "en mentor page 5",
+      "pass": true
+    },
+    {
+      "name": "en mentor finish returns to Settings",
+      "pass": true
+    },
+    {
+      "name": "en mentor focus returns to Settings row",
+      "pass": true
+    },
+    {
+      "name": "en mentor replay does not reset acknowledgement",
+      "pass": true
+    },
+    {
+      "name": "tl learner replay starts at page one",
+      "pass": true
+    },
+    {
+      "name": "tl learner page 1",
+      "pass": true
+    },
+    {
+      "name": "tl learner page 2",
+      "pass": true
+    },
+    {
+      "name": "tl learner page 3",
+      "pass": true
+    },
+    {
+      "name": "tl learner page 4",
+      "pass": true
+    },
+    {
+      "name": "tl learner page 5",
+      "pass": true
+    },
+    {
+      "name": "tl learner finish returns to Settings",
+      "pass": true
+    },
+    {
+      "name": "tl learner focus returns to Settings row",
+      "pass": true
+    },
+    {
+      "name": "tl learner replay does not reset acknowledgement",
+      "pass": true
+    },
+    {
+      "name": "tl mentor replay starts at page one",
+      "pass": true
+    },
+    {
+      "name": "tl mentor page 1",
+      "pass": true
+    },
+    {
+      "name": "tl mentor page 2",
+      "pass": true
+    },
+    {
+      "name": "tl mentor page 3",
+      "pass": true
+    },
+    {
+      "name": "tl mentor page 4",
+      "pass": true
+    },
+    {
+      "name": "tl mentor page 5",
+      "pass": true
+    },
+    {
+      "name": "tl mentor finish returns to Settings",
+      "pass": true
+    },
+    {
+      "name": "tl mentor focus returns to Settings row",
+      "pass": true
+    },
+    {
+      "name": "tl mentor replay does not reset acknowledgement",
+      "pass": true
+    },
+    {
+      "name": "first eligible launch offline uses persisted Tagalog",
+      "pass": true
+    },
+    {
+      "name": "offline page 1",
+      "pass": true
+    },
+    {
+      "name": "offline page 2",
+      "pass": true
+    },
+    {
+      "name": "offline page 3",
+      "pass": true
+    },
+    {
+      "name": "offline page 4",
+      "pass": true
+    },
+    {
+      "name": "offline finish persists across reload",
+      "pass": true
+    },
+    {
+      "name": "offline Settings replay starts at one",
+      "pass": true
+    },
+    {
+      "name": "offline replay assets",
+      "pass": true
+    }
+  ],
+  "screens": [
+    "automatic-portrait",
+    "automatic-landscape",
+    "returning-welcome",
+    "en-learner-settings",
+    "en-learner-replay-1",
+    "en-learner-replay-2",
+    "en-learner-replay-3",
+    "en-learner-replay-4",
+    "en-learner-replay-5",
+    "en-mentor-settings",
+    "en-mentor-replay-1",
+    "en-mentor-replay-2",
+    "en-mentor-replay-3",
+    "en-mentor-replay-4",
+    "en-mentor-replay-5",
+    "tl-learner-settings",
+    "tl-learner-replay-1",
+    "tl-learner-replay-2",
+    "tl-learner-replay-3",
+    "tl-learner-replay-4",
+    "tl-learner-replay-5",
+    "tl-mentor-settings",
+    "tl-mentor-replay-1",
+    "tl-mentor-replay-2",
+    "tl-mentor-replay-3",
+    "tl-mentor-replay-4",
+    "tl-mentor-replay-5",
+    "offline-first-launch",
+    "offline-settings-replay"
+  ],
+  "physical": false,
+  "warnings": [],
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/157.0.8103.52",
+    "revision": "@0985600c06a688b9c669e74afde7dacd5aaed047",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+    "jsVersion": "15.7.112.23"
+  }
+}

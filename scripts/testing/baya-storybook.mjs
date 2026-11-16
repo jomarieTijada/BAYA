@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import { setTimeout as delay } from 'node:timers/promises';
 import { openTestBrowser } from './device-browser.mjs';
-const out = process.env.BAYA_STORYBOOK_OUTPUT || 'docs/verification/baya-storybook'; fs.mkdirSync(out, {recursive:true});
+const out = process.env.BAYA_STORYBOOK_OUTPUT || 'docs/verification/baya-storybook-enhancement'; fs.mkdirSync(out, {recursive:true});
 const browser = await openTestBrowser(5055);
 const ws = new WebSocket(browser.target.webSocketDebuggerUrl);
 await new Promise(r=>ws.addEventListener('open',r,{once:true}));
@@ -20,11 +20,15 @@ try {
  await send('Page.enable');await send('Network.enable');
  await send('Emulation.setDeviceMetricsOverride',{width:1366,height:900,deviceScaleFactor:1,mobile:false});
  await send('Page.navigate',{url:'http://127.0.0.1:5055/'});await ready();await delay(700);
+ if(await evaluate("!!document.querySelector('[data-testid=origin-storybook]')"))await press('Close the story');
  await shot('desktop-welcome');await open();
  for(let page=1;page<=5;page++){
   await shot('desktop-page-'+page);
   check('desktop spread '+page,await evaluate(`(()=>{const a=document.querySelector('[data-testid=origin-illustration]').getBoundingClientRect(),b=document.querySelector('[data-testid=origin-reading]').getBoundingClientRect();return a.right<=b.left})()`));
   check('images loaded '+page,await evaluate(`Array.from(document.querySelectorAll('[data-testid=origin-storybook] img')).every(i=>i.complete&&i.naturalWidth>0)`));
+  if(page===2){
+   check('supplied eagle collage and source',await evaluate(`(()=>{const v=document.querySelector('[data-testid=origin-illustration]');return v.querySelector('a')?.href==='https://www.philippineeaglefoundation.org/post/princess-maasim-from-near-tragedy-to-conservation-legacy' && v.querySelectorAll('img').length===1 && v.querySelector('img').src.includes('bayani_pic')})()`));
+  }
   if(page<5)await press('Next');
  }
  await press('Previous');check('backward navigation',await evaluate(`document.body.innerText.includes('Discovering Baybayin')`));
@@ -34,14 +38,14 @@ try {
  for(let i=0;i<8;i++){await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Tab',code:'Tab'});await send('Input.dispatchKeyEvent',{type:'keyUp',key:'Tab',code:'Tab'});}
  check('keyboard focus stays in book',await evaluate(`!!document.activeElement.closest('[data-testid=origin-storybook]')`));
  await evaluate(`(()=>{let e=[...document.querySelectorAll('[role=button]')].find(e=>e.getAttribute('aria-label')==='Next');for(let i=0;i<10;i++)e.click()})()`);await delay(100);await shot('forward-turn');check('forward turn animates',await evaluate(`document.getAnimations().length>0`));await delay(500);
- check('rapid next advances once',await evaluate(`document.body.innerText.includes('Page 2 of 5')`));
+ check('rapid next advances once',await evaluate(`document.querySelector('[data-testid=origin-progress]').getAttribute('aria-valuenow')==='40'`));
  await evaluate(`(()=>{let e=[...document.querySelectorAll('[role=button]')].find(e=>e.getAttribute('aria-label')==='Previous');for(let i=0;i<10;i++)e.click()})()`);await delay(100);await shot('backward-turn');check('backward turn animates',await evaluate(`document.getAnimations().length>0`));await delay(500);
- check('rapid previous advances once',await evaluate(`document.body.innerText.includes('Page 1 of 5')`));
+ check('rapid previous advances once',await evaluate(`document.querySelector('[data-testid=origin-progress]').getAttribute('aria-valuenow')==='20'`));
  await evaluate(`(()=>{const b=n=>[...document.querySelectorAll('[role=button]')].find(e=>e.getAttribute('aria-label')===n);b('Next').click();b('Close the story').click()})()`);await delay(600);await open();
- check('interrupted turn resets on reopen',await evaluate(`document.body.innerText.includes('Page 1 of 5')`));
+ check('interrupted turn resets on reopen',await evaluate(`document.querySelector('[data-testid=origin-progress]').getAttribute('aria-valuenow')==='20'`));
  await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',code:'Escape'});await delay(250);
  check('escape dismisses',await evaluate(`!document.querySelector('[data-testid=origin-storybook]')`));
- for(const[w,h]of [[390,844],[320,568],[844,390],[1024,768]]){
+ for(const[w,h]of [[320,568],[390,844],[430,932],[844,390],[768,1024],[1024,768],[1280,800],[1440,900]]){
   await send('Emulation.setDeviceMetricsOverride',{width:w,height:h,deviceScaleFactor:1,mobile:true});
   await send('Emulation.setUserAgentOverride',{userAgent:'Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 Chrome/131.0.0.0 Mobile Safari/537.36'});
   await delay(300);await open();
@@ -55,9 +59,9 @@ try {
   }
  }
  await send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});await open();await press('Next');
- check('reduced motion instant and no animation',await evaluate(`document.body.innerText.includes('Page 2 of 5') && document.getAnimations().length===0`));
+ check('reduced motion instant and no animation',await evaluate(`document.querySelector('[data-testid=origin-progress]').getAttribute('aria-valuenow')==='40' && document.getAnimations().length===0`));
  await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});await delay(300);
- check('rotation preserves current page',await evaluate(`document.body.innerText.includes('Page 2 of 5')`));
+ check('rotation preserves current page',await evaluate(`document.querySelector('[data-testid=origin-progress]').getAttribute('aria-valuenow')==='40'`));
  await press('Close the story');
  await evaluate('navigator.serviceWorker.ready.then(()=>true)');await delay(1500);
  await send('Network.emulateNetworkConditions',{offline:true,latency:0,downloadThroughput:0,uploadThroughput:0});

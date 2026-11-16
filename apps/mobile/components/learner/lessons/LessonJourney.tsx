@@ -9,11 +9,12 @@ import type { LessonItem } from './lessonData';
 type Props = {
   lessons: readonly LessonItem[];
   availableHeight?: number;
+  onTopicPress?: (topicId: string) => void;
   onContinueLesson?: (lesson: LessonItem) => void;
 };
 
 /** Keeps modules in one row, centered when they fit and swipeable when they do not. */
-export function LessonJourney({ lessons, availableHeight = 0, onContinueLesson }: Props) {
+export function LessonJourney({ lessons, availableHeight = 0, onContinueLesson, onTopicPress }: Props) {
   const { isPhone, isCompactHeight, isPhoneLandscape, width, height } = useResponsiveLayout();
   const sessionKey = lessons.map(lesson => lesson.id).join(':');
   const [dismissed, setDismissed] = useState(() => lessonJourneyHintSession.has(sessionKey));
@@ -107,6 +108,7 @@ export function LessonJourney({ lessons, availableHeight = 0, onContinueLesson }
         }); }} testID={`journey-slot-${lesson.id}`}>
           <LessonCard compact={isPhone || isCompactHeight}
             isLandscapeCompact={isPhoneLandscape} lesson={lesson}
+            onTopicPress={onTopicPress}
             onContinue={() => { dismissHint(); onContinueLesson?.(lesson); }} totalLessons={lessons.length} />
         </View>
       ))}

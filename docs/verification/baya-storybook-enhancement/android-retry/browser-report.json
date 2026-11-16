@@ -1,0 +1,1009 @@
+{
+  "screens": [
+    "en-360x691-welcome",
+    "en-360x691-page-1",
+    "en-360x691-page-1-reading",
+    "en-360x691-page-2",
+    "en-360x691-page-2-reading",
+    "en-360x691-page-3",
+    "en-360x691-page-3-reading",
+    "en-360x691-page-4",
+    "en-360x691-page-4-reading",
+    "en-360x691-page-5",
+    "en-360x691-page-5-reading",
+    "tl-360x691-welcome",
+    "tl-360x691-page-1",
+    "tl-360x691-page-1-reading",
+    "tl-360x691-page-2",
+    "tl-360x691-page-2-reading",
+    "tl-360x691-page-3",
+    "tl-360x691-page-3-reading",
+    "tl-360x691-page-4",
+    "tl-360x691-page-4-reading",
+    "tl-360x691-page-5",
+    "tl-360x691-page-5-reading",
+    "greeting-rest",
+    "greeting-mid-wave",
+    "greeting-returned",
+    "forward-turn",
+    "backward-turn",
+    "offline-en",
+    "offline-tl"
+  ],
+  "checks": [
+    {
+      "name": "en-360x691-page-1 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en3601",
+      "pass": true
+    },
+    {
+      "name": "en-360x691-page-2 readable",
+      "pass": true
+    },
+    {
+      "name": "supplied collage and source en360",
+      "pass": true
+    },
+    {
+      "name": "starts at top en3602",
+      "pass": true
+    },
+    {
+      "name": "en-360x691-page-3 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en3603",
+      "pass": true
+    },
+    {
+      "name": "en-360x691-page-4 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en3604",
+      "pass": true
+    },
+    {
+      "name": "en-360x691-page-5 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top en3605",
+      "pass": true
+    },
+    {
+      "name": "tl-360x691-page-1 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl3601",
+      "pass": true
+    },
+    {
+      "name": "tl-360x691-page-2 readable",
+      "pass": true
+    },
+    {
+      "name": "supplied collage and source tl360",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl3602",
+      "pass": true
+    },
+    {
+      "name": "tl-360x691-page-3 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl3603",
+      "pass": true
+    },
+    {
+      "name": "tl-360x691-page-4 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl3604",
+      "pass": true
+    },
+    {
+      "name": "tl-360x691-page-5 readable",
+      "pass": true
+    },
+    {
+      "name": "starts at top tl3605",
+      "pass": true
+    },
+    {
+      "name": "greeting changes existing frame",
+      "pass": true
+    },
+    {
+      "name": "greeting returns to canonical rest",
+      "pass": true
+    },
+    {
+      "name": "greeting does not loop",
+      "pass": true
+    },
+    {
+      "name": "Enter opens",
+      "pass": true
+    },
+    {
+      "name": "reverse tab contained",
+      "pass": true
+    },
+    {
+      "name": "named dialog",
+      "pass": true
+    },
+    {
+      "name": "meaningful mascot alternative",
+      "pass": true
+    },
+    {
+      "name": "Escape restores focus",
+      "pass": true
+    },
+    {
+      "name": "Space opens",
+      "pass": true
+    },
+    {
+      "name": "alternating clicks locked",
+      "pass": true
+    },
+    {
+      "name": "outgoing scroll retained",
+      "pass": true
+    },
+    {
+      "name": "resize during turn commits once",
+      "pass": true
+    },
+    {
+      "name": "cancel and immediate reopen",
+      "pass": true
+    },
+    {
+      "name": "offline-en-1 readable",
+      "pass": true
+    },
+    {
+      "name": "offline-en-2 readable",
+      "pass": true
+    },
+    {
+      "name": "offline-en-3 readable",
+      "pass": true
+    },
+    {
+      "name": "offline-en-4 readable",
+      "pass": true
+    },
+    {
+      "name": "offline-en-5 readable",
+      "pass": true
+    },
+    {
+      "name": "offline-tl-1 readable",
+      "pass": true
+    },
+    {
+      "name": "offline-tl-2 readable",
+      "pass": true
+    },
+    {
+      "name": "offline-tl-3 readable",
+      "pass": true
+    },
+    {
+      "name": "offline-tl-4 readable",
+      "pass": true
+    },
+    {
+      "name": "offline-tl-5 readable",
+      "pass": true
+    },
+    {
+      "name": "learner destination",
+      "pass": true
+    },
+    {
+      "name": "mentor destination",
+      "pass": true
+    }
+  ],
+  "physical": true,
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/157.0.8103.51",
+    "revision": "@653674df293788cf4932c40d914e9e15b41a2d31",
+    "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+    "jsVersion": "15.7.112.23"
+  },
+  "device": {
+    "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+    "dpr": 3,
+    "screen": [
+      360,
+      780
+    ],
+    "orientation": "portrait-primary",
+    "memory": 8
+  },
+  "layouts": [
+    {
+      "name": "en-360x691-page-1",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 613.1666870117188,
+          "w": 100.25521087646484,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 123.25521087646484
+        },
+        {
+          "label": "Next",
+          "x": 268.2083435058594,
+          "y": 613.1666870117188,
+          "w": 68.79167175292969,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 337.00001525878906
+        }
+      ],
+      "images": true,
+      "scrollHeight": 861,
+      "clientHeight": 512
+    },
+    {
+      "name": "en-360x691-page-2",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 613.1666870117188,
+          "w": 100.25521087646484,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 123.25521087646484
+        },
+        {
+          "label": "Next",
+          "x": 268.2083435058594,
+          "y": 613.1666870117188,
+          "w": 68.79167175292969,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 337.00001525878906
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1203,
+      "clientHeight": 512
+    },
+    {
+      "name": "en-360x691-page-3",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 613.1666870117188,
+          "w": 100.25521087646484,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 123.25521087646484
+        },
+        {
+          "label": "Next",
+          "x": 268.2083435058594,
+          "y": 613.1666870117188,
+          "w": 68.79167175292969,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 337.00001525878906
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1146,
+      "clientHeight": 512
+    },
+    {
+      "name": "en-360x691-page-4",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 613.1666870117188,
+          "w": 100.25521087646484,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 123.25521087646484
+        },
+        {
+          "label": "Next",
+          "x": 268.2083435058594,
+          "y": 613.1666870117188,
+          "w": 68.79167175292969,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 337.00001525878906
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1239,
+      "clientHeight": 512
+    },
+    {
+      "name": "en-360x691-page-5",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 613.1666870117188,
+          "w": 100.25521087646484,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 123.25521087646484
+        },
+        {
+          "label": "Finish Reading",
+          "x": 217.6822967529297,
+          "y": 613.1666870117188,
+          "w": 119.31771087646484,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 337.00000762939453
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1744,
+      "clientHeight": 512
+    },
+    {
+      "name": "tl-360x691-page-1",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 613.1666870117188,
+          "w": 95.08854675292969,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 118.08854675292969
+        },
+        {
+          "label": "Susunod",
+          "x": 238.046875,
+          "y": 613.1666870117188,
+          "w": 98.953125,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 337
+        }
+      ],
+      "images": true,
+      "scrollHeight": 917,
+      "clientHeight": 512
+    },
+    {
+      "name": "tl-360x691-page-2",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 613.1666870117188,
+          "w": 95.08854675292969,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 118.08854675292969
+        },
+        {
+          "label": "Susunod",
+          "x": 238.046875,
+          "y": 613.1666870117188,
+          "w": 98.953125,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 337
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1303,
+      "clientHeight": 512
+    },
+    {
+      "name": "tl-360x691-page-3",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 613.1666870117188,
+          "w": 95.08854675292969,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 118.08854675292969
+        },
+        {
+          "label": "Susunod",
+          "x": 238.046875,
+          "y": 613.1666870117188,
+          "w": 98.953125,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 337
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1242,
+      "clientHeight": 512
+    },
+    {
+      "name": "tl-360x691-page-4",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 613.1666870117188,
+          "w": 95.08854675292969,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 118.08854675292969
+        },
+        {
+          "label": "Susunod",
+          "x": 238.046875,
+          "y": 613.1666870117188,
+          "w": 98.953125,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 337
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1286,
+      "clientHeight": 512
+    },
+    {
+      "name": "tl-360x691-page-5",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 607.6666870117188,
+          "w": 95.08854675292969,
+          "h": 48,
+          "b": 655.6666870117188,
+          "right": 118.08854675292969
+        },
+        {
+          "label": "Tapusin ang Pagbasa",
+          "x": 217.6822967529297,
+          "y": 602.1666870117188,
+          "w": 119.31771087646484,
+          "h": 59,
+          "b": 661.1666870117188,
+          "right": 337.00000762939453
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1866,
+      "clientHeight": 501
+    },
+    {
+      "name": "offline-en-1",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 613.1666870117188,
+          "w": 100.25521087646484,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 123.25521087646484
+        },
+        {
+          "label": "Next",
+          "x": 268.2083435058594,
+          "y": 613.1666870117188,
+          "w": 68.79167175292969,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 337.00001525878906
+        }
+      ],
+      "images": true,
+      "scrollHeight": 861,
+      "clientHeight": 512
+    },
+    {
+      "name": "offline-en-2",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 613.1666870117188,
+          "w": 100.25521087646484,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 123.25521087646484
+        },
+        {
+          "label": "Next",
+          "x": 268.2083435058594,
+          "y": 613.1666870117188,
+          "w": 68.79167175292969,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 337.00001525878906
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1203,
+      "clientHeight": 512
+    },
+    {
+      "name": "offline-en-3",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 613.1666870117188,
+          "w": 100.25521087646484,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 123.25521087646484
+        },
+        {
+          "label": "Next",
+          "x": 268.2083435058594,
+          "y": 613.1666870117188,
+          "w": 68.79167175292969,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 337.00001525878906
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1146,
+      "clientHeight": 512
+    },
+    {
+      "name": "offline-en-4",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 613.1666870117188,
+          "w": 100.25521087646484,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 123.25521087646484
+        },
+        {
+          "label": "Next",
+          "x": 268.2083435058594,
+          "y": 613.1666870117188,
+          "w": 68.79167175292969,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 337.00001525878906
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1239,
+      "clientHeight": 512
+    },
+    {
+      "name": "offline-en-5",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Close the story",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Previous",
+          "x": 23,
+          "y": 613.1666870117188,
+          "w": 100.25521087646484,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 123.25521087646484
+        },
+        {
+          "label": "Finish Reading",
+          "x": 217.6822967529297,
+          "y": 613.1666870117188,
+          "w": 119.31771087646484,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 337.00000762939453
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1744,
+      "clientHeight": 512
+    },
+    {
+      "name": "offline-tl-1",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 613.1666870117188,
+          "w": 95.08854675292969,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 118.08854675292969
+        },
+        {
+          "label": "Susunod",
+          "x": 238.046875,
+          "y": 613.1666870117188,
+          "w": 98.953125,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 337
+        }
+      ],
+      "images": true,
+      "scrollHeight": 917,
+      "clientHeight": 512
+    },
+    {
+      "name": "offline-tl-2",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 613.1666870117188,
+          "w": 95.08854675292969,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 118.08854675292969
+        },
+        {
+          "label": "Susunod",
+          "x": 238.046875,
+          "y": 613.1666870117188,
+          "w": 98.953125,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 337
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1303,
+      "clientHeight": 512
+    },
+    {
+      "name": "offline-tl-3",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 613.1666870117188,
+          "w": 95.08854675292969,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 118.08854675292969
+        },
+        {
+          "label": "Susunod",
+          "x": 238.046875,
+          "y": 613.1666870117188,
+          "w": 98.953125,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 337
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1242,
+      "clientHeight": 512
+    },
+    {
+      "name": "offline-tl-4",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 613.1666870117188,
+          "w": 95.08854675292969,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 118.08854675292969
+        },
+        {
+          "label": "Susunod",
+          "x": 238.046875,
+          "y": 613.1666870117188,
+          "w": 98.953125,
+          "h": 48,
+          "b": 661.1666870117188,
+          "right": 337
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1286,
+      "clientHeight": 512
+    },
+    {
+      "name": "offline-tl-5",
+      "w": 360,
+      "h": 691,
+      "overflow": false,
+      "controls": [
+        {
+          "label": "Isara ang kuwento",
+          "x": 279,
+          "y": 27.166667938232422,
+          "w": 44,
+          "h": 44,
+          "b": 71.16666793823242,
+          "right": 323
+        },
+        {
+          "label": "Bumalik",
+          "x": 23,
+          "y": 607.6666870117188,
+          "w": 95.08854675292969,
+          "h": 48,
+          "b": 655.6666870117188,
+          "right": 118.08854675292969
+        },
+        {
+          "label": "Tapusin ang Pagbasa",
+          "x": 217.6822967529297,
+          "y": 602.1666870117188,
+          "w": 119.31771087646484,
+          "h": 59,
+          "b": 661.1666870117188,
+          "right": 337.00000762939453
+        }
+      ],
+      "images": true,
+      "scrollHeight": 1866,
+      "clientHeight": 501
+    }
+  ],
+  "keyboardBefore": {
+    "focus": "<button aria-label=\"The Story Behind BAYA. Read the story\" role=\"button\" tabindex=\"0\" class=\"css-g5y9jx r-1loqt21 r-1otgn73 r-1ixrtw5 r-1867qdf r-d045u9 r-1ik5qf4 r-13qz1uu r-156q2ks r-1sp51qo\" data-testid=\"mascot-origin-teaser\" type=\"button\" style=\"border-color: rgb(44, 107, 177);\"><div class=\"css-g5y9jx r-ojf8lh\"><div dir=\"auto\" class=\"css-146c3p1 r-19mfsaj r-4271lp r-1inkyih r-1vr29t4\">The Story Behind BAYA</div><div dir=\"auto\" class=\"css-146c3p1 r-1jog3jc r-njc6nk r-1b43r93 r-b88u0q\">Read the story  →</div></div></button>",
+    "hasFocus": true
+  },
+  "turnDurationMs": 553,
+  "longTasks": []
+}

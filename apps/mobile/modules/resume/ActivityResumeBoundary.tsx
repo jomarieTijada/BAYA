@@ -49,6 +49,8 @@ export function ActivityResumeBoundary({ topicId, children, initialPage, initial
       let profile = await localLearnerService.getActiveLearner();
       if (!profile) profile = await localLearnerService.saveProfile('Learner');
       if (!current) return;
+      await activityResumeService.rememberOpened(profile.profile_id, topicId);
+      if (!current) return;
       if (latest.current?.profileId === profile.profile_id && latest.current.topicId === topicId) { setState(previous => previous ? { ...previous } : previous); return; }
       const saved = await activityResumeService.read(profile.profile_id, topicId);
       const draft = initialDraft(topicId);

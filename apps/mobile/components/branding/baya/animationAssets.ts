@@ -1,4 +1,4 @@
-export type BayaMascotState = 'ambient' | 'idle' | 'wave';
+export type BayaMascotState = 'ambient' | 'idle' | 'wave' | 'greeting';
 
 export type BayaAnimationPhase = 'blink' | 'rest' | 'wave';
 
@@ -112,4 +112,6 @@ export const BAYA_PLAYBACK_TIMELINES: Readonly<
     rest(BAYA_AMBIENT_TIMING.afterBlinkMs),
   ],
   wave: WAVE_STEPS,
+  // One deliberate welcome, followed by the exact canonical resting frame.
+  greeting: [rest(300), ...WAVE_STEPS, rest(1)],
 };

@@ -1,3 +1,4 @@
+import { approvedCurriculum } from '../../content/approvedCurriculum';
 import { getReadyDatabase } from '../lifecycle';
 import type { DatabaseConnection } from '../types';
 import { localLearnerService } from './localLearnerService';
@@ -13,6 +14,25 @@ function ordered<T>(work: () => Promise<T>): Promise<T> {
   return next;
 }
 export const activityResumeService = {
+  /** A navigation bookmark is separate from completion and unfinished work. */
+  rememberOpened(profileId: string, topicId: string, override?: DatabaseConnection): Promise<void> {
+    return ordered(async () => {
+      const module = approvedCurriculum.find(item => item.topics.some(topic => topic.id === topicId));
+      if (!module) return;
+      const db = override ?? await getReadyDatabase();
+      if ((await localLearnerService.getActiveLearner(db))?.profile_id !== profileId) return;
+      await db.runAsync('INSERT INTO local_app_state (state_key, state_value) VALUES (?, ?) ON CONFLICT(state_key) DO UPDATE SET state_value = excluded.state_value;',
+        [`last_topic:${profileId}:${module.id}`, topicId]);
+    });
+  },
+  async lastOpened(moduleId: string, override?: DatabaseConnection): Promise<string | null> {
+    await pending;
+    const db = override ?? await getReadyDatabase();
+    const owner = await localLearnerService.getActiveLearner(db);
+    if (!owner) return null;
+    const row = await db.getFirstAsync<{ state_value: string }>('SELECT state_value FROM local_app_state WHERE state_key = ?;', [`last_topic:${owner.profile_id}:${moduleId}`]);
+    return approvedCurriculum.find(item => item.id === moduleId)?.topics.some(topic => topic.id === row?.state_value) ? row!.state_value : null;
+  },
   async read(profileId: string, topicId?: string, override?: DatabaseConnection): Promise<Checkpoint | null> {
     await pending;
     const db = override ?? await getReadyDatabase();

@@ -24,3 +24,5 @@ Verification:
 - `node scripts/verify-netlify-assets.mjs` (local hosting/MIME/integrity checks)
 
 The pre-migration workspace is preserved at `codex/pre-litert-migration` (e6d66544593be9be70400c80d9fcf58b6ccc7eb1). Historical research/rollback files outside the app remain archival; old model-specific scripts are not current deployment checks. No ONNX dependency remains in the app. See the migration report for evidence and device limitations.
+
+Native LiteRT `INFO:` stderr lines are routed to `console.info` during runtime asset copying so Expo does not report informational initialization messages as application errors. All other stderr output retains `console.error`. The copy script checks the pinned runtime binding before applying this scoped transformation; WASM/model bytes and the global console are unchanged.

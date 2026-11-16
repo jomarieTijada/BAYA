@@ -10,7 +10,9 @@ export function LearnerActionMenu({ groups }: { groups: MenuGroup[] }) {
   const op = useOperation();
   const [confirm, setConfirm] = useState(false);
   return <>
-    <BayaActionMenu label="Settings" groups={[...groups, { label: 'Session', actions: [
+    <BayaActionMenu label="Settings" groups={[...groups, { label: 'Settings', actions: [
+      { label: 'Language & BAYA Story', icon: 'settings', onPress: () => router.push('/learner/settings') },
+    ] }, { label: 'Session', actions: [
       { label: 'Log Out', icon: 'arrowRight', onPress: () => { op.setMessage(''); setConfirm(true); } },
     ] }]} />
     <BayaDialog visible={confirm} title="Leave your learner session?"
