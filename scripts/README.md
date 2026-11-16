@@ -8,9 +8,11 @@ Run scripts from the repository root. Application build helpers are in
   progress checks. These do not access hosted Supabase.
 - `test-workspace-approval-integration.mjs`: requires an explicitly isolated
   Supabase test project and refuses the production BAYA project.
-- `verify-resnet18-browser.mjs`: active model browser parity verification.
-- Other model-specific verification and rollback benchmarks: research comparisons
-  using retained checkpoints, fixtures and archived adapters.
+- `testing/probe-litert.mjs`: active five-head model browser parity and performance.
+- `testing/litert-production.mjs`: isolated exported-app submissions and offline reload.
+- `testing/litert-reference.py`: notebook/PyTorch parity fixtures.
+- Older ONNX model-specific verification (including `verify-resnet18-browser.mjs`) and rollback benchmarks: historical research comparisons
+  using the pre-migration Git snapshot for retired fixtures/adapters. They do not test the current app.
 - UI/PWA/browser scripts: developer diagnostics requiring a browser and local
   server. Review prerequisites and target URLs before running them.
 - `serve-dist.mjs`, `verify-netlify-assets.mjs`: export/server checks.

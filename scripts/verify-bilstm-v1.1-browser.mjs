@@ -31,9 +31,30 @@ const server = http.createServer((req, res) => {
   res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
   if (url === '/') { res.setHeader('Content-Type', 'text/html'); res.end('<!doctype html><title>BAYA Custom CNN validation</title>'); return; }
   if (modules.has(url)) { res.setHeader('Content-Type', 'text/javascript'); res.end(modules.get(url)); return; }
-  const file = url === '/cases.json' ? path.join(artifacts, 'browser-cases.json') : modelFiles[url] ?? (url.startsWith('/ort/') ? path.join(publicRoot, url) : null);
+  let file;
+  if (url === '/cases.json') {
+    file = path.join(artifacts, 'browser-cases.json');
+  } else {
+    file = modelFiles[url] ?? ((() => {
+    if (url.startsWith('/ort/')) {
+      return path.join(publicRoot, url);
+    } else {
+      return null;
+    }
+  })());
+  }
   if (!file || !file.startsWith(root + path.sep) || !fs.existsSync(file)) { res.writeHead(404).end(); return; }
-  res.setHeader('Content-Type', file.endsWith('.wasm') ? 'application/wasm' : /\.(mjs|js)$/.test(file) ? 'text/javascript' : 'application/octet-stream');
+  res.setHeader('Content-Type', (() => {
+    if (file.endsWith('.wasm')) {
+      return 'application/wasm';
+    } else {
+      if (/\.(mjs|js)$/.test(file)) {
+        return 'text/javascript';
+      } else {
+        return 'application/octet-stream';
+      }
+    }
+  })());
   fs.createReadStream(file).pipe(res);
 });
 await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));

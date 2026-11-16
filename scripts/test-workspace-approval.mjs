@@ -16,13 +16,31 @@ for (const file of (await readdir('supabase/migrations')).filter(f => f.endsWith
   await db.exec(await readFile(`supabase/migrations/${file}`, 'utf8'));
 }
 const ids = ['10000000-1111-4111-8111-000000000001','10000000-1111-4111-8111-000000000002','10000000-1111-4111-8111-000000000003','10000000-1111-4111-8111-000000000004'];
-for (let i = 0; i < ids.length; i++) await db.query('insert into auth.users values($1,$2,$3,$4)', [ids[i], i >= 2, i < 2 ? new Date().toISOString() : null, JSON.stringify({ display_name: `Test ${i}` })]);
+for (let i = 0; i < ids.length; i++) await db.query('insert into auth.users values($1,$2,$3,$4)', [ids[i], i >= 2, (() => {
+  if (i < 2) {
+    return new Date().toISOString();
+  } else {
+    return null;
+  }
+})(), JSON.stringify({ display_name: `Test ${i}` })]);
 const profiles = (await db.query('select auth_user_id,profile_id from public.profiles')).rows;
 const profile = i => profiles.find(p => p.auth_user_id === ids[i]).profile_id;
 async function as(i, sql, args = []) {
   await db.exec('reset role');
-  await db.query("select set_config('request.jwt.claim.sub',$1,false)", [i === null ? '' : ids[i]]);
-  await db.exec(`set role ${i === null ? 'anon' : 'authenticated'}`);
+  await db.query("select set_config('request.jwt.claim.sub',$1,false)", [(() => {
+    if (i === null) {
+      return '';
+    } else {
+      return ids[i];
+    }
+  })()]);
+  await db.exec(`set role ${(() => {
+    if (i === null) {
+      return 'anon';
+    } else {
+      return 'authenticated';
+    }
+  })()}`);
   try { return (await db.query(sql, args)).rows; } finally { await db.exec('reset role'); }
 }
 async function denied(i, sql, args, label, code = '42501') {
@@ -61,8 +79,13 @@ check((await as(2, 'select * from public.workspaces where workspace_id=$1', [w.w
 await denied(2, 'select public.sync_learning_progress($1,$2,$3)', ['version-baya-modules-1-to-3-v1', 'Test learner', '[]'], 'Pending learner cannot sync', 'P0001');
 const counts = scalar(await as(0, 'select public.list_owned_workspaces() as result')).find(row => row.workspace_id === w.workspace_id);
 check(counts.pendingCount === 1 && counts.learnerCount === 0, 'Pending and active counts separate');
+check(scalar(await as(0, 'select public.get_progress_dashboard($1) as result', [w.workspace_id])).learners.length === 0, 'Results exclude pending learners');
+await denied(1, 'select public.get_progress_dashboard($1)', [w.workspace_id], 'Unrelated mentor cannot retrieve results');
+await denied(null, 'select public.get_progress_dashboard($1)', [w.workspace_id], 'Signed-out user cannot retrieve results');
 const approved = scalar(await as(0, 'select public.review_workspace_join_request($1,$2) as result', [request, 'approved']));
 check(approved.request.status === 'approved' && approved.membership.is_active, 'Owner approval atomically activates membership');
+const missingResults = scalar(await as(0, 'select public.get_progress_dashboard($1) as result', [w.workspace_id]));
+check(missingResults.learners.length === 1 && missingResults.learners[0].percentage === null, 'Newly approved learner has missing results, not confirmed zero');
 await as(0, 'select public.review_workspace_join_request($1,$2)', [request, 'approved']);
 check((await db.query('select * from public.workspace_memberships where workspace_id=$1', [w.workspace_id])).rows.length === 1, 'Approval retry is idempotent');
 await denied(0, 'select public.review_workspace_join_request($1,$2)', [request, 'rejected'], 'Conflicting review rejected', '40001');
@@ -72,6 +95,8 @@ check(scalar(await as(0, 'select public.list_workspace_members($1) as result', [
 await as(2, 'select public.sync_learning_progress($1,$2,$3)', ['version-baya-modules-1-to-3-v1', 'Test learner', '[]']);
 check((await as(1, 'select * from public.profiles where profile_id=$1', [profile(2)])).length === 0, 'Unrelated mentor cannot read approved learner profile');
 checks++; console.log('PASS Approved learner sync authorized');
+const zeroResults = scalar(await as(0, 'select public.get_progress_dashboard($1) as result', [w.workspace_id]));
+check(zeroResults.learners[0].percentage === 0 && zeroResults.learners[0].completedTopics === 0 && zeroResults.learners[0].totalTopics === 9, 'Empty synchronized snapshot establishes zero of nine topics');
 const second = scalar(await as(3, 'select public.request_workspace_join($1) as result', [code])).request;
 await as(0, 'select public.review_workspace_join_request($1,$2)', [second.request_id, 'rejected']);
 check((await db.query('select * from public.workspace_memberships where learner_profile_id=$1', [profile(3)])).rows.length === 0, 'Rejection creates no membership');

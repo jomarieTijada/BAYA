@@ -180,7 +180,13 @@ async function main() {
 
   ws.close();
   cleanup();
-  process.exit(vfsErrors.length > 0 ? 1 : 0);
+  process.exit((() => {
+    if (vfsErrors.length > 0) {
+      return 1;
+    } else {
+      return 0;
+    }
+  })());
 }
 
 main().catch(err => {

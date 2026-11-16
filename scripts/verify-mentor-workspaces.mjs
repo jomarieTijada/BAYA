@@ -20,7 +20,20 @@ try {
   for (const [width,height] of [[1366,768],[667,375],[844,390],[915,412],[1024,768]]) {
     await send('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
     for (const screen of (process.env.BAYA_VISUAL_SCREENS?.split(',') ?? ['login','register','otp','empty','list','create','details','join','memberships','loading','error','unavailable','validation'])) {
-      const route = screen === 'guard' ? '/mentor/workspaces' : screen === 'joined' ? '/debug/workspace-preview?screen=join' : screen === 'unavailable' || screen === 'validation' ? '/mentor' : `/debug/workspace-preview?screen=${screen}`;
+      let route;
+      if (screen === 'guard') {
+        route = '/mentor/workspaces';
+      } else {
+        if (screen === 'joined') {
+          route = '/debug/workspace-preview?screen=join';
+        } else {
+          if (screen === 'unavailable' || screen === 'validation') {
+            route = '/mentor';
+          } else {
+            route = `/debug/workspace-preview?screen=${screen}`;
+          }
+        }
+      }
       await send('Page.navigate',{url:`http://localhost:8087${route}`});
       for(let i=0;i<90;i++) { if(await evaluate(`document.body.innerText.includes('MENTOR LOGIN') || document.body.innerText.includes('MENTOR WORKSPACES') || document.body.innerText.includes('DEVELOPMENT PREVIEW')`)) break; await delay(500); }
       if (!await evaluate(`document.body.innerText.includes('MENTOR LOGIN') || document.body.innerText.includes('MENTOR WORKSPACES') || document.body.innerText.includes('DEVELOPMENT PREVIEW')`)) throw new Error(`App did not load: ${route}`);
@@ -42,7 +55,12 @@ try {
     }
     console.log(`Captured ${width}x${height}`);
   }
-  const existing=fs.existsSync(path.join(output,'results.json')) ? JSON.parse(fs.readFileSync(path.join(output,'results.json'),'utf8')) : [];
+  let existing;
+  if (fs.existsSync(path.join(output,'results.json'))) {
+    existing = JSON.parse(fs.readFileSync(path.join(output,'results.json'),'utf8'));
+  } else {
+    existing = [];
+  }
   const merged=[...existing.filter(old=>!results.some(r=>r.screen===old.screen && r.width===old.width)),...results];
   fs.writeFileSync(path.join(output,'results.json'),JSON.stringify(merged,null,2));
   const failures=results.filter(r=>r.overflow || r.text.includes('Uncaught Error') || !r.text.trim());

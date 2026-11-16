@@ -149,15 +149,32 @@ async function main() {
       expression: `
         (() => {
           const canvas = document.querySelector('[data-testid="writing-canvas"]');
-          const canvasRect = canvas ? canvas.getBoundingClientRect() : null;
+          let canvasRect;
+          if (canvas) {
+            canvasRect = canvas.getBoundingClientRect();
+          } else {
+            canvasRect = null;
+          }
           const scrollWidth = document.documentElement.scrollWidth;
           const hasOverflow = scrollWidth > window.innerWidth;
           return {
             scrollWidth,
             hasOverflow,
             hasCanvas: Boolean(canvas),
-            canvasWidth: canvasRect ? Math.round(canvasRect.width) : null,
-            canvasHeight: canvasRect ? Math.round(canvasRect.height) : null,
+            canvasWidth: (() => {
+              if (canvasRect) {
+                return Math.round(canvasRect.width);
+              } else {
+                return null;
+              }
+            })(),
+            canvasHeight: (() => {
+              if (canvasRect) {
+                return Math.round(canvasRect.height);
+              } else {
+                return null;
+              }
+            })(),
           };
         })()
       `,

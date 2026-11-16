@@ -134,7 +134,12 @@ async function main() {
       (() => {
         // Find the drawing area (usually an SVG or View with touch handlers)
         const svgs = document.querySelectorAll('svg');
-        const target = svgs.length > 0 ? svgs[svgs.length - 1] : document.querySelector('div[style*="touch-action"]');
+        let target;
+        if (svgs.length > 0) {
+          target = svgs[svgs.length - 1];
+        } else {
+          target = document.querySelector('div[style*="touch-action"]');
+        }
         if (!target) return { found: false };
 
         const rect = target.getBoundingClientRect();

@@ -13,12 +13,23 @@ const publicRoot = path.join(root, 'apps/mobile/public');
 const modelRoot = path.join(root, 'ml/rollback');
 const python = JSON.parse(fs.readFileSync('docs/ml/efficientnetb0-model-python-parity.json', 'utf8'));
 const contract = JSON.parse(fs.readFileSync(path.join(modelRoot,'models/baya/EfficientNetB0_model_onnx_contract.json'),'utf8'));
-const phase=process.argv.includes('--before-cleanup')?'before-cleanup':'final';
+let phase;
+if (process.argv.includes('--before-cleanup')) {
+  phase = 'before-cleanup';
+} else {
+  phase = 'final';
+}
 const compile = source => ts.transpileModule(source, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ES2022 } }).outputText.replace(/from '(\.\/[^']+)'/g, "from '$1.js'");
 const modules = new Map([['/preprocess.js', compile(fs.readFileSync('apps/mobile/ml/inkImagePreprocessing.ts', 'utf8'))]]);
 for (const [version, config] of [['active', contract]]) {
   for (const name of ['BayaModelError', 'bayaProbabilities', 'bayaModelConfig', 'bayaModel.web', 'inkImagePreprocessing', 'bayaPreprocessing']) {
-    let source = fs.readFileSync(name === 'bayaModel.web' ? 'ml/rollback/runtime/bayaModel.web.ts.txt' : `apps/mobile/ml/${name}.ts`, 'utf8');
+    let source = fs.readFileSync((() => {
+      if (name === 'bayaModel.web') {
+        return 'ml/rollback/runtime/bayaModel.web.ts.txt';
+      } else {
+        return `apps/mobile/ml/${name}.ts`;
+      }
+    })(), 'utf8');
     if (name === 'bayaModelConfig') source = `export const BAYA_MODEL_CONFIG=${JSON.stringify(config)}; export const BAYA_RECOGNITION_MODEL_NAME=BAYA_MODEL_CONFIG.modelName; export const BAYA_RECOGNITION_MODEL_VERSION=BAYA_MODEL_CONFIG.modelVersion; export const BAYA_RECOGNITION_MODEL_URL=BAYA_MODEL_CONFIG.modelUrl;`;
     modules.set(`/app/${version}/${name}.js`, compile(source));
   }
@@ -30,9 +41,30 @@ const server = http.createServer((req, res) => {
   res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
   if (url === '/') { res.setHeader('Content-Type', 'text/html'); res.end('<!doctype html><title>BAYA Custom CNN validation</title>'); return; }
   if (modules.has(url)) { res.setHeader('Content-Type', 'text/javascript'); res.end(modules.get(url)); return; }
-  const file = url === '/cases.json' ? path.join(artifacts, 'browser-cases.json') : modelFiles[url] ?? (url.startsWith('/ort/') ? path.join(publicRoot, url) : null);
+  let file;
+  if (url === '/cases.json') {
+    file = path.join(artifacts, 'browser-cases.json');
+  } else {
+    file = modelFiles[url] ?? ((() => {
+    if (url.startsWith('/ort/')) {
+      return path.join(publicRoot, url);
+    } else {
+      return null;
+    }
+  })());
+  }
   if (!file || !file.startsWith(root + path.sep) || !fs.existsSync(file)) { res.writeHead(404).end(); return; }
-  res.setHeader('Content-Type', file.endsWith('.wasm') ? 'application/wasm' : /\.(mjs|js)$/.test(file) ? 'text/javascript' : 'application/octet-stream');
+  res.setHeader('Content-Type', (() => {
+    if (file.endsWith('.wasm')) {
+      return 'application/wasm';
+    } else {
+      if (/\.(mjs|js)$/.test(file)) {
+        return 'text/javascript';
+      } else {
+        return 'application/octet-stream';
+      }
+    }
+  })());
   fs.createReadStream(file).pipe(res);
 });
 await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
@@ -64,15 +96,31 @@ try {
       const cases=await(await fetch('/cases.json')).json();
       const stats=values=>{
         const sorted=[...values].sort((a,b)=>a-b),pos=(sorted.length-1)*.95,lo=Math.floor(pos);
-        return {count:values.length,mean:values.reduce((a,b)=>a+b,0)/values.length,median:sorted.length%2?sorted[Math.floor(sorted.length/2)]:(sorted[sorted.length/2-1]+sorted[sorted.length/2])/2,p95:sorted[lo]+(sorted[Math.ceil(pos)]-sorted[lo])*(pos-lo)};
+        return {count:values.length,mean:values.reduce((a,b)=>a+b,0)/values.length,median:(() => {
+          if (sorted.length%2) {
+            return sorted[Math.floor(sorted.length/2)];
+          } else {
+            return (sorted[sorted.length/2-1]+sorted[sorted.length/2])/2;
+          }
+        })(),p95:sorted[lo]+(sorted[Math.ceil(pos)]-sorted[lo])*(pos-lo)};
       };
       const top3=x=>Array.from(x,(_,i)=>i).sort((a,b)=>x[b]-x[a]||a-b).slice(0,3);
       const inputs=[],preprocessTimes=[];
       let preprocessingMaximum=0;
       for(const c of cases) {
-        const rgba=c.raster?Uint8Array.from(atob(c.raster.rgba),x=>x.charCodeAt(0)):null;
+        let rgba;
+        if (c.raster) {
+          rgba = Uint8Array.from(atob(c.raster.rgba),x=>x.charCodeAt(0));
+        } else {
+          rgba = null;
+        }
         const start=performance.now();
-        const input=rgba?preprocessNotebookImage({width:c.raster.width,height:c.raster.height,data:rgba}):Float32Array.from(c.input);
+        let input;
+        if (rgba) {
+          input = preprocessNotebookImage({width:c.raster.width,height:c.raster.height,data:rgba});
+        } else {
+          input = Float32Array.from(c.input);
+        }
         if(rgba)preprocessTimes.push(performance.now()-start);
         preprocessingMaximum=Math.max(preprocessingMaximum,...input.map((x,i)=>Math.abs(x-c.input[i])));
         inputs.push({c,input,rgba});

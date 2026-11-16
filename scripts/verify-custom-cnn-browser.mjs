@@ -31,9 +31,30 @@ const server = http.createServer((req, res) => {
   res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
   if (url === '/') { res.setHeader('Content-Type', 'text/html'); res.end('<!doctype html><title>BAYA Custom CNN validation</title>'); return; }
   if (modules.has(url)) { res.setHeader('Content-Type', 'text/javascript'); res.end(modules.get(url)); return; }
-  const file = url === '/cases.json' ? path.join(artifacts, 'browser-cases.json') : modelFiles[url] ?? (url.startsWith('/ort/') ? path.join(publicRoot, url) : null);
+  let file;
+  if (url === '/cases.json') {
+    file = path.join(artifacts, 'browser-cases.json');
+  } else {
+    file = modelFiles[url] ?? ((() => {
+    if (url.startsWith('/ort/')) {
+      return path.join(publicRoot, url);
+    } else {
+      return null;
+    }
+  })());
+  }
   if (!file || !file.startsWith(root + path.sep) || !fs.existsSync(file)) { res.writeHead(404).end(); return; }
-  res.setHeader('Content-Type', file.endsWith('.wasm') ? 'application/wasm' : /\.(mjs|js)$/.test(file) ? 'text/javascript' : 'application/octet-stream');
+  res.setHeader('Content-Type', (() => {
+    if (file.endsWith('.wasm')) {
+      return 'application/wasm';
+    } else {
+      if (/\.(mjs|js)$/.test(file)) {
+        return 'text/javascript';
+      } else {
+        return 'application/octet-stream';
+      }
+    }
+  })());
   fs.createReadStream(file).pipe(res);
 });
 await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
@@ -65,15 +86,31 @@ try {
       const cases=await(await fetch('/cases.json')).json();
       const stats=values=>{
         const sorted=[...values].sort((a,b)=>a-b),pos=(sorted.length-1)*.95,lo=Math.floor(pos);
-        return {count:values.length,mean:values.reduce((a,b)=>a+b,0)/values.length,median:sorted.length%2?sorted[Math.floor(sorted.length/2)]:(sorted[sorted.length/2-1]+sorted[sorted.length/2])/2,p95:sorted[lo]+(sorted[Math.ceil(pos)]-sorted[lo])*(pos-lo)};
+        return {count:values.length,mean:values.reduce((a,b)=>a+b,0)/values.length,median:(() => {
+          if (sorted.length%2) {
+            return sorted[Math.floor(sorted.length/2)];
+          } else {
+            return (sorted[sorted.length/2-1]+sorted[sorted.length/2])/2;
+          }
+        })(),p95:sorted[lo]+(sorted[Math.ceil(pos)]-sorted[lo])*(pos-lo)};
       };
       const top3=x=>Array.from(x,(_,i)=>i).sort((a,b)=>x[b]-x[a]||a-b).slice(0,3);
       const inputs=[],preprocessTimes=[];
       let preprocessingMaximum=0;
       for(const c of cases) {
-        const rgba=c.raster?Uint8Array.from(atob(c.raster.rgba),x=>x.charCodeAt(0)):null;
+        let rgba;
+        if (c.raster) {
+          rgba = Uint8Array.from(atob(c.raster.rgba),x=>x.charCodeAt(0));
+        } else {
+          rgba = null;
+        }
         const start=performance.now();
-        const input=rgba?preprocessNotebookImage({width:c.raster.width,height:c.raster.height,data:rgba}):Float32Array.from(c.input);
+        let input;
+        if (rgba) {
+          input = preprocessNotebookImage({width:c.raster.width,height:c.raster.height,data:rgba});
+        } else {
+          input = Float32Array.from(c.input);
+        }
         if(rgba)preprocessTimes.push(performance.now()-start);
         preprocessingMaximum=Math.max(preprocessingMaximum,...input.map((x,i)=>Math.abs(x-c.input[i])));
         inputs.push({c,input,rgba});
@@ -87,7 +124,13 @@ try {
       // Alternate session creation order across rounds to expose runtime-startup effects.
       const initMeasurements={custom:[],external:[]},firstMeasurements={custom:[],external:[]};
       for(let round=0;round<3;round++) {
-        for(const version of round%2?['external','custom']:['custom','external']) {
+        for(const version of (() => {
+          if (round%2) {
+            return ['external','custom'];
+          } else {
+            return ['custom','external'];
+          }
+        })()) {
           const start=performance.now();const session=await runtime.InferenceSession.create(urls[version],{executionProviders:['wasm']});
           initMeasurements[version].push(performance.now()-start);
           const inferStart=performance.now();await run(session,inputs.find(x=>x.rgba).input);firstMeasurements[version].push(performance.now()-inferStart);
@@ -100,7 +143,13 @@ try {
       for(const v of ['custom','external'])for(let i=0;i<5;i++)await run(sessions[v],inputs.find(x=>x.rgba).input);
       for(let index=0;index<inputs.length;index++) {
         const {c,input,rgba}=inputs[index];let customOutput;
-        for(const v of index%2?['external','custom']:['custom','external']) {
+        for(const v of (() => {
+          if (index%2) {
+            return ['external','custom'];
+          } else {
+            return ['custom','external'];
+          }
+        })()) {
           const start=performance.now();const output=await run(sessions[v],input);warm[v].push(performance.now()-start);
           if(v==='custom')customOutput=output;
           if(rgba){const e2eStart=performance.now();const prepared=preprocessNotebookImage({width:c.raster.width,height:c.raster.height,data:rgba});await run(sessions[v],prepared);endToEnd[v].push(performance.now()-e2eStart);}

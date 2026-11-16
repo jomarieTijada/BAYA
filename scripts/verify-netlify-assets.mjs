@@ -18,7 +18,7 @@ const MIME_MAP = {
   '.js': 'application/javascript; charset=utf-8',
   '.mjs': 'application/javascript; charset=utf-8',
   '.wasm': 'application/wasm',
-  '.onnx': 'application/octet-stream',
+  '.tflite': 'application/octet-stream',
   '.json': 'application/json; charset=utf-8',
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
@@ -62,9 +62,9 @@ const server = http.createServer((req, res) => {
     } else if (urlPath === '/' || urlPath === '/index.html') {
       res.setHeader('Cache-Control', 'no-cache, must-revalidate');
     } else if (urlPath.startsWith('/models/')) {
-      contentType = 'application/octet-stream';
+      contentType = ext === '.json' ? 'application/json; charset=utf-8' : 'application/octet-stream';
       res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
-    } else if (urlPath.startsWith('/ort/') && ext === '.wasm') {
+    } else if (urlPath.startsWith('/litert/') && ext === '.wasm') {
       contentType = 'application/wasm';
       res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
     }
@@ -97,14 +97,11 @@ const testUrls = [
   { url: '/learner/home', expectStatus: 200, expectType: 'text/html', expectSpa: true },
   { url: '/learner/settings', expectStatus: 200, expectType: 'text/html', expectSpa: true },
   { url: '/learner/activities/topic-3-1', expectStatus: 200, expectType: 'text/html', expectSpa: true },
-  ...intended.map(url => { const bytes = fs.readFileSync(path.join(publicRoot, url)); return { url, expectStatus: 200, expectType: 'application/octet-stream', expectBinary: true, expectedHash: url === activeModel.modelUrl ? activeModel.onnxSha256 : url === activeModel.labelsUrl ? activeModel.labelsSha256 : createHash('sha256').update(bytes).digest('hex'), expectedSize: bytes.length }; }),
-  { url: '/ort/ort-wasm-simd-threaded.wasm', expectStatus: 200, expectType: 'application/wasm', expectBinary: true, minSize: 10_000_000 },
-  { url: '/ort/ort-wasm-simd-threaded.mjs', expectStatus: 200, expectType: 'application/javascript', expectBinary: false },
-  { url: '/ort/ort-wasm-runtime.min.js', expectStatus: 200, expectType: 'application/javascript', expectBinary: false },
-  { url: '/sw.js', expectStatus: 200, expectNoCache: true },
-  { url: '/manifest.json', expectStatus: 200, expectType: 'application/manifest+json' },
-  { url: '/icon-192.png', expectStatus: 200, expectType: 'image/png' },
-  { url: '/icon-512.png', expectStatus: 200, expectType: 'image/png' },
+  ...[...intended, ...precache.filter(url => url.startsWith(activeModel.runtimeBaseUrl))].map(url => {
+    const bytes = fs.readFileSync(path.join(publicRoot, url));
+    return { url, expectStatus: 200, expectType: MIME_MAP[path.extname(url)].split(';')[0], expectBinary: !url.endsWith('.json'), expectedSize: bytes.length,
+      expectedHash: activeModel.sha256[path.basename(url)] ?? createHash('sha256').update(bytes).digest('hex') };
+  }),
 ];
 
 let allPassed = true;

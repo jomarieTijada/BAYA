@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "purpose": "independent-validation",
+  "labelingBeforeInference": true,
+  "independentReview": true,
+  "records": []
+}

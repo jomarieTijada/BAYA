@@ -29,11 +29,36 @@ const server = http.createServer((req, res) => {
   if (url === '/') { res.setHeader('Content-Type', 'text/html'); res.end('<!doctype html><title>BAYA parity</title>'); return; }
   if (url === '/preprocess.js') { res.setHeader('Content-Type', 'text/javascript'); res.end(preprocess); return; }
   if (appModules.has(url)) { res.setHeader('Content-Type', 'text/javascript'); res.end(appModules.get(url)); return; }
-  const file = url === '/cases.json' ? path.join(artifacts, 'browser-cases.json')
-    : url === '/model.onnx' ? path.join(modelRoot, 'models/baya', modelName)
-    : url.startsWith('/models/') ? path.join(modelRoot, url) : url.startsWith('/ort/') ? path.join(publicRoot, url) : null;
+  let file;
+  if (url === '/cases.json') {
+    file = path.join(artifacts, 'browser-cases.json');
+  } else {
+    if (url === '/model.onnx') {
+      file = path.join(modelRoot, 'models/baya', modelName);
+    } else {
+      if (url.startsWith('/models/')) {
+        file = path.join(modelRoot, url);
+      } else {
+        if (url.startsWith('/ort/')) {
+          file = path.join(publicRoot, url);
+        } else {
+          file = null;
+        }
+      }
+    }
+  }
   if (!file || !file.startsWith(root + path.sep) || !fs.existsSync(file)) { res.writeHead(404).end(); return; }
-  res.setHeader('Content-Type', file.endsWith('.wasm') ? 'application/wasm' : /\.(mjs|js)$/.test(file) ? 'text/javascript' : 'application/octet-stream');
+  res.setHeader('Content-Type', (() => {
+    if (file.endsWith('.wasm')) {
+      return 'application/wasm';
+    } else {
+      if (/\.(mjs|js)$/.test(file)) {
+        return 'text/javascript';
+      } else {
+        return 'application/octet-stream';
+      }
+    }
+  })());
   fs.createReadStream(file).pipe(res);
 });
 await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
@@ -66,13 +91,24 @@ try {
       const runtimeVersion=ort.env.versions.web;
       const runtime=ort;
       window.__DEV__=false;
-      const appService=${optimization === 'all' ? "await import('/app/bayaModel.web.js')" : 'null'};
+      const appService=${(() => {
+        if (optimization === 'all') {
+          return "await import('/app/bayaModel.web.js')";
+        } else {
+          return 'null';
+        }
+      })()};
       if(session.inputNames.length!==1 || session.outputNames.length!==1) throw Error('Unexpected tensor count');
       const cases=await (await fetch('/cases.json')).json();
       const rows=[];
       const top3=x=>Array.from(x,(_,i)=>i).sort((a,b)=>x[b]-x[a]||a-b).slice(0,3);
       for(const c of cases) {
-        const input=c.raster ? preprocessNotebookImage({width:c.raster.width,height:c.raster.height,data:Uint8Array.from(atob(c.raster.rgba),x=>x.charCodeAt(0))}) : Float32Array.from(c.input);
+        let input;
+        if (c.raster) {
+          input = preprocessNotebookImage({width:c.raster.width,height:c.raster.height,data:Uint8Array.from(atob(c.raster.rgba),x=>x.charCodeAt(0))});
+        } else {
+          input = Float32Array.from(c.input);
+        }
         const preprocessingMax=Math.max(...input.map((x,i)=>Math.abs(x-c.input[i])));
         const tensor=new runtime.Tensor('float32',input,[1,96,96,1]);
         const outputs=await session.run({[session.inputNames[0]]:tensor});
@@ -101,7 +137,13 @@ try {
   report.passed = report.preprocessingMaximum === 0 && report.maximumAbsoluteDifference <= report.absoluteTolerance
     && report.meanAbsoluteDifference <= report.meanTolerance && report.top1Matches === report.sampleCount && report.top3Matches === report.sampleCount;
   report.graphOptimizationLevel = optimization;
-  fs.writeFileSync(path.join(root, optimization === 'all' ? 'docs/ml/external-v2-browser-parity.json' : 'docs/ml/external-v2-browser-diagnostic.json'), JSON.stringify(report, null, 2)+'\n');
+  fs.writeFileSync(path.join(root, (() => {
+    if (optimization === 'all') {
+      return 'docs/ml/external-v2-browser-parity.json';
+    } else {
+      return 'docs/ml/external-v2-browser-diagnostic.json';
+    }
+  })()), JSON.stringify(report, null, 2)+'\n');
   console.log(JSON.stringify({ ...report, cases: undefined }, null, 2));
   if (!report.passed) throw Error('Browser parity failed');
 } finally {
