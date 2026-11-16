@@ -1,0 +1,5667 @@
+{
+  "screens": [
+    {
+      "name": "before-submit",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "file": "before-submit-en-667x375.png",
+      "text": "Let's write!",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099283585,
+          "finished": 1794099283636,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-loading",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "file": "fixture-loading-en-667x375.png",
+      "text": "Checking your writing...",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099283585,
+          "finished": 1794099283636,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099284887
+        }
+      ]
+    },
+    {
+      "name": "fixture-wrong",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "file": "fixture-wrong-en-667x375.png",
+      "text": "Recognized Character\nDE/DI\n99.2%\nAlmost there!",
+      "rows": 1,
+      "label": "DE/DI",
+      "confidence": "99.2%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/de_di.0da23c0795bdf48e35ea964c89574303.png",
+      "overflow": false,
+      "announcements": [
+        "BAYA read: DE/DI",
+        "Confidence: 99.2%"
+      ],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099283585,
+          "finished": 1794099283636,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099284887,
+          "finished": 1794099285688,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-low",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "file": "fixture-low-en-667x375.png",
+      "text": "Your writing is unclear. Try writing the character again.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099283585,
+          "finished": 1794099283636,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099284887,
+          "finished": 1794099285688,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099286923,
+          "finished": 1794099287731,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-rejected",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "file": "fixture-rejected-en-667x375.png",
+      "text": "No recognizable Baybayin character detected. Try again.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099283585,
+          "finished": 1794099283636,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099284887,
+          "finished": 1794099285688,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099286923,
+          "finished": 1794099287731,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099288979,
+          "finished": 1794099289785,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-error",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "file": "fixture-error-en-667x375.png",
+      "text": "BAYA couldn't check your writing. Try again.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099283585,
+          "finished": 1794099283636,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099284887,
+          "finished": 1794099285688,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099286923,
+          "finished": 1794099287731,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099288979,
+          "finished": 1794099289785,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794099291032,
+          "error": "controlled inference failure"
+        }
+      ]
+    },
+    {
+      "name": "fixture-correct",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "file": "fixture-correct-en-667x375.png",
+      "text": "Recognized Character\nA\n92.0%\nGreat!",
+      "rows": 1,
+      "label": "A",
+      "confidence": "92.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/a.7b77735d4a1e441cb91da63493563adb.png",
+      "overflow": false,
+      "announcements": [
+        "BAYA read: A",
+        "Confidence: 92.0%"
+      ],
+      "stars": "One of two stars earned.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099283585,
+          "finished": 1794099283636,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099284887,
+          "finished": 1794099285688,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099286923,
+          "finished": 1794099287731,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099288979,
+          "finished": 1794099289785,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794099291032,
+          "error": "controlled inference failure"
+        },
+        {
+          "mode": "correct",
+          "started": 1794099293073,
+          "finished": 1794099293874,
+          "sum": 1.0000000167638063,
+          "top": [
+            {
+              "probability": 0.9200000166893005,
+              "classIndex": 0
+            },
+            {
+              "probability": 0.05000000074505806,
+              "classIndex": 2
+            },
+            {
+              "probability": 0.029999999329447746,
+              "classIndex": 27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "before-submit",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "file": "before-submit-en-844x390.png",
+      "text": "Let's write!",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099296662,
+          "finished": 1794099296714,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-loading",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "file": "fixture-loading-en-844x390.png",
+      "text": "Checking your writing...",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099296662,
+          "finished": 1794099296714,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099297805
+        }
+      ]
+    },
+    {
+      "name": "fixture-wrong",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "file": "fixture-wrong-en-844x390.png",
+      "text": "Recognized Character\nDE/DI\n99.2%\nAlmost there!",
+      "rows": 1,
+      "label": "DE/DI",
+      "confidence": "99.2%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/de_di.0da23c0795bdf48e35ea964c89574303.png",
+      "overflow": false,
+      "announcements": [
+        "BAYA read: DE/DI",
+        "Confidence: 99.2%"
+      ],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099296662,
+          "finished": 1794099296714,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099297805,
+          "finished": 1794099298609,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-low",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "file": "fixture-low-en-844x390.png",
+      "text": "Your writing is unclear. Try writing the character again.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099296662,
+          "finished": 1794099296714,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099297805,
+          "finished": 1794099298609,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099299806,
+          "finished": 1794099300616,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-rejected",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "file": "fixture-rejected-en-844x390.png",
+      "text": "No recognizable Baybayin character detected. Try again.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099296662,
+          "finished": 1794099296714,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099297805,
+          "finished": 1794099298609,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099299806,
+          "finished": 1794099300616,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099301854,
+          "finished": 1794099302654,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-error",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "file": "fixture-error-en-844x390.png",
+      "text": "BAYA couldn't check your writing. Try again.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099296662,
+          "finished": 1794099296714,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099297805,
+          "finished": 1794099298609,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099299806,
+          "finished": 1794099300616,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099301854,
+          "finished": 1794099302654,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794099303894,
+          "error": "controlled inference failure"
+        }
+      ]
+    },
+    {
+      "name": "fixture-correct",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "file": "fixture-correct-en-844x390.png",
+      "text": "Recognized Character\nA\n92.0%\nGreat!",
+      "rows": 1,
+      "label": "A",
+      "confidence": "92.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/a.7b77735d4a1e441cb91da63493563adb.png",
+      "overflow": false,
+      "announcements": [
+        "BAYA read: A",
+        "Confidence: 92.0%"
+      ],
+      "stars": "One of two stars earned.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099296662,
+          "finished": 1794099296714,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099297805,
+          "finished": 1794099298609,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099299806,
+          "finished": 1794099300616,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099301854,
+          "finished": 1794099302654,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794099303894,
+          "error": "controlled inference failure"
+        },
+        {
+          "mode": "correct",
+          "started": 1794099306021,
+          "finished": 1794099306833,
+          "sum": 1.0000000167638063,
+          "top": [
+            {
+              "probability": 0.9200000166893005,
+              "classIndex": 0
+            },
+            {
+              "probability": 0.05000000074505806,
+              "classIndex": 2
+            },
+            {
+              "probability": 0.029999999329447746,
+              "classIndex": 27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "before-submit",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "file": "before-submit-en-915x412.png",
+      "text": "Let's write!",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099309420,
+          "finished": 1794099309476,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-loading",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "file": "fixture-loading-en-915x412.png",
+      "text": "Checking your writing...",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099309420,
+          "finished": 1794099309476,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099310575
+        }
+      ]
+    },
+    {
+      "name": "fixture-wrong",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "file": "fixture-wrong-en-915x412.png",
+      "text": "Recognized Character\nDE/DI\n99.2%\nAlmost there!",
+      "rows": 1,
+      "label": "DE/DI",
+      "confidence": "99.2%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/de_di.0da23c0795bdf48e35ea964c89574303.png",
+      "overflow": false,
+      "announcements": [
+        "BAYA read: DE/DI",
+        "Confidence: 99.2%"
+      ],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099309420,
+          "finished": 1794099309476,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099310575,
+          "finished": 1794099311378,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-low",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "file": "fixture-low-en-915x412.png",
+      "text": "Your writing is unclear. Try writing the character again.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099309420,
+          "finished": 1794099309476,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099310575,
+          "finished": 1794099311378,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099312596,
+          "finished": 1794099313398,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-rejected",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "file": "fixture-rejected-en-915x412.png",
+      "text": "No recognizable Baybayin character detected. Try again.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099309420,
+          "finished": 1794099309476,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099310575,
+          "finished": 1794099311378,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099312596,
+          "finished": 1794099313398,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099314622,
+          "finished": 1794099315427,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-error",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "file": "fixture-error-en-915x412.png",
+      "text": "BAYA couldn't check your writing. Try again.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099309420,
+          "finished": 1794099309476,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099310575,
+          "finished": 1794099311378,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099312596,
+          "finished": 1794099313398,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099314622,
+          "finished": 1794099315427,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794099316653,
+          "error": "controlled inference failure"
+        }
+      ]
+    },
+    {
+      "name": "fixture-correct",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "file": "fixture-correct-en-915x412.png",
+      "text": "Recognized Character\nA\n92.0%\nGreat!",
+      "rows": 1,
+      "label": "A",
+      "confidence": "92.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/a.7b77735d4a1e441cb91da63493563adb.png",
+      "overflow": false,
+      "announcements": [
+        "BAYA read: A",
+        "Confidence: 92.0%"
+      ],
+      "stars": "One of two stars earned.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099309420,
+          "finished": 1794099309476,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099310575,
+          "finished": 1794099311378,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099312596,
+          "finished": 1794099313398,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099314622,
+          "finished": 1794099315427,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794099316653,
+          "error": "controlled inference failure"
+        },
+        {
+          "mode": "correct",
+          "started": 1794099318685,
+          "finished": 1794099319486,
+          "sum": 1.0000000167638063,
+          "top": [
+            {
+              "probability": 0.9200000166893005,
+              "classIndex": 0
+            },
+            {
+              "probability": 0.05000000074505806,
+              "classIndex": 2
+            },
+            {
+              "probability": 0.029999999329447746,
+              "classIndex": 27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "before-submit",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "file": "before-submit-en-1024x768.png",
+      "text": "Let's write!",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099322059,
+          "finished": 1794099322107,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-loading",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "file": "fixture-loading-en-1024x768.png",
+      "text": "Checking your writing...",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099322059,
+          "finished": 1794099322107,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099323221
+        }
+      ]
+    },
+    {
+      "name": "fixture-wrong",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "file": "fixture-wrong-en-1024x768.png",
+      "text": "Recognized Character\nDE/DI\n99.2%\nAlmost there!",
+      "rows": 1,
+      "label": "DE/DI",
+      "confidence": "99.2%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/de_di.0da23c0795bdf48e35ea964c89574303.png",
+      "overflow": false,
+      "announcements": [
+        "BAYA read: DE/DI",
+        "Confidence: 99.2%"
+      ],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099322059,
+          "finished": 1794099322107,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099323221,
+          "finished": 1794099324030,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-low",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "file": "fixture-low-en-1024x768.png",
+      "text": "Your writing is unclear. Try writing the character again.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099322059,
+          "finished": 1794099322107,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099323221,
+          "finished": 1794099324030,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099325276,
+          "finished": 1794099326087,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-rejected",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "file": "fixture-rejected-en-1024x768.png",
+      "text": "No recognizable Baybayin character detected. Try again.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099322059,
+          "finished": 1794099322107,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099323221,
+          "finished": 1794099324030,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099325276,
+          "finished": 1794099326087,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099327334,
+          "finished": 1794099328145,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-error",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "file": "fixture-error-en-1024x768.png",
+      "text": "BAYA couldn't check your writing. Try again.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099322059,
+          "finished": 1794099322107,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099323221,
+          "finished": 1794099324030,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099325276,
+          "finished": 1794099326087,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099327334,
+          "finished": 1794099328145,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794099329382,
+          "error": "controlled inference failure"
+        }
+      ]
+    },
+    {
+      "name": "fixture-correct",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "file": "fixture-correct-en-1024x768.png",
+      "text": "Recognized Character\nA\n92.0%\nGreat!",
+      "rows": 1,
+      "label": "A",
+      "confidence": "92.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/a.7b77735d4a1e441cb91da63493563adb.png",
+      "overflow": false,
+      "announcements": [
+        "BAYA read: A",
+        "Confidence: 92.0%"
+      ],
+      "stars": "One of two stars earned.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099322059,
+          "finished": 1794099322107,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099323221,
+          "finished": 1794099324030,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099325276,
+          "finished": 1794099326087,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099327334,
+          "finished": 1794099328145,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794099329382,
+          "error": "controlled inference failure"
+        },
+        {
+          "mode": "correct",
+          "started": 1794099331448,
+          "finished": 1794099332253,
+          "sum": 1.0000000167638063,
+          "top": [
+            {
+              "probability": 0.9200000166893005,
+              "classIndex": 0
+            },
+            {
+              "probability": 0.05000000074505806,
+              "classIndex": 2
+            },
+            {
+              "probability": 0.029999999329447746,
+              "classIndex": 27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "before-submit",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "file": "before-submit-en-1366x768.png",
+      "text": "Let's write!",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099334774,
+          "finished": 1794099334823,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-loading",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "file": "fixture-loading-en-1366x768.png",
+      "text": "Checking your writing...",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099334774,
+          "finished": 1794099334823,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099335926
+        }
+      ]
+    },
+    {
+      "name": "fixture-wrong",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "file": "fixture-wrong-en-1366x768.png",
+      "text": "Recognized Character\nDE/DI\n99.2%\nAlmost there!",
+      "rows": 1,
+      "label": "DE/DI",
+      "confidence": "99.2%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/de_di.0da23c0795bdf48e35ea964c89574303.png",
+      "overflow": false,
+      "announcements": [
+        "BAYA read: DE/DI",
+        "Confidence: 99.2%"
+      ],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099334774,
+          "finished": 1794099334823,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099335926,
+          "finished": 1794099336741,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-low",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "file": "fixture-low-en-1366x768.png",
+      "text": "Your writing is unclear. Try writing the character again.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099334774,
+          "finished": 1794099334823,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099335926,
+          "finished": 1794099336741,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099337978,
+          "finished": 1794099338781,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-rejected",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "file": "fixture-rejected-en-1366x768.png",
+      "text": "No recognizable Baybayin character detected. Try again.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099334774,
+          "finished": 1794099334823,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099335926,
+          "finished": 1794099336741,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099337978,
+          "finished": 1794099338781,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099340033,
+          "finished": 1794099340841,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-error",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "file": "fixture-error-en-1366x768.png",
+      "text": "BAYA couldn't check your writing. Try again.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "No stars earned yet. Two stars are needed.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099334774,
+          "finished": 1794099334823,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099335926,
+          "finished": 1794099336741,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099337978,
+          "finished": 1794099338781,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099340033,
+          "finished": 1794099340841,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794099342092,
+          "error": "controlled inference failure"
+        }
+      ]
+    },
+    {
+      "name": "fixture-correct",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "file": "fixture-correct-en-1366x768.png",
+      "text": "Recognized Character\nA\n92.0%\nGreat!",
+      "rows": 1,
+      "label": "A",
+      "confidence": "92.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/a.7b77735d4a1e441cb91da63493563adb.png",
+      "overflow": false,
+      "announcements": [
+        "BAYA read: A",
+        "Confidence: 92.0%"
+      ],
+      "stars": "One of two stars earned.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099334774,
+          "finished": 1794099334823,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099335926,
+          "finished": 1794099336741,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099337978,
+          "finished": 1794099338781,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099340033,
+          "finished": 1794099340841,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794099342092,
+          "error": "controlled inference failure"
+        },
+        {
+          "mode": "correct",
+          "started": 1794099344162,
+          "finished": 1794099344963,
+          "sum": 1.0000000167638063,
+          "top": [
+            {
+              "probability": 0.9200000166893005,
+              "classIndex": 0
+            },
+            {
+              "probability": 0.05000000074505806,
+              "classIndex": 2
+            },
+            {
+              "probability": 0.029999999329447746,
+              "classIndex": 27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "before-submit",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "file": "before-submit-tl-667x375.png",
+      "text": "Magsulat na!",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099348761,
+          "finished": 1794099348797,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-loading",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "file": "fixture-loading-tl-667x375.png",
+      "text": "Sinusuri ang sulat...",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099348761,
+          "finished": 1794099348797,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099350070
+        }
+      ]
+    },
+    {
+      "name": "fixture-wrong",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "file": "fixture-wrong-tl-667x375.png",
+      "text": "Nakilalang Simbolo\nDE/DI\n99.2%\nMalapit na!",
+      "rows": 1,
+      "label": "DE/DI",
+      "confidence": "99.2%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/de_di.0da23c0795bdf48e35ea964c89574303.png",
+      "overflow": false,
+      "announcements": [
+        "Nabasa ni BAYA: DE/DI",
+        "Kumpiyansa: 99.2%"
+      ],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099348761,
+          "finished": 1794099348797,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099350070,
+          "finished": 1794099350875,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-low",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "file": "fixture-low-tl-667x375.png",
+      "text": "Hindi malinaw ang iyong sulat. Subukang isulat muli ang karakter.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099348761,
+          "finished": 1794099348797,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099350070,
+          "finished": 1794099350875,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099352067,
+          "finished": 1794099352870,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-rejected",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "file": "fixture-rejected-tl-667x375.png",
+      "text": "Walang nakilalang karakter ng Baybayin. Subukan muli.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099348761,
+          "finished": 1794099348797,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099350070,
+          "finished": 1794099350875,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099352067,
+          "finished": 1794099352870,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099354137,
+          "finished": 1794099354939,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-error",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "file": "fixture-error-tl-667x375.png",
+      "text": "Hindi masuri ni BAYA ang sulat. Subukan muli.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099348761,
+          "finished": 1794099348797,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099350070,
+          "finished": 1794099350875,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099352067,
+          "finished": 1794099352870,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099354137,
+          "finished": 1794099354939,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794099356164,
+          "error": "controlled inference failure"
+        }
+      ]
+    },
+    {
+      "name": "fixture-correct",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "file": "fixture-correct-tl-667x375.png",
+      "text": "Nakilalang Simbolo\nA\n92.0%\nMahusay!",
+      "rows": 1,
+      "label": "A",
+      "confidence": "92.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/a.7b77735d4a1e441cb91da63493563adb.png",
+      "overflow": false,
+      "announcements": [
+        "Nabasa ni BAYA: A",
+        "Kumpiyansa: 92.0%"
+      ],
+      "stars": "Isa sa dalawang bituin ang nakuha.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099348761,
+          "finished": 1794099348797,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099350070,
+          "finished": 1794099350875,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099352067,
+          "finished": 1794099352870,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099354137,
+          "finished": 1794099354939,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794099356164,
+          "error": "controlled inference failure"
+        },
+        {
+          "mode": "correct",
+          "started": 1794099358196,
+          "finished": 1794099359001,
+          "sum": 1.0000000167638063,
+          "top": [
+            {
+              "probability": 0.9200000166893005,
+              "classIndex": 0
+            },
+            {
+              "probability": 0.05000000074505806,
+              "classIndex": 2
+            },
+            {
+              "probability": 0.029999999329447746,
+              "classIndex": 27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "before-submit",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "file": "before-submit-tl-844x390.png",
+      "text": "Magsulat na!",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099361512,
+          "finished": 1794099361553,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-loading",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "file": "fixture-loading-tl-844x390.png",
+      "text": "Sinusuri ang sulat...",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099361512,
+          "finished": 1794099361553,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099362639
+        }
+      ]
+    },
+    {
+      "name": "fixture-wrong",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "file": "fixture-wrong-tl-844x390.png",
+      "text": "Nakilalang Simbolo\nDE/DI\n99.2%\nMalapit na!",
+      "rows": 1,
+      "label": "DE/DI",
+      "confidence": "99.2%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/de_di.0da23c0795bdf48e35ea964c89574303.png",
+      "overflow": false,
+      "announcements": [
+        "Nabasa ni BAYA: DE/DI",
+        "Kumpiyansa: 99.2%"
+      ],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099361512,
+          "finished": 1794099361553,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099362639,
+          "finished": 1794099363445,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-low",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "file": "fixture-low-tl-844x390.png",
+      "text": "Hindi malinaw ang iyong sulat. Subukang isulat muli ang karakter.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099361512,
+          "finished": 1794099361553,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099362639,
+          "finished": 1794099363445,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099364652,
+          "finished": 1794099365462,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-rejected",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "file": "fixture-rejected-tl-844x390.png",
+      "text": "Walang nakilalang karakter ng Baybayin. Subukan muli.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099361512,
+          "finished": 1794099361553,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099362639,
+          "finished": 1794099363445,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099364652,
+          "finished": 1794099365462,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099366716,
+          "finished": 1794099367520,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-error",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "file": "fixture-error-tl-844x390.png",
+      "text": "Hindi masuri ni BAYA ang sulat. Subukan muli.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099361512,
+          "finished": 1794099361553,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099362639,
+          "finished": 1794099363445,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099364652,
+          "finished": 1794099365462,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099366716,
+          "finished": 1794099367520,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794099368743,
+          "error": "controlled inference failure"
+        }
+      ]
+    },
+    {
+      "name": "fixture-correct",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "file": "fixture-correct-tl-844x390.png",
+      "text": "Nakilalang Simbolo\nA\n92.0%\nMahusay!",
+      "rows": 1,
+      "label": "A",
+      "confidence": "92.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/a.7b77735d4a1e441cb91da63493563adb.png",
+      "overflow": false,
+      "announcements": [
+        "Nabasa ni BAYA: A",
+        "Kumpiyansa: 92.0%"
+      ],
+      "stars": "Isa sa dalawang bituin ang nakuha.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099361512,
+          "finished": 1794099361553,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099362639,
+          "finished": 1794099363445,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099364652,
+          "finished": 1794099365462,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099366716,
+          "finished": 1794099367520,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794099368743,
+          "error": "controlled inference failure"
+        },
+        {
+          "mode": "correct",
+          "started": 1794099370796,
+          "finished": 1794099371602,
+          "sum": 1.0000000167638063,
+          "top": [
+            {
+              "probability": 0.9200000166893005,
+              "classIndex": 0
+            },
+            {
+              "probability": 0.05000000074505806,
+              "classIndex": 2
+            },
+            {
+              "probability": 0.029999999329447746,
+              "classIndex": 27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "before-submit",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "file": "before-submit-tl-915x412.png",
+      "text": "Magsulat na!",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099374030,
+          "finished": 1794099374066,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-loading",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "file": "fixture-loading-tl-915x412.png",
+      "text": "Sinusuri ang sulat...",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099374030,
+          "finished": 1794099374066,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099375255
+        }
+      ]
+    },
+    {
+      "name": "fixture-wrong",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "file": "fixture-wrong-tl-915x412.png",
+      "text": "Nakilalang Simbolo\nDE/DI\n99.2%\nMalapit na!",
+      "rows": 1,
+      "label": "DE/DI",
+      "confidence": "99.2%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/de_di.0da23c0795bdf48e35ea964c89574303.png",
+      "overflow": false,
+      "announcements": [
+        "Nabasa ni BAYA: DE/DI",
+        "Kumpiyansa: 99.2%"
+      ],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099374030,
+          "finished": 1794099374066,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099375255,
+          "finished": 1794099376068,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-low",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "file": "fixture-low-tl-915x412.png",
+      "text": "Hindi malinaw ang iyong sulat. Subukang isulat muli ang karakter.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099374030,
+          "finished": 1794099374066,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099375255,
+          "finished": 1794099376068,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099377247,
+          "finished": 1794099378056,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-rejected",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "file": "fixture-rejected-tl-915x412.png",
+      "text": "Walang nakilalang karakter ng Baybayin. Subukan muli.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099374030,
+          "finished": 1794099374066,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099375255,
+          "finished": 1794099376068,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099377247,
+          "finished": 1794099378056,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099379291,
+          "finished": 1794099380094,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-error",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "file": "fixture-error-tl-915x412.png",
+      "text": "Hindi masuri ni BAYA ang sulat. Subukan muli.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099374030,
+          "finished": 1794099374066,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099375255,
+          "finished": 1794099376068,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099377247,
+          "finished": 1794099378056,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099379291,
+          "finished": 1794099380094,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794099381315,
+          "error": "controlled inference failure"
+        }
+      ]
+    },
+    {
+      "name": "fixture-correct",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "file": "fixture-correct-tl-915x412.png",
+      "text": "Nakilalang Simbolo\nA\n92.0%\nMahusay!",
+      "rows": 1,
+      "label": "A",
+      "confidence": "92.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/a.7b77735d4a1e441cb91da63493563adb.png",
+      "overflow": false,
+      "announcements": [
+        "Nabasa ni BAYA: A",
+        "Kumpiyansa: 92.0%"
+      ],
+      "stars": "Isa sa dalawang bituin ang nakuha.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099374030,
+          "finished": 1794099374066,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099375255,
+          "finished": 1794099376068,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099377247,
+          "finished": 1794099378056,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099379291,
+          "finished": 1794099380094,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794099381315,
+          "error": "controlled inference failure"
+        },
+        {
+          "mode": "correct",
+          "started": 1794099383336,
+          "finished": 1794099384146,
+          "sum": 1.0000000167638063,
+          "top": [
+            {
+              "probability": 0.9200000166893005,
+              "classIndex": 0
+            },
+            {
+              "probability": 0.05000000074505806,
+              "classIndex": 2
+            },
+            {
+              "probability": 0.029999999329447746,
+              "classIndex": 27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "before-submit",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "file": "before-submit-tl-1024x768.png",
+      "text": "Magsulat na!",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099386671,
+          "finished": 1794099386725,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-loading",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "file": "fixture-loading-tl-1024x768.png",
+      "text": "Sinusuri ang sulat...",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099386671,
+          "finished": 1794099386725,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099387800
+        }
+      ]
+    },
+    {
+      "name": "fixture-wrong",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "file": "fixture-wrong-tl-1024x768.png",
+      "text": "Nakilalang Simbolo\nDE/DI\n99.2%\nMalapit na!",
+      "rows": 1,
+      "label": "DE/DI",
+      "confidence": "99.2%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/de_di.0da23c0795bdf48e35ea964c89574303.png",
+      "overflow": false,
+      "announcements": [
+        "Nabasa ni BAYA: DE/DI",
+        "Kumpiyansa: 99.2%"
+      ],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099386671,
+          "finished": 1794099386725,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099387800,
+          "finished": 1794099388609,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-low",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "file": "fixture-low-tl-1024x768.png",
+      "text": "Hindi malinaw ang iyong sulat. Subukang isulat muli ang karakter.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099386671,
+          "finished": 1794099386725,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099387800,
+          "finished": 1794099388609,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099389856,
+          "finished": 1794099390659,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-rejected",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "file": "fixture-rejected-tl-1024x768.png",
+      "text": "Walang nakilalang karakter ng Baybayin. Subukan muli.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099386671,
+          "finished": 1794099386725,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099387800,
+          "finished": 1794099388609,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099389856,
+          "finished": 1794099390659,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099391920,
+          "finished": 1794099392726,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-error",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "file": "fixture-error-tl-1024x768.png",
+      "text": "Hindi masuri ni BAYA ang sulat. Subukan muli.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099386671,
+          "finished": 1794099386725,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099387800,
+          "finished": 1794099388609,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099389856,
+          "finished": 1794099390659,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099391920,
+          "finished": 1794099392726,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794099393957,
+          "error": "controlled inference failure"
+        }
+      ]
+    },
+    {
+      "name": "fixture-correct",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "file": "fixture-correct-tl-1024x768.png",
+      "text": "Nakilalang Simbolo\nA\n92.0%\nMahusay!",
+      "rows": 1,
+      "label": "A",
+      "confidence": "92.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/a.7b77735d4a1e441cb91da63493563adb.png",
+      "overflow": false,
+      "announcements": [
+        "Nabasa ni BAYA: A",
+        "Kumpiyansa: 92.0%"
+      ],
+      "stars": "Isa sa dalawang bituin ang nakuha.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099386671,
+          "finished": 1794099386725,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099387800,
+          "finished": 1794099388609,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099389856,
+          "finished": 1794099390659,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099391920,
+          "finished": 1794099392726,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794099393957,
+          "error": "controlled inference failure"
+        },
+        {
+          "mode": "correct",
+          "started": 1794099396009,
+          "finished": 1794099396817,
+          "sum": 1.0000000167638063,
+          "top": [
+            {
+              "probability": 0.9200000166893005,
+              "classIndex": 0
+            },
+            {
+              "probability": 0.05000000074505806,
+              "classIndex": 2
+            },
+            {
+              "probability": 0.029999999329447746,
+              "classIndex": 27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "before-submit",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "file": "before-submit-tl-1366x768.png",
+      "text": "Magsulat na!",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099399207,
+          "finished": 1794099399248,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-loading",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "file": "fixture-loading-tl-1366x768.png",
+      "text": "Sinusuri ang sulat...",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099399207,
+          "finished": 1794099399248,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099400477
+        }
+      ]
+    },
+    {
+      "name": "fixture-wrong",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "file": "fixture-wrong-tl-1366x768.png",
+      "text": "Nakilalang Simbolo\nDE/DI\n99.2%\nMalapit na!",
+      "rows": 1,
+      "label": "DE/DI",
+      "confidence": "99.2%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/de_di.0da23c0795bdf48e35ea964c89574303.png",
+      "overflow": false,
+      "announcements": [
+        "Nabasa ni BAYA: DE/DI",
+        "Kumpiyansa: 99.2%"
+      ],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099399207,
+          "finished": 1794099399248,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099400477,
+          "finished": 1794099401287,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-low",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "file": "fixture-low-tl-1366x768.png",
+      "text": "Hindi malinaw ang iyong sulat. Subukang isulat muli ang karakter.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099399207,
+          "finished": 1794099399248,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099400477,
+          "finished": 1794099401287,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099402543,
+          "finished": 1794099403347,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-rejected",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "file": "fixture-rejected-tl-1366x768.png",
+      "text": "Walang nakilalang karakter ng Baybayin. Subukan muli.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099399207,
+          "finished": 1794099399248,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099400477,
+          "finished": 1794099401287,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099402543,
+          "finished": 1794099403347,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099404595,
+          "finished": 1794099405401,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-error",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "file": "fixture-error-tl-1366x768.png",
+      "text": "Hindi masuri ni BAYA ang sulat. Subukan muli.",
+      "rows": 0,
+      "overflow": false,
+      "announcements": [],
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099399207,
+          "finished": 1794099399248,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099400477,
+          "finished": 1794099401287,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099402543,
+          "finished": 1794099403347,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099404595,
+          "finished": 1794099405401,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794099406641,
+          "error": "controlled inference failure"
+        }
+      ]
+    },
+    {
+      "name": "fixture-correct",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "file": "fixture-correct-tl-1366x768.png",
+      "text": "Nakilalang Simbolo\nA\n92.0%\nMahusay!",
+      "rows": 1,
+      "label": "A",
+      "confidence": "92.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/a.7b77735d4a1e441cb91da63493563adb.png",
+      "overflow": false,
+      "announcements": [
+        "Nabasa ni BAYA: A",
+        "Kumpiyansa: 92.0%"
+      ],
+      "stars": "Isa sa dalawang bituin ang nakuha.",
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099399207,
+          "finished": 1794099399248,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794099400477,
+          "finished": 1794099401287,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794099402543,
+          "finished": 1794099403347,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "rejected",
+          "started": 1794099404595,
+          "finished": 1794099405401,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794099406641,
+          "error": "controlled inference failure"
+        },
+        {
+          "mode": "correct",
+          "started": 1794099408684,
+          "finished": 1794099409485,
+          "sum": 1.0000000167638063,
+          "top": [
+            {
+              "probability": 0.9200000166893005,
+              "classIndex": 0
+            },
+            {
+              "probability": 0.05000000074505806,
+              "classIndex": 2
+            },
+            {
+              "probability": 0.029999999329447746,
+              "classIndex": 27
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "mode": "wrong",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "attemptCount": 1
+    },
+    {
+      "mode": "low",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "attemptCount": 1
+    },
+    {
+      "mode": "rejected",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "attemptCount": 1
+    },
+    {
+      "mode": "error",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "attemptCount": 1
+    },
+    {
+      "mode": "correct",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "attemptCount": 2
+    },
+    {
+      "mode": "wrong",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "attemptCount": 3
+    },
+    {
+      "mode": "low",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "attemptCount": 3
+    },
+    {
+      "mode": "rejected",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "attemptCount": 3
+    },
+    {
+      "mode": "error",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "attemptCount": 3
+    },
+    {
+      "mode": "correct",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "attemptCount": 4
+    },
+    {
+      "mode": "wrong",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "attemptCount": 5
+    },
+    {
+      "mode": "low",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "attemptCount": 5
+    },
+    {
+      "mode": "rejected",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "attemptCount": 5
+    },
+    {
+      "mode": "error",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "attemptCount": 5
+    },
+    {
+      "mode": "correct",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "attemptCount": 6
+    },
+    {
+      "mode": "wrong",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "attemptCount": 7
+    },
+    {
+      "mode": "low",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "attemptCount": 7
+    },
+    {
+      "mode": "rejected",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "attemptCount": 7
+    },
+    {
+      "mode": "error",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "attemptCount": 7
+    },
+    {
+      "mode": "correct",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "attemptCount": 8
+    },
+    {
+      "mode": "wrong",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "attemptCount": 9
+    },
+    {
+      "mode": "low",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "attemptCount": 9
+    },
+    {
+      "mode": "rejected",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "attemptCount": 9
+    },
+    {
+      "mode": "error",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "attemptCount": 9
+    },
+    {
+      "mode": "correct",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "attemptCount": 10
+    },
+    {
+      "mode": "wrong",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "attemptCount": 11
+    },
+    {
+      "mode": "low",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "attemptCount": 11
+    },
+    {
+      "mode": "rejected",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "attemptCount": 11
+    },
+    {
+      "mode": "error",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "attemptCount": 11
+    },
+    {
+      "mode": "correct",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "attemptCount": 12
+    },
+    {
+      "mode": "wrong",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "attemptCount": 13
+    },
+    {
+      "mode": "low",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "attemptCount": 13
+    },
+    {
+      "mode": "rejected",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "attemptCount": 13
+    },
+    {
+      "mode": "error",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "attemptCount": 13
+    },
+    {
+      "mode": "correct",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "attemptCount": 14
+    },
+    {
+      "mode": "wrong",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "attemptCount": 15
+    },
+    {
+      "mode": "low",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "attemptCount": 15
+    },
+    {
+      "mode": "rejected",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "attemptCount": 15
+    },
+    {
+      "mode": "error",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "attemptCount": 15
+    },
+    {
+      "mode": "correct",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "attemptCount": 16
+    },
+    {
+      "mode": "wrong",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "attemptCount": 17
+    },
+    {
+      "mode": "low",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "attemptCount": 17
+    },
+    {
+      "mode": "rejected",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "attemptCount": 17
+    },
+    {
+      "mode": "error",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "attemptCount": 17
+    },
+    {
+      "mode": "correct",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "attemptCount": 18
+    },
+    {
+      "mode": "wrong",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "attemptCount": 19
+    },
+    {
+      "mode": "low",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "attemptCount": 19
+    },
+    {
+      "mode": "rejected",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "attemptCount": 19
+    },
+    {
+      "mode": "error",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "attemptCount": 19
+    },
+    {
+      "mode": "correct",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "attemptCount": 20
+    }
+  ],
+  "errors": []
+}

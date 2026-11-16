@@ -1,0 +1,578 @@
+{
+  "checks": [
+    {
+      "name": "known unresolved high-confidence wave",
+      "before": {
+        "guide": "Let's write!",
+        "stars": "No stars earned yet. Two stars are needed.",
+        "attempts": [
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          }
+        ],
+        "runs": [
+          {
+            "mode": "real",
+            "started": 1794099440823,
+            "finished": 1794099440857,
+            "sum": 1.000000044021716,
+            "top": [
+              {
+                "probability": 0.5859888792037964,
+                "classIndex": 15
+              },
+              {
+                "probability": 0.40886542201042175,
+                "classIndex": 38
+              },
+              {
+                "probability": 0.001439346233382821,
+                "classIndex": 60
+              }
+            ]
+          }
+        ],
+        "paths": []
+      },
+      "first": {
+        "guide": "Recognized Character\nHA\n94.6%\nGreat!",
+        "stars": "One of two stars earned.",
+        "attempts": [
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-2",
+            "result_status": "valid"
+          }
+        ],
+        "runs": [
+          {
+            "mode": "real",
+            "started": 1794099440823,
+            "finished": 1794099440857,
+            "sum": 1.000000044021716,
+            "top": [
+              {
+                "probability": 0.5859888792037964,
+                "classIndex": 15
+              },
+              {
+                "probability": 0.40886542201042175,
+                "classIndex": 38
+              },
+              {
+                "probability": 0.001439346233382821,
+                "classIndex": 60
+              }
+            ]
+          },
+          {
+            "mode": "real",
+            "started": 1794099441895,
+            "finished": 1794099441921,
+            "sum": 0.999999826632183,
+            "top": [
+              {
+                "probability": 0.946852445602417,
+                "classIndex": 15
+              },
+              {
+                "probability": 0.03100368194282055,
+                "classIndex": 2
+              },
+              {
+                "probability": 0.008836072869598866,
+                "classIndex": 60
+              }
+            ]
+          }
+        ],
+        "paths": [
+          "M199.9,500.0 Q199.9,500.0 205.6,518.0 Q211.4,536.0 217.2,554.0 Q222.9,572.0 228.7,589.0 Q234.5,606.1 241.1,621.2 Q247.7,636.4 253.4,648.7 Q259.2,661.0 265.0,670.5 Q270.7,679.9 277.3,686.6 Q283.9,693.2 289.7,696.0 Q295.4,698.9 301.2,697.9 Q307.0,697.0 312.7,693.2 Q318.5,689.4 325.1,681.8 Q331.7,674.2 337.4,663.8 Q343.2,653.4 349.0,640.2 Q354.7,626.9 361.3,610.8 Q367.9,594.7 373.7,577.7 Q379.5,560.6 385.2,542.6 Q391.0,524.6 396.8,505.7 Q402.5,486.7 409.1,467.8 Q415.7,448.9 421.5,431.8 Q427.2,414.8 433.0,397.7 Q438.8,380.7 444.5,367.4 Q450.3,354.2 456.9,341.9 Q463.5,329.5 469.2,321.0 Q475.0,312.5 480.8,307.8 Q486.5,303.0 493.1,301.1 Q499.7,299.2 505.5,301.1 Q511.2,303.0 517.0,307.8 Q522.8,312.5 528.5,321.0 Q534.3,329.5 540.9,341.9 Q547.5,354.2 553.3,367.4 Q559.0,380.7 564.8,397.7 Q570.6,414.8 577.1,431.8 Q583.7,448.9 589.5,467.8 Q595.3,486.7 601.0,505.7 Q606.8,524.6 612.6,542.6 Q618.3,560.6 624.9,577.7 Q631.5,594.7 637.3,610.8 Q643.0,626.9 648.8,640.2 Q654.6,653.4 661.2,663.8 Q667.8,674.2 673.5,681.8 Q679.3,689.4 685.1,693.2 Q690.8,697.0 696.6,697.9 Q702.4,698.9 708.9,696.0 Q715.5,693.2 721.3,686.6 Q727.1,679.9 732.8,670.5 Q738.6,661.0 745.2,648.7 Q751.8,636.4 757.5,621.2 Q763.3,606.1 769.1,589.0 Q774.8,572.0 780.6,554.0 Q786.4,536.0 793.0,518.0 Q799.6,500.0 799.6,500.0"
+        ]
+      },
+      "second": {
+        "guide": "Recognized Character\nHA\n94.6%\nGreat!",
+        "stars": "Both stars earned. You can continue.",
+        "attempts": [
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "invalid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-1",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-2",
+            "result_status": "valid"
+          },
+          {
+            "activity_id": "topic-3-2",
+            "result_status": "valid"
+          }
+        ],
+        "runs": [
+          {
+            "mode": "real",
+            "started": 1794099440823,
+            "finished": 1794099440857,
+            "sum": 1.000000044021716,
+            "top": [
+              {
+                "probability": 0.5859888792037964,
+                "classIndex": 15
+              },
+              {
+                "probability": 0.40886542201042175,
+                "classIndex": 38
+              },
+              {
+                "probability": 0.001439346233382821,
+                "classIndex": 60
+              }
+            ]
+          },
+          {
+            "mode": "real",
+            "started": 1794099441895,
+            "finished": 1794099441921,
+            "sum": 0.999999826632183,
+            "top": [
+              {
+                "probability": 0.946852445602417,
+                "classIndex": 15
+              },
+              {
+                "probability": 0.03100368194282055,
+                "classIndex": 2
+              },
+              {
+                "probability": 0.008836072869598866,
+                "classIndex": 60
+              }
+            ]
+          },
+          {
+            "mode": "real",
+            "started": 1794099443253,
+            "finished": 1794099443281,
+            "sum": 0.999999826632183,
+            "top": [
+              {
+                "probability": 0.946852445602417,
+                "classIndex": 15
+              },
+              {
+                "probability": 0.03100368194282055,
+                "classIndex": 2
+              },
+              {
+                "probability": 0.008836072869598866,
+                "classIndex": 60
+              }
+            ]
+          }
+        ],
+        "paths": [
+          "M199.9,500.0 Q199.9,500.0 205.6,518.0 Q211.4,536.0 217.2,554.0 Q222.9,572.0 228.7,589.0 Q234.5,606.1 241.1,621.2 Q247.7,636.4 253.4,648.7 Q259.2,661.0 265.0,670.5 Q270.7,679.9 277.3,686.6 Q283.9,693.2 289.7,696.0 Q295.4,698.9 301.2,697.9 Q307.0,697.0 312.7,693.2 Q318.5,689.4 325.1,681.8 Q331.7,674.2 337.4,663.8 Q343.2,653.4 349.0,640.2 Q354.7,626.9 361.3,610.8 Q367.9,594.7 373.7,577.7 Q379.5,560.6 385.2,542.6 Q391.0,524.6 396.8,505.7 Q402.5,486.7 409.1,467.8 Q415.7,448.9 421.5,431.8 Q427.2,414.8 433.0,397.7 Q438.8,380.7 444.5,367.4 Q450.3,354.2 456.9,341.9 Q463.5,329.5 469.2,321.0 Q475.0,312.5 480.8,307.8 Q486.5,303.0 493.1,301.1 Q499.7,299.2 505.5,301.1 Q511.2,303.0 517.0,307.8 Q522.8,312.5 528.5,321.0 Q534.3,329.5 540.9,341.9 Q547.5,354.2 553.3,367.4 Q559.0,380.7 564.8,397.7 Q570.6,414.8 577.1,431.8 Q583.7,448.9 589.5,467.8 Q595.3,486.7 601.0,505.7 Q606.8,524.6 612.6,542.6 Q618.3,560.6 624.9,577.7 Q631.5,594.7 637.3,610.8 Q643.0,626.9 648.8,640.2 Q654.6,653.4 661.2,663.8 Q667.8,674.2 673.5,681.8 Q679.3,689.4 685.1,693.2 Q690.8,697.0 696.6,697.9 Q702.4,698.9 708.9,696.0 Q715.5,693.2 721.3,686.6 Q727.1,679.9 732.8,670.5 Q738.6,661.0 745.2,648.7 Q751.8,636.4 757.5,621.2 Q763.3,606.1 769.1,589.0 Q774.8,572.0 780.6,554.0 Q786.4,536.0 793.0,518.0 Q799.6,500.0 799.6,500.0"
+        ]
+      },
+      "detectorEnabled": false
+    },
+    {
+      "name": "offline uncertain fixture and reload",
+      "unchangedAttempts": true,
+      "strokesRestored": true,
+      "warmupOnly": true
+    },
+    {
+      "name": "offline real ONNX inference",
+      "guide": "Nakilalang Simbolo\nHA\n94.6%\nMalapit na!",
+      "stars": "Wala pang bituin ang nakuha. Kailangan ng dalawang bituin.",
+      "attempts": [
+        {
+          "activity_id": "topic-3-1",
+          "result_status": "invalid"
+        },
+        {
+          "activity_id": "topic-3-1",
+          "result_status": "invalid"
+        },
+        {
+          "activity_id": "topic-3-1",
+          "result_status": "invalid"
+        },
+        {
+          "activity_id": "topic-3-1",
+          "result_status": "invalid"
+        },
+        {
+          "activity_id": "topic-3-1",
+          "result_status": "invalid"
+        },
+        {
+          "activity_id": "topic-3-1",
+          "result_status": "invalid"
+        },
+        {
+          "activity_id": "topic-3-1",
+          "result_status": "invalid"
+        },
+        {
+          "activity_id": "topic-3-1",
+          "result_status": "invalid"
+        },
+        {
+          "activity_id": "topic-3-1",
+          "result_status": "invalid"
+        },
+        {
+          "activity_id": "topic-3-1",
+          "result_status": "invalid"
+        },
+        {
+          "activity_id": "topic-3-1",
+          "result_status": "invalid"
+        },
+        {
+          "activity_id": "topic-3-1",
+          "result_status": "valid"
+        },
+        {
+          "activity_id": "topic-3-1",
+          "result_status": "valid"
+        },
+        {
+          "activity_id": "topic-3-1",
+          "result_status": "valid"
+        },
+        {
+          "activity_id": "topic-3-1",
+          "result_status": "valid"
+        },
+        {
+          "activity_id": "topic-3-1",
+          "result_status": "valid"
+        },
+        {
+          "activity_id": "topic-3-1",
+          "result_status": "valid"
+        },
+        {
+          "activity_id": "topic-3-1",
+          "result_status": "valid"
+        },
+        {
+          "activity_id": "topic-3-1",
+          "result_status": "valid"
+        },
+        {
+          "activity_id": "topic-3-1",
+          "result_status": "valid"
+        },
+        {
+          "activity_id": "topic-3-1",
+          "result_status": "valid"
+        },
+        {
+          "activity_id": "topic-3-2",
+          "result_status": "valid"
+        },
+        {
+          "activity_id": "topic-3-2",
+          "result_status": "valid"
+        }
+      ],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794099457501,
+          "finished": 1794099457537,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "real",
+          "started": 1794099458816,
+          "finished": 1794099458852,
+          "sum": 0.999999826632183,
+          "top": [
+            {
+              "probability": 0.946852445602417,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.03100368194282055,
+              "classIndex": 2
+            },
+            {
+              "probability": 0.008836072869598866,
+              "classIndex": 60
+            }
+          ]
+        }
+      ],
+      "paths": [
+        "M199.9,500.0 Q199.9,500.0 205.6,518.0 Q211.4,536.0 217.2,554.0 Q222.9,572.0 228.7,589.0 Q234.5,606.1 241.1,621.2 Q247.7,636.4 253.4,648.7 Q259.2,661.0 265.0,670.5 Q270.7,679.9 277.3,686.6 Q283.9,693.2 289.7,696.0 Q295.4,698.9 301.2,697.9 Q307.0,697.0 312.7,693.2 Q318.5,689.4 325.1,681.8 Q331.7,674.2 337.4,663.8 Q343.2,653.4 349.0,640.2 Q354.7,626.9 361.3,610.8 Q367.9,594.7 373.7,577.7 Q379.5,560.6 385.2,542.6 Q391.0,524.6 396.8,505.7 Q402.5,486.7 409.1,467.8 Q415.7,448.9 421.5,431.8 Q427.2,414.8 433.0,397.7 Q438.8,380.7 444.5,367.4 Q450.3,354.2 456.9,341.9 Q463.5,329.5 469.2,321.0 Q475.0,312.5 480.8,307.8 Q486.5,303.0 493.1,301.1 Q499.7,299.2 505.5,301.1 Q511.2,303.0 517.0,307.8 Q522.8,312.5 528.5,321.0 Q534.3,329.5 540.9,341.9 Q547.5,354.2 553.3,367.4 Q559.0,380.7 564.8,397.7 Q570.6,414.8 577.1,431.8 Q583.7,448.9 589.5,467.8 Q595.3,486.7 601.0,505.7 Q606.8,524.6 612.6,542.6 Q618.3,560.6 624.9,577.7 Q631.5,594.7 637.3,610.8 Q643.0,626.9 648.8,640.2 Q654.6,653.4 661.2,663.8 Q667.8,674.2 673.5,681.8 Q679.3,689.4 685.1,693.2 Q690.8,697.0 696.6,697.9 Q702.4,698.9 708.9,696.0 Q715.5,693.2 721.3,686.6 Q727.1,679.9 732.8,670.5 Q738.6,661.0 745.2,648.7 Q751.8,636.4 757.5,621.2 Q763.3,606.1 769.1,589.0 Q774.8,572.0 780.6,554.0 Q786.4,536.0 793.0,518.0 Q799.6,500.0 799.6,500.0"
+      ]
+    }
+  ],
+  "screens": [
+    "real-wave-ha-unresolved-first.png",
+    "real-wave-ha-unresolved-second.png",
+    "insufficient-en-667x375.png",
+    "insufficient-en-844x390.png",
+    "insufficient-en-915x412.png",
+    "insufficient-en-1024x768.png",
+    "insufficient-en-1366x768.png",
+    "insufficient-tl-667x375.png",
+    "insufficient-tl-844x390.png",
+    "insufficient-tl-915x412.png",
+    "insufficient-tl-1024x768.png",
+    "insufficient-tl-1366x768.png",
+    "offline-uncertain-fixture.png",
+    "offline-submitted-restored.png",
+    "offline-real-wave.png"
+  ]
+}

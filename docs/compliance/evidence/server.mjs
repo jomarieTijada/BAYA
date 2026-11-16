@@ -1,0 +1,13 @@
+import os from 'node:os';
+import http from 'node:http';
+import fs from 'node:fs';
+import path from 'node:path';
+import { spawn } from 'node:child_process';
+const dist=path.resolve('docs/compliance/evidence/web-export'),port=5093,debug=9368;
+const mime={'.html':'text/html','.js':'application/javascript','.mjs':'application/javascript','.wasm':'application/wasm','.json':'application/json','.png':'image/png','.svg':'image/svg+xml','.ttf':'font/ttf','.mp4':'video/mp4'};
+const server=http.createServer((req,res)=>{res.setHeader('Cross-Origin-Opener-Policy','same-origin');res.setHeader('Cross-Origin-Embedder-Policy','credentialless');let u=decodeURIComponent(req.url.split('?')[0]);if(!path.extname(u))u='/index.html';let f=path.resolve(dist,'.'+u);if(!f.startsWith(dist+path.sep)||!fs.existsSync(f)){res.writeHead(404);res.end();return;}res.setHeader('Content-Type',mime[path.extname(f)]||'application/octet-stream');fs.createReadStream(f).pipe(res);});
+await new Promise(resolve=>server.listen(port,'127.0.0.1',resolve));
+const chrome=spawn('C:/Program Files/Google/Chrome/Application/chrome.exe',[`--remote-debugging-port=${debug}`,'--headless=new','--disable-gpu',`--user-data-dir=${fs.mkdtempSync(path.join(os.tmpdir(),'baya-system-audit-'))}`,'about:blank'],{stdio:'ignore',windowsHide:true});
+process.on('exit',()=>{chrome.kill();server.close()});
+console.log(JSON.stringify({port,debug}));
+await new Promise(()=>{});

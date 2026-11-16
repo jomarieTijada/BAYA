@@ -1,0 +1,277 @@
+{
+  "checks": [
+    {
+      "name": "instrumentation",
+      "lifecycle": 21,
+      "learner": 868,
+      "resume": 1096
+    },
+    {
+      "name": "drawing reload",
+      "strokeGroups": 2,
+      "geometryEqual": true,
+      "attemptsUnchanged": true
+    },
+    {
+      "name": "Settings back",
+      "geometryEqual": true
+    },
+    {
+      "name": "Continue Learning context",
+      "hero": "CONTINUE WRITING BAYBAYIN\nVowels\nTopic 1 of 2\nContinue"
+    },
+    {
+      "name": "browser Back",
+      "path": "/learner/home"
+    },
+    {
+      "name": "browser Forward",
+      "geometryEqual": true
+    },
+    {
+      "name": "modal browser Back",
+      "before": "/learner/workspaces",
+      "after": "/learner/workspaces",
+      "dialogs": 0,
+      "body": "MY WORKSPACES\nLearn together with your mentor.\nJOIN WORKSPACE\nYou haven’t joined a workspace yet. Ask your mentor for a code."
+    },
+    {
+      "name": "dialog Escape",
+      "stayedOnWorkspace": true
+    },
+    {
+      "name": "profile B isolation",
+      "emptyDraft": true,
+      "correctOwner": true
+    },
+    {
+      "name": "profile A restored",
+      "geometryEqual": true
+    },
+    {
+      "name": "clear reload",
+      "emptyDraft": true
+    },
+    {
+      "name": "restored writing layout",
+      "lang": "en",
+      "width": 667,
+      "height": 375,
+      "overflow": false,
+      "back": true,
+      "label": "Baybayin writing area"
+    },
+    {
+      "name": "restored writing layout",
+      "lang": "en",
+      "width": 844,
+      "height": 390,
+      "overflow": false,
+      "back": true,
+      "label": "Baybayin writing area"
+    },
+    {
+      "name": "restored writing layout",
+      "lang": "en",
+      "width": 915,
+      "height": 412,
+      "overflow": false,
+      "back": true,
+      "label": "Baybayin writing area"
+    },
+    {
+      "name": "restored writing layout",
+      "lang": "en",
+      "width": 1024,
+      "height": 768,
+      "overflow": false,
+      "back": true,
+      "label": "Baybayin writing area"
+    },
+    {
+      "name": "restored writing layout",
+      "lang": "en",
+      "width": 1366,
+      "height": 768,
+      "overflow": false,
+      "back": true,
+      "label": "Baybayin writing area"
+    },
+    {
+      "name": "Continue layout",
+      "lang": "en",
+      "width": 667,
+      "height": 375,
+      "overflow": false,
+      "buttonWidth": 140,
+      "buttonHeight": 44,
+      "label": "Continue Vowels"
+    },
+    {
+      "name": "Continue layout",
+      "lang": "en",
+      "width": 844,
+      "height": 390,
+      "overflow": false,
+      "buttonWidth": 145.078125,
+      "buttonHeight": 44,
+      "label": "Continue Vowels"
+    },
+    {
+      "name": "Continue layout",
+      "lang": "en",
+      "width": 915,
+      "height": 412,
+      "overflow": false,
+      "buttonWidth": 157.859375,
+      "buttonHeight": 44,
+      "label": "Continue Vowels"
+    },
+    {
+      "name": "Continue layout",
+      "lang": "en",
+      "width": 1024,
+      "height": 768,
+      "overflow": false,
+      "buttonWidth": 205,
+      "buttonHeight": 44,
+      "label": "Continue Vowels"
+    },
+    {
+      "name": "Continue layout",
+      "lang": "en",
+      "width": 1366,
+      "height": 768,
+      "overflow": false,
+      "buttonWidth": 227.15625,
+      "buttonHeight": 44,
+      "label": "Continue Vowels"
+    },
+    {
+      "name": "restored writing layout",
+      "lang": "tl",
+      "width": 667,
+      "height": 375,
+      "overflow": false,
+      "back": true,
+      "label": "Lugar ng pagsusulat ng Baybayin"
+    },
+    {
+      "name": "restored writing layout",
+      "lang": "tl",
+      "width": 844,
+      "height": 390,
+      "overflow": false,
+      "back": true,
+      "label": "Lugar ng pagsusulat ng Baybayin"
+    },
+    {
+      "name": "restored writing layout",
+      "lang": "tl",
+      "width": 915,
+      "height": 412,
+      "overflow": false,
+      "back": true,
+      "label": "Lugar ng pagsusulat ng Baybayin"
+    },
+    {
+      "name": "restored writing layout",
+      "lang": "tl",
+      "width": 1024,
+      "height": 768,
+      "overflow": false,
+      "back": true,
+      "label": "Lugar ng pagsusulat ng Baybayin"
+    },
+    {
+      "name": "restored writing layout",
+      "lang": "tl",
+      "width": 1366,
+      "height": 768,
+      "overflow": false,
+      "back": true,
+      "label": "Lugar ng pagsusulat ng Baybayin"
+    },
+    {
+      "name": "Continue layout",
+      "lang": "tl",
+      "width": 667,
+      "height": 375,
+      "overflow": false,
+      "buttonWidth": 140,
+      "buttonHeight": 44,
+      "label": "Magpatuloy Mga Patinig"
+    },
+    {
+      "name": "Continue layout",
+      "lang": "tl",
+      "width": 844,
+      "height": 390,
+      "overflow": false,
+      "buttonWidth": 145.078125,
+      "buttonHeight": 44,
+      "label": "Magpatuloy Mga Patinig"
+    },
+    {
+      "name": "Continue layout",
+      "lang": "tl",
+      "width": 915,
+      "height": 412,
+      "overflow": false,
+      "buttonWidth": 157.859375,
+      "buttonHeight": 44,
+      "label": "Magpatuloy Mga Patinig"
+    },
+    {
+      "name": "Continue layout",
+      "lang": "tl",
+      "width": 1024,
+      "height": 768,
+      "overflow": false,
+      "buttonWidth": 205,
+      "buttonHeight": 44,
+      "label": "Magpatuloy Mga Patinig"
+    },
+    {
+      "name": "Continue layout",
+      "lang": "tl",
+      "width": 1366,
+      "height": 768,
+      "overflow": false,
+      "buttonWidth": 227.15625,
+      "buttonHeight": 44,
+      "label": "Magpatuloy Mga Patinig"
+    },
+    {
+      "name": "offline reload",
+      "geometryEqual": true,
+      "attempts": []
+    }
+  ],
+  "screenshots": [
+    "after-draft.png",
+    "after-reload.png",
+    "join-dialog.png",
+    "writing-en-667x375.png",
+    "writing-en-844x390.png",
+    "writing-en-915x412.png",
+    "writing-en-1024x768.png",
+    "writing-en-1366x768.png",
+    "home-en-667x375.png",
+    "home-en-844x390.png",
+    "home-en-915x412.png",
+    "home-en-1024x768.png",
+    "home-en-1366x768.png",
+    "writing-tl-667x375.png",
+    "writing-tl-844x390.png",
+    "writing-tl-915x412.png",
+    "writing-tl-1024x768.png",
+    "writing-tl-1366x768.png",
+    "home-tl-667x375.png",
+    "home-tl-844x390.png",
+    "home-tl-915x412.png",
+    "home-tl-1024x768.png",
+    "home-tl-1366x768.png",
+    "offline-restored.png"
+  ]
+}

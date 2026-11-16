@@ -1,0 +1,16 @@
+{
+  "status": "blocked-on-independent-reviewed-data",
+  "productionGateEnabled": false,
+  "independentRealReviewedSamples": 0,
+  "missingCategories": [
+    "valid",
+    "imperfect-recognizable",
+    "incomplete",
+    "random-scribble",
+    "unrelated-shape"
+  ],
+  "invalidInputAcceptanceRate": null,
+  "validInputFalseRejectionRate": null,
+  "targetConditionedFalseMasteryRate": null,
+  "blocker": "No reviewed writer-disjoint calibration/holdout set with accessible raw images/strokes and independent labels. Synthetic/reference and supplied CSV diagnostics cannot fill this gap."
+}

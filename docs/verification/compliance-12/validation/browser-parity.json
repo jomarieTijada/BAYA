@@ -1,0 +1,189 @@
+{
+  "productionGateEnabled": false,
+  "rows": [
+    {
+      "id": "sample-000",
+      "preprocessingMax": 0,
+      "characterMax": 4.76837158203125e-7,
+      "validityDifference": 0,
+      "topMatches": true,
+      "characterMs": 67.97000002861023,
+      "validityMs": 57.4449999332428
+    },
+    {
+      "id": "sample-007",
+      "preprocessingMax": 0,
+      "characterMax": 4.0978193283081055e-8,
+      "validityDifference": 0,
+      "topMatches": true,
+      "characterMs": 59.50999999046326,
+      "validityMs": 64.625
+    },
+    {
+      "id": "sample-014",
+      "preprocessingMax": 0,
+      "characterMax": 8.881784197001252e-15,
+      "validityDifference": 5.960464477539063e-8,
+      "topMatches": true,
+      "characterMs": 64.27499997615814,
+      "validityMs": 57.72500002384186
+    },
+    {
+      "id": "sample-021",
+      "preprocessingMax": 0,
+      "characterMax": 8.526512829121202e-13,
+      "validityDifference": 0,
+      "topMatches": true,
+      "characterMs": 60.670000076293945,
+      "validityMs": 63.9449999332428
+    },
+    {
+      "id": "sample-028",
+      "preprocessingMax": 0,
+      "characterMax": 3.126388037344441e-13,
+      "validityDifference": 1.1920928955078125e-7,
+      "topMatches": true,
+      "characterMs": 57.02999997138977,
+      "validityMs": 55.91000008583069
+    },
+    {
+      "id": "sample-035",
+      "preprocessingMax": 0,
+      "characterMax": 6.548361852765083e-11,
+      "validityDifference": 1.1920928955078125e-7,
+      "topMatches": true,
+      "characterMs": 61.77999997138977,
+      "validityMs": 60.56500005722046
+    },
+    {
+      "id": "sample-042",
+      "preprocessingMax": 0,
+      "characterMax": 2.384185791015625e-7,
+      "validityDifference": 1.1920928955078125e-7,
+      "topMatches": true,
+      "characterMs": 62.984999895095825,
+      "validityMs": 61.9650000333786
+    },
+    {
+      "id": "sample-049",
+      "preprocessingMax": 0,
+      "characterMax": 6.705522537231445e-8,
+      "validityDifference": 8.940696716308594e-8,
+      "topMatches": true,
+      "characterMs": 59.59500002861023,
+      "validityMs": 57.205000042915344
+    },
+    {
+      "id": "sample-056",
+      "preprocessingMax": 0,
+      "characterMax": 4.9112713895738125e-11,
+      "validityDifference": 0,
+      "topMatches": true,
+      "characterMs": 57.74500000476837,
+      "validityMs": 60.050000071525574
+    },
+    {
+      "id": "sample-063",
+      "preprocessingMax": 0,
+      "characterMax": 3.552713678800501e-13,
+      "validityDifference": 5.960464477539063e-8,
+      "topMatches": true,
+      "characterMs": 57.389999985694885,
+      "validityMs": 50.56499993801117
+    },
+    {
+      "id": "sample-070",
+      "preprocessingMax": 0,
+      "characterMax": 1.1920928955078125e-7,
+      "validityDifference": 0,
+      "topMatches": true,
+      "characterMs": 58.36500000953674,
+      "validityMs": 60.75499999523163
+    },
+    {
+      "id": "sample-077",
+      "preprocessingMax": 0,
+      "characterMax": 8.881784197001252e-16,
+      "validityDifference": 0,
+      "topMatches": true,
+      "characterMs": 64.47499990463257,
+      "validityMs": 59.37999999523163
+    },
+    {
+      "id": "sample-084",
+      "preprocessingMax": 0,
+      "characterMax": 5.002220859751105e-12,
+      "validityDifference": 1.1920928955078125e-7,
+      "topMatches": true,
+      "characterMs": 55.28500008583069,
+      "validityMs": 55.355000019073486
+    },
+    {
+      "id": "sample-091",
+      "preprocessingMax": 0,
+      "characterMax": 7.460698725481052e-14,
+      "validityDifference": 1.1920928955078125e-7,
+      "topMatches": true,
+      "characterMs": 61.9099999666214,
+      "validityMs": 53.6949999332428
+    },
+    {
+      "id": "sample-098",
+      "preprocessingMax": 0,
+      "characterMax": 1.1920928955078125e-7,
+      "validityDifference": 5.960464477539063e-8,
+      "topMatches": true,
+      "characterMs": 54.18499994277954,
+      "validityMs": 54.639999985694885
+    },
+    {
+      "id": "sample-105",
+      "preprocessingMax": 0,
+      "characterMax": 2.384185791015625e-7,
+      "validityDifference": 5.960464477539063e-8,
+      "topMatches": true,
+      "characterMs": 54.71499991416931,
+      "validityMs": 52.769999980926514
+    }
+  ],
+  "characterColdMs": 1740.6699999570847,
+  "validityColdMs": 1314.2300000190735,
+  "validityNotDownloadedByDefault": true,
+  "gateEnabled": false,
+  "wave": [
+    {
+      "classIndex": 15,
+      "label": "ha",
+      "probability": 0.9873320460319519
+    }
+  ],
+  "smoke": {
+    "modelUrl": "/models/baya/baya_character.onnx",
+    "runtimeVersion": "1.30.0",
+    "executionProvider": "wasm",
+    "inputNames": [
+      "image_input"
+    ],
+    "outputNames": [
+      "Identity:0"
+    ],
+    "outputShape": [
+      1,
+      63
+    ],
+    "probabilitySum": 0.999999935867148,
+    "allFinite": true,
+    "repeatedInferenceCount": 3,
+    "sameSessionReused": true,
+    "sessionCreations": 0
+  },
+  "modelRequests": [
+    "http://127.0.0.1:64881/models/baya/baya_character.onnx",
+    "http://127.0.0.1:64881/models/baya/baya_validity.onnx"
+  ],
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+  "viewport": {
+    "width": 980,
+    "height": 453
+  }
+}

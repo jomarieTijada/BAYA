@@ -1,0 +1,55 @@
+{
+  "date": "2026-11-08",
+  "jest": {
+    "suites": 74,
+    "tests": 719,
+    "passed": true,
+    "seconds": 134.714,
+    "rerunAfterFinalImplementation": true
+  },
+  "typecheckExitCode": 0,
+  "freshLintExitCode": 0,
+  "exportExitCode": 0,
+  "cacheVersion": "baya-pwa-0236c76de3048826",
+  "sqlProgressAssertions": 30,
+  "sqlApprovalAssertions": 41,
+  "browser": {
+    "productionExport": true,
+    "controlledFixtureRecords": true,
+    "liveHostedAuthorization": false,
+    "actualUnauthenticatedGuardVerified": true,
+    "languages": [
+      "en",
+      "tl"
+    ],
+    "viewports": [
+      [
+        667,
+        375
+      ],
+      [
+        844,
+        390
+      ],
+      [
+        915,
+        412
+      ],
+      [
+        1024,
+        768
+      ],
+      [
+        1366,
+        768
+      ]
+    ],
+    "keyboardHorizontalScroll": true,
+    "accessibilityTreeRoles": true
+  },
+  "fixtureStringsAbsentFromProductionBundle": true,
+  "recognitionHashesUnchanged": 10,
+  "committed": false,
+  "pushed": false,
+  "deployed": false
+}

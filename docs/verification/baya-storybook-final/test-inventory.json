@@ -1,0 +1,3516 @@
+{
+  "suites": 76,
+  "tests": 782,
+  "passed": 782,
+  "pending": 0,
+  "inventory": [
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\landing\\__tests__\\useStorybookTurn.test.ts",
+      "tests": [
+        {
+          "name": "recovers to a readable destination if the browser rejects an animation",
+          "status": "passed"
+        },
+        {
+          "name": "locks repeated and opposite requests synchronously, and cancels on unmount",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\writing\\__tests__\\WritingPracticeScreen.recognition.test.tsx",
+      "tests": [
+        {
+          "name": "Module 3 single-action BAYA recognition restores a submitted draft without inference or duplicate attempt and requires retry",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition switches language without clearing strokes, accepted stars, or repeating inference",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition starts without a prediction or inference and renders only Suriin as the check action",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition withholds uncertain output from storage, mastery and accessibility, and preserves retry/localization",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition withholds rejected output from storage, mastery and accessibility, and preserves retry/localization",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition runs one inference and shows only the top prediction with correctness separate from confidence",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition disables Suriin, shows textual loading in the bubble and button, and prevents a repeated request during inference",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition animates the loading dots and stops them when analysis ends",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition shows an empty-canvas message and never starts the model for insufficient drawing",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition shows a friendly bubble on inference failure and logs technical detail only in development",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition does not treat a high-confidence wrong class as a match",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition shows a compact retry result in the shared cream bubble for wrong DA/RA at 99.3% confidence",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition keeps long class names and percentages on one compact row in a narrow feedback column",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition renders correct BA without PA and MA with green success text",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition Balik returns to the previous symbol and clears the current attempt",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition Ulitin returns to writing on the same target and clears strokes",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition allows Susunod only after two saved valid results",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition does not let a stale retry empty the locked completed canvas",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition renders the same result at 360px by 780px",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition renders the same result at 390px by 844px",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition renders the same result at 430px by 932px",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition renders the same result at 768px by 1024px",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition renders the same result at 1024px by 768px",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition renders the same result at 1366px by 768px",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition renders the same result at 1440px by 900px",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition requires Ulitin to start a fresh drawing after evaluation",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition gates a real screen evaluation at raw 0.8",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition gates a real screen evaluation at raw 0.800001",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition gates a real screen evaluation at raw 0.799999",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition gates a real screen evaluation at raw 0.7996",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition guards the handler at 0 and 1; preserves progress on failure and retry; caps at 2",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition blocks replay of the same completed canvas, including a captured old handler",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition enforces independent drawing progression [0.92,0.85]",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition enforces independent drawing progression [0.8,0.8]",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition enforces independent drawing progression [0.91,0.76,-0.98,0.84]",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition counts a duplicated promise resolution once",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition ignores attempt A after new activity B has already succeeded",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition preserves a success through runtime failure and canvas clearing",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition ignores inference invalidated by target",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition ignores inference invalidated by unmount",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition blocks drawing and clear events throughout saving without discarding the saved success",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition opening help preserves strokes, accepted progress, and pending saves",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition blocks even captured clear, undo and retry handlers during inference",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition retains successful count and strokes through viewport changes, while reopening starts a fresh session",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition rejects malformed inference without saving or credit",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition completes a topic once only after every character has two valid checks",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition does not infer or store an unusable drawing []",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition does not infer or store an unusable drawing [[Array]]",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition does not infer or store an unusable drawing [[Array]]",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition rejects a captured check handler after the canvas was cleared",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition preserves the previous topic boundary selection but resets mastery",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition uses the final lesson-completion path once after mastering the final topic",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 single-action BAYA recognition uses neutral confidence styling and the shared lesson speech bubble",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\ml\\__tests__\\bayaPreprocessing.test.ts",
+      "tests": [
+        {
+          "name": "matches notebook OpenCV/Pillow tensor: a",
+          "status": "passed"
+        },
+        {
+          "name": "matches notebook OpenCV/Pillow tensor: ba",
+          "status": "passed"
+        },
+        {
+          "name": "matches notebook OpenCV/Pillow tensor: be_bi",
+          "status": "passed"
+        },
+        {
+          "name": "matches notebook OpenCV/Pillow tensor: bo_bu",
+          "status": "passed"
+        },
+        {
+          "name": "matches notebook OpenCV/Pillow tensor: b",
+          "status": "passed"
+        },
+        {
+          "name": "matches notebook OpenCV/Pillow tensor: nga",
+          "status": "passed"
+        },
+        {
+          "name": "matches notebook OpenCV/Pillow tensor: ra",
+          "status": "passed"
+        },
+        {
+          "name": "matches notebook OpenCV/Pillow tensor: rgba-random",
+          "status": "passed"
+        },
+        {
+          "name": "matches notebook OpenCV/Pillow tensor: edge-strokes",
+          "status": "passed"
+        },
+        {
+          "name": "rejects blank, transparent and malformed images",
+          "status": "passed"
+        },
+        {
+          "name": "centers complete ink, keeps aspect ratio, padding and an invertible transform",
+          "status": "passed"
+        },
+        {
+          "name": "uses NCHW ImageNet normalization, white borders and minimum padded side",
+          "status": "passed"
+        },
+        {
+          "name": "composites transparent ink over white and preserves grayscale channel order",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\mentor\\__tests__\\flows.test.tsx",
+      "tests": [
+        {
+          "name": "completes password recovery only after validating and submitting the email code",
+          "status": "passed"
+        },
+        {
+          "name": "validates login and toggles secure entry without submitting invalid fields",
+          "status": "passed"
+        },
+        {
+          "name": "transitions from credentials to real service challenge and verified navigation",
+          "status": "passed"
+        },
+        {
+          "name": "does not fabricate success with the production adapter",
+          "status": "passed"
+        },
+        {
+          "name": "prevents duplicate requests and shows loading",
+          "status": "passed"
+        },
+        {
+          "name": "registers only matching passwords and follows verification response",
+          "status": "passed"
+        },
+        {
+          "name": "represents expired OTP and does not enter a workspace",
+          "status": "passed"
+        },
+        {
+          "name": "guards mentor routes while session is unavailable",
+          "status": "passed"
+        },
+        {
+          "name": "distinguishes loading from an authoritative empty list and wires creation",
+          "status": "passed"
+        },
+        {
+          "name": "navigates using UUID rather than code and renders service counts",
+          "status": "passed"
+        },
+        {
+          "name": "creates only after confirmation and passes the trimmed name",
+          "status": "passed"
+        },
+        {
+          "name": "handles existing memberships through the authorized service",
+          "status": "passed"
+        },
+        {
+          "name": "shows verified learner memberships",
+          "status": "passed"
+        },
+        {
+          "name": "does not confirm a not_found join",
+          "status": "passed"
+        },
+        {
+          "name": "does not confirm a inactive join",
+          "status": "passed"
+        },
+        {
+          "name": "does not confirm a unauthorized join",
+          "status": "passed"
+        },
+        {
+          "name": "does not confirm a offline join",
+          "status": "passed"
+        },
+        {
+          "name": "defers provider-specific rules and never treats a public code as a UUID",
+          "status": "passed"
+        },
+        {
+          "name": "wires registration and password reset links",
+          "status": "passed"
+        },
+        {
+          "name": "only reports reset delivery after the provider confirms the request",
+          "status": "passed"
+        },
+        {
+          "name": "does not show an empty workspace state for a failed fetch",
+          "status": "passed"
+        },
+        {
+          "name": "allows a provider-backed OTP resend and replaces the challenge",
+          "status": "passed"
+        },
+        {
+          "name": "archives only after confirmation and preserves the workspace identity",
+          "status": "passed"
+        },
+        {
+          "name": "exposes code-only joining without requiring learner email",
+          "status": "passed"
+        },
+        {
+          "name": "routes learner account actions to Settings",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\story\\__tests__\\StorybookTopicScreen.test.tsx",
+      "tests": [
+        {
+          "name": "Approved storybooks with a separate introductory slide keeps Topic 1.3 active while switching complete body paragraphs without saving progress",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide changes the lesson language without remounting the playing media",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide keeps desktop proportions and the inline guide when a long lesson needs scrolling",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide never paints an unmeasured desktop layout during compact topic navigation",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide opens and dismisses without remounting video or shifting layout (reduced motion: false)",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide opens and dismisses without remounting video or shifting layout (reduced motion: true)",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide returns to the introduction and resets it on topic re-entry without saving progress",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide also shows a separate introductory slide in the activity preview",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide returns from Topic 2 to Topic 1 content, even without a prior introductory visit",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide uses the previous and next topic order and completes only on Next",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide renders topic-1-1 with exact topic and story titles, visual and BAYA",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide renders topic-1-2 with exact topic and story titles, visual and BAYA",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide shows the separate intro, then history with video creator credit and no source block",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide opens the GINHAWA website when the video credit is pressed",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide shares the invitation/history/source at 360px",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide shares the invitation/history/source at 390px",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide shares the invitation/history/source at 430px",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide shares the invitation/history/source at 768px",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide shares the invitation/history/source at 1024px",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide shares the invitation/history/source at 1366px",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide shares the invitation/history/source at 1440px",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide shows only the supplied syllabary concept and examples on Topic 2",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide navigates by approved topic order and ends at the module list",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide awaits progress persistence before triggering navigation",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide protects against rapid repeated Next clicks with single save and navigation",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide does not navigate if persistence fails",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide uses the shared learner header controls and opens Settings",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide keeps BAYA within the shared spread size at 412 \u00d7 915",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide keeps BAYA within the shared spread size at 1440 \u00d7 900",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide allows a larger BAYA within a wide character spread",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide sizes story media and type from their measured columns",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide never substitutes a page for an unapproved topic",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide uses the same template and visual sizing for every topic at 390 \u00d7 844",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide uses the same template and visual sizing for every topic at 667 \u00d7 375",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide uses the same template and visual sizing for every topic at 726 \u00d7 360",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide uses the same template and visual sizing for every topic at 844 \u00d7 390",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide uses the same template and visual sizing for every topic at 872 \u00d7 447",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide uses the same template and visual sizing for every topic at 915 \u00d7 412",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide uses the same template and visual sizing for every topic at 1024 \u00d7 768",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide uses the same template and visual sizing for every topic at 1366 \u00d7 768",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide uses the same template and visual sizing for every topic at 768 \u00d7 1024",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide uses the same template and visual sizing for every topic at 1440 \u00d7 900",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide keeps a bounded, nonzero video frame while rotating through portrait and short landscape",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide keeps one story per topic and only the approved Topic 1 intro video",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide keeps the story spread whenever both columns fit at 360 \u00d7 740",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide keeps the story spread whenever both columns fit at 390 \u00d7 844",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide keeps the story spread whenever both columns fit at 412 \u00d7 915",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide keeps the story spread whenever both columns fit at 590 \u00d7 400",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide keeps the story spread whenever both columns fit at 640 \u00d7 360",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide keeps the story spread whenever both columns fit at 726 \u00d7 360",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide keeps the story spread whenever both columns fit at 844 \u00d7 390",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide keeps the story spread whenever both columns fit at 768 \u00d7 1024",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide keeps the story spread whenever both columns fit at 1024 \u00d7 768",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide keeps the story spread whenever both columns fit at 900 \u00d7 1200",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide keeps the story spread whenever both columns fit at 1440 \u00d7 900",
+          "status": "passed"
+        },
+        {
+          "name": "Approved storybooks with a separate introductory slide keeps the story spread whenever both columns fit at 1600 \u00d7 900",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\landing\\__tests__\\MascotOrigin.test.tsx",
+      "tests": [
+        {
+          "name": "keeps the uncleared photograph unbundled and preserves source provenance",
+          "status": "passed"
+        },
+        {
+          "name": "reads five illustrated pages, reverses, finishes, and reopens at page one",
+          "status": "passed"
+        },
+        {
+          "name": "keeps the saved language and changes language without resetting the page",
+          "status": "passed"
+        },
+        {
+          "name": "has five complete, ordered local pages in en",
+          "status": "passed"
+        },
+        {
+          "name": "has five complete, ordered local pages in tl",
+          "status": "passed"
+        },
+        {
+          "name": "uses the latest language when a turn finishes without resetting the destination",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\mentor\\__tests__\\joinApproval.test.tsx",
+      "tests": [
+        {
+          "name": "opens and dismisses the form without navigation, rereads, or losing its draft",
+          "status": "passed"
+        },
+        {
+          "name": "requires a code and handles an existing pending request without active membership",
+          "status": "passed"
+        },
+        {
+          "name": "keeps the initial form free of status controls and technical warnings",
+          "status": "passed"
+        },
+        {
+          "name": "shows status instead of another join form for an existing pending request",
+          "status": "passed"
+        },
+        {
+          "name": "sends code only, prevents duplicate presses, shows pending confirmation, and never syncs pending data",
+          "status": "passed"
+        },
+        {
+          "name": "keeps the code and enables retry after an offline submission",
+          "status": "passed"
+        },
+        {
+          "name": "refreshes pending to approved only after verifying the active membership",
+          "status": "passed"
+        },
+        {
+          "name": "reviews a request as approved then refreshes confirmed counts",
+          "status": "passed"
+        },
+        {
+          "name": "reviews a request as rejected then refreshes confirmed counts",
+          "status": "passed"
+        },
+        {
+          "name": "does not replace loading or denied reads with a false empty list",
+          "status": "passed"
+        },
+        {
+          "name": "opens and copies the authoritative reference without reviewing the request",
+          "status": "passed"
+        },
+        {
+          "name": "keeps a large list visible during refresh and a failed refresh, without duplicate reads",
+          "status": "passed"
+        },
+        {
+          "name": "keeps other requests usable while one review is pending and retains the card on failure",
+          "status": "passed"
+        },
+        {
+          "name": "scopes reads to the selected workspace and clears the previous workspace while switching",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\progress\\__tests__\\progress.test.tsx",
+      "tests": [
+        {
+          "name": "confirms learner logout and preserves access for email learners",
+          "status": "passed"
+        },
+        {
+          "name": "confirms learner logout and preserves access for anonymous learners",
+          "status": "passed"
+        },
+        {
+          "name": "confirms learner logout and preserves access for local learners",
+          "status": "passed"
+        },
+        {
+          "name": "keeps learner logout open when account sign-out fails",
+          "status": "passed"
+        },
+        {
+          "name": "opens logout confirmation over Choose Workspace without another settings screen",
+          "status": "passed"
+        },
+        {
+          "name": "shows synchronized data and opens the correct learner within its workspace",
+          "status": "passed"
+        },
+        {
+          "name": "shows a true empty state only after a successful read",
+          "status": "passed"
+        },
+        {
+          "name": "does not render mock learners or zero progress when the provider is unavailable",
+          "status": "passed"
+        },
+        {
+          "name": "shows topic detail from the service",
+          "status": "passed"
+        },
+        {
+          "name": "opens and toggles options without reloading the dashboard, then navigates with workspace context",
+          "status": "passed"
+        },
+        {
+          "name": "confirms logout directly in the menu, supports cancellation, and signs out before navigating",
+          "status": "passed"
+        },
+        {
+          "name": "dismisses on native outside press and back without changing data",
+          "status": "passed"
+        },
+        {
+          "name": "deduplicates refresh, keeps existing data visible, and toasts only the actual result",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\characters\\__tests__\\CharacterViewer.test.tsx",
+      "tests": [
+        {
+          "name": "CharacterViewer shows one contextual swipe hint only while the selector overflows",
+          "status": "passed"
+        },
+        {
+          "name": "CharacterViewer renders the approved ka word and target emphasis with a subordinate guide",
+          "status": "passed"
+        },
+        {
+          "name": "CharacterViewer renders the approved nga word and target emphasis with a subordinate guide",
+          "status": "passed"
+        },
+        {
+          "name": "CharacterViewer renders the approved ya word and target emphasis with a subordinate guide",
+          "status": "passed"
+        },
+        {
+          "name": "CharacterViewer uses one thin neutral guide for every Lesson 2 character",
+          "status": "passed"
+        },
+        {
+          "name": "CharacterViewer keeps the final consonant and virama together when fitting KAibigan into a narrow bubble",
+          "status": "passed"
+        },
+        {
+          "name": "CharacterViewer uses the same example, BAYA control, and selector for vowels and consonants",
+          "status": "passed"
+        },
+        {
+          "name": "CharacterViewer uses the Module 1 storybook layout at 390 px",
+          "status": "passed"
+        },
+        {
+          "name": "CharacterViewer uses the Module 1 storybook layout at 726 px",
+          "status": "passed"
+        },
+        {
+          "name": "CharacterViewer uses the Module 1 storybook layout at 780 px",
+          "status": "passed"
+        },
+        {
+          "name": "CharacterViewer uses the Module 1 storybook layout at 1440 px",
+          "status": "passed"
+        },
+        {
+          "name": "CharacterViewer speaks the selected character when BAYA is pressed without a recording",
+          "status": "passed"
+        },
+        {
+          "name": "CharacterViewer leaves Expo to release the player when a letter or topic unmounts",
+          "status": "passed"
+        },
+        {
+          "name": "CharacterViewer plays a supplied recording through the shared Expo audio controller",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\activity\\__tests__\\ActivityScreen.test.tsx",
+      "tests": [
+        {
+          "name": "Activity lifecycle does not substitute another topic for an unknown topic",
+          "status": "passed"
+        },
+        {
+          "name": "Activity lifecycle requires the video end event before advancing",
+          "status": "passed"
+        },
+        {
+          "name": "Activity lifecycle resets step state when the supplied topic changes and tolerates empty content",
+          "status": "passed"
+        },
+        {
+          "name": "Activity lifecycle does not reuse the first video completion for a second video",
+          "status": "passed"
+        },
+        {
+          "name": "Activity lifecycle keeps video controls clear at 390 x 844",
+          "status": "passed"
+        },
+        {
+          "name": "Activity lifecycle keeps video controls clear at 844 x 390",
+          "status": "passed"
+        },
+        {
+          "name": "Activity lifecycle keeps video controls clear at 768 x 1024",
+          "status": "passed"
+        },
+        {
+          "name": "Activity lifecycle keeps video controls clear at 1440 x 900",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\home\\__tests__\\LearnerHomeScreen.test.tsx",
+      "tests": [
+        {
+          "name": "Learner Home \u2014 English copy consistency DashboardCards shows English button labels at 360px \u2014 no Filipino",
+          "status": "passed"
+        },
+        {
+          "name": "Learner Home \u2014 English copy consistency DashboardCards shows English button labels at 390px \u2014 no Filipino",
+          "status": "passed"
+        },
+        {
+          "name": "Learner Home \u2014 English copy consistency DashboardCards shows English button labels at 430px \u2014 no Filipino",
+          "status": "passed"
+        },
+        {
+          "name": "Learner Home \u2014 English copy consistency DashboardCards shows English button labels at 768px \u2014 no Filipino",
+          "status": "passed"
+        },
+        {
+          "name": "Learner Home \u2014 English copy consistency DashboardCards shows English button labels at 1024px \u2014 no Filipino",
+          "status": "passed"
+        },
+        {
+          "name": "Learner Home \u2014 English copy consistency DashboardCards shows English button labels at 1366px \u2014 no Filipino",
+          "status": "passed"
+        },
+        {
+          "name": "Learner Home \u2014 English copy consistency DashboardCards shows English button labels at 1440px \u2014 no Filipino",
+          "status": "passed"
+        },
+        {
+          "name": "Learner Home \u2014 English copy consistency DashboardCards shows \"None Yet\" when there is no achievement",
+          "status": "passed"
+        },
+        {
+          "name": "Learner Home \u2014 English copy consistency DashboardCards shows \"Rewards\" and enables button when there is an achievement",
+          "status": "passed"
+        },
+        {
+          "name": "Learner Home \u2014 English copy consistency LearnerHeader keeps workspace actions inside settings at 360px",
+          "status": "passed"
+        },
+        {
+          "name": "Learner Home \u2014 English copy consistency LearnerHeader keeps workspace actions inside settings at 390px",
+          "status": "passed"
+        },
+        {
+          "name": "Learner Home \u2014 English copy consistency LearnerHeader keeps workspace actions inside settings at 430px",
+          "status": "passed"
+        },
+        {
+          "name": "Learner Home \u2014 English copy consistency LearnerHeader keeps workspace actions inside settings at 768px",
+          "status": "passed"
+        },
+        {
+          "name": "Learner Home \u2014 English copy consistency LearnerHeader keeps workspace actions inside settings at 1024px",
+          "status": "passed"
+        },
+        {
+          "name": "Learner Home \u2014 English copy consistency LearnerHeader keeps workspace actions inside settings at 1366px",
+          "status": "passed"
+        },
+        {
+          "name": "Learner Home \u2014 English copy consistency LearnerHeader keeps workspace actions inside settings at 1440px",
+          "status": "passed"
+        },
+        {
+          "name": "Learner Home \u2014 English copy consistency LearnerHeader navigates from Join Workspace and closes the menu",
+          "status": "passed"
+        },
+        {
+          "name": "Learner Home \u2014 English copy consistency LearnerHeader navigates from Learner Account and closes the menu",
+          "status": "passed"
+        },
+        {
+          "name": "Learner Home \u2014 English copy consistency LearnerHeader preserves access to workspace and sync settings",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\activity\\__tests__\\Topic12StorybookScreen.test.tsx",
+      "tests": [
+        {
+          "name": "Topic 1.2 \u2014 Fullscreen Storybook Learning Screen (Baybayin: Isang Silabaryo (Pantigan)) 1. retrieves registered topic12ActivityData via getActivityData(\"topic-1-2\")",
+          "status": "passed"
+        },
+        {
+          "name": "Topic 1.2 \u2014 Fullscreen Storybook Learning Screen (Baybayin: Isang Silabaryo (Pantigan)) 2. renders Topic 1.2 with ONE SCREEN = ONE TOPIC storybook layout",
+          "status": "passed"
+        },
+        {
+          "name": "Topic 1.2 \u2014 Fullscreen Storybook Learning Screen (Baybayin: Isang Silabaryo (Pantigan)) 3. reserves the left panel with a placeholder and removes unvalidated mockups",
+          "status": "passed"
+        },
+        {
+          "name": "Topic 1.2 \u2014 Fullscreen Storybook Learning Screen (Baybayin: Isang Silabaryo (Pantigan)) 4. renders Right Panel: Story content begins with its title, lead narration, and keywords",
+          "status": "passed"
+        },
+        {
+          "name": "Topic 1.2 \u2014 Fullscreen Storybook Learning Screen (Baybayin: Isang Silabaryo (Pantigan)) 5. renders BAYA mascot learning guide and speech bubble with custom line without \"Sabi ni BAYA\"",
+          "status": "passed"
+        },
+        {
+          "name": "Topic 1.2 \u2014 Fullscreen Storybook Learning Screen (Baybayin: Isang Silabaryo (Pantigan)) 6. provides functional navigation: circular back exits/steps, circular next completes topic",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\writing\\__tests__\\WritingHelpGuide.test.tsx",
+      "tests": [
+        {
+          "name": "guides in order, highlights real targets, and illustrates an unavailable action without invoking it",
+          "status": "passed"
+        },
+        {
+          "name": "keeps a popup within safe bounds and avoids a target when room is available",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\landing\\__tests__\\LandingHero.test.tsx",
+      "tests": [
+        {
+          "name": "LandingHero (White-Box Suite) Branch: renders stacked layout for Phone Portrait with width < 360",
+          "status": "passed"
+        },
+        {
+          "name": "LandingHero (White-Box Suite) Branch: evaluates logo size 60 for Phone Portrait with width >= 360",
+          "status": "passed"
+        },
+        {
+          "name": "LandingHero (White-Box Suite) Branch: renders wide layout and omits top edge in Phone Landscape",
+          "status": "passed"
+        },
+        {
+          "name": "LandingHero (White-Box Suite) Branch: renders wide desktop layout with uncompact controls and 820 cap",
+          "status": "passed"
+        },
+        {
+          "name": "LandingHero (White-Box Suite) Branch: uses 500 cap for Tablet Landscape mascot sizing",
+          "status": "passed"
+        },
+        {
+          "name": "LandingHero (White-Box Suite) Branch: uses 390 cap and size 76 logo for stacked non-phone layout",
+          "status": "passed"
+        },
+        {
+          "name": "LandingHero (White-Box Suite) delegates learner and mentor button presses to prop handlers",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\lessons\\__tests__\\curriculumScreens.test.tsx",
+      "tests": [
+        {
+          "name": "Approved curriculum rendered in learner screens shows all three modules and nine topic cards before and after hydration",
+          "status": "passed"
+        },
+        {
+          "name": "Approved curriculum rendered in learner screens shows completion only as an upper-right check on a finished module card",
+          "status": "passed"
+        },
+        {
+          "name": "Approved curriculum rendered in learner screens opens the next unfinished approved topic directly",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\mentor\\__tests__\\activeMembers.test.tsx",
+      "tests": [
+        {
+          "name": "renders named members, count and compact actions, then cancels without removal",
+          "status": "passed"
+        },
+        {
+          "name": "confirms the correct service call once, then updates count and preserves restore access",
+          "status": "passed"
+        },
+        {
+          "name": "keeps the member and confirmation available after a failed removal",
+          "status": "passed"
+        },
+        {
+          "name": "shows a compact zero-member state",
+          "status": "passed"
+        },
+        {
+          "name": "labels genuinely missing names without inventing identity",
+          "status": "passed"
+        },
+        {
+          "name": "distinguishes loading and failed reads from an empty member list and offers retry",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\settings\\__tests__\\SettingsScreen.test.tsx",
+      "tests": [
+        {
+          "name": "matches the independent wireframe and opens real join navigation",
+          "status": "passed"
+        },
+        {
+          "name": "does not claim independence during loading or a failed membership read",
+          "status": "passed"
+        },
+        {
+          "name": "uses actual membership name, code and sync time",
+          "status": "passed"
+        },
+        {
+          "name": "keeps the last confirmed time and never reports success on upload failure",
+          "status": "passed"
+        },
+        {
+          "name": "prevents repeat sync submission and refreshes memberships only after confirmation",
+          "status": "passed"
+        },
+        {
+          "name": "does not enable a presentation-only sync button without a handler",
+          "status": "passed"
+        },
+        {
+          "name": "explains pending approval without inviting another join or enabling sync",
+          "status": "passed"
+        },
+        {
+          "name": "returns to the mounted activity when Settings was pushed over it",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\__tests__\\ProfileSetupForm.test.tsx",
+      "tests": [
+        {
+          "name": "ProfileSetupForm submits profile successfully and calls onContinue",
+          "status": "passed"
+        },
+        {
+          "name": "ProfileSetupForm displays user-friendly message when OPFS lock conflict occurs without crashing",
+          "status": "passed"
+        },
+        {
+          "name": "ProfileSetupForm displays generic error on other database errors",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\scripts\\__tests__\\pwaCache.test.ts",
+      "tests": [
+        {
+          "name": "exports and precaches only the active model, LiteRT WASM, and app shell",
+          "status": "passed"
+        },
+        {
+          "name": "fails export when the lesson MP4 is absent",
+          "status": "passed"
+        },
+        {
+          "name": "leaves video and Range requests to the browser without a cache or SPA response",
+          "status": "passed"
+        },
+        {
+          "name": "changes the cache version when an exported bundle changes",
+          "status": "passed"
+        },
+        {
+          "name": "uses LiteRT without legacy or native inference dependencies",
+          "status": "passed"
+        },
+        {
+          "name": "pins offline fetches to each exported asset checksum",
+          "status": "passed"
+        },
+        {
+          "name": "removes obsolete BAYA caches on activation and preserves unrelated caches",
+          "status": "passed"
+        },
+        {
+          "name": "deletes a partial install cache on download failure without activating it",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\characters\\__tests__\\CharacterTopicScreen.test.tsx",
+      "tests": [
+        {
+          "name": "Module 2 letter navigation moves through letters with the footer before completing the vowel topic",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 letter navigation keeps the final topic button as Susunod until the final consonant",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\progress\\__tests__\\ResultsSummaryTable.test.tsx",
+      "tests": [
+        {
+          "name": "exposes tabular relationships, counts, confirmed zero, missing data and detail action",
+          "status": "passed"
+        },
+        {
+          "name": "switches language without fetching again, changing numbers or losing workspace context",
+          "status": "passed"
+        },
+        {
+          "name": "does not show another workspace while loading or after its late promise resolves",
+          "status": "passed"
+        },
+        {
+          "name": "labels a transient refresh failure as stale but removes results after authorization fails",
+          "status": "passed"
+        },
+        {
+          "name": "hides protected content immediately on a Supabase session revision and rechecks authority",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\media\\__tests__\\media.test.tsx",
+      "tests": [
+        {
+          "name": "Media resilience seeks the introductory web video once per source without autoplay or rewind resets",
+          "status": "passed"
+        },
+        {
+          "name": "Media resilience waits for native metadata and preserves manual replay across callback changes",
+          "status": "passed"
+        },
+        {
+          "name": "Media resilience rejects missing asset IDs and unapproved remote hosts",
+          "status": "passed"
+        },
+        {
+          "name": "Media resilience falls back when an image fails to decode",
+          "status": "passed"
+        },
+        {
+          "name": "Media resilience renders bundled video through the HTML video element on web",
+          "status": "passed"
+        },
+        {
+          "name": "Media resilience resolves the lesson asset ID and only fails on a real HTML media error",
+          "status": "passed"
+        },
+        {
+          "name": "Media resilience waits for a native local asset URI before creating the player and retries",
+          "status": "passed"
+        },
+        {
+          "name": "Media resilience uses a native end event for completion and renders learner-safe load failures",
+          "status": "passed"
+        },
+        {
+          "name": "Media resilience emits audio completion once even when the callback changes",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\writing\\__tests__\\BayaWritingGuide.test.tsx",
+      "tests": [
+        {
+          "name": "shares the lesson paper, border, radius and shadow while pointing to the mascot below",
+          "status": "passed"
+        },
+        {
+          "name": "preserves accepted/rejected feedback and raw probabilities with the same bubble treatment",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\writing\\__tests__\\WritingCanvas.test.tsx",
+      "tests": [
+        {
+          "name": "live canvas capture guards captures normalized points and ignores duplicate moves",
+          "status": "passed"
+        },
+        {
+          "name": "live canvas capture guards ignores a start outside the writing region -10,20",
+          "status": "passed"
+        },
+        {
+          "name": "live canvas capture guards ignores a start outside the writing region 210,20",
+          "status": "passed"
+        },
+        {
+          "name": "live canvas capture guards ignores a start outside the writing region 20,-10",
+          "status": "passed"
+        },
+        {
+          "name": "live canvas capture guards ignores a start outside the writing region 20,110",
+          "status": "passed"
+        },
+        {
+          "name": "live canvas capture guards ignores a start outside the writing region NaN,20",
+          "status": "passed"
+        },
+        {
+          "name": "live canvas capture guards ignores a start outside the writing region Infinity,20",
+          "status": "passed"
+        },
+        {
+          "name": "live canvas capture guards does not turn outside movement into a clamped edge stroke",
+          "status": "passed"
+        },
+        {
+          "name": "live canvas capture guards caps stroke starts as well as appended points",
+          "status": "passed"
+        },
+        {
+          "name": "live canvas capture guards ends the active stroke when a second finger joins instead of connecting unrelated touches",
+          "status": "passed"
+        },
+        {
+          "name": "live canvas capture guards ends an active gesture when canvas geometry changes during rotation",
+          "status": "passed"
+        },
+        {
+          "name": "live canvas capture guards blocks drawing while disabled and clears an active gesture on reset",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\writing\\__tests__\\WritingNavigation.test.tsx",
+      "tests": [
+        {
+          "name": "has one primary action for ready (drawing=false)",
+          "status": "passed"
+        },
+        {
+          "name": "has one primary action for ready (drawing=true)",
+          "status": "passed"
+        },
+        {
+          "name": "has one primary action for checking (drawing=false)",
+          "status": "passed"
+        },
+        {
+          "name": "has one primary action for retry (drawing=false)",
+          "status": "passed"
+        },
+        {
+          "name": "has one primary action for complete (drawing=false)",
+          "status": "passed"
+        },
+        {
+          "name": "keeps completion stable and blocks all actions while topic persistence is pending",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\writing\\__tests__\\ConfidenceCard.test.tsx",
+      "tests": [
+        {
+          "name": "opens a guided popup beside Pagsusuri and keeps feedback mounted",
+          "status": "passed"
+        },
+        {
+          "name": "pulses once, with no replay on rerender, disclosure or preference changes",
+          "status": "passed"
+        },
+        {
+          "name": "stays static for reduced motion and does not pulse after help has already been used",
+          "status": "passed"
+        },
+        {
+          "name": "keeps help usable if animation setup fails",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\ui\\__tests__\\BayaNotifications.test.tsx",
+      "tests": [
+        {
+          "name": "coalesces duplicate messages, permits dismissal, and expires notifications",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\writing\\__tests__\\WritingMasteryIndicator.test.tsx",
+      "tests": [
+        {
+          "name": "writing achievement stars breathes only the next outlined star, removes visible fractions, and celebrates actual increases",
+          "status": "passed"
+        },
+        {
+          "name": "writing achievement stars does not celebrate restored state or a character reset",
+          "status": "passed"
+        },
+        {
+          "name": "writing achievement stars honors reduced motion without replaying success when preference changes",
+          "status": "passed"
+        },
+        {
+          "name": "writing achievement stars keeps static earned states when animation setup fails",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\localization\\__tests__\\LocalizationProvider.test.tsx",
+      "tests": [
+        {
+          "name": "language preference and presentation switches immediately, preserves mounted input and user text, survives remount",
+          "status": "passed"
+        },
+        {
+          "name": "language preference and presentation serializes rapid changes and reports failed persistence without undoing the UI",
+          "status": "passed"
+        },
+        {
+          "name": "language preference and presentation uses the existing device table and never overwrites a preference during load",
+          "status": "passed"
+        },
+        {
+          "name": "language preference and presentation remains usable when preference loading fails",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\ui\\cards\\__tests__\\BaseCard.test.tsx",
+      "tests": [
+        {
+          "name": "Shared card interaction locks interaction without dropping header/content/footer slots",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\landing\\__tests__\\RolePlaceholderScreen.test.tsx",
+      "tests": [
+        {
+          "name": "RolePlaceholderScreen (White-Box Suite) Branch: renders Learner content and navigates back when canGoBack is true",
+          "status": "passed"
+        },
+        {
+          "name": "RolePlaceholderScreen (White-Box Suite) Branch: renders Mentor content and replaces route with root when canGoBack is false",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\ui\\__tests__\\SwipeHint.test.tsx",
+      "tests": [
+        {
+          "name": "uses actual overflow and reverses the finger direction at the end, including resize",
+          "status": "passed"
+        },
+        {
+          "name": "demonstrates the gesture twice, then stays static across rerenders and boundaries without intercepting touch",
+          "status": "passed"
+        },
+        {
+          "name": "keeps a visible static cue for reduced motion",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\story\\__tests__\\VideoCreditLink.test.tsx",
+      "tests": [
+        {
+          "name": "keeps the lesson mounted and reports external-link failures",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\landing\\__tests__\\RoleButton.test.tsx",
+      "tests": [
+        {
+          "name": "RoleButton (White-Box Suite) Branch: renders primary regular button with defaults",
+          "status": "passed"
+        },
+        {
+          "name": "RoleButton (White-Box Suite) Branch: renders secondary compact button",
+          "status": "passed"
+        },
+        {
+          "name": "RoleButton (White-Box Suite) Branch: handles hover state for primary and secondary variants",
+          "status": "passed"
+        },
+        {
+          "name": "RoleButton (White-Box Suite) Branch: handles focus and blur events",
+          "status": "passed"
+        },
+        {
+          "name": "RoleButton (White-Box Suite) Branch: applies pressed transform and background styles",
+          "status": "passed"
+        },
+        {
+          "name": "RoleButton (White-Box Suite) Branch: enforces disabled styles and suppresses hover/pressed overrides",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\layout\\__tests__\\LandscapeGuard.test.tsx",
+      "tests": [
+        {
+          "name": "allows portrait reading when explicitly enabled for the welcome screen",
+          "status": "passed"
+        },
+        {
+          "name": "keeps the same child state across portrait and landscape",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\database\\__tests__\\database.test.ts",
+      "tests": [
+        {
+          "name": "BAYA SQLite Database Foundation 1. Database opens and connects properly",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA SQLite Database Foundation 2. Foreign keys are enabled",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA SQLite Database Foundation 3. Migrations execute in order and record completion",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA SQLite Database Foundation 4. Second migration run is idempotent (does nothing)",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA SQLite Database Foundation 5. All 11 ERD tables exist",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA SQLite Database Foundation 6. Indexes exist as required by ERD",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA SQLite Database Foundation 7. Foreign key violation fails (ON DELETE RESTRICT)",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA SQLite Database Foundation 8. Curriculum seed data is idempotent and accurately populates the approved topics",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA SQLite Database Foundation 9. Repositories perform CRUD operations with parameterized queries",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA SQLite Database Foundation reviewed activity payloads load from SQLite; drafts and bad JSON never reach UI",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA SQLite Database Foundation upgrades an existing v3 database without losing learner rows",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA SQLite Database Foundation persists learner setup and advances only approved topics",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA SQLite Database Foundation keeps learner identity and topic progress after reopening the SQLite file",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA SQLite Database Foundation unlocks and saves both Module 2 character topics after Module 1",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA SQLite Database Foundation stores separate handwriting samples per character and unlocks Module 3 in order",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA SQLite Database Foundation stores real model target, Top-1, raw confidence, status and timestamp without completing a topic",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA SQLite Database Foundation 13. Concurrent completeTopic calls for the same topic join in-flight task without error or duplicate records",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\writing\\__tests__\\WritingInstructions.test.tsx",
+      "tests": [
+        {
+          "name": "derives the child-friendly goal from the policy and follows accepted state only",
+          "status": "passed"
+        },
+        {
+          "name": "keeps help and technical explanations out of the canvas instructions",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\lessons\\__tests__\\LessonJourney.test.tsx",
+      "tests": [
+        {
+          "name": "replaces arrows with bounded keyboard and accessibility scrolling",
+          "status": "passed"
+        },
+        {
+          "name": "keeps a large gesture at the visible right edge on short phones",
+          "status": "passed"
+        },
+        {
+          "name": "does not spend the hint timeout behind the portrait rotation guard",
+          "status": "passed"
+        },
+        {
+          "name": "waits for actual layout measurements",
+          "status": "passed"
+        },
+        {
+          "name": "hides when content fits and reevaluates after resize without changing card dimensions",
+          "status": "passed"
+        },
+        {
+          "name": "remembers drag dismissal across return visits without persistence",
+          "status": "passed"
+        },
+        {
+          "name": "remembers scroll dismissal across return visits without persistence",
+          "status": "passed"
+        },
+        {
+          "name": "remembers timeout dismissal across return visits without persistence",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\ml\\__tests__\\bayaModel.test.ts",
+      "tests": [
+        {
+          "name": "initializes once, validates five outputs and disposes temporary tensors",
+          "status": "passed"
+        },
+        {
+          "name": "uses CPU when GPU is unavailable and retries a failed load",
+          "status": "passed"
+        },
+        {
+          "name": "falls back after GPU compilation failure",
+          "status": "passed"
+        },
+        {
+          "name": "falls back after GPU execution failure and cleans up both models",
+          "status": "passed"
+        },
+        {
+          "name": "rejects metadata mismatch without masking it with a backend fallback",
+          "status": "passed"
+        },
+        {
+          "name": "maps by verified tensor identity even when runtime outputs are reordered",
+          "status": "passed"
+        },
+        {
+          "name": "serializes concurrent inference and waits for work before cleanup",
+          "status": "passed"
+        },
+        {
+          "name": "rejects invalid input and frees tensors after malformed outputs",
+          "status": "passed"
+        },
+        {
+          "name": "verifies download integrity before compilation and recovers after a failed download",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\database\\__tests__\\curriculumService.test.ts",
+      "tests": [
+        {
+          "name": "Strict curriculum service and SQLite boundaries loads all three supplied modules and exact titles from SQLite",
+          "status": "passed"
+        },
+        {
+          "name": "Strict curriculum service and SQLite boundaries supports exact numeric aliases without accepting partial IDs",
+          "status": "passed"
+        },
+        {
+          "name": "Strict curriculum service and SQLite boundaries blocks extra topics and modules even inside a database version marked approved",
+          "status": "passed"
+        },
+        {
+          "name": "Strict curriculum service and SQLite boundaries does not let renamed database titles or descriptions override the manifest",
+          "status": "passed"
+        },
+        {
+          "name": "Strict curriculum service and SQLite boundaries excludes draft database versions, falling back to independently approved data",
+          "status": "passed"
+        },
+        {
+          "name": "Strict curriculum service and SQLite boundaries excludes under_review database versions, falling back to independently approved data",
+          "status": "passed"
+        },
+        {
+          "name": "Strict curriculum service and SQLite boundaries excludes deprecated database versions, falling back to independently approved data",
+          "status": "passed"
+        },
+        {
+          "name": "Strict curriculum service and SQLite boundaries uses the same approved fallback for an empty database and a query failure",
+          "status": "passed"
+        },
+        {
+          "name": "Strict curriculum service and SQLite boundaries reconciles legacy titles on reseed without deleting learner history",
+          "status": "passed"
+        },
+        {
+          "name": "Strict curriculum service and SQLite boundaries does not retain mutations between loads",
+          "status": "passed"
+        },
+        {
+          "name": "Strict curriculum service and SQLite boundaries requires reviewed materials without letting their metadata alter the approved curriculum",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\modules\\progress\\__tests__\\localProgressSnapshot.test.ts",
+      "tests": [
+        {
+          "name": "reads only approved completion for the captured local profile without modifying SQLite",
+          "status": "passed"
+        },
+        {
+          "name": "rejects missing identity rather than borrowing another learner",
+          "status": "passed"
+        },
+        {
+          "name": "rejects a corrupt completion time without erasing saved progress",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\database\\debug\\__tests__\\databaseInspector.test.ts",
+      "tests": [
+        {
+          "name": "BAYA Database Inspector 1. discovers all tables dynamically from sqlite_master",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA Database Inspector 2. row counts are accurate for each table",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA Database Inspector 3. table data returns paginated results",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA Database Inspector 4. schema discovery returns columns, create SQL, and indexes",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA Database Inspector 5. table data correctly returns null values",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA Database Inspector 6. read-only SELECT query is allowed and returns results",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA Database Inspector 7. WITH (CTE) query is allowed",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA Database Inspector 8. INSERT query is rejected",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA Database Inspector 9. UPDATE query is rejected",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA Database Inspector 10. DELETE query is rejected",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA Database Inspector 11. DROP query is rejected",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA Database Inspector 12. multiple statements are rejected",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA Database Inspector 13. inspector reuses getDatabaseConnection (no direct openDatabaseAsync)",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA Database Inspector 14. databaseInspectorService source does not statically import expo-sqlite",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA Database Inspector 15. refresh operations reuse existing connection",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA Database Inspector 16. feature flag check validates correctly",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA Database Inspector 17. isReadOnlyQuery validates various SQL patterns",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA Database Inspector 18. query results auto-limit to MAX_QUERY_ROWS",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA Database Inspector 19. database metadata returns correct state and counts",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA Database Inspector 20. getTableData rejects non-existent table",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\database\\__tests__\\activityResume.test.ts",
+      "tests": [
+        {
+          "name": "profile-owned activity resume (real SQLite) restores separate stroke groups, target and geometry without writing attempts or completion",
+          "status": "passed"
+        },
+        {
+          "name": "profile-owned activity resume (real SQLite) derives capped mastery only from validated saved attempts in this instance",
+          "status": "passed"
+        },
+        {
+          "name": "profile-owned activity resume (real SQLite) offers the most recently changed unfinished topic and hides completed topics",
+          "status": "passed"
+        },
+        {
+          "name": "profile-owned activity resume (real SQLite) keeps queued clear and replacement ordered after earlier drawing saves",
+          "status": "passed"
+        },
+        {
+          "name": "profile-owned activity resume (real SQLite) isolates two selected profiles and rejects pending work belonging to the former owner",
+          "status": "passed"
+        },
+        {
+          "name": "profile-owned activity resume (real SQLite) ignores corrupt or unsupported state: {",
+          "status": "passed"
+        },
+        {
+          "name": "profile-owned activity resume (real SQLite) ignores corrupt or unsupported state: null",
+          "status": "passed"
+        },
+        {
+          "name": "profile-owned activity resume (real SQLite) ignores corrupt or unsupported state: {\"version\":999}",
+          "status": "passed"
+        },
+        {
+          "name": "profile-owned activity resume (real SQLite) ignores corrupt or unsupported state: {\"topicId\":\"/mentor\"}",
+          "status": "passed"
+        },
+        {
+          "name": "profile-owned activity resume (real SQLite) rejects incompatible content, wrong target, malformed geometry and foreign ownership",
+          "status": "passed"
+        },
+        {
+          "name": "profile-owned activity resume (real SQLite) projects only the allowed fields rather than preserving arbitrary data",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\database\\__tests__\\concurrencyAndLifecycle.test.ts",
+      "tests": [
+        {
+          "name": "Concurrency and Database Lifecycle 1. Six concurrent completeTopic(topic-1-1) requests trigger exactly ONE underlying transaction",
+          "status": "passed"
+        },
+        {
+          "name": "Concurrency and Database Lifecycle 2. Six calls from separate call sites trigger exactly ONE underlying transaction",
+          "status": "passed"
+        },
+        {
+          "name": "Concurrency and Database Lifecycle 3. Immediate transaction rejection keeps in-flight entry until promise settles and rejects all joiners",
+          "status": "passed"
+        },
+        {
+          "name": "Concurrency and Database Lifecycle 4. Rejected task cleanup allows subsequent deliberate retry to start a new transaction",
+          "status": "passed"
+        },
+        {
+          "name": "Concurrency and Database Lifecycle 5. Transaction queue handles rejection without poisoning subsequent operations",
+          "status": "passed"
+        },
+        {
+          "name": "Concurrency and Database Lifecycle 6. Nested transaction calls execute without deadlocking",
+          "status": "passed"
+        },
+        {
+          "name": "Concurrency and Database Lifecycle 7. isOpfsSupported accurately reflects environment capabilities",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\database\\__tests__\\activityContentService.test.ts",
+      "tests": [
+        {
+          "name": "Reviewed activity delivery loads approved data and derives title/position from the approved manifest",
+          "status": "passed"
+        },
+        {
+          "name": "Reviewed activity delivery falls back for absent, unreviewed or malformed records",
+          "status": "passed"
+        },
+        {
+          "name": "Reviewed activity delivery falls back for absent, unreviewed or malformed records",
+          "status": "passed"
+        },
+        {
+          "name": "Reviewed activity delivery falls back for absent, unreviewed or malformed records",
+          "status": "passed"
+        },
+        {
+          "name": "Reviewed activity delivery falls back for absent, unreviewed or malformed records",
+          "status": "passed"
+        },
+        {
+          "name": "Reviewed activity delivery falls back for absent, unreviewed or malformed records",
+          "status": "passed"
+        },
+        {
+          "name": "Reviewed activity delivery falls back for absent, unreviewed or malformed records",
+          "status": "passed"
+        },
+        {
+          "name": "Reviewed activity delivery falls back for absent, unreviewed or malformed records",
+          "status": "passed"
+        },
+        {
+          "name": "Reviewed activity delivery handles an offline source without throwing",
+          "status": "passed"
+        },
+        {
+          "name": "Reviewed activity delivery does not query a source for an unapproved topic",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\database\\__tests__\\ownership.test.ts",
+      "tests": [
+        {
+          "name": "OPFS ownership lifetime holds the Web Lock until explicit release, including after acquire resolves",
+          "status": "passed"
+        },
+        {
+          "name": "OPFS ownership lifetime keeps a second context waiting and grants it only after owner release",
+          "status": "passed"
+        },
+        {
+          "name": "OPFS ownership lifetime waits for the owner close handler before granting a BroadcastChannel requester",
+          "status": "passed"
+        },
+        {
+          "name": "OPFS ownership lifetime cancels a waiting request without opening a second owner",
+          "status": "passed"
+        },
+        {
+          "name": "OPFS ownership lifetime assigns a distinct session ID to each page controller",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\lessons\\__tests__\\FloatingSwipeHint.test.tsx",
+      "tests": [
+        {
+          "name": "floats without intercepting input, demonstrates two gestures and dismisses once",
+          "status": "passed"
+        },
+        {
+          "name": "relies on the existing card peek with reduced motion",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\hooks\\__tests__\\useReducedMotionPreference.test.tsx",
+      "tests": [
+        {
+          "name": "defaults to static and does not overwrite a newer preference event with a delayed query",
+          "status": "passed"
+        },
+        {
+          "name": "retains a static presentation if the platform preference query fails",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\debug\\__tests__\\DebugDatabaseRoute.test.tsx",
+      "tests": [
+        {
+          "name": "keeps the inspector disabled for undefined",
+          "status": "passed"
+        },
+        {
+          "name": "keeps the inspector disabled for ",
+          "status": "passed"
+        },
+        {
+          "name": "keeps the inspector disabled for false",
+          "status": "passed"
+        },
+        {
+          "name": "keeps the inspector disabled for TRUE",
+          "status": "passed"
+        },
+        {
+          "name": "keeps the inspector disabled for 1",
+          "status": "passed"
+        },
+        {
+          "name": "renders the inspector only when explicitly enabled",
+          "status": "passed"
+        },
+        {
+          "name": "does not expose database controls in production even with the flag enabled",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\hooks\\__tests__\\useDialogBack.test.tsx",
+      "tests": [
+        {
+          "name": "consumes only the topmost overlay, blocks busy dismissal and cleans listeners",
+          "status": "passed"
+        },
+        {
+          "name": "lets explicit replacement proceed after a dialog action",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\localization\\__tests__\\useLocalizedAlert.test.ts",
+      "tests": [
+        {
+          "name": "localized error dialogs shows browser feedback instead of calling the no-op web Alert",
+          "status": "passed"
+        },
+        {
+          "name": "localized error dialogs preserves the native translated dialog",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\ml\\__tests__\\activeModelContract.test.ts",
+      "tests": [
+        {
+          "name": "preserves the supplied model and metadata bytes",
+          "status": "passed"
+        },
+        {
+          "name": "preserves complete ordered label maps and the five-head contract",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\writing\\__tests__\\recognitionPresentation.test.ts",
+      "tests": [
+        {
+          "name": "BAYA confidence presentation maps every model class to its existing glyph without retaining additional prediction fields",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA confidence presentation processes all 63 scores without mutation and preserves the supplied stable order for ties",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA confidence presentation rejects malformed candidate input 0 instead of manufacturing a character",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA confidence presentation rejects malformed candidate input 1 instead of manufacturing a character",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA confidence presentation rejects malformed candidate input 2 instead of manufacturing a character",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA confidence presentation rejects malformed candidate input 3 instead of manufacturing a character",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA confidence presentation rejects malformed candidate input 4 instead of manufacturing a character",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA confidence presentation rejects malformed candidate input 5 instead of manufacturing a character",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA confidence presentation rejects malformed candidate input 6 instead of manufacturing a character",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA confidence presentation rejects malformed candidate input 7 instead of manufacturing a character",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA confidence presentation rejects invalid single-class presentation input",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA confidence presentation uses high treatment at or above 90% (0.9)",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA confidence presentation uses high treatment at or above 90% (0.976)",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA confidence presentation uses high treatment at or above 90% (1)",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA confidence presentation uses moderate treatment from 70% to below 90% (0.7)",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA confidence presentation uses moderate treatment from 70% to below 90% (0.8999)",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA confidence presentation uses low treatment below 70% (0)",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA confidence presentation uses low treatment below 70% (0.6999)",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA confidence presentation formats model confidence to one decimal place and displays compound class names",
+          "status": "passed"
+        },
+        {
+          "name": "BAYA confidence presentation sorts existing probabilities descending without changing them",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\database\\__tests__\\pwaServiceWorker.test.ts",
+      "tests": [
+        {
+          "name": "PWA Service Worker Generation and Fetch Strategy excludes large media/video assets from precaching",
+          "status": "passed"
+        },
+        {
+          "name": "PWA Service Worker Generation and Fetch Strategy bypasses service worker interception for video, audio, and Range requests",
+          "status": "passed"
+        },
+        {
+          "name": "PWA Service Worker Generation and Fetch Strategy guarantees navigation requests never reject uncaught errors or return 504",
+          "status": "passed"
+        },
+        {
+          "name": "PWA Service Worker Generation and Fetch Strategy provides diagnostic logging and clean offline responses without synthetic 504s",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\content\\__tests__\\writingMastery.test.ts",
+      "tests": [
+        {
+          "name": "strict writing mastery policy enforces the approved two-success rule with the unchanged confidence threshold",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy compares raw 0.8 inclusively",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy compares raw 0.800001 inclusively",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy compares raw 0.799999 inclusively",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy compares raw 0.7996 inclusively",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy compares raw 0 inclusively",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy compares raw 1 inclusively",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy rejects malformed confidence NaN",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy rejects malformed confidence Infinity",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy rejects malformed confidence -Infinity",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy rejects malformed confidence undefined",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy rejects malformed confidence null",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy rejects malformed confidence -0.01",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy rejects malformed confidence 1.01",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy rejects malformed confidence 0.99",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy never promotes a target at rank two or three",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy preserves stable model ranking and raw probabilities, including ties",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy resolves E/I using the model class map",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy resolves O/U using the model class map",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy resolves DA/RA using the model class map",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy resolves DE/DI using the model class map",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy resolves DO/DU using the model class map",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy validates class IDs, mismatched labels, empty outputs and every curriculum target",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy accumulates successes without resetting on failure and caps progress",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy counts independent raw-confidence trials [0.92,0.85,0.8]",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy counts independent raw-confidence trials [0.8,0.8,0.8]",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy counts independent raw-confidence trials [0.91,0.76,0.84,0.79,0.93]",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy keeps an invalid counter -1 within activity bounds",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy keeps an invalid counter NaN within activity bounds",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy keeps an invalid counter Infinity within activity bounds",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy keeps an invalid counter 1.5 within activity bounds",
+          "status": "passed"
+        },
+        {
+          "name": "strict writing mastery policy does not display 80% for confidence below the boundary",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\database\\__tests__\\connection.test.ts",
+      "tests": [
+        {
+          "name": "getDatabaseConnection \u2014 singleton guarantee returns the injected connection when one is already set",
+          "status": "passed"
+        },
+        {
+          "name": "getDatabaseConnection \u2014 singleton guarantee calls openDatabaseAsync exactly once on first call",
+          "status": "passed"
+        },
+        {
+          "name": "getDatabaseConnection \u2014 singleton guarantee concurrent callers receive the same connection and open only once",
+          "status": "passed"
+        },
+        {
+          "name": "getDatabaseConnection \u2014 singleton guarantee subsequent calls after first resolution return cached connection without re-opening",
+          "status": "passed"
+        },
+        {
+          "name": "getDatabaseConnection \u2014 singleton guarantee isDatabaseConnected returns false before open, true after",
+          "status": "passed"
+        },
+        {
+          "name": "getDatabaseConnection \u2014 singleton guarantee clears connection promise on open failure so next call retries",
+          "status": "passed"
+        },
+        {
+          "name": "getDatabaseConnection \u2014 singleton guarantee joins a close requested while the first SQLite open is pending",
+          "status": "passed"
+        },
+        {
+          "name": "getDatabaseConnection \u2014 singleton guarantee does not start another open while closeAsync is still running",
+          "status": "passed"
+        },
+        {
+          "name": "getDatabaseConnection \u2014 singleton guarantee waits for an active transaction before closing SQLite",
+          "status": "passed"
+        },
+        {
+          "name": "getDatabaseConnection \u2014 topic progress idempotency setDatabaseConnection allows injecting a fresh connection for tests",
+          "status": "passed"
+        },
+        {
+          "name": "getDatabaseConnection \u2014 topic progress idempotency closeDatabaseConnection resets activeConnection",
+          "status": "passed"
+        },
+        {
+          "name": "OPFS lock conflict detection & lifecycle correctly classifies OPFS lock contention errors",
+          "status": "passed"
+        },
+        {
+          "name": "OPFS lock conflict detection & lifecycle notifies onDatabaseClose listeners on connection teardown",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\ml\\__tests__\\writingRecognitionPhases.test.ts",
+      "tests": [
+        {
+          "name": "captures the actual stroke image before starting LiteRT inference",
+          "status": "passed"
+        },
+        {
+          "name": "stops before inference when the browser document is missing",
+          "status": "passed"
+        },
+        {
+          "name": "does not infer a blank rendered image even if stroke metadata exists",
+          "status": "passed"
+        },
+        {
+          "name": "rejects invalid drawing metadata before preprocessing",
+          "status": "passed"
+        },
+        {
+          "name": "rejects invalid drawing metadata before preprocessing",
+          "status": "passed"
+        },
+        {
+          "name": "rejects invalid drawing metadata before preprocessing",
+          "status": "passed"
+        },
+        {
+          "name": "does not rank invalid runtime probabilities",
+          "status": "passed"
+        },
+        {
+          "name": "does not rank invalid runtime probabilities",
+          "status": "passed"
+        },
+        {
+          "name": "does not rank invalid runtime probabilities",
+          "status": "passed"
+        },
+        {
+          "name": "does not rank invalid runtime probabilities",
+          "status": "passed"
+        },
+        {
+          "name": "keeps stable class-index ties and supplies the image tensor only",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\modules\\progress\\__tests__\\supabaseProgress.test.ts",
+      "tests": [
+        {
+          "name": "uploads only completion data through the learner session and requires a server receipt",
+          "status": "passed"
+        },
+        {
+          "name": "does not upload without an existing learner session",
+          "status": "passed"
+        },
+        {
+          "name": "retries the same durable snapshot after a failed upload",
+          "status": "passed"
+        },
+        {
+          "name": "coalesces simultaneous uploads for the same learner",
+          "status": "passed"
+        },
+        {
+          "name": "keeps simultaneous uploads from different local profiles separate",
+          "status": "passed"
+        },
+        {
+          "name": "explains a rejected curriculum without calling it a successful sync",
+          "status": "passed"
+        },
+        {
+          "name": "passes dashboard authorization and pagination to the mentor RPC",
+          "status": "passed"
+        },
+        {
+          "name": "rejects a malformed dashboard before it reaches a progress view",
+          "status": "passed"
+        },
+        {
+          "name": "does not upload a saved profile through a different cloud identity",
+          "status": "passed"
+        },
+        {
+          "name": "accepts defined zero/missing/complete states: {\"completedTopics\":0,\"percentage\":0}",
+          "status": "passed"
+        },
+        {
+          "name": "accepts defined zero/missing/complete states: {\"completedTopics\":9,\"percentage\":100}",
+          "status": "passed"
+        },
+        {
+          "name": "accepts defined zero/missing/complete states: {\"lastSyncedAt\":null,\"completedTopics\":0,\"percentage\":null}",
+          "status": "passed"
+        },
+        {
+          "name": "accepts defined zero/missing/complete states: {\"totalTopics\":0,\"completedTopics\":0,\"percentage\":null}",
+          "status": "passed"
+        },
+        {
+          "name": "rejects misleading or inconsistent aggregate: {\"completedTopics\":4,\"percentage\":45}",
+          "status": "passed"
+        },
+        {
+          "name": "rejects misleading or inconsistent aggregate: {\"completedTopics\":199,\"totalTopics\":200,\"percentage\":100}",
+          "status": "passed"
+        },
+        {
+          "name": "rejects misleading or inconsistent aggregate: {\"completedTopics\":10}",
+          "status": "passed"
+        },
+        {
+          "name": "rejects misleading or inconsistent aggregate: {\"lastSyncedAt\":null,\"percentage\":0}",
+          "status": "passed"
+        },
+        {
+          "name": "rejects misleading or inconsistent aggregate: {\"totalTopics\":0,\"completedTopics\":0,\"percentage\":0}",
+          "status": "passed"
+        },
+        {
+          "name": "rejects duplicate learner rows and responses from another workspace",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\modules\\cloud\\__tests__\\supabaseAdapter.test.ts",
+      "tests": [
+        {
+          "name": "does not create anonymous users while reading memberships",
+          "status": "passed"
+        },
+        {
+          "name": "creates and verifies a device learner before authorizing a code-only join",
+          "status": "passed"
+        },
+        {
+          "name": "does not fall back to mentor identity when no active learner exists",
+          "status": "passed"
+        },
+        {
+          "name": "resolves a separate session namespace after switching local learners",
+          "status": "passed"
+        },
+        {
+          "name": "reuses existing learner auth and propagates denied membership",
+          "status": "passed"
+        },
+        {
+          "name": "uses server workspace output and rejects malformed responses",
+          "status": "passed"
+        },
+        {
+          "name": "requires a provider challenge and does not store passwords in it",
+          "status": "passed"
+        },
+        {
+          "name": "propagates wrong-password failures without sending OTP",
+          "status": "passed"
+        },
+        {
+          "name": "does not fabricate an OTP challenge for an obscured repeat signup",
+          "status": "passed"
+        },
+        {
+          "name": "returns no session for signed-out mentor and refuses anonymous mentor access",
+          "status": "passed"
+        },
+        {
+          "name": "uses ephemeral recovery auth, updates only after OTP, and clears recovery session",
+          "status": "passed"
+        },
+        {
+          "name": "mentor profile restoration fails closed when mentor profile lookup 0 is empty",
+          "status": "passed"
+        },
+        {
+          "name": "mentor profile restoration fails closed when mentor profile lookup 1 is empty",
+          "status": "passed"
+        },
+        {
+          "name": "mentor profile restoration restores only a complete verified mentor identity",
+          "status": "passed"
+        },
+        {
+          "name": "mentor profile restoration does not disguise server failures as a missing profile",
+          "status": "passed"
+        },
+        {
+          "name": "does not update a password after failed recovery verification",
+          "status": "passed"
+        },
+        {
+          "name": "maps safe provider failures without exposing raw messages",
+          "status": "passed"
+        },
+        {
+          "name": "never replaces a bound learner identity when its session is missing",
+          "status": "passed"
+        },
+        {
+          "name": "rejects a different authenticated identity before requesting membership",
+          "status": "passed"
+        },
+        {
+          "name": "reports disabled anonymous Auth without fabricating a membership",
+          "status": "passed"
+        },
+        {
+          "name": "submits only a code under verified learner identity, never a caller profile ID",
+          "status": "passed"
+        },
+        {
+          "name": "checks approval receipts and does not accept approved status without an active membership",
+          "status": "passed"
+        },
+        {
+          "name": "does not create an anonymous identity simply to view status",
+          "status": "passed"
+        },
+        {
+          "name": "does not show a false empty status when a bound identity has lost its session",
+          "status": "passed"
+        },
+        {
+          "name": "accepts only public credentials and fails closed when configuration is missing",
+          "status": "passed"
+        },
+        {
+          "name": "keeps known authorization denial distinct from offline connectivity",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\localization\\__tests__\\core.test.ts",
+      "tests": [
+        {
+          "name": "bundled localization has matching, nonempty English and Tagalog keys",
+          "status": "passed"
+        },
+        {
+          "name": "bundled localization normalizes display whitespace and falls back without exposing keys",
+          "status": "passed"
+        },
+        {
+          "name": "bundled localization interpolates values literally without translating user names",
+          "status": "passed"
+        },
+        {
+          "name": "bundled localization renders every catalogued dynamic message without raw placeholders",
+          "status": "passed"
+        },
+        {
+          "name": "bundled localization formats counts and dates and validates language IDs",
+          "status": "passed"
+        },
+        {
+          "name": "bundled localization marks educational translations pending review and retains glyph sequences",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\content\\__tests__\\baybayinIntroduction.test.ts",
+      "tests": [
+        {
+          "name": "uses the confirmed titles and preserves Pilipino in its people/identity context",
+          "status": "passed"
+        },
+        {
+          "name": "shares one invitation, historical paragraph and source across live and preview data",
+          "status": "passed"
+        },
+        {
+          "name": "retains validated invitation/source metadata when content is serialized and parsed",
+          "status": "passed"
+        },
+        {
+          "name": "rejects an invalid reference URL javascript:alert(1) at the content boundary",
+          "status": "passed"
+        },
+        {
+          "name": "rejects an invalid reference URL http://ncca.gov.ph/article at the content boundary",
+          "status": "passed"
+        },
+        {
+          "name": "rejects an invalid reference URL https://ncca.gov.ph.evil.test/article at the content boundary",
+          "status": "passed"
+        },
+        {
+          "name": "accepts approved and legacy stored video credits: https://www.ginhawa.net/",
+          "status": "passed"
+        },
+        {
+          "name": "accepts approved and legacy stored video credits: https://www.facebook.com/baybayincreativityworkshop",
+          "status": "passed"
+        },
+        {
+          "name": "rejects unapproved video destinations: javascript:alert(1)",
+          "status": "passed"
+        },
+        {
+          "name": "rejects unapproved video destinations: https://www.facebook.com/other-page",
+          "status": "passed"
+        },
+        {
+          "name": "rejects unapproved video destinations: https://www.facebook.com.evil.test/baybayincreativityworkshop",
+          "status": "passed"
+        },
+        {
+          "name": "rejects unapproved video destinations: http://www.facebook.com/baybayincreativityworkshop",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\ml\\__tests__\\bayaOutputs.test.ts",
+      "tests": [
+        {
+          "name": "decodes exact training indices for a",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for b",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for ba",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for be_bi",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for bo_bu",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for d",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for da_ra",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for de_di",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for do_du",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for e_i",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for g",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for ga",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for ge_gi",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for go_gu",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for h",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for ha",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for he_hi",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for ho_hu",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for k",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for ka",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for ke_ki",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for ko_ku",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for l",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for la",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for le_li",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for lo_lu",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for m",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for ma",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for me_mi",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for mo_mu",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for n",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for na",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for ne_ni",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for ng",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for nga",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for nge_ngi",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for ngo_ngu",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for no_nu",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for o_u",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for p",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for pa",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for pe_pi",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for po_pu",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for r",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for ra",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for re_ri",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for ro_ru",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for s",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for sa",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for se_si",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for so_su",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for t",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for ta",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for te_ti",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for to_tu",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for w",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for wa",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for we_wi",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for wo_wu",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for y",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for ya",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for ye_yi",
+          "status": "passed"
+        },
+        {
+          "name": "decodes exact training indices for yo_yu",
+          "status": "passed"
+        },
+        {
+          "name": "keeps the primary prediction when auxiliary heads disagree",
+          "status": "passed"
+        },
+        {
+          "name": "computes stable softmax without clipping logits",
+          "status": "passed"
+        },
+        {
+          "name": "rejects nonfinite output NaN",
+          "status": "passed"
+        },
+        {
+          "name": "rejects nonfinite output Infinity",
+          "status": "passed"
+        },
+        {
+          "name": "rejects nonfinite output -Infinity",
+          "status": "passed"
+        },
+        {
+          "name": "rejects malformed tensors and spatial bounds",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\modules\\cloud\\__tests__\\learnerEmailAuth.test.ts",
+      "tests": [
+        {
+          "name": "requests an email code with a learner role and binds only after verification",
+          "status": "passed"
+        },
+        {
+          "name": "rejects a challenge after switching local learners",
+          "status": "passed"
+        },
+        {
+          "name": "rejects mentor and clears the unsuitable auth session",
+          "status": "passed"
+        },
+        {
+          "name": "rejects other-account and clears the unsuitable auth session",
+          "status": "passed"
+        },
+        {
+          "name": "does not bind or report success when the OTP is wrong",
+          "status": "passed"
+        },
+        {
+          "name": "verifies and binds an authenticated anonymous learner session",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\ml\\__tests__\\recognitionReliability.test.ts",
+      "tests": [
+        {
+          "name": "recognition reliability (application policy, not OOD accuracy) withholds guesses below the existing threshold: 0",
+          "status": "passed"
+        },
+        {
+          "name": "recognition reliability (application policy, not OOD accuracy) withholds guesses below the existing threshold: 0.3",
+          "status": "passed"
+        },
+        {
+          "name": "recognition reliability (application policy, not OOD accuracy) withholds guesses below the existing threshold: 0.799999",
+          "status": "passed"
+        },
+        {
+          "name": "recognition reliability (application policy, not OOD accuracy) preserves raw scores above the threshold without claiming OOD detection: 0.8",
+          "status": "passed"
+        },
+        {
+          "name": "recognition reliability (application policy, not OOD accuracy) preserves raw scores above the threshold without claiming OOD detection: 0.946",
+          "status": "passed"
+        },
+        {
+          "name": "recognition reliability (application policy, not OOD accuracy) preserves raw scores above the threshold without claiming OOD detection: 1",
+          "status": "passed"
+        },
+        {
+          "name": "recognition reliability (application policy, not OOD accuracy) fails closed for corrupt output",
+          "status": "passed"
+        },
+        {
+          "name": "recognition reliability (application policy, not OOD accuracy) is target-independent, stable and does not mutate predictions",
+          "status": "passed"
+        },
+        {
+          "name": "final mastery barrier does not equate the reproduced high-confidence wave score with validated validity",
+          "status": "passed"
+        },
+        {
+          "name": "final mastery barrier never awards a uncertain outcome",
+          "status": "passed"
+        },
+        {
+          "name": "final mastery barrier never awards a rejected outcome",
+          "status": "passed"
+        },
+        {
+          "name": "final mastery barrier never awards a insufficient-input outcome",
+          "status": "passed"
+        },
+        {
+          "name": "final mastery barrier never awards a error outcome",
+          "status": "passed"
+        },
+        {
+          "name": "final mastery barrier rechecks sufficiency and confidence at the award boundary",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\content\\__tests__\\moduleOneCompliance.test.ts",
+      "tests": [
+        {
+          "name": "Module 1 content compliance retains the five stable topic and story identifiers in order with nonblank content",
+          "status": "passed"
+        },
+        {
+          "name": "Module 1 content compliance translates complete two-paragraph messages for topic index 2 before rendering",
+          "status": "passed"
+        },
+        {
+          "name": "Module 1 content compliance translates complete two-paragraph messages for topic index 3 before rendering",
+          "status": "passed"
+        },
+        {
+          "name": "Module 1 content compliance translates complete two-paragraph messages for topic index 4 before rendering",
+          "status": "passed"
+        },
+        {
+          "name": "Module 1 content compliance preserves the validated basic glyph and syllable pairs without combining signs",
+          "status": "passed"
+        },
+        {
+          "name": "Module 1 content compliance narrows the base-set takeaway in both languages and corrects the legacy writing-tool claim",
+          "status": "passed"
+        },
+        {
+          "name": "Module 1 content compliance supports older paragraph-level resources",
+          "status": "passed"
+        },
+        {
+          "name": "Module 1 content compliance highlights complete accented words, glyphs and parenthesized counts without changing text",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\layout\\__tests__\\orientationPolicy.test.ts",
+      "tests": [
+        {
+          "name": "detects device Android/Linux armv8l with 5 touch points",
+          "status": "passed"
+        },
+        {
+          "name": "detects device iPhone/iPhone with 5 touch points",
+          "status": "passed"
+        },
+        {
+          "name": "detects device iPad/iPad with 5 touch points",
+          "status": "passed"
+        },
+        {
+          "name": "detects device Macintosh/MacIntel with 5 touch points",
+          "status": "passed"
+        },
+        {
+          "name": "detects device Macintosh/MacIntel with 0 touch points",
+          "status": "passed"
+        },
+        {
+          "name": "detects device Windows/Win32 with 10 touch points",
+          "status": "passed"
+        },
+        {
+          "name": "leaves ordinary browser tabs alone and attempts once when fullscreen becomes eligible",
+          "status": "passed"
+        },
+        {
+          "name": "tolerates unavailable APIs and rejected installed-app locks without a retry loop",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\content\\__tests__\\baybayinCharactersData.test.ts",
+      "tests": [
+        {
+          "name": "Module 2 character content writes the complete a example as a-so in modern Baybayin",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 character content writes the complete e_i example as i-bo-n in modern Baybayin",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 character content writes the complete o_u example as u-la-n in modern Baybayin",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 character content writes the complete ba example as ba-ta in modern Baybayin",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 character content writes the complete ka example as ka-i-bi-ga-n in modern Baybayin",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 character content writes the complete da_ra example as da-ho-n in modern Baybayin",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 character content writes the complete ga example as ga-ta-s in modern Baybayin",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 character content writes the complete ha example as ha-la-ma-n in modern Baybayin",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 character content writes the complete la example as la-wa in modern Baybayin",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 character content writes the complete ma example as ma-ta in modern Baybayin",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 character content writes the complete na example as na-na-y in modern Baybayin",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 character content writes the complete nga example as nga-yo-n in modern Baybayin",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 character content writes the complete pa example as pa-na in modern Baybayin",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 character content writes the complete sa example as sa-pa in modern Baybayin",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 character content writes the complete ta example as ta-la in modern Baybayin",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 character content writes the complete wa example as wa-ta-wa-t in modern Baybayin",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 character content writes the complete ya example as ya-ma-n in modern Baybayin",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 character content maps every supplied glyph to one bundled asset and one topic",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 character content keeps the two topic datasets in the specified order",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 character content keeps the revised ka example associated with its original character",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 character content keeps the revised ha example associated with its original character",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 character content keeps the revised nga example associated with its original character",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 character content keeps the revised ya example associated with its original character",
+          "status": "passed"
+        },
+        {
+          "name": "Module 2 character content excludes the superseded words from Lesson 2 examples",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\media\\__tests__\\initialVideoSeek.test.ts",
+      "tests": [
+        {
+          "name": "initial video position waits for metadata, seeks once, then preserves rewinding and resuming",
+          "status": "passed"
+        },
+        {
+          "name": "initial video position retries a temporarily unavailable native/web seek",
+          "status": "passed"
+        },
+        {
+          "name": "initial video position leaves other videos at zero and avoids seeking beyond the source",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\content\\__tests__\\writingEngine.test.ts",
+      "tests": [
+        {
+          "name": "Module 3 writing data and local feedback reuses all 17 bundled character exercises in topic order",
+          "status": "passed"
+        },
+        {
+          "name": "Module 3 writing data and local feedback keeps normalized input bounded and produces drawable paths",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\lessons\\__tests__\\lessonData.test.ts",
+      "tests": [
+        {
+          "name": "Validator-approved curriculum contains all three supplied modules and their exact topic titles",
+          "status": "passed"
+        },
+        {
+          "name": "Validator-approved curriculum has no generated descriptions, materials, placeholder URLs or extra topics",
+          "status": "passed"
+        },
+        {
+          "name": "Validator-approved curriculum makes topic 1 available and the remaining topics locked without inventing completion",
+          "status": "passed"
+        },
+        {
+          "name": "Validator-approved curriculum isolates mutable view models from subsequent loads and the approved source",
+          "status": "passed"
+        },
+        {
+          "name": "Validator-approved curriculum calculates progress from approved topic count and handles empty data",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\activity\\__tests__\\Topic13StorybookScreen.test.tsx",
+      "tests": [
+        {
+          "name": "Split Topic 1.3 storybook content registers the three approved stories as separate topics in sequence",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\ui\\__tests__\\menuPosition.test.ts",
+      "tests": [
+        {
+          "name": "anchors inside a 667 by 375 viewport",
+          "status": "passed"
+        },
+        {
+          "name": "anchors inside a 844 by 390 viewport",
+          "status": "passed"
+        },
+        {
+          "name": "anchors inside a 915 by 412 viewport",
+          "status": "passed"
+        },
+        {
+          "name": "anchors inside a 1024 by 768 viewport",
+          "status": "passed"
+        },
+        {
+          "name": "anchors inside a 1366 by 768 viewport",
+          "status": "passed"
+        },
+        {
+          "name": "places the menu above a low trigger and respects safe areas",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\content\\__tests__\\writingCanvasValidation.test.ts",
+      "tests": [
+        {
+          "name": "canvas input validity, separate from recognition accepts meaningful drawing and legacy samples with no timestamps",
+          "status": "passed"
+        },
+        {
+          "name": "canvas input validity, separate from recognition rejects empty, malformed, tap or short data: []",
+          "status": "passed"
+        },
+        {
+          "name": "canvas input validity, separate from recognition rejects empty, malformed, tap or short data: [[Array]]",
+          "status": "passed"
+        },
+        {
+          "name": "canvas input validity, separate from recognition rejects empty, malformed, tap or short data: null",
+          "status": "passed"
+        },
+        {
+          "name": "canvas input validity, separate from recognition rejects empty, malformed, tap or short data: {}",
+          "status": "passed"
+        },
+        {
+          "name": "canvas input validity, separate from recognition rejects empty, malformed, tap or short data: [null]",
+          "status": "passed"
+        },
+        {
+          "name": "canvas input validity, separate from recognition rejects empty, malformed, tap or short data: [[Array]]",
+          "status": "passed"
+        },
+        {
+          "name": "canvas input validity, separate from recognition rejects empty, malformed, tap or short data: [[Array]]",
+          "status": "passed"
+        },
+        {
+          "name": "canvas input validity, separate from recognition rejects empty, malformed, tap or short data: [[Array]]",
+          "status": "passed"
+        },
+        {
+          "name": "canvas input validity, separate from recognition rejects invalid coordinates NaN",
+          "status": "passed"
+        },
+        {
+          "name": "canvas input validity, separate from recognition rejects invalid coordinates Infinity",
+          "status": "passed"
+        },
+        {
+          "name": "canvas input validity, separate from recognition rejects invalid coordinates -Infinity",
+          "status": "passed"
+        },
+        {
+          "name": "canvas input validity, separate from recognition rejects invalid coordinates -0.1",
+          "status": "passed"
+        },
+        {
+          "name": "canvas input validity, separate from recognition rejects invalid coordinates 1.1",
+          "status": "passed"
+        },
+        {
+          "name": "canvas input validity, separate from recognition rejects invalid coordinates null",
+          "status": "passed"
+        },
+        {
+          "name": "canvas input validity, separate from recognition rejects invalid coordinates undefined",
+          "status": "passed"
+        },
+        {
+          "name": "canvas input validity, separate from recognition rejects zero-length duplicates and a tiny high-point-count scribble",
+          "status": "passed"
+        },
+        {
+          "name": "canvas input validity, separate from recognition rejects invalid canvas dimension NaN",
+          "status": "passed"
+        },
+        {
+          "name": "canvas input validity, separate from recognition rejects invalid canvas dimension Infinity",
+          "status": "passed"
+        },
+        {
+          "name": "canvas input validity, separate from recognition rejects invalid canvas dimension -1",
+          "status": "passed"
+        },
+        {
+          "name": "canvas input validity, separate from recognition rejects invalid canvas dimension 0",
+          "status": "passed"
+        },
+        {
+          "name": "canvas input validity, separate from recognition rejects unmeasured capture, excessive points and strokes before flattening",
+          "status": "passed"
+        },
+        {
+          "name": "canvas input validity, separate from recognition rejects malformed, decreasing and zero-duration timestamps",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\content\\__tests__\\parseActivity.test.ts",
+      "tests": [
+        {
+          "name": "Data-driven content boundary accepts a new module/topic and illustration ID without a screen change",
+          "status": "passed"
+        },
+        {
+          "name": "Data-driven content boundary rejects malformed or unsupported payloads",
+          "status": "passed"
+        },
+        {
+          "name": "Data-driven content boundary rejects malformed or unsupported payloads",
+          "status": "passed"
+        },
+        {
+          "name": "Data-driven content boundary rejects malformed or unsupported payloads",
+          "status": "passed"
+        },
+        {
+          "name": "Data-driven content boundary rejects malformed or unsupported payloads",
+          "status": "passed"
+        },
+        {
+          "name": "Data-driven content boundary rejects malformed or unsupported payloads",
+          "status": "passed"
+        },
+        {
+          "name": "Data-driven content boundary rejects malformed or unsupported payloads",
+          "status": "passed"
+        },
+        {
+          "name": "Data-driven content boundary rejects mismatched IDs and arbitrary local paths from storage",
+          "status": "passed"
+        },
+        {
+          "name": "Data-driven content boundary does not show another topic for an unknown ID",
+          "status": "passed"
+        },
+        {
+          "name": "Data-driven content boundary requires exact approved HTTPS origins, not URL prefixes",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\components\\learner\\writing\\__tests__\\writingLayout.test.ts",
+      "tests": [
+        {
+          "name": "writing practice layout uses 390\u00d7844 as 1 columns (dense: false)",
+          "status": "passed"
+        },
+        {
+          "name": "writing practice layout uses 768\u00d71024 as 2 columns (dense: false)",
+          "status": "passed"
+        },
+        {
+          "name": "writing practice layout uses 640\u00d7360 as 3 columns (dense: true)",
+          "status": "passed"
+        },
+        {
+          "name": "writing practice layout uses 726\u00d7360 as 3 columns (dense: true)",
+          "status": "passed"
+        },
+        {
+          "name": "writing practice layout uses 844\u00d7390 as 3 columns (dense: true)",
+          "status": "passed"
+        },
+        {
+          "name": "writing practice layout uses 1170\u00d7540 as 3 columns (dense: false)",
+          "status": "passed"
+        },
+        {
+          "name": "writing practice layout uses 1440\u00d7900 as 3 columns (dense: false)",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "C:\\BAYA\\apps\\mobile\\ml\\__tests__\\bayaRuntimeDiagnostics.test.ts",
+      "tests": [
+        {
+          "name": "identifies Expo Go as native JavaScript even on an Android device",
+          "status": "passed"
+        },
+        {
+          "name": "identifies Android Chrome and its installed PWA as web DOM runtimes",
+          "status": "passed"
+        },
+        {
+          "name": "keeps tablet user-agent classification separate from the web runtime",
+          "status": "passed"
+        }
+      ]
+    }
+  ]
+}

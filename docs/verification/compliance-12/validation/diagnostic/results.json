@@ -1,0 +1,3076 @@
+{
+  "purpose": "diagnostic-not-validation",
+  "manifestSha256": null,
+  "thresholds": {
+    "pass_threshold": 0.9605122804641724,
+    "reject_threshold": 0.6407943367958069,
+    "chosen_on": "validation_only",
+    "minimum_positive_validation_retention": 0.95,
+    "maximum_positive_validation_hard_rejection": 0.01,
+    "positive_validation_retained": 0.9507936507936507,
+    "positive_validation_hard_rejection": 0.009523809523809525,
+    "negative_validation_passed": 0,
+    "negative_validation_rejected": 0.99375,
+    "negative_data_includes_synthetic_unreviewed": true,
+    "deployment_approved": false
+  },
+  "thresholdSha256": "60ca0384456862c389d9aac2fb3b2b38e6e7af3ad93cb25278807161648be1b9",
+  "startedAt": "2026-11-08T14:52:20.993Z",
+  "rows": [
+    {
+      "id": "wave-0",
+      "category": "wave",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "7ad05683d405077b36897b3ed39aa3bca5466c60fd933cf1d753288096da492e",
+      "top": {
+        "label": "ha",
+        "classIndex": 15,
+        "probability": 0.9873320460319519
+      },
+      "validityScore": 0.00016325712203979492,
+      "band": "reject",
+      "masteryWithoutGate": true,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true,
+      "experimentalPipeline": {
+        "status": "EXPERIMENTAL_UNCERTAIN"
+      },
+      "productionPipeline": [
+        {
+          "classIndex": 15,
+          "label": "ha",
+          "probability": 0.9873320460319519
+        }
+      ],
+      "twoIndependentEligibleAttempts": 2,
+      "wrongTargetAward": false
+    },
+    {
+      "id": "wave-1",
+      "category": "wave",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "33bf18490d0fb699af76ca9e779df23f050bb7c83234839394ea170b027a5b22",
+      "top": {
+        "label": "ha",
+        "classIndex": 15,
+        "probability": 0.8754259347915649
+      },
+      "validityScore": 0.00009962916374206543,
+      "band": "reject",
+      "masteryWithoutGate": true,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "wave-2",
+      "category": "wave",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "77e16dd6da41992ef6cffe16b18d6014d367bab8291b8661082ed3e9ae61b066",
+      "top": {
+        "label": "ha",
+        "classIndex": 15,
+        "probability": 0.9970250725746155
+      },
+      "validityScore": 0.0005340576171875,
+      "band": "reject",
+      "masteryWithoutGate": true,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "wave-3",
+      "category": "wave",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "365452b2193289b886e2e764c424eb810e083952b101fd29d34f122d19f1bde1",
+      "top": {
+        "label": "ha",
+        "classIndex": 15,
+        "probability": 0.9838135242462158
+      },
+      "validityScore": 0.0005999207496643066,
+      "band": "reject",
+      "masteryWithoutGate": true,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "wave-4",
+      "category": "wave",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "6b4d024ff8e0808b709d7eda5fffffdcb2409668a8a7cd0db0c2795eacc0a6d1",
+      "top": {
+        "label": "ha",
+        "classIndex": 15,
+        "probability": 0.9627633094787598
+      },
+      "validityScore": 0.0003688931465148926,
+      "band": "reject",
+      "masteryWithoutGate": true,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "wave-5",
+      "category": "wave",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "497b0fc148529ad48819dcb4ebf32564510bbc78d86547b9af8ea0eab9c94286",
+      "top": {
+        "label": "ha",
+        "classIndex": 15,
+        "probability": 0.9970406889915466
+      },
+      "validityScore": 0.0030860602855682373,
+      "band": "reject",
+      "masteryWithoutGate": true,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "wave-6",
+      "category": "wave",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "b11bf1fec54d191fa52d8f5164c788a507dc1cf1869e6d87f8ab9039b6943b2c",
+      "top": {
+        "label": "ha",
+        "classIndex": 15,
+        "probability": 0.9870347380638123
+      },
+      "validityScore": 0.00012472271919250488,
+      "band": "reject",
+      "masteryWithoutGate": true,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "wave-7",
+      "category": "wave",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "000ab7d41745bd9b836a3fc8bbf8017cb1e38191b1b899c522862ccd0fee4376",
+      "top": {
+        "label": "ha",
+        "classIndex": 15,
+        "probability": 0.7316190004348755
+      },
+      "validityScore": 0.00007846951484680176,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "wave-8",
+      "category": "wave",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "b05a1339bd3de16066aab8a5b6df778879f6ca78d356b1257d311eb379ea8a5d",
+      "top": {
+        "label": "ha",
+        "classIndex": 15,
+        "probability": 0.9955631494522095
+      },
+      "validityScore": 0.0002880096435546875,
+      "band": "reject",
+      "masteryWithoutGate": true,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "wave-9",
+      "category": "wave",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "f716bcdccce77eaaaed8d21486a52ce0b7db141a77f5de64df04fe98aa3287fd",
+      "top": {
+        "label": "ha",
+        "classIndex": 15,
+        "probability": 0.9871475100517273
+      },
+      "validityScore": 0.00016668438911437988,
+      "band": "reject",
+      "masteryWithoutGate": true,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "wave-10",
+      "category": "wave",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "d792e59a0c7f104c26060042632aa4b0e8062bca7b49d21814a77c46f658fda5",
+      "top": {
+        "label": "ha",
+        "classIndex": 15,
+        "probability": 0.8835248351097107
+      },
+      "validityScore": 0.00010481476783752441,
+      "band": "reject",
+      "masteryWithoutGate": true,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "wave-11",
+      "category": "wave",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "6916946a8b913f8196596b01ebda3ee7a5d7a94ad0af6340da172661da82226d",
+      "top": {
+        "label": "ha",
+        "classIndex": 15,
+        "probability": 0.9970158338546753
+      },
+      "validityScore": 0.0005373954772949219,
+      "band": "reject",
+      "masteryWithoutGate": true,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "circle-0",
+      "category": "circle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "20d4526fa0360b631ea6a7fe619bac3f5502a55eb7afd20d1fec699a08305cd3",
+      "top": {
+        "label": "ba",
+        "classIndex": 2,
+        "probability": 0.9999033212661743
+      },
+      "validityScore": 0.07215455174446106,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "circle-1",
+      "category": "circle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "37bb544b09311e4f5cb36712b099d70584d854104525ae8214444dabbb41626d",
+      "top": {
+        "label": "ba",
+        "classIndex": 2,
+        "probability": 0.9998869895935059
+      },
+      "validityScore": 0.06553071737289429,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "circle-2",
+      "category": "circle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "567dd7a44058625b83c22a65629c057039db29b9586447ee177654fd133d26b6",
+      "top": {
+        "label": "ba",
+        "classIndex": 2,
+        "probability": 0.9998924732208252
+      },
+      "validityScore": 0.0712730884552002,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "circle-3",
+      "category": "circle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "010f5bb91adc75ff03f3ec555682253d78b0acdf48bba76de3fc7d5be701c496",
+      "top": {
+        "label": "ba",
+        "classIndex": 2,
+        "probability": 0.9998781681060791
+      },
+      "validityScore": 0.04538723826408386,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "circle-4",
+      "category": "circle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "a200beb0777c1a958a94aeffd9df373238d06faa377785f43246146c860984ad",
+      "top": {
+        "label": "ba",
+        "classIndex": 2,
+        "probability": 0.9998455047607422
+      },
+      "validityScore": 0.04124879837036133,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "circle-5",
+      "category": "circle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "4622a9fb46b2cf448285f94d3e972e1ecda277da20ceae275888e7463040c691",
+      "top": {
+        "label": "ba",
+        "classIndex": 2,
+        "probability": 0.9998468160629272
+      },
+      "validityScore": 0.04214775562286377,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "circle-6",
+      "category": "circle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "41700794a5ab34e5a82f55b3af6508e734881b510eb889327e6ecb47a1bdab76",
+      "top": {
+        "label": "ba",
+        "classIndex": 2,
+        "probability": 0.9998332262039185
+      },
+      "validityScore": 0.06612345576286316,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "circle-7",
+      "category": "circle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "6001816e074cc149da9dc18018a6658c6b1c84bceffbae7de85fb9abab63c23c",
+      "top": {
+        "label": "ba",
+        "classIndex": 2,
+        "probability": 0.9998065829277039
+      },
+      "validityScore": 0.0636029839515686,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "circle-8",
+      "category": "circle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "145fe2275eebbf9598401c466edee03b967e2f988af2f0aa42a255cd38a492bb",
+      "top": {
+        "label": "ba",
+        "classIndex": 2,
+        "probability": 0.9997929930686951
+      },
+      "validityScore": 0.06275135278701782,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "circle-9",
+      "category": "circle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "eb7b890406161e9e099bff88df7bbf5d4a056243ccccb2f7550ce240e48c11c9",
+      "top": {
+        "label": "ba",
+        "classIndex": 2,
+        "probability": 0.9999008178710938
+      },
+      "validityScore": 0.0689951479434967,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "circle-10",
+      "category": "circle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "51d496549acf2d9b678748fa208be247d0890bd2681c740520ed8a59c5f1c312",
+      "top": {
+        "label": "ba",
+        "classIndex": 2,
+        "probability": 0.9998893737792969
+      },
+      "validityScore": 0.0698915421962738,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "circle-11",
+      "category": "circle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "567dd7a44058625b83c22a65629c057039db29b9586447ee177654fd133d26b6",
+      "top": {
+        "label": "ba",
+        "classIndex": 2,
+        "probability": 0.9998924732208252
+      },
+      "validityScore": 0.0712730884552002,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "zigzag-0",
+      "category": "zigzag",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "56d169a70dba5bec21a5bafc67e2c6e4d46ab5512c45d907e6905631fc21fee3",
+      "top": {
+        "label": "nga",
+        "classIndex": 34,
+        "probability": 0.8645229339599609
+      },
+      "validityScore": 0.00007006525993347168,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "zigzag-1",
+      "category": "zigzag",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "fd9caf44d583926da23ea0323f78506c381a7fea6a82e61ad3132321c8713143",
+      "top": {
+        "label": "pe_pi",
+        "classIndex": 41,
+        "probability": 0.4818735420703888
+      },
+      "validityScore": 0.00002771615982055664,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "zigzag-2",
+      "category": "zigzag",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "58f758d32c2b409c1991d5d033e39135f023137c09b4c2ac64eb4e2e8f358129",
+      "top": {
+        "label": "nga",
+        "classIndex": 34,
+        "probability": 0.791921854019165
+      },
+      "validityScore": 0.00019559264183044434,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "zigzag-3",
+      "category": "zigzag",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "7046d92a44f1cb875564fe6127a17fb4dd9612bc7e91d1c79ae91cbe955b18ce",
+      "top": {
+        "label": "sa",
+        "classIndex": 48,
+        "probability": 0.508857011795044
+      },
+      "validityScore": 0.00020617246627807617,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "zigzag-4",
+      "category": "zigzag",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "f58973d4c4bcb51350b770e1f1b727ed6ec4c6099d52affbb5fed414b72d7710",
+      "top": {
+        "label": "nga",
+        "classIndex": 34,
+        "probability": 0.46322688460350037
+      },
+      "validityScore": 0.0001450181007385254,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "zigzag-5",
+      "category": "zigzag",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "312032c968fc551648909e034972946e64e541c6facbf397830e2e30bb5fc85a",
+      "top": {
+        "label": "sa",
+        "classIndex": 48,
+        "probability": 0.8205951452255249
+      },
+      "validityScore": 0.00023177266120910645,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "zigzag-6",
+      "category": "zigzag",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "703c4f43ff98d678f2f0baaade69975367fa2a0e1d1bc912d0e3dbf1e501b0f8",
+      "top": {
+        "label": "nga",
+        "classIndex": 34,
+        "probability": 0.8301562666893005
+      },
+      "validityScore": 0.00007978081703186035,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "zigzag-7",
+      "category": "zigzag",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "1ad7eb06d60f8b1036166eb7c32606ab6c6c26bb68c9a9c45c119a9e98173500",
+      "top": {
+        "label": "pe_pi",
+        "classIndex": 41,
+        "probability": 0.5286272764205933
+      },
+      "validityScore": 0.00002232193946838379,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "zigzag-8",
+      "category": "zigzag",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "b784211b25cc0321f4ee55f09f8f910ee6386953281e6fd89b1de8f8e8f2004d",
+      "top": {
+        "label": "nga",
+        "classIndex": 34,
+        "probability": 0.8034201860427856
+      },
+      "validityScore": 0.00032147765159606934,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "zigzag-9",
+      "category": "zigzag",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "4b927327067ed00c70f7e378e79ca49aac535671fa5f28d7e1512d4ae2c69aa1",
+      "top": {
+        "label": "nga",
+        "classIndex": 34,
+        "probability": 0.889288604259491
+      },
+      "validityScore": 0.00007048249244689941,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "zigzag-10",
+      "category": "zigzag",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "05f2dbb16f6e18fe681cd6de93d697b5c38d1e058e7abf3639262b4d183bcef3",
+      "top": {
+        "label": "pe_pi",
+        "classIndex": 41,
+        "probability": 0.51883465051651
+      },
+      "validityScore": 0.000027805566787719727,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "zigzag-11",
+      "category": "zigzag",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "3d48526c5dac0302a1a9588b4b04eb6036faa0796ef6c0e4f9522445604d4b40",
+      "top": {
+        "label": "nga",
+        "classIndex": 34,
+        "probability": 0.7887933850288391
+      },
+      "validityScore": 0.00019609928131103516,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "scribble-0",
+      "category": "scribble",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "0b451e070a4b2e98f8ec78f6b59ef8901b4fa4b685ffec48f38edf908fc716b5",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.9944992065429688
+      },
+      "validityScore": 0.13025230169296265,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "scribble-1",
+      "category": "scribble",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "8206d3d5ad0f9324d895147fa8418eb1ce68b61eb33a4024e83110d4bd818b00",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.8174883127212524
+      },
+      "validityScore": 0.07213887572288513,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "scribble-2",
+      "category": "scribble",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "97e6d14944f3138646c5abcf2de4434a16912bebd6ef948461b6dcdde60dd2ef",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.7883729338645935
+      },
+      "validityScore": 0.038174569606781006,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "scribble-3",
+      "category": "scribble",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "45c70001ae4ed43264b6372ed6441eb7a323fafc8071607c735b594041c0e206",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.9998728036880493
+      },
+      "validityScore": 0.04566735029220581,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "scribble-4",
+      "category": "scribble",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "b2cae22de8e25816e85dd86177c5be00164775c178ed4f0b0710c7fc0410932e",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.9632472395896912
+      },
+      "validityScore": 0.046787798404693604,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "scribble-5",
+      "category": "scribble",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "eac0616b1c4f60e4b26ef0a6417623ac2f4c52e340b7caeb66ce0d9bfb70b1ef",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.995625376701355
+      },
+      "validityScore": 0.020406663417816162,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "scribble-6",
+      "category": "scribble",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "8bb778b7fa83f93ea4cf81bd451e4e1aa182a56ebccac89f305404a1a88636ab",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.8379558324813843
+      },
+      "validityScore": 0.1266268789768219,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "scribble-7",
+      "category": "scribble",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "8eaa4d9063e04b1d41dcca9a06f9c2bbfdeec2338bdb6c039167707bf60066b1",
+      "top": {
+        "label": "ko_ku",
+        "classIndex": 21,
+        "probability": 0.7302436232566833
+      },
+      "validityScore": 0.10151267051696777,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "scribble-8",
+      "category": "scribble",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "b4fecfde6ddb487c57a4f62a09fb0f9bd93ae75ba899b91a4eb972d919bd7cce",
+      "top": {
+        "label": "ke_ki",
+        "classIndex": 20,
+        "probability": 0.6431444883346558
+      },
+      "validityScore": 0.04599925875663757,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "scribble-9",
+      "category": "scribble",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "4d283376c12ac1cc36007b6530bc2032175444050f168ae04a44ef7fc60e7941",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.9914416670799255
+      },
+      "validityScore": 0.11898532509803772,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "scribble-10",
+      "category": "scribble",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "d8038df92edc1e21dfe956e1291a5d048406f391504609602e57352702dcf780",
+      "top": {
+        "label": "ko_ku",
+        "classIndex": 21,
+        "probability": 0.7267111539840698
+      },
+      "validityScore": 0.08106499910354614,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "scribble-11",
+      "category": "scribble",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "ee78b74fa48b7dd88d5a5999e61ecd10a3bbe0c000f3720f3afbd87b725017b3",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.7866808772087097
+      },
+      "validityScore": 0.038349807262420654,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "random_lines-0",
+      "category": "random_lines",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "9b40b3b0712a2036c80022dfe1771233f0cd9a400021e89ee15252f40ab5a140",
+      "top": {
+        "label": "e_i",
+        "classIndex": 9,
+        "probability": 0.9757295250892639
+      },
+      "validityScore": 0.022706717252731323,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "random_lines-1",
+      "category": "random_lines",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "85df3be51e8e517be8d3d14d3dd31a763545de48cb8441c6847ef2cfd47dd013",
+      "top": {
+        "label": "e_i",
+        "classIndex": 9,
+        "probability": 0.9635282754898071
+      },
+      "validityScore": 0.010353535413742065,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "random_lines-2",
+      "category": "random_lines",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "8bb8be8161e8e903d3b842f657db8b2fcec040909f16e265b9ceadb9c2be5311",
+      "top": {
+        "label": "e_i",
+        "classIndex": 9,
+        "probability": 0.596998393535614
+      },
+      "validityScore": 0.019390851259231567,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "random_lines-3",
+      "category": "random_lines",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "9e1f99020466cb000061e7648a834e473f087425cf947365547a3862d7ebe450",
+      "top": {
+        "label": "e_i",
+        "classIndex": 9,
+        "probability": 0.9433420896530151
+      },
+      "validityScore": 0.003500312566757202,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "random_lines-4",
+      "category": "random_lines",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "b83af98265e5ba2047c4c31d0d5ff082f2b9b6d61e23811b2603ffe07ef0ee44",
+      "top": {
+        "label": "e_i",
+        "classIndex": 9,
+        "probability": 0.7593396306037903
+      },
+      "validityScore": 0.006486862897872925,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "random_lines-5",
+      "category": "random_lines",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "2201d27ab9b080902a435efe39f1bf46911b8ba5b324fef96deedcafd78d53d4",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.6074824333190918
+      },
+      "validityScore": 0.01807841658592224,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "random_lines-6",
+      "category": "random_lines",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "68e05bf843dc6b77a1a317d52cac9cd9797fc5845bcd578e7bbed0f541cca090",
+      "top": {
+        "label": "e_i",
+        "classIndex": 9,
+        "probability": 0.9437583088874817
+      },
+      "validityScore": 0.0278816819190979,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "random_lines-7",
+      "category": "random_lines",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "d53272c4f2983aab22e2866ec9aebdc59943f75b73032ad69cd3b40a194b03f2",
+      "top": {
+        "label": "e_i",
+        "classIndex": 9,
+        "probability": 0.8793653249740601
+      },
+      "validityScore": 0.011761695146560669,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "random_lines-8",
+      "category": "random_lines",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "18cde51d78ee50f7289abab7cd9870433d36b6c048630dc8cfb86281a9972ac8",
+      "top": {
+        "label": "pe_pi",
+        "classIndex": 41,
+        "probability": 0.6463684439659119
+      },
+      "validityScore": 0.029221385717391968,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "random_lines-9",
+      "category": "random_lines",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "0902aaa34b8e45f33763618762d4ba462ca4e3c8cdb080670d46e58d5d036e45",
+      "top": {
+        "label": "e_i",
+        "classIndex": 9,
+        "probability": 0.9869667291641235
+      },
+      "validityScore": 0.012956321239471436,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "random_lines-10",
+      "category": "random_lines",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "12279868165d4f049a7eb21906758a09a8d23306a0a9d3241b3f1021104854f9",
+      "top": {
+        "label": "e_i",
+        "classIndex": 9,
+        "probability": 0.966748058795929
+      },
+      "validityScore": 0.010816872119903564,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "random_lines-11",
+      "category": "random_lines",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "bc9426968cc0b557700759e859343257ccd98a2c956a4e75f43462f736f991ac",
+      "top": {
+        "label": "e_i",
+        "classIndex": 9,
+        "probability": 0.5948448777198792
+      },
+      "validityScore": 0.019411355257034302,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "cross-0",
+      "category": "cross",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "080b025886b9579a028d0de02d0546bbddddf6369083c31b72352fd0b0ae974f",
+      "top": {
+        "label": "p",
+        "classIndex": 39,
+        "probability": 0.5721407532691956
+      },
+      "validityScore": 0.04736843705177307,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "cross-1",
+      "category": "cross",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "ce61e1a34d7f4dafa726ec0468f38c6bd071874d9c7a16cabd7af1a91cfc0f59",
+      "top": {
+        "label": "pa",
+        "classIndex": 40,
+        "probability": 0.6511306762695312
+      },
+      "validityScore": 0.0463424026966095,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "cross-2",
+      "category": "cross",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "487a41c45e7723b27475f6fd2833afc2981ae2ac2b08b03afe08953402df672e",
+      "top": {
+        "label": "pa",
+        "classIndex": 40,
+        "probability": 0.8702483773231506
+      },
+      "validityScore": 0.04180064797401428,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "cross-3",
+      "category": "cross",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "8ca78adeda086c4e0604387c53293801935a8752f4eedbf341fc8afb7968f496",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.46419593691825867
+      },
+      "validityScore": 0.011613577604293823,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "cross-4",
+      "category": "cross",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "1fc03de86c4207efec121665cdc9bacc5567de616718b5322ec4bbb8e1bee3d3",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.6067382097244263
+      },
+      "validityScore": 0.012695759534835815,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "cross-5",
+      "category": "cross",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "3c2e085938903dbb886931d61c7600519fd161f94317922cdc635fc1736c5cac",
+      "top": {
+        "label": "pa",
+        "classIndex": 40,
+        "probability": 0.7012258768081665
+      },
+      "validityScore": 0.017640352249145508,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "cross-6",
+      "category": "cross",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "b5573ed054ead956f1282a7b1c928806634136e0ae51732d444ed03fc047de78",
+      "top": {
+        "label": "p",
+        "classIndex": 39,
+        "probability": 0.6240983605384827
+      },
+      "validityScore": 0.06565845012664795,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "cross-7",
+      "category": "cross",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "dacd2e1248b40a508c3cfd9e9d6fc0f694dfa8aab342a55910c0d705db154fbb",
+      "top": {
+        "label": "pa",
+        "classIndex": 40,
+        "probability": 0.5646412372589111
+      },
+      "validityScore": 0.043566375970840454,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "cross-8",
+      "category": "cross",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "b68740c57a1bf4dde575ec66df9d060df67626d587588c77e4cb77545cb02c42",
+      "top": {
+        "label": "pa",
+        "classIndex": 40,
+        "probability": 0.8955971598625183
+      },
+      "validityScore": 0.04859229922294617,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "cross-9",
+      "category": "cross",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "08e0c7eccd99cfbf6e144da1eb82212ed4c871b53eb98e1e5a74cc9261ff23eb",
+      "top": {
+        "label": "p",
+        "classIndex": 39,
+        "probability": 0.6418708562850952
+      },
+      "validityScore": 0.05131441354751587,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "cross-10",
+      "category": "cross",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "6f1753d2193fb15a0f88b502551cf11b921107b29b9d9df25f4a64439e78b33b",
+      "top": {
+        "label": "pa",
+        "classIndex": 40,
+        "probability": 0.6777324080467224
+      },
+      "validityScore": 0.05183100700378418,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "cross-11",
+      "category": "cross",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "487a41c45e7723b27475f6fd2833afc2981ae2ac2b08b03afe08953402df672e",
+      "top": {
+        "label": "pa",
+        "classIndex": 40,
+        "probability": 0.8702483773231506
+      },
+      "validityScore": 0.04180064797401428,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "geometric-0",
+      "category": "geometric",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "2916f633c1a7c3276d29a5358ffe0172ac4f0c947740ca70bb98dd491ad9def4",
+      "top": {
+        "label": "da_ra",
+        "classIndex": 6,
+        "probability": 0.4175647497177124
+      },
+      "validityScore": 0.12201684713363647,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "geometric-1",
+      "category": "geometric",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "9069d2f247e8380ca36ba4cb7daaccc0e078a37f30527d225c0ff6768a4186b5",
+      "top": {
+        "label": "da_ra",
+        "classIndex": 6,
+        "probability": 0.9909880757331848
+      },
+      "validityScore": 0.5747948288917542,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "geometric-2",
+      "category": "geometric",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "cb95e74199bdd56a5ecb66448965efc1acda3e8a78a0cf0961510f9c3770fd36",
+      "top": {
+        "label": "ba",
+        "classIndex": 2,
+        "probability": 0.2675292491912842
+      },
+      "validityScore": 0.27548569440841675,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "geometric-3",
+      "category": "geometric",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "466d6404a2e226880621c5d4e2a3636671d1fbdda651468483ea27514aa5779f",
+      "top": {
+        "label": "ba",
+        "classIndex": 2,
+        "probability": 0.5714859366416931
+      },
+      "validityScore": 0.09881278872489929,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "geometric-4",
+      "category": "geometric",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "ad220375a14775feab4cba422c025b13bcf1ce4680687e664b14c311938ff362",
+      "top": {
+        "label": "da_ra",
+        "classIndex": 6,
+        "probability": 0.8536728024482727
+      },
+      "validityScore": 0.15712496638298035,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "geometric-5",
+      "category": "geometric",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "64431d644af91028cb3b6c735c02cd91841046ca8a7886e40a4538b83806a6d6",
+      "top": {
+        "label": "ba",
+        "classIndex": 2,
+        "probability": 0.9903180599212646
+      },
+      "validityScore": 0.19158366322517395,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "geometric-6",
+      "category": "geometric",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "a4a12543186b6e7458a2cd3a701da058ba62956902e01cfc1103b291ff823b0c",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.4629867672920227
+      },
+      "validityScore": 0.15984225273132324,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "geometric-7",
+      "category": "geometric",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "6102fa8d53832c0250c9b732adac1549d0a23e512fa4be32350b6a9c3376d8bd",
+      "top": {
+        "label": "da_ra",
+        "classIndex": 6,
+        "probability": 0.9893416166305542
+      },
+      "validityScore": 0.6275502443313599,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "geometric-8",
+      "category": "geometric",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "1d60efed455d7c40dfbf61222da483899efd70fed6b1b1a412d77196c4d879c9",
+      "top": {
+        "label": "y",
+        "classIndex": 59,
+        "probability": 0.26774847507476807
+      },
+      "validityScore": 0.2837045192718506,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "geometric-9",
+      "category": "geometric",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "116963b3884ba9ff28aed69c687b347c23a4d5683fbfc27c2f085d456491bb69",
+      "top": {
+        "label": "da_ra",
+        "classIndex": 6,
+        "probability": 0.32595545053482056
+      },
+      "validityScore": 0.12463134527206421,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "geometric-10",
+      "category": "geometric",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "6bbd6a0d4db2fbfea9640f12fa8a6dcee95448f8a60a341de855723a32a49010",
+      "top": {
+        "label": "da_ra",
+        "classIndex": 6,
+        "probability": 0.9895170331001282
+      },
+      "validityScore": 0.5551740527153015,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "geometric-11",
+      "category": "geometric",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "d0e4e0ae0bb48725683bf3105d39bf48a7b2485ea964eb5909a9ea84f4984b2e",
+      "top": {
+        "label": "ba",
+        "classIndex": 2,
+        "probability": 0.2667580544948578
+      },
+      "validityScore": 0.2756258547306061,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": false
+    },
+    {
+      "id": "other_doodle-0",
+      "category": "other_doodle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "6cca4575c079fc9d425257860040984f72e853d5bc378cd3b81cff5bed1b7e1f",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.9610190987586975
+      },
+      "validityScore": 0.06656229496002197,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "other_doodle-1",
+      "category": "other_doodle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "08a09139a35091ac6b0596d8da62b5228841a2e88c92c53d524d51ba3db48bc2",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.9779420495033264
+      },
+      "validityScore": 0.1022816002368927,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "other_doodle-2",
+      "category": "other_doodle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "29dae779f01d67212ce4f4c6459d578c65a154296fdf218bcda18b7c4fb2b543",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.9549229741096497
+      },
+      "validityScore": 0.07694929838180542,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "other_doodle-3",
+      "category": "other_doodle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "7c9dfdbf6af30b8360e645f2ddbea65e9a2307aea3a393879cdac5ed0574167a",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.9216800332069397
+      },
+      "validityScore": 0.07409852743148804,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "other_doodle-4",
+      "category": "other_doodle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "9a487c2fbc9fd2ad8b7fd12638da56665591d404c4a4a3f4016ba02121ff3767",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.9507161974906921
+      },
+      "validityScore": 0.10108959674835205,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "other_doodle-5",
+      "category": "other_doodle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "fccfaad052187747830a7175d29fd04ed6c812a0210e5876da7ad4b4611366ed",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.9020279049873352
+      },
+      "validityScore": 0.0982607901096344,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "other_doodle-6",
+      "category": "other_doodle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "3e1e05919551fc378f78092b7d5e27398f241285c2350d6a74ad3c6dfb66509e",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.9643973708152771
+      },
+      "validityScore": 0.07248950004577637,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "other_doodle-7",
+      "category": "other_doodle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "be3791cf6c6b9d05dec820f49968ce6af8c3578115281bd406ae93aa1a141f00",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.9668684005737305
+      },
+      "validityScore": 0.0817166268825531,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "other_doodle-8",
+      "category": "other_doodle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "424afa139fa813d75dee261362859be48d906ef366f897f154889cede4936980",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.9554315805435181
+      },
+      "validityScore": 0.06782689690589905,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "other_doodle-9",
+      "category": "other_doodle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "0e9924d5e7a40363d2e817b3c8fdac4e5db3be116a2b7b443aa4a137611d07fd",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.969550371170044
+      },
+      "validityScore": 0.08291187882423401,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "other_doodle-10",
+      "category": "other_doodle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "e43a53e2c8a133c95b47f0d1bc593ae8d7b9a87399d654fc1eea230ffa3dd9e4",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.9761772155761719
+      },
+      "validityScore": 0.10498180985450745,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "other_doodle-11",
+      "category": "other_doodle",
+      "kind": "strokes",
+      "target": "ha",
+      "provenance": "Existing unreviewed procedural diagnostic; NOT invalid ground truth",
+      "sufficient": true,
+      "tensorSha256": "29dae779f01d67212ce4f4c6459d578c65a154296fdf218bcda18b7c4fb2b543",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.9549229741096497
+      },
+      "validityScore": 0.07694929838180542,
+      "band": "reject",
+      "masteryWithoutGate": false,
+      "masteryWithGate": false,
+      "targetMatchedDiagnostic": true
+    },
+    {
+      "id": "reference-a",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "a",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "2bc123faf0412bea6c9a963821754f0d73e6619574ff123ee0993c84a5456375",
+      "top": {
+        "label": "a",
+        "classIndex": 0,
+        "probability": 1
+      },
+      "validityScore": 0.999377965927124,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-b",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "b",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "86f8474cfb4fa53f7bfb0fadaa36e8592d48aacf645cb92ddf030cefa0260800",
+      "top": {
+        "label": "b",
+        "classIndex": 1,
+        "probability": 0.9938370585441589
+      },
+      "validityScore": 0.9999934434890747,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-ba",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "ba",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "a304c10bd7dc57cd6e30feaeab8e7c00b4a9b1e97e4ee44ccb9722c4950e3611",
+      "top": {
+        "label": "ba",
+        "classIndex": 2,
+        "probability": 0.9999996423721313
+      },
+      "validityScore": 0.9878042936325073,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-be_bi",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "be_bi",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "9e4580194fe9519eae81ac7f7eecda8e6b71e44a9110564f2bb8b54cee961b11",
+      "top": {
+        "label": "be_bi",
+        "classIndex": 3,
+        "probability": 0.9999997615814209
+      },
+      "validityScore": 0.9996894598007202,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-bo_bu",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "bo_bu",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "ddc6b0b7760705a3fd20cd824d39693ce9ac79c62f9ade416ef4ef11c5838d42",
+      "top": {
+        "label": "b",
+        "classIndex": 1,
+        "probability": 0.9999874830245972
+      },
+      "validityScore": 0.9999799728393555,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-d",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "d",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "826db6de94c361623eb5536bf899f6f250a0134b499659fce011da2cea58f7b3",
+      "top": {
+        "label": "re_ri",
+        "classIndex": 45,
+        "probability": 0.6575705409049988
+      },
+      "validityScore": 0.9773694276809692,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-da_ra",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "da_ra",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "8cca562ed932e4d97665813330678373a62e0f999e5a8f9412a06a765ac9f930",
+      "top": {
+        "label": "da_ra",
+        "classIndex": 6,
+        "probability": 0.5755018591880798
+      },
+      "validityScore": 0.15512904524803162,
+      "band": "reject",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-de_di",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "de_di",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "254855517bf75019c2ff7af243aac6dcf09508f9b118a885d43b8af049f11cf4",
+      "top": {
+        "label": "re_ri",
+        "classIndex": 45,
+        "probability": 1
+      },
+      "validityScore": 0.9999463558197021,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-do_du",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "do_du",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "c195e5908194aaf70cac34d5153cc6fe28301f3e3d2aa5c4c1651160767ebe82",
+      "top": {
+        "label": "ro_ru",
+        "classIndex": 46,
+        "probability": 0.9999992847442627
+      },
+      "validityScore": 0.999597430229187,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-e_i",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "e_i",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "c37178c1980b517532ca30267803c594de960fc1949c7f835e6bc8449ef82dea",
+      "top": {
+        "label": "e_i",
+        "classIndex": 9,
+        "probability": 0.9997572302818298
+      },
+      "validityScore": 0.7138053178787231,
+      "band": "review",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-g",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "g",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "c866d5265aa7165287da5cf8b8a9b5bfce2c8410a9994520a81c29014dce2e63",
+      "top": {
+        "label": "g",
+        "classIndex": 10,
+        "probability": 0.9999980926513672
+      },
+      "validityScore": 0.9993987083435059,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-ga",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "ga",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "0b2a23d7c3c7d2b4f9a6196b09b5731f172fd1d49fd5fabbc5e21d872695c43c",
+      "top": {
+        "label": "ga",
+        "classIndex": 11,
+        "probability": 0.9999887943267822
+      },
+      "validityScore": 0.9468904733657837,
+      "band": "review",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-ge_gi",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "ge_gi",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "ecfff9b3afc7f4d8b82c30822eccbd2648ebafdf8ddafb7ef9cd9799be379983",
+      "top": {
+        "label": "ge_gi",
+        "classIndex": 12,
+        "probability": 1
+      },
+      "validityScore": 0.9996985197067261,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-go_gu",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "go_gu",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "8dfb8c0f7b3f578d892b9a2d824d4bd78f8cd6c94928a557c483d7cbe628fb2a",
+      "top": {
+        "label": "go_gu",
+        "classIndex": 13,
+        "probability": 0.996466875076294
+      },
+      "validityScore": 0.9999935030937195,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-h",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "h",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "f73bd79713f21b756fb9fcf925387b4c3db5d4c6d1ca16c94788ea23b9ae658a",
+      "top": {
+        "label": "h",
+        "classIndex": 14,
+        "probability": 1
+      },
+      "validityScore": 0.9999799728393555,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-ha",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "ha",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "ae73efcc4236ed2add185f615aa599236bd629b39acf27f3313a76a2117160a3",
+      "top": {
+        "label": "ha",
+        "classIndex": 15,
+        "probability": 0.9999878406524658
+      },
+      "validityScore": 0.8697748184204102,
+      "band": "review",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-he_hi",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "he_hi",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "f531d245263168ddcc8acb321de487145054fc65a70ff2c28680927658fbe8ad",
+      "top": {
+        "label": "he_hi",
+        "classIndex": 16,
+        "probability": 0.9999995231628418
+      },
+      "validityScore": 0.9965591430664062,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-ho_hu",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "ho_hu",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "1ce66bdf840c0d768b48ccf033e4812b9b178464e7d83f0414901bf2c305a3bd",
+      "top": {
+        "label": "yo_yu",
+        "classIndex": 62,
+        "probability": 0.5635342001914978
+      },
+      "validityScore": 0.9998937845230103,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-k",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "k",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "a1ae4b204a8869a4d99fcb3c800d9e46134eec308c482f22ade35bae07b9d4c2",
+      "top": {
+        "label": "k",
+        "classIndex": 18,
+        "probability": 0.9999980926513672
+      },
+      "validityScore": 0.9999963045120239,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-ka",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "ka",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "3c179b24f660d65b51104c87e35b55d8b5f2b3de0545b3eac2ba8948bd491806",
+      "top": {
+        "label": "ka",
+        "classIndex": 19,
+        "probability": 0.9999983310699463
+      },
+      "validityScore": 0.9999970197677612,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-ke_ki",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "ke_ki",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "868e0d4bd8c2fbc74c4f26d38ea232d7b2ce0ba7c2036128ec4c11903a569296",
+      "top": {
+        "label": "ke_ki",
+        "classIndex": 20,
+        "probability": 0.9999958276748657
+      },
+      "validityScore": 0.999896764755249,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-ko_ku",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "ko_ku",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "a3ccca5d03f47a99f6a98ea838d4eb851f9f7255631d43da304dc81a715f3185",
+      "top": {
+        "label": "ko_ku",
+        "classIndex": 21,
+        "probability": 0.9881398677825928
+      },
+      "validityScore": 0.9999798536300659,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-l",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "l",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "9454fdb87c399c6e36290073248b1b54400f220571f7f267b357a4e777ddd278",
+      "top": {
+        "label": "l",
+        "classIndex": 22,
+        "probability": 0.9999984502792358
+      },
+      "validityScore": 0.9980677962303162,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-la",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "la",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "4df9f94cfa8b1ad69e877dda06a32ed10538a12acf66795c2aec2b6310a40a3c",
+      "top": {
+        "label": "la",
+        "classIndex": 23,
+        "probability": 0.999971866607666
+      },
+      "validityScore": 0.9988565444946289,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-le_li",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "le_li",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "568bbb029dee052f432e742d451a75a2201443f9c939337e0eb46ca0e864a129",
+      "top": {
+        "label": "le_li",
+        "classIndex": 24,
+        "probability": 0.9999978542327881
+      },
+      "validityScore": 0.9999837875366211,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-lo_lu",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "lo_lu",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "a1855e5f5ac798c6b22e93ddc480ad4d736be342f3801e54e8e9d8d3254db368",
+      "top": {
+        "label": "lo_lu",
+        "classIndex": 25,
+        "probability": 0.9999885559082031
+      },
+      "validityScore": 0.9998546838760376,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-m",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "m",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "57ab879d06759139e7a11f532c07da94b4f172b6e35830ce17d201cccaab2c98",
+      "top": {
+        "label": "m",
+        "classIndex": 26,
+        "probability": 0.9999014139175415
+      },
+      "validityScore": 0.9959607124328613,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-ma",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "ma",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "c17d5cb5846daf35edf0c8bfbc2f949b9f0e6e0a2cf04e26cfc4bb918237b2bb",
+      "top": {
+        "label": "ma",
+        "classIndex": 27,
+        "probability": 1
+      },
+      "validityScore": 0.9999992847442627,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-me_mi",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "me_mi",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "a339e962addae5235352ddc21f100f3452652b3da6ef6b22ef8737b552d3cffa",
+      "top": {
+        "label": "me_mi",
+        "classIndex": 28,
+        "probability": 1
+      },
+      "validityScore": 0.9999766945838928,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-mo_mu",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "mo_mu",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "6702d00c1bfec41a1566a3cb559b0485e5db91c044f13a3ff2a7f24f11b9c562",
+      "top": {
+        "label": "mo_mu",
+        "classIndex": 29,
+        "probability": 0.9999970197677612
+      },
+      "validityScore": 0.9992843866348267,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-n",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "n",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "3f0d524bc4be9122e3372949d6a37ae095e839c01056ff60d5f4b6e4f78ada6a",
+      "top": {
+        "label": "n",
+        "classIndex": 30,
+        "probability": 0.9999985694885254
+      },
+      "validityScore": 0.9994951486587524,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-na",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "na",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "74f38979ae6cc68eaf115362126da2a0a0ecbd5182d3ef0204475c5bc9a55348",
+      "top": {
+        "label": "na",
+        "classIndex": 31,
+        "probability": 1
+      },
+      "validityScore": 0.999823272228241,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-ne_ni",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "ne_ni",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "9a9b66948941c6e186fc913f2f3a568c82528620e1544cd0f4d2d793d48e4c64",
+      "top": {
+        "label": "ne_ni",
+        "classIndex": 32,
+        "probability": 0.9999966621398926
+      },
+      "validityScore": 0.9745527505874634,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-ng",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "ng",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "d929e712e7720050b1de912ed455bc99b4f7dec357c8f4c7b12c1f9b81185d70",
+      "top": {
+        "label": "ng",
+        "classIndex": 33,
+        "probability": 0.9994794726371765
+      },
+      "validityScore": 0.6747484803199768,
+      "band": "review",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-nga",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "nga",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "d5a82570e56ef25fd41d2ac4c351f39550a6f288fda1ff58af21d05ad56aac61",
+      "top": {
+        "label": "ya",
+        "classIndex": 60,
+        "probability": 0.5002001523971558
+      },
+      "validityScore": 0.035485655069351196,
+      "band": "reject",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-nge_ngi",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "nge_ngi",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "dd04473637db2e6fced28d9ea9ff9f3a08ba0634d8ad8b67b4e8ebb8f57dfd7d",
+      "top": {
+        "label": "nge_ngi",
+        "classIndex": 35,
+        "probability": 0.9633026719093323
+      },
+      "validityScore": 0.9729328751564026,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-ngo_ngu",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "ngo_ngu",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "3d6fdb5232e7ce044e89e8f3a9ba9f6d05dcc541120224b427d8317a86ecacf0",
+      "top": {
+        "label": "ngo_ngu",
+        "classIndex": 36,
+        "probability": 0.5948153734207153
+      },
+      "validityScore": 0.7602068185806274,
+      "band": "review",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-no_nu",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "no_nu",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "a35a37251c84852d8ae88609b82a4fc94c0dfa8ad39792cd412d0d2d94ca809a",
+      "top": {
+        "label": "no_nu",
+        "classIndex": 37,
+        "probability": 0.9999586343765259
+      },
+      "validityScore": 0.9969780445098877,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-o_u",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "o_u",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "65db4b993ecebd4abc92d398f30fa77d8995b34ed833f73aefaacc93794846c8",
+      "top": {
+        "label": "o_u",
+        "classIndex": 38,
+        "probability": 1
+      },
+      "validityScore": 0.9999858736991882,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-p",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "p",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "18adca49a3233a24c386cb8dc11d2ff9234e85f5642aa9764c98b2e2d7feb7bb",
+      "top": {
+        "label": "p",
+        "classIndex": 39,
+        "probability": 0.9999986886978149
+      },
+      "validityScore": 0.9999344348907471,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-pa",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "pa",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "983a21a9ed2c2b8c083b2a23010667004f7fdec15f8ec8188d8bc57b098c6bbf",
+      "top": {
+        "label": "pa",
+        "classIndex": 40,
+        "probability": 0.9999959468841553
+      },
+      "validityScore": 0.9999857544898987,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-pe_pi",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "pe_pi",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "6fdbb57747bb7a360a90e875c213152bad6ab49538df05c33028d091d36521d7",
+      "top": {
+        "label": "pe_pi",
+        "classIndex": 41,
+        "probability": 1
+      },
+      "validityScore": 0.9999961853027344,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-po_pu",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "po_pu",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "cc33e810926df25f32a2d8c4350c32feda4f244be2c5b8dd97056ffb2eda6bb3",
+      "top": {
+        "label": "po_pu",
+        "classIndex": 42,
+        "probability": 0.9879066944122314
+      },
+      "validityScore": 0.9999799728393555,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-r",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "r",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "b604a47c9c457f3a6035463b9edc20d1246dd5f643f1c187c5f35da06181c8ab",
+      "top": {
+        "label": "r",
+        "classIndex": 43,
+        "probability": 1
+      },
+      "validityScore": 0.9999939799308777,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-ra",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "ra",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "7567a0d6f85567499f42938d84f88c79aa91cf96e1b3a0707d7e411f2ebd8f92",
+      "top": {
+        "label": "ra",
+        "classIndex": 44,
+        "probability": 1
+      },
+      "validityScore": 1,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-re_ri",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "re_ri",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "762e2d6b86d51839904e25d92a7050ac6441639229d65642cb7889c18f74147b",
+      "top": {
+        "label": "re_ri",
+        "classIndex": 45,
+        "probability": 1
+      },
+      "validityScore": 1,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-ro_ru",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "ro_ru",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "e0844ca95cfccd9b8a4e65ecaf2645f58300c084f148dea247652be2302bbc58",
+      "top": {
+        "label": "ro_ru",
+        "classIndex": 46,
+        "probability": 1
+      },
+      "validityScore": 1,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-s",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "s",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "2800292ed42bc26946f2e410a33ea81ce53d907a6389e7649aae8ebae5a17a9b",
+      "top": {
+        "label": "s",
+        "classIndex": 47,
+        "probability": 0.9997372031211853
+      },
+      "validityScore": 0.9954255819320679,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-sa",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "sa",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "e5230819b9614e6b165f63269d19fdbfd26293f9e7e0cf4e6c3acd9660543b8a",
+      "top": {
+        "label": "sa",
+        "classIndex": 48,
+        "probability": 0.9999991655349731
+      },
+      "validityScore": 0.9995683431625366,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-se_si",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "se_si",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "a6013091c1afa18cfb2fe86790d99e736a7c1fb87a79895d42dbd01b7c9bfff2",
+      "top": {
+        "label": "se_si",
+        "classIndex": 49,
+        "probability": 1
+      },
+      "validityScore": 0.9999765157699585,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-so_su",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "so_su",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "d123f1929c268fc682f2f99a245e8b3eae55b03b875ab92d6817748c3e3b0a34",
+      "top": {
+        "label": "so_su",
+        "classIndex": 50,
+        "probability": 0.9990853071212769
+      },
+      "validityScore": 0.9995989799499512,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-t",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "t",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "ecc2cdff3426597e3eafa05173e7659788f357bbf7ca4e443d751a7601730821",
+      "top": {
+        "label": "t",
+        "classIndex": 51,
+        "probability": 0.9999951124191284
+      },
+      "validityScore": 0.996554970741272,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-ta",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "ta",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "186bf030261fbd3ae4edac4e197d2e5c02c81f48f417edd353b3193782b50f7a",
+      "top": {
+        "label": "ta",
+        "classIndex": 52,
+        "probability": 0.9999992847442627
+      },
+      "validityScore": 0.9927751421928406,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-te_ti",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "te_ti",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "49dd4c40db372a45f550fd94da3c652c25122cde6a68de5d7be63b60038fc742",
+      "top": {
+        "label": "te_ti",
+        "classIndex": 53,
+        "probability": 0.9999505281448364
+      },
+      "validityScore": 0.9999105930328369,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-to_tu",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "to_tu",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "6d09ec1d2becb92842e470042c835df8b30824986a64f28bd7a5ad67bc68aac2",
+      "top": {
+        "label": "to_tu",
+        "classIndex": 54,
+        "probability": 1
+      },
+      "validityScore": 0.9999256134033203,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-w",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "w",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "87711064c3f06af7c933f2d2bbef639cd9ee11efd337a35d95be34242e913942",
+      "top": {
+        "label": "w",
+        "classIndex": 55,
+        "probability": 0.9996341466903687
+      },
+      "validityScore": 0.9983437061309814,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-wa",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "wa",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "e17c2c749fa40adba1fa866c4bf5ccc0399ab6668206cd140917acc95f4b061e",
+      "top": {
+        "label": "wa",
+        "classIndex": 56,
+        "probability": 0.9999632835388184
+      },
+      "validityScore": 0.5340154767036438,
+      "band": "reject",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-we_wi",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "we_wi",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "68c0cfbb075bef35ba0f174b8b2bfcca3a1c99f06e190677eb59f4675fefef65",
+      "top": {
+        "label": "we_wi",
+        "classIndex": 57,
+        "probability": 0.9999992847442627
+      },
+      "validityScore": 0.999990701675415,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-wo_wu",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "wo_wu",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "d69c78f7c57b05092ba269f73d96ff76f0297bf1afeb157aa07ea723c4820ab8",
+      "top": {
+        "label": "wo_wu",
+        "classIndex": 58,
+        "probability": 0.9999998807907104
+      },
+      "validityScore": 0.9999983310699463,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-y",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "y",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "e1ffc867ed4c8e103ac7510cce9a67b08104f301eec140c794f9bccc85e75b80",
+      "top": {
+        "label": "y",
+        "classIndex": 59,
+        "probability": 1
+      },
+      "validityScore": 1,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-ya",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "ya",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "0747dbe0a746beab2b7280607b036e09b84ddaaab69df1ad83cef8e4afc6d414",
+      "top": {
+        "label": "ya",
+        "classIndex": 60,
+        "probability": 0.9998791217803955
+      },
+      "validityScore": 0.9593420028686523,
+      "band": "review",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-ye_yi",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "ye_yi",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "f16e0a8c87d4860727c42c91746280ac6457b35ecc21fe65bce24f039d05f3c0",
+      "top": {
+        "label": "ye_yi",
+        "classIndex": 61,
+        "probability": 1
+      },
+      "validityScore": 0.9999985098838806,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    },
+    {
+      "id": "reference-yo_yu",
+      "category": "reference-art",
+      "kind": "image",
+      "referenceLabel": "yo_yu",
+      "provenance": "Bundled reference art; NOT real handwriting ground truth",
+      "sufficient": null,
+      "tensorSha256": "ea465e4d25b98b9805f3fa8055c29d9159d483b838422142b4612e49349ddc0e",
+      "top": {
+        "label": "yo_yu",
+        "classIndex": 62,
+        "probability": 0.9999998807907104
+      },
+      "validityScore": 1,
+      "band": "pass",
+      "masteryWithoutGate": null,
+      "masteryWithGate": null,
+      "targetMatchedDiagnostic": null
+    }
+  ],
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+  "productionGateEnabled": false,
+  "duplicateTensors": [
+    [
+      "circle-2",
+      "circle-11"
+    ],
+    [
+      "cross-2",
+      "cross-11"
+    ],
+    [
+      "other_doodle-2",
+      "other_doodle-11"
+    ]
+  ],
+  "models": {
+    "character": "7f47f008bb2cf858663ea2355685bc35bddda855161a3ec895396c4385f4b4e6",
+    "validity": "0c341f8e2dabc3f20c5efd8743d35d6e27399a8cb9b9adde2be17a06da6ea7c8"
+  },
+  "metrics": null,
+  "productionApproval": false
+}

@@ -1,0 +1,328 @@
+{
+  "fixtureData": true,
+  "liveAuthorization": false,
+  "checks": [
+    {
+      "name": "responsive table",
+      "lang": "en",
+      "width": 667,
+      "height": 375,
+      "pageOverflow": false,
+      "headers": [
+        "Learner",
+        "Topics completed",
+        "Progress",
+        "Last synchronized",
+        "Details"
+      ],
+      "rows": 5,
+      "scrollable": true,
+      "names": [
+        "Ana Santos\nWhat About Da and Ra?",
+        "Ben Cruz\nWhat About Da and Ra?",
+        "Cora Reyes\nNo synchronized results",
+        "Danilo de la Cruz — Pangalan ng Mag-aaral\nAll topics completed"
+      ]
+    },
+    {
+      "name": "keyboard table scrolling",
+      "lang": "en",
+      "works": true
+    },
+    {
+      "name": "responsive table",
+      "lang": "en",
+      "width": 844,
+      "height": 390,
+      "pageOverflow": false,
+      "headers": [
+        "Learner",
+        "Topics completed",
+        "Progress",
+        "Last synchronized",
+        "Details"
+      ],
+      "rows": 5,
+      "scrollable": true,
+      "names": [
+        "Ana Santos\nWhat About Da and Ra?",
+        "Ben Cruz\nWhat About Da and Ra?",
+        "Cora Reyes\nNo synchronized results",
+        "Danilo de la Cruz — Pangalan ng Mag-aaral\nAll topics completed"
+      ]
+    },
+    {
+      "name": "responsive table",
+      "lang": "en",
+      "width": 915,
+      "height": 412,
+      "pageOverflow": false,
+      "headers": [
+        "Learner",
+        "Topics completed",
+        "Progress",
+        "Last synchronized",
+        "Details"
+      ],
+      "rows": 5,
+      "scrollable": true,
+      "names": [
+        "Ana Santos\nWhat About Da and Ra?",
+        "Ben Cruz\nWhat About Da and Ra?",
+        "Cora Reyes\nNo synchronized results",
+        "Danilo de la Cruz — Pangalan ng Mag-aaral\nAll topics completed"
+      ]
+    },
+    {
+      "name": "responsive table",
+      "lang": "en",
+      "width": 1024,
+      "height": 768,
+      "pageOverflow": false,
+      "headers": [
+        "Learner",
+        "Topics completed",
+        "Progress",
+        "Last synchronized",
+        "Details"
+      ],
+      "rows": 5,
+      "scrollable": false,
+      "names": [
+        "Ana Santos\nWhat About Da and Ra?",
+        "Ben Cruz\nWhat About Da and Ra?",
+        "Cora Reyes\nNo synchronized results",
+        "Danilo de la Cruz — Pangalan ng Mag-aaral\nAll topics completed"
+      ]
+    },
+    {
+      "name": "responsive table",
+      "lang": "en",
+      "width": 1366,
+      "height": 768,
+      "pageOverflow": false,
+      "headers": [
+        "Learner",
+        "Topics completed",
+        "Progress",
+        "Last synchronized",
+        "Details"
+      ],
+      "rows": 5,
+      "scrollable": false,
+      "names": [
+        "Ana Santos\nWhat About Da and Ra?",
+        "Ben Cruz\nWhat About Da and Ra?",
+        "Cora Reyes\nNo synchronized results",
+        "Danilo de la Cruz — Pangalan ng Mag-aaral\nAll topics completed"
+      ]
+    },
+    {
+      "name": "zero versus missing",
+      "lang": "en",
+      "confirmedZero": true,
+      "missingNotZero": true
+    },
+    {
+      "name": "bounded retrieval",
+      "lang": "en",
+      "requests": 1,
+      "learners": 4
+    },
+    {
+      "name": "accessibility roles",
+      "lang": "en",
+      "tables": 1,
+      "columnHeaders": 5
+    },
+    {
+      "name": "responsive table",
+      "lang": "tl",
+      "width": 667,
+      "height": 375,
+      "pageOverflow": false,
+      "headers": [
+        "Mag-aaral",
+        "Mga natapos na paksa",
+        "Pag-unlad",
+        "Huling na-sync",
+        "Detalye"
+      ],
+      "rows": 5,
+      "scrollable": true,
+      "names": [
+        "Ana Santos\nPaano naman ang Da at Ra?",
+        "Ben Cruz\nPaano naman ang Da at Ra?",
+        "Cora Reyes\nWala pang na-sync na resulta",
+        "Danilo de la Cruz — Pangalan ng Mag-aaral\nNatapos na ang lahat ng paksa"
+      ]
+    },
+    {
+      "name": "keyboard table scrolling",
+      "lang": "tl",
+      "works": true
+    },
+    {
+      "name": "responsive table",
+      "lang": "tl",
+      "width": 844,
+      "height": 390,
+      "pageOverflow": false,
+      "headers": [
+        "Mag-aaral",
+        "Mga natapos na paksa",
+        "Pag-unlad",
+        "Huling na-sync",
+        "Detalye"
+      ],
+      "rows": 5,
+      "scrollable": true,
+      "names": [
+        "Ana Santos\nPaano naman ang Da at Ra?",
+        "Ben Cruz\nPaano naman ang Da at Ra?",
+        "Cora Reyes\nWala pang na-sync na resulta",
+        "Danilo de la Cruz — Pangalan ng Mag-aaral\nNatapos na ang lahat ng paksa"
+      ]
+    },
+    {
+      "name": "responsive table",
+      "lang": "tl",
+      "width": 915,
+      "height": 412,
+      "pageOverflow": false,
+      "headers": [
+        "Mag-aaral",
+        "Mga natapos na paksa",
+        "Pag-unlad",
+        "Huling na-sync",
+        "Detalye"
+      ],
+      "rows": 5,
+      "scrollable": true,
+      "names": [
+        "Ana Santos\nPaano naman ang Da at Ra?",
+        "Ben Cruz\nPaano naman ang Da at Ra?",
+        "Cora Reyes\nWala pang na-sync na resulta",
+        "Danilo de la Cruz — Pangalan ng Mag-aaral\nNatapos na ang lahat ng paksa"
+      ]
+    },
+    {
+      "name": "responsive table",
+      "lang": "tl",
+      "width": 1024,
+      "height": 768,
+      "pageOverflow": false,
+      "headers": [
+        "Mag-aaral",
+        "Mga natapos na paksa",
+        "Pag-unlad",
+        "Huling na-sync",
+        "Detalye"
+      ],
+      "rows": 5,
+      "scrollable": true,
+      "names": [
+        "Ana Santos\nPaano naman ang Da at Ra?",
+        "Ben Cruz\nPaano naman ang Da at Ra?",
+        "Cora Reyes\nWala pang na-sync na resulta",
+        "Danilo de la Cruz — Pangalan ng Mag-aaral\nNatapos na ang lahat ng paksa"
+      ]
+    },
+    {
+      "name": "responsive table",
+      "lang": "tl",
+      "width": 1366,
+      "height": 768,
+      "pageOverflow": false,
+      "headers": [
+        "Mag-aaral",
+        "Mga natapos na paksa",
+        "Pag-unlad",
+        "Huling na-sync",
+        "Detalye"
+      ],
+      "rows": 5,
+      "scrollable": false,
+      "names": [
+        "Ana Santos\nPaano naman ang Da at Ra?",
+        "Ben Cruz\nPaano naman ang Da at Ra?",
+        "Cora Reyes\nWala pang na-sync na resulta",
+        "Danilo de la Cruz — Pangalan ng Mag-aaral\nNatapos na ang lahat ng paksa"
+      ]
+    },
+    {
+      "name": "zero versus missing",
+      "lang": "tl",
+      "confirmedZero": true,
+      "missingNotZero": true
+    },
+    {
+      "name": "bounded retrieval",
+      "lang": "tl",
+      "requests": 1,
+      "learners": 4
+    },
+    {
+      "name": "accessibility roles",
+      "lang": "tl",
+      "tables": 1,
+      "columnHeaders": 5
+    },
+    {
+      "name": "state",
+      "scenario": "empty",
+      "noPrivateRows": true
+    },
+    {
+      "name": "state",
+      "scenario": "error",
+      "noPrivateRows": true
+    },
+    {
+      "name": "retry",
+      "recovered": true
+    },
+    {
+      "name": "state",
+      "scenario": "loading",
+      "noPrivateRows": true
+    },
+    {
+      "name": "state",
+      "scenario": "unauthorized",
+      "noPrivateRows": true
+    },
+    {
+      "name": "authorization revoked on refresh",
+      "oldRowsRemoved": true
+    },
+    {
+      "name": "workspace switch",
+      "onlyB": true,
+      "path": "/mentor/workspaces/test-b"
+    },
+    {
+      "name": "detail navigation",
+      "query": "?workspaceId=test-b&profileId=test-b-learner"
+    }
+  ],
+  "screenshots": [
+    "table-en-667x375.png",
+    "table-en-667x375-details.png",
+    "table-en-844x390.png",
+    "table-en-915x412.png",
+    "table-en-1024x768.png",
+    "table-en-1366x768.png",
+    "table-tl-667x375.png",
+    "table-tl-667x375-details.png",
+    "table-tl-844x390.png",
+    "table-tl-915x412.png",
+    "table-tl-1024x768.png",
+    "table-tl-1366x768.png",
+    "empty-fixture.png",
+    "error-fixture.png",
+    "loading-fixture.png",
+    "unauthorized-fixture.png",
+    "workspace-b-fixture.png"
+  ]
+}

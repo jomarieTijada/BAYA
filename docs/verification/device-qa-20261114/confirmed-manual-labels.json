@@ -1,0 +1,35 @@
+{
+  "source": "User explicitly requested each form and confirmed done; earlier vowel attempts were not individually labeled by the user.",
+  "samples": [
+    {
+      "intended": "ba",
+      "from": "2026-11-15T04:15:09",
+      "predicted": "BA",
+      "confidence": "99.9%"
+    },
+    {
+      "intended": "be_bi",
+      "from": "2026-11-15T04:15:59",
+      "predicted": "BE/BI",
+      "confidence": "99.6%"
+    },
+    {
+      "intended": "bo_bu",
+      "from": "2026-11-15T04:16:43",
+      "predicted": "BO/BU",
+      "confidence": "98.3%"
+    },
+    {
+      "intended": "bo_bu",
+      "from": "2026-11-15T04:16:49",
+      "predicted": "BO/BU",
+      "confidence": "99.1%"
+    },
+    {
+      "intended": "b",
+      "from": "2026-11-15T04:19:58",
+      "predicted": "B",
+      "confidence": "99.7%"
+    }
+  ]
+}

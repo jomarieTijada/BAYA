@@ -1,0 +1,12 @@
+{
+  "id": 1,
+  "result": {
+    "result": {
+      "type": "object",
+      "value": {
+        "completed": [],
+        "error": "Topic is locked until earlier approved topics are completed."
+      }
+    }
+  }
+}

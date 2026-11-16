@@ -1,0 +1,104 @@
+{
+  "text": "Writing Baybayin\nVowels\nCHARACTER\nO / U\n/o o u/\nGreat! You can continue now!\nCheck Results\nLet's write!\nNext",
+  "buttons": [
+    {
+      "label": "Back",
+      "disabled": null,
+      "rect": {
+        "x": 10,
+        "y": 6.5,
+        "width": 32,
+        "height": 32,
+        "top": 6.5,
+        "right": 42,
+        "bottom": 38.5,
+        "left": 10
+      }
+    },
+    {
+      "label": "Settings",
+      "disabled": null,
+      "rect": {
+        "x": 707.3333740234375,
+        "y": 7.5,
+        "width": 30,
+        "height": 30,
+        "top": 7.5,
+        "right": 737.3333740234375,
+        "bottom": 37.5,
+        "left": 707.3333740234375
+      }
+    },
+    {
+      "label": "Listen to the sound of O / U",
+      "disabled": null,
+      "rect": {
+        "x": 126.40625,
+        "y": 214,
+        "width": 32,
+        "height": 32,
+        "top": 214,
+        "right": 158.40625,
+        "bottom": 246,
+        "left": 126.40625
+      }
+    },
+    {
+      "label": "Undo the last stroke",
+      "disabled": "true",
+      "rect": {
+        "x": 423.6927185058594,
+        "y": 53,
+        "width": 44,
+        "height": 44,
+        "top": 53,
+        "right": 467.6927185058594,
+        "bottom": 97,
+        "left": 423.6927185058594
+      }
+    },
+    {
+      "label": "Clear all strokes",
+      "disabled": "true",
+      "rect": {
+        "x": 475.6927185058594,
+        "y": 53,
+        "width": 44,
+        "height": 44,
+        "top": 53,
+        "right": 519.6927185058594,
+        "bottom": 97,
+        "left": 475.6927185058594
+      }
+    },
+    {
+      "label": "Help with checking",
+      "disabled": null,
+      "rect": {
+        "x": 678.3333740234375,
+        "y": 13,
+        "width": 44,
+        "height": 44,
+        "top": 13,
+        "right": 722.3333740234375,
+        "bottom": 57,
+        "left": 678.3333740234375
+      }
+    },
+    {
+      "label": "Next character",
+      "disabled": null,
+      "rect": {
+        "x": 545.6927490234375,
+        "y": 150,
+        "width": 176.640625,
+        "height": 44,
+        "top": 150,
+        "right": 722.3333740234375,
+        "bottom": 194,
+        "left": 545.6927490234375
+      }
+    }
+  ],
+  "online": true
+}

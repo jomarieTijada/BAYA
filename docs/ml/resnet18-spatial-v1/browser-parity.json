@@ -1,0 +1,800 @@
+[
+  {
+    "requestedBackend": "webgpu",
+    "backend": "webgpu",
+    "loadMs": 3428.625,
+    "firstInferenceMs": 3148.344999998808,
+    "downloadMs": 212.37000000476837,
+    "benchmark": {
+      "loadMs": 0.009999990463256836,
+      "firstInferenceMs": 29.55000001192093,
+      "medianMs": 30.980000019073486,
+      "p95Ms": 59.40500000119209,
+      "timedRuns": 30,
+      "executionProvider": "webgpu",
+      "runtimeVersion": "2.6.0"
+    },
+    "rows": [
+      {
+        "id": "a",
+        "preprocessingMax": 0,
+        "errors": {
+          "class_logits": 0.000003814697265625,
+          "base_logits": 0.000002384185791015625,
+          "modifier_logits": 0.00000286102294921875,
+          "kudlit_xy": 1.1920928955078125e-7,
+          "body_bbox": 5.960464477539063e-8
+        },
+        "primary": {
+          "label": "a",
+          "classIndex": 0,
+          "probability": 0.9999973177909851
+        },
+        "base": {
+          "label": "a",
+          "classIndex": 15,
+          "probability": 0.9999986886978149
+        },
+        "modifier": {
+          "label": "not_applicable",
+          "classIndex": 4,
+          "probability": 0.9999995827674866
+        },
+        "kudlit": null,
+        "bodyBbox": [
+          0.10163374990224838,
+          0.11839243769645691,
+          0.8939030766487122,
+          0.8418450355529785
+        ]
+      },
+      {
+        "id": "ba",
+        "preprocessingMax": 0,
+        "errors": {
+          "class_logits": 0.0000019073486328125,
+          "base_logits": 0.000001430511474609375,
+          "modifier_logits": 0.000002384185791015625,
+          "kudlit_xy": 5.960464477539063e-8,
+          "body_bbox": 5.21540641784668e-8
+        },
+        "primary": {
+          "label": "ba",
+          "classIndex": 2,
+          "probability": 0.9999133348464966
+        },
+        "base": {
+          "label": "b",
+          "classIndex": 0,
+          "probability": 0.9999397993087769
+        },
+        "modifier": {
+          "label": "none",
+          "classIndex": 0,
+          "probability": 0.9997881054878235
+        },
+        "kudlit": null,
+        "bodyBbox": [
+          0.10984797030687332,
+          0.07763601094484329,
+          0.9092928171157837,
+          0.8625652194023132
+        ]
+      },
+      {
+        "id": "be_bi",
+        "preprocessingMax": 0,
+        "errors": {
+          "class_logits": 0.000003814697265625,
+          "base_logits": 0.000001430511474609375,
+          "modifier_logits": 9.5367431640625e-7,
+          "kudlit_xy": 2.9802322387695312e-8,
+          "body_bbox": 5.960464477539063e-8
+        },
+        "primary": {
+          "label": "be_bi",
+          "classIndex": 3,
+          "probability": 0.9999784827232361
+        },
+        "base": {
+          "label": "b",
+          "classIndex": 0,
+          "probability": 0.9999568462371826
+        },
+        "modifier": {
+          "label": "above",
+          "classIndex": 1,
+          "probability": 0.9999716877937317
+        },
+        "kudlit": [
+          0.47143682837486267,
+          0.16342437267303467
+        ],
+        "bodyBbox": [
+          0.22159498929977417,
+          0.3021131455898285,
+          0.7879636883735657,
+          0.8737929463386536
+        ]
+      },
+      {
+        "id": "bo_bu",
+        "preprocessingMax": 0,
+        "errors": {
+          "class_logits": 0.000002384185791015625,
+          "base_logits": 0.0000019073486328125,
+          "modifier_logits": 0.000003814697265625,
+          "kudlit_xy": 5.960464477539063e-8,
+          "body_bbox": 5.960464477539063e-8
+        },
+        "primary": {
+          "label": "bo_bu",
+          "classIndex": 4,
+          "probability": 0.9999653100967407
+        },
+        "base": {
+          "label": "b",
+          "classIndex": 0,
+          "probability": 0.9999712705612183
+        },
+        "modifier": {
+          "label": "below",
+          "classIndex": 2,
+          "probability": 0.999996542930603
+        },
+        "kudlit": [
+          0.5350662469863892,
+          0.84751296043396
+        ],
+        "bodyBbox": [
+          0.19884337484836578,
+          0.14105699956417084,
+          0.8120647668838501,
+          0.7757572531700134
+        ]
+      },
+      {
+        "id": "b",
+        "preprocessingMax": 0,
+        "errors": {
+          "class_logits": 0.000002682209014892578,
+          "base_logits": 0.00000286102294921875,
+          "modifier_logits": 0.000003337860107421875,
+          "kudlit_xy": 1.1920928955078125e-7,
+          "body_bbox": 1.1920928955078125e-7
+        },
+        "primary": {
+          "label": "bo_bu",
+          "classIndex": 4,
+          "probability": 0.9999709129333496
+        },
+        "base": {
+          "label": "b",
+          "classIndex": 0,
+          "probability": 0.9999735355377197
+        },
+        "modifier": {
+          "label": "below",
+          "classIndex": 2,
+          "probability": 0.9999990463256836
+        },
+        "kudlit": [
+          0.49309250712394714,
+          0.8352696299552917
+        ],
+        "bodyBbox": [
+          0.1778261512517929,
+          0.12019181996583939,
+          0.8120480179786682,
+          0.7356234192848206
+        ]
+      },
+      {
+        "id": "nga",
+        "preprocessingMax": 0,
+        "errors": {
+          "class_logits": 0.000002384185791015625,
+          "base_logits": 0.000001430511474609375,
+          "modifier_logits": 0.0000019073486328125,
+          "kudlit_xy": 0,
+          "body_bbox": 5.960464477539063e-8
+        },
+        "primary": {
+          "label": "nga",
+          "classIndex": 34,
+          "probability": 0.9999706149101257
+        },
+        "base": {
+          "label": "ng",
+          "classIndex": 8,
+          "probability": 0.9999594688415527
+        },
+        "modifier": {
+          "label": "none",
+          "classIndex": 0,
+          "probability": 0.9999980330467224
+        },
+        "kudlit": null,
+        "bodyBbox": [
+          0.09942309558391571,
+          0.2822314202785492,
+          0.8947566747665405,
+          0.7256637811660767
+        ]
+      },
+      {
+        "id": "ra",
+        "preprocessingMax": 0,
+        "errors": {
+          "class_logits": 0.0000014901161193847656,
+          "base_logits": 0.000001430511474609375,
+          "modifier_logits": 0.0000011920928955078125,
+          "kudlit_xy": 5.960464477539063e-8,
+          "body_bbox": 1.1920928955078125e-7
+        },
+        "primary": {
+          "label": "ra",
+          "classIndex": 44,
+          "probability": 0.9999369382858276
+        },
+        "base": {
+          "label": "r",
+          "classIndex": 10,
+          "probability": 0.9999608993530273
+        },
+        "modifier": {
+          "label": "none",
+          "classIndex": 0,
+          "probability": 0.9999573826789856
+        },
+        "kudlit": null,
+        "bodyBbox": [
+          0.09772675484418869,
+          0.1860707849264145,
+          0.9189701080322266,
+          0.7997978925704956
+        ]
+      },
+      {
+        "id": "rgba-random",
+        "preprocessingMax": 0,
+        "errors": {
+          "class_logits": 0.0000021457672119140625,
+          "base_logits": 0.0000019073486328125,
+          "modifier_logits": 0.000001430511474609375,
+          "kudlit_xy": 5.960464477539063e-8,
+          "body_bbox": 1.1920928955078125e-7
+        },
+        "primary": {
+          "label": "da_ra",
+          "classIndex": 6,
+          "probability": 0.2386590838432312
+        },
+        "base": {
+          "label": "n",
+          "classIndex": 7,
+          "probability": 0.33348217606544495
+        },
+        "modifier": {
+          "label": "none",
+          "classIndex": 0,
+          "probability": 0.9997372031211853
+        },
+        "kudlit": null,
+        "bodyBbox": [
+          0.20656757056713104,
+          0.362853080034256,
+          0.8428307175636292,
+          0.8210377097129822
+        ]
+      },
+      {
+        "id": "edge-strokes",
+        "preprocessingMax": 0,
+        "errors": {
+          "class_logits": 0.0000022649765014648438,
+          "base_logits": 0.0000021010637283325195,
+          "modifier_logits": 0.0000011920928955078125,
+          "kudlit_xy": 5.960464477539063e-8,
+          "body_bbox": 5.960464477539063e-8
+        },
+        "primary": {
+          "label": "we_wi",
+          "classIndex": 57,
+          "probability": 0.37873390316963196
+        },
+        "base": {
+          "label": "w",
+          "classIndex": 13,
+          "probability": 0.876177191734314
+        },
+        "modifier": {
+          "label": "none",
+          "classIndex": 0,
+          "probability": 0.7309952974319458
+        },
+        "kudlit": null,
+        "bodyBbox": [
+          0.23202665150165558,
+          0.22771833837032318,
+          0.8489972352981567,
+          0.8317725658416748
+        ]
+      }
+    ],
+    "writing": [
+      {
+        "classIndex": 34,
+        "label": "nga",
+        "probability": 0.4821896255016327
+      },
+      {
+        "classIndex": 15,
+        "label": "ha",
+        "probability": 0.19531241059303284
+      },
+      {
+        "classIndex": 11,
+        "label": "ga",
+        "probability": 0.11698435992002487
+      }
+    ],
+    "inputs": [
+      {
+        "name": "args_0",
+        "dtype": "float32",
+        "shape": [
+          1,
+          3,
+          160,
+          160
+        ]
+      }
+    ],
+    "outputs": [
+      {
+        "name": "output_0",
+        "dtype": "float32",
+        "shape": [
+          1,
+          63
+        ]
+      },
+      {
+        "name": "output_1",
+        "dtype": "float32",
+        "shape": [
+          1,
+          18
+        ]
+      },
+      {
+        "name": "output_2",
+        "dtype": "float32",
+        "shape": [
+          1,
+          5
+        ]
+      },
+      {
+        "name": "output_3",
+        "dtype": "float32",
+        "shape": [
+          1,
+          2
+        ]
+      },
+      {
+        "name": "output_4",
+        "dtype": "float32",
+        "shape": [
+          1,
+          4
+        ]
+      }
+    ],
+    "memory": {
+      "usedJSHeapSize": 24114291
+    },
+    "disposed": true
+  },
+  {
+    "requestedBackend": "wasm",
+    "backend": "wasm",
+    "loadMs": 472.1400000154972,
+    "firstInferenceMs": 74.26500001549721,
+    "downloadMs": 253.09000000357628,
+    "benchmark": {
+      "loadMs": 0.004999995231628418,
+      "firstInferenceMs": 57.94499999284744,
+      "medianMs": 57.43000000715256,
+      "p95Ms": 65.09999999403954,
+      "timedRuns": 30,
+      "executionProvider": "wasm",
+      "runtimeVersion": "2.6.0"
+    },
+    "rows": [
+      {
+        "id": "a",
+        "preprocessingMax": 0,
+        "errors": {
+          "class_logits": 0.0000057220458984375,
+          "base_logits": 0.00000476837158203125,
+          "modifier_logits": 0.000003814697265625,
+          "kudlit_xy": 5.960464477539063e-8,
+          "body_bbox": 7.450580596923828e-8
+        },
+        "primary": {
+          "label": "a",
+          "classIndex": 0,
+          "probability": 0.9999973177909851
+        },
+        "base": {
+          "label": "a",
+          "classIndex": 15,
+          "probability": 0.9999986886978149
+        },
+        "modifier": {
+          "label": "not_applicable",
+          "classIndex": 4,
+          "probability": 0.9999995827674866
+        },
+        "kudlit": null,
+        "bodyBbox": [
+          0.10163381695747375,
+          0.11839251220226288,
+          0.8939031362533569,
+          0.8418449759483337
+        ]
+      },
+      {
+        "id": "ba",
+        "preprocessingMax": 0,
+        "errors": {
+          "class_logits": 0.00000476837158203125,
+          "base_logits": 0.000003337860107421875,
+          "modifier_logits": 0.00000476837158203125,
+          "kudlit_xy": 5.960464477539063e-8,
+          "body_bbox": 5.960464477539063e-8
+        },
+        "primary": {
+          "label": "ba",
+          "classIndex": 2,
+          "probability": 0.9999133348464966
+        },
+        "base": {
+          "label": "b",
+          "classIndex": 0,
+          "probability": 0.9999397993087769
+        },
+        "modifier": {
+          "label": "none",
+          "classIndex": 0,
+          "probability": 0.9997881054878235
+        },
+        "kudlit": null,
+        "bodyBbox": [
+          0.10984799265861511,
+          0.0776359960436821,
+          0.9092928767204285,
+          0.8625652194023132
+        ]
+      },
+      {
+        "id": "be_bi",
+        "preprocessingMax": 0,
+        "errors": {
+          "class_logits": 0.00000476837158203125,
+          "base_logits": 0.000004291534423828125,
+          "modifier_logits": 0.00000286102294921875,
+          "kudlit_xy": 1.1920928955078125e-7,
+          "body_bbox": 1.1920928955078125e-7
+        },
+        "primary": {
+          "label": "be_bi",
+          "classIndex": 3,
+          "probability": 0.9999784827232361
+        },
+        "base": {
+          "label": "b",
+          "classIndex": 0,
+          "probability": 0.9999568462371826
+        },
+        "modifier": {
+          "label": "above",
+          "classIndex": 1,
+          "probability": 0.9999716877937317
+        },
+        "kudlit": [
+          0.47143691778182983,
+          0.16342438757419586
+        ],
+        "bodyBbox": [
+          0.22159510850906372,
+          0.30211305618286133,
+          0.7879636287689209,
+          0.8737928867340088
+        ]
+      },
+      {
+        "id": "bo_bu",
+        "preprocessingMax": 0,
+        "errors": {
+          "class_logits": 0.0000057220458984375,
+          "base_logits": 0.000004291534423828125,
+          "modifier_logits": 0.00000286102294921875,
+          "kudlit_xy": 1.1920928955078125e-7,
+          "body_bbox": 5.960464477539063e-8
+        },
+        "primary": {
+          "label": "bo_bu",
+          "classIndex": 4,
+          "probability": 0.9999653100967407
+        },
+        "base": {
+          "label": "b",
+          "classIndex": 0,
+          "probability": 0.9999712705612183
+        },
+        "modifier": {
+          "label": "below",
+          "classIndex": 2,
+          "probability": 0.999996542930603
+        },
+        "kudlit": [
+          0.5350661873817444,
+          0.8475127816200256
+        ],
+        "bodyBbox": [
+          0.1988433599472046,
+          0.14105698466300964,
+          0.8120648264884949,
+          0.7757572531700134
+        ]
+      },
+      {
+        "id": "b",
+        "preprocessingMax": 0,
+        "errors": {
+          "class_logits": 0.000004291534423828125,
+          "base_logits": 0.0000029802322387695312,
+          "modifier_logits": 0.0000019073486328125,
+          "kudlit_xy": 5.960464477539063e-8,
+          "body_bbox": 1.043081283569336e-7
+        },
+        "primary": {
+          "label": "bo_bu",
+          "classIndex": 4,
+          "probability": 0.9999709129333496
+        },
+        "base": {
+          "label": "b",
+          "classIndex": 0,
+          "probability": 0.9999735355377197
+        },
+        "modifier": {
+          "label": "below",
+          "classIndex": 2,
+          "probability": 0.9999990463256836
+        },
+        "kudlit": [
+          0.4930925667285919,
+          0.835269570350647
+        ],
+        "bodyBbox": [
+          0.17782612144947052,
+          0.12019191682338715,
+          0.812048077583313,
+          0.7356234788894653
+        ]
+      },
+      {
+        "id": "nga",
+        "preprocessingMax": 0,
+        "errors": {
+          "class_logits": 0.0000040531158447265625,
+          "base_logits": 0.000003337860107421875,
+          "modifier_logits": 0.000003814697265625,
+          "kudlit_xy": 5.960464477539063e-8,
+          "body_bbox": 2.384185791015625e-7
+        },
+        "primary": {
+          "label": "nga",
+          "classIndex": 34,
+          "probability": 0.9999706149101257
+        },
+        "base": {
+          "label": "ng",
+          "classIndex": 8,
+          "probability": 0.9999594688415527
+        },
+        "modifier": {
+          "label": "none",
+          "classIndex": 0,
+          "probability": 0.9999980330467224
+        },
+        "kudlit": null,
+        "bodyBbox": [
+          0.09942322969436646,
+          0.28223147988319397,
+          0.8947566151618958,
+          0.7256636023521423
+        ]
+      },
+      {
+        "id": "ra",
+        "preprocessingMax": 0,
+        "errors": {
+          "class_logits": 0.0000057220458984375,
+          "base_logits": 0.0000026226043701171875,
+          "modifier_logits": 0.000003814697265625,
+          "kudlit_xy": 2.9802322387695312e-8,
+          "body_bbox": 1.1920928955078125e-7
+        },
+        "primary": {
+          "label": "ra",
+          "classIndex": 44,
+          "probability": 0.9999369382858276
+        },
+        "base": {
+          "label": "r",
+          "classIndex": 10,
+          "probability": 0.9999608993530273
+        },
+        "modifier": {
+          "label": "none",
+          "classIndex": 0,
+          "probability": 0.9999573826789856
+        },
+        "kudlit": null,
+        "bodyBbox": [
+          0.09772676229476929,
+          0.1860707402229309,
+          0.9189700484275818,
+          0.7997978925704956
+        ]
+      },
+      {
+        "id": "rgba-random",
+        "preprocessingMax": 0,
+        "errors": {
+          "class_logits": 0.0000027418136596679688,
+          "base_logits": 0.000002384185791015625,
+          "modifier_logits": 0.0000019073486328125,
+          "kudlit_xy": 1.1920928955078125e-7,
+          "body_bbox": 1.9371509552001953e-7
+        },
+        "primary": {
+          "label": "da_ra",
+          "classIndex": 6,
+          "probability": 0.2386590838432312
+        },
+        "base": {
+          "label": "n",
+          "classIndex": 7,
+          "probability": 0.33348196744918823
+        },
+        "modifier": {
+          "label": "none",
+          "classIndex": 0,
+          "probability": 0.9997372031211853
+        },
+        "kudlit": null,
+        "bodyBbox": [
+          0.20656779408454895,
+          0.36285310983657837,
+          0.8428306579589844,
+          0.8210375905036926
+        ]
+      },
+      {
+        "id": "edge-strokes",
+        "preprocessingMax": 0,
+        "errors": {
+          "class_logits": 0.00000406801700592041,
+          "base_logits": 0.000004813075065612793,
+          "modifier_logits": 0.000001430511474609375,
+          "kudlit_xy": 8.940696716308594e-8,
+          "body_bbox": 8.940696716308594e-8
+        },
+        "primary": {
+          "label": "we_wi",
+          "classIndex": 57,
+          "probability": 0.37873348593711853
+        },
+        "base": {
+          "label": "w",
+          "classIndex": 13,
+          "probability": 0.8761770129203796
+        },
+        "modifier": {
+          "label": "none",
+          "classIndex": 0,
+          "probability": 0.7309958338737488
+        },
+        "kudlit": null,
+        "bodyBbox": [
+          0.23202669620513916,
+          0.2277182787656784,
+          0.8489972949028015,
+          0.8317726254463196
+        ]
+      }
+    ],
+    "writing": [
+      {
+        "classIndex": 34,
+        "label": "nga",
+        "probability": 0.48218995332717896
+      },
+      {
+        "classIndex": 15,
+        "label": "ha",
+        "probability": 0.1953122615814209
+      },
+      {
+        "classIndex": 11,
+        "label": "ga",
+        "probability": 0.11698433011770248
+      }
+    ],
+    "inputs": [
+      {
+        "name": "args_0",
+        "dtype": "float32",
+        "shape": [
+          1,
+          3,
+          160,
+          160
+        ]
+      }
+    ],
+    "outputs": [
+      {
+        "name": "output_0",
+        "dtype": "float32",
+        "shape": [
+          1,
+          63
+        ]
+      },
+      {
+        "name": "output_1",
+        "dtype": "float32",
+        "shape": [
+          1,
+          18
+        ]
+      },
+      {
+        "name": "output_2",
+        "dtype": "float32",
+        "shape": [
+          1,
+          5
+        ]
+      },
+      {
+        "name": "output_3",
+        "dtype": "float32",
+        "shape": [
+          1,
+          2
+        ]
+      },
+      {
+        "name": "output_4",
+        "dtype": "float32",
+        "shape": [
+          1,
+          4
+        ]
+      }
+    ],
+    "memory": {
+      "usedJSHeapSize": 16134581
+    },
+    "disposed": true
+  }
+]

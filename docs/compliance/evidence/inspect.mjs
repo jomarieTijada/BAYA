@@ -1,0 +1,1 @@
+import {connect,delay} from './cdp.mjs';const c=await connect();await c.send('Page.navigate',{url:'http://127.0.0.1:5093/learner/activities/topic-1-1?lessonPage=content'});await delay(3000);console.log(await c.evaluate('({url:location.href,text:document.body.innerText,buttons:[...document.querySelectorAll("[role=button]")].map(e=>e.getAttribute("aria-label"))})'));c.close();

@@ -1,0 +1,42 @@
+{
+  "baya_character.onnx": {
+    "bytes": 44974469,
+    "sha256": "7f47f008bb2cf858663ea2355685bc35bddda855161a3ec895396c4385f4b4e6",
+    "exportMatches": true
+  },
+  "baya_validity.onnx": {
+    "bytes": 44942257,
+    "sha256": "0c341f8e2dabc3f20c5efd8743d35d6e27399a8cb9b9adde2be17a06da6ea7c8",
+    "exportMatches": true
+  },
+  "character_runtime_contract.json": {
+    "bytes": 2883,
+    "sha256": "4ca0d158cca5d2b5d6c010e76bfed68926ca282651e82f63eafdfa5c96fc4231",
+    "exportMatches": true
+  },
+  "dual_onnx_contracts_research.json": {
+    "bytes": 2780,
+    "sha256": "ef2cdd32e0d39119d914c1b6af574b91cf9bfd640e20980917342202e4de7122",
+    "exportMatches": true
+  },
+  "id_to_label.json": {
+    "bytes": 959,
+    "sha256": "e117a79d8866981a59f3d5a56afa739ebd2abaf7fc0d9d6b18e3f946ffccedc6",
+    "exportMatches": true
+  },
+  "label_to_id.json": {
+    "bytes": 833,
+    "sha256": "11c1694ecbc2580cee38de98953767601646ad71bb96642d485e5617d565e350",
+    "exportMatches": true
+  },
+  "preprocessing_contract.json": {
+    "bytes": 332,
+    "sha256": "a48b938e959f0f6eadc9999f188e1d7090ac9dd36552cac824fba8ba97168dc8",
+    "exportMatches": true
+  },
+  "validity_thresholds_research.json": {
+    "bytes": 504,
+    "sha256": "57739873e3cfd7774d645ff6f3d67934effccf681c9de413a96eb63a2096c7cd",
+    "exportMatches": true
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-07",
+  "jest": {
+    "suites": 73,
+    "tests": 703,
+    "passed": true
+  },
+  "focusedFinal": {
+    "suites": 6,
+    "tests": 135,
+    "passed": true
+  },
+  "typecheckExitCode": 0,
+  "freshLintExitCode": 0,
+  "exportExitCode": 0,
+  "cacheVersion": "baya-pwa-b5f80955cfde2f0a",
+  "browser": "headless Chrome, isolated profile, real SQLite OPFS",
+  "unverified": [
+    "OS-installed PWA launching",
+    "native Android hardware Back",
+    "live authenticated mentor expiration/logout",
+    "older browser traversal cancellation"
+  ],
+  "committed": false,
+  "pushed": false,
+  "deployed": false
+}

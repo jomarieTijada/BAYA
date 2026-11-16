@@ -1,0 +1,32 @@
+{
+  "apps/mobile/content/approvedCurriculum.ts": {
+    "before": "da898a98fc0bb8f235fd9430a70f8ffe8a6816ac8cd389f3d31d2b4d11313a54",
+    "after": "da898a98fc0bb8f235fd9430a70f8ffe8a6816ac8cd389f3d31d2b4d11313a54",
+    "unchanged": true
+  },
+  "apps/mobile/content/baybayinCharactersData.ts": {
+    "before": "97542e9a33b50afd4a759f0cf064f0288ae779153e5a4390c7719faa6a342b08",
+    "after": "97542e9a33b50afd4a759f0cf064f0288ae779153e5a4390c7719faa6a342b08",
+    "unchanged": true
+  },
+  "apps/mobile/content/writingLessonData.ts": {
+    "before": "b51cbde904ccbaad1d0e01460f87d90a9f486605fd200cf69d175a65499d542c",
+    "after": "b51cbde904ccbaad1d0e01460f87d90a9f486605fd200cf69d175a65499d542c",
+    "unchanged": true
+  },
+  "apps/mobile/ml/bayaClassLabels.ts": {
+    "before": "4c82829dab342c2cbd3ff2e9e204f725819730e92c1990495438aec3c710a155",
+    "after": "4c82829dab342c2cbd3ff2e9e204f725819730e92c1990495438aec3c710a155",
+    "unchanged": true
+  },
+  "apps/mobile/database/seed.ts": {
+    "before": "c6dfde9870f89282dd0817d8a7b94037a04414cacd7dd03bfb0ef4ca36c2c144",
+    "after": "c6dfde9870f89282dd0817d8a7b94037a04414cacd7dd03bfb0ef4ca36c2c144",
+    "unchanged": true
+  },
+  "apps/mobile/localization/education.ts": {
+    "before": "60f1d7302560b7ee0686d3af5a37b4b835b732157db9057ef4ae1b24ab1cbe37",
+    "after": "f7239309426b2b8a4b004ec3a13b926a0450244cc67f0a4608d0537bbf85546b",
+    "unchanged": false
+  }
+}

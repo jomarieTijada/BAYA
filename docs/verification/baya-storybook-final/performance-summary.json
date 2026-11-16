@@ -1,0 +1,21 @@
+{
+  "browser": "Chrome/157.0.8103.52",
+  "turnWallClockWithCaptureAndPollingMs": 571,
+  "observedLongTasks": [],
+  "traceEventCount": 2387,
+  "Layout": {
+    "events": 22,
+    "maxMs": 1.566,
+    "totalMs": 8.01
+  },
+  "UpdateLayoutTree": {
+    "events": 106,
+    "maxMs": 0.515,
+    "totalMs": 17.157
+  },
+  "Paint": {
+    "events": 244,
+    "maxMs": 0.957,
+    "totalMs": 18.949
+  }
+}

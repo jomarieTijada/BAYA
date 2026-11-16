@@ -1,0 +1,7 @@
+{
+  "screens": 70,
+  "nonRecognizedUIHasNoGuess": true,
+  "nonRecognizedDoesNotPersist": true,
+  "noOverflowOrClipping": true,
+  "fixtureOnlyRejection": true
+}

@@ -1,0 +1,42 @@
+{
+  "apps/mobile/ml/bayaActiveModel.json": {
+    "sha256": "ad0eb1cfe9bf58a475e700fd974d3c4d4e67315a93151bcc2d87aed3e89644e2",
+    "unchangedSinceCompliance06": true
+  },
+  "apps/mobile/ml/bayaModel.web.ts": {
+    "sha256": "bbe79bb7382e9cbf1eb20dc490f70e6a8df7037da7a39a8396232f679eaeb1c5",
+    "unchangedSinceCompliance06": true
+  },
+  "apps/mobile/ml/bayaProbabilities.ts": {
+    "sha256": "d7a4fef9159f6b34170557fb0d99ec45ba2998a043293652174c33cd711194c9",
+    "unchangedSinceCompliance06": true
+  },
+  "apps/mobile/ml/writingRecognition.ts": {
+    "sha256": "3302e9f5ae5b4726ce23dc9c4acc4f206d5658a427a3f9bf008ca5cea206b6dd",
+    "unchangedSinceCompliance06": true
+  },
+  "apps/mobile/ml/bayaPreprocessing.ts": {
+    "sha256": "ca5726cdb8b2619e936968500febff94463892a2409e356003946c0b5255eedf",
+    "unchangedSinceCompliance06": true
+  },
+  "apps/mobile/ml/inkImagePreprocessing.ts": {
+    "sha256": "da361d192f303a2f4c561b03ad3c321b30eac164dec461da30a4702c8557120d",
+    "unchangedSinceCompliance06": true
+  },
+  "apps/mobile/ml/bayaClassLabels.ts": {
+    "sha256": "4c82829dab342c2cbd3ff2e9e204f725819730e92c1990495438aec3c710a155",
+    "unchangedSinceCompliance06": true
+  },
+  "apps/mobile/content/writingMastery.ts": {
+    "sha256": "93767f20cdf56f129a7c6916f71b03219ab15dc84d0a607bc76a93b4ff562571",
+    "unchangedSinceCompliance06": true
+  },
+  "apps/mobile/content/baybayinTracingGuides.ts": {
+    "sha256": "37d779e937eb42e80359454957cc864e4f4cdec7a741b2a68234066b552362f1",
+    "unchangedSinceCompliance06": true
+  },
+  "apps/mobile/public/models/baya/BAYA_ResNet18_1.0.onnx": {
+    "sha256": "fc41b21606b96b2a1fec6850259a8cbdc446d54f3d113ae8086e87310268f265",
+    "unchangedSinceCompliance06": true
+  }
+}

@@ -1,0 +1,410 @@
+{
+  "stage": "before",
+  "screens": [
+    {
+      "file": "before-en-topics-667x375.png",
+      "language": "en",
+      "name": "topics",
+      "width": 667,
+      "height": 375,
+      "lang": "en",
+      "text": "Baybayin Basics\nLearn the foundation before starting your adventures.\n1\nIntroduction to Baybayin\n1. History and Importance of Baybayin\n2. Baybayin: A Syllabary\n3. The 17 Characters of Baybayin\n4. Different Letters, One Character?\n5. What About Da and Ra?\nStart Topics\n2\nBaybayin Characters\n1. The Vowels\n2. Meet the Consonants\nLocked\n3\nWriting Baybayin\n1. Vowels\n2. Consonants\nLocked\nHome\nLessons\nAchievements\nProfile",
+      "overflow": false,
+      "paragraphs": [],
+      "glyphs": []
+    },
+    {
+      "file": "before-en-introduction-667x375.png",
+      "language": "en",
+      "name": "introduction",
+      "width": 667,
+      "height": 375,
+      "lang": "en",
+      "text": "Introduction to Baybayin\nHistory and Importance of Baybayin\nLet's meet Baybayin!\nWatch the short video and discover Baybayin—an ancient way of writing in the Philippines. Then let's learn to recognize, read, and write its characters together!\nBack\nWatch the Video",
+      "overflow": false,
+      "paragraphs": [],
+      "glyphs": []
+    },
+    {
+      "file": "before-en-topic-1-1-667x375.png",
+      "language": "en",
+      "name": "topic-1-1",
+      "width": 667,
+      "height": 375,
+      "lang": "en",
+      "text": "Introduction to Baybayin\nHistory and Importance of Baybayin\nBaybayin in History\nBaybayin is one of the ancient ways of writing in the Philippines. Historical records associate it with the early Tagalog people. It is part of our culture and heritage as Filipinos.\nVideo by GINHAWA Baybayin Creativity Workshop\nBack\nNext",
+      "overflow": false,
+      "paragraphs": [
+        "Baybayin is one of the ancient ways of writing in the Philippines. Historical records associate it with the early Tagalog people. It is part of our culture and heritage as Filipinos."
+      ],
+      "glyphs": []
+    },
+    {
+      "file": "before-en-topic-1-2-667x375.png",
+      "language": "en",
+      "name": "topic-1-2",
+      "width": 667,
+      "height": 375,
+      "lang": "en",
+      "text": "Introduction to Baybayin\nBaybayin: A Syllabary\nAdd Image Here\nBaybayin is not an alphabet like the one we use today. It is a SYLLABARY. Each character represents a syllable, unlike an alphabet, where each letter represents a sound.\nIt comes from the root word “baybáy,” meaning to spell or divide words into syllables.\nLet's read:\nᜊ = Ba\nᜃ = Ka\nᜆ = Ta\nBack\nNext",
+      "overflow": false,
+      "paragraphs": [
+        "Baybayin is not an alphabet like the one we use today. It is a SYLLABARY. Each character represents a syllable, unlike an alphabet, where each letter represents a sound.",
+        "It comes from the root word “baybáy,” meaning to spell or divide words into syllables."
+      ],
+      "glyphs": []
+    },
+    {
+      "file": "before-en-topic-1-3-667x375.png",
+      "language": "en",
+      "name": "topic-1-3",
+      "width": 667,
+      "height": 375,
+      "lang": "en",
+      "text": "Introduction to Baybayin\nThe 17 Characters of Baybayin\nAdd Image Here\nWelcome to the world of characters!\nThe Baybayin ay binubuo ng labimpitong (17) payak na simbolo.\nMay tatlong (3) patinig at labing-apat (14) na katinig.\nBack\nNext",
+      "overflow": false,
+      "paragraphs": [
+        "Welcome to the world of characters!",
+        "The Baybayin ay binubuo ng labimpitong (17) payak na simbolo.",
+        "May tatlong (3) patinig at labing-apat (14) na katinig."
+      ],
+      "glyphs": []
+    },
+    {
+      "file": "before-en-topic-1-4-667x375.png",
+      "language": "en",
+      "name": "topic-1-4",
+      "width": 667,
+      "height": 375,
+      "lang": "en",
+      "text": "Introduction to Baybayin\nDifferent Letters, One Character?\nAdd Image Here\nDid you notice?\nSa Baybayin, iisa lang ang simbolo para sa E at I (ᜁ), at iisa rin para sa O at U (ᜂ).\nBakit kaya? Noong unang panahon, malayang nagpapalitan ang tunog ng E at I, pati na rin ng O at U, nang hindi nagbabago ang kahulugan ng salita!\nBack\nNext",
+      "overflow": false,
+      "paragraphs": [
+        "Did you notice?",
+        "Sa Baybayin, iisa lang ang simbolo para sa E at I (ᜁ), at iisa rin para sa O at U (ᜂ).",
+        "Bakit kaya? Noong unang panahon, malayang nagpapalitan ang tunog ng E at I, pati na rin ng O at U, nang hindi nagbabago ang kahulugan ng salita!"
+      ],
+      "glyphs": []
+    },
+    {
+      "file": "before-en-topic-1-5-667x375.png",
+      "language": "en",
+      "name": "topic-1-5",
+      "width": 667,
+      "height": 375,
+      "lang": "en",
+      "text": "Introduction to Baybayin\nWhat About Da and Ra?\nAdd Image Here\nAnother surprise!\nAng tunog ng Da at Ra ay iisa lang din ang simbolo sa Baybayin (ᜇ).\nSa ating wika, ang titik D ay madalas maging R kapag napagigitnaan ng mga patinig. Kaya sa sinaunang pagsulat, iisang simbolo lang ang kailangan para sa dalawang tunog na ito!\nBack\nTopics",
+      "overflow": false,
+      "paragraphs": [
+        "Another surprise!",
+        "Ang tunog ng Da at Ra ay iisa lang din ang simbolo sa Baybayin (ᜇ).",
+        "Sa ating wika, ang titik D ay madalas maging R kapag napagigitnaan ng mga patinig. Kaya sa sinaunang pagsulat, iisang simbolo lang ang kailangan para sa dalawang tunog na ito!"
+      ],
+      "glyphs": []
+    },
+    {
+      "file": "before-en-topics-1366x768.png",
+      "language": "en",
+      "name": "topics",
+      "width": 1366,
+      "height": 768,
+      "lang": "en",
+      "text": "Baybayin Basics\nLearn the foundation before starting your adventures.\n1\nIntroduction to Baybayin\n1. History and Importance of Baybayin\n2. Baybayin: A Syllabary\n3. The 17 Characters of Baybayin\n4. Different Letters, One Character?\n5. What About Da and Ra?\nStart Topics\n2\nBaybayin Characters\n1. The Vowels\n2. Meet the Consonants\nLocked\n3\nWriting Baybayin\n1. Vowels\n2. Consonants\nLocked\nHome\nLessons\nAchievements\nProfile",
+      "overflow": false,
+      "paragraphs": [],
+      "glyphs": []
+    },
+    {
+      "file": "before-en-introduction-1366x768.png",
+      "language": "en",
+      "name": "introduction",
+      "width": 1366,
+      "height": 768,
+      "lang": "en",
+      "text": "Introduction to Baybayin\nHistory and Importance of Baybayin\nLet's meet Baybayin!\nWatch the short video and discover Baybayin—an ancient way of writing in the Philippines. Then let's learn to recognize, read, and write its characters together!\nBack\nWatch the Video",
+      "overflow": false,
+      "paragraphs": [],
+      "glyphs": []
+    },
+    {
+      "file": "before-en-topic-1-1-1366x768.png",
+      "language": "en",
+      "name": "topic-1-1",
+      "width": 1366,
+      "height": 768,
+      "lang": "en",
+      "text": "Introduction to Baybayin\nHistory and Importance of Baybayin\nBaybayin in History\nBaybayin is one of the ancient ways of writing in the Philippines. Historical records associate it with the early Tagalog people. It is part of our culture and heritage as Filipinos.\nVideo by GINHAWA Baybayin Creativity Workshop\nIt is an important part of who we are.\nBack\nNext",
+      "overflow": false,
+      "paragraphs": [
+        "Baybayin is one of the ancient ways of writing in the Philippines. Historical records associate it with the early Tagalog people. It is part of our culture and heritage as Filipinos."
+      ],
+      "glyphs": []
+    },
+    {
+      "file": "before-en-topic-1-2-1366x768.png",
+      "language": "en",
+      "name": "topic-1-2",
+      "width": 1366,
+      "height": 768,
+      "lang": "en",
+      "text": "Introduction to Baybayin\nBaybayin: A Syllabary\nAdd Image Here\nBaybayin: A Syllabary\nBaybayin is not an alphabet like the one we use today. It is a SYLLABARY. Each character represents a syllable, unlike an alphabet, where each letter represents a sound.\nIt comes from the root word “baybáy,” meaning to spell or divide words into syllables.\nLet's read:\nᜊ = Ba\nᜃ = Ka\nᜆ = Ta\nOne character, one syllable! That's how Baybayin works.\nBack\nNext",
+      "overflow": false,
+      "paragraphs": [
+        "Baybayin is not an alphabet like the one we use today. It is a SYLLABARY. Each character represents a syllable, unlike an alphabet, where each letter represents a sound.",
+        "It comes from the root word “baybáy,” meaning to spell or divide words into syllables."
+      ],
+      "glyphs": []
+    },
+    {
+      "file": "before-en-topic-1-3-1366x768.png",
+      "language": "en",
+      "name": "topic-1-3",
+      "width": 1366,
+      "height": 768,
+      "lang": "en",
+      "text": "Introduction to Baybayin\nThe 17 Characters of Baybayin\nAdd Image Here\nThe 17 Characters of Baybayin\nWelcome to the world of characters!\nThe Baybayin ay binubuo ng labimpitong (17) payak na simbolo.\nMay tatlong (3) patinig at labing-apat (14) na katinig.\nYou only need to learn 17 characters!\nBack\nNext",
+      "overflow": false,
+      "paragraphs": [
+        "Welcome to the world of characters!",
+        "The Baybayin ay binubuo ng labimpitong (17) payak na simbolo.",
+        "May tatlong (3) patinig at labing-apat (14) na katinig."
+      ],
+      "glyphs": []
+    },
+    {
+      "file": "before-en-topic-1-4-1366x768.png",
+      "language": "en",
+      "name": "topic-1-4",
+      "width": 1366,
+      "height": 768,
+      "lang": "en",
+      "text": "Introduction to Baybayin\nDifferent Letters, One Character?\nAdd Image Here\nDifferent Letters, One Character?\nDid you notice?\nSa Baybayin, iisa lang ang simbolo para sa E at I (ᜁ), at iisa rin para sa O at U (ᜂ).\nBakit kaya? Noong unang panahon, malayang nagpapalitan ang tunog ng E at I, pati na rin ng O at U, nang hindi nagbabago ang kahulugan ng salita!\nThey share one character because their sounds are similar!\nBack\nNext",
+      "overflow": false,
+      "paragraphs": [
+        "Did you notice?",
+        "Sa Baybayin, iisa lang ang simbolo para sa E at I (ᜁ), at iisa rin para sa O at U (ᜂ).",
+        "Bakit kaya? Noong unang panahon, malayang nagpapalitan ang tunog ng E at I, pati na rin ng O at U, nang hindi nagbabago ang kahulugan ng salita!"
+      ],
+      "glyphs": []
+    },
+    {
+      "file": "before-en-topic-1-5-1366x768.png",
+      "language": "en",
+      "name": "topic-1-5",
+      "width": 1366,
+      "height": 768,
+      "lang": "en",
+      "text": "Introduction to Baybayin\nWhat About Da and Ra?\nAdd Image Here\nWhat About Da and Ra?\nAnother surprise!\nAng tunog ng Da at Ra ay iisa lang din ang simbolo sa Baybayin (ᜇ).\nSa ating wika, ang titik D ay madalas maging R kapag napagigitnaan ng mga patinig. Kaya sa sinaunang pagsulat, iisang simbolo lang ang kailangan para sa dalawang tunog na ito!\nAre you ready to meet the characters?\nBack\nTopics",
+      "overflow": false,
+      "paragraphs": [
+        "Another surprise!",
+        "Ang tunog ng Da at Ra ay iisa lang din ang simbolo sa Baybayin (ᜇ).",
+        "Sa ating wika, ang titik D ay madalas maging R kapag napagigitnaan ng mga patinig. Kaya sa sinaunang pagsulat, iisang simbolo lang ang kailangan para sa dalawang tunog na ito!"
+      ],
+      "glyphs": []
+    },
+    {
+      "file": "before-tl-topics-667x375.png",
+      "language": "tl",
+      "name": "topics",
+      "width": 667,
+      "height": 375,
+      "lang": "tl",
+      "text": "Batayang Baybayin\nAlamin muna ang mga batayan bago simulan ang iyong paglalakbay.\n1\nPagkilala sa Baybayin\n1. Kasaysayan at Kahalagahan ng Baybayin\n2. Baybayin: Isang Silabaryo (Pantigan)\n3. Ang 17 Simbolo ng Baybayin\n4. Magkaibang Letra, Iisang Simbolo?\n5. Paano naman ang Da at Ra?\nSimulan ang mga Paksa\n2\nMga Simbolo ng Baybayin\n1. Ang mga Patinig\n2. Kilalanin ang mga Katinig\nNaka-lock\n3\nPagsusulat ng Baybayin\n1. Mga Patinig\n2. Mga Katinig\nNaka-lock\nTahanan\nMga Aralin\nMga Nakamit\nProfile",
+      "overflow": false,
+      "paragraphs": [],
+      "glyphs": []
+    },
+    {
+      "file": "before-tl-introduction-667x375.png",
+      "language": "tl",
+      "name": "introduction",
+      "width": 667,
+      "height": 375,
+      "lang": "tl",
+      "text": "Pagkilala sa Baybayin\nKasaysayan at Kahalagahan ng Baybayin\nKilalanin natin ang Baybayin!\nPanoorin ang maikling video at tuklasin ang Baybayin—isang sinaunang paraan ng pagsulat sa Pilipinas. Pagkatapos, sabay nating kilalanin, basahin, at isulat ang mga karakter nito!\nBumalik\nPanoorin ang Video",
+      "overflow": false,
+      "paragraphs": [],
+      "glyphs": []
+    },
+    {
+      "file": "before-tl-topic-1-1-667x375.png",
+      "language": "tl",
+      "name": "topic-1-1",
+      "width": 667,
+      "height": 375,
+      "lang": "tl",
+      "text": "Pagkilala sa Baybayin\nKasaysayan at Kahalagahan ng Baybayin\nBaybayin sa Kasaysayan\nAng Baybayin ay isa sa mga sinaunang paraan ng pagsulat sa Pilipinas. Sa mga tala ng kasaysayan, iniuugnay ito sa mga sinaunang Tagalog. Bahagi ito ng ating kultura at pamana bilang mga Pilipino.\nVideo gawa ng GINHAWA Baybayin Creativity Workshop\nBumalik\nSusunod",
+      "overflow": false,
+      "paragraphs": [
+        "Ang Baybayin ay isa sa mga sinaunang paraan ng pagsulat sa Pilipinas. Sa mga tala ng kasaysayan, iniuugnay ito sa mga sinaunang Tagalog. Bahagi ito ng ating kultura at pamana bilang mga Pilipino."
+      ],
+      "glyphs": []
+    },
+    {
+      "file": "before-tl-topic-1-2-667x375.png",
+      "language": "tl",
+      "name": "topic-1-2",
+      "width": 667,
+      "height": 375,
+      "lang": "tl",
+      "text": "Pagkilala sa Baybayin\nBaybayin: Isang Silabaryo (Pantigan)\nMaglagay ng Larawan Dito\nAng Baybayin ay hindi alpabeto na tulad ng ginagamit natin ngayon kundi SILABARYO. Bawat simbolo nito ay katumbas ng isang pantig (syllable), hindi tulad ng ating alpabeto na bawat titik ay isang tunog.\nMula sa ugat na salitang “baybáy” o ang pagbabaybay ng mga salita (to spell, to syllabicate).\nBasahin natin:\nᜊ = Ba\nᜃ = Ka\nᜆ = Ta\nBumalik\nSusunod",
+      "overflow": false,
+      "paragraphs": [
+        "Ang Baybayin ay hindi alpabeto na tulad ng ginagamit natin ngayon kundi SILABARYO. Bawat simbolo nito ay katumbas ng isang pantig (syllable), hindi tulad ng ating alpabeto na bawat titik ay isang tunog.",
+        "Mula sa ugat na salitang “baybáy” o ang pagbabaybay ng mga salita (to spell, to syllabicate)."
+      ],
+      "glyphs": []
+    },
+    {
+      "file": "before-tl-topic-1-3-667x375.png",
+      "language": "tl",
+      "name": "topic-1-3",
+      "width": 667,
+      "height": 375,
+      "lang": "tl",
+      "text": "Pagkilala sa Baybayin\nAng 17 Simbolo ng Baybayin\nMaglagay ng Larawan Dito\nMaligayang pagdating sa mundo ng mga simbolo!\nAng Baybayin ay binubuo ng labimpitong (17) payak na simbolo.\nMay tatlong (3) patinig at labing-apat (14) na katinig.\nBumalik\nSusunod",
+      "overflow": false,
+      "paragraphs": [
+        "Maligayang pagdating sa mundo ng mga simbolo!",
+        "Ang Baybayin ay binubuo ng labimpitong (17) payak na simbolo.",
+        "May tatlong (3) patinig at labing-apat (14) na katinig."
+      ],
+      "glyphs": []
+    },
+    {
+      "file": "before-tl-topic-1-4-667x375.png",
+      "language": "tl",
+      "name": "topic-1-4",
+      "width": 667,
+      "height": 375,
+      "lang": "tl",
+      "text": "Pagkilala sa Baybayin\nMagkaibang Letra, Iisang Simbolo?\nMaglagay ng Larawan Dito\nNapansin mo ba?\nSa Baybayin, iisa lang ang simbolo para sa E at I (ᜁ), at iisa rin para sa O at U (ᜂ).\nBakit kaya? Noong unang panahon, malayang nagpapalitan ang tunog ng E at I, pati na rin ng O at U, nang hindi nagbabago ang kahulugan ng salita!\nBumalik\nSusunod",
+      "overflow": false,
+      "paragraphs": [
+        "Napansin mo ba?",
+        "Sa Baybayin, iisa lang ang simbolo para sa E at I (ᜁ), at iisa rin para sa O at U (ᜂ).",
+        "Bakit kaya? Noong unang panahon, malayang nagpapalitan ang tunog ng E at I, pati na rin ng O at U, nang hindi nagbabago ang kahulugan ng salita!"
+      ],
+      "glyphs": []
+    },
+    {
+      "file": "before-tl-topic-1-5-667x375.png",
+      "language": "tl",
+      "name": "topic-1-5",
+      "width": 667,
+      "height": 375,
+      "lang": "tl",
+      "text": "Pagkilala sa Baybayin\nPaano naman ang Da at Ra?\nMaglagay ng Larawan Dito\nIsa pang sorpresa!\nAng tunog ng Da at Ra ay iisa lang din ang simbolo sa Baybayin (ᜇ).\nSa ating wika, ang titik D ay madalas maging R kapag napagigitnaan ng mga patinig. Kaya sa sinaunang pagsulat, iisang simbolo lang ang kailangan para sa dalawang tunog na ito!\nBumalik\nMga Paksa",
+      "overflow": false,
+      "paragraphs": [
+        "Isa pang sorpresa!",
+        "Ang tunog ng Da at Ra ay iisa lang din ang simbolo sa Baybayin (ᜇ).",
+        "Sa ating wika, ang titik D ay madalas maging R kapag napagigitnaan ng mga patinig. Kaya sa sinaunang pagsulat, iisang simbolo lang ang kailangan para sa dalawang tunog na ito!"
+      ],
+      "glyphs": []
+    },
+    {
+      "file": "before-tl-topics-1366x768.png",
+      "language": "tl",
+      "name": "topics",
+      "width": 1366,
+      "height": 768,
+      "lang": "tl",
+      "text": "Batayang Baybayin\nAlamin muna ang mga batayan bago simulan ang iyong paglalakbay.\n1\nPagkilala sa Baybayin\n1. Kasaysayan at Kahalagahan ng Baybayin\n2. Baybayin: Isang Silabaryo (Pantigan)\n3. Ang 17 Simbolo ng Baybayin\n4. Magkaibang Letra, Iisang Simbolo?\n5. Paano naman ang Da at Ra?\nSimulan ang mga Paksa\n2\nMga Simbolo ng Baybayin\n1. Ang mga Patinig\n2. Kilalanin ang mga Katinig\nNaka-lock\n3\nPagsusulat ng Baybayin\n1. Mga Patinig\n2. Mga Katinig\nNaka-lock\nTahanan\nMga Aralin\nMga Nakamit\nProfile",
+      "overflow": false,
+      "paragraphs": [],
+      "glyphs": []
+    },
+    {
+      "file": "before-tl-introduction-1366x768.png",
+      "language": "tl",
+      "name": "introduction",
+      "width": 1366,
+      "height": 768,
+      "lang": "tl",
+      "text": "Pagkilala sa Baybayin\nKasaysayan at Kahalagahan ng Baybayin\nKilalanin natin ang Baybayin!\nPanoorin ang maikling video at tuklasin ang Baybayin—isang sinaunang paraan ng pagsulat sa Pilipinas. Pagkatapos, sabay nating kilalanin, basahin, at isulat ang mga karakter nito!\nBumalik\nPanoorin ang Video",
+      "overflow": false,
+      "paragraphs": [],
+      "glyphs": []
+    },
+    {
+      "file": "before-tl-topic-1-1-1366x768.png",
+      "language": "tl",
+      "name": "topic-1-1",
+      "width": 1366,
+      "height": 768,
+      "lang": "tl",
+      "text": "Pagkilala sa Baybayin\nKasaysayan at Kahalagahan ng Baybayin\nBaybayin sa Kasaysayan\nAng Baybayin ay isa sa mga sinaunang paraan ng pagsulat sa Pilipinas. Sa mga tala ng kasaysayan, iniuugnay ito sa mga sinaunang Tagalog. Bahagi ito ng ating kultura at pamana bilang mga Pilipino.\nVideo gawa ng GINHAWA Baybayin Creativity Workshop\nIto ay mahalagang bahagi ng pagkatao natin.\nBumalik\nSusunod",
+      "overflow": false,
+      "paragraphs": [
+        "Ang Baybayin ay isa sa mga sinaunang paraan ng pagsulat sa Pilipinas. Sa mga tala ng kasaysayan, iniuugnay ito sa mga sinaunang Tagalog. Bahagi ito ng ating kultura at pamana bilang mga Pilipino."
+      ],
+      "glyphs": []
+    },
+    {
+      "file": "before-tl-topic-1-2-1366x768.png",
+      "language": "tl",
+      "name": "topic-1-2",
+      "width": 1366,
+      "height": 768,
+      "lang": "tl",
+      "text": "Pagkilala sa Baybayin\nBaybayin: Isang Silabaryo (Pantigan)\nMaglagay ng Larawan Dito\nBaybayin: Isang Silabaryo (Pantigan)\nAng Baybayin ay hindi alpabeto na tulad ng ginagamit natin ngayon kundi SILABARYO. Bawat simbolo nito ay katumbas ng isang pantig (syllable), hindi tulad ng ating alpabeto na bawat titik ay isang tunog.\nMula sa ugat na salitang “baybáy” o ang pagbabaybay ng mga salita (to spell, to syllabicate).\nBasahin natin:\nᜊ = Ba\nᜃ = Ka\nᜆ = Ta\nIsang simbolo, isang pantig! Ganoon kadali ang Baybayin.\nBumalik\nSusunod",
+      "overflow": false,
+      "paragraphs": [
+        "Ang Baybayin ay hindi alpabeto na tulad ng ginagamit natin ngayon kundi SILABARYO. Bawat simbolo nito ay katumbas ng isang pantig (syllable), hindi tulad ng ating alpabeto na bawat titik ay isang tunog.",
+        "Mula sa ugat na salitang “baybáy” o ang pagbabaybay ng mga salita (to spell, to syllabicate)."
+      ],
+      "glyphs": []
+    },
+    {
+      "file": "before-tl-topic-1-3-1366x768.png",
+      "language": "tl",
+      "name": "topic-1-3",
+      "width": 1366,
+      "height": 768,
+      "lang": "tl",
+      "text": "Pagkilala sa Baybayin\nAng 17 Simbolo ng Baybayin\nMaglagay ng Larawan Dito\nAng 17 Simbolo ng Baybayin\nMaligayang pagdating sa mundo ng mga simbolo!\nAng Baybayin ay binubuo ng labimpitong (17) payak na simbolo.\nMay tatlong (3) patinig at labing-apat (14) na katinig.\n17 simbolo lang ang kailangan mong matutunan!\nBumalik\nSusunod",
+      "overflow": false,
+      "paragraphs": [
+        "Maligayang pagdating sa mundo ng mga simbolo!",
+        "Ang Baybayin ay binubuo ng labimpitong (17) payak na simbolo.",
+        "May tatlong (3) patinig at labing-apat (14) na katinig."
+      ],
+      "glyphs": []
+    },
+    {
+      "file": "before-tl-topic-1-4-1366x768.png",
+      "language": "tl",
+      "name": "topic-1-4",
+      "width": 1366,
+      "height": 768,
+      "lang": "tl",
+      "text": "Pagkilala sa Baybayin\nMagkaibang Letra, Iisang Simbolo?\nMaglagay ng Larawan Dito\nMagkaibang Letra, Iisang Simbolo?\nNapansin mo ba?\nSa Baybayin, iisa lang ang simbolo para sa E at I (ᜁ), at iisa rin para sa O at U (ᜂ).\nBakit kaya? Noong unang panahon, malayang nagpapalitan ang tunog ng E at I, pati na rin ng O at U, nang hindi nagbabago ang kahulugan ng salita!\nIsang simbolo lang dahil magkalapit ang tunog nila!\nBumalik\nSusunod",
+      "overflow": false,
+      "paragraphs": [
+        "Napansin mo ba?",
+        "Sa Baybayin, iisa lang ang simbolo para sa E at I (ᜁ), at iisa rin para sa O at U (ᜂ).",
+        "Bakit kaya? Noong unang panahon, malayang nagpapalitan ang tunog ng E at I, pati na rin ng O at U, nang hindi nagbabago ang kahulugan ng salita!"
+      ],
+      "glyphs": []
+    },
+    {
+      "file": "before-tl-topic-1-5-1366x768.png",
+      "language": "tl",
+      "name": "topic-1-5",
+      "width": 1366,
+      "height": 768,
+      "lang": "tl",
+      "text": "Pagkilala sa Baybayin\nPaano naman ang Da at Ra?\nMaglagay ng Larawan Dito\nPaano naman ang Da at Ra?\nIsa pang sorpresa!\nAng tunog ng Da at Ra ay iisa lang din ang simbolo sa Baybayin (ᜇ).\nSa ating wika, ang titik D ay madalas maging R kapag napagigitnaan ng mga patinig. Kaya sa sinaunang pagsulat, iisang simbolo lang ang kailangan para sa dalawang tunog na ito!\nHanda ka na bang kilalanin ang mga simbolo?\nBumalik\nMga Paksa",
+      "overflow": false,
+      "paragraphs": [
+        "Isa pang sorpresa!",
+        "Ang tunog ng Da at Ra ay iisa lang din ang simbolo sa Baybayin (ᜇ).",
+        "Sa ating wika, ang titik D ay madalas maging R kapag napagigitnaan ng mga patinig. Kaya sa sinaunang pagsulat, iisang simbolo lang ang kailangan para sa dalawang tunog na ito!"
+      ],
+      "glyphs": []
+    }
+  ],
+  "errors": []
+}

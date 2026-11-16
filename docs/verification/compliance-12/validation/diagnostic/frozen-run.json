@@ -1,0 +1,19 @@
+{
+  "purpose": "diagnostic-not-validation",
+  "manifestSha256": null,
+  "thresholds": {
+    "pass_threshold": 0.9605122804641724,
+    "reject_threshold": 0.6407943367958069,
+    "chosen_on": "validation_only",
+    "minimum_positive_validation_retention": 0.95,
+    "maximum_positive_validation_hard_rejection": 0.01,
+    "positive_validation_retained": 0.9507936507936507,
+    "positive_validation_hard_rejection": 0.009523809523809525,
+    "negative_validation_passed": 0,
+    "negative_validation_rejected": 0.99375,
+    "negative_data_includes_synthetic_unreviewed": true,
+    "deployment_approved": false
+  },
+  "thresholdSha256": "60ca0384456862c389d9aac2fb3b2b38e6e7af3ad93cb25278807161648be1b9",
+  "startedAt": "2026-11-08T14:52:20.993Z"
+}

@@ -1,0 +1,1391 @@
+{
+  "live": [
+    {
+      "id": "topic-1-1",
+      "moduleId": "module-1",
+      "moduleTitle": "Pagkilala sa Baybayin",
+      "title": "Kasaysayan at Kahalagahan ng Baybayin",
+      "activityIndex": 1,
+      "totalActivitiesInModule": 5,
+      "type": "story",
+      "slides": [],
+      "video": {
+        "title": "Baybayin Song",
+        "introduction": {
+          "title": "Kilalanin natin ang Baybayin!",
+          "body": "Panoorin ang maikling video at tuklasin ang Baybayin—isang sinaunang paraan ng pagsulat sa Pilipinas. Pagkatapos, sabay nating kilalanin, basahin, at isulat ang mga karakter nito!"
+        },
+        "source": {
+          "type": "asset",
+          "assetId": "baybayin-song"
+        },
+        "isAvailable": true
+      },
+      "steps": [
+        {
+          "id": "topic-1-1-story",
+          "type": "story",
+          "title": "Baybayin sa Kasaysayan",
+          "content": {
+            "title": "Baybayin sa Kasaysayan",
+            "content": "Ang Baybayin ay isa sa mga sinaunang paraan ng pagsulat sa Pilipinas. Sa mga tala ng kasaysayan, iniuugnay ito sa mga sinaunang Tagalog. Bahagi ito ng ating kultura at pamana bilang mga Pilipino.",
+            "storyMessage": "Ito ay mahalagang bahagi ng pagkatao natin.",
+            "reference": {
+              "organization": "National Commission for Culture and the Arts",
+              "abbreviation": "NCCA",
+              "title": "Early Philippine Literature",
+              "author": "Lilia Quindoza-Santiago",
+              "url": "https://ncca.gov.ph/about-ncca-3/subcommissions/subcommission-on-the-arts-sca/literary-arts/early-philippine-literature/"
+            },
+            "videoCredit": {
+              "label": "Video gawa ng GINHAWA Baybayin Creativity Workshop",
+              "url": "https://www.facebook.com/baybayincreativityworkshop"
+            },
+            "badge": "Kasaysayan at Kahalagahan ng Baybayin",
+            "number": 1,
+            "totalInDeck": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "topic-1-2",
+      "moduleId": "module-1",
+      "moduleTitle": "Pagkilala sa Baybayin",
+      "title": "Baybayin: Isang Silabaryo (Pantigan)",
+      "activityIndex": 2,
+      "totalActivitiesInModule": 5,
+      "type": "story",
+      "slides": [],
+      "video": {
+        "title": "",
+        "source": null,
+        "isAvailable": false
+      },
+      "steps": [
+        {
+          "id": "topic-1-2-story",
+          "type": "story",
+          "title": "Baybayin: Isang Silabaryo (Pantigan)",
+          "content": {
+            "title": "Baybayin: Isang Silabaryo (Pantigan)",
+            "content": "Ang Baybayin ay hindi alpabeto na tulad ng ginagamit natin ngayon kundi SILABARYO. Bawat simbolo nito ay katumbas ng isang pantig (syllable), hindi tulad ng ating alpabeto na bawat titik ay isang tunog.\n\nMula sa ugat na salitang “baybáy” o ang pagbabaybay ng mga salita (to spell, to syllabicate).",
+            "highlightWords": [
+              "Baybayin",
+              "SILABARYO",
+              "pantig",
+              "baybáy",
+              "pagbabaybay"
+            ],
+            "examplesLabel": "Basahin natin:",
+            "examples": "ᜊ = Ba\nᜃ = Ka\nᜆ = Ta",
+            "storyMessage": "Isang simbolo, isang pantig! Ganoon kadali ang Baybayin.",
+            "badge": "Baybayin: Isang Silabaryo (Pantigan)",
+            "number": 1,
+            "totalInDeck": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "topic-1-3",
+      "moduleId": "module-1",
+      "moduleTitle": "Pagkilala sa Baybayin",
+      "title": "Ang 17 Simbolo ng Baybayin",
+      "type": "story",
+      "activityIndex": 3,
+      "totalActivitiesInModule": 5,
+      "steps": [
+        {
+          "id": "topic-1-3-story",
+          "type": "story",
+          "title": "Ang 17 Simbolo ng Baybayin",
+          "content": {
+            "subtitle": "Maligayang pagdating sa mundo ng mga simbolo!",
+            "openingNarration": "Maligayang pagdating sa mundo ng mga simbolo!",
+            "content": "Ang Baybayin ay binubuo ng labimpitong (17) payak na simbolo.\n\nMay tatlong (3) patinig at labing-apat (14) na katinig.",
+            "storyHighlight": "Magsimula tayo sa 17 payak na simbolo!",
+            "storyMessage": "Magsimula tayo sa 17 payak na simbolo!",
+            "highlightWords": [
+              "17 simbolo",
+              "labimpitong (17)",
+              "17",
+              "patinig",
+              "katinig",
+              "tatlong (3)",
+              "labing-apat (14)",
+              "Patinig",
+              "Katinig",
+              "Baybayin",
+              "simbolo"
+            ],
+            "title": "Ang 17 Simbolo ng Baybayin",
+            "number": 1,
+            "totalInDeck": 1
+          }
+        }
+      ],
+      "slides": [
+        {
+          "subtitle": "Maligayang pagdating sa mundo ng mga simbolo!",
+          "openingNarration": "Maligayang pagdating sa mundo ng mga simbolo!",
+          "content": "Ang Baybayin ay binubuo ng labimpitong (17) payak na simbolo.\n\nMay tatlong (3) patinig at labing-apat (14) na katinig.",
+          "storyHighlight": "Magsimula tayo sa 17 payak na simbolo!",
+          "storyMessage": "Magsimula tayo sa 17 payak na simbolo!",
+          "highlightWords": [
+            "17 simbolo",
+            "labimpitong (17)",
+            "17",
+            "patinig",
+            "katinig",
+            "tatlong (3)",
+            "labing-apat (14)",
+            "Patinig",
+            "Katinig",
+            "Baybayin",
+            "simbolo"
+          ],
+          "title": "Ang 17 Simbolo ng Baybayin",
+          "number": 1,
+          "totalInDeck": 1,
+          "id": "topic-1-3-story"
+        }
+      ],
+      "video": {
+        "title": "Ang 17 Simbolo ng Baybayin",
+        "source": null,
+        "isAvailable": false
+      }
+    },
+    {
+      "id": "topic-1-4",
+      "moduleId": "module-1",
+      "moduleTitle": "Pagkilala sa Baybayin",
+      "title": "Magkaibang Letra, Iisang Simbolo?",
+      "type": "story",
+      "activityIndex": 4,
+      "totalActivitiesInModule": 5,
+      "steps": [
+        {
+          "id": "topic-1-4-story",
+          "type": "story",
+          "title": "Magkaibang Letra, Iisang Simbolo?",
+          "content": {
+            "subtitle": "Napansin mo ba?",
+            "openingNarration": "Napansin mo ba?",
+            "content": "Sa Baybayin, iisa lang ang simbolo para sa E at I (ᜁ), at iisa rin para sa O at U (ᜂ).\n\nBakit kaya? Noong unang panahon, malayang nagpapalitan ang tunog ng E at I, pati na rin ng O at U, nang hindi nagbabago ang kahulugan ng salita!",
+            "storyHighlight": "Isang simbolo lang dahil magkalapit ang tunog nila!",
+            "storyMessage": "Isang simbolo lang dahil magkalapit ang tunog nila!",
+            "highlightWords": [
+              "E at I",
+              "O at U",
+              "nagpapalitan",
+              "kahulugan",
+              "ᜁ",
+              "ᜂ",
+              "iisa lang",
+              "simbolo"
+            ],
+            "title": "Magkaibang Letra, Iisang Simbolo?",
+            "number": 1,
+            "totalInDeck": 1
+          }
+        }
+      ],
+      "slides": [
+        {
+          "subtitle": "Napansin mo ba?",
+          "openingNarration": "Napansin mo ba?",
+          "content": "Sa Baybayin, iisa lang ang simbolo para sa E at I (ᜁ), at iisa rin para sa O at U (ᜂ).\n\nBakit kaya? Noong unang panahon, malayang nagpapalitan ang tunog ng E at I, pati na rin ng O at U, nang hindi nagbabago ang kahulugan ng salita!",
+          "storyHighlight": "Isang simbolo lang dahil magkalapit ang tunog nila!",
+          "storyMessage": "Isang simbolo lang dahil magkalapit ang tunog nila!",
+          "highlightWords": [
+            "E at I",
+            "O at U",
+            "nagpapalitan",
+            "kahulugan",
+            "ᜁ",
+            "ᜂ",
+            "iisa lang",
+            "simbolo"
+          ],
+          "title": "Magkaibang Letra, Iisang Simbolo?",
+          "number": 1,
+          "totalInDeck": 1,
+          "id": "topic-1-4-story"
+        }
+      ],
+      "video": {
+        "title": "Magkaibang Letra, Iisang Simbolo?",
+        "source": null,
+        "isAvailable": false
+      }
+    },
+    {
+      "id": "topic-1-5",
+      "moduleId": "module-1",
+      "moduleTitle": "Pagkilala sa Baybayin",
+      "title": "Paano naman ang Da at Ra?",
+      "type": "story",
+      "activityIndex": 5,
+      "totalActivitiesInModule": 5,
+      "steps": [
+        {
+          "id": "topic-1-5-story",
+          "type": "story",
+          "title": "Paano naman ang Da at Ra?",
+          "content": {
+            "subtitle": "Isa pang sorpresa!",
+            "openingNarration": "Isa pang sorpresa!",
+            "content": "Ang tunog ng Da at Ra ay iisa lang din ang simbolo sa Baybayin (ᜇ).\n\nSa ating wika, ang titik D ay madalas maging R kapag napagigitnaan ng mga patinig. Kaya sa sinaunang pagsulat, iisang simbolo lang ang kailangan para sa dalawang tunog na ito!",
+            "storyHighlight": "Handa ka na bang kilalanin ang mga simbolo?",
+            "storyMessage": "Handa ka na bang kilalanin ang mga simbolo?",
+            "highlightWords": [
+              "Da at Ra",
+              "iisang simbolo",
+              "patinig",
+              "maging R",
+              "ᜇ",
+              "titik D",
+              "R",
+              "D"
+            ],
+            "title": "Paano naman ang Da at Ra?",
+            "number": 1,
+            "totalInDeck": 1
+          }
+        }
+      ],
+      "slides": [
+        {
+          "subtitle": "Isa pang sorpresa!",
+          "openingNarration": "Isa pang sorpresa!",
+          "content": "Ang tunog ng Da at Ra ay iisa lang din ang simbolo sa Baybayin (ᜇ).\n\nSa ating wika, ang titik D ay madalas maging R kapag napagigitnaan ng mga patinig. Kaya sa sinaunang pagsulat, iisang simbolo lang ang kailangan para sa dalawang tunog na ito!",
+          "storyHighlight": "Handa ka na bang kilalanin ang mga simbolo?",
+          "storyMessage": "Handa ka na bang kilalanin ang mga simbolo?",
+          "highlightWords": [
+            "Da at Ra",
+            "iisang simbolo",
+            "patinig",
+            "maging R",
+            "ᜇ",
+            "titik D",
+            "R",
+            "D"
+          ],
+          "title": "Paano naman ang Da at Ra?",
+          "number": 1,
+          "totalInDeck": 1,
+          "id": "topic-1-5-story"
+        }
+      ],
+      "video": {
+        "title": "Paano naman ang Da at Ra?",
+        "source": null,
+        "isAvailable": false
+      }
+    }
+  ],
+  "previews": {
+    "topic-1-1": {
+      "id": "topic-1-1",
+      "moduleId": "module-1",
+      "moduleTitle": "Pagkilala sa Baybayin",
+      "title": "Kasaysayan at Kahalagahan ng Baybayin",
+      "type": "video",
+      "activityIndex": 1,
+      "totalActivitiesInModule": 5,
+      "steps": [
+        {
+          "id": "topic-1-1-step-1",
+          "type": "video",
+          "title": "Ang Kuwento ng Baybayin",
+          "requiresCompletion": true,
+          "ctaLabel": "Susunod",
+          "content": {
+            "badge": "PANOORIN",
+            "title": "Ang Kuwento ng Baybayin",
+            "introduction": {
+              "title": "Kilalanin natin ang Baybayin!",
+              "body": "Panoorin ang maikling video at tuklasin ang Baybayin—isang sinaunang paraan ng pagsulat sa Pilipinas. Pagkatapos, sabay nating kilalanin, basahin, at isulat ang mga karakter nito!"
+            },
+            "credit": {
+              "label": "Video gawa ng GINHAWA Baybayin Creativity Workshop",
+              "url": "https://www.facebook.com/baybayincreativityworkshop"
+            },
+            "durationText": "2:15",
+            "source": {
+              "type": "asset",
+              "assetId": "baybayin-song"
+            },
+            "metadata": {
+              "originalFilename": "Baybayin Song 1 V2 Gavino (c)2021.mp4"
+            },
+            "isAvailable": true
+          }
+        },
+        {
+          "id": "topic-1-1-step-2",
+          "type": "slide",
+          "title": "Baybayin sa Kasaysayan",
+          "ctaLabel": "Susunod na Slide",
+          "content": {
+            "badge": "KASAYSAYAN AT KAHALAGAHAN",
+            "number": 1,
+            "totalInDeck": 4,
+            "title": "Baybayin sa Kasaysayan",
+            "content": "Ang Baybayin ay isa sa mga sinaunang paraan ng pagsulat sa Pilipinas. Sa mga tala ng kasaysayan, iniuugnay ito sa mga sinaunang Tagalog. Bahagi ito ng ating kultura at pamana bilang mga Pilipino.",
+            "storyMessage": "Ito ay mahalagang bahagi ng pagkatao natin.",
+            "reference": {
+              "organization": "National Commission for Culture and the Arts",
+              "abbreviation": "NCCA",
+              "title": "Early Philippine Literature",
+              "author": "Lilia Quindoza-Santiago",
+              "url": "https://ncca.gov.ph/about-ncca-3/subcommissions/subcommission-on-the-arts-sca/literary-arts/early-philippine-literature/"
+            },
+            "videoCredit": {
+              "label": "Video gawa ng GINHAWA Baybayin Creativity Workshop",
+              "url": "https://www.facebook.com/baybayincreativityworkshop"
+            },
+            "storyHighlight": "May sarili tayong paraan ng pagsulat — ang Baybayin.",
+            "highlightWords": [
+              "Baybayin",
+              "Tagalog",
+              "pagsulat",
+              "kasaysayan"
+            ],
+            "illustrationPlaceholder": "Baybayin sa Kasaysayan",
+            "illustrationTheme": "origin"
+          }
+        },
+        {
+          "id": "topic-1-1-step-3",
+          "type": "slide",
+          "title": "Paano ginagamit ang Baybayin?",
+          "ctaLabel": "Susunod na Slide",
+          "content": {
+            "badge": "KASAYSAYAN AT KAHALAGAHAN",
+            "number": 2,
+            "totalInDeck": 4,
+            "title": "Paano ginagamit ang Baybayin?",
+            "subtitle": "Mga Sinaunang Kagamitan sa Pagsulat",
+            "openingNarration": "Alamin natin kung paano sumulat ang ating mga ninuno.",
+            "content": "May mga sinaunang sulat-Baybayin na iniukit sa kawayan gamit ang matutulis na bagay. Mayroon ding isinulat sa mga dahon gamit ang pangkulay.",
+            "storyHighlight": "Matutulis na bagay ang ginamit sa pag-ukit sa kawayan.",
+            "storyMessage": "Ginagamit ang Baybayin sa pagpapadala ng liham, tula, at mensahe ng pakikipagkapwa.",
+            "highlightWords": [
+              "Baybayin",
+              "pagsusulat",
+              "kawayan",
+              "dahon",
+              "pangkulay",
+              "matutulis na bagay",
+              "tula",
+              "mensahe"
+            ],
+            "illustrationPlaceholder": "Pagsulat sa Dahon at Kawayan",
+            "illustrationTheme": "tools"
+          }
+        },
+        {
+          "id": "topic-1-1-step-4",
+          "type": "slide",
+          "title": "Bakit mahalaga ang Baybayin?",
+          "ctaLabel": "Susunod na Slide",
+          "content": {
+            "badge": "KASAYSAYAN AT KAHALAGAHAN",
+            "number": 3,
+            "totalInDeck": 4,
+            "title": "Bakit mahalaga ang Baybayin?",
+            "subtitle": "Ang Ating Pamana at Pagkakakilanlan",
+            "openingNarration": "Mahalaga ang Baybayin sa ating pagiging Pilipino.",
+            "content": "Ang Baybayin ay mahalagang bahagi ng ating pagkatao, kultura, at pamana bilang mga Pilipino.",
+            "storyHighlight": "Buhay ang ating kultura sa bawat titik ng Baybayin.",
+            "storyMessage": "Ito ay salamin ng ating mayamang kasaysayan bago pa dumating ang mga banyaga.",
+            "highlightWords": [
+              "Baybayin",
+              "pagkatao",
+              "kultura",
+              "pamana",
+              "Pilipino"
+            ],
+            "illustrationPlaceholder": "Pamanang Kultural ng Pilipino",
+            "illustrationTheme": "identity"
+          }
+        },
+        {
+          "id": "topic-1-1-step-5",
+          "type": "slide",
+          "title": "Handa ka na bang matuto?",
+          "ctaLabel": "Tapusin ang Aralin",
+          "content": {
+            "badge": "KASAYSAYAN AT KAHALAGAHAN",
+            "number": 4,
+            "totalInDeck": 4,
+            "title": "Handa ka na bang matuto?",
+            "subtitle": "Simulan ang Paglalakbay sa Pagsusulat",
+            "openingNarration": "Nakahanda ka na bang buksan ang bagong aralin?",
+            "content": "Panoorin at unawain ang Baybayin bago tayo magsimula sa mga titik at tunog.",
+            "storyHighlight": "Magkasama nating tuklasin ang sining ng ating mga ninuno!",
+            "storyMessage": "Handa na si Baya na samahan ka sa iyong pagkatuto.",
+            "highlightWords": [
+              "Baybayin",
+              "titik",
+              "tunog",
+              "Baya"
+            ],
+            "illustrationPlaceholder": "Simula ng Pag-aaral",
+            "illustrationTheme": "practice"
+          }
+        }
+      ],
+      "video": {
+        "title": "Ang Kuwento ng Baybayin",
+        "introduction": {
+          "title": "Kilalanin natin ang Baybayin!",
+          "body": "Panoorin ang maikling video at tuklasin ang Baybayin—isang sinaunang paraan ng pagsulat sa Pilipinas. Pagkatapos, sabay nating kilalanin, basahin, at isulat ang mga karakter nito!"
+        },
+        "source": {
+          "type": "asset",
+          "assetId": "baybayin-song"
+        },
+        "metadata": {
+          "originalFilename": "Baybayin Song 1 V2 Gavino (c)2021.mp4"
+        },
+        "durationText": "2:15",
+        "isAvailable": true
+      },
+      "slides": [
+        {
+          "badge": "KASAYSAYAN AT KAHALAGAHAN",
+          "number": 1,
+          "totalInDeck": 4,
+          "title": "Baybayin sa Kasaysayan",
+          "content": "Ang Baybayin ay isa sa mga sinaunang paraan ng pagsulat sa Pilipinas. Sa mga tala ng kasaysayan, iniuugnay ito sa mga sinaunang Tagalog. Bahagi ito ng ating kultura at pamana bilang mga Pilipino.",
+          "storyMessage": "Ito ay mahalagang bahagi ng pagkatao natin.",
+          "reference": {
+            "organization": "National Commission for Culture and the Arts",
+            "abbreviation": "NCCA",
+            "title": "Early Philippine Literature",
+            "author": "Lilia Quindoza-Santiago",
+            "url": "https://ncca.gov.ph/about-ncca-3/subcommissions/subcommission-on-the-arts-sca/literary-arts/early-philippine-literature/"
+          },
+          "videoCredit": {
+            "label": "Video gawa ng GINHAWA Baybayin Creativity Workshop",
+            "url": "https://www.facebook.com/baybayincreativityworkshop"
+          },
+          "storyHighlight": "May sarili tayong paraan ng pagsulat — ang Baybayin.",
+          "highlightWords": [
+            "Baybayin",
+            "Tagalog",
+            "pagsulat",
+            "kasaysayan"
+          ],
+          "illustrationPlaceholder": "Baybayin sa Kasaysayan",
+          "illustrationTheme": "origin",
+          "id": "topic-1-1-step-2"
+        },
+        {
+          "badge": "KASAYSAYAN AT KAHALAGAHAN",
+          "number": 2,
+          "totalInDeck": 4,
+          "title": "Paano ginagamit ang Baybayin?",
+          "subtitle": "Mga Sinaunang Kagamitan sa Pagsulat",
+          "openingNarration": "Alamin natin kung paano sumulat ang ating mga ninuno.",
+          "content": "May mga sinaunang sulat-Baybayin na iniukit sa kawayan gamit ang matutulis na bagay. Mayroon ding isinulat sa mga dahon gamit ang pangkulay.",
+          "storyHighlight": "Matutulis na bagay ang ginamit sa pag-ukit sa kawayan.",
+          "storyMessage": "Ginagamit ang Baybayin sa pagpapadala ng liham, tula, at mensahe ng pakikipagkapwa.",
+          "highlightWords": [
+            "Baybayin",
+            "pagsusulat",
+            "kawayan",
+            "dahon",
+            "pangkulay",
+            "matutulis na bagay",
+            "tula",
+            "mensahe"
+          ],
+          "illustrationPlaceholder": "Pagsulat sa Dahon at Kawayan",
+          "illustrationTheme": "tools",
+          "id": "topic-1-1-step-3"
+        },
+        {
+          "badge": "KASAYSAYAN AT KAHALAGAHAN",
+          "number": 3,
+          "totalInDeck": 4,
+          "title": "Bakit mahalaga ang Baybayin?",
+          "subtitle": "Ang Ating Pamana at Pagkakakilanlan",
+          "openingNarration": "Mahalaga ang Baybayin sa ating pagiging Pilipino.",
+          "content": "Ang Baybayin ay mahalagang bahagi ng ating pagkatao, kultura, at pamana bilang mga Pilipino.",
+          "storyHighlight": "Buhay ang ating kultura sa bawat titik ng Baybayin.",
+          "storyMessage": "Ito ay salamin ng ating mayamang kasaysayan bago pa dumating ang mga banyaga.",
+          "highlightWords": [
+            "Baybayin",
+            "pagkatao",
+            "kultura",
+            "pamana",
+            "Pilipino"
+          ],
+          "illustrationPlaceholder": "Pamanang Kultural ng Pilipino",
+          "illustrationTheme": "identity",
+          "id": "topic-1-1-step-4"
+        },
+        {
+          "badge": "KASAYSAYAN AT KAHALAGAHAN",
+          "number": 4,
+          "totalInDeck": 4,
+          "title": "Handa ka na bang matuto?",
+          "subtitle": "Simulan ang Paglalakbay sa Pagsusulat",
+          "openingNarration": "Nakahanda ka na bang buksan ang bagong aralin?",
+          "content": "Panoorin at unawain ang Baybayin bago tayo magsimula sa mga titik at tunog.",
+          "storyHighlight": "Magkasama nating tuklasin ang sining ng ating mga ninuno!",
+          "storyMessage": "Handa na si Baya na samahan ka sa iyong pagkatuto.",
+          "highlightWords": [
+            "Baybayin",
+            "titik",
+            "tunog",
+            "Baya"
+          ],
+          "illustrationPlaceholder": "Simula ng Pag-aaral",
+          "illustrationTheme": "practice",
+          "id": "topic-1-1-step-5"
+        }
+      ]
+    },
+    "topic-1-2": {
+      "id": "topic-1-2",
+      "moduleId": "module-1",
+      "moduleTitle": "Pagkilala sa Baybayin",
+      "title": "Baybayin: Isang Silabaryo (Pantigan)",
+      "type": "concept",
+      "activityIndex": 2,
+      "totalActivitiesInModule": 5,
+      "steps": [
+        {
+          "id": "topic-1-2-step-1",
+          "type": "slide",
+          "title": "Baybayin: Isang Silabaryo (Pantigan)",
+          "ctaLabel": "Tapusin ang Aralin",
+          "content": {
+            "badge": "KASAYSAYAN AT KAHALAGAHAN",
+            "number": 1,
+            "totalInDeck": 1,
+            "title": "Baybayin: Isang Silabaryo (Pantigan)",
+            "content": "Ang Baybayin ay hindi alpabeto na tulad ng ginagamit natin ngayon kundi SILABARYO. Bawat simbolo nito ay katumbas ng isang pantig (syllable), hindi tulad ng ating alpabeto na bawat titik ay isang tunog.\n\nMula sa ugat na salitang “baybáy” o ang pagbabaybay ng mga salita (to spell, to syllabicate).",
+            "storyHighlight": "Ang Baybayin ay isang SILABARYO, hindi alpabeto.",
+            "storyMessage": "Basa tayo ng pantig, hindi paisa-isang letra!",
+            "highlightWords": [
+              "Baybayin",
+              "SILABARYO",
+              "pantig",
+              "baybáy",
+              "pagbabaybay"
+            ],
+            "illustrationPlaceholder": "Paano Gumagana ang Baybayin (Silabaryo)",
+            "illustrationTheme": "syllabary"
+          }
+        }
+      ],
+      "slides": [
+        {
+          "badge": "KASAYSAYAN AT KAHALAGAHAN",
+          "number": 1,
+          "totalInDeck": 1,
+          "title": "Baybayin: Isang Silabaryo (Pantigan)",
+          "content": "Ang Baybayin ay hindi alpabeto na tulad ng ginagamit natin ngayon kundi SILABARYO. Bawat simbolo nito ay katumbas ng isang pantig (syllable), hindi tulad ng ating alpabeto na bawat titik ay isang tunog.\n\nMula sa ugat na salitang “baybáy” o ang pagbabaybay ng mga salita (to spell, to syllabicate).",
+          "storyHighlight": "Ang Baybayin ay isang SILABARYO, hindi alpabeto.",
+          "storyMessage": "Basa tayo ng pantig, hindi paisa-isang letra!",
+          "highlightWords": [
+            "Baybayin",
+            "SILABARYO",
+            "pantig",
+            "baybáy",
+            "pagbabaybay"
+          ],
+          "illustrationPlaceholder": "Paano Gumagana ang Baybayin (Silabaryo)",
+          "illustrationTheme": "syllabary",
+          "id": "topic-1-2-step-1"
+        }
+      ],
+      "video": {
+        "title": "Baybayin: Isang Silabaryo (Pantigan)",
+        "source": null,
+        "isAvailable": false
+      }
+    },
+    "topic-1-3": {
+      "id": "topic-1-3",
+      "moduleId": "module-1",
+      "moduleTitle": "Pagkilala sa Baybayin",
+      "title": "Ang 17 Simbolo ng Baybayin",
+      "type": "story",
+      "activityIndex": 3,
+      "totalActivitiesInModule": 5,
+      "steps": [
+        {
+          "id": "topic-1-3-story",
+          "type": "story",
+          "title": "Ang 17 Simbolo ng Baybayin",
+          "content": {
+            "subtitle": "Maligayang pagdating sa mundo ng mga simbolo!",
+            "openingNarration": "Maligayang pagdating sa mundo ng mga simbolo!",
+            "content": "Ang Baybayin ay binubuo ng labimpitong (17) payak na simbolo.\n\nMay tatlong (3) patinig at labing-apat (14) na katinig.",
+            "storyHighlight": "Magsimula tayo sa 17 payak na simbolo!",
+            "storyMessage": "Magsimula tayo sa 17 payak na simbolo!",
+            "highlightWords": [
+              "17 simbolo",
+              "labimpitong (17)",
+              "17",
+              "patinig",
+              "katinig",
+              "tatlong (3)",
+              "labing-apat (14)",
+              "Patinig",
+              "Katinig",
+              "Baybayin",
+              "simbolo"
+            ],
+            "title": "Ang 17 Simbolo ng Baybayin",
+            "number": 1,
+            "totalInDeck": 1
+          }
+        }
+      ],
+      "slides": [
+        {
+          "subtitle": "Maligayang pagdating sa mundo ng mga simbolo!",
+          "openingNarration": "Maligayang pagdating sa mundo ng mga simbolo!",
+          "content": "Ang Baybayin ay binubuo ng labimpitong (17) payak na simbolo.\n\nMay tatlong (3) patinig at labing-apat (14) na katinig.",
+          "storyHighlight": "Magsimula tayo sa 17 payak na simbolo!",
+          "storyMessage": "Magsimula tayo sa 17 payak na simbolo!",
+          "highlightWords": [
+            "17 simbolo",
+            "labimpitong (17)",
+            "17",
+            "patinig",
+            "katinig",
+            "tatlong (3)",
+            "labing-apat (14)",
+            "Patinig",
+            "Katinig",
+            "Baybayin",
+            "simbolo"
+          ],
+          "title": "Ang 17 Simbolo ng Baybayin",
+          "number": 1,
+          "totalInDeck": 1,
+          "id": "topic-1-3-story"
+        }
+      ],
+      "video": {
+        "title": "Ang 17 Simbolo ng Baybayin",
+        "source": null,
+        "isAvailable": false
+      }
+    },
+    "topic-1-4": {
+      "id": "topic-1-4",
+      "moduleId": "module-1",
+      "moduleTitle": "Pagkilala sa Baybayin",
+      "title": "Magkaibang Letra, Iisang Simbolo?",
+      "type": "story",
+      "activityIndex": 4,
+      "totalActivitiesInModule": 5,
+      "steps": [
+        {
+          "id": "topic-1-4-story",
+          "type": "story",
+          "title": "Magkaibang Letra, Iisang Simbolo?",
+          "content": {
+            "subtitle": "Napansin mo ba?",
+            "openingNarration": "Napansin mo ba?",
+            "content": "Sa Baybayin, iisa lang ang simbolo para sa E at I (ᜁ), at iisa rin para sa O at U (ᜂ).\n\nBakit kaya? Noong unang panahon, malayang nagpapalitan ang tunog ng E at I, pati na rin ng O at U, nang hindi nagbabago ang kahulugan ng salita!",
+            "storyHighlight": "Isang simbolo lang dahil magkalapit ang tunog nila!",
+            "storyMessage": "Isang simbolo lang dahil magkalapit ang tunog nila!",
+            "highlightWords": [
+              "E at I",
+              "O at U",
+              "nagpapalitan",
+              "kahulugan",
+              "ᜁ",
+              "ᜂ",
+              "iisa lang",
+              "simbolo"
+            ],
+            "title": "Magkaibang Letra, Iisang Simbolo?",
+            "number": 1,
+            "totalInDeck": 1
+          }
+        }
+      ],
+      "slides": [
+        {
+          "subtitle": "Napansin mo ba?",
+          "openingNarration": "Napansin mo ba?",
+          "content": "Sa Baybayin, iisa lang ang simbolo para sa E at I (ᜁ), at iisa rin para sa O at U (ᜂ).\n\nBakit kaya? Noong unang panahon, malayang nagpapalitan ang tunog ng E at I, pati na rin ng O at U, nang hindi nagbabago ang kahulugan ng salita!",
+          "storyHighlight": "Isang simbolo lang dahil magkalapit ang tunog nila!",
+          "storyMessage": "Isang simbolo lang dahil magkalapit ang tunog nila!",
+          "highlightWords": [
+            "E at I",
+            "O at U",
+            "nagpapalitan",
+            "kahulugan",
+            "ᜁ",
+            "ᜂ",
+            "iisa lang",
+            "simbolo"
+          ],
+          "title": "Magkaibang Letra, Iisang Simbolo?",
+          "number": 1,
+          "totalInDeck": 1,
+          "id": "topic-1-4-story"
+        }
+      ],
+      "video": {
+        "title": "Magkaibang Letra, Iisang Simbolo?",
+        "source": null,
+        "isAvailable": false
+      }
+    },
+    "topic-1-5": {
+      "id": "topic-1-5",
+      "moduleId": "module-1",
+      "moduleTitle": "Pagkilala sa Baybayin",
+      "title": "Paano naman ang Da at Ra?",
+      "type": "story",
+      "activityIndex": 5,
+      "totalActivitiesInModule": 5,
+      "steps": [
+        {
+          "id": "topic-1-5-story",
+          "type": "story",
+          "title": "Paano naman ang Da at Ra?",
+          "content": {
+            "subtitle": "Isa pang sorpresa!",
+            "openingNarration": "Isa pang sorpresa!",
+            "content": "Ang tunog ng Da at Ra ay iisa lang din ang simbolo sa Baybayin (ᜇ).\n\nSa ating wika, ang titik D ay madalas maging R kapag napagigitnaan ng mga patinig. Kaya sa sinaunang pagsulat, iisang simbolo lang ang kailangan para sa dalawang tunog na ito!",
+            "storyHighlight": "Handa ka na bang kilalanin ang mga simbolo?",
+            "storyMessage": "Handa ka na bang kilalanin ang mga simbolo?",
+            "highlightWords": [
+              "Da at Ra",
+              "iisang simbolo",
+              "patinig",
+              "maging R",
+              "ᜇ",
+              "titik D",
+              "R",
+              "D"
+            ],
+            "title": "Paano naman ang Da at Ra?",
+            "number": 1,
+            "totalInDeck": 1
+          }
+        }
+      ],
+      "slides": [
+        {
+          "subtitle": "Isa pang sorpresa!",
+          "openingNarration": "Isa pang sorpresa!",
+          "content": "Ang tunog ng Da at Ra ay iisa lang din ang simbolo sa Baybayin (ᜇ).\n\nSa ating wika, ang titik D ay madalas maging R kapag napagigitnaan ng mga patinig. Kaya sa sinaunang pagsulat, iisang simbolo lang ang kailangan para sa dalawang tunog na ito!",
+          "storyHighlight": "Handa ka na bang kilalanin ang mga simbolo?",
+          "storyMessage": "Handa ka na bang kilalanin ang mga simbolo?",
+          "highlightWords": [
+            "Da at Ra",
+            "iisang simbolo",
+            "patinig",
+            "maging R",
+            "ᜇ",
+            "titik D",
+            "R",
+            "D"
+          ],
+          "title": "Paano naman ang Da at Ra?",
+          "number": 1,
+          "totalInDeck": 1,
+          "id": "topic-1-5-story"
+        }
+      ],
+      "video": {
+        "title": "Paano naman ang Da at Ra?",
+        "source": null,
+        "isAvailable": false
+      }
+    }
+  },
+  "languages": {
+    "en": [
+      {
+        "id": "topic-1-1",
+        "moduleId": "module-1",
+        "moduleTitle": "Introduction to Baybayin",
+        "title": "History and Importance of Baybayin",
+        "activityIndex": 1,
+        "totalActivitiesInModule": 5,
+        "type": "story",
+        "slides": [],
+        "video": {
+          "title": "Baybayin Song",
+          "introduction": {
+            "title": "Let's meet Baybayin!",
+            "body": "Watch the short video and discover Baybayin—an ancient way of writing in the Philippines. Then let's learn to recognize, read, and write its characters together!"
+          },
+          "source": {
+            "type": "asset",
+            "assetId": "baybayin-song"
+          },
+          "isAvailable": true
+        },
+        "steps": [
+          {
+            "id": "topic-1-1-story",
+            "type": "story",
+            "title": "Baybayin in History",
+            "content": {
+              "title": "Baybayin in History",
+              "content": "Baybayin is one of the ancient ways of writing in the Philippines. Historical records associate it with the early Tagalog people. It is part of our culture and heritage as Filipinos.",
+              "storyMessage": "It is an important part of who we are.",
+              "reference": {
+                "organization": "National Commission for Culture and the Arts",
+                "abbreviation": "NCCA",
+                "title": "Early Philippine Literature",
+                "author": "Lilia Quindoza-Santiago",
+                "url": "https://ncca.gov.ph/about-ncca-3/subcommissions/subcommission-on-the-arts-sca/literary-arts/early-philippine-literature/"
+              },
+              "videoCredit": {
+                "label": "Video by GINHAWA Baybayin Creativity Workshop",
+                "url": "https://www.facebook.com/baybayincreativityworkshop"
+              },
+              "badge": "History and Importance of Baybayin",
+              "number": 1,
+              "totalInDeck": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "topic-1-2",
+        "moduleId": "module-1",
+        "moduleTitle": "Introduction to Baybayin",
+        "title": "Baybayin: A Syllabary",
+        "activityIndex": 2,
+        "totalActivitiesInModule": 5,
+        "type": "story",
+        "slides": [],
+        "video": {
+          "title": "",
+          "source": null,
+          "isAvailable": false
+        },
+        "steps": [
+          {
+            "id": "topic-1-2-story",
+            "type": "story",
+            "title": "Baybayin: A Syllabary",
+            "content": {
+              "title": "Baybayin: A Syllabary",
+              "content": "Ang Baybayin ay hindi alpabeto na tulad ng ginagamit natin ngayon kundi SILABARYO. Bawat simbolo nito ay katumbas ng isang pantig (syllable), hindi tulad ng ating alpabeto na bawat titik ay isang tunog.\n\nMula sa ugat na salitang “baybáy” o ang pagbabaybay ng mga salita (to spell, to syllabicate).",
+              "highlightWords": [
+                "Baybayin",
+                "SYLLABARY",
+                "syllable",
+                "baybáy",
+                "spell"
+              ],
+              "examplesLabel": "Let's read:",
+              "examples": "ᜊ = Ba\nᜃ = Ka\nᜆ = Ta",
+              "storyMessage": "One character, one syllable! That's how Baybayin works.",
+              "badge": "Baybayin: A Syllabary",
+              "number": 1,
+              "totalInDeck": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "topic-1-3",
+        "moduleId": "module-1",
+        "moduleTitle": "Introduction to Baybayin",
+        "title": "The 17 Characters of Baybayin",
+        "type": "story",
+        "activityIndex": 3,
+        "totalActivitiesInModule": 5,
+        "steps": [
+          {
+            "id": "topic-1-3-story",
+            "type": "story",
+            "title": "The 17 Characters of Baybayin",
+            "content": {
+              "subtitle": "Welcome to the world of characters!",
+              "openingNarration": "Welcome to the world of characters!",
+              "content": "Baybayin has seventeen (17) basic characters.\n\nThere are three (3) vowels and fourteen (14) consonants.",
+              "storyHighlight": "Let’s start with the 17 basic characters!",
+              "storyMessage": "Let’s start with the 17 basic characters!",
+              "highlightWords": [
+                "17 characters",
+                "seventeen (17)",
+                "17",
+                "vowels",
+                "consonants",
+                "three (3)",
+                "fourteen (14)",
+                "Patinig",
+                "Katinig",
+                "Baybayin",
+                "characters"
+              ],
+              "title": "The 17 Characters of Baybayin",
+              "number": 1,
+              "totalInDeck": 1
+            }
+          }
+        ],
+        "slides": [
+          {
+            "subtitle": "Welcome to the world of characters!",
+            "openingNarration": "Welcome to the world of characters!",
+            "content": "Baybayin has seventeen (17) basic characters.\n\nThere are three (3) vowels and fourteen (14) consonants.",
+            "storyHighlight": "Let’s start with the 17 basic characters!",
+            "storyMessage": "Let’s start with the 17 basic characters!",
+            "highlightWords": [
+              "17 characters",
+              "seventeen (17)",
+              "17",
+              "vowels",
+              "consonants",
+              "three (3)",
+              "fourteen (14)",
+              "Patinig",
+              "Katinig",
+              "Baybayin",
+              "characters"
+            ],
+            "title": "The 17 Characters of Baybayin",
+            "number": 1,
+            "totalInDeck": 1,
+            "id": "topic-1-3-story"
+          }
+        ],
+        "video": {
+          "title": "The 17 Characters of Baybayin",
+          "source": null,
+          "isAvailable": false
+        }
+      },
+      {
+        "id": "topic-1-4",
+        "moduleId": "module-1",
+        "moduleTitle": "Introduction to Baybayin",
+        "title": "Different Letters, One Character?",
+        "type": "story",
+        "activityIndex": 4,
+        "totalActivitiesInModule": 5,
+        "steps": [
+          {
+            "id": "topic-1-4-story",
+            "type": "story",
+            "title": "Different Letters, One Character?",
+            "content": {
+              "subtitle": "Did you notice?",
+              "openingNarration": "Did you notice?",
+              "content": "In Baybayin, E and I share one character (ᜁ), and O and U share one character (ᜂ).\n\nWhy? In the past, the sounds E and I, and O and U, were interchangeable without changing a word's meaning!",
+              "storyHighlight": "They share one character because their sounds are similar!",
+              "storyMessage": "They share one character because their sounds are similar!",
+              "highlightWords": [
+                "E and I",
+                "O and U",
+                "interchangeable",
+                "meaning",
+                "ᜁ",
+                "ᜂ",
+                "only one",
+                "characters"
+              ],
+              "title": "Different Letters, One Character?",
+              "number": 1,
+              "totalInDeck": 1
+            }
+          }
+        ],
+        "slides": [
+          {
+            "subtitle": "Did you notice?",
+            "openingNarration": "Did you notice?",
+            "content": "In Baybayin, E and I share one character (ᜁ), and O and U share one character (ᜂ).\n\nWhy? In the past, the sounds E and I, and O and U, were interchangeable without changing a word's meaning!",
+            "storyHighlight": "They share one character because their sounds are similar!",
+            "storyMessage": "They share one character because their sounds are similar!",
+            "highlightWords": [
+              "E and I",
+              "O and U",
+              "interchangeable",
+              "meaning",
+              "ᜁ",
+              "ᜂ",
+              "only one",
+              "characters"
+            ],
+            "title": "Different Letters, One Character?",
+            "number": 1,
+            "totalInDeck": 1,
+            "id": "topic-1-4-story"
+          }
+        ],
+        "video": {
+          "title": "Different Letters, One Character?",
+          "source": null,
+          "isAvailable": false
+        }
+      },
+      {
+        "id": "topic-1-5",
+        "moduleId": "module-1",
+        "moduleTitle": "Introduction to Baybayin",
+        "title": "What About Da and Ra?",
+        "type": "story",
+        "activityIndex": 5,
+        "totalActivitiesInModule": 5,
+        "steps": [
+          {
+            "id": "topic-1-5-story",
+            "type": "story",
+            "title": "What About Da and Ra?",
+            "content": {
+              "subtitle": "Another surprise!",
+              "openingNarration": "Another surprise!",
+              "content": "Da and Ra also share one Baybayin character (ᜇ).\n\nIn our language, D often becomes R when it is between vowels. So in ancient writing, only one character was needed for these two sounds!",
+              "storyHighlight": "Are you ready to meet the characters?",
+              "storyMessage": "Are you ready to meet the characters?",
+              "highlightWords": [
+                "Da and Ra",
+                "one character",
+                "vowels",
+                "becomes R",
+                "ᜇ",
+                "letter D",
+                "R",
+                "D"
+              ],
+              "title": "What About Da and Ra?",
+              "number": 1,
+              "totalInDeck": 1
+            }
+          }
+        ],
+        "slides": [
+          {
+            "subtitle": "Another surprise!",
+            "openingNarration": "Another surprise!",
+            "content": "Da and Ra also share one Baybayin character (ᜇ).\n\nIn our language, D often becomes R when it is between vowels. So in ancient writing, only one character was needed for these two sounds!",
+            "storyHighlight": "Are you ready to meet the characters?",
+            "storyMessage": "Are you ready to meet the characters?",
+            "highlightWords": [
+              "Da and Ra",
+              "one character",
+              "vowels",
+              "becomes R",
+              "ᜇ",
+              "letter D",
+              "R",
+              "D"
+            ],
+            "title": "What About Da and Ra?",
+            "number": 1,
+            "totalInDeck": 1,
+            "id": "topic-1-5-story"
+          }
+        ],
+        "video": {
+          "title": "What About Da and Ra?",
+          "source": null,
+          "isAvailable": false
+        }
+      }
+    ],
+    "tl": [
+      {
+        "id": "topic-1-1",
+        "moduleId": "module-1",
+        "moduleTitle": "Pagkilala sa Baybayin",
+        "title": "Kasaysayan at Kahalagahan ng Baybayin",
+        "activityIndex": 1,
+        "totalActivitiesInModule": 5,
+        "type": "story",
+        "slides": [],
+        "video": {
+          "title": "Awit ng Baybayin",
+          "introduction": {
+            "title": "Kilalanin natin ang Baybayin!",
+            "body": "Panoorin ang maikling video at tuklasin ang Baybayin—isang sinaunang paraan ng pagsulat sa Pilipinas. Pagkatapos, sabay nating kilalanin, basahin, at isulat ang mga karakter nito!"
+          },
+          "source": {
+            "type": "asset",
+            "assetId": "baybayin-song"
+          },
+          "isAvailable": true
+        },
+        "steps": [
+          {
+            "id": "topic-1-1-story",
+            "type": "story",
+            "title": "Baybayin sa Kasaysayan",
+            "content": {
+              "title": "Baybayin sa Kasaysayan",
+              "content": "Ang Baybayin ay isa sa mga sinaunang paraan ng pagsulat sa Pilipinas. Sa mga tala ng kasaysayan, iniuugnay ito sa mga sinaunang Tagalog. Bahagi ito ng ating kultura at pamana bilang mga Pilipino.",
+              "storyMessage": "Ito ay mahalagang bahagi ng pagkatao natin.",
+              "reference": {
+                "organization": "National Commission for Culture and the Arts",
+                "abbreviation": "NCCA",
+                "title": "Early Philippine Literature",
+                "author": "Lilia Quindoza-Santiago",
+                "url": "https://ncca.gov.ph/about-ncca-3/subcommissions/subcommission-on-the-arts-sca/literary-arts/early-philippine-literature/"
+              },
+              "videoCredit": {
+                "label": "Video gawa ng GINHAWA Baybayin Creativity Workshop",
+                "url": "https://www.facebook.com/baybayincreativityworkshop"
+              },
+              "badge": "Kasaysayan at Kahalagahan ng Baybayin",
+              "number": 1,
+              "totalInDeck": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "topic-1-2",
+        "moduleId": "module-1",
+        "moduleTitle": "Pagkilala sa Baybayin",
+        "title": "Baybayin: Isang Silabaryo (Pantigan)",
+        "activityIndex": 2,
+        "totalActivitiesInModule": 5,
+        "type": "story",
+        "slides": [],
+        "video": {
+          "title": "",
+          "source": null,
+          "isAvailable": false
+        },
+        "steps": [
+          {
+            "id": "topic-1-2-story",
+            "type": "story",
+            "title": "Baybayin: Isang Silabaryo (Pantigan)",
+            "content": {
+              "title": "Baybayin: Isang Silabaryo (Pantigan)",
+              "content": "Ang Baybayin ay hindi alpabeto na tulad ng ginagamit natin ngayon kundi SILABARYO. Bawat simbolo nito ay katumbas ng isang pantig (syllable), hindi tulad ng ating alpabeto na bawat titik ay isang tunog.\n\nMula sa ugat na salitang “baybáy” o ang pagbabaybay ng mga salita (to spell, to syllabicate).",
+              "highlightWords": [
+                "Baybayin",
+                "SILABARYO",
+                "pantig",
+                "baybáy",
+                "pagbabaybay"
+              ],
+              "examplesLabel": "Basahin natin:",
+              "examples": "ᜊ = Ba\nᜃ = Ka\nᜆ = Ta",
+              "storyMessage": "Isang simbolo, isang pantig! Ganoon kadali ang Baybayin.",
+              "badge": "Baybayin: Isang Silabaryo (Pantigan)",
+              "number": 1,
+              "totalInDeck": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "topic-1-3",
+        "moduleId": "module-1",
+        "moduleTitle": "Pagkilala sa Baybayin",
+        "title": "Ang 17 Simbolo ng Baybayin",
+        "type": "story",
+        "activityIndex": 3,
+        "totalActivitiesInModule": 5,
+        "steps": [
+          {
+            "id": "topic-1-3-story",
+            "type": "story",
+            "title": "Ang 17 Simbolo ng Baybayin",
+            "content": {
+              "subtitle": "Maligayang pagdating sa mundo ng mga simbolo!",
+              "openingNarration": "Maligayang pagdating sa mundo ng mga simbolo!",
+              "content": "Ang Baybayin ay binubuo ng labimpitong (17) payak na simbolo.\n\nMay tatlong (3) patinig at labing-apat (14) na katinig.",
+              "storyHighlight": "Magsimula tayo sa 17 payak na simbolo!",
+              "storyMessage": "Magsimula tayo sa 17 payak na simbolo!",
+              "highlightWords": [
+                "17 simbolo",
+                "labimpitong (17)",
+                "17",
+                "patinig",
+                "katinig",
+                "tatlong (3)",
+                "labing-apat (14)",
+                "Patinig",
+                "Katinig",
+                "Baybayin",
+                "simbolo"
+              ],
+              "title": "Ang 17 Simbolo ng Baybayin",
+              "number": 1,
+              "totalInDeck": 1
+            }
+          }
+        ],
+        "slides": [
+          {
+            "subtitle": "Maligayang pagdating sa mundo ng mga simbolo!",
+            "openingNarration": "Maligayang pagdating sa mundo ng mga simbolo!",
+            "content": "Ang Baybayin ay binubuo ng labimpitong (17) payak na simbolo.\n\nMay tatlong (3) patinig at labing-apat (14) na katinig.",
+            "storyHighlight": "Magsimula tayo sa 17 payak na simbolo!",
+            "storyMessage": "Magsimula tayo sa 17 payak na simbolo!",
+            "highlightWords": [
+              "17 simbolo",
+              "labimpitong (17)",
+              "17",
+              "patinig",
+              "katinig",
+              "tatlong (3)",
+              "labing-apat (14)",
+              "Patinig",
+              "Katinig",
+              "Baybayin",
+              "simbolo"
+            ],
+            "title": "Ang 17 Simbolo ng Baybayin",
+            "number": 1,
+            "totalInDeck": 1,
+            "id": "topic-1-3-story"
+          }
+        ],
+        "video": {
+          "title": "Ang 17 Simbolo ng Baybayin",
+          "source": null,
+          "isAvailable": false
+        }
+      },
+      {
+        "id": "topic-1-4",
+        "moduleId": "module-1",
+        "moduleTitle": "Pagkilala sa Baybayin",
+        "title": "Magkaibang Letra, Iisang Simbolo?",
+        "type": "story",
+        "activityIndex": 4,
+        "totalActivitiesInModule": 5,
+        "steps": [
+          {
+            "id": "topic-1-4-story",
+            "type": "story",
+            "title": "Magkaibang Letra, Iisang Simbolo?",
+            "content": {
+              "subtitle": "Napansin mo ba?",
+              "openingNarration": "Napansin mo ba?",
+              "content": "Sa Baybayin, iisa lang ang simbolo para sa E at I (ᜁ), at iisa rin para sa O at U (ᜂ).\n\nBakit kaya? Noong unang panahon, malayang nagpapalitan ang tunog ng E at I, pati na rin ng O at U, nang hindi nagbabago ang kahulugan ng salita!",
+              "storyHighlight": "Isang simbolo lang dahil magkalapit ang tunog nila!",
+              "storyMessage": "Isang simbolo lang dahil magkalapit ang tunog nila!",
+              "highlightWords": [
+                "E at I",
+                "O at U",
+                "nagpapalitan",
+                "kahulugan",
+                "ᜁ",
+                "ᜂ",
+                "iisa lang",
+                "simbolo"
+              ],
+              "title": "Magkaibang Letra, Iisang Simbolo?",
+              "number": 1,
+              "totalInDeck": 1
+            }
+          }
+        ],
+        "slides": [
+          {
+            "subtitle": "Napansin mo ba?",
+            "openingNarration": "Napansin mo ba?",
+            "content": "Sa Baybayin, iisa lang ang simbolo para sa E at I (ᜁ), at iisa rin para sa O at U (ᜂ).\n\nBakit kaya? Noong unang panahon, malayang nagpapalitan ang tunog ng E at I, pati na rin ng O at U, nang hindi nagbabago ang kahulugan ng salita!",
+            "storyHighlight": "Isang simbolo lang dahil magkalapit ang tunog nila!",
+            "storyMessage": "Isang simbolo lang dahil magkalapit ang tunog nila!",
+            "highlightWords": [
+              "E at I",
+              "O at U",
+              "nagpapalitan",
+              "kahulugan",
+              "ᜁ",
+              "ᜂ",
+              "iisa lang",
+              "simbolo"
+            ],
+            "title": "Magkaibang Letra, Iisang Simbolo?",
+            "number": 1,
+            "totalInDeck": 1,
+            "id": "topic-1-4-story"
+          }
+        ],
+        "video": {
+          "title": "Magkaibang Letra, Iisang Simbolo?",
+          "source": null,
+          "isAvailable": false
+        }
+      },
+      {
+        "id": "topic-1-5",
+        "moduleId": "module-1",
+        "moduleTitle": "Pagkilala sa Baybayin",
+        "title": "Paano naman ang Da at Ra?",
+        "type": "story",
+        "activityIndex": 5,
+        "totalActivitiesInModule": 5,
+        "steps": [
+          {
+            "id": "topic-1-5-story",
+            "type": "story",
+            "title": "Paano naman ang Da at Ra?",
+            "content": {
+              "subtitle": "Isa pang sorpresa!",
+              "openingNarration": "Isa pang sorpresa!",
+              "content": "Ang tunog ng Da at Ra ay iisa lang din ang simbolo sa Baybayin (ᜇ).\n\nSa ating wika, ang titik D ay madalas maging R kapag napagigitnaan ng mga patinig. Kaya sa sinaunang pagsulat, iisang simbolo lang ang kailangan para sa dalawang tunog na ito!",
+              "storyHighlight": "Handa ka na bang kilalanin ang mga simbolo?",
+              "storyMessage": "Handa ka na bang kilalanin ang mga simbolo?",
+              "highlightWords": [
+                "Da at Ra",
+                "iisang simbolo",
+                "patinig",
+                "maging R",
+                "ᜇ",
+                "titik D",
+                "R",
+                "D"
+              ],
+              "title": "Paano naman ang Da at Ra?",
+              "number": 1,
+              "totalInDeck": 1
+            }
+          }
+        ],
+        "slides": [
+          {
+            "subtitle": "Isa pang sorpresa!",
+            "openingNarration": "Isa pang sorpresa!",
+            "content": "Ang tunog ng Da at Ra ay iisa lang din ang simbolo sa Baybayin (ᜇ).\n\nSa ating wika, ang titik D ay madalas maging R kapag napagigitnaan ng mga patinig. Kaya sa sinaunang pagsulat, iisang simbolo lang ang kailangan para sa dalawang tunog na ito!",
+            "storyHighlight": "Handa ka na bang kilalanin ang mga simbolo?",
+            "storyMessage": "Handa ka na bang kilalanin ang mga simbolo?",
+            "highlightWords": [
+              "Da at Ra",
+              "iisang simbolo",
+              "patinig",
+              "maging R",
+              "ᜇ",
+              "titik D",
+              "R",
+              "D"
+            ],
+            "title": "Paano naman ang Da at Ra?",
+            "number": 1,
+            "totalInDeck": 1,
+            "id": "topic-1-5-story"
+          }
+        ],
+        "video": {
+          "title": "Paano naman ang Da at Ra?",
+          "source": null,
+          "isAvailable": false
+        }
+      }
+    ]
+  }
+}

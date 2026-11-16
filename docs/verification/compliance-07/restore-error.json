@@ -1,0 +1,5 @@
+{
+  "testOnlyInjectedReadFailure": true,
+  "friendlyErrorShown": true,
+  "backFallback": "/learner/lessons"
+}

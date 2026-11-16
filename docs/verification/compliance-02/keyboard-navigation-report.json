@@ -1,0 +1,32 @@
+{
+  "checks": [
+    {
+      "tabFocusStaysInStory": true,
+      "tabLabels": [
+        "Close the story",
+        "View Bayani’s photo at the Philippine Eagle Foundation (online)",
+        "Next",
+        "Meet Bayani!Part 1 of 4Bayani’s photograph is awaiting permission.Bayani, Philippine Eagle Chick No. 32.Photo source: Philippine Eagle FoundationView Bayani’s photo at the Philippine Eagle Foundation (online)Bayani is a real Philippine eagle, hatched on December 5, 2025, at the National Bird Breeding Sanctuary in Barangay Eden, Toril, Davao City. Bayani was bred in human care, not captured from the wild.Bayani means “hero” in Filipino!Next",
+        "Close the story",
+        "View Bayani’s photo at the Philippine Eagle Foundation (online)",
+        "Next",
+        "Meet Bayani!Part 1 of 4Bayani’s photograph is awaiting permission.Bayani, Philippine Eagle Chick No. 32.Photo source: Philippine Eagle FoundationView Bayani’s photo at the Philippine Eagle Foundation (online)Bayani is a real Philippine eagle, hatched on December 5, 2025, at the National Bird Breeding Sanctuary in Barangay Eden, Toril, Davao City. Bayani was bred in human care, not captured from the wild.Bayani means “hero” in Filipino!Next"
+      ]
+    },
+    {
+      "keyboardNext": true,
+      "textAfterEnter": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nA Little Eagle, A Big Hope\nPart 2 of 4\nBayani’s parents are Dakila and Sinag. The Philippine Eagle Foundation helps breed and care for eagles like Bayani. Philippine eagles are critically endangered: very few remain, and they need protection.\nBayani was introduced to the public on March 10, 2026. Adopter Nico Herth chose the name. Bayani’s birth brings hope to the people working to protect Philippine eagles.\nNext\nBack"
+    },
+    {
+      "learnerRoute": true
+    },
+    {
+      "mentorRoute": true
+    },
+    {
+      "offlineEnglish": true
+    }
+  ],
+  "errors": [],
+  "focusBeforeEnter": "Next"
+}

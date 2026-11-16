@@ -1,0 +1,13 @@
+{
+  "recordedAt": "2026-11-15",
+  "batteryCelsiusStart": 36.9,
+  "batteryCelsiusEnd": 39.4,
+  "usbPowered": true,
+  "batteryPercent": 100,
+  "chromeAggregateEndKB": {
+    "PSS": 261188,
+    "RSS": 360560,
+    "swapPSS": 35523
+  },
+  "caveat": "Chrome totals include other tabs; battery temperature is not a GPU thermal measurement. No isolated process-memory or battery drain conclusion."
+}

@@ -1,0 +1,22 @@
+{
+  "manufacturer": "samsung",
+  "model": "SM-S911B",
+  "android": "17",
+  "abi": "arm64-v8a",
+  "emulator": "0",
+  "soc": "SM8550",
+  "recordedAt": "2026-11-15T04:00:04.485952+00:00",
+  "authorized": "device",
+  "physical": true,
+  "resolution": "Physical size: 1080x2340",
+  "density": "Physical density: 480",
+  "memory": "MemTotal:        7242452 kB\nMemFree:          684968 kB\nMemAvailable:    2771320 kB\nBuffers:            2804 kB",
+  "storage": "Filesystem       Size Used Avail Use% Mounted on\n/dev/block/dm-70 223G  60G  163G  27% /data/user/0",
+  "battery": "  USB powered: true\n  status: 5\n  health: 2\n  level: 100\n  temperature: 369\n  Capacity level: -1",
+  "browserVersions": [
+    "versionName=157.0.8103.51",
+    "versionName=152.0.7977.82"
+  ],
+  "gpu": "adreno",
+  "batterySaver": "0"
+}

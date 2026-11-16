@@ -1,0 +1,260 @@
+[
+  {
+    "lang": "en",
+    "width": 667,
+    "height": 375,
+    "buttons": [
+      {
+        "label": "Close join workspace",
+        "x": 585,
+        "y": 64,
+        "width": 44,
+        "height": 44,
+        "right": 629,
+        "bottom": 108
+      },
+      {
+        "label": "JOIN WORKSPACE",
+        "x": 38,
+        "y": 263,
+        "width": 591,
+        "height": 48,
+        "right": 629,
+        "bottom": 311
+      }
+    ]
+  },
+  {
+    "lang": "en",
+    "width": 844,
+    "height": 390,
+    "buttons": [
+      {
+        "label": "Close join workspace",
+        "x": 681,
+        "y": 71.5,
+        "width": 44,
+        "height": 44,
+        "right": 725,
+        "bottom": 115.5
+      },
+      {
+        "label": "JOIN WORKSPACE",
+        "x": 119,
+        "y": 270.5,
+        "width": 606,
+        "height": 48,
+        "right": 725,
+        "bottom": 318.5
+      }
+    ]
+  },
+  {
+    "lang": "en",
+    "width": 915,
+    "height": 412,
+    "buttons": [
+      {
+        "label": "Close join workspace",
+        "x": 716.5,
+        "y": 82.5,
+        "width": 44,
+        "height": 44,
+        "right": 760.5,
+        "bottom": 126.5
+      },
+      {
+        "label": "JOIN WORKSPACE",
+        "x": 154.5,
+        "y": 281.5,
+        "width": 606,
+        "height": 48,
+        "right": 760.5,
+        "bottom": 329.5
+      }
+    ]
+  },
+  {
+    "lang": "en",
+    "width": 1024,
+    "height": 768,
+    "buttons": [
+      {
+        "label": "Close join workspace",
+        "x": 771,
+        "y": 244.5,
+        "width": 44,
+        "height": 44,
+        "right": 815,
+        "bottom": 288.5
+      },
+      {
+        "label": "JOIN WORKSPACE",
+        "x": 209,
+        "y": 475.5,
+        "width": 606,
+        "height": 48,
+        "right": 815,
+        "bottom": 523.5
+      }
+    ]
+  },
+  {
+    "lang": "en",
+    "width": 1366,
+    "height": 768,
+    "buttons": [
+      {
+        "label": "Close join workspace",
+        "x": 942,
+        "y": 244.5,
+        "width": 44,
+        "height": 44,
+        "right": 986,
+        "bottom": 288.5
+      },
+      {
+        "label": "JOIN WORKSPACE",
+        "x": 380,
+        "y": 475.5,
+        "width": 606,
+        "height": 48,
+        "right": 986,
+        "bottom": 523.5
+      }
+    ]
+  },
+  {
+    "lang": "en",
+    "escapeFocusRestored": true
+  },
+  {
+    "lang": "tl",
+    "width": 667,
+    "height": 375,
+    "buttons": [
+      {
+        "label": "Isara ang pagsali sa workspace",
+        "x": 585,
+        "y": 64,
+        "width": 44,
+        "height": 44,
+        "right": 629,
+        "bottom": 108
+      },
+      {
+        "label": "SUMALI SA WORKSPACE",
+        "x": 38,
+        "y": 263,
+        "width": 591,
+        "height": 48,
+        "right": 629,
+        "bottom": 311
+      }
+    ]
+  },
+  {
+    "lang": "tl",
+    "width": 844,
+    "height": 390,
+    "buttons": [
+      {
+        "label": "Isara ang pagsali sa workspace",
+        "x": 681,
+        "y": 71.5,
+        "width": 44,
+        "height": 44,
+        "right": 725,
+        "bottom": 115.5
+      },
+      {
+        "label": "SUMALI SA WORKSPACE",
+        "x": 119,
+        "y": 270.5,
+        "width": 606,
+        "height": 48,
+        "right": 725,
+        "bottom": 318.5
+      }
+    ]
+  },
+  {
+    "lang": "tl",
+    "width": 915,
+    "height": 412,
+    "buttons": [
+      {
+        "label": "Isara ang pagsali sa workspace",
+        "x": 716.5,
+        "y": 82.5,
+        "width": 44,
+        "height": 44,
+        "right": 760.5,
+        "bottom": 126.5
+      },
+      {
+        "label": "SUMALI SA WORKSPACE",
+        "x": 154.5,
+        "y": 281.5,
+        "width": 606,
+        "height": 48,
+        "right": 760.5,
+        "bottom": 329.5
+      }
+    ]
+  },
+  {
+    "lang": "tl",
+    "width": 1024,
+    "height": 768,
+    "buttons": [
+      {
+        "label": "Isara ang pagsali sa workspace",
+        "x": 771,
+        "y": 244.5,
+        "width": 44,
+        "height": 44,
+        "right": 815,
+        "bottom": 288.5
+      },
+      {
+        "label": "SUMALI SA WORKSPACE",
+        "x": 209,
+        "y": 475.5,
+        "width": 606,
+        "height": 48,
+        "right": 815,
+        "bottom": 523.5
+      }
+    ]
+  },
+  {
+    "lang": "tl",
+    "width": 1366,
+    "height": 768,
+    "buttons": [
+      {
+        "label": "Isara ang pagsali sa workspace",
+        "x": 942,
+        "y": 244.5,
+        "width": 44,
+        "height": 44,
+        "right": 986,
+        "bottom": 288.5
+      },
+      {
+        "label": "SUMALI SA WORKSPACE",
+        "x": 380,
+        "y": 475.5,
+        "width": 606,
+        "height": 48,
+        "right": 986,
+        "bottom": 523.5
+      }
+    ]
+  },
+  {
+    "lang": "tl",
+    "escapeFocusRestored": true
+  }
+]

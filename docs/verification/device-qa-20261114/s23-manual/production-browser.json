@@ -1,0 +1,1268 @@
+{
+  "physicalDevice": true,
+  "checks": [
+    {
+      "name": "successful installation caches model and runtime",
+      "names": [
+        "baya-pwa-5a66f52d4b48a575"
+      ],
+      "urls": [
+        "/manifest.json",
+        "/favicon.ico",
+        "/icon-512.png",
+        "/",
+        "/icon-192.png",
+        "/models/baya/resnet18-v1/labels.json",
+        "/models/baya/resnet18-v1/preprocessing.json",
+        "/litert/2.6.0/litert_wasm_compat_internal.js",
+        "/litert/2.6.0/litert_wasm_internal.js",
+        "/litert/2.6.0/litert_wasm_compat_internal.wasm",
+        "/litert/2.6.0/litert_wasm_jspi_internal.js",
+        "/litert/2.6.0/litert_wasm_internal.wasm",
+        "/litert/2.6.0/litert_wasm_threaded_internal.js",
+        "/litert/2.6.0/litert_wasm_jspi_internal.wasm",
+        "/litert/2.6.0/litert_wasm_threaded_internal.wasm",
+        "/_expo/static/js/web/entry-b780ef124b0f9516ab69215bbc98f8d4.js",
+        "/_expo/static/js/web/worker-524b800b291442c1e8f4881519f04105.js",
+        "/assets/assets/branding/baya/expressions/wave/frame-000.956fac3348b6d2a4aa7638dc48f7217e.png",
+        "/models/baya/resnet18-v1/BAYA_ResNet18_spatial.tflite",
+        "/assets/assets/branding/baya/expressions/wave/frame-001.423f627a6691d4322c0426d5acfe2ae2.png",
+        "/assets/assets/branding/baya/expressions/wave/frame-002.352acbcdfde495f1badca0ca1e2a81ed.png",
+        "/assets/assets/branding/baya/expressions/wave/frame-003.eb4e61e1750a15b9e944e6e179be59ba.png",
+        "/assets/assets/branding/baya/expressions/wave/frame-004.fb9e236055bc2d173f56db3616c34de7.png",
+        "/assets/assets/branding/baya/expressions/wave/frame-005.72b4034a8b2e69260cd4a02ecad17816.png",
+        "/assets/assets/branding/baya/expressions/wave/frame-006.1996f98788299af83719d19dd73d0e8c.png",
+        "/assets/assets/branding/baya/expressions/wave/frame-007.3d826920f6910ce7d031fd3f7dd45bf9.png",
+        "/assets/assets/branding/baya/expressions/wave/frame-008.ec8fee08a3604adab27e2da2509c134b.png",
+        "/assets/assets/branding/baya/expressions/wave/frame-009.151ed80452bf5f6ffb83e275f7251d55.png",
+        "/assets/assets/branding/baya/expressions/wave/frame-010.1808fe4a16be89b1f20014bb0c8dc692.png",
+        "/assets/assets/branding/baya/expressions/wave/frame-011.6446c458cc5552a30212ccb5a75abd6c.png",
+        "/assets/assets/branding/baya/expressions/wave/frame-012.30c7b9192594d07569808917eb68a585.png",
+        "/assets/assets/branding/baya/expressions/wave/frame-013.cb79ffb16a0cd8e327bb827f3a0f365b.png",
+        "/assets/assets/branding/baya/expressions/wave/frame-014.16022fbe7021930ba40eb766dddb935f.png",
+        "/assets/assets/branding/baya/expressions/wave/frame-015.57ea290d7ee148286f9dada0ae35da96.png",
+        "/assets/assets/branding/baya/expressions/wave/frame-016.416088532363b08571495e0c3751615b.png",
+        "/assets/assets/branding/baya/expressions/wave/frame-017.c82286b837b3431fd791a5199c1ab607.png",
+        "/assets/assets/branding/baya/expressions/wave/frame-018.8612e4804d6e3efae155a266fa5bb0cc.png",
+        "/assets/assets/branding/baya/expressions/wave/frame-019.676e8ff0766e4ae2cf2eafbd41a71113.png",
+        "/assets/assets/branding/baya/expressions/wave/frame-020.8d65b3876022010cebe87c3e7f04fec8.png",
+        "/assets/assets/branding/baya/expressions/wave/frame-021.dc0ecdf3ee2cb58b4e3b1b6c61eda21f.png",
+        "/assets/assets/branding/baya/expressions/wave/frame-022.654ff223ef105d3cebe6fbf9e9375b7b.png",
+        "/assets/assets/branding/baya/expressions/wave/frame-023.3ac35f461b9b074a98a0f1fce250a177.png",
+        "/assets/assets/branding/baya/expressions/wave/frame-024.1ba340aef2caa5f52612ed875017ff19.png",
+        "/assets/assets/branding/baya/idle/frame-000.6405741c453b6239947c8ee5fcd11f2a.png",
+        "/assets/assets/branding/baya/idle/frame-001.2ff38473dd5d204c1a875eff929c91c3.png",
+        "/assets/assets/branding/baya/idle/frame-002.a9a3c25f1394bc68f1fc81e59c32f12b.png",
+        "/assets/assets/branding/baya/idle/frame-003.ef19b9c3fdaf691d605ab23a35010047.png",
+        "/assets/assets/branding/baya/idle/frame-004.991373d62b101f64227bf50e7d5dc4b9.png",
+        "/assets/assets/branding/baya/idle/frame-005.3eb179fc901f2f60cb80b21c6902a155.png",
+        "/assets/assets/branding/baya/idle/frame-006.e79272655a4f094d9103104c8be45046.png",
+        "/assets/assets/branding/baya/idle/frame-007.d0c1785dcfe27d73dc249d7b07f69912.png",
+        "/assets/assets/branding/baya/idle/frame-008.ea8ac35a1bb6c3044c1174a0bda898b0.png",
+        "/assets/assets/branding/baya/idle/frame-009.5ee4d40b3d893a3c62770cb04b88a3f3.png",
+        "/assets/assets/branding/baya/idle/frame-010.290ab131f5651fcb674211d9ca2e98f1.png",
+        "/assets/assets/branding/baya/idle/frame-011.75256365cd8aa33affc0575fc1eddaa1.png",
+        "/assets/assets/branding/baya/idle/frame-012.e3674ccc88e9cae95397a87d53541873.png",
+        "/assets/assets/branding/baya/idle/frame-013.f43b7745a9103843820b352a9bf9fcd8.png",
+        "/assets/assets/branding/baya/idle/frame-014.21b2d1020aab49938f14d53436651768.png",
+        "/assets/assets/branding/baya/idle/frame-015.956778c2abbdf6ac975c335051871ed3.png",
+        "/assets/assets/branding/baya/idle/frame-016.b0b84eb3649b54fdcfcbaa3b1fe3e28b.png",
+        "/assets/assets/branding/baya/idle/frame-017.83f29288eb3f229f3c4ba893e59d4979.png",
+        "/assets/assets/branding/baya/idle/frame-018.bbe2eced58a5c94242b466d7fe98169b.png",
+        "/assets/assets/branding/baya/idle/frame-019.71f2992930d6b4861a62d5271914cff9.png",
+        "/assets/assets/branding/baya/idle/frame-020.73a06a4b90494aa62925d5cc33604d2d.png",
+        "/assets/assets/branding/baya/idle/frame-021.6b1b7aa63d2b3a2827bdc696d3a745fe.png",
+        "/assets/assets/branding/baya/idle/frame-022.714c4222df33745f2d2e77b43bdc627b.png",
+        "/assets/assets/branding/baya/idle/frame-023.31178bfcab05a6500b8d6170bfc64d0f.png",
+        "/assets/assets/branding/baya/idle/frame-024.87814c59856552914c3e613136a36e41.png",
+        "/assets/assets/illustrations/baybayin/gavino/a.b68d44676c01951ac0e0104697b8b5d2.png",
+        "/assets/assets/illustrations/baybayin/gavino/ba.bfcff9c1e9c69493427129f42ab5c492.png",
+        "/assets/assets/illustrations/baybayin/gavino/da_ra.2d9cbe18de7d4828e5da6059edc16a62.png",
+        "/assets/assets/illustrations/baybayin/gavino/e_i.f0c11680592d0734a699bf47729123f7.png",
+        "/assets/assets/illustrations/baybayin/gavino/ga.d051382c72ca010e71e9c5b6efe83520.png",
+        "/assets/assets/illustrations/baybayin/gavino/ha.051c26c3a521585f53f96f5105054f75.png",
+        "/assets/assets/illustrations/baybayin/gavino/la.76730f764d74db594ae8f5838e2c7fcf.png",
+        "/assets/assets/illustrations/baybayin/gavino/ka.516dc3821368046dd41d19fe0280274a.png",
+        "/assets/assets/illustrations/baybayin/gavino/ma.4647f5b0bdb21ba15eaacfd187ea7f76.png",
+        "/assets/assets/illustrations/baybayin/gavino/na.683df3d54cc852f42d48bc2a1ba1075d.png",
+        "/assets/assets/illustrations/baybayin/gavino/nga.c2464b90a90f643af7ea4cf36da4a7fc.png",
+        "/assets/assets/illustrations/baybayin/gavino/o_u.5fb4a1db3b8def1756dfb9b7100b5f6b.png",
+        "/assets/assets/illustrations/baybayin/gavino/sa.084f3700d6e2aff288c0618c397357f8.png",
+        "/assets/assets/illustrations/baybayin/gavino/pa.8863a4777b1707c9763bec5c29a97587.png",
+        "/assets/assets/illustrations/baybayin/gavino/ta.0cb7fdeef515b127bfd96e4374d77a5b.png",
+        "/assets/assets/illustrations/baybayin/gavino/wa.c39b34b86ce7d737dddb85924da62336.png",
+        "/assets/assets/illustrations/baybayin/gavino/ya.2abb3c35620a46637703f3b6fb87ae1d.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/a.7b77735d4a1e441cb91da63493563adb.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/ba.f507e7f65b87035e56060bb1965c7ad5.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/b.29bef31492ea4e85e98f5439981950de.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/be_bi.c6b620afa4c8029b5d1a580834f99a75.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/bo_bu.9fe43b27c8197da7e2e4ad572d692bdd.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/d.c5dbe20ae5848fa4427235610b75c761.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/da_ra.f2eb76bba7a118a7ae9096ec92e3699b.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/de_di.0da23c0795bdf48e35ea964c89574303.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/do_du.a21f923cd487077b7b090539813618fb.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/e_i.834169bf1a92e7666fa1d84bd7ccb01e.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/g.690f88f8ea4af5828e9a74d9d3571774.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/ga.7d2fe9258b1cc74f1b50944b9f291f7a.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/ge_gi.bb6f4234fa6f809790e6e32f2ea315b0.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/go_gu.440bf2d7bd51edbeccd05e955a710af8.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/h.3aea813184badb72634d6ce2b4f95064.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/ha.b07d49410f31cab56d8747559b157df1.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/he_hi.6052aa1024acae71f7cb8f455e4d4c80.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/ho_hu.600997ceb9d11fa547c7e3aef51981a3.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/ke_ki.a503c2e3cf73fe9f240ff2b18c710715.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/k.2fe850447a7e09fc564d8aabe1b307d6.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/ka.2666d09920feb14d25d7107cceacfa59.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/ko_ku.3ef3beee1d7414e0fd2ec613f9206197.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/l.528d595b8ad71b1874ab1e395f1ea72b.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/lo_lu.b87797fe485884d600bbbe2657f31baa.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/la.9e20e9b280096cc8537847dfd40c8755.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/le_li.6e68d527a80f8ea639748d5b3dd091eb.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/m.d93017015810478bbc36aed84324eb28.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/ma.bdb2c8302d1cbbc7e2faadb9e9ee0e1e.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/me_mi.9ca7e29d41afda14c8aebc2e59c2aa35.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/n.e4f613cb8a1a2b5f124f3da47852f799.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/mo_mu.b4b2214702d7ed906c60eee61d1199e6.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/ng.4ddcdce77fbfb44cc02fa0421034dd59.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/ne_ni.da724c90b91488e233cf5324754eb5b5.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/na.35a0f971aef8ee581f087abb964589c8.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/nga.e59edf41487193214f23e704cb171a30.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/no_nu.6a4b55cb2201523dc3191eee747bda3b.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/nge_ngi.6d61118c2c58fc842bad50ea0c82bb56.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/ngo_ngu.7a3a4f8e36d2414f0b7c5f4c4a7825ee.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/o_u.1752be5b70427390c0004b39c1545e1a.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/p.bcf4455410a059a73c3d3c568ef1fdf3.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/pa.b487a555d9730be2a6157967e8148044.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/pe_pi.e9745bdf2c89904091ca921eace04c40.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/po_pu.f6cbe73374e0762c4f48b8d1dfff1aa6.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/r.774f2913498bd82f2da790b2ac789b69.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/ra.04b4142e8114930a12b032d1148bb333.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/ro_ru.9603a24cc37843308585a42dbd8d2aaa.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/re_ri.4b37eba749dafcbfdd3b6639ae8155f3.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/sa.8bd3222101846863868b80c05635738a.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/se_si.39e674184966ba4ddf0ef33d094e60f5.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/s.b3d1806ac8e31eda186d4f34ee547f22.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/so_su.82c5feee388caae46240367e0b9f2ee5.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/t.6c98d57100666fd8ccb0b3f3c2c3504c.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/ta.a09460e0805c25e763aa5188ef5ea8b5.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/te_ti.fb0b156756e78b8422502dbcc69bc04c.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/to_tu.6af1d74b4a3790a3cdd951c2fbf61d93.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/w.dd9e6ae85c42a5a49ce68427eda52472.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/wa.45e4d09237142143d96c01b8cab50fe1.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/we_wi.c7b4feaf5fee97d098ffc1c4927121bf.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/wo_wu.febed9a066d618c6ffd1b18228581d24.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/y.d4cafdfb23f7d52143062da0bde179c2.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/ya.b7d438153bae8d76f802f730b67f775a.png",
+        "/assets/assets/illustrations/baybayin/guides-1024/ye_yi.9e7ebfac857c26db64e3ea80fd9131c9.png",
+        "/assets/__node_modules/expo-router/assets/arrow_down.017bc6ba3fc25503e5eb5e53826d48a8.png",
+        "/assets/__node_modules/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Ionicons.b4eb097d35f44ed943676fd56f6bdc51.ttf",
+        "/assets/assets/illustrations/baybayin/guides-1024/yo_yu.552d98b55b1344a92ae834df65b7269d.png",
+        "/assets/__node_modules/expo-router/assets/error.d1ea1496f9057eb392d5bbf3732a61b7.png",
+        "/assets/__node_modules/expo-router/assets/file.19eeb73b9593a38f8e9f418337fc7d10.png",
+        "/assets/__node_modules/expo-router/assets/forward.d8b800c443b8972542883e0b9de2bdc6.png",
+        "/assets/__node_modules/expo-router/assets/pkg.ab19f4cbc543357183a20571f68380a3.png",
+        "/assets/__node_modules/expo-router/assets/react-navigation/elements/back-icon-mask.0a328cd9c1afd0afe8e3b1ec5165b1b4.png",
+        "/assets/__node_modules/expo-router/assets/react-navigation/elements/back-icon.35ba0eaec5a4f5ed12ca16fabeae451d.png",
+        "/assets/__node_modules/expo-router/assets/react-navigation/elements/clear-icon.c94f6478e7ae0cdd9f15de1fcb9e5e55.png",
+        "/assets/__node_modules/expo-router/assets/react-navigation/elements/clear-icon.c94f6478e7ae0cdd9f15de1fcb9e5e55@2x.png",
+        "/assets/__node_modules/expo-router/assets/react-navigation/elements/clear-icon.c94f6478e7ae0cdd9f15de1fcb9e5e55@3x.png",
+        "/assets/__node_modules/expo-router/assets/react-navigation/elements/clear-icon.c94f6478e7ae0cdd9f15de1fcb9e5e55@4x.png",
+        "/assets/__node_modules/expo-router/assets/react-navigation/elements/close-icon.808e1b1b9b53114ec2838071a7e6daa7.png",
+        "/assets/__node_modules/expo-router/assets/react-navigation/elements/close-icon.808e1b1b9b53114ec2838071a7e6daa7@2x.png",
+        "/assets/__node_modules/expo-router/assets/react-navigation/elements/close-icon.808e1b1b9b53114ec2838071a7e6daa7@3x.png",
+        "/assets/__node_modules/expo-router/assets/react-navigation/elements/close-icon.808e1b1b9b53114ec2838071a7e6daa7@4x.png",
+        "/assets/__node_modules/expo-router/assets/react-navigation/elements/search-icon.286d67d3f74808a60a78d3ebf1a5fb57.png",
+        "/assets/__node_modules/expo-sqlite/web/wa-sqlite/wa-sqlite.7ca566fbbc2ec2a172c5aefa63a20f4b.wasm",
+        "/assets/__node_modules/expo-router/assets/sitemap.412dd9275b6b48ad28f5e3d81bb1f626.png",
+        "/assets/__node_modules/expo-router/assets/unmatched.20e71bdf79e3a97bf55fd9e164041578.png"
+      ],
+      "bytes": 116017022
+    },
+    {
+      "name": "exported bundle inference online",
+      "predictions": [
+        {
+          "classIndex": 34,
+          "label": "nga",
+          "probability": 0.4821895360946655
+        },
+        {
+          "classIndex": 15,
+          "label": "ha",
+          "probability": 0.19531238079071045
+        },
+        {
+          "classIndex": 11,
+          "label": "ga",
+          "probability": 0.11698436737060547
+        }
+      ],
+      "ms": 111.59000000357628,
+      "backend": "webgpu",
+      "offline": false
+    },
+    {
+      "name": "synthetic persistence candidate (not validity evidence)",
+      "prediction": {
+        "classIndex": 34,
+        "label": "nga",
+        "probability": 0.5598159432411194
+      }
+    },
+    {
+      "name": "online-ui-submission",
+      "before": 0,
+      "after": 0,
+      "status": "Your writing is unclear. Try writing the character again."
+    },
+    {
+      "name": "exported bundle offline inference after reload",
+      "predictions": [
+        {
+          "classIndex": 34,
+          "label": "nga",
+          "probability": 0.4821895360946655
+        },
+        {
+          "classIndex": 15,
+          "label": "ha",
+          "probability": 0.19531238079071045
+        },
+        {
+          "classIndex": 11,
+          "label": "ga",
+          "probability": 0.11698436737060547
+        }
+      ],
+      "ms": 709.7399999983609,
+      "backend": "webgpu",
+      "offline": true
+    },
+    {
+      "name": "offline-ui-submission",
+      "before": 0,
+      "after": 0,
+      "status": "Your writing is unclear. Try writing the character again."
+    },
+    {
+      "name": "production model disposal",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "manual": [
+    {
+      "time": "2026-11-15T04:05:43.895Z",
+      "status": "Let's write!",
+      "paths": [],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:06:47.864Z",
+      "status": "Let's write!",
+      "paths": [
+        "M388.9,326.3 Q388.9,326.3 395.1,302.1 Q401.4,277.8 403.9,273.3 Q406.5,268.7 408.2,266.6 Q409.9,264.5 411.9,262.4 Q413.9,260.3 416.4,258.4 Q419.0,256.6 421.6,255.4 Q424.1,254.2 426.4,254.2 Q428.7,254.2 430.4,254.2 Q432.1,254.2 433.8,254.8 Q435.5,255.4 436.9,256.6 Q438.3,257.8 439.7,258.7 Q441.2,259.6 442.9,261.5 Q444.6,263.3 446.6,265.7 Q448.6,268.1 450.5,272.1 Q452.5,276.0 454.5,282.7 Q456.5,289.3 458.2,296.6 Q459.9,303.9 461.3,311.8 Q462.8,319.7 463.9,328.7 Q465.0,337.8 465.9,345.7 Q466.7,353.6 467.3,361.8 Q467.9,370.0 467.9,377.8 Q467.9,385.7 467.6,393.9 Q467.3,402.1 467.0,409.7 Q466.7,417.2 465.9,423.9 Q465.0,430.6 464.2,436.3 Q463.3,442.1 462.2,448.2 Q461.1,454.2 460.2,460.3 Q459.4,466.3 457.9,473.3 Q456.5,480.3 455.7,487.6 Q454.8,494.8 454.0,502.4 Q453.1,510.0 452.5,516.0 Q452.0,522.1 450.8,527.9 Q449.7,533.6 448.8,538.8 Q448.0,543.9 447.7,549.7 Q447.4,555.4 446.8,562.1 Q446.3,568.8 446.0,576.1 Q445.7,583.3 445.1,590.0 Q444.6,596.7 444.3,602.7 Q444.0,608.8 443.7,614.5 Q443.4,620.3 443.4,620.3"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:06:48.883Z",
+      "status": "Let's write!",
+      "paths": [
+        "M388.9,326.3 Q388.9,326.3 395.1,302.1 Q401.4,277.8 403.9,273.3 Q406.5,268.7 408.2,266.6 Q409.9,264.5 411.9,262.4 Q413.9,260.3 416.4,258.4 Q419.0,256.6 421.6,255.4 Q424.1,254.2 426.4,254.2 Q428.7,254.2 430.4,254.2 Q432.1,254.2 433.8,254.8 Q435.5,255.4 436.9,256.6 Q438.3,257.8 439.7,258.7 Q441.2,259.6 442.9,261.5 Q444.6,263.3 446.6,265.7 Q448.6,268.1 450.5,272.1 Q452.5,276.0 454.5,282.7 Q456.5,289.3 458.2,296.6 Q459.9,303.9 461.3,311.8 Q462.8,319.7 463.9,328.7 Q465.0,337.8 465.9,345.7 Q466.7,353.6 467.3,361.8 Q467.9,370.0 467.9,377.8 Q467.9,385.7 467.6,393.9 Q467.3,402.1 467.0,409.7 Q466.7,417.2 465.9,423.9 Q465.0,430.6 464.2,436.3 Q463.3,442.1 462.2,448.2 Q461.1,454.2 460.2,460.3 Q459.4,466.3 457.9,473.3 Q456.5,480.3 455.7,487.6 Q454.8,494.8 454.0,502.4 Q453.1,510.0 452.5,516.0 Q452.0,522.1 450.8,527.9 Q449.7,533.6 448.8,538.8 Q448.0,543.9 447.7,549.7 Q447.4,555.4 446.8,562.1 Q446.3,568.8 446.0,576.1 Q445.7,583.3 445.1,590.0 Q444.6,596.7 444.3,602.7 Q444.0,608.8 443.7,614.5 Q443.4,620.3 443.4,627.0 Q443.4,633.6 443.7,640.3 Q444.0,647.0 444.0,654.2 Q444.0,661.5 444.3,668.2 Q444.6,674.9 444.9,681.8 Q445.1,688.8 445.7,695.5 Q446.3,702.1 447.1,710.0 Q448.0,717.9 449.7,725.5 Q451.4,733.0 452.5,740.3 Q453.7,747.6 455.1,753.0 Q456.5,758.5 457.9,762.7 Q459.4,767.0 460.8,770.0 Q462.2,773.0 463.9,775.8 Q465.6,778.5 467.6,780.6 Q469.6,782.7 471.0,785.5 Q472.4,788.2 474.1,791.2 Q475.8,794.3 477.8,798.2 Q479.8,802.1 482.4,805.2 Q484.9,808.2 487.5,810.9 Q490.1,813.7 492.6,814.6 Q495.2,815.5 497.4,816.4 Q499.7,817.3 502.6,817.0 Q505.4,816.7 508.5,815.8 Q511.7,814.9 515.6,813.1 Q519.6,811.2 523.3,808.2 Q527.0,805.2 530.7,801.2 Q534.4,797.3 537.8,793.0 Q541.2,788.8 544.3,784.3 Q547.5,779.7 551.2,775.2 Q554.9,770.6 558.5,766.4 Q562.2,762.1 566.5,756.4 Q570.8,750.6 574.5,744.9 Q578.2,739.1 582.1,731.8 Q586.1,724.6 589.5,717.3 Q592.9,710.0 596.1,702.7 Q599.2,695.5 602.0,685.2 Q604.9,674.9 607.2,665.8 Q609.4,656.7 611.1,647.3 Q612.8,637.9 614.5,628.5 Q616.2,619.1 617.7,607.9 Q619.1,596.7 619.9,587.6 Q620.8,578.5 621.6,570.0 Q622.5,561.5 622.8,552.7 Q623.1,543.9 623.1,534.5 Q623.1,525.1 622.8,515.1 Q622.5,505.1 622.2,493.9 Q621.9,482.7 621.4,473.0 Q620.8,463.3 620.5,454.2 Q620.2,445.1 619.9,435.4 Q619.7,425.7 619.4,413.0 Q619.1,400.3 619.1,387.8 Q619.1,375.4 619.1,362.7 Q619.1,350.0 619.4,337.2 Q619.7,324.5 620.2,312.7 Q620.8,300.9 621.6,291.2 Q622.5,281.5 623.4,272.7 Q624.2,263.9 625.3,255.4 Q626.5,246.9 627.6,239.0 Q628.8,231.2 629.9,223.6 Q631.0,216.0 632.4,209.0 Q633.9,202.1 635.6,196.3 Q637.3,190.5 639.0,185.1 Q640.7,179.6 642.7,175.4 Q644.7,171.1 646.7,167.8 Q648.6,164.5 650.6,162.7 Q652.6,160.8 654.0,160.2 Q655.5,159.6 657.2,160.5 Q658.9,161.4 660.0,162.1 Q661.2,162.7 662.9,165.1 Q664.6,167.5 666.0,171.5 Q667.4,175.4 668.8,181.1 Q670.2,186.9 670.2,186.9",
+        "M402.5,525.1 Q402.5,525.1 419.0,511.5 Q435.5,497.9 442.9,496.6 Q450.3,495.4 456.8,495.7 Q463.3,496.0 469.3,497.6 Q475.3,499.1 480.7,502.1 Q486.1,505.1 491.8,509.4 Q497.4,513.6 501.4,517.6 Q505.4,521.5 505.4,521.5"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:06:49.903Z",
+      "status": "Let's write!",
+      "paths": [
+        "M388.9,326.3 Q388.9,326.3 395.1,302.1 Q401.4,277.8 403.9,273.3 Q406.5,268.7 408.2,266.6 Q409.9,264.5 411.9,262.4 Q413.9,260.3 416.4,258.4 Q419.0,256.6 421.6,255.4 Q424.1,254.2 426.4,254.2 Q428.7,254.2 430.4,254.2 Q432.1,254.2 433.8,254.8 Q435.5,255.4 436.9,256.6 Q438.3,257.8 439.7,258.7 Q441.2,259.6 442.9,261.5 Q444.6,263.3 446.6,265.7 Q448.6,268.1 450.5,272.1 Q452.5,276.0 454.5,282.7 Q456.5,289.3 458.2,296.6 Q459.9,303.9 461.3,311.8 Q462.8,319.7 463.9,328.7 Q465.0,337.8 465.9,345.7 Q466.7,353.6 467.3,361.8 Q467.9,370.0 467.9,377.8 Q467.9,385.7 467.6,393.9 Q467.3,402.1 467.0,409.7 Q466.7,417.2 465.9,423.9 Q465.0,430.6 464.2,436.3 Q463.3,442.1 462.2,448.2 Q461.1,454.2 460.2,460.3 Q459.4,466.3 457.9,473.3 Q456.5,480.3 455.7,487.6 Q454.8,494.8 454.0,502.4 Q453.1,510.0 452.5,516.0 Q452.0,522.1 450.8,527.9 Q449.7,533.6 448.8,538.8 Q448.0,543.9 447.7,549.7 Q447.4,555.4 446.8,562.1 Q446.3,568.8 446.0,576.1 Q445.7,583.3 445.1,590.0 Q444.6,596.7 444.3,602.7 Q444.0,608.8 443.7,614.5 Q443.4,620.3 443.4,627.0 Q443.4,633.6 443.7,640.3 Q444.0,647.0 444.0,654.2 Q444.0,661.5 444.3,668.2 Q444.6,674.9 444.9,681.8 Q445.1,688.8 445.7,695.5 Q446.3,702.1 447.1,710.0 Q448.0,717.9 449.7,725.5 Q451.4,733.0 452.5,740.3 Q453.7,747.6 455.1,753.0 Q456.5,758.5 457.9,762.7 Q459.4,767.0 460.8,770.0 Q462.2,773.0 463.9,775.8 Q465.6,778.5 467.6,780.6 Q469.6,782.7 471.0,785.5 Q472.4,788.2 474.1,791.2 Q475.8,794.3 477.8,798.2 Q479.8,802.1 482.4,805.2 Q484.9,808.2 487.5,810.9 Q490.1,813.7 492.6,814.6 Q495.2,815.5 497.4,816.4 Q499.7,817.3 502.6,817.0 Q505.4,816.7 508.5,815.8 Q511.7,814.9 515.6,813.1 Q519.6,811.2 523.3,808.2 Q527.0,805.2 530.7,801.2 Q534.4,797.3 537.8,793.0 Q541.2,788.8 544.3,784.3 Q547.5,779.7 551.2,775.2 Q554.9,770.6 558.5,766.4 Q562.2,762.1 566.5,756.4 Q570.8,750.6 574.5,744.9 Q578.2,739.1 582.1,731.8 Q586.1,724.6 589.5,717.3 Q592.9,710.0 596.1,702.7 Q599.2,695.5 602.0,685.2 Q604.9,674.9 607.2,665.8 Q609.4,656.7 611.1,647.3 Q612.8,637.9 614.5,628.5 Q616.2,619.1 617.7,607.9 Q619.1,596.7 619.9,587.6 Q620.8,578.5 621.6,570.0 Q622.5,561.5 622.8,552.7 Q623.1,543.9 623.1,534.5 Q623.1,525.1 622.8,515.1 Q622.5,505.1 622.2,493.9 Q621.9,482.7 621.4,473.0 Q620.8,463.3 620.5,454.2 Q620.2,445.1 619.9,435.4 Q619.7,425.7 619.4,413.0 Q619.1,400.3 619.1,387.8 Q619.1,375.4 619.1,362.7 Q619.1,350.0 619.4,337.2 Q619.7,324.5 620.2,312.7 Q620.8,300.9 621.6,291.2 Q622.5,281.5 623.4,272.7 Q624.2,263.9 625.3,255.4 Q626.5,246.9 627.6,239.0 Q628.8,231.2 629.9,223.6 Q631.0,216.0 632.4,209.0 Q633.9,202.1 635.6,196.3 Q637.3,190.5 639.0,185.1 Q640.7,179.6 642.7,175.4 Q644.7,171.1 646.7,167.8 Q648.6,164.5 650.6,162.7 Q652.6,160.8 654.0,160.2 Q655.5,159.6 657.2,160.5 Q658.9,161.4 660.0,162.1 Q661.2,162.7 662.9,165.1 Q664.6,167.5 666.0,171.5 Q667.4,175.4 668.8,181.1 Q670.2,186.9 670.2,186.9",
+        "M402.5,525.1 Q402.5,525.1 419.0,511.5 Q435.5,497.9 442.9,496.6 Q450.3,495.4 456.8,495.7 Q463.3,496.0 469.3,497.6 Q475.3,499.1 480.7,502.1 Q486.1,505.1 491.8,509.4 Q497.4,513.6 501.4,517.6 Q505.4,521.5 505.4,521.5",
+        "M391.7,645.8 Q391.7,645.8 407.1,644.5 Q422.4,643.3 432.9,639.1 Q443.4,634.8 443.4,634.8"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:06:50.910Z",
+      "label": "A",
+      "confidence": "99.6%",
+      "paths": [
+        "M388.9,326.3 Q388.9,326.3 395.1,302.1 Q401.4,277.8 403.9,273.3 Q406.5,268.7 408.2,266.6 Q409.9,264.5 411.9,262.4 Q413.9,260.3 416.4,258.4 Q419.0,256.6 421.6,255.4 Q424.1,254.2 426.4,254.2 Q428.7,254.2 430.4,254.2 Q432.1,254.2 433.8,254.8 Q435.5,255.4 436.9,256.6 Q438.3,257.8 439.7,258.7 Q441.2,259.6 442.9,261.5 Q444.6,263.3 446.6,265.7 Q448.6,268.1 450.5,272.1 Q452.5,276.0 454.5,282.7 Q456.5,289.3 458.2,296.6 Q459.9,303.9 461.3,311.8 Q462.8,319.7 463.9,328.7 Q465.0,337.8 465.9,345.7 Q466.7,353.6 467.3,361.8 Q467.9,370.0 467.9,377.8 Q467.9,385.7 467.6,393.9 Q467.3,402.1 467.0,409.7 Q466.7,417.2 465.9,423.9 Q465.0,430.6 464.2,436.3 Q463.3,442.1 462.2,448.2 Q461.1,454.2 460.2,460.3 Q459.4,466.3 457.9,473.3 Q456.5,480.3 455.7,487.6 Q454.8,494.8 454.0,502.4 Q453.1,510.0 452.5,516.0 Q452.0,522.1 450.8,527.9 Q449.7,533.6 448.8,538.8 Q448.0,543.9 447.7,549.7 Q447.4,555.4 446.8,562.1 Q446.3,568.8 446.0,576.1 Q445.7,583.3 445.1,590.0 Q444.6,596.7 444.3,602.7 Q444.0,608.8 443.7,614.5 Q443.4,620.3 443.4,627.0 Q443.4,633.6 443.7,640.3 Q444.0,647.0 444.0,654.2 Q444.0,661.5 444.3,668.2 Q444.6,674.9 444.9,681.8 Q445.1,688.8 445.7,695.5 Q446.3,702.1 447.1,710.0 Q448.0,717.9 449.7,725.5 Q451.4,733.0 452.5,740.3 Q453.7,747.6 455.1,753.0 Q456.5,758.5 457.9,762.7 Q459.4,767.0 460.8,770.0 Q462.2,773.0 463.9,775.8 Q465.6,778.5 467.6,780.6 Q469.6,782.7 471.0,785.5 Q472.4,788.2 474.1,791.2 Q475.8,794.3 477.8,798.2 Q479.8,802.1 482.4,805.2 Q484.9,808.2 487.5,810.9 Q490.1,813.7 492.6,814.6 Q495.2,815.5 497.4,816.4 Q499.7,817.3 502.6,817.0 Q505.4,816.7 508.5,815.8 Q511.7,814.9 515.6,813.1 Q519.6,811.2 523.3,808.2 Q527.0,805.2 530.7,801.2 Q534.4,797.3 537.8,793.0 Q541.2,788.8 544.3,784.3 Q547.5,779.7 551.2,775.2 Q554.9,770.6 558.5,766.4 Q562.2,762.1 566.5,756.4 Q570.8,750.6 574.5,744.9 Q578.2,739.1 582.1,731.8 Q586.1,724.6 589.5,717.3 Q592.9,710.0 596.1,702.7 Q599.2,695.5 602.0,685.2 Q604.9,674.9 607.2,665.8 Q609.4,656.7 611.1,647.3 Q612.8,637.9 614.5,628.5 Q616.2,619.1 617.7,607.9 Q619.1,596.7 619.9,587.6 Q620.8,578.5 621.6,570.0 Q622.5,561.5 622.8,552.7 Q623.1,543.9 623.1,534.5 Q623.1,525.1 622.8,515.1 Q622.5,505.1 622.2,493.9 Q621.9,482.7 621.4,473.0 Q620.8,463.3 620.5,454.2 Q620.2,445.1 619.9,435.4 Q619.7,425.7 619.4,413.0 Q619.1,400.3 619.1,387.8 Q619.1,375.4 619.1,362.7 Q619.1,350.0 619.4,337.2 Q619.7,324.5 620.2,312.7 Q620.8,300.9 621.6,291.2 Q622.5,281.5 623.4,272.7 Q624.2,263.9 625.3,255.4 Q626.5,246.9 627.6,239.0 Q628.8,231.2 629.9,223.6 Q631.0,216.0 632.4,209.0 Q633.9,202.1 635.6,196.3 Q637.3,190.5 639.0,185.1 Q640.7,179.6 642.7,175.4 Q644.7,171.1 646.7,167.8 Q648.6,164.5 650.6,162.7 Q652.6,160.8 654.0,160.2 Q655.5,159.6 657.2,160.5 Q658.9,161.4 660.0,162.1 Q661.2,162.7 662.9,165.1 Q664.6,167.5 666.0,171.5 Q667.4,175.4 668.8,181.1 Q670.2,186.9 670.2,186.9",
+        "M402.5,525.1 Q402.5,525.1 419.0,511.5 Q435.5,497.9 442.9,496.6 Q450.3,495.4 456.8,495.7 Q463.3,496.0 469.3,497.6 Q475.3,499.1 480.7,502.1 Q486.1,505.1 491.8,509.4 Q497.4,513.6 501.4,517.6 Q505.4,521.5 505.4,521.5",
+        "M391.7,645.8 Q391.7,645.8 407.1,644.5 Q422.4,643.3 432.9,639.1 Q443.4,634.8 443.4,634.8"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:06:52.951Z",
+      "status": "Let's write!",
+      "paths": [],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:06:53.959Z",
+      "status": "Let's write!",
+      "paths": [
+        "M401.9,304.5 Q401.9,304.5 410.8,276.6 Q419.6,248.7 422.4,245.4 Q425.2,242.1 427.8,239.9 Q430.4,237.8 432.9,237.5 Q435.5,237.2 437.2,237.8 Q438.9,238.4 440.6,240.9 Q442.3,243.3 444.3,246.3 Q446.3,249.3 448.6,253.6 Q450.8,257.8 453.1,263.3 Q455.4,268.7 457.1,274.5 Q458.8,280.3 459.6,285.4 Q460.5,290.6 461.1,297.2 Q461.6,303.9 461.9,312.4 Q462.2,320.9 461.9,330.0 Q461.6,339.0 461.3,348.7 Q461.1,358.4 460.5,367.2 Q459.9,376.0 459.1,384.5 Q458.2,393.0 457.4,401.8 Q456.5,410.6 455.7,419.4 Q454.8,428.2 454.0,437.2 Q453.1,446.3 452.5,454.8 Q452.0,463.3 451.1,472.4 Q450.3,481.5 449.4,493.0 Q448.6,504.5 447.4,517.0 Q446.3,529.4 445.4,541.2 Q444.6,553.0 444.0,563.0 Q443.4,573.0 443.2,582.1 Q442.9,591.2 442.6,599.4 Q442.3,607.6 442.3,614.8 Q442.3,622.1 442.9,628.2 Q443.4,634.2 444.0,640.3 Q444.6,646.4 445.4,652.4 Q446.3,658.5 447.4,665.2 Q448.6,671.8 450.3,677.6 Q452.0,683.3 454.0,687.6 Q455.9,691.8 458.2,696.4 Q460.5,700.9 462.8,706.7 Q465.0,712.4 467.6,717.0 Q470.2,721.5 472.4,724.6 Q474.7,727.6 477.3,730.3 Q479.8,733.0 482.1,734.9 Q484.4,736.7 484.4,736.7"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:06:54.967Z",
+      "status": "Let's write!",
+      "paths": [
+        "M401.9,304.5 Q401.9,304.5 410.8,276.6 Q419.6,248.7 422.4,245.4 Q425.2,242.1 427.8,239.9 Q430.4,237.8 432.9,237.5 Q435.5,237.2 437.2,237.8 Q438.9,238.4 440.6,240.9 Q442.3,243.3 444.3,246.3 Q446.3,249.3 448.6,253.6 Q450.8,257.8 453.1,263.3 Q455.4,268.7 457.1,274.5 Q458.8,280.3 459.6,285.4 Q460.5,290.6 461.1,297.2 Q461.6,303.9 461.9,312.4 Q462.2,320.9 461.9,330.0 Q461.6,339.0 461.3,348.7 Q461.1,358.4 460.5,367.2 Q459.9,376.0 459.1,384.5 Q458.2,393.0 457.4,401.8 Q456.5,410.6 455.7,419.4 Q454.8,428.2 454.0,437.2 Q453.1,446.3 452.5,454.8 Q452.0,463.3 451.1,472.4 Q450.3,481.5 449.4,493.0 Q448.6,504.5 447.4,517.0 Q446.3,529.4 445.4,541.2 Q444.6,553.0 444.0,563.0 Q443.4,573.0 443.2,582.1 Q442.9,591.2 442.6,599.4 Q442.3,607.6 442.3,614.8 Q442.3,622.1 442.9,628.2 Q443.4,634.2 444.0,640.3 Q444.6,646.4 445.4,652.4 Q446.3,658.5 447.4,665.2 Q448.6,671.8 450.3,677.6 Q452.0,683.3 454.0,687.6 Q455.9,691.8 458.2,696.4 Q460.5,700.9 462.8,706.7 Q465.0,712.4 467.6,717.0 Q470.2,721.5 472.4,724.6 Q474.7,727.6 477.3,730.3 Q479.8,733.0 482.1,734.9 Q484.4,736.7 487.2,737.6 Q490.1,738.5 493.2,737.6 Q496.3,736.7 499.1,735.5 Q502.0,734.3 504.8,731.8 Q507.7,729.4 510.5,726.7 Q513.4,723.9 516.2,720.3 Q519.0,716.7 521.3,712.1 Q523.6,707.6 525.6,701.8 Q527.6,696.1 529.6,689.1 Q531.5,682.1 533.0,674.5 Q534.4,667.0 535.8,659.1 Q537.2,651.2 538.9,641.2 Q540.6,631.2 542.1,621.2 Q543.5,611.2 545.2,599.4 Q546.9,587.6 548.0,576.7 Q549.2,565.7 549.7,555.1 Q550.3,544.5 550.9,530.6 Q551.4,516.6 552.3,502.7 Q553.1,488.8 553.7,474.8 Q554.3,460.9 554.9,448.8 Q555.4,436.6 556.3,425.4 Q557.1,414.2 558.0,402.4 Q558.8,390.6 560.0,379.4 Q561.1,368.1 562.5,356.0 Q563.9,343.9 565.1,334.2 Q566.2,324.5 567.6,316.6 Q569.1,308.7 570.5,302.1 Q571.9,295.4 573.6,290.0 Q575.3,284.5 577.0,280.3 Q578.7,276.0 580.7,272.4 Q582.7,268.7 584.7,265.7 Q586.7,262.7 588.7,259.6 Q590.7,256.6 593.2,252.7 Q595.8,248.7 598.6,244.5 Q601.5,240.2 604.6,236.3 Q607.7,232.4 611.1,229.0 Q614.5,225.7 617.7,223.0 Q620.8,220.2 623.1,217.5 Q625.3,214.8 627.0,214.2 Q628.8,213.6 629.9,212.7 Q631.0,211.8 631.0,211.8",
+        "M399.1,370.6 Q399.1,370.6 412.7,370.9 Q426.4,371.2 433.2,370.9 Q440.0,370.6 447.7,371.8 Q455.4,373.0 461.9,374.5 Q468.5,376.0 473.6,378.8 Q478.7,381.5 478.7,381.5",
+        "M400.8,522.1 Q400.8,522.1 419.3,524.8 Q437.8,527.6 446.0,528.5 Q454.2,529.4 463.1,531.8 Q471.9,534.2 480.1,538.5 Q488.3,542.7 497.4,547.9 Q506.5,553.0 506.5,553.0"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:06:58.020Z",
+      "label": "A",
+      "confidence": "99.9%",
+      "paths": [
+        "M401.9,304.5 Q401.9,304.5 410.8,276.6 Q419.6,248.7 422.4,245.4 Q425.2,242.1 427.8,239.9 Q430.4,237.8 432.9,237.5 Q435.5,237.2 437.2,237.8 Q438.9,238.4 440.6,240.9 Q442.3,243.3 444.3,246.3 Q446.3,249.3 448.6,253.6 Q450.8,257.8 453.1,263.3 Q455.4,268.7 457.1,274.5 Q458.8,280.3 459.6,285.4 Q460.5,290.6 461.1,297.2 Q461.6,303.9 461.9,312.4 Q462.2,320.9 461.9,330.0 Q461.6,339.0 461.3,348.7 Q461.1,358.4 460.5,367.2 Q459.9,376.0 459.1,384.5 Q458.2,393.0 457.4,401.8 Q456.5,410.6 455.7,419.4 Q454.8,428.2 454.0,437.2 Q453.1,446.3 452.5,454.8 Q452.0,463.3 451.1,472.4 Q450.3,481.5 449.4,493.0 Q448.6,504.5 447.4,517.0 Q446.3,529.4 445.4,541.2 Q444.6,553.0 444.0,563.0 Q443.4,573.0 443.2,582.1 Q442.9,591.2 442.6,599.4 Q442.3,607.6 442.3,614.8 Q442.3,622.1 442.9,628.2 Q443.4,634.2 444.0,640.3 Q444.6,646.4 445.4,652.4 Q446.3,658.5 447.4,665.2 Q448.6,671.8 450.3,677.6 Q452.0,683.3 454.0,687.6 Q455.9,691.8 458.2,696.4 Q460.5,700.9 462.8,706.7 Q465.0,712.4 467.6,717.0 Q470.2,721.5 472.4,724.6 Q474.7,727.6 477.3,730.3 Q479.8,733.0 482.1,734.9 Q484.4,736.7 487.2,737.6 Q490.1,738.5 493.2,737.6 Q496.3,736.7 499.1,735.5 Q502.0,734.3 504.8,731.8 Q507.7,729.4 510.5,726.7 Q513.4,723.9 516.2,720.3 Q519.0,716.7 521.3,712.1 Q523.6,707.6 525.6,701.8 Q527.6,696.1 529.6,689.1 Q531.5,682.1 533.0,674.5 Q534.4,667.0 535.8,659.1 Q537.2,651.2 538.9,641.2 Q540.6,631.2 542.1,621.2 Q543.5,611.2 545.2,599.4 Q546.9,587.6 548.0,576.7 Q549.2,565.7 549.7,555.1 Q550.3,544.5 550.9,530.6 Q551.4,516.6 552.3,502.7 Q553.1,488.8 553.7,474.8 Q554.3,460.9 554.9,448.8 Q555.4,436.6 556.3,425.4 Q557.1,414.2 558.0,402.4 Q558.8,390.6 560.0,379.4 Q561.1,368.1 562.5,356.0 Q563.9,343.9 565.1,334.2 Q566.2,324.5 567.6,316.6 Q569.1,308.7 570.5,302.1 Q571.9,295.4 573.6,290.0 Q575.3,284.5 577.0,280.3 Q578.7,276.0 580.7,272.4 Q582.7,268.7 584.7,265.7 Q586.7,262.7 588.7,259.6 Q590.7,256.6 593.2,252.7 Q595.8,248.7 598.6,244.5 Q601.5,240.2 604.6,236.3 Q607.7,232.4 611.1,229.0 Q614.5,225.7 617.7,223.0 Q620.8,220.2 623.1,217.5 Q625.3,214.8 627.0,214.2 Q628.8,213.6 629.9,212.7 Q631.0,211.8 631.0,211.8",
+        "M399.1,370.6 Q399.1,370.6 412.7,370.9 Q426.4,371.2 433.2,370.9 Q440.0,370.6 447.7,371.8 Q455.4,373.0 461.9,374.5 Q468.5,376.0 473.6,378.8 Q478.7,381.5 478.7,381.5",
+        "M400.8,522.1 Q400.8,522.1 419.3,524.8 Q437.8,527.6 446.0,528.5 Q454.2,529.4 463.1,531.8 Q471.9,534.2 480.1,538.5 Q488.3,542.7 497.4,547.9 Q506.5,553.0 506.5,553.0"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:00.052Z",
+      "status": "Let's write!",
+      "paths": [],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:07.139Z",
+      "status": "Let's write!",
+      "paths": [
+        "M519.0,486.9 Q519.0,486.9 509.7,505.1 Q500.3,523.3 496.6,530.9 Q492.9,538.5 488.6,546.0 Q484.4,553.6 480.1,561.2 Q475.8,568.8 471.0,576.1 Q466.2,583.3 460.8,590.3 Q455.4,597.3 449.7,603.9 Q444.0,610.6 439.2,615.1 Q434.3,619.7 429.2,623.0 Q424.1,626.4 419.8,628.8 Q415.6,631.2 411.0,632.7 Q406.5,634.2 402.5,634.8 Q398.5,635.5 394.6,635.1 Q390.6,634.8 386.6,634.2 Q382.6,633.6 379.5,631.5 Q376.4,629.4 373.2,627.3 Q370.1,625.1 367.3,622.1 Q364.4,619.1 362.2,614.8 Q359.9,610.6 357.6,605.4 Q355.3,600.3 353.3,594.5 Q351.4,588.8 349.6,582.7 Q347.9,576.7 347.1,569.4 Q346.2,562.1 346.2,562.1"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:08.149Z",
+      "status": "Let's write!",
+      "paths": [
+        "M519.0,486.9 Q519.0,486.9 509.7,505.1 Q500.3,523.3 496.6,530.9 Q492.9,538.5 488.6,546.0 Q484.4,553.6 480.1,561.2 Q475.8,568.8 471.0,576.1 Q466.2,583.3 460.8,590.3 Q455.4,597.3 449.7,603.9 Q444.0,610.6 439.2,615.1 Q434.3,619.7 429.2,623.0 Q424.1,626.4 419.8,628.8 Q415.6,631.2 411.0,632.7 Q406.5,634.2 402.5,634.8 Q398.5,635.5 394.6,635.1 Q390.6,634.8 386.6,634.2 Q382.6,633.6 379.5,631.5 Q376.4,629.4 373.2,627.3 Q370.1,625.1 367.3,622.1 Q364.4,619.1 362.2,614.8 Q359.9,610.6 357.6,605.4 Q355.3,600.3 353.3,594.5 Q351.4,588.8 349.6,582.7 Q347.9,576.7 347.1,569.4 Q346.2,562.1 345.4,554.8 Q344.5,547.6 344.0,540.0 Q343.4,532.4 343.4,525.1 Q343.4,517.9 344.0,510.6 Q344.5,503.3 345.4,495.1 Q346.2,486.9 347.1,479.1 Q347.9,471.2 349.1,463.0 Q350.2,454.8 351.4,446.6 Q352.5,438.5 354.2,430.3 Q355.9,422.1 357.9,413.3 Q359.9,404.5 361.3,395.4 Q362.7,386.3 364.7,377.2 Q366.7,368.1 369.0,358.7 Q371.2,349.4 373.2,341.5 Q375.2,333.6 377.2,326.6 Q379.2,319.7 381.5,313.6 Q383.8,307.5 386.0,301.8 Q388.3,296.0 390.6,291.2 Q392.8,286.3 395.4,281.2 Q398.0,276.0 400.2,271.2 Q402.5,266.3 405.4,260.9 Q408.2,255.4 411.3,250.6 Q414.4,245.7 417.9,241.5 Q421.3,237.2 424.7,233.0 Q428.1,228.7 431.5,224.8 Q434.9,220.9 438.3,217.8 Q441.7,214.8 444.9,212.1 Q448.0,209.3 451.1,207.5 Q454.2,205.7 458.2,203.9 Q462.2,202.1 465.9,200.5 Q469.6,199.0 473.6,197.8 Q477.5,196.6 481.5,195.1 Q485.5,193.6 490.3,192.7 Q495.2,191.8 499.4,192.4 Q503.7,193.0 508.5,194.5 Q513.4,196.0 517.6,198.7 Q521.9,201.5 526.4,203.9 Q531.0,206.3 535.5,209.0 Q540.1,211.8 545.5,214.8 Q550.9,217.8 556.0,222.1 Q561.1,226.3 566.5,230.5 Q571.9,234.8 577.3,239.0 Q582.7,243.3 587.3,247.5 Q591.8,251.8 595.8,255.7 Q599.8,259.6 603.2,263.9 Q606.6,268.1 610.0,273.0 Q613.4,277.8 616.5,283.6 Q619.7,289.3 623.1,294.8 Q626.5,300.3 629.0,305.4 Q631.6,310.6 634.4,315.7 Q637.3,320.9 639.8,325.7 Q642.4,330.6 644.1,337.2 Q645.8,343.9 646.9,350.6 Q648.1,357.2 649.2,363.0 Q650.4,368.8 651.2,374.2 Q652.1,379.7 652.3,384.8 Q652.6,390.0 652.9,393.9 Q653.2,397.8 652.9,402.1 Q652.6,406.3 652.3,411.2 Q652.1,416.0 651.5,420.9 Q650.9,425.7 650.1,430.3 Q649.2,434.8 648.1,439.4 Q646.9,443.9 645.5,448.2 Q644.1,452.4 642.4,457.5 Q640.7,462.7 639.0,466.9 Q637.3,471.2 635.9,474.8 Q634.4,478.5 633.0,482.4 Q631.6,486.3 629.9,490.0 Q628.2,493.6 625.9,497.9 Q623.6,502.1 621.1,507.3 Q618.5,512.4 615.7,517.9 Q612.8,523.3 609.7,527.9 Q606.6,532.4 602.9,536.0 Q599.2,539.7 595.2,542.7 Q591.2,545.7 587.3,548.5 Q583.3,551.2 579.3,552.4 Q575.3,553.6 570.2,553.9 Q565.1,554.2 560.3,553.6 Q555.4,553.0 551.4,551.8 Q547.5,550.6 544.3,548.2 Q541.2,545.7 538.1,543.6 Q535.0,541.5 531.0,538.8 Q527.0,536.0 523.3,533.0 Q519.6,530.0 515.6,526.7 Q511.7,523.3 508.5,519.1 Q505.4,514.8 503.1,510.0 Q500.9,505.1 498.9,500.3 Q496.9,495.4 495.5,491.5 Q494.0,487.6 493.2,485.1 Q492.3,482.7 492.0,480.0 Q491.8,477.2 491.8,473.6 Q491.8,470.0 491.5,465.4 Q491.2,460.9 491.2,460.9"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:09.171Z",
+      "status": "Let's write!",
+      "paths": [
+        "M519.0,486.9 Q519.0,486.9 509.7,505.1 Q500.3,523.3 496.6,530.9 Q492.9,538.5 488.6,546.0 Q484.4,553.6 480.1,561.2 Q475.8,568.8 471.0,576.1 Q466.2,583.3 460.8,590.3 Q455.4,597.3 449.7,603.9 Q444.0,610.6 439.2,615.1 Q434.3,619.7 429.2,623.0 Q424.1,626.4 419.8,628.8 Q415.6,631.2 411.0,632.7 Q406.5,634.2 402.5,634.8 Q398.5,635.5 394.6,635.1 Q390.6,634.8 386.6,634.2 Q382.6,633.6 379.5,631.5 Q376.4,629.4 373.2,627.3 Q370.1,625.1 367.3,622.1 Q364.4,619.1 362.2,614.8 Q359.9,610.6 357.6,605.4 Q355.3,600.3 353.3,594.5 Q351.4,588.8 349.6,582.7 Q347.9,576.7 347.1,569.4 Q346.2,562.1 345.4,554.8 Q344.5,547.6 344.0,540.0 Q343.4,532.4 343.4,525.1 Q343.4,517.9 344.0,510.6 Q344.5,503.3 345.4,495.1 Q346.2,486.9 347.1,479.1 Q347.9,471.2 349.1,463.0 Q350.2,454.8 351.4,446.6 Q352.5,438.5 354.2,430.3 Q355.9,422.1 357.9,413.3 Q359.9,404.5 361.3,395.4 Q362.7,386.3 364.7,377.2 Q366.7,368.1 369.0,358.7 Q371.2,349.4 373.2,341.5 Q375.2,333.6 377.2,326.6 Q379.2,319.7 381.5,313.6 Q383.8,307.5 386.0,301.8 Q388.3,296.0 390.6,291.2 Q392.8,286.3 395.4,281.2 Q398.0,276.0 400.2,271.2 Q402.5,266.3 405.4,260.9 Q408.2,255.4 411.3,250.6 Q414.4,245.7 417.9,241.5 Q421.3,237.2 424.7,233.0 Q428.1,228.7 431.5,224.8 Q434.9,220.9 438.3,217.8 Q441.7,214.8 444.9,212.1 Q448.0,209.3 451.1,207.5 Q454.2,205.7 458.2,203.9 Q462.2,202.1 465.9,200.5 Q469.6,199.0 473.6,197.8 Q477.5,196.6 481.5,195.1 Q485.5,193.6 490.3,192.7 Q495.2,191.8 499.4,192.4 Q503.7,193.0 508.5,194.5 Q513.4,196.0 517.6,198.7 Q521.9,201.5 526.4,203.9 Q531.0,206.3 535.5,209.0 Q540.1,211.8 545.5,214.8 Q550.9,217.8 556.0,222.1 Q561.1,226.3 566.5,230.5 Q571.9,234.8 577.3,239.0 Q582.7,243.3 587.3,247.5 Q591.8,251.8 595.8,255.7 Q599.8,259.6 603.2,263.9 Q606.6,268.1 610.0,273.0 Q613.4,277.8 616.5,283.6 Q619.7,289.3 623.1,294.8 Q626.5,300.3 629.0,305.4 Q631.6,310.6 634.4,315.7 Q637.3,320.9 639.8,325.7 Q642.4,330.6 644.1,337.2 Q645.8,343.9 646.9,350.6 Q648.1,357.2 649.2,363.0 Q650.4,368.8 651.2,374.2 Q652.1,379.7 652.3,384.8 Q652.6,390.0 652.9,393.9 Q653.2,397.8 652.9,402.1 Q652.6,406.3 652.3,411.2 Q652.1,416.0 651.5,420.9 Q650.9,425.7 650.1,430.3 Q649.2,434.8 648.1,439.4 Q646.9,443.9 645.5,448.2 Q644.1,452.4 642.4,457.5 Q640.7,462.7 639.0,466.9 Q637.3,471.2 635.9,474.8 Q634.4,478.5 633.0,482.4 Q631.6,486.3 629.9,490.0 Q628.2,493.6 625.9,497.9 Q623.6,502.1 621.1,507.3 Q618.5,512.4 615.7,517.9 Q612.8,523.3 609.7,527.9 Q606.6,532.4 602.9,536.0 Q599.2,539.7 595.2,542.7 Q591.2,545.7 587.3,548.5 Q583.3,551.2 579.3,552.4 Q575.3,553.6 570.2,553.9 Q565.1,554.2 560.3,553.6 Q555.4,553.0 551.4,551.8 Q547.5,550.6 544.3,548.2 Q541.2,545.7 538.1,543.6 Q535.0,541.5 531.0,538.8 Q527.0,536.0 523.3,533.0 Q519.6,530.0 515.6,526.7 Q511.7,523.3 508.5,519.1 Q505.4,514.8 503.1,510.0 Q500.9,505.1 498.9,500.3 Q496.9,495.4 495.5,491.5 Q494.0,487.6 493.2,485.1 Q492.3,482.7 492.0,480.0 Q491.8,477.2 491.8,473.6 Q491.8,470.0 491.5,465.4 Q491.2,460.9 491.2,460.9",
+        "M500.3,661.5 Q500.3,661.5 498.6,692.7 Q496.9,723.9 498.6,732.4 Q500.3,740.9 502.3,748.2 Q504.3,755.5 506.5,760.6 Q508.8,765.8 511.1,770.3 Q513.4,774.9 515.1,777.0 Q516.8,779.1 518.2,779.1 Q519.6,779.1 520.5,778.2 Q521.3,777.3 522.5,775.8 Q523.6,774.3 524.7,772.7 Q525.9,771.2 526.7,769.7 Q527.6,768.2 527.9,766.1 Q528.1,764.0 528.7,760.6 Q529.3,757.3 529.3,754.3 Q529.3,751.2 529.3,747.6 Q529.3,744.0 528.4,739.1 Q527.6,734.3 526.7,729.7 Q525.9,725.2 524.4,721.8 Q523.0,718.5 521.3,716.1 Q519.6,713.6 517.9,712.1 Q516.2,710.6 514.8,709.4 Q513.4,708.2 511.7,708.2 Q509.9,708.2 508.5,708.8 Q507.1,709.4 504.8,711.2 Q502.6,713.0 501.1,714.6 Q499.7,716.1 498.6,717.6 Q497.4,719.1 496.9,720.6 Q496.3,722.1 495.7,723.6 Q495.2,725.2 495.2,725.2"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:10.191Z",
+      "label": "BO/BU",
+      "confidence": "99.2%",
+      "paths": [
+        "M519.0,486.9 Q519.0,486.9 509.7,505.1 Q500.3,523.3 496.6,530.9 Q492.9,538.5 488.6,546.0 Q484.4,553.6 480.1,561.2 Q475.8,568.8 471.0,576.1 Q466.2,583.3 460.8,590.3 Q455.4,597.3 449.7,603.9 Q444.0,610.6 439.2,615.1 Q434.3,619.7 429.2,623.0 Q424.1,626.4 419.8,628.8 Q415.6,631.2 411.0,632.7 Q406.5,634.2 402.5,634.8 Q398.5,635.5 394.6,635.1 Q390.6,634.8 386.6,634.2 Q382.6,633.6 379.5,631.5 Q376.4,629.4 373.2,627.3 Q370.1,625.1 367.3,622.1 Q364.4,619.1 362.2,614.8 Q359.9,610.6 357.6,605.4 Q355.3,600.3 353.3,594.5 Q351.4,588.8 349.6,582.7 Q347.9,576.7 347.1,569.4 Q346.2,562.1 345.4,554.8 Q344.5,547.6 344.0,540.0 Q343.4,532.4 343.4,525.1 Q343.4,517.9 344.0,510.6 Q344.5,503.3 345.4,495.1 Q346.2,486.9 347.1,479.1 Q347.9,471.2 349.1,463.0 Q350.2,454.8 351.4,446.6 Q352.5,438.5 354.2,430.3 Q355.9,422.1 357.9,413.3 Q359.9,404.5 361.3,395.4 Q362.7,386.3 364.7,377.2 Q366.7,368.1 369.0,358.7 Q371.2,349.4 373.2,341.5 Q375.2,333.6 377.2,326.6 Q379.2,319.7 381.5,313.6 Q383.8,307.5 386.0,301.8 Q388.3,296.0 390.6,291.2 Q392.8,286.3 395.4,281.2 Q398.0,276.0 400.2,271.2 Q402.5,266.3 405.4,260.9 Q408.2,255.4 411.3,250.6 Q414.4,245.7 417.9,241.5 Q421.3,237.2 424.7,233.0 Q428.1,228.7 431.5,224.8 Q434.9,220.9 438.3,217.8 Q441.7,214.8 444.9,212.1 Q448.0,209.3 451.1,207.5 Q454.2,205.7 458.2,203.9 Q462.2,202.1 465.9,200.5 Q469.6,199.0 473.6,197.8 Q477.5,196.6 481.5,195.1 Q485.5,193.6 490.3,192.7 Q495.2,191.8 499.4,192.4 Q503.7,193.0 508.5,194.5 Q513.4,196.0 517.6,198.7 Q521.9,201.5 526.4,203.9 Q531.0,206.3 535.5,209.0 Q540.1,211.8 545.5,214.8 Q550.9,217.8 556.0,222.1 Q561.1,226.3 566.5,230.5 Q571.9,234.8 577.3,239.0 Q582.7,243.3 587.3,247.5 Q591.8,251.8 595.8,255.7 Q599.8,259.6 603.2,263.9 Q606.6,268.1 610.0,273.0 Q613.4,277.8 616.5,283.6 Q619.7,289.3 623.1,294.8 Q626.5,300.3 629.0,305.4 Q631.6,310.6 634.4,315.7 Q637.3,320.9 639.8,325.7 Q642.4,330.6 644.1,337.2 Q645.8,343.9 646.9,350.6 Q648.1,357.2 649.2,363.0 Q650.4,368.8 651.2,374.2 Q652.1,379.7 652.3,384.8 Q652.6,390.0 652.9,393.9 Q653.2,397.8 652.9,402.1 Q652.6,406.3 652.3,411.2 Q652.1,416.0 651.5,420.9 Q650.9,425.7 650.1,430.3 Q649.2,434.8 648.1,439.4 Q646.9,443.9 645.5,448.2 Q644.1,452.4 642.4,457.5 Q640.7,462.7 639.0,466.9 Q637.3,471.2 635.9,474.8 Q634.4,478.5 633.0,482.4 Q631.6,486.3 629.9,490.0 Q628.2,493.6 625.9,497.9 Q623.6,502.1 621.1,507.3 Q618.5,512.4 615.7,517.9 Q612.8,523.3 609.7,527.9 Q606.6,532.4 602.9,536.0 Q599.2,539.7 595.2,542.7 Q591.2,545.7 587.3,548.5 Q583.3,551.2 579.3,552.4 Q575.3,553.6 570.2,553.9 Q565.1,554.2 560.3,553.6 Q555.4,553.0 551.4,551.8 Q547.5,550.6 544.3,548.2 Q541.2,545.7 538.1,543.6 Q535.0,541.5 531.0,538.8 Q527.0,536.0 523.3,533.0 Q519.6,530.0 515.6,526.7 Q511.7,523.3 508.5,519.1 Q505.4,514.8 503.1,510.0 Q500.9,505.1 498.9,500.3 Q496.9,495.4 495.5,491.5 Q494.0,487.6 493.2,485.1 Q492.3,482.7 492.0,480.0 Q491.8,477.2 491.8,473.6 Q491.8,470.0 491.5,465.4 Q491.2,460.9 491.2,460.9",
+        "M500.3,661.5 Q500.3,661.5 498.6,692.7 Q496.9,723.9 498.6,732.4 Q500.3,740.9 502.3,748.2 Q504.3,755.5 506.5,760.6 Q508.8,765.8 511.1,770.3 Q513.4,774.9 515.1,777.0 Q516.8,779.1 518.2,779.1 Q519.6,779.1 520.5,778.2 Q521.3,777.3 522.5,775.8 Q523.6,774.3 524.7,772.7 Q525.9,771.2 526.7,769.7 Q527.6,768.2 527.9,766.1 Q528.1,764.0 528.7,760.6 Q529.3,757.3 529.3,754.3 Q529.3,751.2 529.3,747.6 Q529.3,744.0 528.4,739.1 Q527.6,734.3 526.7,729.7 Q525.9,725.2 524.4,721.8 Q523.0,718.5 521.3,716.1 Q519.6,713.6 517.9,712.1 Q516.2,710.6 514.8,709.4 Q513.4,708.2 511.7,708.2 Q509.9,708.2 508.5,708.8 Q507.1,709.4 504.8,711.2 Q502.6,713.0 501.1,714.6 Q499.7,716.1 498.6,717.6 Q497.4,719.1 496.9,720.6 Q496.3,722.1 495.7,723.6 Q495.2,725.2 495.2,725.2"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:15.268Z",
+      "status": "Let's write!",
+      "paths": [],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:16.280Z",
+      "status": "Let's write!",
+      "paths": [
+        "M812.4,214.4 Q812.4,214.4 812.9,180.2 Q813.5,145.9 819.5,100.4 Q825.4,55.0 825.4,55.0"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:17.292Z",
+      "status": "Let's write!",
+      "paths": [],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:36.576Z",
+      "status": "Let's write!",
+      "paths": [
+        "M416.7,240.9 Q416.7,240.9 404.8,252.1 Q392.8,263.3 390.6,278.7 Q388.3,294.2 388.0,302.1 Q387.7,310.0 387.4,318.4 Q387.2,326.9 387.4,336.0 Q387.7,345.1 387.7,345.1"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:37.598Z",
+      "status": "Let's write!",
+      "paths": [
+        "M416.7,240.9 Q416.7,240.9 404.8,252.1 Q392.8,263.3 390.6,278.7 Q388.3,294.2 388.0,302.1 Q387.7,310.0 387.4,318.4 Q387.2,326.9 387.4,336.0 Q387.7,345.1 388.3,354.5 Q388.9,363.9 390.0,371.2 Q391.1,378.4 392.3,384.5 Q393.4,390.6 394.8,396.3 Q396.3,402.1 398.0,405.4 Q399.7,408.8 401.7,411.8 Q403.6,414.8 405.9,417.5 Q408.2,420.3 410.5,422.7 Q412.7,425.1 415.9,425.7 Q419.0,426.3 422.1,425.7 Q425.2,425.1 428.7,424.2 Q432.1,423.3 435.8,422.7 Q439.5,422.1 443.4,419.7 Q447.4,417.2 451.4,413.9 Q455.4,410.6 459.9,406.3 Q464.5,402.1 468.5,397.8 Q472.4,393.6 476.1,389.7 Q479.8,385.7 483.5,382.4 Q487.2,379.1 491.2,376.3 Q495.2,373.6 499.1,370.6 Q503.1,367.5 507.1,363.9 Q511.1,360.3 515.6,356.3 Q520.2,352.4 524.2,348.4 Q528.1,344.5 533.0,341.2 Q537.8,337.8 542.1,334.2 Q546.3,330.6 550.3,326.9 Q554.3,323.3 558.5,320.0 Q562.8,316.6 568.2,314.8 Q573.6,313.0 578.2,312.4 Q582.7,311.8 586.1,312.7 Q589.5,313.6 592.9,314.5 Q596.4,315.4 599.8,316.9 Q603.2,318.4 606.0,320.3 Q608.9,322.1 611.7,324.5 Q614.5,326.9 616.8,330.3 Q619.1,333.6 621.1,337.8 Q623.1,342.1 624.8,346.6 Q626.5,351.2 627.6,355.4 Q628.8,359.7 629.6,363.6 Q630.5,367.5 631.0,369.7 Q631.6,371.8 631.9,373.6 Q632.2,375.4 632.7,376.9 Q633.3,378.4 633.3,378.4",
+        "M391.7,588.2 Q391.7,588.2 396.3,616.1 Q400.8,643.9 402.8,651.8 Q404.8,659.7 407.3,666.1 Q409.9,672.4 412.7,678.2 Q415.6,683.9 418.7,688.2 Q421.8,692.4 424.7,695.2 Q427.5,697.9 430.9,698.2 Q434.3,698.5 437.5,697.0 Q440.6,695.5 444.0,691.2 Q447.4,687.0 450.8,681.2 Q454.2,675.5 458.2,666.7 Q462.2,657.9 465.3,648.2 Q468.5,638.5 471.9,629.4 Q475.3,620.3 477.5,613.0 Q479.8,605.8 481.8,599.7 Q483.8,593.6 486.4,588.5 Q488.9,583.3 491.2,580.0 Q493.5,576.7 495.5,574.2 Q497.4,571.8 499.1,570.9 Q500.9,570.0 502.3,570.9 Q503.7,571.8 504.8,573.9 Q506.0,576.1 507.4,579.1 Q508.8,582.1 508.8,582.1"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:38.610Z",
+      "label": "E/I",
+      "confidence": "99.9%",
+      "paths": [
+        "M416.7,240.9 Q416.7,240.9 404.8,252.1 Q392.8,263.3 390.6,278.7 Q388.3,294.2 388.0,302.1 Q387.7,310.0 387.4,318.4 Q387.2,326.9 387.4,336.0 Q387.7,345.1 388.3,354.5 Q388.9,363.9 390.0,371.2 Q391.1,378.4 392.3,384.5 Q393.4,390.6 394.8,396.3 Q396.3,402.1 398.0,405.4 Q399.7,408.8 401.7,411.8 Q403.6,414.8 405.9,417.5 Q408.2,420.3 410.5,422.7 Q412.7,425.1 415.9,425.7 Q419.0,426.3 422.1,425.7 Q425.2,425.1 428.7,424.2 Q432.1,423.3 435.8,422.7 Q439.5,422.1 443.4,419.7 Q447.4,417.2 451.4,413.9 Q455.4,410.6 459.9,406.3 Q464.5,402.1 468.5,397.8 Q472.4,393.6 476.1,389.7 Q479.8,385.7 483.5,382.4 Q487.2,379.1 491.2,376.3 Q495.2,373.6 499.1,370.6 Q503.1,367.5 507.1,363.9 Q511.1,360.3 515.6,356.3 Q520.2,352.4 524.2,348.4 Q528.1,344.5 533.0,341.2 Q537.8,337.8 542.1,334.2 Q546.3,330.6 550.3,326.9 Q554.3,323.3 558.5,320.0 Q562.8,316.6 568.2,314.8 Q573.6,313.0 578.2,312.4 Q582.7,311.8 586.1,312.7 Q589.5,313.6 592.9,314.5 Q596.4,315.4 599.8,316.9 Q603.2,318.4 606.0,320.3 Q608.9,322.1 611.7,324.5 Q614.5,326.9 616.8,330.3 Q619.1,333.6 621.1,337.8 Q623.1,342.1 624.8,346.6 Q626.5,351.2 627.6,355.4 Q628.8,359.7 629.6,363.6 Q630.5,367.5 631.0,369.7 Q631.6,371.8 631.9,373.6 Q632.2,375.4 632.7,376.9 Q633.3,378.4 633.3,378.4",
+        "M391.7,588.2 Q391.7,588.2 396.3,616.1 Q400.8,643.9 402.8,651.8 Q404.8,659.7 407.3,666.1 Q409.9,672.4 412.7,678.2 Q415.6,683.9 418.7,688.2 Q421.8,692.4 424.7,695.2 Q427.5,697.9 430.9,698.2 Q434.3,698.5 437.5,697.0 Q440.6,695.5 444.0,691.2 Q447.4,687.0 450.8,681.2 Q454.2,675.5 458.2,666.7 Q462.2,657.9 465.3,648.2 Q468.5,638.5 471.9,629.4 Q475.3,620.3 477.5,613.0 Q479.8,605.8 481.8,599.7 Q483.8,593.6 486.4,588.5 Q488.9,583.3 491.2,580.0 Q493.5,576.7 495.5,574.2 Q497.4,571.8 499.1,570.9 Q500.9,570.0 502.3,570.9 Q503.7,571.8 504.8,573.9 Q506.0,576.1 507.4,579.1 Q508.8,582.1 510.2,586.4 Q511.7,590.6 512.8,597.0 Q513.9,603.3 515.6,611.2 Q517.3,619.1 518.8,625.5 Q520.2,631.8 521.0,637.9 Q521.9,643.9 522.7,649.4 Q523.6,654.8 524.7,658.2 Q525.9,661.5 526.7,663.9 Q527.6,666.4 528.4,668.2 Q529.3,670.0 530.1,670.9 Q531.0,671.8 532.7,671.5 Q534.4,671.2 535.5,669.4 Q536.7,667.6 538.4,664.2 Q540.1,660.9 541.5,655.5 Q542.9,650.0 544.9,643.3 Q546.9,636.7 548.0,629.7 Q549.2,622.7 550.3,617.0 Q551.4,611.2 552.6,606.7 Q553.7,602.1 554.6,599.1 Q555.4,596.1 556.3,594.5 Q557.1,593.0 558.0,592.4 Q558.8,591.8 560.0,591.8 Q561.1,591.8 562.0,592.4 Q562.8,593.0 563.7,593.6 Q564.5,594.2 565.7,595.4 Q566.8,596.7 568.2,598.2 Q569.6,599.7 571.6,601.5 Q573.6,603.3 576.2,605.8 Q578.7,608.2 581.9,610.0 Q585.0,611.8 589.2,613.6 Q593.5,615.4 599.8,616.4 Q606.0,617.3 614.5,616.4 Q623.1,615.4 623.1,615.4"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:40.627Z",
+      "status": "Let's write!",
+      "paths": [],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:41.634Z",
+      "status": "Let's write!",
+      "paths": [
+        "M425.8,278.4 Q425.8,278.4 411.0,280.0 Q396.3,281.5 392.6,283.6 Q388.9,285.7 386.0,288.7 Q383.2,291.8 380.9,296.3 Q378.6,300.9 376.9,306.9 Q375.2,313.0 374.1,320.6 Q373.0,328.1 372.4,337.5 Q371.8,346.9 371.8,355.7 Q371.8,364.5 372.4,373.3 Q373.0,382.1 374.4,389.7 Q375.8,397.2 377.8,404.5 Q379.8,411.8 382.3,417.8 Q384.9,423.9 388.3,429.4 Q391.7,434.8 396.0,438.8 Q400.2,442.7 405.4,446.0 Q410.5,449.4 416.4,451.8 Q422.4,454.2 429.5,455.4 Q436.6,456.6 444.0,454.8 Q451.4,453.0 457.9,450.6 Q464.5,448.2 470.2,445.4 Q475.8,442.7 482.9,438.5 Q490.1,434.2 498.0,427.5 Q506.0,420.9 512.2,414.8 Q518.5,408.8 525.3,401.2 Q532.1,393.6 537.8,387.5 Q543.5,381.5 548.9,377.2 Q554.3,373.0 560.8,370.3 Q567.4,367.5 574.5,366.0 Q581.6,364.5 587.3,364.5 Q592.9,364.5 598.3,365.7 Q603.7,366.9 607.7,369.1 Q611.7,371.2 615.7,373.9 Q619.7,376.6 623.4,379.4 Q627.0,382.1 629.9,384.8 Q632.7,387.5 635.3,390.6 Q637.8,393.6 640.1,397.2 Q642.4,400.9 644.4,405.1 Q646.4,409.4 646.4,409.4",
+        "M422.4,617.9 Q422.4,617.9 431.2,645.5 Q440.0,673.0 443.2,678.2 Q446.3,683.3 449.1,686.4 Q452.0,689.4 455.1,690.9 Q458.2,692.4 461.3,691.2 Q464.5,690.0 467.3,685.8 Q470.2,681.5 472.7,675.5 Q475.3,669.4 477.8,659.7 Q480.4,650.0 483.2,639.1 Q486.1,628.2 488.6,617.3 Q491.2,606.4 493.2,598.2 Q495.2,590.0 497.2,582.4 Q499.1,574.8 501.1,567.6 Q503.1,560.3 504.5,555.1 Q506.0,550.0 506.8,547.3 Q507.7,544.5 508.2,543.6 Q508.8,542.7 509.7,543.9 Q510.5,545.1 511.7,547.9 Q512.8,550.6 514.5,556.0 Q516.2,561.5 516.2,561.5"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:42.657Z",
+      "status": "Let's write!",
+      "paths": [
+        "M425.8,278.4 Q425.8,278.4 411.0,280.0 Q396.3,281.5 392.6,283.6 Q388.9,285.7 386.0,288.7 Q383.2,291.8 380.9,296.3 Q378.6,300.9 376.9,306.9 Q375.2,313.0 374.1,320.6 Q373.0,328.1 372.4,337.5 Q371.8,346.9 371.8,355.7 Q371.8,364.5 372.4,373.3 Q373.0,382.1 374.4,389.7 Q375.8,397.2 377.8,404.5 Q379.8,411.8 382.3,417.8 Q384.9,423.9 388.3,429.4 Q391.7,434.8 396.0,438.8 Q400.2,442.7 405.4,446.0 Q410.5,449.4 416.4,451.8 Q422.4,454.2 429.5,455.4 Q436.6,456.6 444.0,454.8 Q451.4,453.0 457.9,450.6 Q464.5,448.2 470.2,445.4 Q475.8,442.7 482.9,438.5 Q490.1,434.2 498.0,427.5 Q506.0,420.9 512.2,414.8 Q518.5,408.8 525.3,401.2 Q532.1,393.6 537.8,387.5 Q543.5,381.5 548.9,377.2 Q554.3,373.0 560.8,370.3 Q567.4,367.5 574.5,366.0 Q581.6,364.5 587.3,364.5 Q592.9,364.5 598.3,365.7 Q603.7,366.9 607.7,369.1 Q611.7,371.2 615.7,373.9 Q619.7,376.6 623.4,379.4 Q627.0,382.1 629.9,384.8 Q632.7,387.5 635.3,390.6 Q637.8,393.6 640.1,397.2 Q642.4,400.9 644.4,405.1 Q646.4,409.4 646.4,409.4",
+        "M422.4,617.9 Q422.4,617.9 431.2,645.5 Q440.0,673.0 443.2,678.2 Q446.3,683.3 449.1,686.4 Q452.0,689.4 455.1,690.9 Q458.2,692.4 461.3,691.2 Q464.5,690.0 467.3,685.8 Q470.2,681.5 472.7,675.5 Q475.3,669.4 477.8,659.7 Q480.4,650.0 483.2,639.1 Q486.1,628.2 488.6,617.3 Q491.2,606.4 493.2,598.2 Q495.2,590.0 497.2,582.4 Q499.1,574.8 501.1,567.6 Q503.1,560.3 504.5,555.1 Q506.0,550.0 506.8,547.3 Q507.7,544.5 508.2,543.6 Q508.8,542.7 509.7,543.9 Q510.5,545.1 511.7,547.9 Q512.8,550.6 514.5,556.0 Q516.2,561.5 518.2,567.9 Q520.2,574.2 522.5,580.9 Q524.7,587.6 527.0,593.9 Q529.3,600.3 531.3,607.3 Q533.3,614.2 535.0,620.3 Q536.7,626.4 538.4,632.1 Q540.1,637.9 541.8,641.8 Q543.5,645.8 545.5,648.5 Q547.5,651.2 549.2,652.7 Q550.9,654.2 552.9,653.6 Q554.9,653.0 556.8,651.2 Q558.8,649.4 561.1,646.7 Q563.4,643.9 566.5,640.9 Q569.6,637.9 573.0,634.5 Q576.5,631.2 579.9,627.3 Q583.3,623.3 586.1,620.3 Q589.0,617.3 592.1,614.5 Q595.2,611.8 598.6,610.3 Q602.0,608.8 606.0,608.8 Q610.0,608.8 615.4,609.7 Q620.8,610.6 627.9,610.0 Q635.0,609.4 635.0,609.4"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:43.674Z",
+      "status": "Let's write!",
+      "paths": [],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:45.711Z",
+      "status": "Let's write!",
+      "paths": [
+        "M533.3,323.9 Q533.3,323.9 547.5,338.1 Q561.7,352.4 568.2,354.8 Q574.8,357.2 581.3,358.7 Q587.8,360.3 595.2,360.9 Q602.6,361.5 611.1,360.9 Q619.7,360.3 619.7,360.3"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:46.725Z",
+      "label": "HA",
+      "confidence": "82.2%",
+      "paths": [
+        "M533.3,323.9 Q533.3,323.9 547.5,338.1 Q561.7,352.4 568.2,354.8 Q574.8,357.2 581.3,358.7 Q587.8,360.3 595.2,360.9 Q602.6,361.5 611.1,360.9 Q619.7,360.3 619.7,360.3"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:48.757Z",
+      "status": "Let's write!",
+      "paths": [],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:50.780Z",
+      "status": "Let's write!",
+      "paths": [
+        "M423.5,321.5 Q423.5,321.5 430.6,295.4 Q437.8,269.3 452.5,237.2 Q467.3,205.1 476.4,190.8 Q485.5,176.6 494.9,166.9 Q504.3,157.2 513.1,152.4 Q521.9,147.5 529.3,146.3 Q536.7,145.1 542.1,146.3 Q547.5,147.5 551.7,150.2 Q556.0,153.0 556.0,153.0"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:51.798Z",
+      "status": "Let's write!",
+      "paths": [
+        "M423.5,321.5 Q423.5,321.5 430.6,295.4 Q437.8,269.3 452.5,237.2 Q467.3,205.1 476.4,190.8 Q485.5,176.6 494.9,166.9 Q504.3,157.2 513.1,152.4 Q521.9,147.5 529.3,146.3 Q536.7,145.1 542.1,146.3 Q547.5,147.5 551.7,150.2 Q556.0,153.0 559.4,156.9 Q562.8,160.8 564.5,165.4 Q566.2,169.9 567.4,176.3 Q568.5,182.7 569.1,191.2 Q569.6,199.6 569.4,208.4 Q569.1,217.2 568.5,225.7 Q567.9,234.2 566.8,243.0 Q565.7,251.8 564.2,260.9 Q562.8,269.9 560.0,280.3 Q557.1,290.6 554.0,300.3 Q550.9,310.0 546.9,320.0 Q542.9,330.0 537.8,341.5 Q532.7,353.0 527.3,363.0 Q521.9,373.0 517.9,379.7 Q513.9,386.3 511.7,390.3 Q509.4,394.2 506.8,396.6 Q504.3,399.1 502.3,400.9 Q500.3,402.7 499.7,403.9 Q499.1,405.1 501.1,402.7 Q503.1,400.3 507.1,396.0 Q511.1,391.8 518.2,384.2 Q525.3,376.6 535.0,369.1 Q544.6,361.5 556.3,360.0 Q567.9,358.4 579.9,365.7 Q591.8,373.0 602.3,385.1 Q612.8,397.2 620.8,407.5 Q628.8,417.8 635.3,431.5 Q641.8,445.1 646.4,461.5 Q650.9,477.9 653.8,493.0 Q656.6,508.2 658.3,523.9 Q660.0,539.7 660.3,554.2 Q660.6,568.8 659.7,583.0 Q658.9,597.3 656.0,608.5 Q653.2,619.7 648.4,632.7 Q643.5,645.8 635.6,659.1 Q627.6,672.4 617.7,680.0 Q607.7,687.6 596.6,687.0 Q585.6,686.4 573.6,677.9 Q561.7,669.4 548.3,653.3 Q535.0,637.3 522.5,616.7 Q509.9,596.1 500.0,577.9 Q490.1,559.7 483.5,544.5 Q477.0,529.4 473.3,517.3 Q469.6,505.1 467.9,494.5 Q466.2,483.9 466.2,483.9"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:52.822Z",
+      "status": "Your writing is unclear. Try writing the character again.",
+      "paths": [
+        "M423.5,321.5 Q423.5,321.5 430.6,295.4 Q437.8,269.3 452.5,237.2 Q467.3,205.1 476.4,190.8 Q485.5,176.6 494.9,166.9 Q504.3,157.2 513.1,152.4 Q521.9,147.5 529.3,146.3 Q536.7,145.1 542.1,146.3 Q547.5,147.5 551.7,150.2 Q556.0,153.0 559.4,156.9 Q562.8,160.8 564.5,165.4 Q566.2,169.9 567.4,176.3 Q568.5,182.7 569.1,191.2 Q569.6,199.6 569.4,208.4 Q569.1,217.2 568.5,225.7 Q567.9,234.2 566.8,243.0 Q565.7,251.8 564.2,260.9 Q562.8,269.9 560.0,280.3 Q557.1,290.6 554.0,300.3 Q550.9,310.0 546.9,320.0 Q542.9,330.0 537.8,341.5 Q532.7,353.0 527.3,363.0 Q521.9,373.0 517.9,379.7 Q513.9,386.3 511.7,390.3 Q509.4,394.2 506.8,396.6 Q504.3,399.1 502.3,400.9 Q500.3,402.7 499.7,403.9 Q499.1,405.1 501.1,402.7 Q503.1,400.3 507.1,396.0 Q511.1,391.8 518.2,384.2 Q525.3,376.6 535.0,369.1 Q544.6,361.5 556.3,360.0 Q567.9,358.4 579.9,365.7 Q591.8,373.0 602.3,385.1 Q612.8,397.2 620.8,407.5 Q628.8,417.8 635.3,431.5 Q641.8,445.1 646.4,461.5 Q650.9,477.9 653.8,493.0 Q656.6,508.2 658.3,523.9 Q660.0,539.7 660.3,554.2 Q660.6,568.8 659.7,583.0 Q658.9,597.3 656.0,608.5 Q653.2,619.7 648.4,632.7 Q643.5,645.8 635.6,659.1 Q627.6,672.4 617.7,680.0 Q607.7,687.6 596.6,687.0 Q585.6,686.4 573.6,677.9 Q561.7,669.4 548.3,653.3 Q535.0,637.3 522.5,616.7 Q509.9,596.1 500.0,577.9 Q490.1,559.7 483.5,544.5 Q477.0,529.4 473.3,517.3 Q469.6,505.1 467.9,494.5 Q466.2,483.9 466.2,483.9"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:53.832Z",
+      "status": "Let's write!",
+      "paths": [],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:56.871Z",
+      "status": "Let's write!",
+      "paths": [
+        "M379.2,340.9 Q379.2,340.9 388.6,322.1 Q398.0,303.3 416.7,269.9 Q435.5,236.6 446.8,218.4 Q458.2,200.2 467.9,188.1 Q477.5,176.0 486.4,167.2 Q495.2,158.4 503.7,152.1 Q512.2,145.7 519.6,142.4 Q527.0,139.0 532.1,138.4 Q537.2,137.8 542.3,138.7 Q547.5,139.6 551.7,142.1 Q556.0,144.5 559.7,147.5 Q563.4,150.5 566.5,154.8 Q569.6,159.0 571.6,163.9 Q573.6,168.7 574.5,174.5 Q575.3,180.2 574.8,188.4 Q574.2,196.6 571.9,207.2 Q569.6,217.8 566.8,229.0 Q563.9,240.2 560.0,252.4 Q556.0,264.5 551.4,276.0 Q546.9,287.5 542.1,298.4 Q537.2,309.3 532.7,318.4 Q528.1,327.5 523.0,337.2 Q517.9,346.9 513.9,353.6 Q509.9,360.3 507.1,365.7 Q504.3,371.2 502.0,374.8 Q499.7,378.4 497.7,380.6 Q495.7,382.7 494.3,383.9 Q492.9,385.1 493.5,383.9 Q494.0,382.7 496.6,380.6 Q499.1,378.4 504.3,374.8 Q509.4,371.2 517.9,367.5 Q526.4,363.9 537.2,362.7 Q548.0,361.5 559.4,363.3 Q570.8,365.1 580.7,370.3 Q590.7,375.4 598.1,383.0 Q605.4,390.6 605.4,390.6"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:57.890Z",
+      "label": "O/U",
+      "confidence": "92.4%",
+      "paths": [
+        "M379.2,340.9 Q379.2,340.9 388.6,322.1 Q398.0,303.3 416.7,269.9 Q435.5,236.6 446.8,218.4 Q458.2,200.2 467.9,188.1 Q477.5,176.0 486.4,167.2 Q495.2,158.4 503.7,152.1 Q512.2,145.7 519.6,142.4 Q527.0,139.0 532.1,138.4 Q537.2,137.8 542.3,138.7 Q547.5,139.6 551.7,142.1 Q556.0,144.5 559.7,147.5 Q563.4,150.5 566.5,154.8 Q569.6,159.0 571.6,163.9 Q573.6,168.7 574.5,174.5 Q575.3,180.2 574.8,188.4 Q574.2,196.6 571.9,207.2 Q569.6,217.8 566.8,229.0 Q563.9,240.2 560.0,252.4 Q556.0,264.5 551.4,276.0 Q546.9,287.5 542.1,298.4 Q537.2,309.3 532.7,318.4 Q528.1,327.5 523.0,337.2 Q517.9,346.9 513.9,353.6 Q509.9,360.3 507.1,365.7 Q504.3,371.2 502.0,374.8 Q499.7,378.4 497.7,380.6 Q495.7,382.7 494.3,383.9 Q492.9,385.1 493.5,383.9 Q494.0,382.7 496.6,380.6 Q499.1,378.4 504.3,374.8 Q509.4,371.2 517.9,367.5 Q526.4,363.9 537.2,362.7 Q548.0,361.5 559.4,363.3 Q570.8,365.1 580.7,370.3 Q590.7,375.4 598.1,383.0 Q605.4,390.6 610.6,400.0 Q615.7,409.4 619.4,420.3 Q623.1,431.2 624.8,444.2 Q626.5,457.2 626.8,472.4 Q627.0,487.6 626.2,504.5 Q625.3,521.5 623.6,534.8 Q621.9,548.2 619.1,560.0 Q616.2,571.8 612.3,581.5 Q608.3,591.2 604.0,599.4 Q599.8,607.6 594.6,613.6 Q589.5,619.7 582.7,624.2 Q575.9,628.8 567.4,631.5 Q558.8,634.2 551.4,633.3 Q544.1,632.4 537.8,629.7 Q531.5,627.0 527.6,624.5 Q523.6,622.1 521.0,619.7 Q518.5,617.3 517.3,615.4 Q516.2,613.6 516.5,611.5 Q516.8,609.4 519.3,605.8 Q521.9,602.1 521.9,602.1"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:58.912Z",
+      "status": "Let's write!",
+      "paths": [
+        "M400.8,383.3 Q400.8,383.3 411.3,353.9 Q421.8,324.5 428.7,310.9 Q435.5,297.2 442.6,284.2 Q449.7,271.2 455.9,261.8 Q462.2,252.4 468.2,247.5 Q474.1,242.7 481.2,239.9 Q488.3,237.2 494.9,236.0 Q501.4,234.8 506.5,235.7 Q511.7,236.6 515.6,237.5 Q519.6,238.4 523.0,241.2 Q526.4,243.9 529.0,248.4 Q531.5,253.0 533.3,258.4 Q535.0,263.9 535.2,269.3 Q535.5,274.8 535.5,280.9 Q535.5,286.9 534.7,295.1 Q533.8,303.3 532.1,314.8 Q530.4,326.3 527.6,338.4 Q524.7,350.6 521.3,362.4 Q517.9,374.2 513.6,387.5 Q509.4,400.9 505.4,411.8 Q501.4,422.7 498.0,432.7 Q494.6,442.7 491.5,450.6 Q488.3,458.5 486.1,463.6 Q483.8,468.8 482.1,471.8 Q480.4,474.8 479.3,477.6 Q478.1,480.3 477.8,481.8 Q477.5,483.3 477.3,484.5 Q477.0,485.7 477.5,486.6 Q478.1,487.6 480.1,488.5 Q482.1,489.4 486.9,488.2 Q491.8,486.9 498.9,485.1 Q506.0,483.3 513.9,483.0 Q521.9,482.7 529.6,485.1 Q537.2,487.6 545.2,494.5 Q553.1,501.5 560.8,510.3 Q568.5,519.1 575.0,528.5 Q581.6,537.9 586.1,546.7 Q590.7,555.4 593.8,564.5 Q596.9,573.6 599.5,583.6 Q602.0,593.6 602.0,593.6"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:07:59.925Z",
+      "status": "Let's write!",
+      "paths": [
+        "M400.8,383.3 Q400.8,383.3 411.3,353.9 Q421.8,324.5 428.7,310.9 Q435.5,297.2 442.6,284.2 Q449.7,271.2 455.9,261.8 Q462.2,252.4 468.2,247.5 Q474.1,242.7 481.2,239.9 Q488.3,237.2 494.9,236.0 Q501.4,234.8 506.5,235.7 Q511.7,236.6 515.6,237.5 Q519.6,238.4 523.0,241.2 Q526.4,243.9 529.0,248.4 Q531.5,253.0 533.3,258.4 Q535.0,263.9 535.2,269.3 Q535.5,274.8 535.5,280.9 Q535.5,286.9 534.7,295.1 Q533.8,303.3 532.1,314.8 Q530.4,326.3 527.6,338.4 Q524.7,350.6 521.3,362.4 Q517.9,374.2 513.6,387.5 Q509.4,400.9 505.4,411.8 Q501.4,422.7 498.0,432.7 Q494.6,442.7 491.5,450.6 Q488.3,458.5 486.1,463.6 Q483.8,468.8 482.1,471.8 Q480.4,474.8 479.3,477.6 Q478.1,480.3 477.8,481.8 Q477.5,483.3 477.3,484.5 Q477.0,485.7 477.5,486.6 Q478.1,487.6 480.1,488.5 Q482.1,489.4 486.9,488.2 Q491.8,486.9 498.9,485.1 Q506.0,483.3 513.9,483.0 Q521.9,482.7 529.6,485.1 Q537.2,487.6 545.2,494.5 Q553.1,501.5 560.8,510.3 Q568.5,519.1 575.0,528.5 Q581.6,537.9 586.1,546.7 Q590.7,555.4 593.8,564.5 Q596.9,573.6 599.5,583.6 Q602.0,593.6 603.5,604.2 Q604.9,614.8 605.4,624.8 Q606.0,634.8 605.4,643.9 Q604.9,653.0 603.2,662.7 Q601.5,672.4 598.3,683.0 Q595.2,693.6 591.0,704.2 Q586.7,714.9 581.3,722.4 Q575.9,730.0 569.4,735.8 Q562.8,741.5 556.0,746.1 Q549.2,750.6 542.9,752.4 Q536.7,754.3 530.1,752.7 Q523.6,751.2 517.6,747.9 Q511.7,744.6 505.4,737.9 Q499.1,731.2 494.3,722.1 Q489.5,713.0 486.9,697.3 Q484.4,681.5 484.4,681.5"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:08:00.933Z",
+      "label": "O/U",
+      "confidence": "99.4%",
+      "paths": [
+        "M400.8,383.3 Q400.8,383.3 411.3,353.9 Q421.8,324.5 428.7,310.9 Q435.5,297.2 442.6,284.2 Q449.7,271.2 455.9,261.8 Q462.2,252.4 468.2,247.5 Q474.1,242.7 481.2,239.9 Q488.3,237.2 494.9,236.0 Q501.4,234.8 506.5,235.7 Q511.7,236.6 515.6,237.5 Q519.6,238.4 523.0,241.2 Q526.4,243.9 529.0,248.4 Q531.5,253.0 533.3,258.4 Q535.0,263.9 535.2,269.3 Q535.5,274.8 535.5,280.9 Q535.5,286.9 534.7,295.1 Q533.8,303.3 532.1,314.8 Q530.4,326.3 527.6,338.4 Q524.7,350.6 521.3,362.4 Q517.9,374.2 513.6,387.5 Q509.4,400.9 505.4,411.8 Q501.4,422.7 498.0,432.7 Q494.6,442.7 491.5,450.6 Q488.3,458.5 486.1,463.6 Q483.8,468.8 482.1,471.8 Q480.4,474.8 479.3,477.6 Q478.1,480.3 477.8,481.8 Q477.5,483.3 477.3,484.5 Q477.0,485.7 477.5,486.6 Q478.1,487.6 480.1,488.5 Q482.1,489.4 486.9,488.2 Q491.8,486.9 498.9,485.1 Q506.0,483.3 513.9,483.0 Q521.9,482.7 529.6,485.1 Q537.2,487.6 545.2,494.5 Q553.1,501.5 560.8,510.3 Q568.5,519.1 575.0,528.5 Q581.6,537.9 586.1,546.7 Q590.7,555.4 593.8,564.5 Q596.9,573.6 599.5,583.6 Q602.0,593.6 603.5,604.2 Q604.9,614.8 605.4,624.8 Q606.0,634.8 605.4,643.9 Q604.9,653.0 603.2,662.7 Q601.5,672.4 598.3,683.0 Q595.2,693.6 591.0,704.2 Q586.7,714.9 581.3,722.4 Q575.9,730.0 569.4,735.8 Q562.8,741.5 556.0,746.1 Q549.2,750.6 542.9,752.4 Q536.7,754.3 530.1,752.7 Q523.6,751.2 517.6,747.9 Q511.7,744.6 505.4,737.9 Q499.1,731.2 494.3,722.1 Q489.5,713.0 486.9,697.3 Q484.4,681.5 484.4,681.5"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:08:56.708Z",
+      "status": "Let's write!",
+      "paths": [
+        "M400.8,383.3 Q400.8,383.3 411.3,353.9 Q421.8,324.5 428.7,310.9 Q435.5,297.2 442.6,284.2 Q449.7,271.2 455.9,261.8 Q462.2,252.4 468.2,247.5 Q474.1,242.7 481.2,239.9 Q488.3,237.2 494.9,236.0 Q501.4,234.8 506.5,235.7 Q511.7,236.6 515.6,237.5 Q519.6,238.4 523.0,241.2 Q526.4,243.9 529.0,248.4 Q531.5,253.0 533.3,258.4 Q535.0,263.9 535.2,269.3 Q535.5,274.8 535.5,280.9 Q535.5,286.9 534.7,295.1 Q533.8,303.3 532.1,314.8 Q530.4,326.3 527.6,338.4 Q524.7,350.6 521.3,362.4 Q517.9,374.2 513.6,387.5 Q509.4,400.9 505.4,411.8 Q501.4,422.7 498.0,432.7 Q494.6,442.7 491.5,450.6 Q488.3,458.5 486.1,463.6 Q483.8,468.8 482.1,471.8 Q480.4,474.8 479.3,477.6 Q478.1,480.3 477.8,481.8 Q477.5,483.3 477.3,484.5 Q477.0,485.7 477.5,486.6 Q478.1,487.6 480.1,488.5 Q482.1,489.4 486.9,488.2 Q491.8,486.9 498.9,485.1 Q506.0,483.3 513.9,483.0 Q521.9,482.7 529.6,485.1 Q537.2,487.6 545.2,494.5 Q553.1,501.5 560.8,510.3 Q568.5,519.1 575.0,528.5 Q581.6,537.9 586.1,546.7 Q590.7,555.4 593.8,564.5 Q596.9,573.6 599.5,583.6 Q602.0,593.6 603.5,604.2 Q604.9,614.8 605.4,624.8 Q606.0,634.8 605.4,643.9 Q604.9,653.0 603.2,662.7 Q601.5,672.4 598.3,683.0 Q595.2,693.6 591.0,704.2 Q586.7,714.9 581.3,722.4 Q575.9,730.0 569.4,735.8 Q562.8,741.5 556.0,746.1 Q549.2,750.6 542.9,752.4 Q536.7,754.3 530.1,752.7 Q523.6,751.2 517.6,747.9 Q511.7,744.6 505.4,737.9 Q499.1,731.2 494.3,722.1 Q489.5,713.0 486.9,697.3 Q484.4,681.5 484.4,681.5"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-1"
+    },
+    {
+      "time": "2026-11-15T04:14:45.703Z",
+      "status": "Let's write!",
+      "paths": [],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:15:07.007Z",
+      "status": "Let's write!",
+      "paths": [
+        "M508.2,479.1 Q508.2,479.1 503.1,513.0 Q498.0,547.0 494.9,562.1 Q491.8,577.3 487.2,591.2 Q482.7,605.1 480.4,609.7 Q478.1,614.2 475.8,617.6 Q473.6,620.9 471.6,623.6 Q469.6,626.4 467.0,628.8 Q464.5,631.2 461.9,632.4 Q459.4,633.6 456.2,634.2 Q453.1,634.8 450.0,634.8 Q446.8,634.8 446.8,634.8"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:15:08.028Z",
+      "status": "Let's write!",
+      "paths": [
+        "M508.2,479.1 Q508.2,479.1 503.1,513.0 Q498.0,547.0 494.9,562.1 Q491.8,577.3 487.2,591.2 Q482.7,605.1 480.4,609.7 Q478.1,614.2 475.8,617.6 Q473.6,620.9 471.6,623.6 Q469.6,626.4 467.0,628.8 Q464.5,631.2 461.9,632.4 Q459.4,633.6 456.2,634.2 Q453.1,634.8 450.0,634.8 Q446.8,634.8 443.2,634.2 Q439.5,633.6 436.0,630.9 Q432.6,628.2 429.2,624.5 Q425.8,620.9 422.7,616.7 Q419.6,612.4 416.4,606.7 Q413.3,600.9 409.9,593.3 Q406.5,585.7 403.1,576.7 Q399.7,567.6 396.5,556.7 Q393.4,545.7 390.3,533.3 Q387.2,520.9 384.6,510.0 Q382.0,499.1 380.1,490.0 Q378.1,480.9 376.1,469.7 Q374.1,458.5 372.4,446.0 Q370.7,433.6 369.5,423.0 Q368.4,412.4 367.3,402.1 Q366.1,391.8 365.0,379.7 Q363.9,367.5 363.3,354.8 Q362.7,342.1 362.4,333.0 Q362.2,323.9 362.4,316.3 Q362.7,308.7 363.0,300.9 Q363.3,293.0 363.9,285.7 Q364.4,278.4 365.3,272.1 Q366.1,265.7 367.0,259.9 Q367.8,254.2 368.7,249.0 Q369.5,243.9 370.7,239.3 Q371.8,234.8 373.2,229.9 Q374.7,225.1 376.4,220.5 Q378.1,216.0 379.5,212.1 Q380.9,208.1 382.9,203.9 Q384.9,199.6 387.2,195.7 Q389.4,191.8 392.0,187.2 Q394.6,182.7 397.1,178.4 Q399.7,174.2 402.8,170.8 Q405.9,167.5 409.3,164.2 Q412.7,160.8 416.7,157.5 Q420.7,154.2 424.7,151.8 Q428.7,149.3 433.2,147.5 Q437.8,145.7 442.0,145.1 Q446.3,144.5 450.8,144.2 Q455.4,143.9 459.4,143.9 Q463.3,143.9 467.3,144.2 Q471.3,144.5 475.3,145.1 Q479.3,145.7 483.8,146.9 Q488.3,148.1 492.9,150.5 Q497.4,153.0 502.3,156.0 Q507.1,159.0 512.2,163.0 Q517.3,166.9 521.3,169.9 Q525.3,173.0 530.1,177.2 Q535.0,181.5 539.5,185.7 Q544.1,189.9 548.9,195.7 Q553.7,201.5 558.3,207.5 Q562.8,213.6 566.2,219.6 Q569.6,225.7 573.6,233.3 Q577.6,240.9 580.7,247.8 Q583.8,254.8 586.4,261.8 Q589.0,268.7 591.5,275.7 Q594.1,282.7 596.6,288.7 Q599.2,294.8 601.2,300.9 Q603.2,306.9 605.2,313.9 Q607.2,320.9 608.9,328.1 Q610.6,335.4 612.3,343.9 Q614.0,352.4 615.7,361.5 Q617.4,370.6 619.1,379.4 Q620.8,388.1 621.9,396.9 Q623.1,405.7 624.2,413.3 Q625.3,420.9 625.9,428.2 Q626.5,435.4 626.5,441.8 Q626.5,448.2 626.5,454.8 Q626.5,461.5 625.9,468.2 Q625.3,474.8 624.8,480.9 Q624.2,486.9 623.6,493.0 Q623.1,499.1 621.9,504.8 Q620.8,510.6 619.9,516.3 Q619.1,522.1 617.4,527.3 Q615.7,532.4 614.0,536.7 Q612.3,540.9 610.0,545.1 Q607.7,549.4 605.4,551.5 Q603.2,553.6 600.0,555.1 Q596.9,556.7 593.8,556.7 Q590.7,556.7 587.3,555.1 Q583.8,553.6 580.7,551.5 Q577.6,549.4 573.6,546.7 Q569.6,543.9 565.7,540.9 Q561.7,537.9 558.3,533.6 Q554.9,529.4 551.7,525.7 Q548.6,522.1 546.0,518.5 Q543.5,514.8 541.2,510.9 Q538.9,507.0 536.9,503.6 Q535.0,500.3 533.0,497.6 Q531.0,494.8 529.6,492.1 Q528.1,489.4 527.0,486.9 Q525.9,484.5 525.0,482.4 Q524.2,480.3 523.9,478.2 Q523.6,476.0 525.9,475.1 Q528.1,474.2 532.4,470.3 Q536.7,466.3 536.7,466.3"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:15:09.035Z",
+      "label": "BA",
+      "confidence": "99.9%",
+      "paths": [
+        "M508.2,479.1 Q508.2,479.1 503.1,513.0 Q498.0,547.0 494.9,562.1 Q491.8,577.3 487.2,591.2 Q482.7,605.1 480.4,609.7 Q478.1,614.2 475.8,617.6 Q473.6,620.9 471.6,623.6 Q469.6,626.4 467.0,628.8 Q464.5,631.2 461.9,632.4 Q459.4,633.6 456.2,634.2 Q453.1,634.8 450.0,634.8 Q446.8,634.8 443.2,634.2 Q439.5,633.6 436.0,630.9 Q432.6,628.2 429.2,624.5 Q425.8,620.9 422.7,616.7 Q419.6,612.4 416.4,606.7 Q413.3,600.9 409.9,593.3 Q406.5,585.7 403.1,576.7 Q399.7,567.6 396.5,556.7 Q393.4,545.7 390.3,533.3 Q387.2,520.9 384.6,510.0 Q382.0,499.1 380.1,490.0 Q378.1,480.9 376.1,469.7 Q374.1,458.5 372.4,446.0 Q370.7,433.6 369.5,423.0 Q368.4,412.4 367.3,402.1 Q366.1,391.8 365.0,379.7 Q363.9,367.5 363.3,354.8 Q362.7,342.1 362.4,333.0 Q362.2,323.9 362.4,316.3 Q362.7,308.7 363.0,300.9 Q363.3,293.0 363.9,285.7 Q364.4,278.4 365.3,272.1 Q366.1,265.7 367.0,259.9 Q367.8,254.2 368.7,249.0 Q369.5,243.9 370.7,239.3 Q371.8,234.8 373.2,229.9 Q374.7,225.1 376.4,220.5 Q378.1,216.0 379.5,212.1 Q380.9,208.1 382.9,203.9 Q384.9,199.6 387.2,195.7 Q389.4,191.8 392.0,187.2 Q394.6,182.7 397.1,178.4 Q399.7,174.2 402.8,170.8 Q405.9,167.5 409.3,164.2 Q412.7,160.8 416.7,157.5 Q420.7,154.2 424.7,151.8 Q428.7,149.3 433.2,147.5 Q437.8,145.7 442.0,145.1 Q446.3,144.5 450.8,144.2 Q455.4,143.9 459.4,143.9 Q463.3,143.9 467.3,144.2 Q471.3,144.5 475.3,145.1 Q479.3,145.7 483.8,146.9 Q488.3,148.1 492.9,150.5 Q497.4,153.0 502.3,156.0 Q507.1,159.0 512.2,163.0 Q517.3,166.9 521.3,169.9 Q525.3,173.0 530.1,177.2 Q535.0,181.5 539.5,185.7 Q544.1,189.9 548.9,195.7 Q553.7,201.5 558.3,207.5 Q562.8,213.6 566.2,219.6 Q569.6,225.7 573.6,233.3 Q577.6,240.9 580.7,247.8 Q583.8,254.8 586.4,261.8 Q589.0,268.7 591.5,275.7 Q594.1,282.7 596.6,288.7 Q599.2,294.8 601.2,300.9 Q603.2,306.9 605.2,313.9 Q607.2,320.9 608.9,328.1 Q610.6,335.4 612.3,343.9 Q614.0,352.4 615.7,361.5 Q617.4,370.6 619.1,379.4 Q620.8,388.1 621.9,396.9 Q623.1,405.7 624.2,413.3 Q625.3,420.9 625.9,428.2 Q626.5,435.4 626.5,441.8 Q626.5,448.2 626.5,454.8 Q626.5,461.5 625.9,468.2 Q625.3,474.8 624.8,480.9 Q624.2,486.9 623.6,493.0 Q623.1,499.1 621.9,504.8 Q620.8,510.6 619.9,516.3 Q619.1,522.1 617.4,527.3 Q615.7,532.4 614.0,536.7 Q612.3,540.9 610.0,545.1 Q607.7,549.4 605.4,551.5 Q603.2,553.6 600.0,555.1 Q596.9,556.7 593.8,556.7 Q590.7,556.7 587.3,555.1 Q583.8,553.6 580.7,551.5 Q577.6,549.4 573.6,546.7 Q569.6,543.9 565.7,540.9 Q561.7,537.9 558.3,533.6 Q554.9,529.4 551.7,525.7 Q548.6,522.1 546.0,518.5 Q543.5,514.8 541.2,510.9 Q538.9,507.0 536.9,503.6 Q535.0,500.3 533.0,497.6 Q531.0,494.8 529.6,492.1 Q528.1,489.4 527.0,486.9 Q525.9,484.5 525.0,482.4 Q524.2,480.3 523.9,478.2 Q523.6,476.0 525.9,475.1 Q528.1,474.2 532.4,470.3 Q536.7,466.3 536.7,466.3"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:15:10.052Z",
+      "status": "Let's write!",
+      "paths": [],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:15:11.071Z",
+      "status": "Let's write!",
+      "paths": [
+        "M501.4,501.5 Q501.4,501.5 492.6,532.7 Q483.8,563.9 481.0,572.1 Q478.1,580.3 475.3,588.5 Q472.4,596.7 469.3,604.2 Q466.2,611.8 462.8,619.1 Q459.4,626.4 455.4,633.6 Q451.4,640.9 447.1,649.1 Q442.9,657.3 439.5,662.4 Q436.0,667.6 432.9,671.2 Q429.8,674.9 426.4,677.0 Q423.0,679.1 419.3,680.6 Q415.6,682.1 411.9,682.7 Q408.2,683.3 404.8,682.1 Q401.4,680.9 398.0,678.5 Q394.6,676.1 391.4,673.6 Q388.3,671.2 384.6,667.0 Q380.9,662.7 376.9,657.0 Q373.0,651.2 373.0,651.2"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:15:12.081Z",
+      "status": "Let's write!",
+      "paths": [
+        "M501.4,501.5 Q501.4,501.5 492.6,532.7 Q483.8,563.9 481.0,572.1 Q478.1,580.3 475.3,588.5 Q472.4,596.7 469.3,604.2 Q466.2,611.8 462.8,619.1 Q459.4,626.4 455.4,633.6 Q451.4,640.9 447.1,649.1 Q442.9,657.3 439.5,662.4 Q436.0,667.6 432.9,671.2 Q429.8,674.9 426.4,677.0 Q423.0,679.1 419.3,680.6 Q415.6,682.1 411.9,682.7 Q408.2,683.3 404.8,682.1 Q401.4,680.9 398.0,678.5 Q394.6,676.1 391.4,673.6 Q388.3,671.2 384.6,667.0 Q380.9,662.7 376.9,657.0 Q373.0,651.2 369.8,645.5 Q366.7,639.7 363.6,633.3 Q360.4,627.0 357.3,619.4 Q354.2,611.8 351.4,600.9 Q348.5,590.0 346.0,577.6 Q343.4,565.1 341.7,554.5 Q340.0,543.9 338.3,531.8 Q336.6,519.7 335.7,507.6 Q334.9,495.4 334.6,484.8 Q334.3,474.2 333.7,462.7 Q333.2,451.2 333.7,441.5 Q334.3,431.8 334.6,423.9 Q334.9,416.0 335.7,408.1 Q336.6,400.3 337.7,393.3 Q338.8,386.3 340.8,379.7 Q342.8,373.0 344.5,366.3 Q346.2,359.7 348.8,352.7 Q351.4,345.7 354.2,338.4 Q357.0,331.2 361.0,322.4 Q365.0,313.6 369.0,304.8 Q373.0,296.0 377.5,288.4 Q382.0,280.9 386.0,273.9 Q390.0,266.9 394.6,260.9 Q399.1,254.8 403.4,249.0 Q407.6,243.3 411.6,238.7 Q415.6,234.2 419.8,229.0 Q424.1,223.9 428.1,219.9 Q432.1,216.0 436.9,211.8 Q441.7,207.5 445.7,204.5 Q449.7,201.5 454.2,197.8 Q458.8,194.2 463.6,191.5 Q468.5,188.7 473.9,186.6 Q479.3,184.5 484.4,183.6 Q489.5,182.7 494.9,182.1 Q500.3,181.5 506.8,180.2 Q513.4,179.0 518.8,178.7 Q524.2,178.4 528.4,179.0 Q532.7,179.6 537.8,181.5 Q542.9,183.3 548.3,185.7 Q553.7,188.1 559.1,190.8 Q564.5,193.6 569.6,196.6 Q574.8,199.6 579.0,203.9 Q583.3,208.1 586.7,213.0 Q590.1,217.8 593.5,224.2 Q596.9,230.5 600.3,239.3 Q603.7,248.1 606.6,255.4 Q609.4,262.7 612.0,268.4 Q614.5,274.2 616.5,280.3 Q618.5,286.3 620.2,292.7 Q621.9,299.0 623.4,306.3 Q624.8,313.6 626.2,321.5 Q627.6,329.4 629.0,338.1 Q630.5,346.9 631.3,356.3 Q632.2,365.7 632.7,375.7 Q633.3,385.7 633.9,395.4 Q634.4,405.1 634.7,414.2 Q635.0,423.3 635.0,432.1 Q635.0,440.9 634.7,449.7 Q634.4,458.5 633.6,466.9 Q632.7,475.4 631.9,483.0 Q631.0,490.6 630.2,498.5 Q629.3,506.3 628.2,513.9 Q627.0,521.5 625.1,530.6 Q623.1,539.7 620.8,547.6 Q618.5,555.4 616.0,562.7 Q613.4,570.0 610.6,577.9 Q607.7,585.7 604.9,593.0 Q602.0,600.3 598.9,606.1 Q595.8,611.8 592.7,616.1 Q589.5,620.3 586.1,623.3 Q582.7,626.4 578.2,629.1 Q573.6,631.8 569.6,633.0 Q565.7,634.2 561.7,634.2 Q557.7,634.2 553.1,632.4 Q548.6,630.6 544.3,627.0 Q540.1,623.3 535.0,617.9 Q529.8,612.4 525.3,606.4 Q520.7,600.3 517.1,593.0 Q513.4,585.7 510.2,580.0 Q507.1,574.2 504.3,569.1 Q501.4,563.9 498.6,559.7 Q495.7,555.4 493.5,551.5 Q491.2,547.6 489.8,543.3 Q488.3,539.1 488.1,535.7 Q487.8,532.4 488.1,529.4 Q488.3,526.3 489.2,523.6 Q490.1,520.9 492.0,516.3 Q494.0,511.8 499.4,503.3 Q504.8,494.8 504.8,494.8"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:15:13.089Z",
+      "status": "Let's write!",
+      "paths": [],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:15:56.764Z",
+      "status": "Let's write!",
+      "paths": [
+        "M527.6,516.6 Q527.6,516.6 522.5,545.7 Q517.3,574.8 515.6,584.5 Q513.9,594.2 511.7,604.5 Q509.4,614.8 506.8,624.8 Q504.3,634.8 498.9,653.9 Q493.5,673.0 490.6,681.5 Q487.8,690.0 484.9,697.3 Q482.1,704.6 479.0,712.1 Q475.8,719.7 472.4,726.1 Q469.0,732.4 465.6,736.7 Q462.2,740.9 458.2,744.3 Q454.2,747.6 444.6,753.0 Q434.9,758.5 430.4,759.1 Q425.8,759.7 421.3,759.4 Q416.7,759.1 412.5,757.9 Q408.2,756.7 404.2,754.6 Q400.2,752.4 396.3,749.7 Q392.3,747.0 388.9,742.7 Q385.5,738.5 380.1,725.2 Q374.7,711.8 372.4,703.3 Q370.1,694.9 368.4,683.9 Q366.7,673.0 365.6,660.6 Q364.4,648.2 364.4,635.1 Q364.4,622.1 364.7,606.1 Q365.0,590.0 366.4,574.2 Q367.8,558.5 369.0,544.5 Q370.1,530.6 371.8,515.4 Q373.5,500.3 375.2,487.9 Q376.9,475.4 378.9,462.7 Q380.9,450.0 382.9,440.3 Q384.9,430.6 386.9,422.7 Q388.9,414.8 392.3,405.7 Q395.7,396.6 403.1,376.6 Q410.5,356.6 414.4,347.2 Q418.4,337.8 418.4,337.8"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:15:57.786Z",
+      "status": "Let's write!",
+      "paths": [
+        "M527.6,516.6 Q527.6,516.6 522.5,545.7 Q517.3,574.8 515.6,584.5 Q513.9,594.2 511.7,604.5 Q509.4,614.8 506.8,624.8 Q504.3,634.8 498.9,653.9 Q493.5,673.0 490.6,681.5 Q487.8,690.0 484.9,697.3 Q482.1,704.6 479.0,712.1 Q475.8,719.7 472.4,726.1 Q469.0,732.4 465.6,736.7 Q462.2,740.9 458.2,744.3 Q454.2,747.6 444.6,753.0 Q434.9,758.5 430.4,759.1 Q425.8,759.7 421.3,759.4 Q416.7,759.1 412.5,757.9 Q408.2,756.7 404.2,754.6 Q400.2,752.4 396.3,749.7 Q392.3,747.0 388.9,742.7 Q385.5,738.5 380.1,725.2 Q374.7,711.8 372.4,703.3 Q370.1,694.9 368.4,683.9 Q366.7,673.0 365.6,660.6 Q364.4,648.2 364.4,635.1 Q364.4,622.1 364.7,606.1 Q365.0,590.0 366.4,574.2 Q367.8,558.5 369.0,544.5 Q370.1,530.6 371.8,515.4 Q373.5,500.3 375.2,487.9 Q376.9,475.4 378.9,462.7 Q380.9,450.0 382.9,440.3 Q384.9,430.6 386.9,422.7 Q388.9,414.8 392.3,405.7 Q395.7,396.6 403.1,376.6 Q410.5,356.6 414.4,347.2 Q418.4,337.8 422.7,329.4 Q427.0,320.9 431.2,313.6 Q435.5,306.3 440.0,299.3 Q444.6,292.4 449.1,287.5 Q453.7,282.7 462.8,275.7 Q471.9,268.7 476.7,265.7 Q481.5,262.7 486.4,260.3 Q491.2,257.8 496.3,256.6 Q501.4,255.4 506.8,254.2 Q512.2,253.0 517.6,252.7 Q523.0,252.4 529.3,253.3 Q535.5,254.2 541.2,256.0 Q546.9,257.8 553.1,260.6 Q559.4,263.3 566.5,267.2 Q573.6,271.2 579.6,275.1 Q585.6,279.0 590.7,284.5 Q595.8,290.0 600.6,296.9 Q605.4,303.9 610.0,311.2 Q614.5,318.4 619.1,326.9 Q623.6,335.4 628.5,344.2 Q633.3,353.0 637.3,362.1 Q641.3,371.2 645.0,378.8 Q648.6,386.3 651.5,393.3 Q654.3,400.3 656.9,408.1 Q659.4,416.0 661.2,422.7 Q662.9,429.4 664.6,435.7 Q666.3,442.1 667.4,449.4 Q668.5,456.6 669.4,464.2 Q670.2,471.8 670.5,479.4 Q670.8,486.9 671.1,494.5 Q671.4,502.1 671.1,510.3 Q670.8,518.5 670.0,526.3 Q669.1,534.2 668.0,542.1 Q666.8,550.0 665.1,557.0 Q663.4,563.9 659.4,576.1 Q655.5,588.2 653.2,593.9 Q650.9,599.7 647.8,605.4 Q644.7,611.2 641.0,616.7 Q637.3,622.1 633.0,626.7 Q628.8,631.2 623.9,635.5 Q619.1,639.7 614.5,641.8 Q610.0,643.9 599.8,644.5 Q589.5,645.2 584.7,643.0 Q579.9,640.9 574.2,637.6 Q568.5,634.2 562.2,630.3 Q556.0,626.4 550.9,622.7 Q545.8,619.1 540.9,614.8 Q536.1,610.6 532.7,605.8 Q529.3,600.9 526.1,597.0 Q523.0,593.0 520.5,589.7 Q517.9,586.4 515.9,583.9 Q513.9,581.5 512.8,577.9 Q511.7,574.2 511.4,569.7 Q511.1,565.1 511.4,559.4 Q511.7,553.6 512.8,547.9 Q513.9,542.1 513.9,542.1",
+        "M494.6,74.8"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:15:58.797Z",
+      "status": "Let's write!",
+      "paths": [
+        "M527.6,516.6 Q527.6,516.6 522.5,545.7 Q517.3,574.8 515.6,584.5 Q513.9,594.2 511.7,604.5 Q509.4,614.8 506.8,624.8 Q504.3,634.8 498.9,653.9 Q493.5,673.0 490.6,681.5 Q487.8,690.0 484.9,697.3 Q482.1,704.6 479.0,712.1 Q475.8,719.7 472.4,726.1 Q469.0,732.4 465.6,736.7 Q462.2,740.9 458.2,744.3 Q454.2,747.6 444.6,753.0 Q434.9,758.5 430.4,759.1 Q425.8,759.7 421.3,759.4 Q416.7,759.1 412.5,757.9 Q408.2,756.7 404.2,754.6 Q400.2,752.4 396.3,749.7 Q392.3,747.0 388.9,742.7 Q385.5,738.5 380.1,725.2 Q374.7,711.8 372.4,703.3 Q370.1,694.9 368.4,683.9 Q366.7,673.0 365.6,660.6 Q364.4,648.2 364.4,635.1 Q364.4,622.1 364.7,606.1 Q365.0,590.0 366.4,574.2 Q367.8,558.5 369.0,544.5 Q370.1,530.6 371.8,515.4 Q373.5,500.3 375.2,487.9 Q376.9,475.4 378.9,462.7 Q380.9,450.0 382.9,440.3 Q384.9,430.6 386.9,422.7 Q388.9,414.8 392.3,405.7 Q395.7,396.6 403.1,376.6 Q410.5,356.6 414.4,347.2 Q418.4,337.8 422.7,329.4 Q427.0,320.9 431.2,313.6 Q435.5,306.3 440.0,299.3 Q444.6,292.4 449.1,287.5 Q453.7,282.7 462.8,275.7 Q471.9,268.7 476.7,265.7 Q481.5,262.7 486.4,260.3 Q491.2,257.8 496.3,256.6 Q501.4,255.4 506.8,254.2 Q512.2,253.0 517.6,252.7 Q523.0,252.4 529.3,253.3 Q535.5,254.2 541.2,256.0 Q546.9,257.8 553.1,260.6 Q559.4,263.3 566.5,267.2 Q573.6,271.2 579.6,275.1 Q585.6,279.0 590.7,284.5 Q595.8,290.0 600.6,296.9 Q605.4,303.9 610.0,311.2 Q614.5,318.4 619.1,326.9 Q623.6,335.4 628.5,344.2 Q633.3,353.0 637.3,362.1 Q641.3,371.2 645.0,378.8 Q648.6,386.3 651.5,393.3 Q654.3,400.3 656.9,408.1 Q659.4,416.0 661.2,422.7 Q662.9,429.4 664.6,435.7 Q666.3,442.1 667.4,449.4 Q668.5,456.6 669.4,464.2 Q670.2,471.8 670.5,479.4 Q670.8,486.9 671.1,494.5 Q671.4,502.1 671.1,510.3 Q670.8,518.5 670.0,526.3 Q669.1,534.2 668.0,542.1 Q666.8,550.0 665.1,557.0 Q663.4,563.9 659.4,576.1 Q655.5,588.2 653.2,593.9 Q650.9,599.7 647.8,605.4 Q644.7,611.2 641.0,616.7 Q637.3,622.1 633.0,626.7 Q628.8,631.2 623.9,635.5 Q619.1,639.7 614.5,641.8 Q610.0,643.9 599.8,644.5 Q589.5,645.2 584.7,643.0 Q579.9,640.9 574.2,637.6 Q568.5,634.2 562.2,630.3 Q556.0,626.4 550.9,622.7 Q545.8,619.1 540.9,614.8 Q536.1,610.6 532.7,605.8 Q529.3,600.9 526.1,597.0 Q523.0,593.0 520.5,589.7 Q517.9,586.4 515.9,583.9 Q513.9,581.5 512.8,577.9 Q511.7,574.2 511.4,569.7 Q511.1,565.1 511.4,559.4 Q511.7,553.6 512.8,547.9 Q513.9,542.1 513.9,542.1",
+        "M494.6,74.8",
+        "M487.2,100.2 Q487.2,100.2 493.2,126.6 Q499.1,153.0 500.6,154.2 Q502.0,155.4 503.7,154.2 Q505.4,153.0 505.1,151.1 Q504.8,149.3 503.7,145.4 Q502.6,141.4 501.1,138.4 Q499.7,135.4 498.0,133.3 Q496.3,131.1 494.6,129.3 Q492.9,127.5 491.5,126.9 Q490.1,126.3 488.6,126.6 Q487.2,126.9 486.1,127.5 Q484.9,128.1 484.4,130.2 Q483.8,132.4 483.5,133.6 Q483.2,134.8 482.9,136.3 Q482.7,137.8 482.7,139.3 Q482.7,140.8 483.2,142.7 Q483.8,144.5 484.7,147.2 Q485.5,149.9 487.2,152.1 Q488.9,154.2 488.9,154.2"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:15:59.812Z",
+      "label": "BE/BI",
+      "confidence": "99.6%",
+      "paths": [
+        "M527.6,516.6 Q527.6,516.6 522.5,545.7 Q517.3,574.8 515.6,584.5 Q513.9,594.2 511.7,604.5 Q509.4,614.8 506.8,624.8 Q504.3,634.8 498.9,653.9 Q493.5,673.0 490.6,681.5 Q487.8,690.0 484.9,697.3 Q482.1,704.6 479.0,712.1 Q475.8,719.7 472.4,726.1 Q469.0,732.4 465.6,736.7 Q462.2,740.9 458.2,744.3 Q454.2,747.6 444.6,753.0 Q434.9,758.5 430.4,759.1 Q425.8,759.7 421.3,759.4 Q416.7,759.1 412.5,757.9 Q408.2,756.7 404.2,754.6 Q400.2,752.4 396.3,749.7 Q392.3,747.0 388.9,742.7 Q385.5,738.5 380.1,725.2 Q374.7,711.8 372.4,703.3 Q370.1,694.9 368.4,683.9 Q366.7,673.0 365.6,660.6 Q364.4,648.2 364.4,635.1 Q364.4,622.1 364.7,606.1 Q365.0,590.0 366.4,574.2 Q367.8,558.5 369.0,544.5 Q370.1,530.6 371.8,515.4 Q373.5,500.3 375.2,487.9 Q376.9,475.4 378.9,462.7 Q380.9,450.0 382.9,440.3 Q384.9,430.6 386.9,422.7 Q388.9,414.8 392.3,405.7 Q395.7,396.6 403.1,376.6 Q410.5,356.6 414.4,347.2 Q418.4,337.8 422.7,329.4 Q427.0,320.9 431.2,313.6 Q435.5,306.3 440.0,299.3 Q444.6,292.4 449.1,287.5 Q453.7,282.7 462.8,275.7 Q471.9,268.7 476.7,265.7 Q481.5,262.7 486.4,260.3 Q491.2,257.8 496.3,256.6 Q501.4,255.4 506.8,254.2 Q512.2,253.0 517.6,252.7 Q523.0,252.4 529.3,253.3 Q535.5,254.2 541.2,256.0 Q546.9,257.8 553.1,260.6 Q559.4,263.3 566.5,267.2 Q573.6,271.2 579.6,275.1 Q585.6,279.0 590.7,284.5 Q595.8,290.0 600.6,296.9 Q605.4,303.9 610.0,311.2 Q614.5,318.4 619.1,326.9 Q623.6,335.4 628.5,344.2 Q633.3,353.0 637.3,362.1 Q641.3,371.2 645.0,378.8 Q648.6,386.3 651.5,393.3 Q654.3,400.3 656.9,408.1 Q659.4,416.0 661.2,422.7 Q662.9,429.4 664.6,435.7 Q666.3,442.1 667.4,449.4 Q668.5,456.6 669.4,464.2 Q670.2,471.8 670.5,479.4 Q670.8,486.9 671.1,494.5 Q671.4,502.1 671.1,510.3 Q670.8,518.5 670.0,526.3 Q669.1,534.2 668.0,542.1 Q666.8,550.0 665.1,557.0 Q663.4,563.9 659.4,576.1 Q655.5,588.2 653.2,593.9 Q650.9,599.7 647.8,605.4 Q644.7,611.2 641.0,616.7 Q637.3,622.1 633.0,626.7 Q628.8,631.2 623.9,635.5 Q619.1,639.7 614.5,641.8 Q610.0,643.9 599.8,644.5 Q589.5,645.2 584.7,643.0 Q579.9,640.9 574.2,637.6 Q568.5,634.2 562.2,630.3 Q556.0,626.4 550.9,622.7 Q545.8,619.1 540.9,614.8 Q536.1,610.6 532.7,605.8 Q529.3,600.9 526.1,597.0 Q523.0,593.0 520.5,589.7 Q517.9,586.4 515.9,583.9 Q513.9,581.5 512.8,577.9 Q511.7,574.2 511.4,569.7 Q511.1,565.1 511.4,559.4 Q511.7,553.6 512.8,547.9 Q513.9,542.1 513.9,542.1",
+        "M494.6,74.8",
+        "M487.2,100.2 Q487.2,100.2 493.2,126.6 Q499.1,153.0 500.6,154.2 Q502.0,155.4 503.7,154.2 Q505.4,153.0 505.1,151.1 Q504.8,149.3 503.7,145.4 Q502.6,141.4 501.1,138.4 Q499.7,135.4 498.0,133.3 Q496.3,131.1 494.6,129.3 Q492.9,127.5 491.5,126.9 Q490.1,126.3 488.6,126.6 Q487.2,126.9 486.1,127.5 Q484.9,128.1 484.4,130.2 Q483.8,132.4 483.5,133.6 Q483.2,134.8 482.9,136.3 Q482.7,137.8 482.7,139.3 Q482.7,140.8 483.2,142.7 Q483.8,144.5 484.7,147.2 Q485.5,149.9 487.2,152.1 Q488.9,154.2 488.9,154.2"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:02.844Z",
+      "status": "Let's write!",
+      "paths": [],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:25.169Z",
+      "status": "Let's write!",
+      "paths": [
+        "M520.2,466.9 Q520.2,466.9 509.4,479.7 Q498.6,492.4 488.3,500.9 Q478.1,509.4 472.1,511.5 Q466.2,513.6 460.2,513.6 Q454.2,513.6 448.8,511.8 Q443.4,510.0 438.9,507.6 Q434.3,505.1 430.9,502.1 Q427.5,499.1 424.4,495.7 Q421.3,492.4 418.4,489.4 Q415.6,486.3 413.0,483.3 Q410.5,480.3 408.5,476.6 Q406.5,473.0 404.5,469.7 Q402.5,466.3 401.4,462.1 Q400.2,457.9 399.1,453.0 Q398.0,448.2 397.4,443.0 Q396.8,437.9 396.5,433.0 Q396.3,428.2 396.3,422.4 Q396.3,416.6 396.5,410.9 Q396.8,405.1 397.7,397.8 Q398.5,390.6 399.4,382.1 Q400.2,373.6 401.7,363.6 Q403.1,353.6 405.1,340.9 Q407.1,328.1 409.6,314.5 Q412.2,300.9 414.4,287.8 Q416.7,274.8 419.8,262.1 Q423.0,249.3 426.4,236.0 Q429.8,222.7 433.2,212.1 Q436.6,201.5 440.0,192.4 Q443.4,183.3 446.6,176.6 Q449.7,169.9 452.8,163.6 Q455.9,157.2 459.1,151.4 Q462.2,145.7 465.6,140.2 Q469.0,134.8 472.4,129.6 Q475.8,124.5 479.8,119.6 Q483.8,114.8 488.6,109.9 Q493.5,105.1 493.5,105.1"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:26.180Z",
+      "status": "Let's write!",
+      "paths": [
+        "M520.2,466.9 Q520.2,466.9 509.4,479.7 Q498.6,492.4 488.3,500.9 Q478.1,509.4 472.1,511.5 Q466.2,513.6 460.2,513.6 Q454.2,513.6 448.8,511.8 Q443.4,510.0 438.9,507.6 Q434.3,505.1 430.9,502.1 Q427.5,499.1 424.4,495.7 Q421.3,492.4 418.4,489.4 Q415.6,486.3 413.0,483.3 Q410.5,480.3 408.5,476.6 Q406.5,473.0 404.5,469.7 Q402.5,466.3 401.4,462.1 Q400.2,457.9 399.1,453.0 Q398.0,448.2 397.4,443.0 Q396.8,437.9 396.5,433.0 Q396.3,428.2 396.3,422.4 Q396.3,416.6 396.5,410.9 Q396.8,405.1 397.7,397.8 Q398.5,390.6 399.4,382.1 Q400.2,373.6 401.7,363.6 Q403.1,353.6 405.1,340.9 Q407.1,328.1 409.6,314.5 Q412.2,300.9 414.4,287.8 Q416.7,274.8 419.8,262.1 Q423.0,249.3 426.4,236.0 Q429.8,222.7 433.2,212.1 Q436.6,201.5 440.0,192.4 Q443.4,183.3 446.6,176.6 Q449.7,169.9 452.8,163.6 Q455.9,157.2 459.1,151.4 Q462.2,145.7 465.6,140.2 Q469.0,134.8 472.4,129.6 Q475.8,124.5 479.8,119.6 Q483.8,114.8 488.6,109.9 Q493.5,105.1 498.0,101.7 Q502.6,98.4 507.4,95.1 Q512.2,91.7 517.3,87.8 Q522.5,83.9 527.0,82.0 Q531.5,80.2 536.4,79.9 Q541.2,79.6 546.3,79.6 Q551.4,79.6 555.7,80.2 Q560.0,80.8 564.5,82.3 Q569.1,83.9 573.0,86.3 Q577.0,88.7 581.0,91.7 Q585.0,94.8 588.1,98.4 Q591.2,102.0 594.1,106.3 Q596.9,110.5 599.5,115.4 Q602.0,120.2 604.3,125.4 Q606.6,130.5 608.6,136.0 Q610.6,141.4 612.3,147.2 Q614.0,153.0 615.4,159.3 Q616.8,165.7 618.2,173.9 Q619.7,182.1 620.8,190.8 Q621.9,199.6 622.5,208.7 Q623.1,217.8 623.4,227.2 Q623.6,236.6 623.1,245.4 Q622.5,254.2 621.6,262.1 Q620.8,269.9 619.9,277.8 Q619.1,285.7 617.7,293.3 Q616.2,300.9 614.5,308.1 Q612.8,315.4 611.1,323.3 Q609.4,331.2 607.4,339.0 Q605.4,346.9 603.5,354.2 Q601.5,361.5 599.5,367.2 Q597.5,373.0 595.2,378.1 Q592.9,383.3 590.4,387.5 Q587.8,391.8 585.0,396.0 Q582.1,400.3 579.0,404.2 Q575.9,408.1 571.9,412.1 Q567.9,416.0 563.9,419.1 Q560.0,422.1 556.0,424.5 Q552.0,426.9 547.7,428.8 Q543.5,430.6 538.4,431.5 Q533.3,432.4 529.3,433.3 Q525.3,434.2 522.2,433.9 Q519.0,433.6 516.2,432.4 Q513.4,431.2 511.1,428.5 Q508.8,425.7 506.8,423.3 Q504.8,420.9 503.1,420.0 Q501.4,419.1 500.3,418.5 Q499.1,417.8 499.1,417.8",
+        "M529.3,652.4"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:27.198Z",
+      "status": "Let's write!",
+      "paths": [
+        "M520.2,466.9 Q520.2,466.9 509.4,479.7 Q498.6,492.4 488.3,500.9 Q478.1,509.4 472.1,511.5 Q466.2,513.6 460.2,513.6 Q454.2,513.6 448.8,511.8 Q443.4,510.0 438.9,507.6 Q434.3,505.1 430.9,502.1 Q427.5,499.1 424.4,495.7 Q421.3,492.4 418.4,489.4 Q415.6,486.3 413.0,483.3 Q410.5,480.3 408.5,476.6 Q406.5,473.0 404.5,469.7 Q402.5,466.3 401.4,462.1 Q400.2,457.9 399.1,453.0 Q398.0,448.2 397.4,443.0 Q396.8,437.9 396.5,433.0 Q396.3,428.2 396.3,422.4 Q396.3,416.6 396.5,410.9 Q396.8,405.1 397.7,397.8 Q398.5,390.6 399.4,382.1 Q400.2,373.6 401.7,363.6 Q403.1,353.6 405.1,340.9 Q407.1,328.1 409.6,314.5 Q412.2,300.9 414.4,287.8 Q416.7,274.8 419.8,262.1 Q423.0,249.3 426.4,236.0 Q429.8,222.7 433.2,212.1 Q436.6,201.5 440.0,192.4 Q443.4,183.3 446.6,176.6 Q449.7,169.9 452.8,163.6 Q455.9,157.2 459.1,151.4 Q462.2,145.7 465.6,140.2 Q469.0,134.8 472.4,129.6 Q475.8,124.5 479.8,119.6 Q483.8,114.8 488.6,109.9 Q493.5,105.1 498.0,101.7 Q502.6,98.4 507.4,95.1 Q512.2,91.7 517.3,87.8 Q522.5,83.9 527.0,82.0 Q531.5,80.2 536.4,79.9 Q541.2,79.6 546.3,79.6 Q551.4,79.6 555.7,80.2 Q560.0,80.8 564.5,82.3 Q569.1,83.9 573.0,86.3 Q577.0,88.7 581.0,91.7 Q585.0,94.8 588.1,98.4 Q591.2,102.0 594.1,106.3 Q596.9,110.5 599.5,115.4 Q602.0,120.2 604.3,125.4 Q606.6,130.5 608.6,136.0 Q610.6,141.4 612.3,147.2 Q614.0,153.0 615.4,159.3 Q616.8,165.7 618.2,173.9 Q619.7,182.1 620.8,190.8 Q621.9,199.6 622.5,208.7 Q623.1,217.8 623.4,227.2 Q623.6,236.6 623.1,245.4 Q622.5,254.2 621.6,262.1 Q620.8,269.9 619.9,277.8 Q619.1,285.7 617.7,293.3 Q616.2,300.9 614.5,308.1 Q612.8,315.4 611.1,323.3 Q609.4,331.2 607.4,339.0 Q605.4,346.9 603.5,354.2 Q601.5,361.5 599.5,367.2 Q597.5,373.0 595.2,378.1 Q592.9,383.3 590.4,387.5 Q587.8,391.8 585.0,396.0 Q582.1,400.3 579.0,404.2 Q575.9,408.1 571.9,412.1 Q567.9,416.0 563.9,419.1 Q560.0,422.1 556.0,424.5 Q552.0,426.9 547.7,428.8 Q543.5,430.6 538.4,431.5 Q533.3,432.4 529.3,433.3 Q525.3,434.2 522.2,433.9 Q519.0,433.6 516.2,432.4 Q513.4,431.2 511.1,428.5 Q508.8,425.7 506.8,423.3 Q504.8,420.9 503.1,420.0 Q501.4,419.1 500.3,418.5 Q499.1,417.8 499.1,417.8",
+        "M529.3,652.4",
+        "M517.3,611.8"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:29.243Z",
+      "status": "Let's write!",
+      "paths": [],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:30.262Z",
+      "status": "Let's write!",
+      "paths": [
+        "M512.2,397.8 Q512.2,397.8 508.2,426.3 Q504.3,454.8 500.0,472.1 Q495.7,489.4 492.9,500.0 Q490.1,510.6 487.2,520.9 Q484.4,531.2 481.0,542.1 Q477.5,553.0 474.7,561.5 Q471.9,570.0 468.7,575.7 Q465.6,581.5 462.5,585.7 Q459.4,590.0 455.9,592.4 Q452.5,594.8 449.1,595.8 Q445.7,596.7 442.3,596.4 Q438.9,596.1 435.8,595.1 Q432.6,594.2 428.9,592.7 Q425.2,591.2 421.8,588.8 Q418.4,586.4 415.6,583.3 Q412.7,580.3 410.5,575.7 Q408.2,571.2 406.2,565.4 Q404.2,559.7 402.2,553.9 Q400.2,548.2 398.5,543.3 Q396.8,538.5 396.0,531.5 Q395.1,524.5 394.0,516.3 Q392.8,508.2 392.6,499.4 Q392.3,490.6 392.3,490.6"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:31.268Z",
+      "status": "Let's write!",
+      "paths": [
+        "M512.2,397.8 Q512.2,397.8 508.2,426.3 Q504.3,454.8 500.0,472.1 Q495.7,489.4 492.9,500.0 Q490.1,510.6 487.2,520.9 Q484.4,531.2 481.0,542.1 Q477.5,553.0 474.7,561.5 Q471.9,570.0 468.7,575.7 Q465.6,581.5 462.5,585.7 Q459.4,590.0 455.9,592.4 Q452.5,594.8 449.1,595.8 Q445.7,596.7 442.3,596.4 Q438.9,596.1 435.8,595.1 Q432.6,594.2 428.9,592.7 Q425.2,591.2 421.8,588.8 Q418.4,586.4 415.6,583.3 Q412.7,580.3 410.5,575.7 Q408.2,571.2 406.2,565.4 Q404.2,559.7 402.2,553.9 Q400.2,548.2 398.5,543.3 Q396.8,538.5 396.0,531.5 Q395.1,524.5 394.0,516.3 Q392.8,508.2 392.6,499.4 Q392.3,490.6 392.0,483.3 Q391.7,476.0 391.7,469.4 Q391.7,462.7 391.7,456.3 Q391.7,450.0 392.0,443.6 Q392.3,437.2 392.6,430.3 Q392.8,423.3 393.1,416.9 Q393.4,410.6 394.3,402.7 Q395.1,394.8 396.0,386.0 Q396.8,377.2 398.2,368.4 Q399.7,359.7 401.1,350.9 Q402.5,342.1 403.9,333.6 Q405.4,325.1 407.1,314.5 Q408.8,303.9 410.5,293.9 Q412.2,283.9 414.2,273.3 Q416.2,262.7 418.1,253.9 Q420.1,245.1 421.6,237.8 Q423.0,230.5 424.7,223.3 Q426.4,216.0 428.1,209.6 Q429.8,203.3 431.8,197.5 Q433.8,191.8 436.0,187.2 Q438.3,182.7 440.9,177.8 Q443.4,173.0 446.3,167.8 Q449.1,162.7 452.8,157.8 Q456.5,153.0 460.5,148.4 Q464.5,143.9 469.3,138.1 Q474.1,132.4 478.4,128.1 Q482.7,123.9 487.8,119.9 Q492.9,116.0 498.0,113.9 Q503.1,111.7 507.4,110.2 Q511.7,108.7 515.9,107.8 Q520.2,106.9 525.6,106.0 Q531.0,105.1 536.9,105.1 Q542.9,105.1 549.7,106.0 Q556.6,106.9 562.5,108.7 Q568.5,110.5 575.6,113.0 Q582.7,115.4 589.5,118.7 Q596.4,122.1 602.9,126.6 Q609.4,131.1 615.4,136.9 Q621.4,142.7 627.3,149.6 Q633.3,156.6 639.0,164.8 Q644.7,173.0 649.5,183.3 Q654.3,193.6 657.5,202.7 Q660.6,211.8 663.4,220.5 Q666.3,229.3 668.5,237.2 Q670.8,245.1 672.5,252.7 Q674.2,260.3 675.6,268.1 Q677.1,276.0 677.9,284.2 Q678.8,292.4 679.1,300.9 Q679.3,309.3 679.3,317.2 Q679.3,325.1 678.8,333.6 Q678.2,342.1 676.8,350.6 Q675.4,359.1 673.4,367.8 Q671.4,376.6 669.7,385.1 Q668.0,393.6 665.4,400.9 Q662.9,408.1 660.6,414.5 Q658.3,420.9 655.5,426.3 Q652.6,431.8 649.5,436.0 Q646.4,440.3 643.2,444.2 Q640.1,448.2 637.0,451.5 Q633.9,454.8 630.5,457.5 Q627.0,460.3 623.6,463.0 Q620.2,465.7 616.5,467.2 Q612.8,468.8 608.9,470.3 Q604.9,471.8 601.2,472.4 Q597.5,473.0 593.5,472.4 Q589.5,471.8 585.6,470.6 Q581.6,469.4 577.6,467.9 Q573.6,466.3 569.6,463.9 Q565.7,461.5 562.2,459.7 Q558.8,457.9 555.4,456.0 Q552.0,454.2 549.5,451.8 Q546.9,449.4 544.1,446.6 Q541.2,443.9 538.7,441.2 Q536.1,438.5 533.5,436.0 Q531.0,433.6 528.4,431.2 Q525.9,428.8 523.6,424.8 Q521.3,420.9 519.3,417.2 Q517.3,413.6 515.3,411.2 Q513.4,408.8 511.9,407.5 Q510.5,406.3 509.7,405.4 Q508.8,404.5 508.5,402.4 Q508.2,400.3 508.2,400.3"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:32.276Z",
+      "label": "BO/BU",
+      "confidence": "95.7%",
+      "paths": [
+        "M512.2,397.8 Q512.2,397.8 508.2,426.3 Q504.3,454.8 500.0,472.1 Q495.7,489.4 492.9,500.0 Q490.1,510.6 487.2,520.9 Q484.4,531.2 481.0,542.1 Q477.5,553.0 474.7,561.5 Q471.9,570.0 468.7,575.7 Q465.6,581.5 462.5,585.7 Q459.4,590.0 455.9,592.4 Q452.5,594.8 449.1,595.8 Q445.7,596.7 442.3,596.4 Q438.9,596.1 435.8,595.1 Q432.6,594.2 428.9,592.7 Q425.2,591.2 421.8,588.8 Q418.4,586.4 415.6,583.3 Q412.7,580.3 410.5,575.7 Q408.2,571.2 406.2,565.4 Q404.2,559.7 402.2,553.9 Q400.2,548.2 398.5,543.3 Q396.8,538.5 396.0,531.5 Q395.1,524.5 394.0,516.3 Q392.8,508.2 392.6,499.4 Q392.3,490.6 392.0,483.3 Q391.7,476.0 391.7,469.4 Q391.7,462.7 391.7,456.3 Q391.7,450.0 392.0,443.6 Q392.3,437.2 392.6,430.3 Q392.8,423.3 393.1,416.9 Q393.4,410.6 394.3,402.7 Q395.1,394.8 396.0,386.0 Q396.8,377.2 398.2,368.4 Q399.7,359.7 401.1,350.9 Q402.5,342.1 403.9,333.6 Q405.4,325.1 407.1,314.5 Q408.8,303.9 410.5,293.9 Q412.2,283.9 414.2,273.3 Q416.2,262.7 418.1,253.9 Q420.1,245.1 421.6,237.8 Q423.0,230.5 424.7,223.3 Q426.4,216.0 428.1,209.6 Q429.8,203.3 431.8,197.5 Q433.8,191.8 436.0,187.2 Q438.3,182.7 440.9,177.8 Q443.4,173.0 446.3,167.8 Q449.1,162.7 452.8,157.8 Q456.5,153.0 460.5,148.4 Q464.5,143.9 469.3,138.1 Q474.1,132.4 478.4,128.1 Q482.7,123.9 487.8,119.9 Q492.9,116.0 498.0,113.9 Q503.1,111.7 507.4,110.2 Q511.7,108.7 515.9,107.8 Q520.2,106.9 525.6,106.0 Q531.0,105.1 536.9,105.1 Q542.9,105.1 549.7,106.0 Q556.6,106.9 562.5,108.7 Q568.5,110.5 575.6,113.0 Q582.7,115.4 589.5,118.7 Q596.4,122.1 602.9,126.6 Q609.4,131.1 615.4,136.9 Q621.4,142.7 627.3,149.6 Q633.3,156.6 639.0,164.8 Q644.7,173.0 649.5,183.3 Q654.3,193.6 657.5,202.7 Q660.6,211.8 663.4,220.5 Q666.3,229.3 668.5,237.2 Q670.8,245.1 672.5,252.7 Q674.2,260.3 675.6,268.1 Q677.1,276.0 677.9,284.2 Q678.8,292.4 679.1,300.9 Q679.3,309.3 679.3,317.2 Q679.3,325.1 678.8,333.6 Q678.2,342.1 676.8,350.6 Q675.4,359.1 673.4,367.8 Q671.4,376.6 669.7,385.1 Q668.0,393.6 665.4,400.9 Q662.9,408.1 660.6,414.5 Q658.3,420.9 655.5,426.3 Q652.6,431.8 649.5,436.0 Q646.4,440.3 643.2,444.2 Q640.1,448.2 637.0,451.5 Q633.9,454.8 630.5,457.5 Q627.0,460.3 623.6,463.0 Q620.2,465.7 616.5,467.2 Q612.8,468.8 608.9,470.3 Q604.9,471.8 601.2,472.4 Q597.5,473.0 593.5,472.4 Q589.5,471.8 585.6,470.6 Q581.6,469.4 577.6,467.9 Q573.6,466.3 569.6,463.9 Q565.7,461.5 562.2,459.7 Q558.8,457.9 555.4,456.0 Q552.0,454.2 549.5,451.8 Q546.9,449.4 544.1,446.6 Q541.2,443.9 538.7,441.2 Q536.1,438.5 533.5,436.0 Q531.0,433.6 528.4,431.2 Q525.9,428.8 523.6,424.8 Q521.3,420.9 519.3,417.2 Q517.3,413.6 515.3,411.2 Q513.4,408.8 511.9,407.5 Q510.5,406.3 509.7,405.4 Q508.8,404.5 508.5,402.4 Q508.2,400.3 508.2,400.3",
+        "M507.7,604.5 Q507.7,604.5 508.0,637.0 Q508.2,669.4 510.8,682.4 Q513.4,695.5 516.8,707.3 Q520.2,719.1 523.9,730.6 Q527.6,742.1 531.3,751.2 Q535.0,760.3 538.4,767.0 Q541.8,773.7 544.9,776.1 Q548.0,778.5 550.6,778.8 Q553.1,779.1 555.4,778.2 Q557.7,777.3 559.4,775.2 Q561.1,773.0 562.0,771.5 Q562.8,770.0 563.4,768.5 Q563.9,767.0 564.8,764.6 Q565.7,762.1 565.9,759.7 Q566.2,757.3 565.9,754.9 Q565.7,752.4 565.7,748.2 Q565.7,744.0 565.7,739.1 Q565.7,734.3 565.4,729.7 Q565.1,725.2 564.5,720.9 Q563.9,716.7 562.8,711.8 Q561.7,707.0 560.5,702.4 Q559.4,697.9 558.3,693.9 Q557.1,690.0 555.4,686.1 Q553.7,682.1 551.7,679.1 Q549.7,676.1 548.0,673.9 Q546.3,671.8 544.1,670.3 Q541.8,668.8 539.2,667.6 Q536.7,666.4 533.8,665.2 Q531.0,663.9 528.1,663.6 Q525.3,663.3 521.9,663.9 Q518.5,664.5 515.9,667.0 Q513.4,669.4 511.4,671.8 Q509.4,674.2 508.0,675.8 Q506.5,677.3 505.4,677.6 Q504.3,677.9 504.0,679.1 Q503.7,680.3 504.0,682.4 Q504.3,684.6 504.8,685.5 Q505.4,686.4 507.7,687.0 Q509.9,687.6 509.9,687.6"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:34.300Z",
+      "status": "Let's write!",
+      "paths": [],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:35.318Z",
+      "status": "Let's write!",
+      "paths": [
+        "M499.7,391.2 Q499.7,391.2 495.7,418.8 Q491.8,446.3 490.3,455.1 Q488.9,463.9 487.2,473.3 Q485.5,482.7 483.5,491.8 Q481.5,500.9 479.0,510.3 Q476.4,519.7 473.9,529.1 Q471.3,538.5 468.5,547.3 Q465.6,556.0 462.8,565.1 Q459.9,574.2 459.9,574.2"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:36.333Z",
+      "status": "Let's write!",
+      "paths": [
+        "M499.7,391.2 Q499.7,391.2 495.7,418.8 Q491.8,446.3 490.3,455.1 Q488.9,463.9 487.2,473.3 Q485.5,482.7 483.5,491.8 Q481.5,500.9 479.0,510.3 Q476.4,519.7 473.9,529.1 Q471.3,538.5 468.5,547.3 Q465.6,556.0 462.8,565.1 Q459.9,574.2 457.4,580.3 Q454.8,586.4 452.0,590.6 Q449.1,594.8 446.3,599.1 Q443.4,603.3 440.9,606.4 Q438.3,609.4 435.5,612.1 Q432.6,614.8 429.8,616.1 Q427.0,617.3 424.1,618.5 Q421.3,619.7 418.4,620.3 Q415.6,620.9 412.7,620.9 Q409.9,620.9 407.1,620.3 Q404.2,619.7 401.7,617.6 Q399.1,615.4 396.5,613.0 Q394.0,610.6 392.0,606.4 Q390.0,602.1 388.3,597.9 Q386.6,593.6 385.2,589.4 Q383.8,585.1 382.3,580.6 Q380.9,576.1 380.1,570.9 Q379.2,565.7 378.6,561.2 Q378.1,556.7 377.5,551.2 Q376.9,545.7 376.6,540.9 Q376.4,536.0 376.4,529.7 Q376.4,523.3 376.4,517.9 Q376.4,512.4 376.9,505.7 Q377.5,499.1 378.1,491.8 Q378.6,484.5 379.2,476.0 Q379.8,467.6 380.6,460.0 Q381.5,452.4 383.8,436.0 Q386.0,419.7 387.7,408.8 Q389.4,397.8 390.9,388.4 Q392.3,379.1 394.0,370.6 Q395.7,362.1 397.4,353.9 Q399.1,345.7 400.8,338.1 Q402.5,330.6 404.2,323.0 Q405.9,315.4 409.6,300.9 Q413.3,286.3 415.6,279.3 Q417.9,272.4 420.1,265.4 Q422.4,258.4 425.0,251.2 Q427.5,243.9 430.9,236.0 Q434.3,228.1 437.2,220.9 Q440.0,213.6 445.4,202.1 Q450.8,190.5 453.7,186.6 Q456.5,182.7 459.4,179.6 Q462.2,176.6 464.8,174.8 Q467.3,173.0 469.9,171.8 Q472.4,170.5 475.0,168.7 Q477.5,166.9 482.7,162.7 Q487.8,158.4 491.2,156.9 Q494.6,155.4 499.4,153.0 Q504.3,150.5 509.1,149.3 Q513.9,148.1 519.0,148.7 Q524.2,149.3 528.1,149.9 Q532.1,150.5 536.4,151.4 Q540.6,152.4 544.9,153.3 Q549.2,154.2 553.4,155.7 Q557.7,157.2 562.8,159.9 Q567.9,162.7 572.8,165.7 Q577.6,168.7 582.4,173.0 Q587.3,177.2 591.2,180.8 Q595.2,184.5 600.0,189.3 Q604.9,194.2 609.7,201.2 Q614.5,208.1 618.8,215.4 Q623.1,222.7 626.8,229.9 Q630.5,237.2 633.6,244.8 Q636.7,252.4 639.6,259.3 Q642.4,266.3 644.1,272.7 Q645.8,279.0 647.5,286.0 Q649.2,293.0 650.1,299.6 Q650.9,306.3 651.8,312.1 Q652.6,317.8 652.9,323.6 Q653.2,329.4 653.2,334.5 Q653.2,339.7 652.9,344.8 Q652.6,350.0 652.1,355.1 Q651.5,360.3 650.9,366.0 Q650.4,371.8 649.2,378.8 Q648.1,385.7 646.4,393.0 Q644.7,400.3 642.7,408.1 Q640.7,416.0 638.1,423.3 Q635.6,430.6 633.0,436.3 Q630.5,442.1 627.3,446.9 Q624.2,451.8 621.4,456.0 Q618.5,460.3 615.4,463.3 Q612.3,466.3 609.7,469.4 Q607.2,472.4 604.6,475.1 Q602.0,477.9 598.9,480.3 Q595.8,482.7 592.7,485.1 Q589.5,487.6 586.1,490.0 Q582.7,492.4 579.3,494.8 Q575.9,497.3 572.8,498.8 Q569.6,500.3 566.2,500.3 Q562.8,500.3 557.1,497.9 Q551.4,495.4 545.5,491.2 Q539.5,486.9 537.2,483.9 Q535.0,480.9 532.7,477.9 Q530.4,474.8 528.7,472.1 Q527.0,469.4 525.3,467.9 Q523.6,466.3 522.7,464.5 Q521.9,462.7 521.0,460.0 Q520.2,457.2 519.9,454.8 Q519.6,452.4 519.3,450.6 Q519.0,448.8 518.5,446.9 Q517.9,445.1 517.6,443.9 Q517.3,442.7 517.3,441.5 Q517.3,440.3 517.6,437.5 Q517.9,434.8 518.2,432.1 Q518.5,429.4 518.5,429.4"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:37.349Z",
+      "status": "Let's write!",
+      "paths": [
+        "M499.7,391.2 Q499.7,391.2 495.7,418.8 Q491.8,446.3 490.3,455.1 Q488.9,463.9 487.2,473.3 Q485.5,482.7 483.5,491.8 Q481.5,500.9 479.0,510.3 Q476.4,519.7 473.9,529.1 Q471.3,538.5 468.5,547.3 Q465.6,556.0 462.8,565.1 Q459.9,574.2 457.4,580.3 Q454.8,586.4 452.0,590.6 Q449.1,594.8 446.3,599.1 Q443.4,603.3 440.9,606.4 Q438.3,609.4 435.5,612.1 Q432.6,614.8 429.8,616.1 Q427.0,617.3 424.1,618.5 Q421.3,619.7 418.4,620.3 Q415.6,620.9 412.7,620.9 Q409.9,620.9 407.1,620.3 Q404.2,619.7 401.7,617.6 Q399.1,615.4 396.5,613.0 Q394.0,610.6 392.0,606.4 Q390.0,602.1 388.3,597.9 Q386.6,593.6 385.2,589.4 Q383.8,585.1 382.3,580.6 Q380.9,576.1 380.1,570.9 Q379.2,565.7 378.6,561.2 Q378.1,556.7 377.5,551.2 Q376.9,545.7 376.6,540.9 Q376.4,536.0 376.4,529.7 Q376.4,523.3 376.4,517.9 Q376.4,512.4 376.9,505.7 Q377.5,499.1 378.1,491.8 Q378.6,484.5 379.2,476.0 Q379.8,467.6 380.6,460.0 Q381.5,452.4 383.8,436.0 Q386.0,419.7 387.7,408.8 Q389.4,397.8 390.9,388.4 Q392.3,379.1 394.0,370.6 Q395.7,362.1 397.4,353.9 Q399.1,345.7 400.8,338.1 Q402.5,330.6 404.2,323.0 Q405.9,315.4 409.6,300.9 Q413.3,286.3 415.6,279.3 Q417.9,272.4 420.1,265.4 Q422.4,258.4 425.0,251.2 Q427.5,243.9 430.9,236.0 Q434.3,228.1 437.2,220.9 Q440.0,213.6 445.4,202.1 Q450.8,190.5 453.7,186.6 Q456.5,182.7 459.4,179.6 Q462.2,176.6 464.8,174.8 Q467.3,173.0 469.9,171.8 Q472.4,170.5 475.0,168.7 Q477.5,166.9 482.7,162.7 Q487.8,158.4 491.2,156.9 Q494.6,155.4 499.4,153.0 Q504.3,150.5 509.1,149.3 Q513.9,148.1 519.0,148.7 Q524.2,149.3 528.1,149.9 Q532.1,150.5 536.4,151.4 Q540.6,152.4 544.9,153.3 Q549.2,154.2 553.4,155.7 Q557.7,157.2 562.8,159.9 Q567.9,162.7 572.8,165.7 Q577.6,168.7 582.4,173.0 Q587.3,177.2 591.2,180.8 Q595.2,184.5 600.0,189.3 Q604.9,194.2 609.7,201.2 Q614.5,208.1 618.8,215.4 Q623.1,222.7 626.8,229.9 Q630.5,237.2 633.6,244.8 Q636.7,252.4 639.6,259.3 Q642.4,266.3 644.1,272.7 Q645.8,279.0 647.5,286.0 Q649.2,293.0 650.1,299.6 Q650.9,306.3 651.8,312.1 Q652.6,317.8 652.9,323.6 Q653.2,329.4 653.2,334.5 Q653.2,339.7 652.9,344.8 Q652.6,350.0 652.1,355.1 Q651.5,360.3 650.9,366.0 Q650.4,371.8 649.2,378.8 Q648.1,385.7 646.4,393.0 Q644.7,400.3 642.7,408.1 Q640.7,416.0 638.1,423.3 Q635.6,430.6 633.0,436.3 Q630.5,442.1 627.3,446.9 Q624.2,451.8 621.4,456.0 Q618.5,460.3 615.4,463.3 Q612.3,466.3 609.7,469.4 Q607.2,472.4 604.6,475.1 Q602.0,477.9 598.9,480.3 Q595.8,482.7 592.7,485.1 Q589.5,487.6 586.1,490.0 Q582.7,492.4 579.3,494.8 Q575.9,497.3 572.8,498.8 Q569.6,500.3 566.2,500.3 Q562.8,500.3 557.1,497.9 Q551.4,495.4 545.5,491.2 Q539.5,486.9 537.2,483.9 Q535.0,480.9 532.7,477.9 Q530.4,474.8 528.7,472.1 Q527.0,469.4 525.3,467.9 Q523.6,466.3 522.7,464.5 Q521.9,462.7 521.0,460.0 Q520.2,457.2 519.9,454.8 Q519.6,452.4 519.3,450.6 Q519.0,448.8 518.5,446.9 Q517.9,445.1 517.6,443.9 Q517.3,442.7 517.3,441.5 Q517.3,440.3 517.6,437.5 Q517.9,434.8 518.2,432.1 Q518.5,429.4 518.5,429.4",
+        "M502.0,611.8 Q502.0,611.8 502.0,646.4 Q502.0,680.9 503.4,689.1 Q504.8,697.3 506.0,702.4 Q507.1,707.6 507.7,710.3 Q508.2,713.0 509.1,714.6 Q509.9,716.1 510.8,717.3 Q511.7,718.5 512.8,719.1 Q513.9,719.7 514.8,719.1 Q515.6,718.5 516.5,716.7 Q517.3,714.9 517.9,713.6 Q518.5,712.4 518.8,710.0 Q519.0,707.6 519.6,703.9 Q520.2,700.3 520.7,694.9 Q521.3,689.4 521.6,683.6 Q521.9,677.9 521.9,671.2 Q521.9,664.5 521.3,658.5 Q520.7,652.4 519.9,647.6 Q519.0,642.7 517.6,638.5 Q516.2,634.2 515.3,631.2 Q514.5,628.2 513.4,625.8 Q512.2,623.3 511.1,621.5 Q509.9,619.7 508.8,618.5 Q507.7,617.3 506.5,616.4 Q505.4,615.4 504.3,615.1 Q503.1,614.8 501.7,614.5 Q500.3,614.2 498.3,614.5 Q496.3,614.8 494.3,616.4 Q492.3,617.9 490.1,620.6 Q487.8,623.3 486.6,625.8 Q485.5,628.2 484.7,630.3 Q483.8,632.4 483.2,634.8 Q482.7,637.3 482.4,639.1 Q482.1,640.9 482.1,642.4 Q482.1,643.9 482.1,645.5 Q482.1,647.0 482.4,648.2 Q482.7,649.4 482.9,650.9 Q483.2,652.4 483.5,653.9 Q483.8,655.5 484.4,656.7 Q484.9,657.9 485.5,659.1 Q486.1,660.3 487.2,661.5 Q488.3,662.7 489.8,662.7 Q491.2,662.7 491.8,661.8 Q492.3,660.9 494.0,658.8 Q495.7,656.7 495.7,656.7"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:38.373Z",
+      "label": "BO/BU",
+      "confidence": "99.4%",
+      "paths": [
+        "M499.7,391.2 Q499.7,391.2 495.7,418.8 Q491.8,446.3 490.3,455.1 Q488.9,463.9 487.2,473.3 Q485.5,482.7 483.5,491.8 Q481.5,500.9 479.0,510.3 Q476.4,519.7 473.9,529.1 Q471.3,538.5 468.5,547.3 Q465.6,556.0 462.8,565.1 Q459.9,574.2 457.4,580.3 Q454.8,586.4 452.0,590.6 Q449.1,594.8 446.3,599.1 Q443.4,603.3 440.9,606.4 Q438.3,609.4 435.5,612.1 Q432.6,614.8 429.8,616.1 Q427.0,617.3 424.1,618.5 Q421.3,619.7 418.4,620.3 Q415.6,620.9 412.7,620.9 Q409.9,620.9 407.1,620.3 Q404.2,619.7 401.7,617.6 Q399.1,615.4 396.5,613.0 Q394.0,610.6 392.0,606.4 Q390.0,602.1 388.3,597.9 Q386.6,593.6 385.2,589.4 Q383.8,585.1 382.3,580.6 Q380.9,576.1 380.1,570.9 Q379.2,565.7 378.6,561.2 Q378.1,556.7 377.5,551.2 Q376.9,545.7 376.6,540.9 Q376.4,536.0 376.4,529.7 Q376.4,523.3 376.4,517.9 Q376.4,512.4 376.9,505.7 Q377.5,499.1 378.1,491.8 Q378.6,484.5 379.2,476.0 Q379.8,467.6 380.6,460.0 Q381.5,452.4 383.8,436.0 Q386.0,419.7 387.7,408.8 Q389.4,397.8 390.9,388.4 Q392.3,379.1 394.0,370.6 Q395.7,362.1 397.4,353.9 Q399.1,345.7 400.8,338.1 Q402.5,330.6 404.2,323.0 Q405.9,315.4 409.6,300.9 Q413.3,286.3 415.6,279.3 Q417.9,272.4 420.1,265.4 Q422.4,258.4 425.0,251.2 Q427.5,243.9 430.9,236.0 Q434.3,228.1 437.2,220.9 Q440.0,213.6 445.4,202.1 Q450.8,190.5 453.7,186.6 Q456.5,182.7 459.4,179.6 Q462.2,176.6 464.8,174.8 Q467.3,173.0 469.9,171.8 Q472.4,170.5 475.0,168.7 Q477.5,166.9 482.7,162.7 Q487.8,158.4 491.2,156.9 Q494.6,155.4 499.4,153.0 Q504.3,150.5 509.1,149.3 Q513.9,148.1 519.0,148.7 Q524.2,149.3 528.1,149.9 Q532.1,150.5 536.4,151.4 Q540.6,152.4 544.9,153.3 Q549.2,154.2 553.4,155.7 Q557.7,157.2 562.8,159.9 Q567.9,162.7 572.8,165.7 Q577.6,168.7 582.4,173.0 Q587.3,177.2 591.2,180.8 Q595.2,184.5 600.0,189.3 Q604.9,194.2 609.7,201.2 Q614.5,208.1 618.8,215.4 Q623.1,222.7 626.8,229.9 Q630.5,237.2 633.6,244.8 Q636.7,252.4 639.6,259.3 Q642.4,266.3 644.1,272.7 Q645.8,279.0 647.5,286.0 Q649.2,293.0 650.1,299.6 Q650.9,306.3 651.8,312.1 Q652.6,317.8 652.9,323.6 Q653.2,329.4 653.2,334.5 Q653.2,339.7 652.9,344.8 Q652.6,350.0 652.1,355.1 Q651.5,360.3 650.9,366.0 Q650.4,371.8 649.2,378.8 Q648.1,385.7 646.4,393.0 Q644.7,400.3 642.7,408.1 Q640.7,416.0 638.1,423.3 Q635.6,430.6 633.0,436.3 Q630.5,442.1 627.3,446.9 Q624.2,451.8 621.4,456.0 Q618.5,460.3 615.4,463.3 Q612.3,466.3 609.7,469.4 Q607.2,472.4 604.6,475.1 Q602.0,477.9 598.9,480.3 Q595.8,482.7 592.7,485.1 Q589.5,487.6 586.1,490.0 Q582.7,492.4 579.3,494.8 Q575.9,497.3 572.8,498.8 Q569.6,500.3 566.2,500.3 Q562.8,500.3 557.1,497.9 Q551.4,495.4 545.5,491.2 Q539.5,486.9 537.2,483.9 Q535.0,480.9 532.7,477.9 Q530.4,474.8 528.7,472.1 Q527.0,469.4 525.3,467.9 Q523.6,466.3 522.7,464.5 Q521.9,462.7 521.0,460.0 Q520.2,457.2 519.9,454.8 Q519.6,452.4 519.3,450.6 Q519.0,448.8 518.5,446.9 Q517.9,445.1 517.6,443.9 Q517.3,442.7 517.3,441.5 Q517.3,440.3 517.6,437.5 Q517.9,434.8 518.2,432.1 Q518.5,429.4 518.5,429.4",
+        "M502.0,611.8 Q502.0,611.8 502.0,646.4 Q502.0,680.9 503.4,689.1 Q504.8,697.3 506.0,702.4 Q507.1,707.6 507.7,710.3 Q508.2,713.0 509.1,714.6 Q509.9,716.1 510.8,717.3 Q511.7,718.5 512.8,719.1 Q513.9,719.7 514.8,719.1 Q515.6,718.5 516.5,716.7 Q517.3,714.9 517.9,713.6 Q518.5,712.4 518.8,710.0 Q519.0,707.6 519.6,703.9 Q520.2,700.3 520.7,694.9 Q521.3,689.4 521.6,683.6 Q521.9,677.9 521.9,671.2 Q521.9,664.5 521.3,658.5 Q520.7,652.4 519.9,647.6 Q519.0,642.7 517.6,638.5 Q516.2,634.2 515.3,631.2 Q514.5,628.2 513.4,625.8 Q512.2,623.3 511.1,621.5 Q509.9,619.7 508.8,618.5 Q507.7,617.3 506.5,616.4 Q505.4,615.4 504.3,615.1 Q503.1,614.8 501.7,614.5 Q500.3,614.2 498.3,614.5 Q496.3,614.8 494.3,616.4 Q492.3,617.9 490.1,620.6 Q487.8,623.3 486.6,625.8 Q485.5,628.2 484.7,630.3 Q483.8,632.4 483.2,634.8 Q482.7,637.3 482.4,639.1 Q482.1,640.9 482.1,642.4 Q482.1,643.9 482.1,645.5 Q482.1,647.0 482.4,648.2 Q482.7,649.4 482.9,650.9 Q483.2,652.4 483.5,653.9 Q483.8,655.5 484.4,656.7 Q484.9,657.9 485.5,659.1 Q486.1,660.3 487.2,661.5 Q488.3,662.7 489.8,662.7 Q491.2,662.7 491.8,661.8 Q492.3,660.9 494.0,658.8 Q495.7,656.7 495.7,656.7"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:39.387Z",
+      "status": "Let's write!",
+      "paths": [],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:40.401Z",
+      "status": "Let's write!",
+      "paths": [
+        "M504.3,478.5 Q504.3,478.5 497.4,501.8 Q490.6,525.1 488.6,531.8 Q486.6,538.5 484.9,544.8 Q483.2,551.2 481.2,557.6 Q479.3,563.9 477.5,569.1 Q475.8,574.2 473.9,578.2 Q471.9,582.1 470.2,584.2 Q468.5,586.4 466.5,588.8 Q464.5,591.2 461.9,594.5 Q459.4,597.9 456.5,602.1 Q453.7,606.4 450.5,610.0 Q447.4,613.6 444.0,617.3 Q440.6,620.9 437.2,623.6 Q433.8,626.4 430.6,628.8 Q427.5,631.2 423.8,632.7 Q420.1,634.2 416.7,634.8 Q413.3,635.5 409.9,636.1 Q406.5,636.7 403.4,635.8 Q400.2,634.8 396.8,633.0 Q393.4,631.2 390.3,629.7 Q387.2,628.2 384.3,626.7 Q381.5,625.1 378.9,623.6 Q376.4,622.1 373.8,619.7 Q371.2,617.3 369.0,614.8 Q366.7,612.4 364.4,609.4 Q362.2,606.4 360.2,603.0 Q358.2,599.7 356.5,596.4 Q354.8,593.0 353.1,589.1 Q351.4,585.1 350.2,580.6 Q349.1,576.1 348.2,570.6 Q347.4,565.1 346.5,558.8 Q345.7,552.4 345.1,544.5 Q344.5,536.7 344.0,530.0 Q343.4,523.3 343.1,517.0 Q342.8,510.6 342.8,504.2 Q342.8,497.9 342.8,490.6 Q342.8,483.3 342.8,476.0 Q342.8,468.8 343.1,461.8 Q343.4,454.8 344.0,448.8 Q344.5,442.7 345.4,434.8 Q346.2,426.9 346.8,418.8 Q347.4,410.6 348.2,402.7 Q349.1,394.8 349.9,388.1 Q350.8,381.5 351.6,375.7 Q352.5,370.0 353.3,363.3 Q354.2,356.6 354.8,350.6 Q355.3,344.5 356.2,339.0 Q357.0,333.6 357.9,329.4 Q358.7,325.1 359.9,320.9 Q361.0,316.6 362.4,312.7 Q363.9,308.7 365.3,304.5 Q366.7,300.3 368.4,295.1 Q370.1,290.0 372.1,284.5 Q374.1,279.0 376.4,273.6 Q378.6,268.1 380.9,263.0 Q383.2,257.8 385.7,253.6 Q388.3,249.3 390.9,245.1 Q393.4,240.9 395.4,238.1 Q397.4,235.4 399.4,232.4 Q401.4,229.3 403.4,226.6 Q405.4,223.9 407.3,221.8 Q409.3,219.6 411.6,217.2 Q413.9,214.8 415.9,213.3 Q417.9,211.8 420.4,210.2 Q423.0,208.7 425.8,206.9 Q428.7,205.1 428.7,205.1"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:41.420Z",
+      "status": "Let's write!",
+      "paths": [
+        "M504.3,478.5 Q504.3,478.5 497.4,501.8 Q490.6,525.1 488.6,531.8 Q486.6,538.5 484.9,544.8 Q483.2,551.2 481.2,557.6 Q479.3,563.9 477.5,569.1 Q475.8,574.2 473.9,578.2 Q471.9,582.1 470.2,584.2 Q468.5,586.4 466.5,588.8 Q464.5,591.2 461.9,594.5 Q459.4,597.9 456.5,602.1 Q453.7,606.4 450.5,610.0 Q447.4,613.6 444.0,617.3 Q440.6,620.9 437.2,623.6 Q433.8,626.4 430.6,628.8 Q427.5,631.2 423.8,632.7 Q420.1,634.2 416.7,634.8 Q413.3,635.5 409.9,636.1 Q406.5,636.7 403.4,635.8 Q400.2,634.8 396.8,633.0 Q393.4,631.2 390.3,629.7 Q387.2,628.2 384.3,626.7 Q381.5,625.1 378.9,623.6 Q376.4,622.1 373.8,619.7 Q371.2,617.3 369.0,614.8 Q366.7,612.4 364.4,609.4 Q362.2,606.4 360.2,603.0 Q358.2,599.7 356.5,596.4 Q354.8,593.0 353.1,589.1 Q351.4,585.1 350.2,580.6 Q349.1,576.1 348.2,570.6 Q347.4,565.1 346.5,558.8 Q345.7,552.4 345.1,544.5 Q344.5,536.7 344.0,530.0 Q343.4,523.3 343.1,517.0 Q342.8,510.6 342.8,504.2 Q342.8,497.9 342.8,490.6 Q342.8,483.3 342.8,476.0 Q342.8,468.8 343.1,461.8 Q343.4,454.8 344.0,448.8 Q344.5,442.7 345.4,434.8 Q346.2,426.9 346.8,418.8 Q347.4,410.6 348.2,402.7 Q349.1,394.8 349.9,388.1 Q350.8,381.5 351.6,375.7 Q352.5,370.0 353.3,363.3 Q354.2,356.6 354.8,350.6 Q355.3,344.5 356.2,339.0 Q357.0,333.6 357.9,329.4 Q358.7,325.1 359.9,320.9 Q361.0,316.6 362.4,312.7 Q363.9,308.7 365.3,304.5 Q366.7,300.3 368.4,295.1 Q370.1,290.0 372.1,284.5 Q374.1,279.0 376.4,273.6 Q378.6,268.1 380.9,263.0 Q383.2,257.8 385.7,253.6 Q388.3,249.3 390.9,245.1 Q393.4,240.9 395.4,238.1 Q397.4,235.4 399.4,232.4 Q401.4,229.3 403.4,226.6 Q405.4,223.9 407.3,221.8 Q409.3,219.6 411.6,217.2 Q413.9,214.8 415.9,213.3 Q417.9,211.8 420.4,210.2 Q423.0,208.7 425.8,206.9 Q428.7,205.1 432.1,202.7 Q435.5,200.2 438.3,199.0 Q441.2,197.8 443.7,196.9 Q446.3,196.0 449.1,193.6 Q452.0,191.2 454.8,189.0 Q457.7,186.9 460.5,184.5 Q463.3,182.1 466.5,180.2 Q469.6,178.4 473.0,176.0 Q476.4,173.6 479.8,171.1 Q483.2,168.7 486.6,166.6 Q490.1,164.5 493.2,163.3 Q496.3,162.1 499.7,161.4 Q503.1,160.8 505.7,160.8 Q508.2,160.8 511.1,160.2 Q513.9,159.6 516.8,159.0 Q519.6,158.4 522.5,157.5 Q525.3,156.6 528.4,155.4 Q531.5,154.2 534.7,154.2 Q537.8,154.2 540.6,155.1 Q543.5,156.0 546.3,156.6 Q549.2,157.2 552.0,159.0 Q554.9,160.8 558.0,162.4 Q561.1,163.9 563.7,165.7 Q566.2,167.5 568.8,169.3 Q571.3,171.1 573.9,174.2 Q576.5,177.2 578.7,182.1 Q581.0,186.9 583.6,192.1 Q586.1,197.2 588.7,201.8 Q591.2,206.3 594.6,211.5 Q598.1,216.6 601.8,223.9 Q605.4,231.2 609.1,238.4 Q612.8,245.7 616.8,254.8 Q620.8,263.9 623.9,271.5 Q627.0,279.0 629.9,286.0 Q632.7,293.0 635.3,299.6 Q637.8,306.3 640.4,313.0 Q643.0,319.7 645.2,329.0 Q647.5,338.4 649.2,346.3 Q650.9,354.2 652.6,362.1 Q654.3,370.0 655.8,377.5 Q657.2,385.1 658.3,392.7 Q659.4,400.3 660.9,407.5 Q662.3,414.8 663.4,422.7 Q664.6,430.6 665.4,437.2 Q666.3,443.9 666.8,450.9 Q667.4,457.9 668.0,464.5 Q668.5,471.2 668.8,476.9 Q669.1,482.7 669.1,488.8 Q669.1,494.8 668.8,499.7 Q668.5,504.5 668.0,509.7 Q667.4,514.8 666.8,519.4 Q666.3,523.9 664.3,530.3 Q662.3,536.7 660.9,539.7 Q659.4,542.7 658.0,546.0 Q656.6,549.4 654.6,552.7 Q652.6,556.0 650.4,560.3 Q648.1,564.5 644.7,568.8 Q641.3,573.0 638.1,575.1 Q635.0,577.3 631.9,579.4 Q628.8,581.5 625.3,583.6 Q621.9,585.7 618.2,587.3 Q614.5,588.8 610.8,589.4 Q607.2,590.0 603.2,589.1 Q599.2,588.2 595.2,587.3 Q591.2,586.4 587.5,586.4 Q583.8,586.4 579.6,586.4 Q575.3,586.4 571.3,586.1 Q567.4,585.7 563.4,585.4 Q559.4,585.1 555.4,584.2 Q551.4,583.3 548.3,581.5 Q545.2,579.7 542.1,577.3 Q538.9,574.8 535.5,572.4 Q532.1,570.0 529.6,566.4 Q527.0,562.7 524.7,559.1 Q522.5,555.4 520.5,551.5 Q518.5,547.6 516.8,544.2 Q515.1,540.9 513.4,537.0 Q511.7,533.0 510.8,528.8 Q509.9,524.5 509.1,521.5 Q508.2,518.5 508.0,515.4 Q507.7,512.4 507.7,510.3 Q507.7,508.2 507.4,506.0 Q507.1,503.9 507.1,501.5 Q507.1,499.1 507.1,497.6 Q507.1,496.0 507.1,496.0"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:42.441Z",
+      "status": "Let's write!",
+      "paths": [
+        "M504.3,478.5 Q504.3,478.5 497.4,501.8 Q490.6,525.1 488.6,531.8 Q486.6,538.5 484.9,544.8 Q483.2,551.2 481.2,557.6 Q479.3,563.9 477.5,569.1 Q475.8,574.2 473.9,578.2 Q471.9,582.1 470.2,584.2 Q468.5,586.4 466.5,588.8 Q464.5,591.2 461.9,594.5 Q459.4,597.9 456.5,602.1 Q453.7,606.4 450.5,610.0 Q447.4,613.6 444.0,617.3 Q440.6,620.9 437.2,623.6 Q433.8,626.4 430.6,628.8 Q427.5,631.2 423.8,632.7 Q420.1,634.2 416.7,634.8 Q413.3,635.5 409.9,636.1 Q406.5,636.7 403.4,635.8 Q400.2,634.8 396.8,633.0 Q393.4,631.2 390.3,629.7 Q387.2,628.2 384.3,626.7 Q381.5,625.1 378.9,623.6 Q376.4,622.1 373.8,619.7 Q371.2,617.3 369.0,614.8 Q366.7,612.4 364.4,609.4 Q362.2,606.4 360.2,603.0 Q358.2,599.7 356.5,596.4 Q354.8,593.0 353.1,589.1 Q351.4,585.1 350.2,580.6 Q349.1,576.1 348.2,570.6 Q347.4,565.1 346.5,558.8 Q345.7,552.4 345.1,544.5 Q344.5,536.7 344.0,530.0 Q343.4,523.3 343.1,517.0 Q342.8,510.6 342.8,504.2 Q342.8,497.9 342.8,490.6 Q342.8,483.3 342.8,476.0 Q342.8,468.8 343.1,461.8 Q343.4,454.8 344.0,448.8 Q344.5,442.7 345.4,434.8 Q346.2,426.9 346.8,418.8 Q347.4,410.6 348.2,402.7 Q349.1,394.8 349.9,388.1 Q350.8,381.5 351.6,375.7 Q352.5,370.0 353.3,363.3 Q354.2,356.6 354.8,350.6 Q355.3,344.5 356.2,339.0 Q357.0,333.6 357.9,329.4 Q358.7,325.1 359.9,320.9 Q361.0,316.6 362.4,312.7 Q363.9,308.7 365.3,304.5 Q366.7,300.3 368.4,295.1 Q370.1,290.0 372.1,284.5 Q374.1,279.0 376.4,273.6 Q378.6,268.1 380.9,263.0 Q383.2,257.8 385.7,253.6 Q388.3,249.3 390.9,245.1 Q393.4,240.9 395.4,238.1 Q397.4,235.4 399.4,232.4 Q401.4,229.3 403.4,226.6 Q405.4,223.9 407.3,221.8 Q409.3,219.6 411.6,217.2 Q413.9,214.8 415.9,213.3 Q417.9,211.8 420.4,210.2 Q423.0,208.7 425.8,206.9 Q428.7,205.1 432.1,202.7 Q435.5,200.2 438.3,199.0 Q441.2,197.8 443.7,196.9 Q446.3,196.0 449.1,193.6 Q452.0,191.2 454.8,189.0 Q457.7,186.9 460.5,184.5 Q463.3,182.1 466.5,180.2 Q469.6,178.4 473.0,176.0 Q476.4,173.6 479.8,171.1 Q483.2,168.7 486.6,166.6 Q490.1,164.5 493.2,163.3 Q496.3,162.1 499.7,161.4 Q503.1,160.8 505.7,160.8 Q508.2,160.8 511.1,160.2 Q513.9,159.6 516.8,159.0 Q519.6,158.4 522.5,157.5 Q525.3,156.6 528.4,155.4 Q531.5,154.2 534.7,154.2 Q537.8,154.2 540.6,155.1 Q543.5,156.0 546.3,156.6 Q549.2,157.2 552.0,159.0 Q554.9,160.8 558.0,162.4 Q561.1,163.9 563.7,165.7 Q566.2,167.5 568.8,169.3 Q571.3,171.1 573.9,174.2 Q576.5,177.2 578.7,182.1 Q581.0,186.9 583.6,192.1 Q586.1,197.2 588.7,201.8 Q591.2,206.3 594.6,211.5 Q598.1,216.6 601.8,223.9 Q605.4,231.2 609.1,238.4 Q612.8,245.7 616.8,254.8 Q620.8,263.9 623.9,271.5 Q627.0,279.0 629.9,286.0 Q632.7,293.0 635.3,299.6 Q637.8,306.3 640.4,313.0 Q643.0,319.7 645.2,329.0 Q647.5,338.4 649.2,346.3 Q650.9,354.2 652.6,362.1 Q654.3,370.0 655.8,377.5 Q657.2,385.1 658.3,392.7 Q659.4,400.3 660.9,407.5 Q662.3,414.8 663.4,422.7 Q664.6,430.6 665.4,437.2 Q666.3,443.9 666.8,450.9 Q667.4,457.9 668.0,464.5 Q668.5,471.2 668.8,476.9 Q669.1,482.7 669.1,488.8 Q669.1,494.8 668.8,499.7 Q668.5,504.5 668.0,509.7 Q667.4,514.8 666.8,519.4 Q666.3,523.9 664.3,530.3 Q662.3,536.7 660.9,539.7 Q659.4,542.7 658.0,546.0 Q656.6,549.4 654.6,552.7 Q652.6,556.0 650.4,560.3 Q648.1,564.5 644.7,568.8 Q641.3,573.0 638.1,575.1 Q635.0,577.3 631.9,579.4 Q628.8,581.5 625.3,583.6 Q621.9,585.7 618.2,587.3 Q614.5,588.8 610.8,589.4 Q607.2,590.0 603.2,589.1 Q599.2,588.2 595.2,587.3 Q591.2,586.4 587.5,586.4 Q583.8,586.4 579.6,586.4 Q575.3,586.4 571.3,586.1 Q567.4,585.7 563.4,585.4 Q559.4,585.1 555.4,584.2 Q551.4,583.3 548.3,581.5 Q545.2,579.7 542.1,577.3 Q538.9,574.8 535.5,572.4 Q532.1,570.0 529.6,566.4 Q527.0,562.7 524.7,559.1 Q522.5,555.4 520.5,551.5 Q518.5,547.6 516.8,544.2 Q515.1,540.9 513.4,537.0 Q511.7,533.0 510.8,528.8 Q509.9,524.5 509.1,521.5 Q508.2,518.5 508.0,515.4 Q507.7,512.4 507.7,510.3 Q507.7,508.2 507.4,506.0 Q507.1,503.9 507.1,501.5 Q507.1,499.1 507.1,497.6 Q507.1,496.0 507.1,496.0",
+        "M490.6,711.8 Q490.6,711.8 492.0,743.0 Q493.5,774.3 496.3,779.7 Q499.1,785.2 500.6,786.4 Q502.0,787.6 504.0,786.7 Q506.0,785.8 506.5,784.3 Q507.1,782.7 507.7,781.2 Q508.2,779.7 508.5,778.2 Q508.8,776.7 509.1,774.9 Q509.4,773.0 509.7,771.5 Q509.9,770.0 510.5,767.3 Q511.1,764.6 511.4,760.9 Q511.7,757.3 511.7,754.0 Q511.7,750.6 511.4,747.9 Q511.1,745.2 510.5,740.9 Q509.9,736.7 509.1,731.8 Q508.2,727.0 507.4,721.2 Q506.5,715.5 505.1,710.0 Q503.7,704.6 502.8,700.9 Q502.0,697.3 501.1,694.9 Q500.3,692.4 499.7,690.9 Q499.1,689.4 498.6,688.2 Q498.0,687.0 496.9,685.8 Q495.7,684.6 494.6,684.2 Q493.5,683.9 492.6,684.9 Q491.8,685.8 490.3,687.3 Q488.9,688.8 488.1,690.3 Q487.2,691.8 486.6,692.7 Q486.1,693.6 485.5,695.5 Q484.9,697.3 484.4,699.4 Q483.8,701.5 483.5,703.9 Q483.2,706.4 482.9,708.5 Q482.7,710.6 482.4,713.3 Q482.1,716.1 482.1,718.8 Q482.1,721.5 482.1,724.3 Q482.1,727.0 482.1,730.0 Q482.1,733.0 482.1,735.8 Q482.1,738.5 482.7,740.6 Q483.2,742.7 483.5,745.5 Q483.8,748.2 484.1,750.6 Q484.4,753.0 485.2,754.9 Q486.1,756.7 486.6,759.1 Q487.2,761.5 487.8,763.0 Q488.3,764.6 489.2,766.1 Q490.1,767.6 490.9,768.8 Q491.8,770.0 492.9,771.5 Q494.0,773.0 494.9,773.7 Q495.7,774.3 496.9,774.6 Q498.0,774.9 499.1,773.3 Q500.3,771.8 501.7,766.7 Q503.1,761.5 502.8,757.6 Q502.6,753.7 502.0,751.8 Q501.4,750.0 500.9,748.8 Q500.3,747.6 499.7,746.4 Q499.1,745.2 498.3,744.0 Q497.4,742.7 496.3,742.4 Q495.2,742.1 493.7,743.0 Q492.3,744.0 491.5,745.8 Q490.6,747.6 490.6,747.6"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:43.461Z",
+      "label": "BO/BU",
+      "confidence": "98.3%",
+      "paths": [
+        "M504.3,478.5 Q504.3,478.5 497.4,501.8 Q490.6,525.1 488.6,531.8 Q486.6,538.5 484.9,544.8 Q483.2,551.2 481.2,557.6 Q479.3,563.9 477.5,569.1 Q475.8,574.2 473.9,578.2 Q471.9,582.1 470.2,584.2 Q468.5,586.4 466.5,588.8 Q464.5,591.2 461.9,594.5 Q459.4,597.9 456.5,602.1 Q453.7,606.4 450.5,610.0 Q447.4,613.6 444.0,617.3 Q440.6,620.9 437.2,623.6 Q433.8,626.4 430.6,628.8 Q427.5,631.2 423.8,632.7 Q420.1,634.2 416.7,634.8 Q413.3,635.5 409.9,636.1 Q406.5,636.7 403.4,635.8 Q400.2,634.8 396.8,633.0 Q393.4,631.2 390.3,629.7 Q387.2,628.2 384.3,626.7 Q381.5,625.1 378.9,623.6 Q376.4,622.1 373.8,619.7 Q371.2,617.3 369.0,614.8 Q366.7,612.4 364.4,609.4 Q362.2,606.4 360.2,603.0 Q358.2,599.7 356.5,596.4 Q354.8,593.0 353.1,589.1 Q351.4,585.1 350.2,580.6 Q349.1,576.1 348.2,570.6 Q347.4,565.1 346.5,558.8 Q345.7,552.4 345.1,544.5 Q344.5,536.7 344.0,530.0 Q343.4,523.3 343.1,517.0 Q342.8,510.6 342.8,504.2 Q342.8,497.9 342.8,490.6 Q342.8,483.3 342.8,476.0 Q342.8,468.8 343.1,461.8 Q343.4,454.8 344.0,448.8 Q344.5,442.7 345.4,434.8 Q346.2,426.9 346.8,418.8 Q347.4,410.6 348.2,402.7 Q349.1,394.8 349.9,388.1 Q350.8,381.5 351.6,375.7 Q352.5,370.0 353.3,363.3 Q354.2,356.6 354.8,350.6 Q355.3,344.5 356.2,339.0 Q357.0,333.6 357.9,329.4 Q358.7,325.1 359.9,320.9 Q361.0,316.6 362.4,312.7 Q363.9,308.7 365.3,304.5 Q366.7,300.3 368.4,295.1 Q370.1,290.0 372.1,284.5 Q374.1,279.0 376.4,273.6 Q378.6,268.1 380.9,263.0 Q383.2,257.8 385.7,253.6 Q388.3,249.3 390.9,245.1 Q393.4,240.9 395.4,238.1 Q397.4,235.4 399.4,232.4 Q401.4,229.3 403.4,226.6 Q405.4,223.9 407.3,221.8 Q409.3,219.6 411.6,217.2 Q413.9,214.8 415.9,213.3 Q417.9,211.8 420.4,210.2 Q423.0,208.7 425.8,206.9 Q428.7,205.1 432.1,202.7 Q435.5,200.2 438.3,199.0 Q441.2,197.8 443.7,196.9 Q446.3,196.0 449.1,193.6 Q452.0,191.2 454.8,189.0 Q457.7,186.9 460.5,184.5 Q463.3,182.1 466.5,180.2 Q469.6,178.4 473.0,176.0 Q476.4,173.6 479.8,171.1 Q483.2,168.7 486.6,166.6 Q490.1,164.5 493.2,163.3 Q496.3,162.1 499.7,161.4 Q503.1,160.8 505.7,160.8 Q508.2,160.8 511.1,160.2 Q513.9,159.6 516.8,159.0 Q519.6,158.4 522.5,157.5 Q525.3,156.6 528.4,155.4 Q531.5,154.2 534.7,154.2 Q537.8,154.2 540.6,155.1 Q543.5,156.0 546.3,156.6 Q549.2,157.2 552.0,159.0 Q554.9,160.8 558.0,162.4 Q561.1,163.9 563.7,165.7 Q566.2,167.5 568.8,169.3 Q571.3,171.1 573.9,174.2 Q576.5,177.2 578.7,182.1 Q581.0,186.9 583.6,192.1 Q586.1,197.2 588.7,201.8 Q591.2,206.3 594.6,211.5 Q598.1,216.6 601.8,223.9 Q605.4,231.2 609.1,238.4 Q612.8,245.7 616.8,254.8 Q620.8,263.9 623.9,271.5 Q627.0,279.0 629.9,286.0 Q632.7,293.0 635.3,299.6 Q637.8,306.3 640.4,313.0 Q643.0,319.7 645.2,329.0 Q647.5,338.4 649.2,346.3 Q650.9,354.2 652.6,362.1 Q654.3,370.0 655.8,377.5 Q657.2,385.1 658.3,392.7 Q659.4,400.3 660.9,407.5 Q662.3,414.8 663.4,422.7 Q664.6,430.6 665.4,437.2 Q666.3,443.9 666.8,450.9 Q667.4,457.9 668.0,464.5 Q668.5,471.2 668.8,476.9 Q669.1,482.7 669.1,488.8 Q669.1,494.8 668.8,499.7 Q668.5,504.5 668.0,509.7 Q667.4,514.8 666.8,519.4 Q666.3,523.9 664.3,530.3 Q662.3,536.7 660.9,539.7 Q659.4,542.7 658.0,546.0 Q656.6,549.4 654.6,552.7 Q652.6,556.0 650.4,560.3 Q648.1,564.5 644.7,568.8 Q641.3,573.0 638.1,575.1 Q635.0,577.3 631.9,579.4 Q628.8,581.5 625.3,583.6 Q621.9,585.7 618.2,587.3 Q614.5,588.8 610.8,589.4 Q607.2,590.0 603.2,589.1 Q599.2,588.2 595.2,587.3 Q591.2,586.4 587.5,586.4 Q583.8,586.4 579.6,586.4 Q575.3,586.4 571.3,586.1 Q567.4,585.7 563.4,585.4 Q559.4,585.1 555.4,584.2 Q551.4,583.3 548.3,581.5 Q545.2,579.7 542.1,577.3 Q538.9,574.8 535.5,572.4 Q532.1,570.0 529.6,566.4 Q527.0,562.7 524.7,559.1 Q522.5,555.4 520.5,551.5 Q518.5,547.6 516.8,544.2 Q515.1,540.9 513.4,537.0 Q511.7,533.0 510.8,528.8 Q509.9,524.5 509.1,521.5 Q508.2,518.5 508.0,515.4 Q507.7,512.4 507.7,510.3 Q507.7,508.2 507.4,506.0 Q507.1,503.9 507.1,501.5 Q507.1,499.1 507.1,497.6 Q507.1,496.0 507.1,496.0",
+        "M490.6,711.8 Q490.6,711.8 492.0,743.0 Q493.5,774.3 496.3,779.7 Q499.1,785.2 500.6,786.4 Q502.0,787.6 504.0,786.7 Q506.0,785.8 506.5,784.3 Q507.1,782.7 507.7,781.2 Q508.2,779.7 508.5,778.2 Q508.8,776.7 509.1,774.9 Q509.4,773.0 509.7,771.5 Q509.9,770.0 510.5,767.3 Q511.1,764.6 511.4,760.9 Q511.7,757.3 511.7,754.0 Q511.7,750.6 511.4,747.9 Q511.1,745.2 510.5,740.9 Q509.9,736.7 509.1,731.8 Q508.2,727.0 507.4,721.2 Q506.5,715.5 505.1,710.0 Q503.7,704.6 502.8,700.9 Q502.0,697.3 501.1,694.9 Q500.3,692.4 499.7,690.9 Q499.1,689.4 498.6,688.2 Q498.0,687.0 496.9,685.8 Q495.7,684.6 494.6,684.2 Q493.5,683.9 492.6,684.9 Q491.8,685.8 490.3,687.3 Q488.9,688.8 488.1,690.3 Q487.2,691.8 486.6,692.7 Q486.1,693.6 485.5,695.5 Q484.9,697.3 484.4,699.4 Q483.8,701.5 483.5,703.9 Q483.2,706.4 482.9,708.5 Q482.7,710.6 482.4,713.3 Q482.1,716.1 482.1,718.8 Q482.1,721.5 482.1,724.3 Q482.1,727.0 482.1,730.0 Q482.1,733.0 482.1,735.8 Q482.1,738.5 482.7,740.6 Q483.2,742.7 483.5,745.5 Q483.8,748.2 484.1,750.6 Q484.4,753.0 485.2,754.9 Q486.1,756.7 486.6,759.1 Q487.2,761.5 487.8,763.0 Q488.3,764.6 489.2,766.1 Q490.1,767.6 490.9,768.8 Q491.8,770.0 492.9,771.5 Q494.0,773.0 494.9,773.7 Q495.7,774.3 496.9,774.6 Q498.0,774.9 499.1,773.3 Q500.3,771.8 501.7,766.7 Q503.1,761.5 502.8,757.6 Q502.6,753.7 502.0,751.8 Q501.4,750.0 500.9,748.8 Q500.3,747.6 499.7,746.4 Q499.1,745.2 498.3,744.0 Q497.4,742.7 496.3,742.4 Q495.2,742.1 493.7,743.0 Q492.3,744.0 491.5,745.8 Q490.6,747.6 490.6,747.6"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:44.471Z",
+      "status": "Let's write!",
+      "paths": [],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:46.497Z",
+      "status": "Let's write!",
+      "paths": [
+        "M519.6,477.2 Q519.6,477.2 511.7,504.2 Q503.7,531.2 501.7,539.7 Q499.7,548.2 497.4,556.4 Q495.2,564.5 492.9,572.1 Q490.6,579.7 487.5,588.2 Q484.4,596.7 480.1,607.3 Q475.8,617.9 472.1,628.8 Q468.5,639.7 464.2,648.8 Q459.9,657.9 455.7,666.1 Q451.4,674.2 447.7,680.9 Q444.0,687.6 440.9,693.3 Q437.8,699.1 434.6,703.6 Q431.5,708.2 428.1,711.8 Q424.7,715.5 421.3,717.3 Q417.9,719.1 415.0,720.0 Q412.2,720.9 409.3,720.9 Q406.5,720.9 403.6,719.4 Q400.8,717.9 398.0,715.2 Q395.1,712.4 392.6,708.5 Q390.0,704.6 388.0,700.3 Q386.0,696.1 384.0,690.0 Q382.0,683.9 380.3,677.6 Q378.6,671.2 377.2,664.2 Q375.8,657.3 374.4,650.0 Q373.0,642.7 371.8,635.5 Q370.7,628.2 369.3,620.3 Q367.8,612.4 367.8,612.4"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:47.505Z",
+      "status": "Let's write!",
+      "paths": [
+        "M519.6,477.2 Q519.6,477.2 511.7,504.2 Q503.7,531.2 501.7,539.7 Q499.7,548.2 497.4,556.4 Q495.2,564.5 492.9,572.1 Q490.6,579.7 487.5,588.2 Q484.4,596.7 480.1,607.3 Q475.8,617.9 472.1,628.8 Q468.5,639.7 464.2,648.8 Q459.9,657.9 455.7,666.1 Q451.4,674.2 447.7,680.9 Q444.0,687.6 440.9,693.3 Q437.8,699.1 434.6,703.6 Q431.5,708.2 428.1,711.8 Q424.7,715.5 421.3,717.3 Q417.9,719.1 415.0,720.0 Q412.2,720.9 409.3,720.9 Q406.5,720.9 403.6,719.4 Q400.8,717.9 398.0,715.2 Q395.1,712.4 392.6,708.5 Q390.0,704.6 388.0,700.3 Q386.0,696.1 384.0,690.0 Q382.0,683.9 380.3,677.6 Q378.6,671.2 377.2,664.2 Q375.8,657.3 374.4,650.0 Q373.0,642.7 371.8,635.5 Q370.7,628.2 369.3,620.3 Q367.8,612.4 366.7,606.4 Q365.6,600.3 364.4,593.9 Q363.3,587.6 362.7,580.6 Q362.2,573.6 361.3,566.4 Q360.4,559.1 359.9,550.3 Q359.3,541.5 358.7,532.4 Q358.2,523.3 357.6,513.3 Q357.0,503.3 356.8,493.9 Q356.5,484.5 355.9,475.7 Q355.3,466.9 355.0,459.1 Q354.8,451.2 354.5,442.4 Q354.2,433.6 354.5,425.1 Q354.8,416.6 354.8,408.8 Q354.8,400.9 354.8,393.3 Q354.8,385.7 355.3,378.8 Q355.9,371.8 356.2,364.5 Q356.5,357.2 357.3,350.9 Q358.2,344.5 359.0,337.2 Q359.9,330.0 361.0,323.3 Q362.2,316.6 363.3,310.0 Q364.4,303.3 365.8,297.5 Q367.3,291.8 368.7,286.3 Q370.1,280.9 371.2,276.6 Q372.4,272.4 373.8,268.4 Q375.2,264.5 376.6,260.9 Q378.1,257.2 379.2,253.3 Q380.3,249.3 382.0,246.0 Q383.8,242.7 386.0,238.4 Q388.3,234.2 390.9,229.9 Q393.4,225.7 396.0,221.8 Q398.5,217.8 401.1,214.2 Q403.6,210.5 406.8,206.6 Q409.9,202.7 413.3,198.7 Q416.7,194.8 420.1,191.5 Q423.5,188.1 426.7,185.1 Q429.8,182.1 433.2,179.0 Q436.6,176.0 440.0,173.3 Q443.4,170.5 446.8,168.7 Q450.3,166.9 453.4,164.8 Q456.5,162.7 460.2,160.8 Q463.9,159.0 467.6,157.5 Q471.3,156.0 475.3,154.8 Q479.3,153.6 483.8,152.1 Q488.3,150.5 492.9,148.7 Q497.4,146.9 501.4,146.0 Q505.4,145.1 509.4,145.1 Q513.4,145.1 516.8,145.4 Q520.2,145.7 524.2,147.5 Q528.1,149.3 532.1,151.4 Q536.1,153.6 540.1,156.0 Q544.1,158.4 548.6,160.5 Q553.1,162.7 558.0,165.4 Q562.8,168.1 567.9,172.4 Q573.0,176.6 578.2,181.1 Q583.3,185.7 587.5,190.2 Q591.8,194.8 596.1,200.5 Q600.3,206.3 603.7,211.8 Q607.2,217.2 610.3,222.7 Q613.4,228.1 616.5,233.0 Q619.7,237.8 623.1,242.4 Q626.5,246.9 629.3,252.7 Q632.2,258.4 635.0,265.7 Q637.8,273.0 640.4,280.3 Q643.0,287.5 645.5,295.4 Q648.1,303.3 650.6,312.4 Q653.2,321.5 655.8,330.6 Q658.3,339.7 660.3,351.2 Q662.3,362.7 664.0,373.6 Q665.7,384.5 666.6,393.6 Q667.4,402.7 668.0,410.0 Q668.5,417.2 668.5,424.5 Q668.5,431.8 668.0,437.5 Q667.4,443.3 666.8,449.4 Q666.3,455.4 665.4,461.2 Q664.6,466.9 663.4,473.0 Q662.3,479.1 661.4,484.8 Q660.6,490.6 659.2,496.9 Q657.7,503.3 656.0,508.2 Q654.3,513.0 652.6,517.6 Q650.9,522.1 649.2,527.3 Q647.5,532.4 645.2,537.3 Q643.0,542.1 640.4,546.3 Q637.8,550.6 635.0,553.9 Q632.2,557.3 629.3,560.6 Q626.5,563.9 623.4,566.4 Q620.2,568.8 617.4,571.2 Q614.5,573.6 611.1,575.1 Q607.7,576.7 604.9,577.9 Q602.0,579.1 598.9,579.7 Q595.8,580.3 592.7,580.9 Q589.5,581.5 586.4,581.8 Q583.3,582.1 580.2,581.2 Q577.0,580.3 573.3,578.8 Q569.6,577.3 565.7,575.4 Q561.7,573.6 557.7,571.2 Q553.7,568.8 550.0,565.7 Q546.3,562.7 542.3,557.0 Q538.4,551.2 535.2,544.8 Q532.1,538.5 529.6,531.8 Q527.0,525.1 525.0,520.0 Q523.0,514.8 521.0,509.7 Q519.0,504.5 517.6,500.3 Q516.2,496.0 515.1,492.4 Q513.9,488.8 513.6,486.0 Q513.4,483.3 513.4,481.8 Q513.4,480.3 514.8,479.7 Q516.2,479.1 516.2,479.1"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:48.517Z",
+      "status": "Let's write!",
+      "paths": [
+        "M519.6,477.2 Q519.6,477.2 511.7,504.2 Q503.7,531.2 501.7,539.7 Q499.7,548.2 497.4,556.4 Q495.2,564.5 492.9,572.1 Q490.6,579.7 487.5,588.2 Q484.4,596.7 480.1,607.3 Q475.8,617.9 472.1,628.8 Q468.5,639.7 464.2,648.8 Q459.9,657.9 455.7,666.1 Q451.4,674.2 447.7,680.9 Q444.0,687.6 440.9,693.3 Q437.8,699.1 434.6,703.6 Q431.5,708.2 428.1,711.8 Q424.7,715.5 421.3,717.3 Q417.9,719.1 415.0,720.0 Q412.2,720.9 409.3,720.9 Q406.5,720.9 403.6,719.4 Q400.8,717.9 398.0,715.2 Q395.1,712.4 392.6,708.5 Q390.0,704.6 388.0,700.3 Q386.0,696.1 384.0,690.0 Q382.0,683.9 380.3,677.6 Q378.6,671.2 377.2,664.2 Q375.8,657.3 374.4,650.0 Q373.0,642.7 371.8,635.5 Q370.7,628.2 369.3,620.3 Q367.8,612.4 366.7,606.4 Q365.6,600.3 364.4,593.9 Q363.3,587.6 362.7,580.6 Q362.2,573.6 361.3,566.4 Q360.4,559.1 359.9,550.3 Q359.3,541.5 358.7,532.4 Q358.2,523.3 357.6,513.3 Q357.0,503.3 356.8,493.9 Q356.5,484.5 355.9,475.7 Q355.3,466.9 355.0,459.1 Q354.8,451.2 354.5,442.4 Q354.2,433.6 354.5,425.1 Q354.8,416.6 354.8,408.8 Q354.8,400.9 354.8,393.3 Q354.8,385.7 355.3,378.8 Q355.9,371.8 356.2,364.5 Q356.5,357.2 357.3,350.9 Q358.2,344.5 359.0,337.2 Q359.9,330.0 361.0,323.3 Q362.2,316.6 363.3,310.0 Q364.4,303.3 365.8,297.5 Q367.3,291.8 368.7,286.3 Q370.1,280.9 371.2,276.6 Q372.4,272.4 373.8,268.4 Q375.2,264.5 376.6,260.9 Q378.1,257.2 379.2,253.3 Q380.3,249.3 382.0,246.0 Q383.8,242.7 386.0,238.4 Q388.3,234.2 390.9,229.9 Q393.4,225.7 396.0,221.8 Q398.5,217.8 401.1,214.2 Q403.6,210.5 406.8,206.6 Q409.9,202.7 413.3,198.7 Q416.7,194.8 420.1,191.5 Q423.5,188.1 426.7,185.1 Q429.8,182.1 433.2,179.0 Q436.6,176.0 440.0,173.3 Q443.4,170.5 446.8,168.7 Q450.3,166.9 453.4,164.8 Q456.5,162.7 460.2,160.8 Q463.9,159.0 467.6,157.5 Q471.3,156.0 475.3,154.8 Q479.3,153.6 483.8,152.1 Q488.3,150.5 492.9,148.7 Q497.4,146.9 501.4,146.0 Q505.4,145.1 509.4,145.1 Q513.4,145.1 516.8,145.4 Q520.2,145.7 524.2,147.5 Q528.1,149.3 532.1,151.4 Q536.1,153.6 540.1,156.0 Q544.1,158.4 548.6,160.5 Q553.1,162.7 558.0,165.4 Q562.8,168.1 567.9,172.4 Q573.0,176.6 578.2,181.1 Q583.3,185.7 587.5,190.2 Q591.8,194.8 596.1,200.5 Q600.3,206.3 603.7,211.8 Q607.2,217.2 610.3,222.7 Q613.4,228.1 616.5,233.0 Q619.7,237.8 623.1,242.4 Q626.5,246.9 629.3,252.7 Q632.2,258.4 635.0,265.7 Q637.8,273.0 640.4,280.3 Q643.0,287.5 645.5,295.4 Q648.1,303.3 650.6,312.4 Q653.2,321.5 655.8,330.6 Q658.3,339.7 660.3,351.2 Q662.3,362.7 664.0,373.6 Q665.7,384.5 666.6,393.6 Q667.4,402.7 668.0,410.0 Q668.5,417.2 668.5,424.5 Q668.5,431.8 668.0,437.5 Q667.4,443.3 666.8,449.4 Q666.3,455.4 665.4,461.2 Q664.6,466.9 663.4,473.0 Q662.3,479.1 661.4,484.8 Q660.6,490.6 659.2,496.9 Q657.7,503.3 656.0,508.2 Q654.3,513.0 652.6,517.6 Q650.9,522.1 649.2,527.3 Q647.5,532.4 645.2,537.3 Q643.0,542.1 640.4,546.3 Q637.8,550.6 635.0,553.9 Q632.2,557.3 629.3,560.6 Q626.5,563.9 623.4,566.4 Q620.2,568.8 617.4,571.2 Q614.5,573.6 611.1,575.1 Q607.7,576.7 604.9,577.9 Q602.0,579.1 598.9,579.7 Q595.8,580.3 592.7,580.9 Q589.5,581.5 586.4,581.8 Q583.3,582.1 580.2,581.2 Q577.0,580.3 573.3,578.8 Q569.6,577.3 565.7,575.4 Q561.7,573.6 557.7,571.2 Q553.7,568.8 550.0,565.7 Q546.3,562.7 542.3,557.0 Q538.4,551.2 535.2,544.8 Q532.1,538.5 529.6,531.8 Q527.0,525.1 525.0,520.0 Q523.0,514.8 521.0,509.7 Q519.0,504.5 517.6,500.3 Q516.2,496.0 515.1,492.4 Q513.9,488.8 513.6,486.0 Q513.4,483.3 513.4,481.8 Q513.4,480.3 514.8,479.7 Q516.2,479.1 516.2,479.1",
+        "M500.3,742.7 Q500.3,742.7 503.7,769.4 Q507.1,796.1 508.5,800.6 Q509.9,805.2 511.1,808.2 Q512.2,811.2 513.1,813.4 Q513.9,815.5 515.1,817.6 Q516.2,819.7 517.6,820.3 Q519.0,820.9 520.5,820.9 Q521.9,820.9 523.3,820.3 Q524.7,819.7 526.4,817.3 Q528.1,814.9 530.1,810.6 Q532.1,806.4 534.1,800.3 Q536.1,794.3 537.5,787.0 Q538.9,779.7 539.8,771.8 Q540.6,764.0 541.2,756.1 Q541.8,748.2 541.5,741.8 Q541.2,735.5 540.1,729.1 Q538.9,722.7 537.2,717.3 Q535.5,711.8 533.5,706.4 Q531.5,700.9 529.0,697.3 Q526.4,693.6 523.9,691.8 Q521.3,690.0 518.8,688.2 Q516.2,686.4 513.9,685.2 Q511.7,683.9 509.9,683.6 Q508.2,683.3 506.8,683.9 Q505.4,684.6 504.3,686.1 Q503.1,687.6 502.3,690.0 Q501.4,692.4 500.6,694.9 Q499.7,697.3 499.4,699.7 Q499.1,702.1 498.6,704.6 Q498.0,707.0 497.7,708.8 Q497.4,710.6 497.4,713.0 Q497.4,715.5 497.4,717.0 Q497.4,718.5 497.4,720.0 Q497.4,721.5 497.4,723.3 Q497.4,725.2 497.7,727.3 Q498.0,729.4 498.3,730.9 Q498.6,732.4 499.7,737.0 Q500.9,741.5 501.1,743.0 Q501.4,744.6 502.3,745.8 Q503.1,747.0 505.7,748.8 Q508.2,750.6 508.2,750.6"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:49.524Z",
+      "label": "BO/BU",
+      "confidence": "99.1%",
+      "paths": [
+        "M519.6,477.2 Q519.6,477.2 511.7,504.2 Q503.7,531.2 501.7,539.7 Q499.7,548.2 497.4,556.4 Q495.2,564.5 492.9,572.1 Q490.6,579.7 487.5,588.2 Q484.4,596.7 480.1,607.3 Q475.8,617.9 472.1,628.8 Q468.5,639.7 464.2,648.8 Q459.9,657.9 455.7,666.1 Q451.4,674.2 447.7,680.9 Q444.0,687.6 440.9,693.3 Q437.8,699.1 434.6,703.6 Q431.5,708.2 428.1,711.8 Q424.7,715.5 421.3,717.3 Q417.9,719.1 415.0,720.0 Q412.2,720.9 409.3,720.9 Q406.5,720.9 403.6,719.4 Q400.8,717.9 398.0,715.2 Q395.1,712.4 392.6,708.5 Q390.0,704.6 388.0,700.3 Q386.0,696.1 384.0,690.0 Q382.0,683.9 380.3,677.6 Q378.6,671.2 377.2,664.2 Q375.8,657.3 374.4,650.0 Q373.0,642.7 371.8,635.5 Q370.7,628.2 369.3,620.3 Q367.8,612.4 366.7,606.4 Q365.6,600.3 364.4,593.9 Q363.3,587.6 362.7,580.6 Q362.2,573.6 361.3,566.4 Q360.4,559.1 359.9,550.3 Q359.3,541.5 358.7,532.4 Q358.2,523.3 357.6,513.3 Q357.0,503.3 356.8,493.9 Q356.5,484.5 355.9,475.7 Q355.3,466.9 355.0,459.1 Q354.8,451.2 354.5,442.4 Q354.2,433.6 354.5,425.1 Q354.8,416.6 354.8,408.8 Q354.8,400.9 354.8,393.3 Q354.8,385.7 355.3,378.8 Q355.9,371.8 356.2,364.5 Q356.5,357.2 357.3,350.9 Q358.2,344.5 359.0,337.2 Q359.9,330.0 361.0,323.3 Q362.2,316.6 363.3,310.0 Q364.4,303.3 365.8,297.5 Q367.3,291.8 368.7,286.3 Q370.1,280.9 371.2,276.6 Q372.4,272.4 373.8,268.4 Q375.2,264.5 376.6,260.9 Q378.1,257.2 379.2,253.3 Q380.3,249.3 382.0,246.0 Q383.8,242.7 386.0,238.4 Q388.3,234.2 390.9,229.9 Q393.4,225.7 396.0,221.8 Q398.5,217.8 401.1,214.2 Q403.6,210.5 406.8,206.6 Q409.9,202.7 413.3,198.7 Q416.7,194.8 420.1,191.5 Q423.5,188.1 426.7,185.1 Q429.8,182.1 433.2,179.0 Q436.6,176.0 440.0,173.3 Q443.4,170.5 446.8,168.7 Q450.3,166.9 453.4,164.8 Q456.5,162.7 460.2,160.8 Q463.9,159.0 467.6,157.5 Q471.3,156.0 475.3,154.8 Q479.3,153.6 483.8,152.1 Q488.3,150.5 492.9,148.7 Q497.4,146.9 501.4,146.0 Q505.4,145.1 509.4,145.1 Q513.4,145.1 516.8,145.4 Q520.2,145.7 524.2,147.5 Q528.1,149.3 532.1,151.4 Q536.1,153.6 540.1,156.0 Q544.1,158.4 548.6,160.5 Q553.1,162.7 558.0,165.4 Q562.8,168.1 567.9,172.4 Q573.0,176.6 578.2,181.1 Q583.3,185.7 587.5,190.2 Q591.8,194.8 596.1,200.5 Q600.3,206.3 603.7,211.8 Q607.2,217.2 610.3,222.7 Q613.4,228.1 616.5,233.0 Q619.7,237.8 623.1,242.4 Q626.5,246.9 629.3,252.7 Q632.2,258.4 635.0,265.7 Q637.8,273.0 640.4,280.3 Q643.0,287.5 645.5,295.4 Q648.1,303.3 650.6,312.4 Q653.2,321.5 655.8,330.6 Q658.3,339.7 660.3,351.2 Q662.3,362.7 664.0,373.6 Q665.7,384.5 666.6,393.6 Q667.4,402.7 668.0,410.0 Q668.5,417.2 668.5,424.5 Q668.5,431.8 668.0,437.5 Q667.4,443.3 666.8,449.4 Q666.3,455.4 665.4,461.2 Q664.6,466.9 663.4,473.0 Q662.3,479.1 661.4,484.8 Q660.6,490.6 659.2,496.9 Q657.7,503.3 656.0,508.2 Q654.3,513.0 652.6,517.6 Q650.9,522.1 649.2,527.3 Q647.5,532.4 645.2,537.3 Q643.0,542.1 640.4,546.3 Q637.8,550.6 635.0,553.9 Q632.2,557.3 629.3,560.6 Q626.5,563.9 623.4,566.4 Q620.2,568.8 617.4,571.2 Q614.5,573.6 611.1,575.1 Q607.7,576.7 604.9,577.9 Q602.0,579.1 598.9,579.7 Q595.8,580.3 592.7,580.9 Q589.5,581.5 586.4,581.8 Q583.3,582.1 580.2,581.2 Q577.0,580.3 573.3,578.8 Q569.6,577.3 565.7,575.4 Q561.7,573.6 557.7,571.2 Q553.7,568.8 550.0,565.7 Q546.3,562.7 542.3,557.0 Q538.4,551.2 535.2,544.8 Q532.1,538.5 529.6,531.8 Q527.0,525.1 525.0,520.0 Q523.0,514.8 521.0,509.7 Q519.0,504.5 517.6,500.3 Q516.2,496.0 515.1,492.4 Q513.9,488.8 513.6,486.0 Q513.4,483.3 513.4,481.8 Q513.4,480.3 514.8,479.7 Q516.2,479.1 516.2,479.1",
+        "M500.3,742.7 Q500.3,742.7 503.7,769.4 Q507.1,796.1 508.5,800.6 Q509.9,805.2 511.1,808.2 Q512.2,811.2 513.1,813.4 Q513.9,815.5 515.1,817.6 Q516.2,819.7 517.6,820.3 Q519.0,820.9 520.5,820.9 Q521.9,820.9 523.3,820.3 Q524.7,819.7 526.4,817.3 Q528.1,814.9 530.1,810.6 Q532.1,806.4 534.1,800.3 Q536.1,794.3 537.5,787.0 Q538.9,779.7 539.8,771.8 Q540.6,764.0 541.2,756.1 Q541.8,748.2 541.5,741.8 Q541.2,735.5 540.1,729.1 Q538.9,722.7 537.2,717.3 Q535.5,711.8 533.5,706.4 Q531.5,700.9 529.0,697.3 Q526.4,693.6 523.9,691.8 Q521.3,690.0 518.8,688.2 Q516.2,686.4 513.9,685.2 Q511.7,683.9 509.9,683.6 Q508.2,683.3 506.8,683.9 Q505.4,684.6 504.3,686.1 Q503.1,687.6 502.3,690.0 Q501.4,692.4 500.6,694.9 Q499.7,697.3 499.4,699.7 Q499.1,702.1 498.6,704.6 Q498.0,707.0 497.7,708.8 Q497.4,710.6 497.4,713.0 Q497.4,715.5 497.4,717.0 Q497.4,718.5 497.4,720.0 Q497.4,721.5 497.4,723.3 Q497.4,725.2 497.7,727.3 Q498.0,729.4 498.3,730.9 Q498.6,732.4 499.7,737.0 Q500.9,741.5 501.1,743.0 Q501.4,744.6 502.3,745.8 Q503.1,747.0 505.7,748.8 Q508.2,750.6 508.2,750.6"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:16:51.564Z",
+      "status": "Let's write!",
+      "paths": [],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:19:55.340Z",
+      "status": "Let's write!",
+      "paths": [
+        "M503.1,435.4 Q503.1,435.4 500.6,464.5 Q498.0,493.6 494.3,511.8 Q490.6,530.0 488.3,537.6 Q486.1,545.1 483.8,552.1 Q481.5,559.1 475.6,569.1 Q469.6,579.1 466.7,583.3 Q463.9,587.6 460.8,591.2 Q457.7,594.8 453.7,598.8 Q449.7,602.7 445.1,606.1 Q440.6,609.4 436.3,611.8 Q432.1,614.2 428.1,614.8 Q424.1,615.4 419.8,616.4 Q415.6,617.3 411.0,617.0 Q406.5,616.7 402.2,615.8 Q398.0,614.8 394.3,613.0 Q390.6,611.2 387.4,608.2 Q384.3,605.1 381.8,601.5 Q379.2,597.9 376.9,594.5 Q374.7,591.2 374.7,591.2"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:19:56.349Z",
+      "status": "Let's write!",
+      "paths": [
+        "M503.1,435.4 Q503.1,435.4 500.6,464.5 Q498.0,493.6 494.3,511.8 Q490.6,530.0 488.3,537.6 Q486.1,545.1 483.8,552.1 Q481.5,559.1 475.6,569.1 Q469.6,579.1 466.7,583.3 Q463.9,587.6 460.8,591.2 Q457.7,594.8 453.7,598.8 Q449.7,602.7 445.1,606.1 Q440.6,609.4 436.3,611.8 Q432.1,614.2 428.1,614.8 Q424.1,615.4 419.8,616.4 Q415.6,617.3 411.0,617.0 Q406.5,616.7 402.2,615.8 Q398.0,614.8 394.3,613.0 Q390.6,611.2 387.4,608.2 Q384.3,605.1 381.8,601.5 Q379.2,597.9 376.9,594.5 Q374.7,591.2 373.0,587.0 Q371.2,582.7 369.8,577.0 Q368.4,571.2 367.3,565.1 Q366.1,559.1 365.6,551.8 Q365.0,544.5 364.7,537.3 Q364.4,530.0 363.9,521.8 Q363.3,513.6 363.0,505.4 Q362.7,497.3 362.7,489.1 Q362.7,480.9 363.0,473.3 Q363.3,465.7 363.9,457.2 Q364.4,448.8 365.3,440.3 Q366.1,431.8 367.3,423.3 Q368.4,414.8 370.4,405.7 Q372.4,396.6 374.4,387.5 Q376.4,378.4 378.4,366.0 Q380.3,353.6 382.6,342.1 Q384.9,330.6 386.6,321.5 Q388.3,312.4 390.3,304.2 Q392.3,296.0 394.3,288.4 Q396.3,280.9 398.0,273.3 Q399.7,265.7 401.7,258.7 Q403.6,251.8 405.6,246.0 Q407.6,240.2 409.6,234.5 Q411.6,228.7 413.3,223.0 Q415.0,217.2 417.0,211.5 Q419.0,205.7 421.3,199.6 Q423.5,193.6 425.8,188.4 Q428.1,183.3 430.6,178.4 Q433.2,173.6 435.8,168.7 Q438.3,163.9 440.9,159.6 Q443.4,155.4 446.0,151.8 Q448.6,148.1 451.4,145.4 Q454.2,142.7 457.1,140.8 Q459.9,139.0 463.1,138.4 Q466.2,137.8 469.3,136.6 Q472.4,135.4 475.8,134.5 Q479.3,133.6 482.9,132.1 Q486.6,130.5 491.2,129.0 Q495.7,127.5 503.7,126.3 Q511.7,125.1 515.9,125.1 Q520.2,125.1 524.2,125.7 Q528.1,126.3 532.1,126.3 Q536.1,126.3 540.4,126.9 Q544.6,127.5 549.7,129.0 Q554.9,130.5 559.4,132.1 Q563.9,133.6 569.1,136.0 Q574.2,138.4 578.4,140.2 Q582.7,142.1 586.4,145.1 Q590.1,148.1 593.5,152.4 Q596.9,156.6 600.0,161.8 Q603.2,166.9 606.3,172.7 Q609.4,178.4 612.6,184.2 Q615.7,189.9 618.5,195.1 Q621.4,200.2 624.2,206.0 Q627.0,211.8 629.9,219.0 Q632.7,226.3 635.0,233.6 Q637.3,240.9 639.8,248.7 Q642.4,256.6 644.1,264.2 Q645.8,271.8 646.9,278.1 Q648.1,284.5 649.2,291.8 Q650.4,299.0 650.6,306.3 Q650.9,313.6 650.9,322.1 Q650.9,330.6 650.9,338.1 Q650.9,345.7 650.6,353.6 Q650.4,361.5 649.5,368.8 Q648.6,376.0 647.8,383.0 Q646.9,390.0 646.1,397.2 Q645.2,404.5 644.1,411.2 Q643.0,417.8 641.8,424.5 Q640.7,431.2 639.0,437.5 Q637.3,443.9 635.3,450.3 Q633.3,456.6 631.9,462.7 Q630.5,468.8 628.8,474.5 Q627.0,480.3 625.1,486.3 Q623.1,492.4 621.1,498.5 Q619.1,504.5 617.1,510.3 Q615.1,516.0 612.8,520.6 Q610.6,525.1 608.6,529.4 Q606.6,533.6 604.0,537.3 Q601.5,540.9 599.2,544.2 Q596.9,547.6 594.1,550.0 Q591.2,552.4 589.0,553.0 Q586.7,553.6 584.4,553.6 Q582.1,553.6 579.3,552.4 Q576.5,551.2 573.0,549.1 Q569.6,547.0 566.5,544.5 Q563.4,542.1 559.7,539.1 Q556.0,536.0 552.0,531.8 Q548.0,527.6 544.1,523.0 Q540.1,518.5 536.4,513.0 Q532.7,507.6 529.8,502.7 Q527.0,497.9 525.0,493.6 Q523.0,489.4 521.6,486.9 Q520.2,484.5 519.3,483.0 Q518.5,481.5 518.2,479.4 Q517.9,477.2 517.9,474.8 Q517.9,472.4 517.9,472.4"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:19:57.364Z",
+      "status": "Let's write!",
+      "paths": [
+        "M503.1,435.4 Q503.1,435.4 500.6,464.5 Q498.0,493.6 494.3,511.8 Q490.6,530.0 488.3,537.6 Q486.1,545.1 483.8,552.1 Q481.5,559.1 475.6,569.1 Q469.6,579.1 466.7,583.3 Q463.9,587.6 460.8,591.2 Q457.7,594.8 453.7,598.8 Q449.7,602.7 445.1,606.1 Q440.6,609.4 436.3,611.8 Q432.1,614.2 428.1,614.8 Q424.1,615.4 419.8,616.4 Q415.6,617.3 411.0,617.0 Q406.5,616.7 402.2,615.8 Q398.0,614.8 394.3,613.0 Q390.6,611.2 387.4,608.2 Q384.3,605.1 381.8,601.5 Q379.2,597.9 376.9,594.5 Q374.7,591.2 373.0,587.0 Q371.2,582.7 369.8,577.0 Q368.4,571.2 367.3,565.1 Q366.1,559.1 365.6,551.8 Q365.0,544.5 364.7,537.3 Q364.4,530.0 363.9,521.8 Q363.3,513.6 363.0,505.4 Q362.7,497.3 362.7,489.1 Q362.7,480.9 363.0,473.3 Q363.3,465.7 363.9,457.2 Q364.4,448.8 365.3,440.3 Q366.1,431.8 367.3,423.3 Q368.4,414.8 370.4,405.7 Q372.4,396.6 374.4,387.5 Q376.4,378.4 378.4,366.0 Q380.3,353.6 382.6,342.1 Q384.9,330.6 386.6,321.5 Q388.3,312.4 390.3,304.2 Q392.3,296.0 394.3,288.4 Q396.3,280.9 398.0,273.3 Q399.7,265.7 401.7,258.7 Q403.6,251.8 405.6,246.0 Q407.6,240.2 409.6,234.5 Q411.6,228.7 413.3,223.0 Q415.0,217.2 417.0,211.5 Q419.0,205.7 421.3,199.6 Q423.5,193.6 425.8,188.4 Q428.1,183.3 430.6,178.4 Q433.2,173.6 435.8,168.7 Q438.3,163.9 440.9,159.6 Q443.4,155.4 446.0,151.8 Q448.6,148.1 451.4,145.4 Q454.2,142.7 457.1,140.8 Q459.9,139.0 463.1,138.4 Q466.2,137.8 469.3,136.6 Q472.4,135.4 475.8,134.5 Q479.3,133.6 482.9,132.1 Q486.6,130.5 491.2,129.0 Q495.7,127.5 503.7,126.3 Q511.7,125.1 515.9,125.1 Q520.2,125.1 524.2,125.7 Q528.1,126.3 532.1,126.3 Q536.1,126.3 540.4,126.9 Q544.6,127.5 549.7,129.0 Q554.9,130.5 559.4,132.1 Q563.9,133.6 569.1,136.0 Q574.2,138.4 578.4,140.2 Q582.7,142.1 586.4,145.1 Q590.1,148.1 593.5,152.4 Q596.9,156.6 600.0,161.8 Q603.2,166.9 606.3,172.7 Q609.4,178.4 612.6,184.2 Q615.7,189.9 618.5,195.1 Q621.4,200.2 624.2,206.0 Q627.0,211.8 629.9,219.0 Q632.7,226.3 635.0,233.6 Q637.3,240.9 639.8,248.7 Q642.4,256.6 644.1,264.2 Q645.8,271.8 646.9,278.1 Q648.1,284.5 649.2,291.8 Q650.4,299.0 650.6,306.3 Q650.9,313.6 650.9,322.1 Q650.9,330.6 650.9,338.1 Q650.9,345.7 650.6,353.6 Q650.4,361.5 649.5,368.8 Q648.6,376.0 647.8,383.0 Q646.9,390.0 646.1,397.2 Q645.2,404.5 644.1,411.2 Q643.0,417.8 641.8,424.5 Q640.7,431.2 639.0,437.5 Q637.3,443.9 635.3,450.3 Q633.3,456.6 631.9,462.7 Q630.5,468.8 628.8,474.5 Q627.0,480.3 625.1,486.3 Q623.1,492.4 621.1,498.5 Q619.1,504.5 617.1,510.3 Q615.1,516.0 612.8,520.6 Q610.6,525.1 608.6,529.4 Q606.6,533.6 604.0,537.3 Q601.5,540.9 599.2,544.2 Q596.9,547.6 594.1,550.0 Q591.2,552.4 589.0,553.0 Q586.7,553.6 584.4,553.6 Q582.1,553.6 579.3,552.4 Q576.5,551.2 573.0,549.1 Q569.6,547.0 566.5,544.5 Q563.4,542.1 559.7,539.1 Q556.0,536.0 552.0,531.8 Q548.0,527.6 544.1,523.0 Q540.1,518.5 536.4,513.0 Q532.7,507.6 529.8,502.7 Q527.0,497.9 525.0,493.6 Q523.0,489.4 521.6,486.9 Q520.2,484.5 519.3,483.0 Q518.5,481.5 518.2,479.4 Q517.9,477.2 517.9,474.8 Q517.9,472.4 517.9,472.4",
+        "M506.5,670.0 Q506.5,670.0 513.9,697.3 Q521.3,724.6 524.7,736.1 Q528.1,747.6 529.3,750.6 Q530.4,753.7 531.3,755.5 Q532.1,757.3 533.0,758.5 Q533.8,759.7 534.7,760.6 Q535.5,761.5 537.5,762.1 Q539.5,762.7 539.5,762.7",
+        "M567.9,664.5 Q567.9,664.5 553.7,692.7 Q539.5,720.9 536.1,726.1 Q532.7,731.2 529.6,736.7 Q526.4,742.1 523.9,747.6 Q521.3,753.0 518.8,758.5 Q516.2,764.0 514.5,768.5 Q512.8,773.0 511.1,777.9 Q509.4,782.7 507.7,787.3 Q506.0,791.8 504.8,794.6 Q503.7,797.3 503.7,797.3"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    },
+    {
+      "time": "2026-11-15T04:19:58.387Z",
+      "label": "B",
+      "confidence": "99.7%",
+      "paths": [
+        "M503.1,435.4 Q503.1,435.4 500.6,464.5 Q498.0,493.6 494.3,511.8 Q490.6,530.0 488.3,537.6 Q486.1,545.1 483.8,552.1 Q481.5,559.1 475.6,569.1 Q469.6,579.1 466.7,583.3 Q463.9,587.6 460.8,591.2 Q457.7,594.8 453.7,598.8 Q449.7,602.7 445.1,606.1 Q440.6,609.4 436.3,611.8 Q432.1,614.2 428.1,614.8 Q424.1,615.4 419.8,616.4 Q415.6,617.3 411.0,617.0 Q406.5,616.7 402.2,615.8 Q398.0,614.8 394.3,613.0 Q390.6,611.2 387.4,608.2 Q384.3,605.1 381.8,601.5 Q379.2,597.9 376.9,594.5 Q374.7,591.2 373.0,587.0 Q371.2,582.7 369.8,577.0 Q368.4,571.2 367.3,565.1 Q366.1,559.1 365.6,551.8 Q365.0,544.5 364.7,537.3 Q364.4,530.0 363.9,521.8 Q363.3,513.6 363.0,505.4 Q362.7,497.3 362.7,489.1 Q362.7,480.9 363.0,473.3 Q363.3,465.7 363.9,457.2 Q364.4,448.8 365.3,440.3 Q366.1,431.8 367.3,423.3 Q368.4,414.8 370.4,405.7 Q372.4,396.6 374.4,387.5 Q376.4,378.4 378.4,366.0 Q380.3,353.6 382.6,342.1 Q384.9,330.6 386.6,321.5 Q388.3,312.4 390.3,304.2 Q392.3,296.0 394.3,288.4 Q396.3,280.9 398.0,273.3 Q399.7,265.7 401.7,258.7 Q403.6,251.8 405.6,246.0 Q407.6,240.2 409.6,234.5 Q411.6,228.7 413.3,223.0 Q415.0,217.2 417.0,211.5 Q419.0,205.7 421.3,199.6 Q423.5,193.6 425.8,188.4 Q428.1,183.3 430.6,178.4 Q433.2,173.6 435.8,168.7 Q438.3,163.9 440.9,159.6 Q443.4,155.4 446.0,151.8 Q448.6,148.1 451.4,145.4 Q454.2,142.7 457.1,140.8 Q459.9,139.0 463.1,138.4 Q466.2,137.8 469.3,136.6 Q472.4,135.4 475.8,134.5 Q479.3,133.6 482.9,132.1 Q486.6,130.5 491.2,129.0 Q495.7,127.5 503.7,126.3 Q511.7,125.1 515.9,125.1 Q520.2,125.1 524.2,125.7 Q528.1,126.3 532.1,126.3 Q536.1,126.3 540.4,126.9 Q544.6,127.5 549.7,129.0 Q554.9,130.5 559.4,132.1 Q563.9,133.6 569.1,136.0 Q574.2,138.4 578.4,140.2 Q582.7,142.1 586.4,145.1 Q590.1,148.1 593.5,152.4 Q596.9,156.6 600.0,161.8 Q603.2,166.9 606.3,172.7 Q609.4,178.4 612.6,184.2 Q615.7,189.9 618.5,195.1 Q621.4,200.2 624.2,206.0 Q627.0,211.8 629.9,219.0 Q632.7,226.3 635.0,233.6 Q637.3,240.9 639.8,248.7 Q642.4,256.6 644.1,264.2 Q645.8,271.8 646.9,278.1 Q648.1,284.5 649.2,291.8 Q650.4,299.0 650.6,306.3 Q650.9,313.6 650.9,322.1 Q650.9,330.6 650.9,338.1 Q650.9,345.7 650.6,353.6 Q650.4,361.5 649.5,368.8 Q648.6,376.0 647.8,383.0 Q646.9,390.0 646.1,397.2 Q645.2,404.5 644.1,411.2 Q643.0,417.8 641.8,424.5 Q640.7,431.2 639.0,437.5 Q637.3,443.9 635.3,450.3 Q633.3,456.6 631.9,462.7 Q630.5,468.8 628.8,474.5 Q627.0,480.3 625.1,486.3 Q623.1,492.4 621.1,498.5 Q619.1,504.5 617.1,510.3 Q615.1,516.0 612.8,520.6 Q610.6,525.1 608.6,529.4 Q606.6,533.6 604.0,537.3 Q601.5,540.9 599.2,544.2 Q596.9,547.6 594.1,550.0 Q591.2,552.4 589.0,553.0 Q586.7,553.6 584.4,553.6 Q582.1,553.6 579.3,552.4 Q576.5,551.2 573.0,549.1 Q569.6,547.0 566.5,544.5 Q563.4,542.1 559.7,539.1 Q556.0,536.0 552.0,531.8 Q548.0,527.6 544.1,523.0 Q540.1,518.5 536.4,513.0 Q532.7,507.6 529.8,502.7 Q527.0,497.9 525.0,493.6 Q523.0,489.4 521.6,486.9 Q520.2,484.5 519.3,483.0 Q518.5,481.5 518.2,479.4 Q517.9,477.2 517.9,474.8 Q517.9,472.4 517.9,472.4",
+        "M506.5,670.0 Q506.5,670.0 513.9,697.3 Q521.3,724.6 524.7,736.1 Q528.1,747.6 529.3,750.6 Q530.4,753.7 531.3,755.5 Q532.1,757.3 533.0,758.5 Q533.8,759.7 534.7,760.6 Q535.5,761.5 537.5,762.1 Q539.5,762.7 539.5,762.7",
+        "M567.9,664.5 Q567.9,664.5 553.7,692.7 Q539.5,720.9 536.1,726.1 Q532.7,731.2 529.6,736.7 Q526.4,742.1 523.9,747.6 Q521.3,753.0 518.8,758.5 Q516.2,764.0 514.5,768.5 Q512.8,773.0 511.1,777.9 Q509.4,782.7 507.7,787.3 Q506.0,791.8 504.8,794.6 Q503.7,797.3 503.7,797.3"
+      ],
+      "viewport": {
+        "width": 747,
+        "height": 274,
+        "dpr": 3
+      },
+      "url": "/learner/activities/topic-3-2"
+    }
+  ]
+}

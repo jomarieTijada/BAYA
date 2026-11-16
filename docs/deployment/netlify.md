@@ -11,8 +11,8 @@ BAYA is architected as an offline-capable React Native Web / Expo application wi
 Key runtime components:
 - **Client Framework**: React Native Web 0.21.2, Expo SDK 57, Expo Router 57 (Single-Page Application).
 - **Client Persistence**: `expo-sqlite@~57.0.3` running `wa-sqlite` over browser **Origin Private File System (OPFS)** via `AccessHandlePoolVFS`. OPFS requires a **Secure Context** (`window.isSecureContext === true`, available on `https://` and `localhost`).
-- **Machine Learning**: `onnxruntime-web@1.30.0` executing `Baybayin_EfficientNetB0_BiLSTM_1.1.onnx` (16.38 MiB) using WebAssembly (WASM CPU) with one thread / SIMD.
-- **Service Worker / PWA**: Custom versioned Service Worker (`sw.js`) precaching the app shell, static assets, ONNX model, and WASM runtime for offline operation.
+- **Machine Learning**: `@litertjs/core@2.6.0` executing `BAYA_ResNet18_spatial.tflite` (42.847 MiB), using WebGPU fp32 with WASM fallback.
+- **Service Worker / PWA**: Custom versioned Service Worker (`sw.js`) precaching the app shell, static assets, LiteRT model, and WASM runtime for offline operation.
 - **Routing**: Client-side Single Page Application (SPA) routing where all non-file URLs rewrite to `/index.html` with HTTP 200.
 
 ---
@@ -110,12 +110,13 @@ Referrer-Policy: strict-origin-when-cross-origin
 
 ## 6. Large File Caching & MIME Types
 
-The ONNX model (`16.38 MiB`) and WASM runtime (`14.24 MB`) must be served as immutable binaries without accidental HTML SPA rewrites:
+The LiteRT model (`42.847 MiB`) and complete local runtime variants (`44.806 MiB`) must be served as immutable binaries without accidental HTML SPA rewrites:
 
 | Route | Content-Type | Cache-Control |
 |---|---|---|
-| `/models/*` | `application/octet-stream` | `public, max-age=31536000, immutable` |
-| `/ort/*.wasm` | `application/wasm` | `public, max-age=31536000, immutable` |
+| `/models/baya/resnet18-v1/*.tflite` | `application/octet-stream` | `public, max-age=31536000, immutable` |
+| `/models/baya/resnet18-v1/*.json` | `application/json` | `public, max-age=31536000, immutable` |
+| `/litert/2.6.0/*.wasm` | `application/wasm` | `public, max-age=31536000, immutable` |
 | `/_expo/static/*` | Hashed bundle MIME | `public, max-age=31536000, immutable` |
 | `/sw.js` | `application/javascript` | `no-cache, no-store, must-revalidate` |
 | `/manifest.json`| `application/manifest+json` | `public, max-age=0, must-revalidate` |
@@ -158,8 +159,8 @@ Verify that client-side routes can be directly refreshed without Netlify 404 err
 2. Draw the Baybayin character for **A** (ᜀ).
 3. Tap **Suriin**.
 4. In DevTools Network tab, verify:
-   - `/models/baya/Baybayin_EfficientNetB0_BiLSTM_1.1.onnx` returns HTTP 200 with ~16.38 MiB.
-   - `/ort/ort-wasm-simd-threaded.wasm` returns HTTP 200 with ~14.24 MB.
+   - `/models/baya/resnet18-v1/BAYA_ResNet18_spatial.tflite` returns HTTP 200 with 42.847 MiB.
+   - `/litert/2.6.0/litert_wasm_internal.wasm` returns HTTP 200 with 11,131,135 bytes.
 5. In the UI, verify:
    - Recognition result displays Top-1 candidate and confidence percentage.
    - Top-3 candidates list appears below the canvas.
@@ -177,5 +178,5 @@ Verify that client-side routes can be directly refreshed without Netlify 404 err
 4. Re-open the PWA or visit the URL.
 5. The app shell loads instantly from cache.
 6. Navigate to `/learner/activities/topic-3-1`, draw a character, and tap **Suriin**.
-7. Inference executes entirely in-browser offline using the cached WASM and ONNX model.
+7. Inference executes entirely in-browser offline using the cached WASM and LiteRT model.
 8. Local progress is saved to OPFS SQLite.

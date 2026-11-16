@@ -1,0 +1,957 @@
+{
+  "screens": [
+    {
+      "file": "en-welcome-667x375.png",
+      "language": "en",
+      "name": "welcome",
+      "width": 667,
+      "height": 375,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI",
+      "overflow": false,
+      "focus": null
+    },
+    {
+      "file": "en-bayani-permission-pending-667x375.png",
+      "language": "en",
+      "name": "bayani-permission-pending",
+      "width": 667,
+      "height": 375,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nMeet Bayani!\nPart 1 of 4\nBayani’s photograph is awaiting permission.\nBayani, Philippine Eagle Chick No. 32.\nPhoto source: Philippine Eagle Foundation\nView Bayani’s photo at the Philippine Eagle Foundation (online)\nBayani is a real Philippine eagle, hatched on December 5, 2025, at the National Bird Breeding Sanctuary in Barangay Eden, Toril, Davao City. Bayani was bred in human care, not captured from the wild.\nBayani means “hero” in Filipino!\nNext",
+      "overflow": false,
+      "focus": "Meet Bayani!"
+    },
+    {
+      "file": "en-part-1-scrolled-667x375.png",
+      "language": "en",
+      "name": "part-1-scrolled",
+      "width": 667,
+      "height": 375,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nMeet Bayani!\nPart 1 of 4\nBayani’s photograph is awaiting permission.\nBayani, Philippine Eagle Chick No. 32.\nPhoto source: Philippine Eagle Foundation\nView Bayani’s photo at the Philippine Eagle Foundation (online)\nBayani is a real Philippine eagle, hatched on December 5, 2025, at the National Bird Breeding Sanctuary in Barangay Eden, Toril, Davao City. Bayani was bred in human care, not captured from the wild.\nBayani means “hero” in Filipino!\nNext",
+      "overflow": false,
+      "focus": "Meet Bayani!"
+    },
+    {
+      "file": "en-bayani-story-667x375.png",
+      "language": "en",
+      "name": "bayani-story",
+      "width": 667,
+      "height": 375,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nA Little Eagle, A Big Hope\nPart 2 of 4\nBayani’s parents are Dakila and Sinag. The Philippine Eagle Foundation helps breed and care for eagles like Bayani. Philippine eagles are critically endangered: very few remain, and they need protection.\nBayani was introduced to the public on March 10, 2026. Adopter Nico Herth chose the name. Bayani’s birth brings hope to the people working to protect Philippine eagles.\nNext\nBack",
+      "overflow": false,
+      "focus": "A Little Eagle, A Big Hope"
+    },
+    {
+      "file": "en-part-2-scrolled-667x375.png",
+      "language": "en",
+      "name": "part-2-scrolled",
+      "width": 667,
+      "height": 375,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nA Little Eagle, A Big Hope\nPart 2 of 4\nBayani’s parents are Dakila and Sinag. The Philippine Eagle Foundation helps breed and care for eagles like Bayani. Philippine eagles are critically endangered: very few remain, and they need protection.\nBayani was introduced to the public on March 10, 2026. Adopter Nico Herth chose the name. Bayani’s birth brings hope to the people working to protect Philippine eagles.\nNext\nBack",
+      "overflow": false,
+      "focus": "A Little Eagle, A Big Hope"
+    },
+    {
+      "file": "en-name-origin-667x375.png",
+      "language": "en",
+      "name": "name-origin",
+      "width": 667,
+      "height": 375,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nFrom Bayani to BAYA\nPart 3 of 4\nInspired by Bayani, the researchers shortened the name to BAYA for this learning application. They created BAYA as a fictional learning companion. Bayani is a real eagle; BAYA is a character who helps us explore Baybayin.\nBayani’s story reminds us to care for wildlife. BAYA encourages us to appreciate Filipino culture and Baybayin.\nBAYA is an independent research project, not a Philippine Eagle Foundation application.\nNext\nBack",
+      "overflow": false,
+      "focus": "From Bayani to BAYA"
+    },
+    {
+      "file": "en-part-3-scrolled-667x375.png",
+      "language": "en",
+      "name": "part-3-scrolled",
+      "width": 667,
+      "height": 375,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nFrom Bayani to BAYA\nPart 3 of 4\nInspired by Bayani, the researchers shortened the name to BAYA for this learning application. They created BAYA as a fictional learning companion. Bayani is a real eagle; BAYA is a character who helps us explore Baybayin.\nBayani’s story reminds us to care for wildlife. BAYA encourages us to appreciate Filipino culture and Baybayin.\nBAYA is an independent research project, not a Philippine Eagle Foundation application.\nNext\nBack",
+      "overflow": false,
+      "focus": "From Bayani to BAYA"
+    },
+    {
+      "file": "en-baya-667x375.png",
+      "language": "en",
+      "name": "baya",
+      "width": 667,
+      "height": 375,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nMeet BAYA!\nPart 4 of 4\nHi! I’m BAYA, your learning companion! I’ll guide you as you discover Baybayin characters, practice writing, and explore our lessons. Let’s learn together!\nLET’S START!\nBack",
+      "overflow": false,
+      "focus": "Meet BAYA!"
+    },
+    {
+      "file": "en-part-4-scrolled-667x375.png",
+      "language": "en",
+      "name": "part-4-scrolled",
+      "width": 667,
+      "height": 375,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nMeet BAYA!\nPart 4 of 4\nHi! I’m BAYA, your learning companion! I’ll guide you as you discover Baybayin characters, practice writing, and explore our lessons. Let’s learn together!\nLET’S START!\nBack",
+      "overflow": false,
+      "focus": "Meet BAYA!"
+    },
+    {
+      "file": "en-dismissed-667x375.png",
+      "language": "en",
+      "name": "dismissed",
+      "width": 667,
+      "height": 375,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI",
+      "overflow": false,
+      "focus": "MEET BAYANI"
+    },
+    {
+      "file": "en-welcome-844x390.png",
+      "language": "en",
+      "name": "welcome",
+      "width": 844,
+      "height": 390,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI",
+      "overflow": false,
+      "focus": null
+    },
+    {
+      "file": "en-bayani-permission-pending-844x390.png",
+      "language": "en",
+      "name": "bayani-permission-pending",
+      "width": 844,
+      "height": 390,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nMeet Bayani!\nPart 1 of 4\nBayani’s photograph is awaiting permission.\nBayani, Philippine Eagle Chick No. 32.\nPhoto source: Philippine Eagle Foundation\nView Bayani’s photo at the Philippine Eagle Foundation (online)\nBayani is a real Philippine eagle, hatched on December 5, 2025, at the National Bird Breeding Sanctuary in Barangay Eden, Toril, Davao City. Bayani was bred in human care, not captured from the wild.\nBayani means “hero” in Filipino!\nNext",
+      "overflow": false,
+      "focus": "Meet Bayani!"
+    },
+    {
+      "file": "en-part-1-scrolled-844x390.png",
+      "language": "en",
+      "name": "part-1-scrolled",
+      "width": 844,
+      "height": 390,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nMeet Bayani!\nPart 1 of 4\nBayani’s photograph is awaiting permission.\nBayani, Philippine Eagle Chick No. 32.\nPhoto source: Philippine Eagle Foundation\nView Bayani’s photo at the Philippine Eagle Foundation (online)\nBayani is a real Philippine eagle, hatched on December 5, 2025, at the National Bird Breeding Sanctuary in Barangay Eden, Toril, Davao City. Bayani was bred in human care, not captured from the wild.\nBayani means “hero” in Filipino!\nNext",
+      "overflow": false,
+      "focus": "Meet Bayani!"
+    },
+    {
+      "file": "en-bayani-story-844x390.png",
+      "language": "en",
+      "name": "bayani-story",
+      "width": 844,
+      "height": 390,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nA Little Eagle, A Big Hope\nPart 2 of 4\nBayani’s parents are Dakila and Sinag. The Philippine Eagle Foundation helps breed and care for eagles like Bayani. Philippine eagles are critically endangered: very few remain, and they need protection.\nBayani was introduced to the public on March 10, 2026. Adopter Nico Herth chose the name. Bayani’s birth brings hope to the people working to protect Philippine eagles.\nNext\nBack",
+      "overflow": false,
+      "focus": "A Little Eagle, A Big Hope"
+    },
+    {
+      "file": "en-part-2-scrolled-844x390.png",
+      "language": "en",
+      "name": "part-2-scrolled",
+      "width": 844,
+      "height": 390,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nA Little Eagle, A Big Hope\nPart 2 of 4\nBayani’s parents are Dakila and Sinag. The Philippine Eagle Foundation helps breed and care for eagles like Bayani. Philippine eagles are critically endangered: very few remain, and they need protection.\nBayani was introduced to the public on March 10, 2026. Adopter Nico Herth chose the name. Bayani’s birth brings hope to the people working to protect Philippine eagles.\nNext\nBack",
+      "overflow": false,
+      "focus": "A Little Eagle, A Big Hope"
+    },
+    {
+      "file": "en-name-origin-844x390.png",
+      "language": "en",
+      "name": "name-origin",
+      "width": 844,
+      "height": 390,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nFrom Bayani to BAYA\nPart 3 of 4\nInspired by Bayani, the researchers shortened the name to BAYA for this learning application. They created BAYA as a fictional learning companion. Bayani is a real eagle; BAYA is a character who helps us explore Baybayin.\nBayani’s story reminds us to care for wildlife. BAYA encourages us to appreciate Filipino culture and Baybayin.\nBAYA is an independent research project, not a Philippine Eagle Foundation application.\nNext\nBack",
+      "overflow": false,
+      "focus": "From Bayani to BAYA"
+    },
+    {
+      "file": "en-part-3-scrolled-844x390.png",
+      "language": "en",
+      "name": "part-3-scrolled",
+      "width": 844,
+      "height": 390,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nFrom Bayani to BAYA\nPart 3 of 4\nInspired by Bayani, the researchers shortened the name to BAYA for this learning application. They created BAYA as a fictional learning companion. Bayani is a real eagle; BAYA is a character who helps us explore Baybayin.\nBayani’s story reminds us to care for wildlife. BAYA encourages us to appreciate Filipino culture and Baybayin.\nBAYA is an independent research project, not a Philippine Eagle Foundation application.\nNext\nBack",
+      "overflow": false,
+      "focus": "From Bayani to BAYA"
+    },
+    {
+      "file": "en-baya-844x390.png",
+      "language": "en",
+      "name": "baya",
+      "width": 844,
+      "height": 390,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nMeet BAYA!\nPart 4 of 4\nHi! I’m BAYA, your learning companion! I’ll guide you as you discover Baybayin characters, practice writing, and explore our lessons. Let’s learn together!\nLET’S START!\nBack",
+      "overflow": false,
+      "focus": "Meet BAYA!"
+    },
+    {
+      "file": "en-part-4-scrolled-844x390.png",
+      "language": "en",
+      "name": "part-4-scrolled",
+      "width": 844,
+      "height": 390,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nMeet BAYA!\nPart 4 of 4\nHi! I’m BAYA, your learning companion! I’ll guide you as you discover Baybayin characters, practice writing, and explore our lessons. Let’s learn together!\nLET’S START!\nBack",
+      "overflow": false,
+      "focus": "Meet BAYA!"
+    },
+    {
+      "file": "en-dismissed-844x390.png",
+      "language": "en",
+      "name": "dismissed",
+      "width": 844,
+      "height": 390,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI",
+      "overflow": false,
+      "focus": "MEET BAYANI"
+    },
+    {
+      "file": "en-welcome-915x412.png",
+      "language": "en",
+      "name": "welcome",
+      "width": 915,
+      "height": 412,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI",
+      "overflow": false,
+      "focus": null
+    },
+    {
+      "file": "en-bayani-permission-pending-915x412.png",
+      "language": "en",
+      "name": "bayani-permission-pending",
+      "width": 915,
+      "height": 412,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nMeet Bayani!\nPart 1 of 4\nBayani’s photograph is awaiting permission.\nBayani, Philippine Eagle Chick No. 32.\nPhoto source: Philippine Eagle Foundation\nView Bayani’s photo at the Philippine Eagle Foundation (online)\nBayani is a real Philippine eagle, hatched on December 5, 2025, at the National Bird Breeding Sanctuary in Barangay Eden, Toril, Davao City. Bayani was bred in human care, not captured from the wild.\nBayani means “hero” in Filipino!\nNext",
+      "overflow": false,
+      "focus": "Meet Bayani!"
+    },
+    {
+      "file": "en-part-1-scrolled-915x412.png",
+      "language": "en",
+      "name": "part-1-scrolled",
+      "width": 915,
+      "height": 412,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nMeet Bayani!\nPart 1 of 4\nBayani’s photograph is awaiting permission.\nBayani, Philippine Eagle Chick No. 32.\nPhoto source: Philippine Eagle Foundation\nView Bayani’s photo at the Philippine Eagle Foundation (online)\nBayani is a real Philippine eagle, hatched on December 5, 2025, at the National Bird Breeding Sanctuary in Barangay Eden, Toril, Davao City. Bayani was bred in human care, not captured from the wild.\nBayani means “hero” in Filipino!\nNext",
+      "overflow": false,
+      "focus": "Meet Bayani!"
+    },
+    {
+      "file": "en-bayani-story-915x412.png",
+      "language": "en",
+      "name": "bayani-story",
+      "width": 915,
+      "height": 412,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nA Little Eagle, A Big Hope\nPart 2 of 4\nBayani’s parents are Dakila and Sinag. The Philippine Eagle Foundation helps breed and care for eagles like Bayani. Philippine eagles are critically endangered: very few remain, and they need protection.\nBayani was introduced to the public on March 10, 2026. Adopter Nico Herth chose the name. Bayani’s birth brings hope to the people working to protect Philippine eagles.\nNext\nBack",
+      "overflow": false,
+      "focus": "A Little Eagle, A Big Hope"
+    },
+    {
+      "file": "en-part-2-scrolled-915x412.png",
+      "language": "en",
+      "name": "part-2-scrolled",
+      "width": 915,
+      "height": 412,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nA Little Eagle, A Big Hope\nPart 2 of 4\nBayani’s parents are Dakila and Sinag. The Philippine Eagle Foundation helps breed and care for eagles like Bayani. Philippine eagles are critically endangered: very few remain, and they need protection.\nBayani was introduced to the public on March 10, 2026. Adopter Nico Herth chose the name. Bayani’s birth brings hope to the people working to protect Philippine eagles.\nNext\nBack",
+      "overflow": false,
+      "focus": "A Little Eagle, A Big Hope"
+    },
+    {
+      "file": "en-name-origin-915x412.png",
+      "language": "en",
+      "name": "name-origin",
+      "width": 915,
+      "height": 412,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nFrom Bayani to BAYA\nPart 3 of 4\nInspired by Bayani, the researchers shortened the name to BAYA for this learning application. They created BAYA as a fictional learning companion. Bayani is a real eagle; BAYA is a character who helps us explore Baybayin.\nBayani’s story reminds us to care for wildlife. BAYA encourages us to appreciate Filipino culture and Baybayin.\nBAYA is an independent research project, not a Philippine Eagle Foundation application.\nNext\nBack",
+      "overflow": false,
+      "focus": "From Bayani to BAYA"
+    },
+    {
+      "file": "en-part-3-scrolled-915x412.png",
+      "language": "en",
+      "name": "part-3-scrolled",
+      "width": 915,
+      "height": 412,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nFrom Bayani to BAYA\nPart 3 of 4\nInspired by Bayani, the researchers shortened the name to BAYA for this learning application. They created BAYA as a fictional learning companion. Bayani is a real eagle; BAYA is a character who helps us explore Baybayin.\nBayani’s story reminds us to care for wildlife. BAYA encourages us to appreciate Filipino culture and Baybayin.\nBAYA is an independent research project, not a Philippine Eagle Foundation application.\nNext\nBack",
+      "overflow": false,
+      "focus": "From Bayani to BAYA"
+    },
+    {
+      "file": "en-baya-915x412.png",
+      "language": "en",
+      "name": "baya",
+      "width": 915,
+      "height": 412,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nMeet BAYA!\nPart 4 of 4\nHi! I’m BAYA, your learning companion! I’ll guide you as you discover Baybayin characters, practice writing, and explore our lessons. Let’s learn together!\nLET’S START!\nBack",
+      "overflow": false,
+      "focus": "Meet BAYA!"
+    },
+    {
+      "file": "en-part-4-scrolled-915x412.png",
+      "language": "en",
+      "name": "part-4-scrolled",
+      "width": 915,
+      "height": 412,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI\nMeet BAYA!\nPart 4 of 4\nHi! I’m BAYA, your learning companion! I’ll guide you as you discover Baybayin characters, practice writing, and explore our lessons. Let’s learn together!\nLET’S START!\nBack",
+      "overflow": false,
+      "focus": "Meet BAYA!"
+    },
+    {
+      "file": "en-dismissed-915x412.png",
+      "language": "en",
+      "name": "dismissed",
+      "width": 915,
+      "height": 412,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMEET BAYANI",
+      "overflow": false,
+      "focus": "MEET BAYANI"
+    },
+    {
+      "file": "en-welcome-1024x768.png",
+      "language": "en",
+      "name": "welcome",
+      "width": 1024,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMeet Bayani, the real Philippine eagle who inspired our learning companion.\nMEET BAYANI",
+      "overflow": false,
+      "focus": null
+    },
+    {
+      "file": "en-bayani-permission-pending-1024x768.png",
+      "language": "en",
+      "name": "bayani-permission-pending",
+      "width": 1024,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMeet Bayani, the real Philippine eagle who inspired our learning companion.\nMEET BAYANI\nMeet Bayani!\nPart 1 of 4\nBayani’s photograph is awaiting permission.\nBayani, Philippine Eagle Chick No. 32.\nPhoto source: Philippine Eagle Foundation\nView Bayani’s photo at the Philippine Eagle Foundation (online)\nBayani is a real Philippine eagle, hatched on December 5, 2025, at the National Bird Breeding Sanctuary in Barangay Eden, Toril, Davao City. Bayani was bred in human care, not captured from the wild.\nBayani means “hero” in Filipino!\nNext",
+      "overflow": false,
+      "focus": "Meet Bayani!"
+    },
+    {
+      "file": "en-bayani-story-1024x768.png",
+      "language": "en",
+      "name": "bayani-story",
+      "width": 1024,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMeet Bayani, the real Philippine eagle who inspired our learning companion.\nMEET BAYANI\nA Little Eagle, A Big Hope\nPart 2 of 4\nBayani’s parents are Dakila and Sinag. The Philippine Eagle Foundation helps breed and care for eagles like Bayani. Philippine eagles are critically endangered: very few remain, and they need protection.\nBayani was introduced to the public on March 10, 2026. Adopter Nico Herth chose the name. Bayani’s birth brings hope to the people working to protect Philippine eagles.\nNext\nBack",
+      "overflow": false,
+      "focus": "A Little Eagle, A Big Hope"
+    },
+    {
+      "file": "en-name-origin-1024x768.png",
+      "language": "en",
+      "name": "name-origin",
+      "width": 1024,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMeet Bayani, the real Philippine eagle who inspired our learning companion.\nMEET BAYANI\nFrom Bayani to BAYA\nPart 3 of 4\nInspired by Bayani, the researchers shortened the name to BAYA for this learning application. They created BAYA as a fictional learning companion. Bayani is a real eagle; BAYA is a character who helps us explore Baybayin.\nBayani’s story reminds us to care for wildlife. BAYA encourages us to appreciate Filipino culture and Baybayin.\nBAYA is an independent research project, not a Philippine Eagle Foundation application.\nNext\nBack",
+      "overflow": false,
+      "focus": "From Bayani to BAYA"
+    },
+    {
+      "file": "en-baya-1024x768.png",
+      "language": "en",
+      "name": "baya",
+      "width": 1024,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMeet Bayani, the real Philippine eagle who inspired our learning companion.\nMEET BAYANI\nMeet BAYA!\nPart 4 of 4\nHi! I’m BAYA, your learning companion! I’ll guide you as you discover Baybayin characters, practice writing, and explore our lessons. Let’s learn together!\nLET’S START!\nBack",
+      "overflow": false,
+      "focus": "Meet BAYA!"
+    },
+    {
+      "file": "en-dismissed-1024x768.png",
+      "language": "en",
+      "name": "dismissed",
+      "width": 1024,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMeet Bayani, the real Philippine eagle who inspired our learning companion.\nMEET BAYANI",
+      "overflow": false,
+      "focus": "MEET BAYANI"
+    },
+    {
+      "file": "en-welcome-1366x768.png",
+      "language": "en",
+      "name": "welcome",
+      "width": 1366,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMeet Bayani, the real Philippine eagle who inspired our learning companion.\nMEET BAYANI",
+      "overflow": false,
+      "focus": null
+    },
+    {
+      "file": "en-bayani-permission-pending-1366x768.png",
+      "language": "en",
+      "name": "bayani-permission-pending",
+      "width": 1366,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMeet Bayani, the real Philippine eagle who inspired our learning companion.\nMEET BAYANI\nMeet Bayani!\nPart 1 of 4\nBayani’s photograph is awaiting permission.\nBayani, Philippine Eagle Chick No. 32.\nPhoto source: Philippine Eagle Foundation\nView Bayani’s photo at the Philippine Eagle Foundation (online)\nBayani is a real Philippine eagle, hatched on December 5, 2025, at the National Bird Breeding Sanctuary in Barangay Eden, Toril, Davao City. Bayani was bred in human care, not captured from the wild.\nBayani means “hero” in Filipino!\nNext",
+      "overflow": false,
+      "focus": "Meet Bayani!"
+    },
+    {
+      "file": "en-bayani-story-1366x768.png",
+      "language": "en",
+      "name": "bayani-story",
+      "width": 1366,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMeet Bayani, the real Philippine eagle who inspired our learning companion.\nMEET BAYANI\nA Little Eagle, A Big Hope\nPart 2 of 4\nBayani’s parents are Dakila and Sinag. The Philippine Eagle Foundation helps breed and care for eagles like Bayani. Philippine eagles are critically endangered: very few remain, and they need protection.\nBayani was introduced to the public on March 10, 2026. Adopter Nico Herth chose the name. Bayani’s birth brings hope to the people working to protect Philippine eagles.\nNext\nBack",
+      "overflow": false,
+      "focus": "A Little Eagle, A Big Hope"
+    },
+    {
+      "file": "en-name-origin-1366x768.png",
+      "language": "en",
+      "name": "name-origin",
+      "width": 1366,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMeet Bayani, the real Philippine eagle who inspired our learning companion.\nMEET BAYANI\nFrom Bayani to BAYA\nPart 3 of 4\nInspired by Bayani, the researchers shortened the name to BAYA for this learning application. They created BAYA as a fictional learning companion. Bayani is a real eagle; BAYA is a character who helps us explore Baybayin.\nBayani’s story reminds us to care for wildlife. BAYA encourages us to appreciate Filipino culture and Baybayin.\nBAYA is an independent research project, not a Philippine Eagle Foundation application.\nNext\nBack",
+      "overflow": false,
+      "focus": "From Bayani to BAYA"
+    },
+    {
+      "file": "en-baya-1366x768.png",
+      "language": "en",
+      "name": "baya",
+      "width": 1366,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMeet Bayani, the real Philippine eagle who inspired our learning companion.\nMEET BAYANI\nMeet BAYA!\nPart 4 of 4\nHi! I’m BAYA, your learning companion! I’ll guide you as you discover Baybayin characters, practice writing, and explore our lessons. Let’s learn together!\nLET’S START!\nBack",
+      "overflow": false,
+      "focus": "Meet BAYA!"
+    },
+    {
+      "file": "en-dismissed-1366x768.png",
+      "language": "en",
+      "name": "dismissed",
+      "width": 1366,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR\nThe Story Behind BAYA\nMeet Bayani, the real Philippine eagle who inspired our learning companion.\nMEET BAYANI",
+      "overflow": false,
+      "focus": "MEET BAYANI"
+    },
+    {
+      "file": "tl-welcome-667x375.png",
+      "language": "tl",
+      "name": "welcome",
+      "width": 667,
+      "height": 375,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI",
+      "overflow": false,
+      "focus": null
+    },
+    {
+      "file": "tl-bayani-permission-pending-667x375.png",
+      "language": "tl",
+      "name": "bayani-permission-pending",
+      "width": 667,
+      "height": 375,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nKilalanin si Bayani!\nBahagi 1 sa 4\nHinihintay pa ang pahintulot na gamitin ang larawan ni Bayani.\nSi Bayani, ang ika-32 sisiw ng agilang Pilipino sa programa ng Philippine Eagle Foundation.\nPinagmulan ng larawan: Philippine Eagle Foundation\nTingnan ang larawan ni Bayani sa Philippine Eagle Foundation (online)\nSi Bayani ay isang tunay na agilang Pilipino na napisa noong Disyembre 5, 2025, sa National Bird Breeding Sanctuary sa Barangay Eden, Toril, Davao City. Si Bayani ay pinalaki sa pangangalaga ng tao, hindi hinuli sa kagubatan.\nAng “bayani” ay taong hinahangaan sa katapangan at pagtulong sa kapwa!\nSusunod",
+      "overflow": false,
+      "focus": "Kilalanin si Bayani!"
+    },
+    {
+      "file": "tl-part-1-scrolled-667x375.png",
+      "language": "tl",
+      "name": "part-1-scrolled",
+      "width": 667,
+      "height": 375,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nKilalanin si Bayani!\nBahagi 1 sa 4\nHinihintay pa ang pahintulot na gamitin ang larawan ni Bayani.\nSi Bayani, ang ika-32 sisiw ng agilang Pilipino sa programa ng Philippine Eagle Foundation.\nPinagmulan ng larawan: Philippine Eagle Foundation\nTingnan ang larawan ni Bayani sa Philippine Eagle Foundation (online)\nSi Bayani ay isang tunay na agilang Pilipino na napisa noong Disyembre 5, 2025, sa National Bird Breeding Sanctuary sa Barangay Eden, Toril, Davao City. Si Bayani ay pinalaki sa pangangalaga ng tao, hindi hinuli sa kagubatan.\nAng “bayani” ay taong hinahangaan sa katapangan at pagtulong sa kapwa!\nSusunod",
+      "overflow": false,
+      "focus": "Kilalanin si Bayani!"
+    },
+    {
+      "file": "tl-bayani-story-667x375.png",
+      "language": "tl",
+      "name": "bayani-story",
+      "width": 667,
+      "height": 375,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nMunting Agila, Malaking Pag-asa\nBahagi 2 sa 4\nAng mga magulang ni Bayani ay sina Dakila at Sinag. Tumutulong ang Philippine Eagle Foundation sa pagpaparami at pangangalaga ng mga agilang tulad ni Bayani. Lubhang nanganganib nang maubos ang mga agilang Pilipino: kakaunti na sila at kailangan nilang maprotektahan.\nIpinakilala si Bayani sa publiko noong Marso 10, 2026. Pinili ng tagapagtaguyod na si Nico Herth ang pangalan. Nagbibigay ng pag-asa ang pagsilang ni Bayani sa mga taong nangangalaga sa mga agilang Pilipino.\nSusunod\nBumalik",
+      "overflow": false,
+      "focus": "Munting Agila, Malaking Pag-asa"
+    },
+    {
+      "file": "tl-part-2-scrolled-667x375.png",
+      "language": "tl",
+      "name": "part-2-scrolled",
+      "width": 667,
+      "height": 375,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nMunting Agila, Malaking Pag-asa\nBahagi 2 sa 4\nAng mga magulang ni Bayani ay sina Dakila at Sinag. Tumutulong ang Philippine Eagle Foundation sa pagpaparami at pangangalaga ng mga agilang tulad ni Bayani. Lubhang nanganganib nang maubos ang mga agilang Pilipino: kakaunti na sila at kailangan nilang maprotektahan.\nIpinakilala si Bayani sa publiko noong Marso 10, 2026. Pinili ng tagapagtaguyod na si Nico Herth ang pangalan. Nagbibigay ng pag-asa ang pagsilang ni Bayani sa mga taong nangangalaga sa mga agilang Pilipino.\nSusunod\nBumalik",
+      "overflow": false,
+      "focus": "Munting Agila, Malaking Pag-asa"
+    },
+    {
+      "file": "tl-name-origin-667x375.png",
+      "language": "tl",
+      "name": "name-origin",
+      "width": 667,
+      "height": 375,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nMula Bayani tungo sa BAYA\nBahagi 3 sa 4\nNaging inspirasyon ng mga mananaliksik si Bayani. Pinaikli nila ang pangalan bilang BAYA para sa aplikasyong ito. Nilikha nila si BAYA bilang kathang-isip na kaibigan sa pag-aaral. Si Bayani ay tunay na agila; si BAYA ay tauhang tutulong sa atin sa pag-aaral ng Baybayin.\nIpinapaalala ng kuwento ni Bayani na alagaan natin ang kalikasan. Hinihikayat naman tayo ni BAYA na pahalagahan ang kulturang Pilipino at Baybayin.\nAng BAYA ay isang hiwalay na proyektong pananaliksik, hindi aplikasyon ng Philippine Eagle Foundation.\nSusunod\nBumalik",
+      "overflow": false,
+      "focus": "Mula Bayani tungo sa BAYA"
+    },
+    {
+      "file": "tl-part-3-scrolled-667x375.png",
+      "language": "tl",
+      "name": "part-3-scrolled",
+      "width": 667,
+      "height": 375,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nMula Bayani tungo sa BAYA\nBahagi 3 sa 4\nNaging inspirasyon ng mga mananaliksik si Bayani. Pinaikli nila ang pangalan bilang BAYA para sa aplikasyong ito. Nilikha nila si BAYA bilang kathang-isip na kaibigan sa pag-aaral. Si Bayani ay tunay na agila; si BAYA ay tauhang tutulong sa atin sa pag-aaral ng Baybayin.\nIpinapaalala ng kuwento ni Bayani na alagaan natin ang kalikasan. Hinihikayat naman tayo ni BAYA na pahalagahan ang kulturang Pilipino at Baybayin.\nAng BAYA ay isang hiwalay na proyektong pananaliksik, hindi aplikasyon ng Philippine Eagle Foundation.\nSusunod\nBumalik",
+      "overflow": false,
+      "focus": "Mula Bayani tungo sa BAYA"
+    },
+    {
+      "file": "tl-baya-667x375.png",
+      "language": "tl",
+      "name": "baya",
+      "width": 667,
+      "height": 375,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nKilalanin si BAYA!\nBahagi 4 sa 4\nKumusta! Ako si BAYA, ang kaibigan mo sa pag-aaral! Sasamahan kita sa pagkilala sa mga simbolo ng Baybayin, pagsasanay sa pagsulat, at pag-aaral ng ating mga aralin. Tara, sabay tayong matuto!\nSIMULAN NATIN!\nBumalik",
+      "overflow": false,
+      "focus": "Kilalanin si BAYA!"
+    },
+    {
+      "file": "tl-part-4-scrolled-667x375.png",
+      "language": "tl",
+      "name": "part-4-scrolled",
+      "width": 667,
+      "height": 375,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nKilalanin si BAYA!\nBahagi 4 sa 4\nKumusta! Ako si BAYA, ang kaibigan mo sa pag-aaral! Sasamahan kita sa pagkilala sa mga simbolo ng Baybayin, pagsasanay sa pagsulat, at pag-aaral ng ating mga aralin. Tara, sabay tayong matuto!\nSIMULAN NATIN!\nBumalik",
+      "overflow": false,
+      "focus": "Kilalanin si BAYA!"
+    },
+    {
+      "file": "tl-dismissed-667x375.png",
+      "language": "tl",
+      "name": "dismissed",
+      "width": 667,
+      "height": 375,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI",
+      "overflow": false,
+      "focus": "KILALANIN SI BAYANI"
+    },
+    {
+      "file": "tl-welcome-844x390.png",
+      "language": "tl",
+      "name": "welcome",
+      "width": 844,
+      "height": 390,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI",
+      "overflow": false,
+      "focus": null
+    },
+    {
+      "file": "tl-bayani-permission-pending-844x390.png",
+      "language": "tl",
+      "name": "bayani-permission-pending",
+      "width": 844,
+      "height": 390,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nKilalanin si Bayani!\nBahagi 1 sa 4\nHinihintay pa ang pahintulot na gamitin ang larawan ni Bayani.\nSi Bayani, ang ika-32 sisiw ng agilang Pilipino sa programa ng Philippine Eagle Foundation.\nPinagmulan ng larawan: Philippine Eagle Foundation\nTingnan ang larawan ni Bayani sa Philippine Eagle Foundation (online)\nSi Bayani ay isang tunay na agilang Pilipino na napisa noong Disyembre 5, 2025, sa National Bird Breeding Sanctuary sa Barangay Eden, Toril, Davao City. Si Bayani ay pinalaki sa pangangalaga ng tao, hindi hinuli sa kagubatan.\nAng “bayani” ay taong hinahangaan sa katapangan at pagtulong sa kapwa!\nSusunod",
+      "overflow": false,
+      "focus": "Kilalanin si Bayani!"
+    },
+    {
+      "file": "tl-part-1-scrolled-844x390.png",
+      "language": "tl",
+      "name": "part-1-scrolled",
+      "width": 844,
+      "height": 390,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nKilalanin si Bayani!\nBahagi 1 sa 4\nHinihintay pa ang pahintulot na gamitin ang larawan ni Bayani.\nSi Bayani, ang ika-32 sisiw ng agilang Pilipino sa programa ng Philippine Eagle Foundation.\nPinagmulan ng larawan: Philippine Eagle Foundation\nTingnan ang larawan ni Bayani sa Philippine Eagle Foundation (online)\nSi Bayani ay isang tunay na agilang Pilipino na napisa noong Disyembre 5, 2025, sa National Bird Breeding Sanctuary sa Barangay Eden, Toril, Davao City. Si Bayani ay pinalaki sa pangangalaga ng tao, hindi hinuli sa kagubatan.\nAng “bayani” ay taong hinahangaan sa katapangan at pagtulong sa kapwa!\nSusunod",
+      "overflow": false,
+      "focus": "Kilalanin si Bayani!"
+    },
+    {
+      "file": "tl-bayani-story-844x390.png",
+      "language": "tl",
+      "name": "bayani-story",
+      "width": 844,
+      "height": 390,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nMunting Agila, Malaking Pag-asa\nBahagi 2 sa 4\nAng mga magulang ni Bayani ay sina Dakila at Sinag. Tumutulong ang Philippine Eagle Foundation sa pagpaparami at pangangalaga ng mga agilang tulad ni Bayani. Lubhang nanganganib nang maubos ang mga agilang Pilipino: kakaunti na sila at kailangan nilang maprotektahan.\nIpinakilala si Bayani sa publiko noong Marso 10, 2026. Pinili ng tagapagtaguyod na si Nico Herth ang pangalan. Nagbibigay ng pag-asa ang pagsilang ni Bayani sa mga taong nangangalaga sa mga agilang Pilipino.\nSusunod\nBumalik",
+      "overflow": false,
+      "focus": "Munting Agila, Malaking Pag-asa"
+    },
+    {
+      "file": "tl-part-2-scrolled-844x390.png",
+      "language": "tl",
+      "name": "part-2-scrolled",
+      "width": 844,
+      "height": 390,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nMunting Agila, Malaking Pag-asa\nBahagi 2 sa 4\nAng mga magulang ni Bayani ay sina Dakila at Sinag. Tumutulong ang Philippine Eagle Foundation sa pagpaparami at pangangalaga ng mga agilang tulad ni Bayani. Lubhang nanganganib nang maubos ang mga agilang Pilipino: kakaunti na sila at kailangan nilang maprotektahan.\nIpinakilala si Bayani sa publiko noong Marso 10, 2026. Pinili ng tagapagtaguyod na si Nico Herth ang pangalan. Nagbibigay ng pag-asa ang pagsilang ni Bayani sa mga taong nangangalaga sa mga agilang Pilipino.\nSusunod\nBumalik",
+      "overflow": false,
+      "focus": "Munting Agila, Malaking Pag-asa"
+    },
+    {
+      "file": "tl-name-origin-844x390.png",
+      "language": "tl",
+      "name": "name-origin",
+      "width": 844,
+      "height": 390,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nMula Bayani tungo sa BAYA\nBahagi 3 sa 4\nNaging inspirasyon ng mga mananaliksik si Bayani. Pinaikli nila ang pangalan bilang BAYA para sa aplikasyong ito. Nilikha nila si BAYA bilang kathang-isip na kaibigan sa pag-aaral. Si Bayani ay tunay na agila; si BAYA ay tauhang tutulong sa atin sa pag-aaral ng Baybayin.\nIpinapaalala ng kuwento ni Bayani na alagaan natin ang kalikasan. Hinihikayat naman tayo ni BAYA na pahalagahan ang kulturang Pilipino at Baybayin.\nAng BAYA ay isang hiwalay na proyektong pananaliksik, hindi aplikasyon ng Philippine Eagle Foundation.\nSusunod\nBumalik",
+      "overflow": false,
+      "focus": "Mula Bayani tungo sa BAYA"
+    },
+    {
+      "file": "tl-part-3-scrolled-844x390.png",
+      "language": "tl",
+      "name": "part-3-scrolled",
+      "width": 844,
+      "height": 390,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nMula Bayani tungo sa BAYA\nBahagi 3 sa 4\nNaging inspirasyon ng mga mananaliksik si Bayani. Pinaikli nila ang pangalan bilang BAYA para sa aplikasyong ito. Nilikha nila si BAYA bilang kathang-isip na kaibigan sa pag-aaral. Si Bayani ay tunay na agila; si BAYA ay tauhang tutulong sa atin sa pag-aaral ng Baybayin.\nIpinapaalala ng kuwento ni Bayani na alagaan natin ang kalikasan. Hinihikayat naman tayo ni BAYA na pahalagahan ang kulturang Pilipino at Baybayin.\nAng BAYA ay isang hiwalay na proyektong pananaliksik, hindi aplikasyon ng Philippine Eagle Foundation.\nSusunod\nBumalik",
+      "overflow": false,
+      "focus": "Mula Bayani tungo sa BAYA"
+    },
+    {
+      "file": "tl-baya-844x390.png",
+      "language": "tl",
+      "name": "baya",
+      "width": 844,
+      "height": 390,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nKilalanin si BAYA!\nBahagi 4 sa 4\nKumusta! Ako si BAYA, ang kaibigan mo sa pag-aaral! Sasamahan kita sa pagkilala sa mga simbolo ng Baybayin, pagsasanay sa pagsulat, at pag-aaral ng ating mga aralin. Tara, sabay tayong matuto!\nSIMULAN NATIN!\nBumalik",
+      "overflow": false,
+      "focus": "Kilalanin si BAYA!"
+    },
+    {
+      "file": "tl-part-4-scrolled-844x390.png",
+      "language": "tl",
+      "name": "part-4-scrolled",
+      "width": 844,
+      "height": 390,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nKilalanin si BAYA!\nBahagi 4 sa 4\nKumusta! Ako si BAYA, ang kaibigan mo sa pag-aaral! Sasamahan kita sa pagkilala sa mga simbolo ng Baybayin, pagsasanay sa pagsulat, at pag-aaral ng ating mga aralin. Tara, sabay tayong matuto!\nSIMULAN NATIN!\nBumalik",
+      "overflow": false,
+      "focus": "Kilalanin si BAYA!"
+    },
+    {
+      "file": "tl-dismissed-844x390.png",
+      "language": "tl",
+      "name": "dismissed",
+      "width": 844,
+      "height": 390,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI",
+      "overflow": false,
+      "focus": "KILALANIN SI BAYANI"
+    },
+    {
+      "file": "tl-welcome-915x412.png",
+      "language": "tl",
+      "name": "welcome",
+      "width": 915,
+      "height": 412,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI",
+      "overflow": false,
+      "focus": null
+    },
+    {
+      "file": "tl-bayani-permission-pending-915x412.png",
+      "language": "tl",
+      "name": "bayani-permission-pending",
+      "width": 915,
+      "height": 412,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nKilalanin si Bayani!\nBahagi 1 sa 4\nHinihintay pa ang pahintulot na gamitin ang larawan ni Bayani.\nSi Bayani, ang ika-32 sisiw ng agilang Pilipino sa programa ng Philippine Eagle Foundation.\nPinagmulan ng larawan: Philippine Eagle Foundation\nTingnan ang larawan ni Bayani sa Philippine Eagle Foundation (online)\nSi Bayani ay isang tunay na agilang Pilipino na napisa noong Disyembre 5, 2025, sa National Bird Breeding Sanctuary sa Barangay Eden, Toril, Davao City. Si Bayani ay pinalaki sa pangangalaga ng tao, hindi hinuli sa kagubatan.\nAng “bayani” ay taong hinahangaan sa katapangan at pagtulong sa kapwa!\nSusunod",
+      "overflow": false,
+      "focus": "Kilalanin si Bayani!"
+    },
+    {
+      "file": "tl-part-1-scrolled-915x412.png",
+      "language": "tl",
+      "name": "part-1-scrolled",
+      "width": 915,
+      "height": 412,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nKilalanin si Bayani!\nBahagi 1 sa 4\nHinihintay pa ang pahintulot na gamitin ang larawan ni Bayani.\nSi Bayani, ang ika-32 sisiw ng agilang Pilipino sa programa ng Philippine Eagle Foundation.\nPinagmulan ng larawan: Philippine Eagle Foundation\nTingnan ang larawan ni Bayani sa Philippine Eagle Foundation (online)\nSi Bayani ay isang tunay na agilang Pilipino na napisa noong Disyembre 5, 2025, sa National Bird Breeding Sanctuary sa Barangay Eden, Toril, Davao City. Si Bayani ay pinalaki sa pangangalaga ng tao, hindi hinuli sa kagubatan.\nAng “bayani” ay taong hinahangaan sa katapangan at pagtulong sa kapwa!\nSusunod",
+      "overflow": false,
+      "focus": "Kilalanin si Bayani!"
+    },
+    {
+      "file": "tl-bayani-story-915x412.png",
+      "language": "tl",
+      "name": "bayani-story",
+      "width": 915,
+      "height": 412,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nMunting Agila, Malaking Pag-asa\nBahagi 2 sa 4\nAng mga magulang ni Bayani ay sina Dakila at Sinag. Tumutulong ang Philippine Eagle Foundation sa pagpaparami at pangangalaga ng mga agilang tulad ni Bayani. Lubhang nanganganib nang maubos ang mga agilang Pilipino: kakaunti na sila at kailangan nilang maprotektahan.\nIpinakilala si Bayani sa publiko noong Marso 10, 2026. Pinili ng tagapagtaguyod na si Nico Herth ang pangalan. Nagbibigay ng pag-asa ang pagsilang ni Bayani sa mga taong nangangalaga sa mga agilang Pilipino.\nSusunod\nBumalik",
+      "overflow": false,
+      "focus": "Munting Agila, Malaking Pag-asa"
+    },
+    {
+      "file": "tl-part-2-scrolled-915x412.png",
+      "language": "tl",
+      "name": "part-2-scrolled",
+      "width": 915,
+      "height": 412,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nMunting Agila, Malaking Pag-asa\nBahagi 2 sa 4\nAng mga magulang ni Bayani ay sina Dakila at Sinag. Tumutulong ang Philippine Eagle Foundation sa pagpaparami at pangangalaga ng mga agilang tulad ni Bayani. Lubhang nanganganib nang maubos ang mga agilang Pilipino: kakaunti na sila at kailangan nilang maprotektahan.\nIpinakilala si Bayani sa publiko noong Marso 10, 2026. Pinili ng tagapagtaguyod na si Nico Herth ang pangalan. Nagbibigay ng pag-asa ang pagsilang ni Bayani sa mga taong nangangalaga sa mga agilang Pilipino.\nSusunod\nBumalik",
+      "overflow": false,
+      "focus": "Munting Agila, Malaking Pag-asa"
+    },
+    {
+      "file": "tl-name-origin-915x412.png",
+      "language": "tl",
+      "name": "name-origin",
+      "width": 915,
+      "height": 412,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nMula Bayani tungo sa BAYA\nBahagi 3 sa 4\nNaging inspirasyon ng mga mananaliksik si Bayani. Pinaikli nila ang pangalan bilang BAYA para sa aplikasyong ito. Nilikha nila si BAYA bilang kathang-isip na kaibigan sa pag-aaral. Si Bayani ay tunay na agila; si BAYA ay tauhang tutulong sa atin sa pag-aaral ng Baybayin.\nIpinapaalala ng kuwento ni Bayani na alagaan natin ang kalikasan. Hinihikayat naman tayo ni BAYA na pahalagahan ang kulturang Pilipino at Baybayin.\nAng BAYA ay isang hiwalay na proyektong pananaliksik, hindi aplikasyon ng Philippine Eagle Foundation.\nSusunod\nBumalik",
+      "overflow": false,
+      "focus": "Mula Bayani tungo sa BAYA"
+    },
+    {
+      "file": "tl-part-3-scrolled-915x412.png",
+      "language": "tl",
+      "name": "part-3-scrolled",
+      "width": 915,
+      "height": 412,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nMula Bayani tungo sa BAYA\nBahagi 3 sa 4\nNaging inspirasyon ng mga mananaliksik si Bayani. Pinaikli nila ang pangalan bilang BAYA para sa aplikasyong ito. Nilikha nila si BAYA bilang kathang-isip na kaibigan sa pag-aaral. Si Bayani ay tunay na agila; si BAYA ay tauhang tutulong sa atin sa pag-aaral ng Baybayin.\nIpinapaalala ng kuwento ni Bayani na alagaan natin ang kalikasan. Hinihikayat naman tayo ni BAYA na pahalagahan ang kulturang Pilipino at Baybayin.\nAng BAYA ay isang hiwalay na proyektong pananaliksik, hindi aplikasyon ng Philippine Eagle Foundation.\nSusunod\nBumalik",
+      "overflow": false,
+      "focus": "Mula Bayani tungo sa BAYA"
+    },
+    {
+      "file": "tl-baya-915x412.png",
+      "language": "tl",
+      "name": "baya",
+      "width": 915,
+      "height": 412,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nKilalanin si BAYA!\nBahagi 4 sa 4\nKumusta! Ako si BAYA, ang kaibigan mo sa pag-aaral! Sasamahan kita sa pagkilala sa mga simbolo ng Baybayin, pagsasanay sa pagsulat, at pag-aaral ng ating mga aralin. Tara, sabay tayong matuto!\nSIMULAN NATIN!\nBumalik",
+      "overflow": false,
+      "focus": "Kilalanin si BAYA!"
+    },
+    {
+      "file": "tl-part-4-scrolled-915x412.png",
+      "language": "tl",
+      "name": "part-4-scrolled",
+      "width": 915,
+      "height": 412,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI\nKilalanin si BAYA!\nBahagi 4 sa 4\nKumusta! Ako si BAYA, ang kaibigan mo sa pag-aaral! Sasamahan kita sa pagkilala sa mga simbolo ng Baybayin, pagsasanay sa pagsulat, at pag-aaral ng ating mga aralin. Tara, sabay tayong matuto!\nSIMULAN NATIN!\nBumalik",
+      "overflow": false,
+      "focus": "Kilalanin si BAYA!"
+    },
+    {
+      "file": "tl-dismissed-915x412.png",
+      "language": "tl",
+      "name": "dismissed",
+      "width": 915,
+      "height": 412,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKILALANIN SI BAYANI",
+      "overflow": false,
+      "focus": "KILALANIN SI BAYANI"
+    },
+    {
+      "file": "tl-welcome-1024x768.png",
+      "language": "tl",
+      "name": "welcome",
+      "width": 1024,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKilalanin si Bayani, ang tunay na agilang Pilipino na naging inspirasyon ng ating kaibigan sa pag-aaral.\nKILALANIN SI BAYANI",
+      "overflow": false,
+      "focus": null
+    },
+    {
+      "file": "tl-bayani-permission-pending-1024x768.png",
+      "language": "tl",
+      "name": "bayani-permission-pending",
+      "width": 1024,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKilalanin si Bayani, ang tunay na agilang Pilipino na naging inspirasyon ng ating kaibigan sa pag-aaral.\nKILALANIN SI BAYANI\nKilalanin si Bayani!\nBahagi 1 sa 4\nHinihintay pa ang pahintulot na gamitin ang larawan ni Bayani.\nSi Bayani, ang ika-32 sisiw ng agilang Pilipino sa programa ng Philippine Eagle Foundation.\nPinagmulan ng larawan: Philippine Eagle Foundation\nTingnan ang larawan ni Bayani sa Philippine Eagle Foundation (online)\nSi Bayani ay isang tunay na agilang Pilipino na napisa noong Disyembre 5, 2025, sa National Bird Breeding Sanctuary sa Barangay Eden, Toril, Davao City. Si Bayani ay pinalaki sa pangangalaga ng tao, hindi hinuli sa kagubatan.\nAng “bayani” ay taong hinahangaan sa katapangan at pagtulong sa kapwa!\nSusunod",
+      "overflow": false,
+      "focus": "Kilalanin si Bayani!"
+    },
+    {
+      "file": "tl-bayani-story-1024x768.png",
+      "language": "tl",
+      "name": "bayani-story",
+      "width": 1024,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKilalanin si Bayani, ang tunay na agilang Pilipino na naging inspirasyon ng ating kaibigan sa pag-aaral.\nKILALANIN SI BAYANI\nMunting Agila, Malaking Pag-asa\nBahagi 2 sa 4\nAng mga magulang ni Bayani ay sina Dakila at Sinag. Tumutulong ang Philippine Eagle Foundation sa pagpaparami at pangangalaga ng mga agilang tulad ni Bayani. Lubhang nanganganib nang maubos ang mga agilang Pilipino: kakaunti na sila at kailangan nilang maprotektahan.\nIpinakilala si Bayani sa publiko noong Marso 10, 2026. Pinili ng tagapagtaguyod na si Nico Herth ang pangalan. Nagbibigay ng pag-asa ang pagsilang ni Bayani sa mga taong nangangalaga sa mga agilang Pilipino.\nSusunod\nBumalik",
+      "overflow": false,
+      "focus": "Munting Agila, Malaking Pag-asa"
+    },
+    {
+      "file": "tl-name-origin-1024x768.png",
+      "language": "tl",
+      "name": "name-origin",
+      "width": 1024,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKilalanin si Bayani, ang tunay na agilang Pilipino na naging inspirasyon ng ating kaibigan sa pag-aaral.\nKILALANIN SI BAYANI\nMula Bayani tungo sa BAYA\nBahagi 3 sa 4\nNaging inspirasyon ng mga mananaliksik si Bayani. Pinaikli nila ang pangalan bilang BAYA para sa aplikasyong ito. Nilikha nila si BAYA bilang kathang-isip na kaibigan sa pag-aaral. Si Bayani ay tunay na agila; si BAYA ay tauhang tutulong sa atin sa pag-aaral ng Baybayin.\nIpinapaalala ng kuwento ni Bayani na alagaan natin ang kalikasan. Hinihikayat naman tayo ni BAYA na pahalagahan ang kulturang Pilipino at Baybayin.\nAng BAYA ay isang hiwalay na proyektong pananaliksik, hindi aplikasyon ng Philippine Eagle Foundation.\nSusunod\nBumalik",
+      "overflow": false,
+      "focus": "Mula Bayani tungo sa BAYA"
+    },
+    {
+      "file": "tl-baya-1024x768.png",
+      "language": "tl",
+      "name": "baya",
+      "width": 1024,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKilalanin si Bayani, ang tunay na agilang Pilipino na naging inspirasyon ng ating kaibigan sa pag-aaral.\nKILALANIN SI BAYANI\nKilalanin si BAYA!\nBahagi 4 sa 4\nKumusta! Ako si BAYA, ang kaibigan mo sa pag-aaral! Sasamahan kita sa pagkilala sa mga simbolo ng Baybayin, pagsasanay sa pagsulat, at pag-aaral ng ating mga aralin. Tara, sabay tayong matuto!\nSIMULAN NATIN!\nBumalik",
+      "overflow": false,
+      "focus": "Kilalanin si BAYA!"
+    },
+    {
+      "file": "tl-dismissed-1024x768.png",
+      "language": "tl",
+      "name": "dismissed",
+      "width": 1024,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKilalanin si Bayani, ang tunay na agilang Pilipino na naging inspirasyon ng ating kaibigan sa pag-aaral.\nKILALANIN SI BAYANI",
+      "overflow": false,
+      "focus": "KILALANIN SI BAYANI"
+    },
+    {
+      "file": "tl-welcome-1366x768.png",
+      "language": "tl",
+      "name": "welcome",
+      "width": 1366,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKilalanin si Bayani, ang tunay na agilang Pilipino na naging inspirasyon ng ating kaibigan sa pag-aaral.\nKILALANIN SI BAYANI",
+      "overflow": false,
+      "focus": null
+    },
+    {
+      "file": "tl-bayani-permission-pending-1366x768.png",
+      "language": "tl",
+      "name": "bayani-permission-pending",
+      "width": 1366,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKilalanin si Bayani, ang tunay na agilang Pilipino na naging inspirasyon ng ating kaibigan sa pag-aaral.\nKILALANIN SI BAYANI\nKilalanin si Bayani!\nBahagi 1 sa 4\nHinihintay pa ang pahintulot na gamitin ang larawan ni Bayani.\nSi Bayani, ang ika-32 sisiw ng agilang Pilipino sa programa ng Philippine Eagle Foundation.\nPinagmulan ng larawan: Philippine Eagle Foundation\nTingnan ang larawan ni Bayani sa Philippine Eagle Foundation (online)\nSi Bayani ay isang tunay na agilang Pilipino na napisa noong Disyembre 5, 2025, sa National Bird Breeding Sanctuary sa Barangay Eden, Toril, Davao City. Si Bayani ay pinalaki sa pangangalaga ng tao, hindi hinuli sa kagubatan.\nAng “bayani” ay taong hinahangaan sa katapangan at pagtulong sa kapwa!\nSusunod",
+      "overflow": false,
+      "focus": "Kilalanin si Bayani!"
+    },
+    {
+      "file": "tl-bayani-story-1366x768.png",
+      "language": "tl",
+      "name": "bayani-story",
+      "width": 1366,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKilalanin si Bayani, ang tunay na agilang Pilipino na naging inspirasyon ng ating kaibigan sa pag-aaral.\nKILALANIN SI BAYANI\nMunting Agila, Malaking Pag-asa\nBahagi 2 sa 4\nAng mga magulang ni Bayani ay sina Dakila at Sinag. Tumutulong ang Philippine Eagle Foundation sa pagpaparami at pangangalaga ng mga agilang tulad ni Bayani. Lubhang nanganganib nang maubos ang mga agilang Pilipino: kakaunti na sila at kailangan nilang maprotektahan.\nIpinakilala si Bayani sa publiko noong Marso 10, 2026. Pinili ng tagapagtaguyod na si Nico Herth ang pangalan. Nagbibigay ng pag-asa ang pagsilang ni Bayani sa mga taong nangangalaga sa mga agilang Pilipino.\nSusunod\nBumalik",
+      "overflow": false,
+      "focus": "Munting Agila, Malaking Pag-asa"
+    },
+    {
+      "file": "tl-name-origin-1366x768.png",
+      "language": "tl",
+      "name": "name-origin",
+      "width": 1366,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKilalanin si Bayani, ang tunay na agilang Pilipino na naging inspirasyon ng ating kaibigan sa pag-aaral.\nKILALANIN SI BAYANI\nMula Bayani tungo sa BAYA\nBahagi 3 sa 4\nNaging inspirasyon ng mga mananaliksik si Bayani. Pinaikli nila ang pangalan bilang BAYA para sa aplikasyong ito. Nilikha nila si BAYA bilang kathang-isip na kaibigan sa pag-aaral. Si Bayani ay tunay na agila; si BAYA ay tauhang tutulong sa atin sa pag-aaral ng Baybayin.\nIpinapaalala ng kuwento ni Bayani na alagaan natin ang kalikasan. Hinihikayat naman tayo ni BAYA na pahalagahan ang kulturang Pilipino at Baybayin.\nAng BAYA ay isang hiwalay na proyektong pananaliksik, hindi aplikasyon ng Philippine Eagle Foundation.\nSusunod\nBumalik",
+      "overflow": false,
+      "focus": "Mula Bayani tungo sa BAYA"
+    },
+    {
+      "file": "tl-baya-1366x768.png",
+      "language": "tl",
+      "name": "baya",
+      "width": 1366,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKilalanin si Bayani, ang tunay na agilang Pilipino na naging inspirasyon ng ating kaibigan sa pag-aaral.\nKILALANIN SI BAYANI\nKilalanin si BAYA!\nBahagi 4 sa 4\nKumusta! Ako si BAYA, ang kaibigan mo sa pag-aaral! Sasamahan kita sa pagkilala sa mga simbolo ng Baybayin, pagsasanay sa pagsulat, at pag-aaral ng ating mga aralin. Tara, sabay tayong matuto!\nSIMULAN NATIN!\nBumalik",
+      "overflow": false,
+      "focus": "Kilalanin si BAYA!"
+    },
+    {
+      "file": "tl-dismissed-1366x768.png",
+      "language": "tl",
+      "name": "dismissed",
+      "width": 1366,
+      "height": 768,
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR\nAng Kuwento sa Likod ni BAYA\nKilalanin si Bayani, ang tunay na agilang Pilipino na naging inspirasyon ng ating kaibigan sa pag-aaral.\nKILALANIN SI BAYANI",
+      "overflow": false,
+      "focus": "KILALANIN SI BAYANI"
+    }
+  ],
+  "checks": [
+    {
+      "language": "en",
+      "width": 667,
+      "photoNotLoaded": true
+    },
+    {
+      "language": "en",
+      "width": 667,
+      "dismissed": true
+    },
+    {
+      "language": "en",
+      "width": 844,
+      "photoNotLoaded": true
+    },
+    {
+      "language": "en",
+      "width": 844,
+      "dismissed": true
+    },
+    {
+      "language": "en",
+      "width": 915,
+      "photoNotLoaded": true
+    },
+    {
+      "language": "en",
+      "width": 915,
+      "dismissed": true
+    },
+    {
+      "language": "en",
+      "width": 1024,
+      "photoNotLoaded": true
+    },
+    {
+      "language": "en",
+      "width": 1024,
+      "dismissed": true
+    },
+    {
+      "language": "en",
+      "width": 1366,
+      "photoNotLoaded": true
+    },
+    {
+      "language": "en",
+      "width": 1366,
+      "dismissed": true
+    },
+    {
+      "language": "tl",
+      "width": 667,
+      "photoNotLoaded": true
+    },
+    {
+      "language": "tl",
+      "width": 667,
+      "dismissed": true
+    },
+    {
+      "language": "tl",
+      "width": 844,
+      "photoNotLoaded": true
+    },
+    {
+      "language": "tl",
+      "width": 844,
+      "dismissed": true
+    },
+    {
+      "language": "tl",
+      "width": 915,
+      "photoNotLoaded": true
+    },
+    {
+      "language": "tl",
+      "width": 915,
+      "dismissed": true
+    },
+    {
+      "language": "tl",
+      "width": 1024,
+      "photoNotLoaded": true
+    },
+    {
+      "language": "tl",
+      "width": 1024,
+      "dismissed": true
+    },
+    {
+      "language": "tl",
+      "width": 1366,
+      "photoNotLoaded": true
+    },
+    {
+      "language": "tl",
+      "width": 1366,
+      "dismissed": true
+    },
+    {
+      "escapeDismisses": true,
+      "focusRestored": true
+    },
+    {
+      "offlineStory": true
+    },
+    {
+      "offlineOfficialMascot": true
+    }
+  ],
+  "errors": []
+}

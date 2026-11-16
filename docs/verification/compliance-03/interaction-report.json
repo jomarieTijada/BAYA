@@ -1,0 +1,72 @@
+{
+  "offline": [
+    {
+      "topic": 1,
+      "online": false,
+      "path": "/learner/activities/topic-1-1",
+      "paragraphs": [
+        "Ang Baybayin ay isa sa mga sinaunang paraan ng pagsulat sa Pilipinas. Sa mga tala ng kasaysayan, iniuugnay ito sa mga sinaunang Tagalog. Bahagi ito ng ating kultura at pamana bilang mga Pilipino."
+      ],
+      "controller": true
+    },
+    {
+      "topic": 2,
+      "online": false,
+      "path": "/learner/activities/topic-1-2",
+      "paragraphs": [
+        "Ang Baybayin ay hindi alpabeto na tulad ng ginagamit natin ngayon kundi SILABARYO. Bawat simbolo nito ay katumbas ng isang pantig (syllable), hindi tulad ng ating alpabeto na bawat titik ay isang tunog.",
+        "Mula sa ugat na salitang “baybáy” o ang pagbabaybay ng mga salita (to spell, to syllabicate)."
+      ],
+      "controller": true
+    },
+    {
+      "topic": 3,
+      "online": false,
+      "path": "/learner/activities/topic-1-3",
+      "paragraphs": [
+        "Maligayang pagdating sa mundo ng mga simbolo!",
+        "Ang Baybayin ay binubuo ng labimpitong (17) payak na simbolo.",
+        "May tatlong (3) patinig at labing-apat (14) na katinig."
+      ],
+      "controller": true
+    },
+    {
+      "topic": 4,
+      "online": false,
+      "path": "/learner/activities/topic-1-4",
+      "paragraphs": [
+        "Napansin mo ba?",
+        "Sa Baybayin, iisa lang ang simbolo para sa E at I (ᜁ), at iisa rin para sa O at U (ᜂ).",
+        "Bakit kaya? Noong unang panahon, malayang nagpapalitan ang tunog ng E at I, pati na rin ng O at U, nang hindi nagbabago ang kahulugan ng salita!"
+      ],
+      "controller": true
+    },
+    {
+      "topic": 5,
+      "online": false,
+      "path": "/learner/activities/topic-1-5",
+      "paragraphs": [
+        "Isa pang sorpresa!",
+        "Ang tunog ng Da at Ra ay iisa lang din ang simbolo sa Baybayin (ᜇ).",
+        "Sa ating wika, ang titik D ay madalas maging R kapag napagigitnaan ng mga patinig. Kaya sa sinaunang pagsulat, iisang simbolo lang ang kailangan para sa dalawang tunog na ito!"
+      ],
+      "controller": true
+    }
+  ],
+  "navigation": [
+    "/learner/activities/topic-1-4?lessonPage=content",
+    "/learner/activities/topic-1-3?lessonPage=content"
+  ],
+  "media": {
+    "source": "http://127.0.0.1:5071/assets/assets/media/videos/baybayin-song.6698650762ea5481ce6a2abf81e1f82a.mp4",
+    "duration": 231.488,
+    "credits": [
+      {
+        "text": "Video gawa ng GINHAWA Baybayin Creativity Workshop",
+        "url": null
+      }
+    ]
+  },
+  "popoverOpened": true,
+  "popoverDismissed": true
+}

@@ -1,0 +1,28 @@
+{
+  "source_checkpoint": "best_resnet18.pt",
+  "verified": true,
+  "format": "LiteRT/TFLite",
+  "precision": "float32",
+  "test_type": "PyTorch vs LiteRT inference parity; not independent recognition validation",
+  "samples": 12,
+  "output_order": [
+    "class_logits",
+    "base_logits",
+    "modifier_logits",
+    "kudlit_xy",
+    "body_bbox"
+  ],
+  "max_abs_errors": {
+    "class_logits": 7.62939453125e-06,
+    "base_logits": 8.58306884765625e-06,
+    "modifier_logits": 6.67572021484375e-06,
+    "kudlit_xy": 1.1920928955078125e-07,
+    "body_bbox": 2.384185791015625e-07
+  },
+  "class_head_agreement": 1.0,
+  "base_head_agreement": 1.0,
+  "modifier_head_agreement": 1.0,
+  "max_xy_difference_pixels": 2.132480585714802e-05,
+  "max_bbox_difference_normalized": 2.384185791015625e-07,
+  "size_mib": 42.847
+}

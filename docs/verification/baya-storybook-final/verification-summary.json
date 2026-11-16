@@ -1,0 +1,18 @@
+{
+  "typescript": "passed",
+  "lint": "passed",
+  "fullTests": {
+    "suites": 76,
+    "tests": 782,
+    "skipped": 0
+  },
+  "targetedTests": {
+    "suites": 10,
+    "tests": 43
+  },
+  "export": "passed",
+  "precacheAssets": 164,
+  "physicalAndroid": "not connected; not tested",
+  "browserAssertions": 187,
+  "legacyBrowserAssertions": 56
+}

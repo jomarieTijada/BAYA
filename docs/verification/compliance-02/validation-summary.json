@@ -1,0 +1,19 @@
+{
+  "numTotalTests": 669,
+  "numPassedTests": 669,
+  "numFailedTests": 0,
+  "numTotalTestSuites": 70,
+  "numPassedTestSuites": 70,
+  "success": true,
+  "date": "2026-11-07",
+  "focusedStoryTestsPassed": 13,
+  "reducedMotionFollowupTestsPassed": 2,
+  "typecheck": "passed",
+  "lint": "npm run lint --workspace apps/mobile -- --no-cache passed; 0 errors/warnings",
+  "productionExport": "passed; service worker baya-pwa-8a251db0222a5bc8; 163 assets",
+  "screenshots": 84,
+  "photoRights": "awaiting authorization; no photo bundled or fetched",
+  "subjectMatterReview": "pending",
+  "jestNote": "--runInBand --forceExit --silent; existing suite retains asynchronous handles",
+  "browserChecks": "passed: Tab containment, Enter Next, Escape, focus restoration, role routes, offline English/Tagalog and official mascot"
+}

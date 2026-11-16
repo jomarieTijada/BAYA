@@ -1,0 +1,47 @@
+{
+  "ml\\data": [
+    "ml\\data\\README.md"
+  ],
+  "research\\respondent-data": [
+    "research\\respondent-data\\README.md"
+  ],
+  "research\\algorithm-results": [
+    "research\\algorithm-results\\README.md"
+  ],
+  "externalResearch": [
+    "BAYA_ResNet18_63Class_candidate.keras",
+    "BAYA_ResNet18_Characters.onnx",
+    "BAYA_ResNet18_Validity.onnx",
+    "BAYA_ResNet18_Validity_candidate.keras",
+    "character_confusion_matrix_counts.csv",
+    "character_confusion_matrix_counts.png",
+    "character_confusion_matrix_row_normalized.csv",
+    "character_confusion_matrix_row_normalized.png",
+    "character_learning_curves.csv",
+    "character_learning_curves.png",
+    "character_per_class_metrics.csv",
+    "character_test_predictions.csv",
+    "data_provenance.json",
+    "dual_model_test_metrics.json",
+    "dual_onnx_contracts_research.json",
+    "experiment_summary.json",
+    "id_to_label.json",
+    "invalid_test_predictions.csv",
+    "label_to_id.json",
+    "negative_category_metrics.csv",
+    "negative_manifest.csv",
+    "preprocessing_contract.json",
+    "TRAINING_README.txt",
+    "validity_learning_curves.csv",
+    "validity_learning_curves.png",
+    "validity_thresholds_research.json",
+    "validity_transfer_layers.json",
+    "validity_validation_decisions.csv",
+    "valid_class_coverage.csv",
+    "valid_positive_test_predictions.csv",
+    "valid_source_sha256.txt",
+    "valid_split_manifest.csv",
+    "valid_split_signature.txt"
+  ],
+  "conclusion": "No independently reviewed real negative/imperfect/incomplete image or stroke set with writer-disjoint calibration and holdout labels found in inspected data locations. Reference art and synthetic fixtures are diagnostics only."
+}

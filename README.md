@@ -76,14 +76,14 @@ Training notebooks (`*.ipynb`) are kept locally and excluded from GitHub. Histor
 
 ## Current architecture
 
-Production recognition uses BAYA_ResNet18_1.0.onnx. Its sole selection manifest is apps/mobile/ml/bayaActiveModel.json.
+Production recognition uses BAYA_ResNet18_spatial.tflite. Its sole selection manifest is apps/mobile/ml/bayaActiveModel.json.
 
 | Responsibility | Location |
 |---|---|
 | Expo routes and guards | apps/mobile/app |
 | Lessons and approved content | apps/mobile/components/learner, apps/mobile/content |
 | Canvas and recognition feedback | apps/mobile/components/learner/writing |
-| Preprocessing and ONNX runtime | apps/mobile/ml |
+| Preprocessing and LiteRT runtime | apps/mobile/ml |
 | Local profiles, attempts and progress | apps/mobile/database |
 | Supabase/auth/workspace service boundary | apps/mobile/modules/cloud |
 | Shared loading/presentation | apps/mobile/modules/progress |

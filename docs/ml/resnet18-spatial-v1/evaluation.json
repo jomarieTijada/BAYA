@@ -1,0 +1,28 @@
+{
+  "validation": {
+    "class_accuracy": 1.0,
+    "base_accuracy": 1.0,
+    "modifier_accuracy": 0.9968253968253968,
+    "modifier_macro_f1": 0.9973377040466012,
+    "pseudo_localization_n": 439,
+    "pseudo_xy_mean_error_pixels": 2.645419120788574,
+    "pseudo_xy_median_error_pixels": 2.1987037658691406,
+    "above_pseudo_xy_mean_error_pixels": 2.2490243911743164,
+    "below_pseudo_xy_mean_error_pixels": 2.180556297302246,
+    "virama_pseudo_xy_mean_error_pixels": 3.4998860359191895,
+    "pseudo_body_bbox_mean_iou": 0.8269224166870117
+  },
+  "test": {
+    "class_accuracy": 0.9920634920634921,
+    "base_accuracy": 1.0,
+    "modifier_accuracy": 0.9920634920634921,
+    "modifier_macro_f1": 0.993346459695491,
+    "pseudo_localization_n": 434,
+    "pseudo_xy_mean_error_pixels": 2.310516357421875,
+    "pseudo_xy_median_error_pixels": 2.2103142738342285,
+    "above_pseudo_xy_mean_error_pixels": 2.2520365715026855,
+    "below_pseudo_xy_mean_error_pixels": 2.0936014652252197,
+    "virama_pseudo_xy_mean_error_pixels": 2.5914368629455566,
+    "pseudo_body_bbox_mean_iou": 0.8219396471977234
+  }
+}

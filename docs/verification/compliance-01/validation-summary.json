@@ -1,0 +1,28 @@
+{
+  "numTotalTests": 663,
+  "numPassedTests": 663,
+  "numFailedTests": 0,
+  "numTotalTestSuites": 69,
+  "numPassedTestSuites": 69,
+  "success": true,
+  "date": "2026-11-07",
+  "fullSuiteCommand": "npm test --workspace apps/mobile -- --runInBand --forceExit --silent",
+  "finalImageAdapterRegression": {
+    "testsPassed": 79,
+    "suitesPassed": 5
+  },
+  "typecheck": "passed",
+  "lint": "passed; no warnings",
+  "productionExport": "passed",
+  "serviceWorker": "baya-pwa-d532df8131b7ce31",
+  "cachedAssets": 163,
+  "note": "Jest forceExit used because existing suite retains async handles; live backend and native screen-reader tests not run.",
+  "finalAccessibilityFollowups": {
+    "mediaTestsPassed": 15,
+    "writingTestsPassed": 50
+  },
+  "browserWritingNavigation": "passed; exact SVG stroke path and route preserved",
+  "browserLanguageChecks": "passed; both navigation languages, keyboard, offline English and Tagalog reload, offline lesson",
+  "screenshotBuild": "baya-pwa-60c8b4f1ee9b8ee0",
+  "finalBuildSmoke": "Writing page, localized canvas accessible label, and Settings/Back stroke preservation passed after final accessibility-only changes."
+}

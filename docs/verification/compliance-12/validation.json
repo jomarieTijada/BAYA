@@ -1,0 +1,18 @@
+{
+  "status": "partial: no validated OOD detector",
+  "typecheck": "passed",
+  "lint": "passed",
+  "export": "passed",
+  "jest": {
+    "suites": 75,
+    "tests": 729,
+    "passed": true
+  },
+  "screenshots": 85,
+  "offlineRealInference": true,
+  "uncertainReloadPreservedDraft": true,
+  "knownWaveStillEarnsMastery": true,
+  "modelChanged": false,
+  "thresholdChanged": false,
+  "extraModelBytes": 0
+}

@@ -1,0 +1,98 @@
+{
+  "evidenceType": "Supplied research CSV scores; not rerun inference, not independent labels",
+  "thresholds": {
+    "pass_threshold": 0.9605122804641724,
+    "reject_threshold": 0.6407943367958069,
+    "chosen_on": "validation_only",
+    "minimum_positive_validation_retention": 0.95,
+    "maximum_positive_validation_hard_rejection": 0.01,
+    "positive_validation_retained": 0.9507936507936507,
+    "positive_validation_hard_rejection": 0.009523809523809525,
+    "negative_validation_passed": 0.0,
+    "negative_validation_rejected": 0.99375,
+    "negative_data_includes_synthetic_unreviewed": true,
+    "deployment_approved": false
+  },
+  "syntheticUnreviewedNegatives": {
+    "n": 640,
+    "pass": 1,
+    "reject": 637,
+    "review": 2
+  },
+  "reportedPositiveTest": {
+    "n": 630,
+    "pass": 596,
+    "reject": 6,
+    "review": 28
+  },
+  "categories": {
+    "circles": {
+      "n": 80,
+      "pass": 0,
+      "reject": 80,
+      "review": 0
+    },
+    "crosses": {
+      "n": 80,
+      "pass": 0,
+      "reject": 80,
+      "review": 0
+    },
+    "geometric_shapes": {
+      "n": 80,
+      "pass": 0,
+      "reject": 80,
+      "review": 0
+    },
+    "other_doodles": {
+      "n": 80,
+      "pass": 0,
+      "reject": 80,
+      "review": 0
+    },
+    "random_lines": {
+      "n": 80,
+      "pass": 0,
+      "reject": 79,
+      "review": 1
+    },
+    "scribbles": {
+      "n": 80,
+      "pass": 1,
+      "reject": 78,
+      "review": 1
+    },
+    "waves": {
+      "n": 80,
+      "pass": 0,
+      "reject": 80,
+      "review": 0
+    },
+    "zigzags": {
+      "n": 80,
+      "pass": 0,
+      "reject": 80,
+      "review": 0
+    }
+  },
+  "passedSyntheticRows": [
+    {
+      "image_path": "/content/baya_dual_resnet18/synthetic_negatives/test/scribbles/scribbles_0009.png",
+      "category": "scribbles",
+      "source_kind": "synthetic_unreviewed",
+      "group_id": "synth_test_scribbles_9",
+      "validity_score": "0.9959747",
+      "decision": "recognized",
+      "raw_classifier_top1": "ke_ki",
+      "raw_classifier_confidence": "0.9997795",
+      "any_target_false_credit_risk": "True",
+      "ha_target_false_credit_risk": "False"
+    }
+  ],
+  "hashes": {
+    "invalid_test_predictions.csv": "cdf46174c9bde75411ebcdbf9dc559dbcb4e07599eea893919aa62b6b4928078",
+    "valid_positive_test_predictions.csv": "642bb51776b315aebf4636faa523ecf070814364355d3890db7da51ddc9a5cdf",
+    "data_provenance.json": "0da4b3aa05ab0ca2464e65850b2e47535e036636fb96dd88c7117e97a8ead962"
+  },
+  "sourceImagesAvailable": false
+}

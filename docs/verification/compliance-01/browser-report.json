@@ -1,0 +1,2463 @@
+{
+  "screens": [
+    {
+      "name": "welcome",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "file": "en-welcome-667x375.png",
+      "lang": "en",
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "LEARNER",
+          "w": 346.640625,
+          "h": 52
+        },
+        {
+          "text": "MENTOR",
+          "w": 346.640625,
+          "h": 52
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "home",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "file": "en-home-667x375.png",
+      "lang": "en",
+      "text": "Learner\nIndependent Learner\nBaybayin Learner\n0/20\nEXP\nLVL 1\nBEGIN INTRODUCTION TO BAYBAYIN\nHistory and Importance of Baybayin\nTopic 1 of 5\nBegin\nTODAY'S GOAL\nDaily Progress\nComplete 3 activities\nLessons\nVALUES ADVENTURE\nAdventures Locked\nComplete Baybayin Basics to unlock values stories.\nLocked\nRECENT ACHIEVEMENT\nNo achievements yet\nComplete lessons to earn your first achievement.\nNone Yet\nHome\nLessons\nAchievements\nProfile",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Settings",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "Begin",
+          "w": 140,
+          "h": 38
+        },
+        {
+          "text": "Lessons",
+          "w": 181.109375,
+          "h": 24
+        },
+        {
+          "text": "Locked",
+          "w": 181.125,
+          "h": 24
+        },
+        {
+          "text": "None Yet",
+          "w": 181.109375,
+          "h": 24
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "lesson",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "file": "en-lesson-667x375.png",
+      "lang": "en",
+      "text": "Introduction to Baybayin\nBaybayin: A Syllabary\nAdd Image Here\nBaybayin is not an alphabet like the one we use today. It is a SYLLABARY. Each character represents a syllable, unlike an alphabet, where each letter represents a sound.\nIt comes from the root word “baybáy,” meaning to spell or divide words into syllables.\nLet's read:\nᜊ = Ba\nᜃ = Ka\nᜆ = Ta\nBack\nNext",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 32,
+          "h": 32
+        },
+        {
+          "text": "Settings",
+          "w": 30,
+          "h": 30
+        },
+        {
+          "text": "Press BAYA to read the message.",
+          "w": 115.5,
+          "h": 81
+        },
+        {
+          "text": "Back",
+          "w": 112,
+          "h": 44
+        },
+        {
+          "text": "Next",
+          "w": 112,
+          "h": 44
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "writing",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "file": "en-writing-667x375.png",
+      "lang": "en",
+      "text": "Writing Baybayin\nVowels\nCHARACTER\nA\n/a/\nWrite the character and earn a star!\nCheck Results\nLet's write!\nCheck",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 32,
+          "h": 32
+        },
+        {
+          "text": "Settings",
+          "w": 30,
+          "h": 30
+        },
+        {
+          "text": "Listen to the sound of A",
+          "w": 32,
+          "h": 32
+        },
+        {
+          "text": "Undo the last stroke",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Clear all strokes",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Help with checking",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Check",
+          "w": 155.8125,
+          "h": 44
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "workspaces",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "file": "en-workspaces-667x375.png",
+      "lang": "en",
+      "text": "MY WORKSPACES\nLearn together with your mentor.\nJOIN WORKSPACE\nYou haven’t joined a workspace yet. Ask your mentor for a code.",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "JOIN WORKSPACE",
+          "w": 589,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "mentor-login",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "file": "en-mentor-login-667x375.png",
+      "lang": "en",
+      "text": "MENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nPASSWORD*\nForgot Password?\nLOG IN\nDon’t have a mentor account? Create Account",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "Forgot Password?",
+          "w": 145.65625,
+          "h": 44
+        },
+        {
+          "text": "Show password",
+          "w": 52,
+          "h": 48
+        },
+        {
+          "text": "LOG IN",
+          "w": 550,
+          "h": 64
+        },
+        {
+          "text": "Don’t have a mentor account? Create Account",
+          "w": 366.25,
+          "h": 44
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "settings",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "file": "en-settings-667x375.png",
+      "lang": "en",
+      "text": "Settings\nLanguage\nEnglish\nTagalog\nWorkspace & Sync\nWorkspace progress tracker\nNo Workspace Connected\nYou are currently learning independently.\nJoin a workspace to synchronize your learning progress with a mentor.\nJOIN WORKSPACE\nYour learning stays saved on this device.\nKeep using this device for your workspace access. Ask your mentor before clearing browser data or changing devices.",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "English",
+          "w": 120,
+          "h": 48
+        },
+        {
+          "text": "Tagalog",
+          "w": 120,
+          "h": 48
+        },
+        {
+          "text": "JOIN WORKSPACE",
+          "w": 578,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "welcome",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "file": "en-welcome-844x390.png",
+      "lang": "en",
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "LEARNER",
+          "w": 380,
+          "h": 52
+        },
+        {
+          "text": "MENTOR",
+          "w": 380,
+          "h": 52
+        }
+      ],
+      "clipped": [
+        "B",
+        "A",
+        "Y",
+        "A"
+      ]
+    },
+    {
+      "name": "home",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "file": "en-home-844x390.png",
+      "lang": "en",
+      "text": "Learner\nIndependent Learner\nBaybayin Learner\n0/20\nEXP\nLVL 1\nBEGIN INTRODUCTION TO BAYBAYIN\nHistory and Importance of Baybayin\nTopic 1 of 5\nBegin\nTODAY'S GOAL\nDaily Progress\nComplete 3 activities\nLessons\nVALUES ADVENTURE\nAdventures Locked\nComplete Baybayin Basics to unlock values stories.\nLocked\nRECENT ACHIEVEMENT\nNo achievements yet\nComplete lessons to earn your first achievement.\nNone Yet\nHome\nLessons\nAchievements\nProfile",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Settings",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "Begin",
+          "w": 145.078125,
+          "h": 38
+        },
+        {
+          "text": "Lessons",
+          "w": 238.34375,
+          "h": 24
+        },
+        {
+          "text": "Locked",
+          "w": 238.34375,
+          "h": 24
+        },
+        {
+          "text": "None Yet",
+          "w": 238.34375,
+          "h": 24
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "lesson",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "file": "en-lesson-844x390.png",
+      "lang": "en",
+      "text": "Introduction to Baybayin\nBaybayin: A Syllabary\nAdd Image Here\nBaybayin is not an alphabet like the one we use today. It is a SYLLABARY. Each character represents a syllable, unlike an alphabet, where each letter represents a sound.\nIt comes from the root word “baybáy,” meaning to spell or divide words into syllables.\nLet's read:\nᜊ = Ba\nᜃ = Ka\nᜆ = Ta\nBack\nNext",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 32,
+          "h": 32
+        },
+        {
+          "text": "Settings",
+          "w": 30,
+          "h": 30
+        },
+        {
+          "text": "Press BAYA to read the message.",
+          "w": 121.796875,
+          "h": 85
+        },
+        {
+          "text": "Back",
+          "w": 112,
+          "h": 44
+        },
+        {
+          "text": "Next",
+          "w": 112,
+          "h": 44
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "writing",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "file": "en-writing-844x390.png",
+      "lang": "en",
+      "text": "Writing Baybayin\nVowels\nCHARACTER\nA\n/a/\nWrite the character and earn a star!\nCheck Results\nLet's write!\nCheck",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 32,
+          "h": 32
+        },
+        {
+          "text": "Settings",
+          "w": 30,
+          "h": 30
+        },
+        {
+          "text": "Listen to the sound of A",
+          "w": 32,
+          "h": 32
+        },
+        {
+          "text": "Undo the last stroke",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Clear all strokes",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Help with checking",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Check",
+          "w": 201.703125,
+          "h": 44
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "workspaces",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "file": "en-workspaces-844x390.png",
+      "lang": "en",
+      "text": "MY WORKSPACES\nLearn together with your mentor.\nJOIN WORKSPACE\nYou haven’t joined a workspace yet. Ask your mentor for a code.",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "JOIN WORKSPACE",
+          "w": 734,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "mentor-login",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "file": "en-mentor-login-844x390.png",
+      "lang": "en",
+      "text": "MENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nPASSWORD*\nForgot Password?\nLOG IN\nDon’t have a mentor account? Create Account",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "Forgot Password?",
+          "w": 145.65625,
+          "h": 44
+        },
+        {
+          "text": "Show password",
+          "w": 52,
+          "h": 48
+        },
+        {
+          "text": "LOG IN",
+          "w": 550,
+          "h": 64
+        },
+        {
+          "text": "Don’t have a mentor account? Create Account",
+          "w": 366.25,
+          "h": 44
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "settings",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "file": "en-settings-844x390.png",
+      "lang": "en",
+      "text": "Settings\nLanguage\nEnglish\nTagalog\nWorkspace & Sync\nWorkspace progress tracker\nNo Workspace Connected\nYou are currently learning independently.\nJoin a workspace to synchronize your learning progress with a mentor.\nJOIN WORKSPACE\nYour learning stays saved on this device.\nKeep using this device for your workspace access. Ask your mentor before clearing browser data or changing devices.",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "English",
+          "w": 120,
+          "h": 48
+        },
+        {
+          "text": "Tagalog",
+          "w": 120,
+          "h": 48
+        },
+        {
+          "text": "JOIN WORKSPACE",
+          "w": 620,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "welcome",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "file": "en-welcome-915x412.png",
+      "lang": "en",
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "LEARNER",
+          "w": 380,
+          "h": 52
+        },
+        {
+          "text": "MENTOR",
+          "w": 380,
+          "h": 52
+        }
+      ],
+      "clipped": [
+        "B",
+        "A",
+        "Y",
+        "A"
+      ]
+    },
+    {
+      "name": "home",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "file": "en-home-915x412.png",
+      "lang": "en",
+      "text": "Learner\nIndependent Learner\nBaybayin Learner\n0/20\nEXP\nLVL 1\nBEGIN INTRODUCTION TO BAYBAYIN\nHistory and Importance of Baybayin\nTopic 1 of 5\nBegin\nTODAY'S GOAL\nDaily Progress\nComplete 3 activities\nLessons\nVALUES ADVENTURE\nAdventures Locked\nComplete Baybayin Basics to unlock values stories.\nLocked\nRECENT ACHIEVEMENT\nNo achievements yet\nComplete lessons to earn your first achievement.\nNone Yet\nHome\nLessons\nAchievements\nProfile",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Settings",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "Begin",
+          "w": 157.859375,
+          "h": 38
+        },
+        {
+          "text": "Lessons",
+          "w": 261.296875,
+          "h": 24
+        },
+        {
+          "text": "Locked",
+          "w": 261.3125,
+          "h": 24
+        },
+        {
+          "text": "None Yet",
+          "w": 261.296875,
+          "h": 24
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "lesson",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "file": "en-lesson-915x412.png",
+      "lang": "en",
+      "text": "Introduction to Baybayin\nBaybayin: A Syllabary\nAdd Image Here\nBaybayin is not an alphabet like the one we use today. It is a SYLLABARY. Each character represents a syllable, unlike an alphabet, where each letter represents a sound.\nIt comes from the root word “baybáy,” meaning to spell or divide words into syllables.\nLet's read:\nᜊ = Ba\nᜃ = Ka\nᜆ = Ta\nBack\nNext",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 32,
+          "h": 32
+        },
+        {
+          "text": "Settings",
+          "w": 30,
+          "h": 30
+        },
+        {
+          "text": "Press BAYA to read the message.",
+          "w": 131.03125,
+          "h": 92
+        },
+        {
+          "text": "Back",
+          "w": 112,
+          "h": 44
+        },
+        {
+          "text": "Next",
+          "w": 112,
+          "h": 44
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "writing",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "file": "en-writing-915x412.png",
+      "lang": "en",
+      "text": "Writing Baybayin\nVowels\nCHARACTER\nA\n/a/\nWrite the character and earn a star!\nCheck Results\nLet's write!\nCheck",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 32,
+          "h": 32
+        },
+        {
+          "text": "Settings",
+          "w": 30,
+          "h": 30
+        },
+        {
+          "text": "Listen to the sound of A",
+          "w": 32,
+          "h": 32
+        },
+        {
+          "text": "Undo the last stroke",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Clear all strokes",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Help with checking",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Check",
+          "w": 220.109375,
+          "h": 44
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "workspaces",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "file": "en-workspaces-915x412.png",
+      "lang": "en",
+      "text": "MY WORKSPACES\nLearn together with your mentor.\nJOIN WORKSPACE\nYou haven’t joined a workspace yet. Ask your mentor for a code.",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "JOIN WORKSPACE",
+          "w": 734,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "mentor-login",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "file": "en-mentor-login-915x412.png",
+      "lang": "en",
+      "text": "MENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nPASSWORD*\nForgot Password?\nLOG IN\nDon’t have a mentor account? Create Account",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "Forgot Password?",
+          "w": 145.65625,
+          "h": 44
+        },
+        {
+          "text": "Show password",
+          "w": 52,
+          "h": 48
+        },
+        {
+          "text": "LOG IN",
+          "w": 550,
+          "h": 64
+        },
+        {
+          "text": "Don’t have a mentor account? Create Account",
+          "w": 366.25,
+          "h": 44
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "settings",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "file": "en-settings-915x412.png",
+      "lang": "en",
+      "text": "Settings\nLanguage\nEnglish\nTagalog\nWorkspace & Sync\nWorkspace progress tracker\nNo Workspace Connected\nYou are currently learning independently.\nJoin a workspace to synchronize your learning progress with a mentor.\nJOIN WORKSPACE\nYour learning stays saved on this device.\nKeep using this device for your workspace access. Ask your mentor before clearing browser data or changing devices.",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "English",
+          "w": 120,
+          "h": 48
+        },
+        {
+          "text": "Tagalog",
+          "w": 120,
+          "h": 48
+        },
+        {
+          "text": "JOIN WORKSPACE",
+          "w": 620,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "welcome",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "file": "en-welcome-1024x768.png",
+      "lang": "en",
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "LEARNER",
+          "w": 408.3125,
+          "h": 76
+        },
+        {
+          "text": "MENTOR",
+          "w": 408.3125,
+          "h": 76
+        }
+      ],
+      "clipped": [
+        "B",
+        "A",
+        "Y",
+        "A"
+      ]
+    },
+    {
+      "name": "home",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "file": "en-home-1024x768.png",
+      "lang": "en",
+      "text": "Learner\nIndependent Learner\nBaybayin Learner\n0/20\nEXP\nLVL 1\nBEGIN INTRODUCTION TO BAYBAYIN\nHistory and Importance of Baybayin\nTopic 1 of 5\nBegin\nTODAY'S GOAL\nDaily Progress\nComplete 3 activities\nLessons\nVALUES ADVENTURE\nAdventures Locked\nComplete Baybayin Basics to unlock values stories.\nLocked\nRECENT ACHIEVEMENT\nNo achievements yet\nComplete lessons to earn your first achievement.\nNone Yet\nHome\nLessons\nAchievements\nProfile",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Settings",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "Begin",
+          "w": 205,
+          "h": 64
+        },
+        {
+          "text": "Lessons",
+          "w": 261.328125,
+          "h": 48
+        },
+        {
+          "text": "Locked",
+          "w": 261.34375,
+          "h": 48
+        },
+        {
+          "text": "None Yet",
+          "w": 261.328125,
+          "h": 48
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "lesson",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "file": "en-lesson-1024x768.png",
+      "lang": "en",
+      "text": "Introduction to Baybayin\nBaybayin: A Syllabary\nAdd Image Here\nBaybayin: A Syllabary\nBaybayin is not an alphabet like the one we use today. It is a SYLLABARY. Each character represents a syllable, unlike an alphabet, where each letter represents a sound.\nIt comes from the root word “baybáy,” meaning to spell or divide words into syllables.\nLet's read:\nᜊ = Ba\nᜃ = Ka\nᜆ = Ta\nOne character, one syllable! That's how Baybayin works.\nBack\nNext",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 64,
+          "h": 64
+        },
+        {
+          "text": "Settings",
+          "w": 52,
+          "h": 52
+        },
+        {
+          "text": "Back",
+          "w": 112,
+          "h": 64
+        },
+        {
+          "text": "Next",
+          "w": 112,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "writing",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "file": "en-writing-1024x768.png",
+      "lang": "en",
+      "text": "Writing Baybayin\nVowels\nCHARACTER\nA\n/a/\nWrite the character and earn a star!\nCheck Results\nLet's write!\nCheck",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 64,
+          "h": 64
+        },
+        {
+          "text": "Settings",
+          "w": 52,
+          "h": 52
+        },
+        {
+          "text": "Listen to the sound of A",
+          "w": 40,
+          "h": 40
+        },
+        {
+          "text": "Undo the last stroke",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Clear all strokes",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Help with checking",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Check",
+          "w": 231.78125,
+          "h": 48
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "workspaces",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "file": "en-workspaces-1024x768.png",
+      "lang": "en",
+      "text": "MY WORKSPACES\nLearn together with your mentor.\nJOIN WORKSPACE\nYou haven’t joined a workspace yet. Ask your mentor for a code.",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "JOIN WORKSPACE",
+          "w": 698,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "mentor-login",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "file": "en-mentor-login-1024x768.png",
+      "lang": "en",
+      "text": "MENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nPASSWORD*\nForgot Password?\nLOG IN\nDon’t have a mentor account? Create Account",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "Forgot Password?",
+          "w": 145.65625,
+          "h": 44
+        },
+        {
+          "text": "Show password",
+          "w": 52,
+          "h": 48
+        },
+        {
+          "text": "LOG IN",
+          "w": 550,
+          "h": 64
+        },
+        {
+          "text": "Don’t have a mentor account? Create Account",
+          "w": 366.25,
+          "h": 44
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "settings",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "file": "en-settings-1024x768.png",
+      "lang": "en",
+      "text": "Settings\nLanguage\nEnglish\nTagalog\nWorkspace & Sync\nWorkspace progress tracker\nNo Workspace Connected\nYou are currently learning independently.\nJoin a workspace to synchronize your learning progress with a mentor.\nJOIN WORKSPACE\nYour learning stays saved on this device.\nKeep using this device for your workspace access. Ask your mentor before clearing browser data or changing devices.",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "English",
+          "w": 120,
+          "h": 48
+        },
+        {
+          "text": "Tagalog",
+          "w": 120,
+          "h": 48
+        },
+        {
+          "text": "JOIN WORKSPACE",
+          "w": 620,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "welcome",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "file": "en-welcome-1366x768.png",
+      "lang": "en",
+      "text": "B\nA\nY\nA\nMabuhay! Let's learn Baybayin together!\nLEARNER\nMENTOR",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "LEARNER",
+          "w": 500,
+          "h": 76
+        },
+        {
+          "text": "MENTOR",
+          "w": 500,
+          "h": 76
+        }
+      ],
+      "clipped": [
+        "B",
+        "A",
+        "Y",
+        "A"
+      ]
+    },
+    {
+      "name": "home",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "file": "en-home-1366x768.png",
+      "lang": "en",
+      "text": "Learner\nIndependent Learner\nBaybayin Learner\n0/20\nEXP\nLVL 1\nBEGIN INTRODUCTION TO BAYBAYIN\nHistory and Importance of Baybayin\nTopic 1 of 5\nBegin\nTODAY'S GOAL\nDaily Progress\nComplete 3 activities\nLessons\nVALUES ADVENTURE\nAdventures Locked\nComplete Baybayin Basics to unlock values stories.\nLocked\nRECENT ACHIEVEMENT\nNo achievements yet\nComplete lessons to earn your first achievement.\nNone Yet\nHome\nLessons\nAchievements\nProfile",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Settings",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "Begin",
+          "w": 227.15625,
+          "h": 64
+        },
+        {
+          "text": "Lessons",
+          "w": 375.328125,
+          "h": 48
+        },
+        {
+          "text": "Locked",
+          "w": 375.34375,
+          "h": 48
+        },
+        {
+          "text": "None Yet",
+          "w": 375.328125,
+          "h": 48
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "lesson",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "file": "en-lesson-1366x768.png",
+      "lang": "en",
+      "text": "Introduction to Baybayin\nBaybayin: A Syllabary\nAdd Image Here\nBaybayin: A Syllabary\nBaybayin is not an alphabet like the one we use today. It is a SYLLABARY. Each character represents a syllable, unlike an alphabet, where each letter represents a sound.\nIt comes from the root word “baybáy,” meaning to spell or divide words into syllables.\nLet's read:\nᜊ = Ba\nᜃ = Ka\nᜆ = Ta\nOne character, one syllable! That's how Baybayin works.\nBack\nNext",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 64,
+          "h": 64
+        },
+        {
+          "text": "Settings",
+          "w": 52,
+          "h": 52
+        },
+        {
+          "text": "Back",
+          "w": 112,
+          "h": 64
+        },
+        {
+          "text": "Next",
+          "w": 112,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "writing",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "file": "en-writing-1366x768.png",
+      "lang": "en",
+      "text": "Writing Baybayin\nVowels\nCHARACTER\nA\n/a/\nWrite the character and earn a star!\nCheck Results\nLet's write!\nCheck",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 64,
+          "h": 64
+        },
+        {
+          "text": "Settings",
+          "w": 52,
+          "h": 52
+        },
+        {
+          "text": "Listen to the sound of A",
+          "w": 40,
+          "h": 40
+        },
+        {
+          "text": "Undo the last stroke",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Clear all strokes",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Help with checking",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Check",
+          "w": 280,
+          "h": 48
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "workspaces",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "file": "en-workspaces-1366x768.png",
+      "lang": "en",
+      "text": "MY WORKSPACES\nLearn together with your mentor.\nJOIN WORKSPACE\nYou haven’t joined a workspace yet. Ask your mentor for a code.",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "JOIN WORKSPACE",
+          "w": 698,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "mentor-login",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "file": "en-mentor-login-1366x768.png",
+      "lang": "en",
+      "text": "MENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nPASSWORD*\nForgot Password?\nLOG IN\nDon’t have a mentor account? Create Account",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "Forgot Password?",
+          "w": 145.65625,
+          "h": 44
+        },
+        {
+          "text": "Show password",
+          "w": 52,
+          "h": 48
+        },
+        {
+          "text": "LOG IN",
+          "w": 550,
+          "h": 64
+        },
+        {
+          "text": "Don’t have a mentor account? Create Account",
+          "w": 366.25,
+          "h": 44
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "settings",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "file": "en-settings-1366x768.png",
+      "lang": "en",
+      "text": "Settings\nLanguage\nEnglish\nTagalog\nWorkspace & Sync\nWorkspace progress tracker\nNo Workspace Connected\nYou are currently learning independently.\nJoin a workspace to synchronize your learning progress with a mentor.\nJOIN WORKSPACE\nYour learning stays saved on this device.\nKeep using this device for your workspace access. Ask your mentor before clearing browser data or changing devices.",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "English",
+          "w": 120,
+          "h": 48
+        },
+        {
+          "text": "Tagalog",
+          "w": 120,
+          "h": 48
+        },
+        {
+          "text": "JOIN WORKSPACE",
+          "w": 620,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "welcome",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "file": "tl-welcome-667x375.png",
+      "lang": "tl",
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "MAG-AARAL",
+          "w": 346.640625,
+          "h": 52
+        },
+        {
+          "text": "MENTOR",
+          "w": 346.640625,
+          "h": 52
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "home",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "file": "tl-home-667x375.png",
+      "lang": "tl",
+      "text": "Learner\nNagsasariling Mag-aaral\nMag-aaral ng Baybayin\n0/20\nEXP\nANTAS 1\nSIMULAN ANG PAGKILALA SA BAYBAYIN\nKasaysayan at Kahalagahan ng Baybayin\nPaksa 1 sa 5\nSimulan\nLAYUNIN NGAYON\nPag-unlad Ngayon\nTapusin ang 3 gawain\nMga Aralin\nPAGLALAKBAY SA PAGPAPAHALAGA\nNaka-lock ang mga Paglalakbay\nTapusin ang Batayang Baybayin upang mabuksan ang mga kuwentong may aral.\nNaka-lock\nBAGONG NAKAMIT\nWala pang nakamit\nTapusin ang mga aralin upang makuha ang una mong gantimpala.\nWala Pa\nTahanan\nMga Aralin\nMga Nakamit\nProfile",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Mga Setting",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "Simulan",
+          "w": 140,
+          "h": 38
+        },
+        {
+          "text": "Mga Aralin",
+          "w": 181.109375,
+          "h": 24
+        },
+        {
+          "text": "Naka-lock",
+          "w": 181.125,
+          "h": 24
+        },
+        {
+          "text": "Wala Pa",
+          "w": 181.109375,
+          "h": 24
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "lesson",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "file": "tl-lesson-667x375.png",
+      "lang": "tl",
+      "text": "Pagkilala sa Baybayin\nBaybayin: Isang Silabaryo (Pantigan)\nMaglagay ng Larawan Dito\nAng Baybayin ay hindi alpabeto na tulad ng ginagamit natin ngayon kundi SILABARYO. Bawat simbolo nito ay katumbas ng isang pantig (syllable), hindi tulad ng ating alpabeto na bawat titik ay isang tunog.\nMula sa ugat na salitang “baybáy” o ang pagbabaybay ng mga salita (to spell, to syllabicate).\nBasahin natin:\nᜊ = Ba\nᜃ = Ka\nᜆ = Ta\nBumalik\nSusunod",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 32,
+          "h": 32
+        },
+        {
+          "text": "Mga Setting",
+          "w": 30,
+          "h": 30
+        },
+        {
+          "text": "Pindutin si BAYA upang mabasa ang kanyang mensahe.",
+          "w": 115.5,
+          "h": 81
+        },
+        {
+          "text": "Bumalik",
+          "w": 112,
+          "h": 44
+        },
+        {
+          "text": "Susunod",
+          "w": 112,
+          "h": 44
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "writing",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "file": "tl-writing-667x375.png",
+      "lang": "tl",
+      "text": "Pagsusulat ng Baybayin\nMga Patinig\nSIMBOLO\nA\n/a/\nIsulat ang simbolo at makakuha ng bituin!\nPagsusuri\nMagsulat na!\nSuriin",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 32,
+          "h": 32
+        },
+        {
+          "text": "Mga Setting",
+          "w": 30,
+          "h": 30
+        },
+        {
+          "text": "Pakinggan ang tunog ng A",
+          "w": 32,
+          "h": 32
+        },
+        {
+          "text": "Bawiin ang huling guhit",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Burahin ang lahat ng guhit",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Tulong sa pagsusuri",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Suriin",
+          "w": 155.8125,
+          "h": 44
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "workspaces",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "file": "tl-workspaces-667x375.png",
+      "lang": "tl",
+      "text": "AKING MGA WORKSPACE\nMatuto kasama ang iyong mentor.\nSUMALI SA WORKSPACE\nWala ka pang sinalihang workspace. Humingi ng code sa mentor.",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "SUMALI SA WORKSPACE",
+          "w": 589,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "mentor-login",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "file": "tl-mentor-login-667x375.png",
+      "lang": "tl",
+      "text": "PAG-LOGIN NG MENTOR\nBuksan ang mga workspace at pag-unlad ng mag-aaral.\nEMAIL ADDRESS*\nPASSWORD*\nNakalimutan ang Password?\nMAG-LOG IN\nWala pang mentor account? Gumawa ng Account",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "Nakalimutan ang Password?",
+          "w": 223.984375,
+          "h": 44
+        },
+        {
+          "text": "Ipakita ang password",
+          "w": 52,
+          "h": 48
+        },
+        {
+          "text": "MAG-LOG IN",
+          "w": 550,
+          "h": 64
+        },
+        {
+          "text": "Wala pang mentor account? Gumawa ng Account",
+          "w": 384.5625,
+          "h": 44
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "settings",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "file": "tl-settings-667x375.png",
+      "lang": "tl",
+      "text": "Mga Setting\nWika\nEnglish\nTagalog\nWorkspace at Pag-sync\nTagasubaybay ng pag-unlad sa workspace\nWalang Konektadong Workspace\nNag-aaral ka ngayon nang mag-isa.\nSumali sa workspace upang i-sync ang iyong pag-unlad sa mentor.\nSUMALI SA WORKSPACE\nNaka-save pa rin sa device ang iyong pag-aaral.\nPatuloy na gamitin ang device na ito para sa workspace. Magtanong sa mentor bago burahin ang browser data o lumipat ng device.",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "English",
+          "w": 120,
+          "h": 48
+        },
+        {
+          "text": "Tagalog",
+          "w": 120,
+          "h": 48
+        },
+        {
+          "text": "SUMALI SA WORKSPACE",
+          "w": 578,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "welcome",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "file": "tl-welcome-844x390.png",
+      "lang": "tl",
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "MAG-AARAL",
+          "w": 380,
+          "h": 52
+        },
+        {
+          "text": "MENTOR",
+          "w": 380,
+          "h": 52
+        }
+      ],
+      "clipped": [
+        "B",
+        "A",
+        "Y",
+        "A"
+      ]
+    },
+    {
+      "name": "home",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "file": "tl-home-844x390.png",
+      "lang": "tl",
+      "text": "Learner\nNagsasariling Mag-aaral\nMag-aaral ng Baybayin\n0/20\nEXP\nANTAS 1\nSIMULAN ANG PAGKILALA SA BAYBAYIN\nKasaysayan at Kahalagahan ng Baybayin\nPaksa 1 sa 5\nSimulan\nLAYUNIN NGAYON\nPag-unlad Ngayon\nTapusin ang 3 gawain\nMga Aralin\nPAGLALAKBAY SA PAGPAPAHALAGA\nNaka-lock ang mga Paglalakbay\nTapusin ang Batayang Baybayin upang mabuksan ang mga kuwentong may aral.\nNaka-lock\nBAGONG NAKAMIT\nWala pang nakamit\nTapusin ang mga aralin upang makuha ang una mong gantimpala.\nWala Pa\nTahanan\nMga Aralin\nMga Nakamit\nProfile",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Mga Setting",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "Simulan",
+          "w": 145.078125,
+          "h": 38
+        },
+        {
+          "text": "Mga Aralin",
+          "w": 238.34375,
+          "h": 24
+        },
+        {
+          "text": "Naka-lock",
+          "w": 238.34375,
+          "h": 24
+        },
+        {
+          "text": "Wala Pa",
+          "w": 238.34375,
+          "h": 24
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "lesson",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "file": "tl-lesson-844x390.png",
+      "lang": "tl",
+      "text": "Pagkilala sa Baybayin\nBaybayin: Isang Silabaryo (Pantigan)\nMaglagay ng Larawan Dito\nAng Baybayin ay hindi alpabeto na tulad ng ginagamit natin ngayon kundi SILABARYO. Bawat simbolo nito ay katumbas ng isang pantig (syllable), hindi tulad ng ating alpabeto na bawat titik ay isang tunog.\nMula sa ugat na salitang “baybáy” o ang pagbabaybay ng mga salita (to spell, to syllabicate).\nBasahin natin:\nᜊ = Ba\nᜃ = Ka\nᜆ = Ta\nBumalik\nSusunod",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 32,
+          "h": 32
+        },
+        {
+          "text": "Mga Setting",
+          "w": 30,
+          "h": 30
+        },
+        {
+          "text": "Pindutin si BAYA upang mabasa ang kanyang mensahe.",
+          "w": 121.796875,
+          "h": 85
+        },
+        {
+          "text": "Bumalik",
+          "w": 112,
+          "h": 44
+        },
+        {
+          "text": "Susunod",
+          "w": 112,
+          "h": 44
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "writing",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "file": "tl-writing-844x390.png",
+      "lang": "tl",
+      "text": "Pagsusulat ng Baybayin\nMga Patinig\nSIMBOLO\nA\n/a/\nIsulat ang simbolo at makakuha ng bituin!\nPagsusuri\nMagsulat na!\nSuriin",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 32,
+          "h": 32
+        },
+        {
+          "text": "Mga Setting",
+          "w": 30,
+          "h": 30
+        },
+        {
+          "text": "Pakinggan ang tunog ng A",
+          "w": 32,
+          "h": 32
+        },
+        {
+          "text": "Bawiin ang huling guhit",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Burahin ang lahat ng guhit",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Tulong sa pagsusuri",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Suriin",
+          "w": 201.703125,
+          "h": 44
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "workspaces",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "file": "tl-workspaces-844x390.png",
+      "lang": "tl",
+      "text": "AKING MGA WORKSPACE\nMatuto kasama ang iyong mentor.\nSUMALI SA WORKSPACE\nWala ka pang sinalihang workspace. Humingi ng code sa mentor.",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "SUMALI SA WORKSPACE",
+          "w": 734,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "mentor-login",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "file": "tl-mentor-login-844x390.png",
+      "lang": "tl",
+      "text": "PAG-LOGIN NG MENTOR\nBuksan ang mga workspace at pag-unlad ng mag-aaral.\nEMAIL ADDRESS*\nPASSWORD*\nNakalimutan ang Password?\nMAG-LOG IN\nWala pang mentor account? Gumawa ng Account",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "Nakalimutan ang Password?",
+          "w": 223.984375,
+          "h": 44
+        },
+        {
+          "text": "Ipakita ang password",
+          "w": 52,
+          "h": 48
+        },
+        {
+          "text": "MAG-LOG IN",
+          "w": 550,
+          "h": 64
+        },
+        {
+          "text": "Wala pang mentor account? Gumawa ng Account",
+          "w": 384.5625,
+          "h": 44
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "settings",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "file": "tl-settings-844x390.png",
+      "lang": "tl",
+      "text": "Mga Setting\nWika\nEnglish\nTagalog\nWorkspace at Pag-sync\nTagasubaybay ng pag-unlad sa workspace\nWalang Konektadong Workspace\nNag-aaral ka ngayon nang mag-isa.\nSumali sa workspace upang i-sync ang iyong pag-unlad sa mentor.\nSUMALI SA WORKSPACE\nNaka-save pa rin sa device ang iyong pag-aaral.\nPatuloy na gamitin ang device na ito para sa workspace. Magtanong sa mentor bago burahin ang browser data o lumipat ng device.",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "English",
+          "w": 120,
+          "h": 48
+        },
+        {
+          "text": "Tagalog",
+          "w": 120,
+          "h": 48
+        },
+        {
+          "text": "SUMALI SA WORKSPACE",
+          "w": 620,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "welcome",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "file": "tl-welcome-915x412.png",
+      "lang": "tl",
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "MAG-AARAL",
+          "w": 380,
+          "h": 52
+        },
+        {
+          "text": "MENTOR",
+          "w": 380,
+          "h": 52
+        }
+      ],
+      "clipped": [
+        "B",
+        "A",
+        "Y",
+        "A"
+      ]
+    },
+    {
+      "name": "home",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "file": "tl-home-915x412.png",
+      "lang": "tl",
+      "text": "Learner\nNagsasariling Mag-aaral\nMag-aaral ng Baybayin\n0/20\nEXP\nANTAS 1\nSIMULAN ANG PAGKILALA SA BAYBAYIN\nKasaysayan at Kahalagahan ng Baybayin\nPaksa 1 sa 5\nSimulan\nLAYUNIN NGAYON\nPag-unlad Ngayon\nTapusin ang 3 gawain\nMga Aralin\nPAGLALAKBAY SA PAGPAPAHALAGA\nNaka-lock ang mga Paglalakbay\nTapusin ang Batayang Baybayin upang mabuksan ang mga kuwentong may aral.\nNaka-lock\nBAGONG NAKAMIT\nWala pang nakamit\nTapusin ang mga aralin upang makuha ang una mong gantimpala.\nWala Pa\nTahanan\nMga Aralin\nMga Nakamit\nProfile",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Mga Setting",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "Simulan",
+          "w": 157.859375,
+          "h": 38
+        },
+        {
+          "text": "Mga Aralin",
+          "w": 261.296875,
+          "h": 24
+        },
+        {
+          "text": "Naka-lock",
+          "w": 261.3125,
+          "h": 24
+        },
+        {
+          "text": "Wala Pa",
+          "w": 261.296875,
+          "h": 24
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "lesson",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "file": "tl-lesson-915x412.png",
+      "lang": "tl",
+      "text": "Pagkilala sa Baybayin\nBaybayin: Isang Silabaryo (Pantigan)\nMaglagay ng Larawan Dito\nAng Baybayin ay hindi alpabeto na tulad ng ginagamit natin ngayon kundi SILABARYO. Bawat simbolo nito ay katumbas ng isang pantig (syllable), hindi tulad ng ating alpabeto na bawat titik ay isang tunog.\nMula sa ugat na salitang “baybáy” o ang pagbabaybay ng mga salita (to spell, to syllabicate).\nBasahin natin:\nᜊ = Ba\nᜃ = Ka\nᜆ = Ta\nBumalik\nSusunod",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 32,
+          "h": 32
+        },
+        {
+          "text": "Mga Setting",
+          "w": 30,
+          "h": 30
+        },
+        {
+          "text": "Pindutin si BAYA upang mabasa ang kanyang mensahe.",
+          "w": 131.03125,
+          "h": 92
+        },
+        {
+          "text": "Bumalik",
+          "w": 112,
+          "h": 44
+        },
+        {
+          "text": "Susunod",
+          "w": 112,
+          "h": 44
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "writing",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "file": "tl-writing-915x412.png",
+      "lang": "tl",
+      "text": "Pagsusulat ng Baybayin\nMga Patinig\nSIMBOLO\nA\n/a/\nIsulat ang simbolo at makakuha ng bituin!\nPagsusuri\nMagsulat na!\nSuriin",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 32,
+          "h": 32
+        },
+        {
+          "text": "Mga Setting",
+          "w": 30,
+          "h": 30
+        },
+        {
+          "text": "Pakinggan ang tunog ng A",
+          "w": 32,
+          "h": 32
+        },
+        {
+          "text": "Bawiin ang huling guhit",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Burahin ang lahat ng guhit",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Tulong sa pagsusuri",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Suriin",
+          "w": 220.109375,
+          "h": 44
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "workspaces",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "file": "tl-workspaces-915x412.png",
+      "lang": "tl",
+      "text": "AKING MGA WORKSPACE\nMatuto kasama ang iyong mentor.\nSUMALI SA WORKSPACE\nWala ka pang sinalihang workspace. Humingi ng code sa mentor.",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "SUMALI SA WORKSPACE",
+          "w": 734,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "mentor-login",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "file": "tl-mentor-login-915x412.png",
+      "lang": "en",
+      "text": "MENTOR LOGIN\nAccess your workspaces and learner progress.\nEMAIL ADDRESS*\nPASSWORD*\nForgot Password?\nLOG IN\nDon’t have a mentor account? Create Account",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Back",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "Forgot Password?",
+          "w": 145.65625,
+          "h": 44
+        },
+        {
+          "text": "Show password",
+          "w": 52,
+          "h": 48
+        },
+        {
+          "text": "LOG IN",
+          "w": 550,
+          "h": 64
+        },
+        {
+          "text": "Don’t have a mentor account? Create Account",
+          "w": 366.25,
+          "h": 44
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "settings",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "file": "tl-settings-915x412.png",
+      "lang": "tl",
+      "text": "Mga Setting\nWika\nEnglish\nTagalog\nWorkspace at Pag-sync\nTagasubaybay ng pag-unlad sa workspace\nWalang Konektadong Workspace\nNag-aaral ka ngayon nang mag-isa.\nSumali sa workspace upang i-sync ang iyong pag-unlad sa mentor.\nSUMALI SA WORKSPACE\nNaka-save pa rin sa device ang iyong pag-aaral.\nPatuloy na gamitin ang device na ito para sa workspace. Magtanong sa mentor bago burahin ang browser data o lumipat ng device.",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "English",
+          "w": 120,
+          "h": 48
+        },
+        {
+          "text": "Tagalog",
+          "w": 120,
+          "h": 48
+        },
+        {
+          "text": "SUMALI SA WORKSPACE",
+          "w": 620,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "welcome",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "file": "tl-welcome-1024x768.png",
+      "lang": "tl",
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "MAG-AARAL",
+          "w": 408.3125,
+          "h": 76
+        },
+        {
+          "text": "MENTOR",
+          "w": 408.3125,
+          "h": 76
+        }
+      ],
+      "clipped": [
+        "B",
+        "A",
+        "Y",
+        "A"
+      ]
+    },
+    {
+      "name": "home",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "file": "tl-home-1024x768.png",
+      "lang": "tl",
+      "text": "Learner\nNagsasariling Mag-aaral\nMag-aaral ng Baybayin\n0/20\nEXP\nANTAS 1\nSIMULAN ANG PAGKILALA SA BAYBAYIN\nKasaysayan at Kahalagahan ng Baybayin\nPaksa 1 sa 5\nSimulan\nLAYUNIN NGAYON\nPag-unlad Ngayon\nTapusin ang 3 gawain\nMga Aralin\nPAGLALAKBAY SA PAGPAPAHALAGA\nNaka-lock ang mga Paglalakbay\nTapusin ang Batayang Baybayin upang mabuksan ang mga kuwentong may aral.\nNaka-lock\nBAGONG NAKAMIT\nWala pang nakamit\nTapusin ang mga aralin upang makuha ang una mong gantimpala.\nWala Pa\nTahanan\nMga Aralin\nMga Nakamit\nProfile",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Mga Setting",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "Simulan",
+          "w": 205,
+          "h": 64
+        },
+        {
+          "text": "Mga Aralin",
+          "w": 261.328125,
+          "h": 48
+        },
+        {
+          "text": "Naka-lock",
+          "w": 261.34375,
+          "h": 48
+        },
+        {
+          "text": "Wala Pa",
+          "w": 261.328125,
+          "h": 48
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "lesson",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "file": "tl-lesson-1024x768.png",
+      "lang": "tl",
+      "text": "Pagkilala sa Baybayin\nBaybayin: Isang Silabaryo (Pantigan)\nMaglagay ng Larawan Dito\nBaybayin: Isang Silabaryo (Pantigan)\nAng Baybayin ay hindi alpabeto na tulad ng ginagamit natin ngayon kundi SILABARYO. Bawat simbolo nito ay katumbas ng isang pantig (syllable), hindi tulad ng ating alpabeto na bawat titik ay isang tunog.\nMula sa ugat na salitang “baybáy” o ang pagbabaybay ng mga salita (to spell, to syllabicate).\nBasahin natin:\nᜊ = Ba\nᜃ = Ka\nᜆ = Ta\nIsang simbolo, isang pantig! Ganoon kadali ang Baybayin.\nBumalik\nSusunod",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 64,
+          "h": 64
+        },
+        {
+          "text": "Mga Setting",
+          "w": 52,
+          "h": 52
+        },
+        {
+          "text": "Bumalik",
+          "w": 138.890625,
+          "h": 64
+        },
+        {
+          "text": "Susunod",
+          "w": 141.71875,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "writing",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "file": "tl-writing-1024x768.png",
+      "lang": "tl",
+      "text": "Pagsusulat ng Baybayin\nMga Patinig\nSIMBOLO\nA\n/a/\nIsulat ang simbolo at makakuha ng bituin!\nPagsusuri\nMagsulat na!\nSuriin",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 64,
+          "h": 64
+        },
+        {
+          "text": "Mga Setting",
+          "w": 52,
+          "h": 52
+        },
+        {
+          "text": "Pakinggan ang tunog ng A",
+          "w": 40,
+          "h": 40
+        },
+        {
+          "text": "Bawiin ang huling guhit",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Burahin ang lahat ng guhit",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Tulong sa pagsusuri",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Suriin",
+          "w": 231.78125,
+          "h": 48
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "workspaces",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "file": "tl-workspaces-1024x768.png",
+      "lang": "tl",
+      "text": "AKING MGA WORKSPACE\nMatuto kasama ang iyong mentor.\nSUMALI SA WORKSPACE\nWala ka pang sinalihang workspace. Humingi ng code sa mentor.",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "SUMALI SA WORKSPACE",
+          "w": 698,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "mentor-login",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "file": "tl-mentor-login-1024x768.png",
+      "lang": "tl",
+      "text": "PAG-LOGIN NG MENTOR\nBuksan ang mga workspace at pag-unlad ng mag-aaral.\nEMAIL ADDRESS*\nPASSWORD*\nNakalimutan ang Password?\nMAG-LOG IN\nWala pang mentor account? Gumawa ng Account",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "Nakalimutan ang Password?",
+          "w": 223.984375,
+          "h": 44
+        },
+        {
+          "text": "Ipakita ang password",
+          "w": 52,
+          "h": 48
+        },
+        {
+          "text": "MAG-LOG IN",
+          "w": 550,
+          "h": 64
+        },
+        {
+          "text": "Wala pang mentor account? Gumawa ng Account",
+          "w": 384.5625,
+          "h": 44
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "settings",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "file": "tl-settings-1024x768.png",
+      "lang": "tl",
+      "text": "Mga Setting\nWika\nEnglish\nTagalog\nWorkspace at Pag-sync\nTagasubaybay ng pag-unlad sa workspace\nWalang Konektadong Workspace\nNag-aaral ka ngayon nang mag-isa.\nSumali sa workspace upang i-sync ang iyong pag-unlad sa mentor.\nSUMALI SA WORKSPACE\nNaka-save pa rin sa device ang iyong pag-aaral.\nPatuloy na gamitin ang device na ito para sa workspace. Magtanong sa mentor bago burahin ang browser data o lumipat ng device.",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "English",
+          "w": 120,
+          "h": 48
+        },
+        {
+          "text": "Tagalog",
+          "w": 120,
+          "h": 48
+        },
+        {
+          "text": "SUMALI SA WORKSPACE",
+          "w": 620,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "welcome",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "file": "tl-welcome-1366x768.png",
+      "lang": "tl",
+      "text": "B\nA\nY\nA\nMabuhay! Sabay tayong matuto ng Baybayin!\nMAG-AARAL\nMENTOR",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "MAG-AARAL",
+          "w": 500,
+          "h": 76
+        },
+        {
+          "text": "MENTOR",
+          "w": 500,
+          "h": 76
+        }
+      ],
+      "clipped": [
+        "B",
+        "A",
+        "Y",
+        "A"
+      ]
+    },
+    {
+      "name": "home",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "file": "tl-home-1366x768.png",
+      "lang": "tl",
+      "text": "Learner\nNagsasariling Mag-aaral\nMag-aaral ng Baybayin\n0/20\nEXP\nANTAS 1\nSIMULAN ANG PAGKILALA SA BAYBAYIN\nKasaysayan at Kahalagahan ng Baybayin\nPaksa 1 sa 5\nSimulan\nLAYUNIN NGAYON\nPag-unlad Ngayon\nTapusin ang 3 gawain\nMga Aralin\nPAGLALAKBAY SA PAGPAPAHALAGA\nNaka-lock ang mga Paglalakbay\nTapusin ang Batayang Baybayin upang mabuksan ang mga kuwentong may aral.\nNaka-lock\nBAGONG NAKAMIT\nWala pang nakamit\nTapusin ang mga aralin upang makuha ang una mong gantimpala.\nWala Pa\nTahanan\nMga Aralin\nMga Nakamit\nProfile",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Mga Setting",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "Simulan",
+          "w": 227.15625,
+          "h": 64
+        },
+        {
+          "text": "Mga Aralin",
+          "w": 375.328125,
+          "h": 48
+        },
+        {
+          "text": "Naka-lock",
+          "w": 375.34375,
+          "h": 48
+        },
+        {
+          "text": "Wala Pa",
+          "w": 375.328125,
+          "h": 48
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "lesson",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "file": "tl-lesson-1366x768.png",
+      "lang": "tl",
+      "text": "Pagkilala sa Baybayin\nBaybayin: Isang Silabaryo (Pantigan)\nMaglagay ng Larawan Dito\nBaybayin: Isang Silabaryo (Pantigan)\nAng Baybayin ay hindi alpabeto na tulad ng ginagamit natin ngayon kundi SILABARYO. Bawat simbolo nito ay katumbas ng isang pantig (syllable), hindi tulad ng ating alpabeto na bawat titik ay isang tunog.\nMula sa ugat na salitang “baybáy” o ang pagbabaybay ng mga salita (to spell, to syllabicate).\nBasahin natin:\nᜊ = Ba\nᜃ = Ka\nᜆ = Ta\nIsang simbolo, isang pantig! Ganoon kadali ang Baybayin.\nBumalik\nSusunod",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 64,
+          "h": 64
+        },
+        {
+          "text": "Mga Setting",
+          "w": 52,
+          "h": 52
+        },
+        {
+          "text": "Bumalik",
+          "w": 138.890625,
+          "h": 64
+        },
+        {
+          "text": "Susunod",
+          "w": 141.71875,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "writing",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "file": "tl-writing-1366x768.png",
+      "lang": "tl",
+      "text": "Pagsusulat ng Baybayin\nMga Patinig\nSIMBOLO\nA\n/a/\nIsulat ang simbolo at makakuha ng bituin!\nPagsusuri\nMagsulat na!\nSuriin",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 64,
+          "h": 64
+        },
+        {
+          "text": "Mga Setting",
+          "w": 52,
+          "h": 52
+        },
+        {
+          "text": "Pakinggan ang tunog ng A",
+          "w": 40,
+          "h": 40
+        },
+        {
+          "text": "Bawiin ang huling guhit",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Burahin ang lahat ng guhit",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Tulong sa pagsusuri",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "Suriin",
+          "w": 280,
+          "h": 48
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "workspaces",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "file": "tl-workspaces-1366x768.png",
+      "lang": "tl",
+      "text": "AKING MGA WORKSPACE\nMatuto kasama ang iyong mentor.\nSUMALI SA WORKSPACE\nWala ka pang sinalihang workspace. Humingi ng code sa mentor.",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "SUMALI SA WORKSPACE",
+          "w": 698,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "mentor-login",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "file": "tl-mentor-login-1366x768.png",
+      "lang": "tl",
+      "text": "PAG-LOGIN NG MENTOR\nBuksan ang mga workspace at pag-unlad ng mag-aaral.\nEMAIL ADDRESS*\nPASSWORD*\nNakalimutan ang Password?\nMAG-LOG IN\nWala pang mentor account? Gumawa ng Account",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "Nakalimutan ang Password?",
+          "w": 223.984375,
+          "h": 44
+        },
+        {
+          "text": "Ipakita ang password",
+          "w": 52,
+          "h": 48
+        },
+        {
+          "text": "MAG-LOG IN",
+          "w": 550,
+          "h": 64
+        },
+        {
+          "text": "Wala pang mentor account? Gumawa ng Account",
+          "w": 384.5625,
+          "h": 44
+        }
+      ],
+      "clipped": []
+    },
+    {
+      "name": "settings",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "file": "tl-settings-1366x768.png",
+      "lang": "tl",
+      "text": "Mga Setting\nWika\nEnglish\nTagalog\nWorkspace at Pag-sync\nTagasubaybay ng pag-unlad sa workspace\nWalang Konektadong Workspace\nNag-aaral ka ngayon nang mag-isa.\nSumali sa workspace upang i-sync ang iyong pag-unlad sa mentor.\nSUMALI SA WORKSPACE\nNaka-save pa rin sa device ang iyong pag-aaral.\nPatuloy na gamitin ang device na ito para sa workspace. Magtanong sa mentor bago burahin ang browser data o lumipat ng device.",
+      "overflow": false,
+      "buttons": [
+        {
+          "text": "Bumalik",
+          "w": 48,
+          "h": 48
+        },
+        {
+          "text": "English",
+          "w": 120,
+          "h": 48
+        },
+        {
+          "text": "Tagalog",
+          "w": 120,
+          "h": 48
+        },
+        {
+          "text": "SUMALI SA WORKSPACE",
+          "w": 620,
+          "h": 64
+        }
+      ],
+      "clipped": []
+    }
+  ],
+  "checks": [
+    {
+      "language": "en",
+      "persistedAfterNavigation": true
+    },
+    {
+      "language": "tl",
+      "persistedAfterNavigation": true
+    },
+    {
+      "keyboardArrowSwitch": true
+    },
+    {
+      "serviceWorkerControlsPage": true
+    },
+    {
+      "offlineSwitch": true
+    },
+    {
+      "offlineReload": true
+    },
+    {
+      "offlineTagalogReload": true
+    },
+    {
+      "offlineLesson": true
+    }
+  ],
+  "errors": []
+}

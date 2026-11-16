@@ -1,0 +1,32 @@
+[
+  {
+    "name": "storybook Back",
+    "path": "/learner/lessons"
+  },
+  {
+    "name": "story Continue page",
+    "restored": true
+  },
+  {
+    "name": "story reload",
+    "restored": true,
+    "playing": false
+  },
+  {
+    "name": "Module 2 character reload",
+    "glyph": "Character for E / I",
+    "restored": true
+  },
+  {
+    "name": "unknown topic",
+    "safeFallback": true
+  },
+  {
+    "name": "mentor Settings direct entry",
+    "safeFallback": true
+  },
+  {
+    "name": "unauthenticated mentor workspace",
+    "protected": true
+  }
+]

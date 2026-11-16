@@ -1,0 +1,3932 @@
+{
+  "screens": [
+    {
+      "name": "before-submit",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "file": "before-submit-en-667x375.png",
+      "text": "Let's write!",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049154970,
+          "finished": 1794049155028,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-loading",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "file": "fixture-loading-en-667x375.png",
+      "text": "Checking your writing...",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049154970,
+          "finished": 1794049155028,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049156196
+        }
+      ]
+    },
+    {
+      "name": "fixture-wrong",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "file": "fixture-wrong-en-667x375.png",
+      "text": "Recognized Character\nDE/DI\n99.2%\nAlmost there!",
+      "rows": 1,
+      "label": "DE/DI",
+      "confidence": "99.2%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/de_di.0da23c0795bdf48e35ea964c89574303.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049154970,
+          "finished": 1794049155028,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049156196,
+          "finished": 1794049157010,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-low",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "file": "fixture-low-en-667x375.png",
+      "text": "Recognized Character\nNGO/NGU\n30.0%\nAlmost there!",
+      "rows": 1,
+      "label": "NGO/NGU",
+      "confidence": "30.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/ngo_ngu.7a3a4f8e36d2414f0b7c5f4c4a7825ee.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049154970,
+          "finished": 1794049155028,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049156196,
+          "finished": 1794049157010,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049158298,
+          "finished": 1794049159112,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-error",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "file": "fixture-error-en-667x375.png",
+      "text": "BAYA couldn't check your writing. Try again.",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049154970,
+          "finished": 1794049155028,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049156196,
+          "finished": 1794049157010,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049158298,
+          "finished": 1794049159112,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794049160367,
+          "error": "controlled inference failure"
+        }
+      ]
+    },
+    {
+      "name": "fixture-correct",
+      "language": "en",
+      "width": 667,
+      "height": 375,
+      "file": "fixture-correct-en-667x375.png",
+      "text": "Recognized Character\nA\n92.0%\nGreat!",
+      "rows": 1,
+      "label": "A",
+      "confidence": "92.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/a.7b77735d4a1e441cb91da63493563adb.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049154970,
+          "finished": 1794049155028,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049156196,
+          "finished": 1794049157010,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049158298,
+          "finished": 1794049159112,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794049160367,
+          "error": "controlled inference failure"
+        },
+        {
+          "mode": "correct",
+          "started": 1794049162419,
+          "finished": 1794049163231,
+          "sum": 1.0000000167638063,
+          "top": [
+            {
+              "probability": 0.9200000166893005,
+              "classIndex": 0
+            },
+            {
+              "probability": 0.05000000074505806,
+              "classIndex": 2
+            },
+            {
+              "probability": 0.029999999329447746,
+              "classIndex": 27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "before-submit",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "file": "before-submit-en-844x390.png",
+      "text": "Let's write!",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049164671,
+          "finished": 1794049164713,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-loading",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "file": "fixture-loading-en-844x390.png",
+      "text": "Checking your writing...",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049164671,
+          "finished": 1794049164713,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049165804
+        }
+      ]
+    },
+    {
+      "name": "fixture-wrong",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "file": "fixture-wrong-en-844x390.png",
+      "text": "Recognized Character\nDE/DI\n99.2%\nAlmost there!",
+      "rows": 1,
+      "label": "DE/DI",
+      "confidence": "99.2%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/de_di.0da23c0795bdf48e35ea964c89574303.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049164671,
+          "finished": 1794049164713,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049165804,
+          "finished": 1794049166613,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-low",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "file": "fixture-low-en-844x390.png",
+      "text": "Recognized Character\nNGO/NGU\n30.0%\nAlmost there!",
+      "rows": 1,
+      "label": "NGO/NGU",
+      "confidence": "30.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/ngo_ngu.7a3a4f8e36d2414f0b7c5f4c4a7825ee.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049164671,
+          "finished": 1794049164713,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049165804,
+          "finished": 1794049166613,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049167806,
+          "finished": 1794049168615,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-error",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "file": "fixture-error-en-844x390.png",
+      "text": "BAYA couldn't check your writing. Try again.",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049164671,
+          "finished": 1794049164713,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049165804,
+          "finished": 1794049166613,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049167806,
+          "finished": 1794049168615,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794049169861,
+          "error": "controlled inference failure"
+        }
+      ]
+    },
+    {
+      "name": "fixture-correct",
+      "language": "en",
+      "width": 844,
+      "height": 390,
+      "file": "fixture-correct-en-844x390.png",
+      "text": "Recognized Character\nA\n92.0%\nGreat!",
+      "rows": 1,
+      "label": "A",
+      "confidence": "92.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/a.7b77735d4a1e441cb91da63493563adb.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049164671,
+          "finished": 1794049164713,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049165804,
+          "finished": 1794049166613,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049167806,
+          "finished": 1794049168615,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794049169861,
+          "error": "controlled inference failure"
+        },
+        {
+          "mode": "correct",
+          "started": 1794049171880,
+          "finished": 1794049172691,
+          "sum": 1.0000000167638063,
+          "top": [
+            {
+              "probability": 0.9200000166893005,
+              "classIndex": 0
+            },
+            {
+              "probability": 0.05000000074505806,
+              "classIndex": 2
+            },
+            {
+              "probability": 0.029999999329447746,
+              "classIndex": 27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "before-submit",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "file": "before-submit-en-915x412.png",
+      "text": "Let's write!",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049173881,
+          "finished": 1794049173923,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-loading",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "file": "fixture-loading-en-915x412.png",
+      "text": "Checking your writing...",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049173881,
+          "finished": 1794049173923,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049175263
+        }
+      ]
+    },
+    {
+      "name": "fixture-wrong",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "file": "fixture-wrong-en-915x412.png",
+      "text": "Recognized Character\nDE/DI\n99.2%\nAlmost there!",
+      "rows": 1,
+      "label": "DE/DI",
+      "confidence": "99.2%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/de_di.0da23c0795bdf48e35ea964c89574303.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049173881,
+          "finished": 1794049173923,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049175263,
+          "finished": 1794049176067,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-low",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "file": "fixture-low-en-915x412.png",
+      "text": "Recognized Character\nNGO/NGU\n30.0%\nAlmost there!",
+      "rows": 1,
+      "label": "NGO/NGU",
+      "confidence": "30.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/ngo_ngu.7a3a4f8e36d2414f0b7c5f4c4a7825ee.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049173881,
+          "finished": 1794049173923,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049175263,
+          "finished": 1794049176067,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049177281,
+          "finished": 1794049178089,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-error",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "file": "fixture-error-en-915x412.png",
+      "text": "BAYA couldn't check your writing. Try again.",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049173881,
+          "finished": 1794049173923,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049175263,
+          "finished": 1794049176067,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049177281,
+          "finished": 1794049178089,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794049179334,
+          "error": "controlled inference failure"
+        }
+      ]
+    },
+    {
+      "name": "fixture-correct",
+      "language": "en",
+      "width": 915,
+      "height": 412,
+      "file": "fixture-correct-en-915x412.png",
+      "text": "Recognized Character\nA\n92.0%\nGreat!",
+      "rows": 1,
+      "label": "A",
+      "confidence": "92.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/a.7b77735d4a1e441cb91da63493563adb.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049173881,
+          "finished": 1794049173923,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049175263,
+          "finished": 1794049176067,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049177281,
+          "finished": 1794049178089,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794049179334,
+          "error": "controlled inference failure"
+        },
+        {
+          "mode": "correct",
+          "started": 1794049181346,
+          "finished": 1794049182157,
+          "sum": 1.0000000167638063,
+          "top": [
+            {
+              "probability": 0.9200000166893005,
+              "classIndex": 0
+            },
+            {
+              "probability": 0.05000000074505806,
+              "classIndex": 2
+            },
+            {
+              "probability": 0.029999999329447746,
+              "classIndex": 27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "before-submit",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "file": "before-submit-en-1024x768.png",
+      "text": "Let's write!",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049183338,
+          "finished": 1794049183377,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-loading",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "file": "fixture-loading-en-1024x768.png",
+      "text": "Checking your writing...",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049183338,
+          "finished": 1794049183377,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049184620
+        }
+      ]
+    },
+    {
+      "name": "fixture-wrong",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "file": "fixture-wrong-en-1024x768.png",
+      "text": "Recognized Character\nDE/DI\n99.2%\nAlmost there!",
+      "rows": 1,
+      "label": "DE/DI",
+      "confidence": "99.2%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/de_di.0da23c0795bdf48e35ea964c89574303.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049183338,
+          "finished": 1794049183377,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049184620,
+          "finished": 1794049185435,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-low",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "file": "fixture-low-en-1024x768.png",
+      "text": "Recognized Character\nNGO/NGU\n30.0%\nAlmost there!",
+      "rows": 1,
+      "label": "NGO/NGU",
+      "confidence": "30.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/ngo_ngu.7a3a4f8e36d2414f0b7c5f4c4a7825ee.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049183338,
+          "finished": 1794049183377,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049184620,
+          "finished": 1794049185435,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049186634,
+          "finished": 1794049187449,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-error",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "file": "fixture-error-en-1024x768.png",
+      "text": "BAYA couldn't check your writing. Try again.",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049183338,
+          "finished": 1794049183377,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049184620,
+          "finished": 1794049185435,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049186634,
+          "finished": 1794049187449,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794049188656,
+          "error": "controlled inference failure"
+        }
+      ]
+    },
+    {
+      "name": "fixture-correct",
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "file": "fixture-correct-en-1024x768.png",
+      "text": "Recognized Character\nA\n92.0%\nGreat!",
+      "rows": 1,
+      "label": "A",
+      "confidence": "92.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/a.7b77735d4a1e441cb91da63493563adb.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049183338,
+          "finished": 1794049183377,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049184620,
+          "finished": 1794049185435,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049186634,
+          "finished": 1794049187449,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794049188656,
+          "error": "controlled inference failure"
+        },
+        {
+          "mode": "correct",
+          "started": 1794049190720,
+          "finished": 1794049191521,
+          "sum": 1.0000000167638063,
+          "top": [
+            {
+              "probability": 0.9200000166893005,
+              "classIndex": 0
+            },
+            {
+              "probability": 0.05000000074505806,
+              "classIndex": 2
+            },
+            {
+              "probability": 0.029999999329447746,
+              "classIndex": 27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "before-submit",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "file": "before-submit-en-1366x768.png",
+      "text": "Let's write!",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049192788,
+          "finished": 1794049192834,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-loading",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "file": "fixture-loading-en-1366x768.png",
+      "text": "Checking your writing...",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049192788,
+          "finished": 1794049192834,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049194242
+        }
+      ]
+    },
+    {
+      "name": "fixture-wrong",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "file": "fixture-wrong-en-1366x768.png",
+      "text": "Recognized Character\nDE/DI\n99.2%\nAlmost there!",
+      "rows": 1,
+      "label": "DE/DI",
+      "confidence": "99.2%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/de_di.0da23c0795bdf48e35ea964c89574303.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049192788,
+          "finished": 1794049192834,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049194242,
+          "finished": 1794049195050,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-low",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "file": "fixture-low-en-1366x768.png",
+      "text": "Recognized Character\nNGO/NGU\n30.0%\nAlmost there!",
+      "rows": 1,
+      "label": "NGO/NGU",
+      "confidence": "30.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/ngo_ngu.7a3a4f8e36d2414f0b7c5f4c4a7825ee.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049192788,
+          "finished": 1794049192834,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049194242,
+          "finished": 1794049195050,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049196425,
+          "finished": 1794049197230,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-error",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "file": "fixture-error-en-1366x768.png",
+      "text": "BAYA couldn't check your writing. Try again.",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049192788,
+          "finished": 1794049192834,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049194242,
+          "finished": 1794049195050,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049196425,
+          "finished": 1794049197230,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794049198577,
+          "error": "controlled inference failure"
+        }
+      ]
+    },
+    {
+      "name": "fixture-correct",
+      "language": "en",
+      "width": 1366,
+      "height": 768,
+      "file": "fixture-correct-en-1366x768.png",
+      "text": "Recognized Character\nA\n92.0%\nGreat!",
+      "rows": 1,
+      "label": "A",
+      "confidence": "92.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/a.7b77735d4a1e441cb91da63493563adb.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049192788,
+          "finished": 1794049192834,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049194242,
+          "finished": 1794049195050,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049196425,
+          "finished": 1794049197230,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794049198577,
+          "error": "controlled inference failure"
+        },
+        {
+          "mode": "correct",
+          "started": 1794049200651,
+          "finished": 1794049201466,
+          "sum": 1.0000000167638063,
+          "top": [
+            {
+              "probability": 0.9200000166893005,
+              "classIndex": 0
+            },
+            {
+              "probability": 0.05000000074505806,
+              "classIndex": 2
+            },
+            {
+              "probability": 0.029999999329447746,
+              "classIndex": 27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "before-submit",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "file": "before-submit-tl-667x375.png",
+      "text": "Magsulat na!",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049204358,
+          "finished": 1794049204403,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-loading",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "file": "fixture-loading-tl-667x375.png",
+      "text": "Sinusuri ang sulat...",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049204358,
+          "finished": 1794049204403,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049205519
+        }
+      ]
+    },
+    {
+      "name": "fixture-wrong",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "file": "fixture-wrong-tl-667x375.png",
+      "text": "Nakilalang Simbolo\nDE/DI\n99.2%\nMalapit na!",
+      "rows": 1,
+      "label": "DE/DI",
+      "confidence": "99.2%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/de_di.0da23c0795bdf48e35ea964c89574303.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049204358,
+          "finished": 1794049204403,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049205519,
+          "finished": 1794049206332,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-low",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "file": "fixture-low-tl-667x375.png",
+      "text": "Nakilalang Simbolo\nNGO/NGU\n30.0%\nMalapit na!",
+      "rows": 1,
+      "label": "NGO/NGU",
+      "confidence": "30.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/ngo_ngu.7a3a4f8e36d2414f0b7c5f4c4a7825ee.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049204358,
+          "finished": 1794049204403,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049205519,
+          "finished": 1794049206332,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049207645,
+          "finished": 1794049208448,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-error",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "file": "fixture-error-tl-667x375.png",
+      "text": "Hindi masuri ni BAYA ang sulat. Subukan muli.",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049204358,
+          "finished": 1794049204403,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049205519,
+          "finished": 1794049206332,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049207645,
+          "finished": 1794049208448,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794049209679,
+          "error": "controlled inference failure"
+        }
+      ]
+    },
+    {
+      "name": "fixture-correct",
+      "language": "tl",
+      "width": 667,
+      "height": 375,
+      "file": "fixture-correct-tl-667x375.png",
+      "text": "Nakilalang Simbolo\nA\n92.0%\nMahusay!",
+      "rows": 1,
+      "label": "A",
+      "confidence": "92.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/a.7b77735d4a1e441cb91da63493563adb.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049204358,
+          "finished": 1794049204403,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049205519,
+          "finished": 1794049206332,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049207645,
+          "finished": 1794049208448,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794049209679,
+          "error": "controlled inference failure"
+        },
+        {
+          "mode": "correct",
+          "started": 1794049211735,
+          "finished": 1794049212549,
+          "sum": 1.0000000167638063,
+          "top": [
+            {
+              "probability": 0.9200000166893005,
+              "classIndex": 0
+            },
+            {
+              "probability": 0.05000000074505806,
+              "classIndex": 2
+            },
+            {
+              "probability": 0.029999999329447746,
+              "classIndex": 27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "before-submit",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "file": "before-submit-tl-844x390.png",
+      "text": "Magsulat na!",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049214074,
+          "finished": 1794049214117,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-loading",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "file": "fixture-loading-tl-844x390.png",
+      "text": "Sinusuri ang sulat...",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049214074,
+          "finished": 1794049214117,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049215215
+        }
+      ]
+    },
+    {
+      "name": "fixture-wrong",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "file": "fixture-wrong-tl-844x390.png",
+      "text": "Nakilalang Simbolo\nDE/DI\n99.2%\nMalapit na!",
+      "rows": 1,
+      "label": "DE/DI",
+      "confidence": "99.2%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/de_di.0da23c0795bdf48e35ea964c89574303.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049214074,
+          "finished": 1794049214117,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049215215,
+          "finished": 1794049216029,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-low",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "file": "fixture-low-tl-844x390.png",
+      "text": "Nakilalang Simbolo\nNGO/NGU\n30.0%\nMalapit na!",
+      "rows": 1,
+      "label": "NGO/NGU",
+      "confidence": "30.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/ngo_ngu.7a3a4f8e36d2414f0b7c5f4c4a7825ee.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049214074,
+          "finished": 1794049214117,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049215215,
+          "finished": 1794049216029,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049217337,
+          "finished": 1794049218152,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-error",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "file": "fixture-error-tl-844x390.png",
+      "text": "Hindi masuri ni BAYA ang sulat. Subukan muli.",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049214074,
+          "finished": 1794049214117,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049215215,
+          "finished": 1794049216029,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049217337,
+          "finished": 1794049218152,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794049219382,
+          "error": "controlled inference failure"
+        }
+      ]
+    },
+    {
+      "name": "fixture-correct",
+      "language": "tl",
+      "width": 844,
+      "height": 390,
+      "file": "fixture-correct-tl-844x390.png",
+      "text": "Nakilalang Simbolo\nA\n92.0%\nMahusay!",
+      "rows": 1,
+      "label": "A",
+      "confidence": "92.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/a.7b77735d4a1e441cb91da63493563adb.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049214074,
+          "finished": 1794049214117,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049215215,
+          "finished": 1794049216029,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049217337,
+          "finished": 1794049218152,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794049219382,
+          "error": "controlled inference failure"
+        },
+        {
+          "mode": "correct",
+          "started": 1794049221419,
+          "finished": 1794049222232,
+          "sum": 1.0000000167638063,
+          "top": [
+            {
+              "probability": 0.9200000166893005,
+              "classIndex": 0
+            },
+            {
+              "probability": 0.05000000074505806,
+              "classIndex": 2
+            },
+            {
+              "probability": 0.029999999329447746,
+              "classIndex": 27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "before-submit",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "file": "before-submit-tl-915x412.png",
+      "text": "Magsulat na!",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049223567,
+          "finished": 1794049223618,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-loading",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "file": "fixture-loading-tl-915x412.png",
+      "text": "Sinusuri ang sulat...",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049223567,
+          "finished": 1794049223618,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049224693
+        }
+      ]
+    },
+    {
+      "name": "fixture-wrong",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "file": "fixture-wrong-tl-915x412.png",
+      "text": "Nakilalang Simbolo\nDE/DI\n99.2%\nMalapit na!",
+      "rows": 1,
+      "label": "DE/DI",
+      "confidence": "99.2%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/de_di.0da23c0795bdf48e35ea964c89574303.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049223567,
+          "finished": 1794049223618,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049224693,
+          "finished": 1794049225497,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-low",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "file": "fixture-low-tl-915x412.png",
+      "text": "Nakilalang Simbolo\nNGO/NGU\n30.0%\nMalapit na!",
+      "rows": 1,
+      "label": "NGO/NGU",
+      "confidence": "30.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/ngo_ngu.7a3a4f8e36d2414f0b7c5f4c4a7825ee.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049223567,
+          "finished": 1794049223618,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049224693,
+          "finished": 1794049225497,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049226692,
+          "finished": 1794049227506,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-error",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "file": "fixture-error-tl-915x412.png",
+      "text": "Hindi masuri ni BAYA ang sulat. Subukan muli.",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049223567,
+          "finished": 1794049223618,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049224693,
+          "finished": 1794049225497,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049226692,
+          "finished": 1794049227506,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794049228726,
+          "error": "controlled inference failure"
+        }
+      ]
+    },
+    {
+      "name": "fixture-correct",
+      "language": "tl",
+      "width": 915,
+      "height": 412,
+      "file": "fixture-correct-tl-915x412.png",
+      "text": "Nakilalang Simbolo\nA\n92.0%\nMahusay!",
+      "rows": 1,
+      "label": "A",
+      "confidence": "92.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/a.7b77735d4a1e441cb91da63493563adb.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049223567,
+          "finished": 1794049223618,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049224693,
+          "finished": 1794049225497,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049226692,
+          "finished": 1794049227506,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794049228726,
+          "error": "controlled inference failure"
+        },
+        {
+          "mode": "correct",
+          "started": 1794049230752,
+          "finished": 1794049231559,
+          "sum": 1.0000000167638063,
+          "top": [
+            {
+              "probability": 0.9200000166893005,
+              "classIndex": 0
+            },
+            {
+              "probability": 0.05000000074505806,
+              "classIndex": 2
+            },
+            {
+              "probability": 0.029999999329447746,
+              "classIndex": 27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "before-submit",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "file": "before-submit-tl-1024x768.png",
+      "text": "Magsulat na!",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049232857,
+          "finished": 1794049232912,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-loading",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "file": "fixture-loading-tl-1024x768.png",
+      "text": "Sinusuri ang sulat...",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049232857,
+          "finished": 1794049232912,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049234139
+        }
+      ]
+    },
+    {
+      "name": "fixture-wrong",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "file": "fixture-wrong-tl-1024x768.png",
+      "text": "Nakilalang Simbolo\nDE/DI\n99.2%\nMalapit na!",
+      "rows": 1,
+      "label": "DE/DI",
+      "confidence": "99.2%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/de_di.0da23c0795bdf48e35ea964c89574303.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049232857,
+          "finished": 1794049232912,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049234139,
+          "finished": 1794049234948,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-low",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "file": "fixture-low-tl-1024x768.png",
+      "text": "Nakilalang Simbolo\nNGO/NGU\n30.0%\nMalapit na!",
+      "rows": 1,
+      "label": "NGO/NGU",
+      "confidence": "30.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/ngo_ngu.7a3a4f8e36d2414f0b7c5f4c4a7825ee.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049232857,
+          "finished": 1794049232912,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049234139,
+          "finished": 1794049234948,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049236154,
+          "finished": 1794049236964,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-error",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "file": "fixture-error-tl-1024x768.png",
+      "text": "Hindi masuri ni BAYA ang sulat. Subukan muli.",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049232857,
+          "finished": 1794049232912,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049234139,
+          "finished": 1794049234948,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049236154,
+          "finished": 1794049236964,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794049238194,
+          "error": "controlled inference failure"
+        }
+      ]
+    },
+    {
+      "name": "fixture-correct",
+      "language": "tl",
+      "width": 1024,
+      "height": 768,
+      "file": "fixture-correct-tl-1024x768.png",
+      "text": "Nakilalang Simbolo\nA\n92.0%\nMahusay!",
+      "rows": 1,
+      "label": "A",
+      "confidence": "92.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/a.7b77735d4a1e441cb91da63493563adb.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049232857,
+          "finished": 1794049232912,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049234139,
+          "finished": 1794049234948,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049236154,
+          "finished": 1794049236964,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794049238194,
+          "error": "controlled inference failure"
+        },
+        {
+          "mode": "correct",
+          "started": 1794049240256,
+          "finished": 1794049241058,
+          "sum": 1.0000000167638063,
+          "top": [
+            {
+              "probability": 0.9200000166893005,
+              "classIndex": 0
+            },
+            {
+              "probability": 0.05000000074505806,
+              "classIndex": 2
+            },
+            {
+              "probability": 0.029999999329447746,
+              "classIndex": 27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "before-submit",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "file": "before-submit-tl-1366x768.png",
+      "text": "Magsulat na!",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049242291,
+          "finished": 1794049242343,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-loading",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "file": "fixture-loading-tl-1366x768.png",
+      "text": "Sinusuri ang sulat...",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049242291,
+          "finished": 1794049242343,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049243604
+        }
+      ]
+    },
+    {
+      "name": "fixture-wrong",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "file": "fixture-wrong-tl-1366x768.png",
+      "text": "Nakilalang Simbolo\nDE/DI\n99.2%\nMalapit na!",
+      "rows": 1,
+      "label": "DE/DI",
+      "confidence": "99.2%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/de_di.0da23c0795bdf48e35ea964c89574303.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049242291,
+          "finished": 1794049242343,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049243604,
+          "finished": 1794049244420,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-low",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "file": "fixture-low-tl-1366x768.png",
+      "text": "Nakilalang Simbolo\nNGO/NGU\n30.0%\nMalapit na!",
+      "rows": 1,
+      "label": "NGO/NGU",
+      "confidence": "30.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/ngo_ngu.7a3a4f8e36d2414f0b7c5f4c4a7825ee.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049242291,
+          "finished": 1794049242343,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049243604,
+          "finished": 1794049244420,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049245709,
+          "finished": 1794049246510,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fixture-error",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "file": "fixture-error-tl-1366x768.png",
+      "text": "Hindi masuri ni BAYA ang sulat. Subukan muli.",
+      "rows": 0,
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049242291,
+          "finished": 1794049242343,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049243604,
+          "finished": 1794049244420,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049245709,
+          "finished": 1794049246510,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794049247795,
+          "error": "controlled inference failure"
+        }
+      ]
+    },
+    {
+      "name": "fixture-correct",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "file": "fixture-correct-tl-1366x768.png",
+      "text": "Nakilalang Simbolo\nA\n92.0%\nMahusay!",
+      "rows": 1,
+      "label": "A",
+      "confidence": "92.0%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/a.7b77735d4a1e441cb91da63493563adb.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049242291,
+          "finished": 1794049242343,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "wrong",
+          "started": 1794049243604,
+          "finished": 1794049244420,
+          "sum": 0.9999999708961695,
+          "top": [
+            {
+              "probability": 0.9929999709129333,
+              "classIndex": 7
+            },
+            {
+              "probability": 0.004999999888241291,
+              "classIndex": 6
+            },
+            {
+              "probability": 0.0020000000949949026,
+              "classIndex": 53
+            }
+          ]
+        },
+        {
+          "mode": "low",
+          "started": 1794049245709,
+          "finished": 1794049246510,
+          "sum": 1.0000000298023224,
+          "top": [
+            {
+              "probability": 0.30000001192092896,
+              "classIndex": 36
+            },
+            {
+              "probability": 0.29600000381469727,
+              "classIndex": 42
+            },
+            {
+              "probability": 0.2720000147819519,
+              "classIndex": 2
+            }
+          ]
+        },
+        {
+          "mode": "error",
+          "started": 1794049247795,
+          "error": "controlled inference failure"
+        },
+        {
+          "mode": "correct",
+          "started": 1794049249849,
+          "finished": 1794049250658,
+          "sum": 1.0000000167638063,
+          "top": [
+            {
+              "probability": 0.9200000166893005,
+              "classIndex": 0
+            },
+            {
+              "probability": 0.05000000074505806,
+              "classIndex": 2
+            },
+            {
+              "probability": 0.029999999329447746,
+              "classIndex": 27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "after-real-inference",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "file": "after-real-inference-tl-1366x768.png",
+      "text": "Nakilalang Simbolo\nHA\n94.6%\nMalapit na!",
+      "rows": 1,
+      "label": "HA",
+      "confidence": "94.6%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/ha.b07d49410f31cab56d8747559b157df1.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049252026,
+          "finished": 1794049252075,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "real",
+          "started": 1794049253188,
+          "finished": 1794049253229,
+          "sum": 0.999999826632183,
+          "top": [
+            {
+              "probability": 0.946852445602417,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.03100368194282055,
+              "classIndex": 2
+            },
+            {
+              "probability": 0.008836072869598866,
+              "classIndex": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "offline-real-inference",
+      "language": "tl",
+      "width": 1366,
+      "height": 768,
+      "file": "offline-real-inference-tl-1366x768.png",
+      "text": "Nakilalang Simbolo\nHA\n94.6%\nMalapit na!",
+      "rows": 1,
+      "label": "HA",
+      "confidence": "94.6%",
+      "glyph": "http://127.0.0.1:5071/assets/assets/illustrations/baybayin/guides-1024/ha.b07d49410f31cab56d8747559b157df1.png",
+      "overflow": false,
+      "clipped": [],
+      "runs": [
+        {
+          "mode": "real",
+          "started": 1794049254446,
+          "finished": 1794049254496,
+          "sum": 1.000000044021716,
+          "top": [
+            {
+              "probability": 0.5859888792037964,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.40886542201042175,
+              "classIndex": 38
+            },
+            {
+              "probability": 0.001439346233382821,
+              "classIndex": 60
+            }
+          ]
+        },
+        {
+          "mode": "real",
+          "started": 1794049255616,
+          "finished": 1794049255672,
+          "sum": 0.999999826632183,
+          "top": [
+            {
+              "probability": 0.946852445602417,
+              "classIndex": 15
+            },
+            {
+              "probability": 0.03100368194282055,
+              "classIndex": 2
+            },
+            {
+              "probability": 0.008836072869598866,
+              "classIndex": 60
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "offlineReal": true
+    }
+  ],
+  "errors": []
+}
