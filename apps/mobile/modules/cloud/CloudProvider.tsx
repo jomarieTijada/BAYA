@@ -77,6 +77,20 @@ function configuredServices(): CloudServices {
 }
 export function CloudProvider({ children }: React.PropsWithChildren) {
   const value = configuredServices();
+  useEffect(() => {
+    if (Platform.OS !== 'web') return;
+    // The durable cumulative SQLite snapshot is the retry source. The RPC
+    // verifies membership and merges completions idempotently; nothing local
+    // is deleted or acknowledged on network failure or authorization denial.
+    const recover = () => {
+      if (!navigator.onLine) return;
+      void localLearnerService.getActiveLearner().then(learner => {
+        if (learner?.auth_user_id) return value.progress.sync();
+      }).catch(() => undefined);
+    };
+    window.addEventListener('online', recover);
+    return () => window.removeEventListener('online', recover);
+  }, [value]);
   const [mentorRevision, setMentorRevision] = useState(0);
   useEffect(() => {
     const subscription = clients.get('mentor.auth')?.auth.onAuthStateChange(event => {

@@ -10,7 +10,7 @@
 
 The existing 80% confidence rule, expected-character comparison, retry UI, two-attempt mastery policy and persistence schemas are unchanged. Confidence is not out-of-distribution detection. Spatial outputs were trained using pseudo-labels and are not independently validated handwriting correctness or stroke-order scores.
 
-Build/start scripts copy the pinned package's entire WASM directory to `/litert/2.6.0/`. These generated files are git-ignored, served locally, and included in the PWA cache. Successful installation precaches the model, metadata, runtime, app shell and static learning assets. Cache identity hashes content; activation removes previous BAYA caches. A failed installation deletes its partial cache and retains the prior active worker. First-time offline use before successful preparation remains unavailable.
+Build/start scripts copy only the four runtime files selected by `bayaActiveModel.json` to `/litert/2.6.0/`: default and compatibility JavaScript/WASM pairs. Threaded and JSPI variants are excluded. These generated files are git-ignored, served locally, and included in the PWA cache. Successful installation precaches the model, metadata, runtime, app shell and static learning assets. Cache identity hashes content; activation removes previous BAYA caches. A failed installation deletes its partial cache and retains the prior active worker. First-time offline use before successful preparation remains unavailable.
 
 Verification:
 

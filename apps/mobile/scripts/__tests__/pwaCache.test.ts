@@ -39,6 +39,7 @@ beforeEach(() => {
   write('_expo/static/js/web/entry-test.js', 'bundle v1');
   write('_expo/static/js/web/worker-test.js', 'worker');
   write('assets/reference.png', 'reference');
+  write('assets/assets/audio/baya/baya-a-ba.test.m4a', 'recorded pronunciation');
   write('assets/assets/media/videos/baybayin-song.test.mp4', 'large video');
 });
 
@@ -63,6 +64,7 @@ it('exports and precaches only the active model, LiteRT WASM, and app shell', ()
   expect(worker).toContain('/_expo/static/js/web/entry-test.js');
   expect(worker).toContain('/_expo/static/js/web/worker-test.js');
   expect(worker).toContain('/assets/reference.png');
+  expect(worker).toContain('/assets/assets/audio/baya/baya-a-ba.test.m4a');
   expect(worker).not.toContain('unselected.onnx');
   expect(existsSync(path.join(outputRoot, 'models/baya/unselected.onnx'))).toBe(false);
   expect(existsSync(path.join(outputRoot, 'models/baya/old-version/old.tflite'))).toBe(false);
@@ -137,6 +139,64 @@ it('pins offline fetches to each exported asset checksum', () => {
   expect(integrity[activeModel.modelUrl]).toBe('sha256-' + crypto.createHash('sha256').update(bytes).digest('base64'));
   expect(worker).toContain('integrity: ASSET_INTEGRITY[url]');
   expect(Object.keys(integrity)).toContain(activeModel.runtimeBaseUrl + 'litert_wasm_internal.wasm');
+  expect(integrity['/']).toBeUndefined();
+});
+
+it.each([true, false])('validates shell bundle references while allowing hosting comments (current=%s)', async current => {
+  generate();
+  const worker = readFileSync(path.join(outputRoot, 'sw.js'), 'utf8');
+  const listeners: Record<string, (event: any) => void> = {};
+  const skipWaiting = jest.fn(), remove = jest.fn();
+  const html = `<!-- hosting comment --><script src="/_expo/static/js/web/${current ? 'entry-test' : 'stale'}.js"></script>`;
+  runInNewContext(worker, {
+    self: { location: { origin: 'https://baya.test' }, addEventListener: (n: string, f: any) => { listeners[n] = f; }, skipWaiting },
+    caches: { open: async () => ({ put: jest.fn() }), delete: remove },
+    Request: class { constructor(public url: string) {} }, URL, Set,
+    fetch: async () => ({ ok: true, headers: { get: () => 'text/html' }, clone: () => ({ text: async () => html }) }),
+  });
+  let work: Promise<void> | undefined;
+  listeners.install({ waitUntil: (p: Promise<void>) => { work = p; } });
+  if (current) { await work; expect(skipWaiting).not.toHaveBeenCalled(); expect(remove).not.toHaveBeenCalled(); }
+  else { await expect(work).rejects.toThrow('expected application build'); expect(skipWaiting).not.toHaveBeenCalled(); expect(remove).toHaveBeenCalled(); }
+});
+
+it('exports font URLs without scoped-package paths and preserves development URLs', () => {
+  const plugin = require('../export-font-path.cjs');
+  const font = { type: 'ttf', name: 'Ionicons', httpServerLocation: '/assets?export_path=assets/../node_modules/@expo/vector-icons/Fonts' };
+  expect(plugin(font).httpServerLocation).toBe('/assets?export_path=/assets/fonts');
+  const dev = { ...font, httpServerLocation: '/assets/node_modules/@expo/vector-icons/Fonts' };
+  expect(plugin(dev)).toBe(dev);
+  const image = { ...font, type: 'png' };
+  expect(plugin(image)).toBe(image);
+});
+
+it('serves the installed shell without fetching or caching a newer deployment', async () => {
+  generate();
+  const listeners: Record<string, (event: any) => void> = {};
+  const shell = { ok: true, version: 'installed' };
+  const fetch = jest.fn(), put = jest.fn();
+  runInNewContext(readFileSync(path.join(outputRoot, 'sw.js'), 'utf8'), {
+    self: { location: { origin: 'https://baya.test' }, addEventListener: (n: string, f: any) => { listeners[n] = f; } },
+    caches: { open: async () => ({ match: async () => shell, put }) }, URL, Set, fetch,
+  });
+  let response: any;
+  listeners.fetch({ request: { url: 'https://baya.test/learner/activities/topic-1-1', method: 'GET', mode: 'navigate', headers: { has: () => false } }, respondWith: (p: any) => { response = p; } });
+  expect(await response).toBe(shell);
+  expect(fetch).not.toHaveBeenCalled(); expect(put).not.toHaveBeenCalled();
+});
+
+it.each([true, false])('reports readiness only when every required asset exists (complete=%s)', async complete => {
+  generate();
+  const listeners: Record<string, (event: any) => void> = {};
+  const postMessage = jest.fn();
+  runInNewContext(readFileSync(path.join(outputRoot, 'sw.js'), 'utf8'), {
+    self: { addEventListener: (n: string, f: any) => { listeners[n] = f; } }, Set,
+    caches: { open: async () => ({ match: async (url: string) => !complete && url === activeModel.modelUrl ? undefined : { ok: true } }) },
+  });
+  let work: any;
+  listeners.message({ data: { type: 'BAYA_OFFLINE_STATUS' }, ports: [{ postMessage }], waitUntil: (p: any) => { work = p; } });
+  await work;
+  expect(postMessage).toHaveBeenCalledWith(expect.objectContaining({ ready: complete, missing: complete ? [] : [activeModel.modelUrl] }));
 });
 
 it('removes obsolete BAYA caches on activation and preserves unrelated caches', async () => {
@@ -165,3 +225,23 @@ it('deletes a partial install cache on download failure without activating it', 
   await expect(work).rejects.toThrow('PWA precache failed');
   expect(remove).toHaveBeenCalledTimes(1); expect(skipWaiting).not.toHaveBeenCalled();
 });
+
+it.each([['bytes=1-3', 206, [1, 2, 3]], ['bytes=-2', 206, [4, 5]], ['bytes=4-', 206, [4, 5]], ['bytes=8-', 416, []], ['bytes=0-1,3-4', 416, []]])(
+  'serves cached pronunciation ranges offline (%s)', async (range, status, bytes) => {
+    generate();
+    const listeners: Record<string, (event: any) => void> = {};
+    const fetch = jest.fn();
+    class ResponseStub { constructor(public body: ArrayBuffer | null, public options: any) {} }
+    runInNewContext(readFileSync(path.join(outputRoot, 'sw.js'), 'utf8'), {
+      self: { location: { origin: 'https://baya.test' }, addEventListener: (name: string, listener: any) => { listeners[name] = listener; } },
+      caches: { open: async () => ({ match: async () => ({ arrayBuffer: async () => new Uint8Array([0,1,2,3,4,5]).buffer }) }) },
+      URL, Set, Response: ResponseStub, fetch,
+    });
+    let response: Promise<ResponseStub> | undefined;
+    listeners.fetch({ request: { method: 'GET', destination: 'audio', url: 'https://baya.test/assets/assets/audio/baya/baya-a-ba.test.m4a', headers: { get: () => range } }, respondWith: (p: any) => { response = p; } });
+    const result = (await response)!;
+    expect(result.options.status).toBe(status);
+    expect(result.body ? [...new Uint8Array(result.body)] : []).toEqual(bytes);
+    expect(fetch).not.toHaveBeenCalled();
+  },
+);

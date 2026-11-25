@@ -8,12 +8,16 @@ it('routes native LiteRT INFO to info while preserving errors in both shipped va
   for (const variant of ['litert_wasm_internal.js', 'litert_wasm_compat_internal.js']) {
     const source = readFileSync(path.resolve(__dirname, '../../public/litert/2.6.0', variant), 'utf8');
     const routing = source.split('// BAYA LiteRT severity routing')[1].split('// End BAYA LiteRT severity routing')[0];
-    const console = { info: jest.fn(), error: jest.fn() };
+    const console = { info: jest.fn(), warn: jest.fn(), error: jest.fn() };
     const context = { console, err: undefined as unknown as (message: unknown) => void };
     runInNewContext(routing, context);
     const info = 'INFO: [environment.cc:47] Adding options to the existing LiteRT environment';
     context.err(info);
     expect(console.info).toHaveBeenCalledWith(info);
+    expect(console.error).not.toHaveBeenCalled();
+    const warning = 'WARNING: [npu_registry.cc:34] NPU accelerator could not be loaded and registered: kLiteRtStatusErrorNotFound.';
+    context.err(warning);
+    expect(console.warn).toHaveBeenCalledWith(warning);
     expect(console.error).not.toHaveBeenCalled();
     for (const error of ['ERROR: model failed', 'RuntimeError: abort', 'Unknown failure', { message: 'failure' }]) {
       context.err(error);

@@ -28,6 +28,7 @@ for (const file of config.runtimeFiles) {
   await writeFile(target, original.replace(stderr, `// BAYA LiteRT severity routing
 var err = function(message) {
   if (typeof message === "string" && /^INFO:/.test(message)) console.info(message);
+  else if (typeof message === "string" && /^WARNING:/.test(message)) console.warn(message);
   else console.error(message);
 };
 // End BAYA LiteRT severity routing`));
