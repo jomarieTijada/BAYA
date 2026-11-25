@@ -45,7 +45,7 @@ try {
       if(screen === 'validation') await evaluate(`document.querySelector('[aria-label="Log In"]').click()`);
       if(screen === 'unavailable') await evaluate(`(() => { const inputs=document.querySelectorAll('input'); const setter=Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set; setter.call(inputs[0],'mentor@example.test'); inputs[0].dispatchEvent(new Event('input',{bubbles:true})); setter.call(inputs[1],'test-password'); inputs[1].dispatchEvent(new Event('input',{bubbles:true})); document.querySelector('[aria-label="Log In"]').click(); })()`);
       await delay(150);
-      const info=await evaluate(`({overflow:document.documentElement.scrollWidth>innerWidth, text:document.body.innerText, inputs:[...document.querySelectorAll('input')].map(e=>({width:e.getBoundingClientRect().width,height:e.getBoundingClientRect().height}))})`);
+      const info=await evaluate(`({overflow:document.documentElement.scrollWidth>innerWidth, verticalOverflow:[...document.querySelectorAll('div')].some(e=>['auto','scroll'].includes(getComputedStyle(e).overflowY)&&e.clientHeight>0&&e.scrollHeight>e.clientHeight+1), text:document.body.innerText, inputs:[...document.querySelectorAll('input')].map(e=>({width:e.getBoundingClientRect().width,height:e.getBoundingClientRect().height}))})`);
       results.push({screen,width,height,...info});
       const image=await send('Page.captureScreenshot',{format:'png'});
       fs.writeFileSync(path.join(output,`${screen}-${width}x${height}.png`),Buffer.from(image.data,'base64'));

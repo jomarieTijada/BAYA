@@ -65,7 +65,7 @@ export function SettingsScreen({ onClose }: { onClose?: () => void } = {}) {
         return '100%';
       }
     })(), gap: compact ? 6 : 16 }}>
-      <JoinRequestStatus onApproved={refresh} onPendingChange={setPending} onVisibilityChange={setShowRequests} />
+      <JoinRequestStatus hideJoined quietEmpty onApproved={refresh} onPendingChange={setPending} onVisibilityChange={setShowRequests} />
     </View>
     <View style={{ width: (() => {
       if (width >= 1000 && showRequests) {
@@ -106,7 +106,7 @@ export function SettingsScreen({ onClose }: { onClose?: () => void } = {}) {
     </View>
     </View>
     {!!(account.result?.ok && account.result.data?.email) && <>
-      <AppButton label="LOG OUT" accessibilityLabel="Log out learner" disabled={logout.busy} onPress={() => setConfirmLogout(true)} />
+      <AppButton compact density="compact" fullWidth={false} style={{ minHeight: 32, height: 32, paddingVertical: 2, alignSelf: 'center' }} labelStyle={{ fontSize: 12 }} label="LOG OUT" accessibilityLabel="Log out learner" disabled={logout.busy} onPress={() => setConfirmLogout(true)} />
       <Notice text={logout.message} busy={logout.busy} />
       <BayaDialog visible={confirmLogout} title="Log out of your learner account?" description="Your learning progress will stay on this device. Use the same account to reconnect."
         detail={logout.message || undefined} onDismiss={() => setConfirmLogout(false)}

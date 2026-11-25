@@ -13,7 +13,7 @@ import { AppIcon } from '../ui/AppIcon';
 
 // Presentation acknowledgement only; never used to authorize membership or sync.
 const acknowledged = new Set<string>();
-export function JoinRequestStatus({ revision = 0, onApproved, onPendingChange, onVisibilityChange, quietEmpty = false, suppressApprovedDialog = false }: { revision?: number; onApproved?: () => void; onPendingChange?: (pending: boolean) => void; onVisibilityChange?: (visible: boolean) => void; quietEmpty?: boolean; suppressApprovedDialog?: boolean }) {
+export function JoinRequestStatus({ revision = 0, onApproved, onPendingChange, onVisibilityChange, hideJoined = false, quietEmpty = false, suppressApprovedDialog = false }: { revision?: number; onApproved?: () => void; onPendingChange?: (pending: boolean) => void; onVisibilityChange?: (visible: boolean) => void; hideJoined?: boolean; quietEmpty?: boolean; suppressApprovedDialog?: boolean }) {
   const services = useCloudServices();
   const [dismissed, setDismissed] = useState('');
   const { result, refresh, refreshing } = useCloudRead(useCallback(async () => {
@@ -46,8 +46,8 @@ export function JoinRequestStatus({ revision = 0, onApproved, onPendingChange, o
     if (result?.ok) onPendingChange?.(result.data.requests.some(r => r.status === 'pending'));
   }, [result, onPendingChange]);
   useEffect(() => {
-    onVisibilityChange?.(!result || !result.ok || result.data.requests.length > 0);
-  }, [result, onVisibilityChange]);
+    onVisibilityChange?.(!result || !result.ok || result.data.requests.some(r => !hideJoined || !result.data.approved.includes(r.request_id)));
+  }, [result, onVisibilityChange, hideJoined]);
   useEffect(() => { if (approvedId) onApproved?.(); }, [approvedId, onApproved]);
   const dismiss = () => { if (approvedId) { acknowledged.add(approvedId); setDismissed(approvedId); } };
   return <>
@@ -58,7 +58,7 @@ export function JoinRequestStatus({ revision = 0, onApproved, onPendingChange, o
         if (!result.ok) {
           return !quietEmpty && <Notice text={failureMessage[result.code]} />;
         } else {
-          return result.data.requests.map(request => <BaseCard key={request.request_id} style={ws.section}>
+          return result.data.requests.filter(r => !hideJoined || !result.data.approved.includes(r.request_id)).map(request => <BaseCard key={request.request_id} style={ws.section}>
       <View style={ws.headingRow}><View style={ws.icon}><AppIcon name={(() => {
         if (result.data.approved.includes(request.request_id)) {
           return 'circleCheck';
@@ -92,18 +92,18 @@ export function JoinRequestStatus({ revision = 0, onApproved, onPendingChange, o
           }
         }
       })()}</Text>
-      <View style={ws.inset}><Text style={ws.eyebrow}>REQUEST REFERENCE</Text><Text selectable style={ws.reference} verbatim>{request.request_id}</Text></View>
+      <View style={[ws.inset, { padding: 6, gap: 2 }]}><Text style={ws.eyebrow}>REQUEST REFERENCE</Text><Text selectable style={ws.reference} verbatim>{request.request_id}</Text></View>
     </BaseCard>);
         }
       }
     })()}
-    {((result?.ok && result.data.requests.length > 0) || (!quietEmpty && result && !result.ok)) && <AppButton label={(() => {
+    {((result?.ok && result.data.requests.some(r => !hideJoined || !result.data.approved.includes(r.request_id))) || (!quietEmpty && result && !result.ok)) && <AppButton label={(() => {
       if (refreshing) {
         return 'REFRESHING…';
       } else {
         return 'REFRESH';
       }
-    })()} accessibilityLabel="Refresh workspace status" icon="sync" iconPosition="leading" tone="outlinePrimary" compact fullWidth={false} style={{ alignSelf: 'center' }} disabled={refreshing} onPress={() => { void refresh(); }} />}
+    })()} accessibilityLabel="Refresh workspace status" icon="sync" iconPosition="leading" tone="outlinePrimary" compact fullWidth={false} density="compact" labelStyle={{ fontSize: 12 }} style={{ alignSelf: 'center', height: 32, minHeight: 32, paddingVertical: 2 }} disabled={refreshing} onPress={() => { void refresh(); }} />}
     <BayaDialog visible={!!approvedId && !suppressApprovedDialog} variant="success" title="WORKSPACE JOINED!" description="You are now connected to your mentor’s workspace."
       detail="Your eligible learning progress can now synchronize with the workspace." onDismiss={dismiss}
       primaryAction={{ label: 'CONTINUE', onPress: () => { dismiss(); router.replace('/learner/home'); } }} />

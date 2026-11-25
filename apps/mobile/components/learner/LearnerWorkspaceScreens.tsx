@@ -173,7 +173,7 @@ export function LearnerMembershipScreen() {
         icon="add"
         onPress={() => setJoining(true)}
       />
-      <JoinRequestStatus revision={revision} onPendingChange={setPending} onApproved={refresh} suppressApprovedDialog={joining} />
+      <JoinRequestStatus hideJoined revision={revision} onPendingChange={setPending} onApproved={refresh} suppressApprovedDialog={joining} />
       {(() => {
         if (!result) {
           return (
@@ -207,9 +207,9 @@ export function LearnerMembershipScreen() {
             } else {
               return (
         result.data.map(({ workspace, membership }) => (
-          <BaseCard key={membership.membership_id}>
+          <BaseCard key={membership.membership_id} style={{ padding: 10, borderRadius: 14 }}>
             <View>
-              <Text style={[s.title, { fontSize: 24 }]} verbatim>
+              <Text style={[s.title, { fontSize: 16 }]} verbatim>
                 {workspace.workspace_name}
               </Text>
               <Text selectable style={s.subtitle} verbatim>
