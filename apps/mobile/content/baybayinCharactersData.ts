@@ -16,7 +16,7 @@ export interface BaybayinCharacter {
   latinEquivalent: string;
   unicodeSymbol: string;
   imageAsset: number;
-  /** Optional approved recording; device speech is used while this is null. */
+  /** Legacy slot. Recorded pronunciation is resolved by ID in modules/audio/manifest. No TTS fallback. */
   audioSrc: string | null;
   example: BaybayinExample;
 }
@@ -27,6 +27,7 @@ export interface BaybayinCharacterTopic {
   description: string;
   category: BaybayinCharacter['category'];
   characters: readonly BaybayinCharacter[];
+  kudlit?: 'upper' | 'lower';
 }
 
 const vowels: readonly BaybayinCharacter[] = [
@@ -53,6 +54,12 @@ const consonants: readonly BaybayinCharacter[] = [
   { id: 'ya', category: 'katinig', latinEquivalent: 'Ya', unicodeSymbol: 'ᜌ', imageAsset: baybayinAssets.ya, audioSrc: null, example: { word: 'YAman', baybayinWord: 'ᜌᜋᜈ᜔', highlightIndex: 0, highlightedSyllable: 'Ya' } },
 ];
 
+/** Existing resources, with independent topic completion and resume records. */
+const kudlitTopics: readonly BaybayinCharacterTopic[] = [
+  { id: 'topic-kudlit-upper', title: 'Kudlit sa Itaas', category: 'katinig', description: '', characters: consonants, kudlit: 'upper' },
+  { id: 'topic-kudlit-lower', title: 'Kudlit sa Ibaba', category: 'katinig', description: '', characters: consonants, kudlit: 'lower' },
+];
+
 export const baybayinCharacterTopics: readonly BaybayinCharacterTopic[] = [
   {
     id: 'topic-2-1', title: 'Ang mga Patinig', category: 'patinig',
@@ -69,5 +76,5 @@ export const baybayinCharacterTopics: readonly BaybayinCharacterTopic[] = [
 export const baybayinCharacters = [...vowels, ...consonants] as const;
 
 export function getBaybayinCharacterTopic(id: string): BaybayinCharacterTopic | null {
-  return baybayinCharacterTopics.find(topic => topic.id === id) ?? null;
+  return [...baybayinCharacterTopics, ...kudlitTopics].find(topic => topic.id === id) ?? null;
 }

@@ -45,7 +45,7 @@ Example shape (illustrative only; this is not approved curriculum):
 }
 ```
 
-The parser bounds text length, number of steps and unique step IDs. It accepts `story`, legacy `slide`/`concept`, `video` and `audio`. Each new activity type needs one parser branch and one renderer branch, with its completion contract and tests, not a new topic screen. Practice/writing/quiz currently show an unavailable fallback; their assessment engines are outside this refactor.
+The parser bounds text length, number of steps and unique step IDs. It accepts `story`, legacy `slide`/`concept`, `video` and `audio`. Character Level assessments now have a typed, bundled source in `characterActivities/` and a dedicated `/learner/character-activities` route. The generic quiz renderer dispatches to that working hub. Unspecified legacy practice/writing steps remain unavailable; the existing foundational WritingPracticeScreen continues to use its own approved curriculum and mastery contract. Character assessments do not mark a generic lesson step complete.
 
 Persist additional reviewed JSON using parameterized SQL into `activity_content` only after approval, with `validation_status = 'approved'`, a positive `revision`, a valid source/reviewer identifier and an ISO `reviewed_at`. `activity_id` must reference an approved seeded activity. The service derives module/topic display titles and position from the manifest. Do not mark preview content approved merely to make it visible.
 

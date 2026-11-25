@@ -33,6 +33,14 @@ export const approvedCurriculum: readonly ApprovedModule[] = Object.freeze([
     ]),
   }),
   Object.freeze({
+    id: "module-kudlit",
+    title: "Kudlit",
+    topics: Object.freeze([
+      Object.freeze({ id: "topic-kudlit-upper", title: "Kudlit sa Itaas" }),
+      Object.freeze({ id: "topic-kudlit-lower", title: "Kudlit sa Ibaba" }),
+    ]),
+  }),
+  Object.freeze({
     id: "module-3",
     title: "Pagsusulat ng Baybayin",
     topics: Object.freeze([

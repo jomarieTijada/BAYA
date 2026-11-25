@@ -1,0 +1,2399 @@
+[
+  {
+    "id": "character-1",
+    "number": 1,
+    "title": "SOUND MATCHING",
+    "sets": [
+      {
+        "id": "character-1-set-1",
+        "number": 1,
+        "title": "SET 1 — BA, HA, LA, NA, SA",
+        "questions": [
+          {
+            "id": "character-1-q-01",
+            "number": 1,
+            "setId": "character-1-set-1",
+            "prompt": "BA",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-01-A",
+                "letter": "A",
+                "label": "ᜑ"
+              },
+              {
+                "id": "character-1-q-01-B",
+                "letter": "B",
+                "label": "ᜊ"
+              },
+              {
+                "id": "character-1-q-01-C",
+                "letter": "C",
+                "label": "ᜈ"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B — ᜊ"
+          },
+          {
+            "id": "character-1-q-02",
+            "number": 2,
+            "setId": "character-1-set-1",
+            "prompt": "HA",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-02-A",
+                "letter": "A",
+                "label": "ᜑ"
+              },
+              {
+                "id": "character-1-q-02-B",
+                "letter": "B",
+                "label": "ᜎ"
+              },
+              {
+                "id": "character-1-q-02-C",
+                "letter": "C",
+                "label": "ᜐ"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A — ᜑ"
+          },
+          {
+            "id": "character-1-q-03",
+            "number": 3,
+            "setId": "character-1-set-1",
+            "prompt": "LA",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-03-A",
+                "letter": "A",
+                "label": "ᜈ"
+              },
+              {
+                "id": "character-1-q-03-B",
+                "letter": "B",
+                "label": "ᜐ"
+              },
+              {
+                "id": "character-1-q-03-C",
+                "letter": "C",
+                "label": "ᜎ"
+              }
+            ],
+            "correctLetter": "C",
+            "sourceAnswer": "C — ᜎ"
+          },
+          {
+            "id": "character-1-q-04",
+            "number": 4,
+            "setId": "character-1-set-1",
+            "prompt": "NA",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-04-A",
+                "letter": "A",
+                "label": "ᜐ"
+              },
+              {
+                "id": "character-1-q-04-B",
+                "letter": "B",
+                "label": "ᜈ"
+              },
+              {
+                "id": "character-1-q-04-C",
+                "letter": "C",
+                "label": "ᜊ"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B — ᜈ"
+          },
+          {
+            "id": "character-1-q-05",
+            "number": 5,
+            "setId": "character-1-set-1",
+            "prompt": "SA",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-05-A",
+                "letter": "A",
+                "label": "ᜐ"
+              },
+              {
+                "id": "character-1-q-05-B",
+                "letter": "B",
+                "label": "ᜊ"
+              },
+              {
+                "id": "character-1-q-05-C",
+                "letter": "C",
+                "label": "ᜎ"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A — ᜐ"
+          }
+        ]
+      },
+      {
+        "id": "character-1-set-2",
+        "number": 2,
+        "title": "SET 2 — DE, KE, ME, PE, RE",
+        "questions": [
+          {
+            "id": "character-1-q-06",
+            "number": 6,
+            "setId": "character-1-set-2",
+            "prompt": "DE",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-06-A",
+                "letter": "A",
+                "label": "ᜃᜒ"
+              },
+              {
+                "id": "character-1-q-06-B",
+                "letter": "B",
+                "label": "ᜇᜒ"
+              },
+              {
+                "id": "character-1-q-06-C",
+                "letter": "C",
+                "label": "ᜉᜒ"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B — ᜇᜒ"
+          },
+          {
+            "id": "character-1-q-07",
+            "number": 7,
+            "setId": "character-1-set-2",
+            "prompt": "KE",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-07-A",
+                "letter": "A",
+                "label": "ᜃᜒ"
+              },
+              {
+                "id": "character-1-q-07-B",
+                "letter": "B",
+                "label": "ᜋᜒ"
+              },
+              {
+                "id": "character-1-q-07-C",
+                "letter": "C",
+                "label": "ᜇᜒ"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A — ᜃᜒ"
+          },
+          {
+            "id": "character-1-q-08",
+            "number": 8,
+            "setId": "character-1-set-2",
+            "prompt": "ME",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-08-A",
+                "letter": "A",
+                "label": "ᜉᜒ"
+              },
+              {
+                "id": "character-1-q-08-B",
+                "letter": "B",
+                "label": "ᜃᜒ"
+              },
+              {
+                "id": "character-1-q-08-C",
+                "letter": "C",
+                "label": "ᜋᜒ"
+              }
+            ],
+            "correctLetter": "C",
+            "sourceAnswer": "C — ᜋᜒ"
+          },
+          {
+            "id": "character-1-q-09",
+            "number": 9,
+            "setId": "character-1-set-2",
+            "prompt": "PE",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-09-A",
+                "letter": "A",
+                "label": "ᜇᜒ"
+              },
+              {
+                "id": "character-1-q-09-B",
+                "letter": "B",
+                "label": "ᜉᜒ"
+              },
+              {
+                "id": "character-1-q-09-C",
+                "letter": "C",
+                "label": "ᜋᜒ"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B — ᜉᜒ"
+          },
+          {
+            "id": "character-1-q-10",
+            "number": 10,
+            "setId": "character-1-set-2",
+            "prompt": "RE",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-10-A",
+                "letter": "A",
+                "label": "ᜇᜒ"
+              },
+              {
+                "id": "character-1-q-10-B",
+                "letter": "B",
+                "label": "ᜋᜒ"
+              },
+              {
+                "id": "character-1-q-10-C",
+                "letter": "C",
+                "label": "ᜃᜒ"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A — ᜇᜒ*"
+          }
+        ]
+      },
+      {
+        "id": "character-1-set-3",
+        "number": 3,
+        "title": "SET 3 — NGI, WI, HI, TI, BI",
+        "questions": [
+          {
+            "id": "character-1-q-11",
+            "number": 11,
+            "setId": "character-1-set-3",
+            "prompt": "NGI",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-11-A",
+                "letter": "A",
+                "label": "ᜏᜒ"
+              },
+              {
+                "id": "character-1-q-11-B",
+                "letter": "B",
+                "label": "ᜅᜒ"
+              },
+              {
+                "id": "character-1-q-11-C",
+                "letter": "C",
+                "label": "ᜑᜒ"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B — ᜅᜒ"
+          },
+          {
+            "id": "character-1-q-12",
+            "number": 12,
+            "setId": "character-1-set-3",
+            "prompt": "WI",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-12-A",
+                "letter": "A",
+                "label": "ᜏᜒ"
+              },
+              {
+                "id": "character-1-q-12-B",
+                "letter": "B",
+                "label": "ᜆᜒ"
+              },
+              {
+                "id": "character-1-q-12-C",
+                "letter": "C",
+                "label": "ᜊᜒ"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A — ᜏᜒ"
+          },
+          {
+            "id": "character-1-q-13",
+            "number": 13,
+            "setId": "character-1-set-3",
+            "prompt": "HI",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-13-A",
+                "letter": "A",
+                "label": "ᜅᜒ"
+              },
+              {
+                "id": "character-1-q-13-B",
+                "letter": "B",
+                "label": "ᜏᜒ"
+              },
+              {
+                "id": "character-1-q-13-C",
+                "letter": "C",
+                "label": "ᜑᜒ"
+              }
+            ],
+            "correctLetter": "C",
+            "sourceAnswer": "C — ᜑᜒ"
+          },
+          {
+            "id": "character-1-q-14",
+            "number": 14,
+            "setId": "character-1-set-3",
+            "prompt": "TI",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-14-A",
+                "letter": "A",
+                "label": "ᜊᜒ"
+              },
+              {
+                "id": "character-1-q-14-B",
+                "letter": "B",
+                "label": "ᜆᜒ"
+              },
+              {
+                "id": "character-1-q-14-C",
+                "letter": "C",
+                "label": "ᜑᜒ"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B — ᜆᜒ"
+          },
+          {
+            "id": "character-1-q-15",
+            "number": 15,
+            "setId": "character-1-set-3",
+            "prompt": "BI",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-15-A",
+                "letter": "A",
+                "label": "ᜊᜒ"
+              },
+              {
+                "id": "character-1-q-15-B",
+                "letter": "B",
+                "label": "ᜅᜒ"
+              },
+              {
+                "id": "character-1-q-15-C",
+                "letter": "C",
+                "label": "ᜏᜒ"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A — ᜊᜒ"
+          }
+        ]
+      },
+      {
+        "id": "character-1-set-4",
+        "number": 4,
+        "title": "SET 4 — PO, KO, LO, WO, TO",
+        "questions": [
+          {
+            "id": "character-1-q-16",
+            "number": 16,
+            "setId": "character-1-set-4",
+            "prompt": "PO",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-16-A",
+                "letter": "A",
+                "label": "ᜉᜓ"
+              },
+              {
+                "id": "character-1-q-16-B",
+                "letter": "B",
+                "label": "ᜃᜓ"
+              },
+              {
+                "id": "character-1-q-16-C",
+                "letter": "C",
+                "label": "ᜎᜓ"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A — ᜉᜓ"
+          },
+          {
+            "id": "character-1-q-17",
+            "number": 17,
+            "setId": "character-1-set-4",
+            "prompt": "KO",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-17-A",
+                "letter": "A",
+                "label": "ᜎᜓ"
+              },
+              {
+                "id": "character-1-q-17-B",
+                "letter": "B",
+                "label": "ᜆᜓ"
+              },
+              {
+                "id": "character-1-q-17-C",
+                "letter": "C",
+                "label": "ᜃᜓ"
+              }
+            ],
+            "correctLetter": "C",
+            "sourceAnswer": "C — ᜃᜓ"
+          },
+          {
+            "id": "character-1-q-18",
+            "number": 18,
+            "setId": "character-1-set-4",
+            "prompt": "LO",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-18-A",
+                "letter": "A",
+                "label": "ᜏᜓ"
+              },
+              {
+                "id": "character-1-q-18-B",
+                "letter": "B",
+                "label": "ᜎᜓ"
+              },
+              {
+                "id": "character-1-q-18-C",
+                "letter": "C",
+                "label": "ᜃᜓ"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B — ᜎᜓ"
+          },
+          {
+            "id": "character-1-q-19",
+            "number": 19,
+            "setId": "character-1-set-4",
+            "prompt": "WO",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-19-A",
+                "letter": "A",
+                "label": "ᜏᜓ"
+              },
+              {
+                "id": "character-1-q-19-B",
+                "letter": "B",
+                "label": "ᜉᜓ"
+              },
+              {
+                "id": "character-1-q-19-C",
+                "letter": "C",
+                "label": "ᜆᜓ"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A — ᜏᜓ"
+          },
+          {
+            "id": "character-1-q-20",
+            "number": 20,
+            "setId": "character-1-set-4",
+            "prompt": "TO",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-20-A",
+                "letter": "A",
+                "label": "ᜃᜓ"
+              },
+              {
+                "id": "character-1-q-20-B",
+                "letter": "B",
+                "label": "ᜏᜓ"
+              },
+              {
+                "id": "character-1-q-20-C",
+                "letter": "C",
+                "label": "ᜆᜓ"
+              }
+            ],
+            "correctLetter": "C",
+            "sourceAnswer": "C — ᜆᜓ"
+          }
+        ]
+      },
+      {
+        "id": "character-1-set-5",
+        "number": 5,
+        "title": "SET 5 — GU, TU, MU, YU, BU",
+        "questions": [
+          {
+            "id": "character-1-q-21",
+            "number": 21,
+            "setId": "character-1-set-5",
+            "prompt": "GU",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-21-A",
+                "letter": "A",
+                "label": "ᜇᜓ"
+              },
+              {
+                "id": "character-1-q-21-B",
+                "letter": "B",
+                "label": "ᜄᜓ"
+              },
+              {
+                "id": "character-1-q-21-C",
+                "letter": "C",
+                "label": "ᜋᜓ"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B — ᜄᜓ"
+          },
+          {
+            "id": "character-1-q-22",
+            "number": 22,
+            "setId": "character-1-set-5",
+            "prompt": "TU",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-22-A",
+                "letter": "A",
+                "label": "ᜆᜓ"
+              },
+              {
+                "id": "character-1-q-22-B",
+                "letter": "B",
+                "label": "ᜌᜓ"
+              },
+              {
+                "id": "character-1-q-22-C",
+                "letter": "C",
+                "label": "ᜊᜓ"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A — ᜆᜓ"
+          },
+          {
+            "id": "character-1-q-23",
+            "number": 23,
+            "setId": "character-1-set-5",
+            "prompt": "MU",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-23-A",
+                "letter": "A",
+                "label": "ᜌᜓ"
+              },
+              {
+                "id": "character-1-q-23-B",
+                "letter": "B",
+                "label": "ᜊᜓ"
+              },
+              {
+                "id": "character-1-q-23-C",
+                "letter": "C",
+                "label": "ᜋᜓ"
+              }
+            ],
+            "correctLetter": "C",
+            "sourceAnswer": "C — ᜋᜓ"
+          },
+          {
+            "id": "character-1-q-24",
+            "number": 24,
+            "setId": "character-1-set-5",
+            "prompt": "YU",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-24-A",
+                "letter": "A",
+                "label": "ᜋᜓ"
+              },
+              {
+                "id": "character-1-q-24-B",
+                "letter": "B",
+                "label": "ᜌᜓ"
+              },
+              {
+                "id": "character-1-q-24-C",
+                "letter": "C",
+                "label": "ᜆᜓ"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B — ᜌᜓ"
+          },
+          {
+            "id": "character-1-q-25",
+            "number": 25,
+            "setId": "character-1-set-5",
+            "prompt": "BU",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-1-q-25-A",
+                "letter": "A",
+                "label": "ᜊᜓ"
+              },
+              {
+                "id": "character-1-q-25-B",
+                "letter": "B",
+                "label": "ᜄᜓ"
+              },
+              {
+                "id": "character-1-q-25-C",
+                "letter": "C",
+                "label": "ᜌᜓ"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A — ᜊᜓ"
+          }
+        ]
+      }
+    ],
+    "sourceInstruction": "Pakinggan ang tunog at piliin ang tamang Baybayin character."
+  },
+  {
+    "id": "character-2",
+    "number": 2,
+    "title": "BAYBAYIN TO LATIN",
+    "sets": [
+      {
+        "id": "character-2-set-1",
+        "number": 1,
+        "title": "SET 1 — Independent Vowels and Basic Characters",
+        "questions": [
+          {
+            "id": "character-2-q-01",
+            "number": 1,
+            "setId": "character-2-set-1",
+            "prompt": "ᜀ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-01-A",
+                "letter": "A",
+                "label": "I/E"
+              },
+              {
+                "id": "character-2-q-01-B",
+                "letter": "B",
+                "label": "A"
+              },
+              {
+                "id": "character-2-q-01-C",
+                "letter": "C",
+                "label": "U/O"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B"
+          },
+          {
+            "id": "character-2-q-02",
+            "number": 2,
+            "setId": "character-2-set-1",
+            "prompt": "ᜁ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-02-A",
+                "letter": "A",
+                "label": "I/E"
+              },
+              {
+                "id": "character-2-q-02-B",
+                "letter": "B",
+                "label": "U/O"
+              },
+              {
+                "id": "character-2-q-02-C",
+                "letter": "C",
+                "label": "A"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A"
+          },
+          {
+            "id": "character-2-q-03",
+            "number": 3,
+            "setId": "character-2-set-1",
+            "prompt": "ᜂ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-03-A",
+                "letter": "A",
+                "label": "A"
+              },
+              {
+                "id": "character-2-q-03-B",
+                "letter": "B",
+                "label": "I/E"
+              },
+              {
+                "id": "character-2-q-03-C",
+                "letter": "C",
+                "label": "O/U"
+              }
+            ],
+            "correctLetter": "C",
+            "sourceAnswer": "C"
+          },
+          {
+            "id": "character-2-q-04",
+            "number": 4,
+            "setId": "character-2-set-1",
+            "prompt": "ᜃ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-04-A",
+                "letter": "A",
+                "label": "GA"
+              },
+              {
+                "id": "character-2-q-04-B",
+                "letter": "B",
+                "label": "KA"
+              },
+              {
+                "id": "character-2-q-04-C",
+                "letter": "C",
+                "label": "TA"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B"
+          },
+          {
+            "id": "character-2-q-05",
+            "number": 5,
+            "setId": "character-2-set-1",
+            "prompt": "ᜄ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-05-A",
+                "letter": "A",
+                "label": "GA"
+              },
+              {
+                "id": "character-2-q-05-B",
+                "letter": "B",
+                "label": "MA"
+              },
+              {
+                "id": "character-2-q-05-C",
+                "letter": "C",
+                "label": "KA"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A"
+          }
+        ]
+      },
+      {
+        "id": "character-2-set-2",
+        "number": 2,
+        "title": "SET 2 — Additional Basic Consonant Characters",
+        "questions": [
+          {
+            "id": "character-2-q-06",
+            "number": 6,
+            "setId": "character-2-set-2",
+            "prompt": "ᜅ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-06-A",
+                "letter": "A",
+                "label": "PA"
+              },
+              {
+                "id": "character-2-q-06-B",
+                "letter": "B",
+                "label": "NGA"
+              },
+              {
+                "id": "character-2-q-06-C",
+                "letter": "C",
+                "label": "TA"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B"
+          },
+          {
+            "id": "character-2-q-07",
+            "number": 7,
+            "setId": "character-2-set-2",
+            "prompt": "ᜆ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-07-A",
+                "letter": "A",
+                "label": "TA"
+              },
+              {
+                "id": "character-2-q-07-B",
+                "letter": "B",
+                "label": "MA"
+              },
+              {
+                "id": "character-2-q-07-C",
+                "letter": "C",
+                "label": "YA"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A"
+          },
+          {
+            "id": "character-2-q-08",
+            "number": 8,
+            "setId": "character-2-set-2",
+            "prompt": "ᜉ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-08-A",
+                "letter": "A",
+                "label": "MA"
+              },
+              {
+                "id": "character-2-q-08-B",
+                "letter": "B",
+                "label": "YA"
+              },
+              {
+                "id": "character-2-q-08-C",
+                "letter": "C",
+                "label": "PA"
+              }
+            ],
+            "correctLetter": "C",
+            "sourceAnswer": "C"
+          },
+          {
+            "id": "character-2-q-09",
+            "number": 9,
+            "setId": "character-2-set-2",
+            "prompt": "ᜋ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-09-A",
+                "letter": "A",
+                "label": "YA"
+              },
+              {
+                "id": "character-2-q-09-B",
+                "letter": "B",
+                "label": "MA"
+              },
+              {
+                "id": "character-2-q-09-C",
+                "letter": "C",
+                "label": "NGA"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B"
+          },
+          {
+            "id": "character-2-q-10",
+            "number": 10,
+            "setId": "character-2-set-2",
+            "prompt": "ᜌ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-10-A",
+                "letter": "A",
+                "label": "YA"
+              },
+              {
+                "id": "character-2-q-10-B",
+                "letter": "B",
+                "label": "PA"
+              },
+              {
+                "id": "character-2-q-10-C",
+                "letter": "C",
+                "label": "MA"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A"
+          }
+        ]
+      },
+      {
+        "id": "character-2-set-3",
+        "number": 3,
+        "title": "SET 3 — Characters with I/E Kudlit",
+        "questions": [
+          {
+            "id": "character-2-q-11",
+            "number": 11,
+            "setId": "character-2-set-3",
+            "prompt": "ᜄᜒ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-11-A",
+                "letter": "A",
+                "label": "LI"
+              },
+              {
+                "id": "character-2-q-11-B",
+                "letter": "B",
+                "label": "GI"
+              },
+              {
+                "id": "character-2-q-11-C",
+                "letter": "C",
+                "label": "NI"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B"
+          },
+          {
+            "id": "character-2-q-12",
+            "number": 12,
+            "setId": "character-2-set-3",
+            "prompt": "ᜎᜒ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-12-A",
+                "letter": "A",
+                "label": "LI"
+              },
+              {
+                "id": "character-2-q-12-B",
+                "letter": "B",
+                "label": "SI"
+              },
+              {
+                "id": "character-2-q-12-C",
+                "letter": "C",
+                "label": "GI"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A"
+          },
+          {
+            "id": "character-2-q-13",
+            "number": 13,
+            "setId": "character-2-set-3",
+            "prompt": "ᜈᜒ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-13-A",
+                "letter": "A",
+                "label": "YI"
+              },
+              {
+                "id": "character-2-q-13-B",
+                "letter": "B",
+                "label": "GI"
+              },
+              {
+                "id": "character-2-q-13-C",
+                "letter": "C",
+                "label": "NI"
+              }
+            ],
+            "correctLetter": "C",
+            "sourceAnswer": "C"
+          },
+          {
+            "id": "character-2-q-14",
+            "number": 14,
+            "setId": "character-2-set-3",
+            "prompt": "ᜐᜒ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-14-A",
+                "letter": "A",
+                "label": "NI"
+              },
+              {
+                "id": "character-2-q-14-B",
+                "letter": "B",
+                "label": "SI"
+              },
+              {
+                "id": "character-2-q-14-C",
+                "letter": "C",
+                "label": "LI"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B"
+          },
+          {
+            "id": "character-2-q-15",
+            "number": 15,
+            "setId": "character-2-set-3",
+            "prompt": "ᜌᜒ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-15-A",
+                "letter": "A",
+                "label": "YI"
+              },
+              {
+                "id": "character-2-q-15-B",
+                "letter": "B",
+                "label": "NI"
+              },
+              {
+                "id": "character-2-q-15-C",
+                "letter": "C",
+                "label": "SI"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A"
+          }
+        ]
+      },
+      {
+        "id": "character-2-set-4",
+        "number": 4,
+        "title": "SET 4 — Characters with O/U Kudlit",
+        "questions": [
+          {
+            "id": "character-2-q-16",
+            "number": 16,
+            "setId": "character-2-set-4",
+            "prompt": "ᜅᜓ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-16-A",
+                "letter": "A",
+                "label": "SO/SU"
+              },
+              {
+                "id": "character-2-q-16-B",
+                "letter": "B",
+                "label": "NGO/NGU"
+              },
+              {
+                "id": "character-2-q-16-C",
+                "letter": "C",
+                "label": "NO/NU"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B"
+          },
+          {
+            "id": "character-2-q-17",
+            "number": 17,
+            "setId": "character-2-set-4",
+            "prompt": "ᜇᜓ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-17-A",
+                "letter": "A",
+                "label": "DO/DU"
+              },
+              {
+                "id": "character-2-q-17-B",
+                "letter": "B",
+                "label": "NO/NU"
+              },
+              {
+                "id": "character-2-q-17-C",
+                "letter": "C",
+                "label": "HO/HU"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A"
+          },
+          {
+            "id": "character-2-q-18",
+            "number": 18,
+            "setId": "character-2-set-4",
+            "prompt": "ᜈᜓ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-18-A",
+                "letter": "A",
+                "label": "HO/HU"
+              },
+              {
+                "id": "character-2-q-18-B",
+                "letter": "B",
+                "label": "SO/SU"
+              },
+              {
+                "id": "character-2-q-18-C",
+                "letter": "C",
+                "label": "NO/NU"
+              }
+            ],
+            "correctLetter": "C",
+            "sourceAnswer": "C"
+          },
+          {
+            "id": "character-2-q-19",
+            "number": 19,
+            "setId": "character-2-set-4",
+            "prompt": "ᜐᜓ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-19-A",
+                "letter": "A",
+                "label": "HO/HU"
+              },
+              {
+                "id": "character-2-q-19-B",
+                "letter": "B",
+                "label": "SO/SU"
+              },
+              {
+                "id": "character-2-q-19-C",
+                "letter": "C",
+                "label": "NGO/NGU"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B"
+          },
+          {
+            "id": "character-2-q-20",
+            "number": 20,
+            "setId": "character-2-set-4",
+            "prompt": "ᜑᜓ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-20-A",
+                "letter": "A",
+                "label": "HO/HU"
+              },
+              {
+                "id": "character-2-q-20-B",
+                "letter": "B",
+                "label": "DO/DU"
+              },
+              {
+                "id": "character-2-q-20-C",
+                "letter": "C",
+                "label": "NO/NU"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A"
+          }
+        ]
+      },
+      {
+        "id": "character-2-set-5",
+        "number": 5,
+        "title": "SET 5 — Mixed Character Recognition",
+        "questions": [
+          {
+            "id": "character-2-q-21",
+            "number": 21,
+            "setId": "character-2-set-5",
+            "prompt": "ᜇ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-21-A",
+                "letter": "A",
+                "label": "TA"
+              },
+              {
+                "id": "character-2-q-21-B",
+                "letter": "B",
+                "label": "DA/RA"
+              },
+              {
+                "id": "character-2-q-21-C",
+                "letter": "C",
+                "label": "MA"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B"
+          },
+          {
+            "id": "character-2-q-22",
+            "number": 22,
+            "setId": "character-2-set-5",
+            "prompt": "ᜏ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-22-A",
+                "letter": "A",
+                "label": "WA"
+              },
+              {
+                "id": "character-2-q-22-B",
+                "letter": "B",
+                "label": "YA"
+              },
+              {
+                "id": "character-2-q-22-C",
+                "letter": "C",
+                "label": "PA"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A"
+          },
+          {
+            "id": "character-2-q-23",
+            "number": 23,
+            "setId": "character-2-set-5",
+            "prompt": "ᜉᜒ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-23-A",
+                "letter": "A",
+                "label": "MI/ME"
+              },
+              {
+                "id": "character-2-q-23-B",
+                "letter": "B",
+                "label": "SI/SE"
+              },
+              {
+                "id": "character-2-q-23-C",
+                "letter": "C",
+                "label": "PI/PE"
+              }
+            ],
+            "correctLetter": "C",
+            "sourceAnswer": "C"
+          },
+          {
+            "id": "character-2-q-24",
+            "number": 24,
+            "setId": "character-2-set-5",
+            "prompt": "ᜃᜒ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-24-A",
+                "letter": "A",
+                "label": "NI/NE"
+              },
+              {
+                "id": "character-2-q-24-B",
+                "letter": "B",
+                "label": "KI/KE"
+              },
+              {
+                "id": "character-2-q-24-C",
+                "letter": "C",
+                "label": "GI/GE"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B"
+          },
+          {
+            "id": "character-2-q-25",
+            "number": 25,
+            "setId": "character-2-set-5",
+            "prompt": "ᜇᜒ",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-2-q-25-A",
+                "letter": "A",
+                "label": "DI/DE/RI/RE"
+              },
+              {
+                "id": "character-2-q-25-B",
+                "letter": "B",
+                "label": "SI/SE"
+              },
+              {
+                "id": "character-2-q-25-C",
+                "letter": "C",
+                "label": "MI/ME"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A"
+          }
+        ]
+      }
+    ],
+    "sourceInstruction": "Tingnan ang Baybayin character at piliin ang tamang romanized equivalent nito."
+  },
+  {
+    "id": "character-3",
+    "number": 3,
+    "title": "LATIN TO BAYBAYIN",
+    "sets": [
+      {
+        "id": "character-3-set-1",
+        "number": 1,
+        "title": "SET 1 — Basic Consonant Recognition",
+        "questions": [
+          {
+            "id": "character-3-q-01",
+            "number": 1,
+            "setId": "character-3-set-1",
+            "prompt": "DA",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-01-A",
+                "letter": "A",
+                "label": "ᜑ"
+              },
+              {
+                "id": "character-3-q-01-B",
+                "letter": "B",
+                "label": "ᜇ"
+              },
+              {
+                "id": "character-3-q-01-C",
+                "letter": "C",
+                "label": "ᜏ"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B — ᜇ"
+          },
+          {
+            "id": "character-3-q-02",
+            "number": 2,
+            "setId": "character-3-set-1",
+            "prompt": "WA",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-02-A",
+                "letter": "A",
+                "label": "ᜏ"
+              },
+              {
+                "id": "character-3-q-02-B",
+                "letter": "B",
+                "label": "ᜌ"
+              },
+              {
+                "id": "character-3-q-02-C",
+                "letter": "C",
+                "label": "ᜄ"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A — ᜏ"
+          },
+          {
+            "id": "character-3-q-03",
+            "number": 3,
+            "setId": "character-3-set-1",
+            "prompt": "HA",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-03-A",
+                "letter": "A",
+                "label": "ᜈ"
+              },
+              {
+                "id": "character-3-q-03-B",
+                "letter": "B",
+                "label": "ᜎ"
+              },
+              {
+                "id": "character-3-q-03-C",
+                "letter": "C",
+                "label": "ᜑ"
+              }
+            ],
+            "correctLetter": "C",
+            "sourceAnswer": "C — ᜑ"
+          },
+          {
+            "id": "character-3-q-04",
+            "number": 4,
+            "setId": "character-3-set-1",
+            "prompt": "SA",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-04-A",
+                "letter": "A",
+                "label": "ᜊ"
+              },
+              {
+                "id": "character-3-q-04-B",
+                "letter": "B",
+                "label": "ᜐ"
+              },
+              {
+                "id": "character-3-q-04-C",
+                "letter": "C",
+                "label": "ᜌ"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B — ᜐ"
+          },
+          {
+            "id": "character-3-q-05",
+            "number": 5,
+            "setId": "character-3-set-1",
+            "prompt": "LA",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-05-A",
+                "letter": "A",
+                "label": "ᜎ"
+              },
+              {
+                "id": "character-3-q-05-B",
+                "letter": "B",
+                "label": "ᜈ"
+              },
+              {
+                "id": "character-3-q-05-C",
+                "letter": "C",
+                "label": "ᜑ"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A — ᜎ"
+          }
+        ]
+      },
+      {
+        "id": "character-3-set-2",
+        "number": 2,
+        "title": "SET 2 — Characters with I/E Kudlit",
+        "questions": [
+          {
+            "id": "character-3-q-06",
+            "number": 6,
+            "setId": "character-3-set-2",
+            "prompt": "BE",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-06-A",
+                "letter": "A",
+                "label": "ᜊ"
+              },
+              {
+                "id": "character-3-q-06-B",
+                "letter": "B",
+                "label": "ᜊᜒ"
+              },
+              {
+                "id": "character-3-q-06-C",
+                "letter": "C",
+                "label": "ᜊᜓ"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B — ᜊᜒ"
+          },
+          {
+            "id": "character-3-q-07",
+            "number": 7,
+            "setId": "character-3-set-2",
+            "prompt": "TE",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-07-A",
+                "letter": "A",
+                "label": "ᜆᜒ"
+              },
+              {
+                "id": "character-3-q-07-B",
+                "letter": "B",
+                "label": "ᜆᜓ"
+              },
+              {
+                "id": "character-3-q-07-C",
+                "letter": "C",
+                "label": "ᜆ"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A — ᜆᜒ"
+          },
+          {
+            "id": "character-3-q-08",
+            "number": 8,
+            "setId": "character-3-set-2",
+            "prompt": "NGI",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-08-A",
+                "letter": "A",
+                "label": "ᜅᜓ"
+              },
+              {
+                "id": "character-3-q-08-B",
+                "letter": "B",
+                "label": "ᜅ"
+              },
+              {
+                "id": "character-3-q-08-C",
+                "letter": "C",
+                "label": "ᜅᜒ"
+              }
+            ],
+            "correctLetter": "C",
+            "sourceAnswer": "C — ᜅᜒ"
+          },
+          {
+            "id": "character-3-q-09",
+            "number": 9,
+            "setId": "character-3-set-2",
+            "prompt": "WE",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-09-A",
+                "letter": "A",
+                "label": "ᜏ"
+              },
+              {
+                "id": "character-3-q-09-B",
+                "letter": "B",
+                "label": "ᜏᜒ"
+              },
+              {
+                "id": "character-3-q-09-C",
+                "letter": "C",
+                "label": "ᜏᜓ"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B — ᜏᜒ"
+          },
+          {
+            "id": "character-3-q-10",
+            "number": 10,
+            "setId": "character-3-set-2",
+            "prompt": "DE",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-10-A",
+                "letter": "A",
+                "label": "ᜇᜒ"
+              },
+              {
+                "id": "character-3-q-10-B",
+                "letter": "B",
+                "label": "ᜇᜓ"
+              },
+              {
+                "id": "character-3-q-10-C",
+                "letter": "C",
+                "label": "ᜇ"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A — ᜇᜒ"
+          }
+        ]
+      },
+      {
+        "id": "character-3-set-3",
+        "number": 3,
+        "title": "SET 3 — Characters with O/U Kudlit",
+        "questions": [
+          {
+            "id": "character-3-q-11",
+            "number": 11,
+            "setId": "character-3-set-3",
+            "prompt": "BO",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-11-A",
+                "letter": "A",
+                "label": "ᜊᜒ"
+              },
+              {
+                "id": "character-3-q-11-B",
+                "letter": "B",
+                "label": "ᜊᜓ"
+              },
+              {
+                "id": "character-3-q-11-C",
+                "letter": "C",
+                "label": "ᜊ"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B — ᜊᜓ"
+          },
+          {
+            "id": "character-3-q-12",
+            "number": 12,
+            "setId": "character-3-set-3",
+            "prompt": "KU",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-12-A",
+                "letter": "A",
+                "label": "ᜃᜓ"
+              },
+              {
+                "id": "character-3-q-12-B",
+                "letter": "B",
+                "label": "ᜃᜒ"
+              },
+              {
+                "id": "character-3-q-12-C",
+                "letter": "C",
+                "label": "ᜃ"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A — ᜃᜓ"
+          },
+          {
+            "id": "character-3-q-13",
+            "number": 13,
+            "setId": "character-3-set-3",
+            "prompt": "PO",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-13-A",
+                "letter": "A",
+                "label": "ᜉᜒ"
+              },
+              {
+                "id": "character-3-q-13-B",
+                "letter": "B",
+                "label": "ᜉ"
+              },
+              {
+                "id": "character-3-q-13-C",
+                "letter": "C",
+                "label": "ᜉᜓ"
+              }
+            ],
+            "correctLetter": "C",
+            "sourceAnswer": "C — ᜉᜓ"
+          },
+          {
+            "id": "character-3-q-14",
+            "number": 14,
+            "setId": "character-3-set-3",
+            "prompt": "MO",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-14-A",
+                "letter": "A",
+                "label": "ᜋ"
+              },
+              {
+                "id": "character-3-q-14-B",
+                "letter": "B",
+                "label": "ᜋᜓ"
+              },
+              {
+                "id": "character-3-q-14-C",
+                "letter": "C",
+                "label": "ᜋᜒ"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B — ᜋᜓ"
+          },
+          {
+            "id": "character-3-q-15",
+            "number": 15,
+            "setId": "character-3-set-3",
+            "prompt": "YU",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-15-A",
+                "letter": "A",
+                "label": "ᜌᜓ"
+              },
+              {
+                "id": "character-3-q-15-B",
+                "letter": "B",
+                "label": "ᜌᜒ"
+              },
+              {
+                "id": "character-3-q-15-C",
+                "letter": "C",
+                "label": "ᜌ"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A — ᜌᜓ"
+          }
+        ]
+      },
+      {
+        "id": "character-3-set-4",
+        "number": 4,
+        "title": "SET 4 — Same Character, Different Vowel Sounds",
+        "questions": [
+          {
+            "id": "character-3-q-16",
+            "number": 16,
+            "setId": "character-3-set-4",
+            "prompt": "TA",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-16-A",
+                "letter": "A",
+                "label": "ᜆᜒ"
+              },
+              {
+                "id": "character-3-q-16-B",
+                "letter": "B",
+                "label": "ᜆ"
+              },
+              {
+                "id": "character-3-q-16-C",
+                "letter": "C",
+                "label": "ᜆᜓ"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B — ᜆ"
+          },
+          {
+            "id": "character-3-q-17",
+            "number": 17,
+            "setId": "character-3-set-4",
+            "prompt": "TI",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-17-A",
+                "letter": "A",
+                "label": "ᜆᜒ"
+              },
+              {
+                "id": "character-3-q-17-B",
+                "letter": "B",
+                "label": "ᜆᜓ"
+              },
+              {
+                "id": "character-3-q-17-C",
+                "letter": "C",
+                "label": "ᜆ"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A — ᜆᜒ"
+          },
+          {
+            "id": "character-3-q-18",
+            "number": 18,
+            "setId": "character-3-set-4",
+            "prompt": "TU",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-18-A",
+                "letter": "A",
+                "label": "ᜆ"
+              },
+              {
+                "id": "character-3-q-18-B",
+                "letter": "B",
+                "label": "ᜆᜒ"
+              },
+              {
+                "id": "character-3-q-18-C",
+                "letter": "C",
+                "label": "ᜆᜓ"
+              }
+            ],
+            "correctLetter": "C",
+            "sourceAnswer": "C — ᜆᜓ"
+          },
+          {
+            "id": "character-3-q-19",
+            "number": 19,
+            "setId": "character-3-set-4",
+            "prompt": "PA",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-19-A",
+                "letter": "A",
+                "label": "ᜉᜓ"
+              },
+              {
+                "id": "character-3-q-19-B",
+                "letter": "B",
+                "label": "ᜉ"
+              },
+              {
+                "id": "character-3-q-19-C",
+                "letter": "C",
+                "label": "ᜉᜒ"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B — ᜉ"
+          },
+          {
+            "id": "character-3-q-20",
+            "number": 20,
+            "setId": "character-3-set-4",
+            "prompt": "PE",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-20-A",
+                "letter": "A",
+                "label": "ᜉᜒ"
+              },
+              {
+                "id": "character-3-q-20-B",
+                "letter": "B",
+                "label": "ᜉᜓ"
+              },
+              {
+                "id": "character-3-q-20-C",
+                "letter": "C",
+                "label": "ᜉ"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A — ᜉᜒ"
+          }
+        ]
+      },
+      {
+        "id": "character-3-set-5",
+        "number": 5,
+        "title": "SET 5 — Mixed Character Recognition",
+        "questions": [
+          {
+            "id": "character-3-q-21",
+            "number": 21,
+            "setId": "character-3-set-5",
+            "prompt": "YA",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-21-A",
+                "letter": "A",
+                "label": "ᜌᜓ"
+              },
+              {
+                "id": "character-3-q-21-B",
+                "letter": "B",
+                "label": "ᜌ"
+              },
+              {
+                "id": "character-3-q-21-C",
+                "letter": "C",
+                "label": "ᜌᜒ"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B — ᜌ"
+          },
+          {
+            "id": "character-3-q-22",
+            "number": 22,
+            "setId": "character-3-set-5",
+            "prompt": "GO",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-22-A",
+                "letter": "A",
+                "label": "ᜄᜓ"
+              },
+              {
+                "id": "character-3-q-22-B",
+                "letter": "B",
+                "label": "ᜄ"
+              },
+              {
+                "id": "character-3-q-22-C",
+                "letter": "C",
+                "label": "ᜄᜒ"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A — ᜄᜓ"
+          },
+          {
+            "id": "character-3-q-23",
+            "number": 23,
+            "setId": "character-3-set-5",
+            "prompt": "NE",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-23-A",
+                "letter": "A",
+                "label": "ᜈ"
+              },
+              {
+                "id": "character-3-q-23-B",
+                "letter": "B",
+                "label": "ᜈᜓ"
+              },
+              {
+                "id": "character-3-q-23-C",
+                "letter": "C",
+                "label": "ᜈᜒ"
+              }
+            ],
+            "correctLetter": "C",
+            "sourceAnswer": "C — ᜈᜒ"
+          },
+          {
+            "id": "character-3-q-24",
+            "number": 24,
+            "setId": "character-3-set-5",
+            "prompt": "KI",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-24-A",
+                "letter": "A",
+                "label": "ᜃᜓ"
+              },
+              {
+                "id": "character-3-q-24-B",
+                "letter": "B",
+                "label": "ᜃᜒ"
+              },
+              {
+                "id": "character-3-q-24-C",
+                "letter": "C",
+                "label": "ᜃ"
+              }
+            ],
+            "correctLetter": "B",
+            "sourceAnswer": "B — ᜃᜒ"
+          },
+          {
+            "id": "character-3-q-25",
+            "number": 25,
+            "setId": "character-3-set-5",
+            "prompt": "SU",
+            "type": "multiple-choice",
+            "options": [
+              {
+                "id": "character-3-q-25-A",
+                "letter": "A",
+                "label": "ᜐᜓ"
+              },
+              {
+                "id": "character-3-q-25-B",
+                "letter": "B",
+                "label": "ᜐ"
+              },
+              {
+                "id": "character-3-q-25-C",
+                "letter": "C",
+                "label": "ᜐᜒ"
+              }
+            ],
+            "correctLetter": "A",
+            "sourceAnswer": "A — ᜐᜓ"
+          }
+        ]
+      }
+    ],
+    "sourceInstruction": "Basahin ang romanized syllable at piliin ang katumbas nitong Baybayin character."
+  },
+  {
+    "id": "character-4",
+    "number": 4,
+    "title": "CHARACTER WRITING",
+    "sets": [
+      {
+        "id": "character-4-set-1",
+        "number": 1,
+        "title": "SET 1 — First Syllable: Basic Characters",
+        "questions": [
+          {
+            "id": "character-4-q-01",
+            "number": 1,
+            "setId": "character-4-set-1",
+            "prompt": "GABI",
+            "type": "handwriting",
+            "prefix": "",
+            "target": "GA",
+            "suffix": "BI",
+            "expectedGlyph": "ᜄ"
+          },
+          {
+            "id": "character-4-q-02",
+            "number": 2,
+            "setId": "character-4-set-1",
+            "prompt": "DALAW",
+            "type": "handwriting",
+            "prefix": "",
+            "target": "DA",
+            "suffix": "LAW",
+            "expectedGlyph": "ᜇ"
+          },
+          {
+            "id": "character-4-q-03",
+            "number": 3,
+            "setId": "character-4-set-1",
+            "prompt": "YAKAP",
+            "type": "handwriting",
+            "prefix": "",
+            "target": "YA",
+            "suffix": "KAP",
+            "expectedGlyph": "ᜌ"
+          },
+          {
+            "id": "character-4-q-04",
+            "number": 4,
+            "setId": "character-4-set-1",
+            "prompt": "PALAY",
+            "type": "handwriting",
+            "prefix": "",
+            "target": "PA",
+            "suffix": "LAY",
+            "expectedGlyph": "ᜉ"
+          },
+          {
+            "id": "character-4-q-05",
+            "number": 5,
+            "setId": "character-4-set-1",
+            "prompt": "NGAYON",
+            "type": "handwriting",
+            "prefix": "",
+            "target": "NGA",
+            "suffix": "YON",
+            "expectedGlyph": "ᜅ"
+          }
+        ]
+      },
+      {
+        "id": "character-4-set-2",
+        "number": 2,
+        "title": "SET 2 — Last Syllable: Basic Characters",
+        "questions": [
+          {
+            "id": "character-4-q-06",
+            "number": 6,
+            "setId": "character-4-set-2",
+            "prompt": "LABA",
+            "type": "handwriting",
+            "prefix": "LA",
+            "target": "BA",
+            "suffix": "",
+            "expectedGlyph": "ᜊ"
+          },
+          {
+            "id": "character-4-q-07",
+            "number": 7,
+            "setId": "character-4-set-2",
+            "prompt": "PUSA",
+            "type": "handwriting",
+            "prefix": "PU",
+            "target": "SA",
+            "suffix": "",
+            "expectedGlyph": "ᜐ"
+          },
+          {
+            "id": "character-4-q-08",
+            "number": 8,
+            "setId": "character-4-set-2",
+            "prompt": "AMA",
+            "type": "handwriting",
+            "prefix": "A",
+            "target": "MA",
+            "suffix": "",
+            "expectedGlyph": "ᜋ"
+          },
+          {
+            "id": "character-4-q-09",
+            "number": 9,
+            "setId": "character-4-set-2",
+            "prompt": "BATA",
+            "type": "handwriting",
+            "prefix": "BA",
+            "target": "TA",
+            "suffix": "",
+            "expectedGlyph": "ᜆ"
+          },
+          {
+            "id": "character-4-q-10",
+            "number": 10,
+            "setId": "character-4-set-2",
+            "prompt": "PANA",
+            "type": "handwriting",
+            "prefix": "PA",
+            "target": "NA",
+            "suffix": "",
+            "expectedGlyph": "ᜈ"
+          }
+        ]
+      },
+      {
+        "id": "character-4-set-3",
+        "number": 3,
+        "title": "SET 3 — First Syllable: Characters with I/E Kudlit",
+        "questions": [
+          {
+            "id": "character-4-q-11",
+            "number": 11,
+            "setId": "character-4-set-3",
+            "prompt": "KILAY",
+            "type": "handwriting",
+            "prefix": "",
+            "target": "KI",
+            "suffix": "LAY",
+            "expectedGlyph": "ᜃᜒ"
+          },
+          {
+            "id": "character-4-q-12",
+            "number": 12,
+            "setId": "character-4-set-3",
+            "prompt": "HIGA",
+            "type": "handwriting",
+            "prefix": "",
+            "target": "HI",
+            "suffix": "GA",
+            "expectedGlyph": "ᜑᜒ"
+          },
+          {
+            "id": "character-4-q-13",
+            "number": 13,
+            "setId": "character-4-set-3",
+            "prompt": "WIKA",
+            "type": "handwriting",
+            "prefix": "",
+            "target": "WI",
+            "suffix": "KA",
+            "expectedGlyph": "ᜏᜒ"
+          },
+          {
+            "id": "character-4-q-14",
+            "number": 14,
+            "setId": "character-4-set-3",
+            "prompt": "MISA",
+            "type": "handwriting",
+            "prefix": "",
+            "target": "MI",
+            "suffix": "SA",
+            "expectedGlyph": "ᜋᜒ"
+          },
+          {
+            "id": "character-4-q-15",
+            "number": 15,
+            "setId": "character-4-set-3",
+            "prompt": "NGITI",
+            "type": "handwriting",
+            "prefix": "",
+            "target": "NGI",
+            "suffix": "TI",
+            "expectedGlyph": "ᜅᜒ"
+          }
+        ]
+      },
+      {
+        "id": "character-4-set-4",
+        "number": 4,
+        "title": "SET 4 — Last Syllable: Characters with I/E Kudlit",
+        "questions": [
+          {
+            "id": "character-4-q-16",
+            "number": 16,
+            "setId": "character-4-set-4",
+            "prompt": "SUSI",
+            "type": "handwriting",
+            "prefix": "SU",
+            "target": "SI",
+            "suffix": "",
+            "expectedGlyph": "ᜐᜒ"
+          },
+          {
+            "id": "character-4-q-17",
+            "number": 17,
+            "setId": "character-4-set-4",
+            "prompt": "PUTI",
+            "type": "handwriting",
+            "prefix": "PU",
+            "target": "TI",
+            "suffix": "",
+            "expectedGlyph": "ᜆᜒ"
+          },
+          {
+            "id": "character-4-q-18",
+            "number": 18,
+            "setId": "character-4-set-4",
+            "prompt": "KAPE",
+            "type": "handwriting",
+            "prefix": "KA",
+            "target": "PE",
+            "suffix": "",
+            "expectedGlyph": "ᜉᜒ"
+          },
+          {
+            "id": "character-4-q-19",
+            "number": 19,
+            "setId": "character-4-set-4",
+            "prompt": "TABI",
+            "type": "handwriting",
+            "prefix": "TA",
+            "target": "BI",
+            "suffix": "",
+            "expectedGlyph": "ᜊᜒ"
+          },
+          {
+            "id": "character-4-q-20",
+            "number": 20,
+            "setId": "character-4-set-4",
+            "prompt": "LAGI",
+            "type": "handwriting",
+            "prefix": "LA",
+            "target": "GI",
+            "suffix": "",
+            "expectedGlyph": "ᜄᜒ"
+          }
+        ]
+      },
+      {
+        "id": "character-4-set-5",
+        "number": 5,
+        "title": "SET 5 — Last Syllable: Characters with O/U Kudlit",
+        "questions": [
+          {
+            "id": "character-4-q-21",
+            "number": 21,
+            "setId": "character-4-set-5",
+            "prompt": "TULO",
+            "type": "handwriting",
+            "prefix": "TU",
+            "target": "LO",
+            "suffix": "",
+            "expectedGlyph": "ᜎᜓ"
+          },
+          {
+            "id": "character-4-q-22",
+            "number": 22,
+            "setId": "character-4-set-5",
+            "prompt": "BUKO",
+            "type": "handwriting",
+            "prefix": "BU",
+            "target": "KO",
+            "suffix": "",
+            "expectedGlyph": "ᜃᜓ"
+          },
+          {
+            "id": "character-4-q-23",
+            "number": 23,
+            "setId": "character-4-set-5",
+            "prompt": "PITO",
+            "type": "handwriting",
+            "prefix": "PI",
+            "target": "TO",
+            "suffix": "",
+            "expectedGlyph": "ᜆᜓ"
+          },
+          {
+            "id": "character-4-q-24",
+            "number": 24,
+            "setId": "character-4-set-5",
+            "prompt": "LOBO",
+            "type": "handwriting",
+            "prefix": "LO",
+            "target": "BO",
+            "suffix": "",
+            "expectedGlyph": "ᜊᜓ"
+          },
+          {
+            "id": "character-4-q-25",
+            "number": 25,
+            "setId": "character-4-set-5",
+            "prompt": "PUSO",
+            "type": "handwriting",
+            "prefix": "PU",
+            "target": "SO",
+            "suffix": "",
+            "expectedGlyph": "ᜐᜓ"
+          }
+        ]
+      }
+    ],
+    "sourceInstruction": "Basahin ang salita at isulat sa Baybayin ang naka-underline na pantig."
+  }
+]
