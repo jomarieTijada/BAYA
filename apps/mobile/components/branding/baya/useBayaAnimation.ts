@@ -82,7 +82,7 @@ function useAnimationAssets(state: BayaMascotState) {
     };
   }, [isTest, sources, state]);
 
-  return loadedState === state;
+  return isTest || loadedState === state;
 }
 
 function useReducedMotion() {

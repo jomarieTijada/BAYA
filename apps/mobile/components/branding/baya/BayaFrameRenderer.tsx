@@ -1,4 +1,5 @@
 import React from 'react';
+import { BayaWebFrame } from './BayaWebFrame';
 import { Asset } from 'expo-asset';
 import { Image as ExpoImage } from 'expo-image';
 import { Platform, type StyleProp, StyleSheet, View, type ViewStyle } from 'react-native';
@@ -81,14 +82,8 @@ export function BayaFrameRenderer({
       {(() => {
         if (Platform.OS === 'web') {
           return (
-        // Keep the same DOM image mounted while its already loaded source changes.
-        // The React Native web Image loader clears its background during each swap.
-        <img
-          alt=""
-          aria-hidden="true"
-          decoding="sync"
-          draggable={false}
-          src={webSource ?? undefined}
+        <BayaWebFrame
+          uri={webSource ?? ''}
           style={{
             display: 'block',
             height: '100%',

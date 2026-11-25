@@ -1,3 +1,5 @@
+import { WAVE_FRAMES, BLINK_FRAMES } from './frameSources';
+
 export type BayaMascotState = 'ambient' | 'idle' | 'wave' | 'greeting';
 
 export type BayaAnimationPhase = 'blink' | 'rest' | 'wave';
@@ -11,65 +13,14 @@ export type BayaPlaybackStep = {
 
 const FRAME_DURATION_MS = 60;
 
-const WAVE_FRAMES: readonly number[] = [
-  require('../../../assets/branding/baya/expressions/wave/frame-000.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-001.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-002.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-003.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-004.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-005.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-006.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-007.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-008.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-009.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-010.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-011.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-012.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-013.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-014.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-015.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-016.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-017.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-018.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-019.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-020.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-021.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-022.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-023.png'),
-  require('../../../assets/branding/baya/expressions/wave/frame-024.png'),
-];
-
-const BLINK_FRAMES: readonly number[] = [
-  require('../../../assets/branding/baya/idle/frame-000.png'),
-  require('../../../assets/branding/baya/idle/frame-001.png'),
-  require('../../../assets/branding/baya/idle/frame-002.png'),
-  require('../../../assets/branding/baya/idle/frame-003.png'),
-  require('../../../assets/branding/baya/idle/frame-004.png'),
-  require('../../../assets/branding/baya/idle/frame-005.png'),
-  require('../../../assets/branding/baya/idle/frame-006.png'),
-  require('../../../assets/branding/baya/idle/frame-007.png'),
-  require('../../../assets/branding/baya/idle/frame-008.png'),
-  require('../../../assets/branding/baya/idle/frame-009.png'),
-  require('../../../assets/branding/baya/idle/frame-010.png'),
-  require('../../../assets/branding/baya/idle/frame-011.png'),
-  require('../../../assets/branding/baya/idle/frame-012.png'),
-  require('../../../assets/branding/baya/idle/frame-013.png'),
-  require('../../../assets/branding/baya/idle/frame-014.png'),
-  require('../../../assets/branding/baya/idle/frame-015.png'),
-  require('../../../assets/branding/baya/idle/frame-016.png'),
-  require('../../../assets/branding/baya/idle/frame-017.png'),
-  require('../../../assets/branding/baya/idle/frame-018.png'),
-  require('../../../assets/branding/baya/idle/frame-019.png'),
-  require('../../../assets/branding/baya/idle/frame-020.png'),
-  require('../../../assets/branding/baya/idle/frame-021.png'),
-  require('../../../assets/branding/baya/idle/frame-022.png'),
-  require('../../../assets/branding/baya/idle/frame-023.png'),
-  require('../../../assets/branding/baya/idle/frame-024.png'),
-];
-
 export const BAYA_RESTING_FRAME = BLINK_FRAMES[0];
 
-// The gesture frame cadence comes directly from the supplied GIF metadata.
+/** v1.1 keeps the established cadence; the supplied PNGs contain no timing metadata. */
+export const BAYA_ANIMATIONS = {
+  blink: { version: 'v1.1', state: 'blink', frames: BLINK_FRAMES, frameCount: BLINK_FRAMES.length, frameDurationMs: FRAME_DURATION_MS, loopPolicy: 'caller-controlled', staticFrame: BAYA_RESTING_FRAME },
+  wave: { version: 'v1.1', state: 'wave', frames: WAVE_FRAMES, frameCount: WAVE_FRAMES.length, frameDurationMs: FRAME_DURATION_MS, loopPolicy: 'caller-controlled', staticFrame: BAYA_RESTING_FRAME },
+} as const;
+
 const toFrameSteps = (
   frames: readonly number[],
   phase: Exclude<BayaAnimationPhase, 'rest'>,

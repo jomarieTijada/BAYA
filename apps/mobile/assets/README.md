@@ -1,8 +1,8 @@
 # Asset ownership
 
 - `branding/app/`: launcher, splash and favicon source assets.
-- `branding/baya/idle/`: existing blink/rest frames.
-- `branding/baya/expressions/wave/`: existing wave frames. `speaking/` is reserved, with no invented animation.
+- `branding/baya/animations/v1.1/{blink,wave}/`: approved PNG sequences and central manifest; both begin at `frame-000`.
+- `branding/baya-web/animations/v1.1/{blink,wave}/`: generated lossless web derivatives. `branding/baya/speaking/` remains reserved.
 - `icons/{navigation,lesson,activity}/`: production icons; the shared story tail lives in `lesson/`.
 - `illustrations/lessons/module-N/`: approved lesson art, grouped by owning module. Empty until supplied.
 - `media/{videos,audio}/`: canonical bundled media. Register stable IDs in `content/mediaCatalog.ts`.
