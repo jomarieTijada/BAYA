@@ -15,6 +15,11 @@ const expected = [{
     { id: 'topic-2-2', title: 'Kilalanin ang mga Katinig' },
   ],
 }, {
+  id: 'module-kudlit', title: 'Kudlit', topics: [
+    { id: 'topic-kudlit-upper', title: 'Kudlit sa Itaas' },
+    { id: 'topic-kudlit-lower', title: 'Kudlit sa Ibaba' },
+  ],
+}, {
   id: 'module-3', title: 'Pagsusulat ng Baybayin', topics: [
     { id: 'topic-3-1', title: 'Mga Patinig' },
     { id: 'topic-3-2', title: 'Mga Katinig' },
@@ -25,7 +30,7 @@ const structure = (modules: typeof defaultModules) => modules.map(({ id, title, 
 }));
 
 describe('Validator-approved curriculum', () => {
-  it('contains all three supplied modules and their exact topic titles', () => {
+  it('contains all four configured modules and their exact topic titles', () => {
     expect(approvedCurriculum).toEqual(expected);
     expect(structure(defaultLessons)).toEqual(expected);
     expect(structure(createApprovedModules())).toEqual(expected);
@@ -46,7 +51,7 @@ describe('Validator-approved curriculum', () => {
     expect(defaultModules[0].topics.map((topic) => topic.status)).toEqual(['available', 'locked', 'locked', 'locked', 'locked']);
     expect(defaultModules[1].topics.map((topic) => topic.status)).toEqual(['locked', 'locked']);
     expect(defaultModules[2].topics.map((topic) => topic.status)).toEqual(['locked', 'locked']);
-    expect(getLessonProgress(defaultModules)).toEqual({ completedCount: 0, totalLessons: 3, completedTopicsCount: 0, totalTopicsCount: 9, percentage: 0 });
+    expect(getLessonProgress(defaultModules)).toEqual({ completedCount: 0, totalLessons: 4, completedTopicsCount: 0, totalTopicsCount: 11, percentage: 0 });
   });
   it('isolates mutable view models from subsequent loads and the approved source', () => {
     const modules = createApprovedModules();
@@ -58,7 +63,7 @@ describe('Validator-approved curriculum', () => {
   it('calculates progress from approved topic count and handles empty data', () => {
     const modules = createApprovedModules();
     modules[0].topics[0].completed = true;
-    expect(getLessonProgress(modules).percentage).toBe(11);
+    expect(getLessonProgress(modules).percentage).toBe(9);
     expect(getLessonProgress([]).percentage).toBe(0);
   });
 });

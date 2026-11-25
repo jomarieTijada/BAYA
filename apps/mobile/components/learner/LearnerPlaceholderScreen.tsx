@@ -1,3 +1,4 @@
+import { openLearnerSettings } from './settings/LearnerSettingsOverlay';
 import { Text } from '../../localization/components';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -35,7 +36,7 @@ export function LearnerPlaceholderScreen({
       header={(
         <LearnerPageHeader
           onBack={() => router.dismissTo('/learner/home')}
-          onOpenSettings={() => router.push('/learner/settings')}
+          onOpenSettings={() => openLearnerSettings()}
           title={title}
         />
       )}

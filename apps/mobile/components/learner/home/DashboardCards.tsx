@@ -90,6 +90,8 @@ export function DashboardCards({
           <AppButton
             accessibilityLabel="Go to lessons"
             compact
+            style={{ minHeight: 44 }}
+            labelStyle={landscapeCompact ? { fontSize: 12, lineHeight: 16 } : undefined}
             density={(() => {
               if (landscapeCompact) {
                 return 'landscapeCompact';
@@ -111,13 +113,6 @@ export function DashboardCards({
       >
         <Text style={[styles.title, landscapeCompact && styles.titleCompact]}>Daily Progress</Text>
         <Text
-          numberOfLines={(() => {
-            if (landscapeCompact) {
-              return 1;
-            } else {
-              return undefined;
-            }
-          })()}
           style={[styles.description, styles.goalDescription, landscapeCompact && styles.descriptionCompact]}
         >
           {goalMessage}
@@ -164,6 +159,8 @@ export function DashboardCards({
           <AppButton
             accessibilityLabel="Adventure is locked"
             compact
+            style={{ minHeight: 44 }}
+            labelStyle={landscapeCompact ? { fontSize: 12, lineHeight: 16 } : undefined}
             density={(() => {
               if (landscapeCompact) {
                 return 'landscapeCompact';
@@ -211,13 +208,6 @@ export function DashboardCards({
           <Text style={[styles.title, landscapeCompact && styles.titleCompact]}>{adventure.title}</Text>
         </View>
         <Text
-          numberOfLines={(() => {
-            if (landscapeCompact) {
-              return 2;
-            } else {
-              return undefined;
-            }
-          })()}
           style={[styles.description, styles.adventureDescription, landscapeCompact && styles.descriptionCompact]}
         >
           {adventure.description}
@@ -235,6 +225,8 @@ export function DashboardCards({
               }
             })()}
             compact
+            style={{ minHeight: 44 }}
+            labelStyle={landscapeCompact ? { fontSize: 12, lineHeight: 16 } : undefined}
             density={(() => {
               if (landscapeCompact) {
                 return 'landscapeCompact';
@@ -320,13 +312,6 @@ export function DashboardCards({
           <Text style={[styles.title, landscapeCompact && styles.titleCompact]}>{achievementTitle}</Text>
         </View>
         <Text
-          numberOfLines={(() => {
-            if (landscapeCompact) {
-              return 2;
-            } else {
-              return undefined;
-            }
-          })()}
           style={[
             styles.description,
             (() => {
@@ -375,9 +360,7 @@ const styles = StyleSheet.create({
   },
   cardThirdCompact: {
     flex: 1,
-    height: 114,
-    maxHeight: 116,
-    minHeight: 112,
+    minHeight: 124,
     minWidth: 0,
   },
   horizontalHeader: {
@@ -424,9 +407,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   descriptionCompact: {
-    fontSize: 9,
+    fontSize: 11,
     includeFontPadding: false,
-    lineHeight: 11,
+    lineHeight: 14,
     marginTop: 1,
     textAlign: 'center',
   },

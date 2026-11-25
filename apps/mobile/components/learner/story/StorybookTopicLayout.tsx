@@ -5,7 +5,7 @@ import { Spacing } from "../../../constants/theme";
 import { useResponsiveLayout } from "../../../hooks/useResponsiveLayout";
 
 const STORY_CONTENT_MIN_WIDTH = 330;
-const STORY_CONTENT_SHARE = 0.58;
+const STORY_CONTENT_SHARE = 0.5;
 const STORY_VISUAL_ASPECT_RATIO = 16 / 9;
 
 export type StoryPageMeasurements = {
@@ -31,7 +31,6 @@ export function StorybookTopicLayout({
   visualAspectRatio = STORY_VISUAL_ASPECT_RATIO,
   content,
   readingLayout = false,
-  hasIllustration = true,
   contentFooter,
 }: StorybookTopicLayoutProps) {
   const viewport = useResponsiveLayout();
@@ -46,16 +45,7 @@ export function StorybookTopicLayout({
     }
   })());
   const measurements = { ...pageSize, constrained };
-  let visualShare;
-  if (constrained) {
-    if (hasIllustration) {
-      visualShare = 0.32;
-    } else {
-      visualShare = 0.23;
-    }
-  } else {
-    visualShare = 0.42;
-  }
+  const visualShare = 0.5;
   let horizontalPadding;
   if (compactSpread) {
     horizontalPadding = Spacing.sm * 2;
@@ -80,8 +70,9 @@ export function StorybookTopicLayout({
       columnGap,
   );
   const isStacked = availableWidth !== null && availableWidth < ((() => {
+    if (viewport.width > viewport.height && viewport.height < 600) return 440;
     if (readingLayout) {
-      return 480;
+      return 640;
     } else {
       return minimumSpreadWidth;
     }
@@ -246,7 +237,7 @@ const styles = StyleSheet.create({
   mediaSpace: { flex: 1, minHeight: 0, width: "100%", alignItems: "center", justifyContent: "center" },
   visualColumn: {
     alignItems: "center",
-    flex: 0.42,
+    flex: 0.5,
     justifyContent: "center",
     minHeight: 0,
     minWidth: 0,

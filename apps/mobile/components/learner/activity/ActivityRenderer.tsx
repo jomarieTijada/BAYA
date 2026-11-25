@@ -13,6 +13,7 @@ import { StoryCard } from "../cards/StoryCard";
 import { ActivityCard } from "../cards/ActivityCard";
 import { AudioPlayer } from "../../media/AudioPlayer";
 import { VideoActivityCard } from "./VideoActivityCard";
+import { AssessmentRoute } from '../characterActivities/AssessmentRoute';
 
 export type ActivityRendererProps = {
   compact?: boolean;
@@ -81,6 +82,7 @@ export function ActivityRenderer({
       );
     }
     case "quiz":
+      return <AssessmentRoute />;
     case "writing":
     case "practice":
     default: {

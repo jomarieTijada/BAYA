@@ -3,13 +3,16 @@ import { useLocalization } from '../../../localization/LocalizationProvider';
 import React, { useEffect, useRef, useState } from 'react';
 import { Animated, Platform, ScrollView, StyleSheet, View } from 'react-native';
 
-import { SwipeHint, swipeDirection } from '../../ui/SwipeHint';
 import { Colors, FontFamily, Radius, Spacing } from '../../../constants/theme';
+import { getBaybayinTracingGuide } from '../../../content/baybayinTracingGuides';
+import { kudlitVariant } from '../../../content/traditionalCharacters';
+import { getBaybayinCharacterTopic } from '../../../content/baybayinCharactersData';
 import type { BaybayinCharacter } from '../../../content/baybayinCharactersData';
 import { useResponsiveLayout } from '../../../hooks/useResponsiveLayout';
 import { StorybookTopicLayout } from '../story/StorybookTopicLayout';
 import { StoryGuide } from '../story/StoryGuide';
 import { useCharacterPronunciation } from './useCharacterPronunciation';
+import { KudlitRecordings } from '../../../modules/audio/KudlitRecordings';
 
 type Props = {
   characters: readonly BaybayinCharacter[];
@@ -19,14 +22,20 @@ type Props = {
 };
 
 function CharacterExampleGuide({ character, compact, large, short, isStacked }: { character: BaybayinCharacter; compact: boolean; large: boolean; short: boolean; isStacked: boolean }) {
-  const { pronounce, speaking } = useCharacterPronunciation(character);
+  const { pronounce, speaking, loading, error, available } = useCharacterPronunciation(character);
+  const { language } = useLocalization();
+  const tl = language === 'tl';
   return (
     <StoryGuide
-      bubbleContent={<ExampleWord character={character} large={large} short={short} />}
+      bubbleContent={<><ExampleWord character={character} large={large} short={short} />
+        {(loading || error || !available) && <Text accessibilityLiveRegion="polite">{!available ? (tl ? 'Wala pang recording.' : 'Recording unavailable.') : loading ? (tl ? 'Inihahanda ang tunog…' : 'Loading sound…') : (tl ? 'Hindi mapatugtog. Subukang muli.' : 'Could not play. Try again.')}</Text>}
+      </>}
       compact={compact}
       landscapeCompact={short}
-      mascotAccessibilityLabel={`Pakinggan si BAYA sa pagbigkas ng ${character.latinEquivalent}`}
+      mascotAccessibilityLabel={tl ? `Pakinggan si BAYA sa pagbigkas ng ${character.latinEquivalent}` : `Play ${character.latinEquivalent} pronunciation`}
       mascotSpeaking={speaking}
+      mascotLoading={loading}
+      mascotDisabled={!available}
       maxSpreadMascotWidth={(() => {
         if (large) {
           return 360;
@@ -34,7 +43,7 @@ function CharacterExampleGuide({ character, compact, large, short, isStacked }: 
           return undefined;
         }
       })()}
-      fullBodyMascot={large}
+      fullBodyMascot={false}
       onMascotPress={() => { void pronounce(); }}
       stackGuide={isStacked}
       style={[styles.exampleGuide, large && styles.exampleGuideLarge]}
@@ -142,13 +151,12 @@ function ExampleWord({ character, large, short }: { character: BaybayinCharacter
 /** The same media/example/selector presentation is used by both Module 2 topics. */
 export function CharacterViewer({ characters, topicId, selectedIndex, onSelectCharacter }: Props) {
   const { text } = useLocalization();
-  const { isCompactHeight, isDesktop, isPhone, isTablet } = useResponsiveLayout();
+  const { height, isCompactHeight, isDesktop, isPhone, isTablet } = useResponsiveLayout();
   const compact = isCompactHeight || isPhone || isTablet;
   const large = isDesktop && !isCompactHeight;
   const selector = useRef<ScrollView>(null);
   const [selectorWidth, setSelectorWidth] = useState(0);
   const [contentWidth, setContentWidth] = useState(0);
-  const [scrollOffset, setScrollOffset] = useState(0);
   const chipLayouts = useRef<Record<number, { x: number; width: number }>>({});
   const [activeScale] = useState(() => new Animated.Value(1));
 
@@ -166,8 +174,12 @@ export function CharacterViewer({ characters, topicId, selectedIndex, onSelectCh
     return () => animation.stop();
   }, [selectedIndex, activeScale]);
 
+  const position = getBaybayinCharacterTopic(topicId)?.kudlit;
   const character = characters[selectedIndex];
   if (!character) return null;
+  const variant = position ? kudlitVariant(character.id, position) : null;
+  const label = variant?.label ?? character.latinEquivalent;
+  const reference = variant ? getBaybayinTracingGuide(variant.id) : character.imageAsset;
 
   return (
     <View style={styles.root} testID="character-viewer">
@@ -177,10 +189,10 @@ export function CharacterViewer({ characters, topicId, selectedIndex, onSelectCh
         visual={(
           <View style={[styles.glyphCard, compact && styles.glyphCardCompact]}>
             <View style={styles.glyphFrame}>
-              <Image accessibilityLabel={text(`Simbolo ng ${character.latinEquivalent}`)} resizeMode="contain" source={character.imageAsset} style={styles.glyphImage} testID="character-glyph" />
+              <Image accessibilityLabel={text(`Simbolo ng ${label}`)} resizeMode="contain" source={reference} style={styles.glyphImage} testID="character-glyph" />
               <View style={[styles.latinBadgeAnchor, large && styles.latinBadgeAnchorLarge]}>
                 <View style={[styles.latinBadge, compact && styles.latinBadgeCompact, large && styles.latinBadgeLarge]}>
-                  <Text style={[styles.latinBadgeText, large && styles.latinBadgeTextLarge]} verbatim>{character.latinEquivalent}</Text>
+                  <Text style={[styles.latinBadgeText, large && styles.latinBadgeTextLarge]} verbatim>{label}</Text>
                 </View>
               </View>
             </View>
@@ -190,7 +202,7 @@ export function CharacterViewer({ characters, topicId, selectedIndex, onSelectCh
           <ScrollView style={styles.contentScroll} contentContainerStyle={[styles.content, isStacked && styles.contentStacked]} showsVerticalScrollIndicator>
             <View style={[styles.selectorSection, large && styles.selectorSectionLarge]}>
               <Text style={[styles.selectorTitle, large && styles.selectorTitleLarge]}>Mga simbolo</Text>
-              <ScrollView horizontal ref={selector} onLayout={event => setSelectorWidth(event.nativeEvent.layout.width)} onContentSizeChange={width => setContentWidth(width)} onScroll={event => setScrollOffset(event.nativeEvent.contentOffset.x)} scrollEventThrottle={16} showsHorizontalScrollIndicator={false} contentContainerStyle={[styles.selectorContent, large && contentWidth <= selectorWidth && styles.selectorContentCentered]} style={styles.selector} testID="character-selector">
+              <ScrollView horizontal ref={selector} onLayout={event => setSelectorWidth(event.nativeEvent.layout.width)} onContentSizeChange={width => setContentWidth(width)} showsHorizontalScrollIndicator={false} contentContainerStyle={[styles.selectorContent, large && contentWidth <= selectorWidth && styles.selectorContentCentered]} style={styles.selector} testID="character-selector">
                 {characters.map((item, index) => {
                   const selected = index === selectedIndex;
                   return (
@@ -216,10 +228,11 @@ export function CharacterViewer({ characters, topicId, selectedIndex, onSelectCh
                   );
                 })}
               </ScrollView>
-              <SwipeHint direction={swipeDirection(selectorWidth, contentWidth, scrollOffset)} />
             </View>
             <View style={[styles.exampleRegion, isStacked && styles.exampleRegionStacked]}>
-              <CharacterExampleGuide character={character} compact={compact} large={large} short={isCompactHeight} isStacked={isStacked} />
+              {position ? <StoryGuide compact={compact} landscapeCompact={isCompactHeight} stackGuide={isStacked}
+                mascotSize={Math.min(isStacked ? 200 : 280, height * .6)}
+                bubbleContent={<KudlitRecordings key={`${position}:${character.id}`} characterId={character.id} position={position} iconOnly />} /> : <CharacterExampleGuide character={character} compact={compact} large={large} short={isCompactHeight} isStacked={isStacked} />}
             </View>
           </ScrollView>
         )}

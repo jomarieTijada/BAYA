@@ -227,8 +227,8 @@ describe('BAYA SQLite Database Foundation', () => {
     // Initial seed
     const seed1 = await seedCurriculum(db);
     expect(seed1.contentVersionInserted).toBe(true);
-    expect(seed1.lessonsInsertedCount).toBe(3);
-    expect(seed1.activitiesInsertedCount).toBe(9);
+    expect(seed1.lessonsInsertedCount).toBe(4);
+    expect(seed1.activitiesInsertedCount).toBe(11);
 
     // Second seed (idempotent run)
     const seed2 = await seedCurriculum(db);
@@ -238,8 +238,8 @@ describe('BAYA SQLite Database Foundation', () => {
 
     // Verify row counts
     const lessons = await lessonRepository.getLessons();
-    expect(lessons.length).toBe(3);
-    expect(lessons.map((l) => l.title)).toEqual(['Pagkilala sa Baybayin', 'Baybayin Characters', 'Pagsusulat ng Baybayin']);
+    expect(lessons.length).toBe(4);
+    expect(lessons.map((l) => l.title)).toEqual(['Pagkilala sa Baybayin', 'Baybayin Characters', 'Kudlit', 'Pagsusulat ng Baybayin']);
 
     const module1Activities = await lessonRepository.getActivitiesByLesson('module-1');
     expect(module1Activities.length).toBe(5);
@@ -567,6 +567,9 @@ describe('BAYA SQLite Database Foundation', () => {
     expect(row?.confidence_value).toBe(0.72);
     expect(row?.recognized_result).toBe('a');
     await expect(localLearnerService.recordWritingAttempt('topic-3-2', sample, db)).rejects.toThrow('Unknown writing exercise');
+    expect((await curriculumService.getModuleById('module-3', db))?.topics.map(topic => topic.status)).toEqual(['locked', 'locked']);
+    await localLearnerService.completeTopic('topic-kudlit-upper', db);
+    await localLearnerService.completeTopic('topic-kudlit-lower', db);
     expect((await curriculumService.getModuleById('module-3', db))?.topics.map(topic => topic.status)).toEqual(['available', 'locked']);
     await localLearnerService.completeTopic('topic-3-1', db);
     expect((await curriculumService.getModuleById('module-3', db))?.topics.map(topic => topic.status)).toEqual(['completed', 'available']);

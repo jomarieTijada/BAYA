@@ -1,5 +1,9 @@
 /** Bundled English UI messages. Source phrases are stable lookup keys. */
 export const en = {
+  "Kudlit sa Itaas": "Upper Kudlit", "Kudlit sa Ibaba": "Lower Kudlit",
+  "Offline learning materials downloaded. Videos require internet.": "Offline learning materials downloaded. Videos require internet.",
+  "Offline preparation is incomplete. Connect to finish downloading learning materials.": "Offline preparation is incomplete. Connect to finish downloading learning materials.",
+  "Learning offline — Your progress is saved on this device.": "Learning offline — Your progress is saved on this device.",
   "Language & BAYA Story": "Language & BAYA Story",
   "About BAYA": "About BAYA",
   "Read BAYA’s Story": "Read BAYA’s Story",

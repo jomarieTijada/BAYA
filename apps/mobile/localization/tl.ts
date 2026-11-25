@@ -1,6 +1,10 @@
 import type { MessageKey } from './en';
 /** Tagalog UI translations; curriculum review is tracked separately. */
 export const tl: Record<MessageKey, string> = {
+  "Kudlit sa Itaas": "Kudlit sa Itaas", "Kudlit sa Ibaba": "Kudlit sa Ibaba",
+  "Offline learning materials downloaded. Videos require internet.": "Na-download na ang mga materyal para sa offline na pag-aaral. Kailangan ng internet para sa mga video.",
+  "Offline preparation is incomplete. Connect to finish downloading learning materials.": "Hindi pa kumpleto ang paghahanda para sa offline. Kumonekta upang matapos ang pag-download ng mga materyal.",
+  "Learning offline — Your progress is saved on this device.": "Nag-aaral nang offline — Naka-save ang iyong progreso sa device na ito.",
   "Language & BAYA Story": "Wika at Kuwento ng BAYA",
   "About BAYA": "Tungkol sa BAYA",
   "Read BAYA’s Story": "Basahin ang Kuwento ng BAYA",

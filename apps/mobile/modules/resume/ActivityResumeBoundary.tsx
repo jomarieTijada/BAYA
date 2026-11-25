@@ -1,6 +1,7 @@
 import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { AppState, View } from 'react-native';
 import { useFocusEffect, useRouter } from 'expo-router';
+import { curriculumService } from '../../database/services/curriculumService';
 import { localLearnerService } from '../../database/services/localLearnerService';
 import { activityResumeService } from '../../database/services/activityResumeService';
 import { APPROVED_CONTENT_VERSION_ID } from '../../content/approvedCurriculum';
@@ -49,6 +50,10 @@ export function ActivityResumeBoundary({ topicId, children, initialPage, initial
       let profile = await localLearnerService.getActiveLearner();
       if (!profile) profile = await localLearnerService.saveProfile('Learner');
       if (!current) return;
+      if (topicId.startsWith('topic-kudlit-')) {
+        const topic = await curriculumService.getTopicById(topicId);
+        if (!topic || topic.status === 'locked') { if (current) router.replace('/learner/lessons'); return; }
+      }
       await activityResumeService.rememberOpened(profile.profile_id, topicId);
       if (!current) return;
       if (latest.current?.profileId === profile.profile_id && latest.current.topicId === topicId) { setState(previous => previous ? { ...previous } : previous); return; }
@@ -68,7 +73,7 @@ export function ActivityResumeBoundary({ topicId, children, initialPage, initial
       void flush();
     })().catch(() => { if (current) setFailed(true); });
     return () => { current = false; focused.current = false; focusEpoch.current += 1; void flush(); };
-  }, [topicId, initialPage, initialWritingIndex, flush]));
+  }, [topicId, initialPage, initialWritingIndex, flush, router]));
   useEffect(() => {
     const subscription = AppState.addEventListener('change', status => { if (status !== 'active') void flush(); });
     const hidden = () => { if (document.visibilityState === 'hidden') void flush(); };

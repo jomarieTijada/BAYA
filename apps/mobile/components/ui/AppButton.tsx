@@ -1,3 +1,4 @@
+import { useKeyboardFocus } from '../../hooks/useKeyboardFocus';
 import { Pressable, Text } from '../../localization/components';
 import React, { useState } from 'react';
 import { type StyleProp, StyleSheet, View, type ViewStyle, type TextStyle } from 'react-native';
@@ -37,7 +38,7 @@ export function AppButton({
   labelStyle,
   tone = 'primary',
 }: AppButtonProps) {
-  const [focused, setFocused] = useState(false);
+  const { focused, onFocus, onBlur, onPressIn } = useKeyboardFocus();
   const [hovered, setHovered] = useState(false);
   const isHeroCompact = density === 'heroCompact';
   const isLandscapeCompact = density === 'landscapeCompact';
@@ -50,8 +51,8 @@ export function AppButton({
       accessibilityState={{ disabled }}
       disabled={disabled}
       hitSlop={8}
-      onBlur={() => setFocused(false)}
-      onFocus={() => setFocused(true)}
+      onBlur={onBlur}
+      onFocus={onFocus} onPressIn={onPressIn}
       onHoverIn={() => setHovered(true)}
       onHoverOut={() => setHovered(false)}
       onPress={onPress}
@@ -173,6 +174,7 @@ export function AppButton({
 
 const styles = StyleSheet.create({
   button: {
+    outlineWidth: 0,
     alignItems: 'center',
     borderRadius: Radius.lg,
     borderWidth: 3,

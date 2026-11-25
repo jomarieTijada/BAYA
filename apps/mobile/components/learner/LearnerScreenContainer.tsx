@@ -10,16 +10,18 @@ type Props = {
   verticalSpacing?: number;
   testID?: string;
   onViewportHeightChange?: (height: number) => void;
+  alignTop?: boolean;
 };
 
 /** Centers content when it fits; allows vertical reading when space runs out. */
-export function LearnerScreenContainer({ children, maxWidth = 1200, horizontalPadding, verticalSpacing, testID, onViewportHeightChange }: Props) {
+export function LearnerScreenContainer({ children, maxWidth = 1200, horizontalPadding, verticalSpacing, testID, onViewportHeightChange, alignTop = false }: Props) {
   const { width, height } = useResponsiveLayout();
-  const spacing = Math.max(Spacing.sm, Math.min(Spacing.lg, Math.min(width, height) * 0.035));
+  const spacing = height < 400 && width > height ? 6 : Math.max(Spacing.sm, Math.min(Spacing.lg, Math.min(width, height) * 0.035));
   return (
     <ScrollView onLayout={event => onViewportHeightChange?.(Math.max(0, event.nativeEvent.layout.height - 2 * (verticalSpacing ?? spacing)))} style={styles.scroll} contentContainerStyle={[styles.viewport, {
       paddingHorizontal: horizontalPadding ?? spacing,
       paddingVertical: verticalSpacing ?? spacing,
+      justifyContent: alignTop ? 'flex-start' : 'center',
     }]} testID={testID}>
       <View style={[styles.content, { maxWidth }]}>{children}</View>
     </ScrollView>

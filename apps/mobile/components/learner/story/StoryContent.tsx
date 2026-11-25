@@ -85,7 +85,7 @@ export function StoryContent({
     Math.min(maximum, Math.max(minimum, value));
   let titleFontSize;
   if (constrained) {
-    titleFontSize = 20;
+    titleFontSize = landscapeCompact ? 18 : 20;
   } else {
     titleFontSize = clamp(
     readableWidth * 0.052,
@@ -115,7 +115,7 @@ export function StoryContent({
   }
   let bodyFontSize;
   if (constrained) {
-    bodyFontSize = 16;
+    bodyFontSize = landscapeCompact ? 14 : 16;
   } else {
     bodyFontSize = clamp(
     readableWidth * 0.028,
@@ -156,6 +156,8 @@ export function StoryContent({
   }
   const storyGuide = (
     <StoryGuide
+      maxSpreadMascotWidth={330}
+      fullBodyMascot={false}
       compact={compact}
       stackGuide={stackGuide}
       highlight={content.storyHighlight}
@@ -266,7 +268,7 @@ export function StoryContent({
               return (
             <View style={[styles.examples, constrained && styles.examplesConstrained]}>
               <Text style={[styles.bodyParagraph, { fontSize: bodyFontSize }]}>{content.examplesLabel}</Text>
-              <Text verbatim testID="story-examples" style={[styles.exampleSymbols, constrained && styles.exampleSymbolsConstrained]}>{content.examples}</Text>
+              <Text verbatim testID="story-examples" style={[styles.exampleSymbols, constrained && styles.exampleSymbolsConstrained]}>{landscapeCompact ? content.examples.replace(/\n/g, '    ') : content.examples}</Text>
             </View>
           );
             } else {
@@ -309,7 +311,7 @@ export function StoryContent({
 }
 
 const styles = StyleSheet.create({
-  examplesConstrained: { gap: 2, marginVertical: 4 },
+  examplesConstrained: { gap: 2, marginVertical: 2 },
   exampleSymbolsConstrained: { fontSize: 20, lineHeight: 26 },
   examples: { gap: Spacing.sm, marginVertical: Spacing.md },
   exampleSymbols: { color: "#342214", fontSize: 30, lineHeight: 44, fontWeight: "600" },

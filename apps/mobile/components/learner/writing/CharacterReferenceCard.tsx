@@ -5,9 +5,12 @@ import { Colors, FontFamily, Radius, Spacing } from '../../../constants/theme';
 import type { WritingExercise } from '../../../content/writingLessonData';
 import { AppIcon } from '../../ui/AppIcon';
 import { useCharacterPronunciation } from '../characters/useCharacterPronunciation';
+import { useLocalization } from '../../../localization/LocalizationProvider';
 
 export function CharacterReferenceCard({ exercise, fullHeight = false, compact = false, dense = false }: { exercise: WritingExercise; fullHeight?: boolean; compact?: boolean; dense?: boolean }) {
-  const { pronounce, speaking } = useCharacterPronunciation(exercise.pronunciation);
+  const { pronounce, speaking, loading, error, available } = useCharacterPronunciation(exercise.pronunciation);
+  const { language } = useLocalization();
+  const [focused, setFocused] = React.useState(false);
   return <View style={[styles.card, compact && styles.compactCard, fullHeight && styles.fullHeight]} testID="writing-reference-card">
     <Text style={styles.eyebrow}>SIMBOLO</Text>
     <View style={[styles.glyphFrame, compact && styles.compactGlyphFrame, dense && styles.denseGlyphFrame]}>
@@ -18,7 +21,7 @@ export function CharacterReferenceCard({ exercise, fullHeight = false, compact =
         <Text style={[styles.romanization, compact && styles.compactRomanization, dense && styles.denseRomanization]}>{exercise.romanization}</Text>
         <Text style={[styles.sound, dense && styles.denseSound]}>{exercise.sound}</Text>
       </View>
-      <Pressable accessibilityLabel={`Pakinggan ang tunog ng ${exercise.romanization}`} accessibilityRole="button" onPress={() => { void pronounce(); }} style={({ pressed }) => [styles.soundButton, dense && styles.denseSoundButton, speaking && styles.speaking, pressed && styles.pressed]} testID="writing-sound-button">
+      <Pressable accessibilityLabel={language === 'tl' ? `Pakinggan ang tunog ng ${exercise.romanization}` : `Play ${exercise.romanization} pronunciation`} accessibilityRole="button" disabled={!available} accessibilityState={{ disabled: !available, busy: loading, selected: speaking }} onFocus={() => setFocused(true)} onBlur={() => setFocused(false)} onPress={pronounce} style={({ pressed }) => [styles.soundButton, speaking && styles.speaking, focused && { borderColor: Colors.focus, borderWidth: 2 }, pressed && styles.pressed]} testID="writing-sound-button">
         <AppIcon name="sound" color="accent" size={(() => {
           if (dense) {
             return 18;
@@ -28,6 +31,7 @@ export function CharacterReferenceCard({ exercise, fullHeight = false, compact =
         })()} />
       </Pressable>
     </View>
+    {(loading || error || !available) && <Text accessibilityLiveRegion="polite">{!available ? (language === 'tl' ? 'Wala pang recording.' : 'Recording unavailable.') : loading ? (language === 'tl' ? 'Inihahanda ang tunog…' : 'Loading sound…') : (language === 'tl' ? 'Hindi mapatugtog. Subukang muli.' : 'Could not play. Try again.')}</Text>}
   </View>;
 }
 
@@ -47,7 +51,7 @@ const styles = StyleSheet.create({
   denseRomanization: { fontSize: 18 },
   sound: { borderColor: Colors.border, borderRadius: Radius.sm, borderWidth: 1, color: Colors.textSecondary, fontSize: 16, paddingHorizontal: 8, paddingVertical: 3 },
   denseSound: { fontSize: 12, paddingHorizontal: 4, paddingVertical: 1 },
-  soundButton: { alignItems: 'center', backgroundColor: '#FFF0E4', borderColor: '#F6D7C3', borderRadius: Radius.full, borderWidth: 1, height: 40, justifyContent: 'center', width: 40 },
+  soundButton: { alignItems: 'center', backgroundColor: '#FFF0E4', borderColor: '#F6D7C3', borderRadius: Radius.full, borderWidth: 1, height: 44, justifyContent: 'center', width: 44 },
   denseSoundButton: { height: 32, width: 32 },
   speaking: { borderColor: Colors.accent, backgroundColor: '#FFE4D1' },
   pressed: { opacity: 0.7 },

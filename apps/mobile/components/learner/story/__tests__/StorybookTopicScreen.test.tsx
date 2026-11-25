@@ -99,7 +99,7 @@ describe('Approved storybooks with a separate introductory slide', () => {
     fireEvent(screen.getByTestId('story-reading-scroll'), 'contentSizeChange', 800, 600);
     expect(screen.getByTestId('story-highlight')).toBeTruthy();
     expect(screen.queryByTestId('story-interactive-guide')).toBeNull();
-    expect(StyleSheet.flatten(screen.getByTestId('story-visual-column').props.style).flex).toBe(0.42);
+    expect(StyleSheet.flatten(screen.getByTestId('story-visual-column').props.style).flex).toBe(0.5);
     const pageStyle = StyleSheet.flatten(screen.getByTestId('storybook-page').props.style);
     expect(pageStyle.maxWidth).toBe(1440);
     expect(pageStyle.alignSelf).toBe('center');
@@ -467,11 +467,11 @@ describe('Approved storybooks with a separate introductory slide', () => {
         expect(screen.queryByText('Pindutin si BAYA')).toBeNull();
         const guideStyle = StyleSheet.flatten(screen.getByTestId('story-interactive-guide').props.style);
         expect(guideStyle.alignItems).toBe('flex-end');
-        expect(guideStyle.height).toBeGreaterThanOrEqual(78);
-        expect(guideStyle.height).toBeLessThanOrEqual(106);
+        expect(guideStyle.height).toBeGreaterThanOrEqual(90);
+        expect(guideStyle.height).toBeLessThanOrEqual(170);
         const mascotStyle = StyleSheet.flatten(screen.getByTestId('story-mascot-button').props.style);
         expect(mascotStyle.overflow).toBe('hidden');
-        expect(mascotStyle.height).toBe(Math.round(mascotStyle.width * 0.7));
+        expect(mascotStyle.height).toBe(Math.round(mascotStyle.width * 0.65));
         expect(StyleSheet.flatten(screen.getByTestId('story-reading-scroll').props.contentContainerStyle).justifyContent).toBe('center');
         expect(screen.queryByTestId('story-highlight')).toBeNull();
       } else {
@@ -573,7 +573,7 @@ describe('Approved storybooks with a separate introductory slide', () => {
       expect(screen.queryByTestId('topic-intro-video-player')).toBeTruthy();
     } else {
       expect(within(screen.getByTestId('story-image-column')).getByTestId('topic-intro-video-player')).toBeTruthy();
-      expect(StyleSheet.flatten(screen.getByTestId('story-content-column').props.style).flex).toBeGreaterThan(0.5);
+      expect(StyleSheet.flatten(screen.getByTestId('story-content-column').props.style).flex).toBe(0.5);
       expect(StyleSheet.flatten(screen.getByTestId('story-content').props.style).paddingRight).toBe(0);
     }
     await waitFor(() => {
@@ -588,7 +588,7 @@ describe('Approved storybooks with a separate introductory slide', () => {
     });
     const pageStyle = StyleSheet.flatten(screen.getByTestId('storybook-page').props.style);
     if (stacked) expect(pageStyle.paddingHorizontal).toBeGreaterThanOrEqual(16);
-    expect(StyleSheet.flatten(screen.getByTestId('story-navigation').props.style).flexShrink).toBe(0);
+    expect(StyleSheet.flatten(screen.getByTestId('story-navigation').props.style).position).toBe('absolute');
     const headerStyle = StyleSheet.flatten(screen.getByTestId('activity-header').props.style);
     const compactHeader = mockLayout.isPhone || mockLayout.isCompactHeight;
     if (mockLayout.isPhonePortrait) {

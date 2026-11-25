@@ -11,6 +11,7 @@ type LearnerAppShellProps = {
   backgroundColor?: string;
   children: ReactNode;
   footer?: ReactNode;
+  floatingFooter?: boolean;
   header?: ReactNode;
   showBottomNavigation?: boolean;
   testID?: string;
@@ -22,6 +23,7 @@ export function LearnerAppShell({
   backgroundColor = Colors.background,
   children,
   footer,
+  floatingFooter = false,
   header,
   showBottomNavigation = true,
   testID,
@@ -41,8 +43,8 @@ export function LearnerAppShell({
       testID={testID}
     >
       {header}
-      <View style={styles.content}>{children}</View>
-      {footer}
+      <View style={[styles.content, floatingFooter && { paddingHorizontal: 46 }]}>{children}{floatingFooter && footer}</View>
+      {!floatingFooter && footer}
       {(() => {
         if (showBottomNavigation) {
           return <LearnerBottomNav activeRoute={activeRoute} />;

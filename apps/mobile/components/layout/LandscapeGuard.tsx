@@ -1,3 +1,4 @@
+import { OrientationBlockedContext } from './OrientationVisibility';
 import { Text } from '../../localization/components';
 import type { PropsWithChildren } from 'react';
 import React, { useEffect, useRef, useSyncExternalStore } from 'react';
@@ -34,7 +35,7 @@ export function LandscapeGuard({ children, allowPortrait = false }: PropsWithChi
   }, [blocked]);
 
   return (
-    <View style={styles.root}>
+    <OrientationBlockedContext.Provider value={blocked}><View style={styles.root}>
     <View ref={content} style={[styles.root, blocked && styles.hidden]} pointerEvents={(() => {
       if (blocked) {
         return 'none';
@@ -63,7 +64,7 @@ export function LandscapeGuard({ children, allowPortrait = false }: PropsWithChi
         BAYA is ready when you are. Your work stays here.
       </Text>
     </SafeAreaView>}
-    </View>
+    </View></OrientationBlockedContext.Provider>
   );
 }
 

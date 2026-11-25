@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Platform, ScrollView, StyleSheet, View } from 'react-native';
 import { Spacing } from '../../../constants/theme';
 import { FloatingSwipeHint, lessonJourneyHintSession } from './FloatingSwipeHint';
@@ -8,13 +8,15 @@ import type { LessonItem } from './lessonData';
 
 type Props = {
   lessons: readonly LessonItem[];
+  renderAssessments?: (topicId: string) => React.ReactNode;
   availableHeight?: number;
+  moduleId?: string;
   onTopicPress?: (topicId: string) => void;
   onContinueLesson?: (lesson: LessonItem) => void;
 };
 
 /** Keeps modules in one row, centered when they fit and swipeable when they do not. */
-export function LessonJourney({ lessons, availableHeight = 0, onContinueLesson, onTopicPress }: Props) {
+export function LessonJourney({ lessons, renderAssessments, moduleId, availableHeight = 0, onContinueLesson, onTopicPress }: Props) {
   const { isPhone, isCompactHeight, isPhoneLandscape, width, height } = useResponsiveLayout();
   const sessionKey = lessons.map(lesson => lesson.id).join(':');
   const [dismissed, setDismissed] = useState(() => lessonJourneyHintSession.has(sessionKey));
@@ -26,9 +28,10 @@ export function LessonJourney({ lessons, availableHeight = 0, onContinueLesson, 
   const scroller = useRef<ScrollView>(null);
 
   const maxOffset = Math.max(0, contentWidth - viewportWidth);
+  const visibleCards = Math.min(lessons.length, width >= 780 ? 4 : 2);
   let cardWidth;
   if (isPhoneLandscape) {
-    cardWidth = LessonCardWidth.landscapeCompact;
+    cardWidth = viewportWidth ? Math.floor((viewportWidth - 10 * (visibleCards - 1)) / visibleCards) : LessonCardWidth.landscapeCompact;
   } else {
     if (isPhone || isCompactHeight) {
       cardWidth = LessonCardWidth.compact;
@@ -36,6 +39,10 @@ export function LessonJourney({ lessons, availableHeight = 0, onContinueLesson, 
       cardWidth = LessonCardWidth.regular;
     }
   }
+  useEffect(() => {
+    const index = lessons.findIndex(m => m.id === moduleId);
+    if (index >= 0 && viewportWidth && contentWidth) scroller.current?.scrollTo({ x: Math.min(maxOffset, index * (cardWidth + (isPhoneLandscape ? 10 : Spacing.lg))), animated: false });
+  }, [moduleId, lessons, viewportWidth, contentWidth, cardWidth, maxOffset, isPhoneLandscape]);
   const overflow = viewportWidth > 0 && contentWidth > viewportWidth + 1;
   const rowHeight = Math.max(0, ...Object.values(cardHeights));
   // Anchor the gesture to the visible right edge, independent of card gaps.
@@ -64,7 +71,7 @@ export function LessonJourney({ lessons, availableHeight = 0, onContinueLesson, 
     onWheel: dismissHint,
     onKeyDown: (event: React.KeyboardEvent<HTMLElement>) => {
       if (event.target !== event.currentTarget) return;
-      const destinations: Record<string, number> = { ArrowRight: offset + cardWidth + Spacing.lg, ArrowLeft: offset - cardWidth - Spacing.lg, Home: 0, End: maxOffset };
+      const destinations: Record<string, number> = { ArrowRight: offset + cardWidth + (isPhoneLandscape ? 10 : Spacing.lg), ArrowLeft: offset - cardWidth - (isPhoneLandscape ? 10 : Spacing.lg), Home: 0, End: maxOffset };
       if (event.key in destinations) { event.preventDefault(); navigate(destinations[event.key]); }
     },
   };
@@ -82,14 +89,14 @@ export function LessonJourney({ lessons, availableHeight = 0, onContinueLesson, 
       accessibilityHint="Mag-scroll pahalang. Sa keyboard, gamitin ang kaliwa at kanang arrow, Home o End."
       accessibilityActions={[{ name: 'increment', label: 'Mga susunod na modyul' }, { name: 'decrement', label: 'Mga naunang modyul' }]}
       onAccessibilityAction={event => {
-        if (event.nativeEvent.actionName === 'increment') navigate(offset + cardWidth + Spacing.lg);
-        if (event.nativeEvent.actionName === 'decrement') navigate(offset - cardWidth - Spacing.lg);
+        if (event.nativeEvent.actionName === 'increment') navigate(offset + cardWidth + (isPhoneLandscape ? 10 : Spacing.lg));
+        if (event.nativeEvent.actionName === 'decrement') navigate(offset - cardWidth - (isPhoneLandscape ? 10 : Spacing.lg));
       }}
       onTouchStart={dismissHint}
       horizontal
       nestedScrollEnabled
       showsHorizontalScrollIndicator={false}
-      contentContainerStyle={styles.journey}
+      contentContainerStyle={[styles.journey, isPhoneLandscape && { gap: 10 }]}
       onLayout={(event) => setViewportWidth(event.nativeEvent.layout.width)}
       onContentSizeChange={(width) => setContentWidth(width)}
       onScrollBeginDrag={dismissHint}
@@ -109,6 +116,7 @@ export function LessonJourney({ lessons, availableHeight = 0, onContinueLesson, 
           <LessonCard compact={isPhone || isCompactHeight}
             isLandscapeCompact={isPhoneLandscape} lesson={lesson}
             onTopicPress={onTopicPress}
+            renderAssessment={renderAssessments}
             onContinue={() => { dismissHint(); onContinueLesson?.(lesson); }} totalLessons={lessons.length} />
         </View>
       ))}

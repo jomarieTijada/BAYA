@@ -9,7 +9,7 @@ export async function readProgressSnapshot(override?: DatabaseConnection): Promi
   const db = override ?? await getReadyDatabase();
   const learner = await localLearnerService.getActiveLearner(db);
   if (!learner) throw { code: 'learner_required' };
-  const approved = new Set(approvedCurriculum.flatMap(m => m.topics.map(t => t.id)));
+  const approved = new Set(approvedCurriculum.filter(m => m.id !== 'module-kudlit').flatMap(m => m.topics.map(t => t.id)));
   const rows = await db.getAllAsync<{ activity_id: string; completed_at: string }>(
     `SELECT activity_id, MIN(attempted_at) AS completed_at FROM activity_attempts
      WHERE learner_profile_id = ? AND result_status = 'completed' GROUP BY activity_id;`, [learner.profile_id]);

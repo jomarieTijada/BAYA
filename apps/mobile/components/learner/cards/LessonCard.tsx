@@ -26,6 +26,7 @@ type LessonCardProps = Pick<
   | "footer"
   | "status"
 > & {
+  renderAssessment?: (topicId: string) => React.ReactNode;
   compact?: boolean;
   isLandscapeCompact?: boolean;
   lesson: LessonItem;
@@ -75,6 +76,7 @@ function useReducedMotion() {
  * Fully responsive across desktop, tablet, landscape phone, and portrait phone.
  */
 export function LessonCard({
+  renderAssessment,
   compact = false,
   isLandscapeCompact = false,
   lesson,
@@ -171,7 +173,7 @@ export function LessonCard({
       <Animated.View
         style={[
           styles.cardShell,
-          isCurrent && !isReduceMotion && { transform: [{ scale: cardScale }] },
+          isCurrent && !isReduceMotion && !isLandscapeCompact && { transform: [{ scale: cardScale }] },
         ]}
       >
         <BaseCard
@@ -196,7 +198,7 @@ export function LessonCard({
               isLandscapeCompact && styles.badgeWrapperLandscapeCompact,
             ]}
           >
-            {topics.map((topic, index) => {
+            {!isLandscapeCompact && topics.map((topic, index) => {
               const angle = (index / Math.max(totalTopicsCount, 1)) * Math.PI * 2 - Math.PI / 2;
               let center;
               if (isLandscapeCompact) {
@@ -264,7 +266,7 @@ export function LessonCard({
                 })(),
                 compact && styles.badgeCompact,
                 isLandscapeCompact && styles.badgeLandscapeCompact,
-                isCurrent && !isReduceMotion && { transform: [{ scale: badgeScale }] },
+                isCurrent && !isReduceMotion && !isLandscapeCompact && { transform: [{ scale: badgeScale }] },
               ]}
             >
               <Text
@@ -279,7 +281,7 @@ export function LessonCard({
             </Animated.View>
           </View>
           <Text
-            numberOfLines={1}
+            numberOfLines={2}
             ellipsizeMode="tail"
             style={[
               styles.title,
@@ -322,12 +324,13 @@ export function LessonCard({
           ]}
         >
           {topics.map((topic, index) => (
-            <TopicCard onPress={!isLocked && topic.status !== "locked" && topic.contentAvailable && onTopicPress ? () => onTopicPress(topic.id) : undefined} dense={isLandscapeCompact} key={topic.id} topic={topic} number={index + 1} />
+            <View key={topic.id}><TopicCard onPress={!isLocked && topic.status !== "locked" && topic.contentAvailable && onTopicPress ? () => onTopicPress(topic.id) : undefined} dense={isLandscapeCompact} key={topic.id} topic={topic} number={index + 1} />{renderAssessment?.(topic.id)}</View>
           ))}
         </AccessibilityView>
 
+
         {/* The card opens the topic flow directly; no module-detail screen. */}
-        <View style={[styles.footer, compact && styles.footerCompact, isLandscapeCompact && { marginTop: 4 }]}>
+        <View style={[styles.footer, compact && styles.footerCompact, isLandscapeCompact && { marginTop: 2 }]}>
           {(() => {
             if (!isLocked) {
               return (
@@ -433,7 +436,7 @@ const styles = StyleSheet.create({
     width: LessonCardWidth.compact,
   },
   cardContainerLandscapeCompact: {
-    width: LessonCardWidth.landscapeCompact,
+    width: "100%",
   },
   cardShell: {
     width: "100%",
@@ -461,7 +464,7 @@ const styles = StyleSheet.create({
   cardLandscapeCompact: {
     borderRadius: Radius.lg,
     paddingHorizontal: Spacing.sm,
-    paddingVertical: Spacing.xs,
+    paddingVertical: 2,
   },
   cardCompleted: {
     backgroundColor: Colors.surface,
@@ -511,7 +514,7 @@ const styles = StyleSheet.create({
     width: 56,
   },
   badgeWrapperCompact: { height: 42, width: 42 },
-  badgeWrapperLandscapeCompact: { height: 40, width: 40 },
+  badgeWrapperLandscapeCompact: { height: 24, width: 28 },
   progressMarker: {
     borderRadius: Radius.full,
     position: "absolute",
@@ -567,7 +570,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   titleLandscapeCompact: {
-    fontSize: 13,
+    fontSize: 12,
+    lineHeight: 15,
     includeFontPadding: false,
   },
   titleLocked: {
@@ -575,16 +579,16 @@ const styles = StyleSheet.create({
   },
   topicsList: {
     alignSelf: "stretch",
-    gap: 6,
+    gap: 10,
     marginVertical: 0,
     width: "100%",
   },
   topicsListCompact: {
-    gap: 1,
+    gap: 10,
     marginVertical: 0,
   },
   topicsListLandscapeCompact: {
-    gap: 3,
+    gap: 2,
     marginVertical: 0,
   },
   topicRow: {
@@ -637,7 +641,7 @@ const styles = StyleSheet.create({
     marginTop: Spacing.sm,
     width: "100%",
   },
-  footerCompact: { marginTop: 1 },
+  footerCompact: { marginTop: 10 },
   currentFooter: {
     alignItems: "center",
     gap: 0,
@@ -668,7 +672,7 @@ const styles = StyleSheet.create({
   continueButtonLandscapeCompact: {
     borderWidth: 1,
     gap: 2,
-    minHeight: 36,
+    minHeight: 26,
     paddingHorizontal: 10,
   },
   continueButtonHovered: {
@@ -692,7 +696,7 @@ const styles = StyleSheet.create({
     fontSize: 12.5,
   },
   continueTextLandscapeCompact: {
-    fontSize: 14,
+    fontSize: 12,
     includeFontPadding: false,
   },
   lockedPill: {

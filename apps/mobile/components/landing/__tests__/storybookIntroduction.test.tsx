@@ -1,3 +1,4 @@
+import { OrientationBlockedContext } from '../../layout/OrientationVisibility';
 import React, { StrictMode } from 'react';
 import { act, fireEvent, render, renderHook, waitFor } from '@testing-library/react-native';
 import { Modal, Platform } from 'react-native';
@@ -157,3 +158,14 @@ it('handles browser close requests and destroys the watcher on unmount', () => {
   }
 });
 
+
+it('keeps the story behind the orientation warning without acknowledging or resetting it', async () => {
+  const close=jest.fn();
+  const view=render(<OrientationBlockedContext.Provider value={true}><OriginStorybook onClose={close}/></OrientationBlockedContext.Provider>);
+  expect(view.UNSAFE_getByType(Modal).props.visible).toBe(false);
+  view.rerender(<OrientationBlockedContext.Provider value={false}><OriginStorybook onClose={close}/></OrientationBlockedContext.Provider>);
+  expect(view.UNSAFE_getByType(Modal).props.visible).toBe(true);
+  view.rerender(<OrientationBlockedContext.Provider value={true}><OriginStorybook onClose={close}/></OrientationBlockedContext.Provider>);
+  expect(view.UNSAFE_getByType(Modal).props.visible).toBe(false);
+  expect(close).not.toHaveBeenCalled();
+});

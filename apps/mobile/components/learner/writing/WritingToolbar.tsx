@@ -9,18 +9,18 @@ export function WritingToolbar({ onClear, onUndo, canEdit, dense = false }: { on
     <Pressable accessibilityLabel="Bawiin ang huling guhit" accessibilityRole="button" accessibilityState={{ disabled: !canEdit }} disabled={!canEdit} hitSlop={6} onPress={onUndo} style={[styles.button, dense && styles.denseButton, !canEdit && styles.disabled]} testID="writing-undo-button">
       <AppIcon name="undo" color="secondaryText" size={(() => {
         if (dense) {
-          return 18;
+          return 16;
         } else {
-          return 22;
+          return 18;
         }
       })()} />
     </Pressable>
     <Pressable accessibilityLabel="Burahin ang lahat ng guhit" accessibilityRole="button" accessibilityState={{ disabled: !canEdit }} disabled={!canEdit} hitSlop={6} onPress={onClear} style={[styles.button, dense && styles.denseButton, !canEdit && styles.disabled]} testID="writing-clear-button">
       <AppIcon name="trash" color="accent" size={(() => {
         if (dense) {
-          return 18;
+          return 16;
         } else {
-          return 22;
+          return 18;
         }
       })()} />
     </Pressable>
@@ -29,7 +29,7 @@ export function WritingToolbar({ onClear, onUndo, canEdit, dense = false }: { on
 
 const styles = StyleSheet.create({
   row: { flexDirection: 'row', gap: 8, justifyContent: 'flex-end' },
-  button: { flexDirection: 'row', gap: 6, paddingHorizontal: 10, alignItems: 'center', backgroundColor: '#FFF9EF', borderColor: Colors.border, borderRadius: Radius.md, borderWidth: 1, minHeight: 44, justifyContent: 'center', minWidth: 44 },
-  denseButton: { paddingHorizontal: 8 },
+  button: { flexDirection: 'row', gap: 6, paddingHorizontal: 6, alignItems: 'center', backgroundColor: '#FFF9EF', borderColor: Colors.border, borderRadius: Radius.md, borderWidth: 1, minHeight: 30, justifyContent: 'center', minWidth: 30 },
+  denseButton: { paddingHorizontal: 6 },
   disabled: { opacity: 0.5 },
 });

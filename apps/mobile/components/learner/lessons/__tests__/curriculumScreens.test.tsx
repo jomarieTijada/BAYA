@@ -5,6 +5,8 @@ import { LessonScreen } from '../LessonScreen';
 import { curriculumService } from '../../../../database/services/curriculumService';
 import { createApprovedModules } from '../lessonData';
 
+jest.mock('../../../../database/services/characterActivityService', () => ({ characterActivityService: { list: async () => [] } }));
+
 jest.mock('../../../../database/services/activityResumeService', () => ({ activityResumeService: { lastOpened: jest.fn() } }));
 
 // Render the real card tree; cold React Native setup can exceed Jest's 5s
@@ -13,6 +15,7 @@ jest.setTimeout(15000);
 
 const mockPush = jest.fn();
 jest.mock('expo-router', () => ({
+  useLocalSearchParams: () => ({}),
   useRouter: () => ({ push: mockPush, replace: jest.fn(), dismissTo: jest.fn(), back: jest.fn(), canGoBack: () => false }),
   useFocusEffect: (callback: () => void | (() => void)) => {
     const React = jest.requireActual('react');
@@ -34,7 +37,7 @@ jest.mock('../../../ui/AppIcon', () => ({ AppIcon: () => null }));
 jest.mock('../../../ui/BackButton', () => ({ BackButton: () => null }));
 
 function expectOnlyApprovedTopics() {
-  expect(screen.getAllByTestId(/^topic-card-/)).toHaveLength(9);
+  expect(screen.getAllByTestId(/^topic-card-/)).toHaveLength(11);
   expect(screen.getByTestId('topic-card-topic-1-1').props.accessibilityLabel).toContain('Kasaysayan at Kahalagahan ng Baybayin');
   expect(screen.getByTestId('topic-card-topic-1-2').props.accessibilityLabel).toContain('Baybayin: Isang Silabaryo (Pantigan)');
   expect(screen.getByTestId('topic-card-topic-1-3').props.accessibilityLabel).toContain('Ang 17 Simbolo ng Baybayin');
@@ -47,7 +50,9 @@ function expectOnlyApprovedTopics() {
   expect(screen.getByTestId('topic-card-topic-2-2').props.accessibilityLabel).toContain('Kilalanin ang mga Katinig');
   expect(screen.getByTestId('topic-card-topic-3-1').props.accessibilityLabel).toContain('Mga Patinig');
   expect(screen.getByTestId('topic-card-topic-3-2').props.accessibilityLabel).toContain('Mga Katinig');
-  expect(screen.queryByText(/Kudlit|First Strokes/)).toBeNull();
+  expect(screen.getByTestId('topic-card-topic-kudlit-upper')).toBeTruthy();
+  expect(screen.getByTestId('topic-card-topic-kudlit-lower')).toBeTruthy();
+  expect(screen.queryByText(/First Strokes/)).toBeNull();
 }
 
 describe('Approved curriculum rendered in learner screens', () => {
@@ -56,13 +61,17 @@ describe('Approved curriculum rendered in learner screens', () => {
     jest.mocked(activityResumeService.lastOpened).mockResolvedValue(null);
     jest.mocked(curriculumService.getCurriculumModules).mockResolvedValue(createApprovedModules());
   });
-  it('shows all three modules and nine topic cards before and after hydration', async () => {
+  it('shows all four modules and eleven topic cards before and after hydration', async () => {
     render(<LessonScreen />);
     expectOnlyApprovedTopics();
     expect(screen.getAllByRole('tab').map(tab => tab.props.accessibilityLabel))
       .toEqual(['Home', 'Lessons', 'Achievements', 'Profile']);
     await waitFor(() => expect(curriculumService.getCurriculumModules).toHaveBeenCalled());
-    expect(screen.getAllByTestId(/^lesson-card-/)).toHaveLength(3);
+    expect(screen.getAllByTestId(/^lesson-card-/).map(c => c.props.testID)).toEqual(['lesson-card-module-1','lesson-card-module-2','lesson-card-module-kudlit','lesson-card-module-3']);
+    expect(screen.queryByText('Character Level')).toBeNull();
+    expect(screen.queryByText('Antas ng Karakter')).toBeNull();
+    expect(screen.getAllByTestId(/^checkpoint-/)).toHaveLength(5);
+    expect(screen.queryByText('Sound Matching')).toBeNull();
     expect(screen.getByTestId('lesson-card-module-1').props.accessibilityLabel).toContain('Module 1');
     expect(screen.getByText("Introduction to Baybayin")).toBeTruthy();
     expectOnlyApprovedTopics();

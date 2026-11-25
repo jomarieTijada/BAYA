@@ -18,11 +18,12 @@ export type BayaDialogProps = {
   children?: React.ReactNode;
   closeLabel?: string;
   contentKey?: string; // Reset internal scrolling for discrete story sections.
+  completionContent?: React.ReactNode;
 };
 
 /** Presentation only. RN Modal supplies web focus containment and background isolation. */
 export function BayaDialog({ visible, title, description, detail, variant = 'confirmation', icon,
-  primaryAction, secondaryAction, onDismiss, detailSelectable = false, children, closeLabel, contentKey }: BayaDialogProps) {
+  primaryAction, secondaryAction, onDismiss, detailSelectable = false, children, closeLabel, contentKey, completionContent }: BayaDialogProps) {
   const { text } = useLocalization();
   const { height, width } = useWindowDimensions();
   const insets = useSafeAreaInsets();
@@ -33,7 +34,8 @@ export function BayaDialog({ visible, title, description, detail, variant = 'con
   const panel = useRef<View>(null);
   const busy = !!primaryAction.loading;
   useDialogBack(visible, onDismiss, busy);
-  const compact = height < 600 || variant === 'form';
+  const compact = true;
+  const shortLandscape = width > height && height < 500;
   useEffect(() => {
     if (reduced) {
       motion.setValue((() => {
@@ -84,14 +86,14 @@ export function BayaDialog({ visible, title, description, detail, variant = 'con
       }
     })()}>
     <Animated.View style={[styles.backdrop, { opacity: motion, paddingTop: Math.max(12, insets.top), paddingBottom: Math.max(12, insets.bottom) }, Platform.OS === 'web' && { backdropFilter: 'blur(7px)' } as object]}>
-      <Animated.View accessibilityViewIsModal style={[styles.card, { width: Math.min(width - 2 * Math.max(16, insets.left, insets.right), (() => {
-        if (variant === 'success') {
+      <Animated.View accessibilityViewIsModal role="dialog" aria-label={title} aria-describedby={completionContent ? 'completion-description' : undefined} style={[styles.card, completionContent ? { borderColor: '#FFF0BD', borderWidth: 3, borderRadius: width < 600 ? 28 : 48 } : undefined, { width: Math.min(width - 2 * Math.max(16, insets.left, insets.right), (() => {
+        if (completionContent) {
           return 860;
         } else {
-          return 650;
+          return Math.min(400, Math.max(320, height - 24));
         }
       })()), maxHeight: height - Math.max(12, insets.top) - Math.max(12, insets.bottom), transform: [{ scale: motion.interpolate({ inputRange: [0,1], outputRange: [0.95,1] }) }] }]}>
-        <ScrollView key={contentKey} contentContainerStyle={[styles.content, compact && { padding: 20, gap: 14 }]} bounces={false} keyboardShouldPersistTaps="handled" automaticallyAdjustKeyboardInsets>
+        {completionContent ? <AccessibilityView ref={panel} tabIndex={-1} accessibilityLabel={title} style={[{ minHeight: 0, flexShrink: 1 }, Platform.OS === 'web' && {outlineStyle:'none'} as object]} testID="completion-dialog">{completionContent}</AccessibilityView> : <ScrollView key={contentKey} contentContainerStyle={[styles.content, compact && { padding: 16, gap: 10 }, shortLandscape && { padding: 14, gap: 8 }]} bounces={false} keyboardShouldPersistTaps="handled" automaticallyAdjustKeyboardInsets>
           <AccessibilityView ref={panel} tabIndex={-1} accessibilityLabel={title} style={[(() => {
             if (Platform.OS === 'web') {
               return { outlineStyle: 'none' } as object;
@@ -99,7 +101,7 @@ export function BayaDialog({ visible, title, description, detail, variant = 'con
               return undefined;
             }
           })(), variant === 'form' && { flexDirection: 'row', alignItems: 'center', gap: 12 }]}>
-            {variant !== 'form' && <View style={[styles.badge, variant === 'success' && styles.success, compact && { width: 62, height: 62, marginBottom: 14 }]}>
+            {variant !== 'form' && <View style={[styles.badge, variant === 'success' && styles.success, compact && { width: 44, height: 44, marginBottom: 6 }, shortLandscape && { width: 38, height: 38, marginBottom: 6 }]}>
               <AppIcon name={icon ?? ((() => {
                 if (variant === 'success') {
                   return 'check';
@@ -124,23 +126,23 @@ export function BayaDialog({ visible, title, description, detail, variant = 'con
                 }
               })()} />
             </View>}
-            <Text accessibilityRole="header" style={[styles.title, compact && { fontSize: 25, lineHeight: 31 }, variant === 'form' && { flex: 1, textAlign: 'left' }]}>{title}</Text>
+            <Text accessibilityRole="header" style={[styles.title, compact && { fontSize: 21, lineHeight: 26 }, shortLandscape && { fontSize: 20, lineHeight: 24 }, variant === 'form' && { flex: 1, textAlign: 'left' }]}>{title}</Text>
             {closeLabel && <AppButton compact fullWidth={false} label="" icon="close" tone="outlinePrimary" accessibilityLabel={closeLabel} disabled={busy} onPress={() => onDismiss?.()} style={{ minHeight: 44, minWidth: 44, paddingHorizontal: 8 }} />}
           </AccessibilityView>
-          {!!description && <Text style={[styles.description, compact && { fontSize: 18, lineHeight: 25 }]}>{description}</Text>}
-          {!!detail && <Text selectable={detailSelectable} style={[styles.detail, compact && { fontSize: 16, lineHeight: 23 }]}>{detail}</Text>}
+          {!!description && <Text style={[styles.description, compact && { fontSize: 14, lineHeight: 20 }, shortLandscape && { fontSize: 14, lineHeight: 19 }]}>{description}</Text>}
+          {!!detail && <Text selectable={detailSelectable} style={[styles.detail, compact && { fontSize: 13, lineHeight: 18 }]}>{detail}</Text>}
           {children}
-          <View style={styles.actions}>
-            <AppButton compact={variant === 'form'} label={(() => {
+          <View style={[styles.actions, shortLandscape && { gap: 6, marginTop: 4 }]}>
+            <AppButton density="compact" style={{ minHeight: 36, height: 36, paddingVertical: 4 }} labelStyle={{ fontSize: 13 }} compact={compact} label={(() => {
               if (primaryAction.loading) {
                 return 'PLEASE WAIT…';
               } else {
                 return primaryAction.label;
               }
             })()} accessibilityLabel={primaryAction.label} onPress={primaryAction.onPress} disabled={busy || primaryAction.disabled} />
-            {secondaryAction && <AppButton tone="outlinePrimary" label={secondaryAction.label} accessibilityLabel={secondaryAction.label} onPress={secondaryAction.onPress} disabled={busy || secondaryAction.disabled} />}
+            {secondaryAction && <AppButton density="compact" style={{ minHeight: 36, height: 36, paddingVertical: 4 }} labelStyle={{ fontSize: 13 }} compact={compact} tone="outlinePrimary" label={secondaryAction.label} accessibilityLabel={secondaryAction.label} onPress={secondaryAction.onPress} disabled={busy || secondaryAction.disabled} />}
           </View>
-        </ScrollView>
+        </ScrollView>}
       </Animated.View>
     </Animated.View>
     </KeyboardAvoidingView>
@@ -148,7 +150,7 @@ export function BayaDialog({ visible, title, description, detail, variant = 'con
 }
 const styles = StyleSheet.create({
   backdrop: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(244,237,222,0.60)' },
-  card: { backgroundColor: Colors.surface, borderRadius: 34, borderWidth: 2, borderColor: '#F3E9D5', overflow: 'hidden', ...Shadows.card },
+  card: { backgroundColor: Colors.surface, borderRadius: 20, borderWidth: 2, borderColor: '#F3E9D5', overflow: 'hidden', ...Shadows.card },
   content: { padding: 38, gap: 25 },
   badge: { alignSelf: 'center', alignItems: 'center', justifyContent: 'center', width: 104, height: 104, borderRadius: 60, backgroundColor: '#FFF7EC', borderWidth: 2, borderColor: '#FFE9CF', marginBottom: 28 },
   success: { backgroundColor: '#EBFCF4', borderColor: '#A4EACD' },

@@ -28,6 +28,7 @@ jest.mock('expo-speech', () => ({ speak: jest.fn(), stop: jest.fn().mockResolved
 
 describe('Module 2 letter navigation', () => {
   beforeEach(() => {
+    mockPush.mockClear();
     mockSetParams.mockClear();
     mockDismissTo.mockClear();
     jest.mocked(localLearnerService.completeTopic).mockClear();
@@ -49,10 +50,11 @@ describe('Module 2 letter navigation', () => {
     fireEvent.press(screen.getByLabelText("Next character"));
     fireEvent.press(screen.getByLabelText("Next character"));
     expect(screen.getByTestId('character-glyph').props.source).toBe(vowels.characters[2].imageAsset);
-    expect(screen.getByLabelText("Next topic")).toBeTruthy();
-    fireEvent.press(screen.getByLabelText("Next topic"));
+    expect(screen.getByLabelText("Next")).toBeTruthy();
+    fireEvent.press(screen.getByLabelText("Next"));
     await waitFor(() => expect(localLearnerService.completeTopic).toHaveBeenCalledWith('topic-2-1'));
-    expect(mockSetParams).toHaveBeenCalledWith({ topicId: 'topic-2-2' });
+    expect(mockPush).toHaveBeenCalledWith({ pathname: '/learner/character-activities', params: { checkpointId: 'checkpoint-v1-topic-2-1' } });
+    expect(mockSetParams).not.toHaveBeenCalled();
   });
 
   it('keeps the final topic button as Susunod until the final consonant', async () => {
@@ -63,8 +65,8 @@ describe('Module 2 letter navigation', () => {
     fireEvent.press(screen.getByTestId('character-chip-ya'));
     expect(screen.getByTestId('character-glyph').props.source).toBe(consonants.characters[13].imageAsset);
     expect(within(screen.getByTestId('story-content-column')).getByText("Characters")).toBeTruthy();
-    fireEvent.press(screen.getByLabelText("Back to topics"));
+    fireEvent.press(screen.getByLabelText("Next"));
     await waitFor(() => expect(localLearnerService.completeTopic).toHaveBeenCalledWith('topic-2-2'));
-    expect(mockDismissTo).toHaveBeenCalledWith('/learner/lessons');
+    expect(mockPush).toHaveBeenCalledWith({ pathname: '/learner/character-activities', params: { checkpointId: 'checkpoint-v1-topic-2-2' } });
   });
 });

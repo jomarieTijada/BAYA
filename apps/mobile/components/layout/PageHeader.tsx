@@ -7,13 +7,13 @@ import { BackButton } from '../ui/BackButton';
 /** Main title and navigation share a centerline; subtitles occupy a separate row. */
 export function PageHeader({ title, subtitle, onBack, action, compact = false }: { title: string; subtitle?: string; onBack?: () => void; action?: React.ReactNode; compact?: boolean }) {
   const { width } = useWindowDimensions();
-  return <View style={[styles.header, compact && { marginBottom: 0 }]}>
-    <View style={styles.row}>
-      {onBack && <BackButton accessibilityLabel="Back" onPress={onBack} compact />}
-      <Text accessibilityRole="header" style={[styles.title, width < 750 && { fontSize: 25 }]}>{title}</Text>
+  return <View style={[styles.header, compact && { marginBottom: 0, gap: 4 }]}>
+    <View style={[styles.row, compact && { minHeight: 32, gap: 8 }]}>
+      {onBack && <BackButton accessibilityLabel="Back" onPress={onBack} compact size={compact ? "landscape" : "compact"} />}
+      <Text accessibilityRole="header" style={[styles.title, width < 750 && { fontSize: 25 }, compact && { fontSize: 18 }]}>{title}</Text>
       {action && <View style={styles.action}>{action}</View>}
     </View>
-    {!!subtitle && <Text style={styles.subtitle}>{subtitle}</Text>}
+    {!!subtitle && <Text style={[styles.subtitle, compact && { fontSize: 13, lineHeight: 18 }]}>{subtitle}</Text>}
   </View>;
 }
 const styles = StyleSheet.create({

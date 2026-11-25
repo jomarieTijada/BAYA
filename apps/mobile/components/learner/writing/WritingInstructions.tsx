@@ -4,8 +4,8 @@ import { StyleSheet, View } from 'react-native';
 import { BAYA_WRITING_MASTERY_POLICY } from '../../../content/writingMastery';
 import { Colors, FontFamily, Spacing } from '../../../constants/theme';
 
-export function WritingInstructions({ count = 0, unsuccessful = false, compact = false, children }: {
-  count?: number; unsuccessful?: boolean; compact?: boolean; children?: React.ReactNode;
+export function WritingInstructions({ count = 0, unsuccessful = false, compact = false, children, message: contextMessage }: {
+  count?: number; unsuccessful?: boolean; compact?: boolean; children?: React.ReactNode; message?: string;
 }) {
   const { requiredValidAttempts } = BAYA_WRITING_MASTERY_POLICY;
   const remaining = Math.max(0, requiredValidAttempts - count);
@@ -28,7 +28,7 @@ export function WritingInstructions({ count = 0, unsuccessful = false, compact =
     }
   }
   return <View style={styles.container} testID="writing-instructions">
-    <Text accessibilityLiveRegion="polite" style={[styles.instruction, compact && styles.compactInstruction]} testID="writing-mastery-message">{message}</Text>
+    <Text accessibilityLiveRegion="polite" style={[styles.instruction, compact && styles.compactInstruction]} testID="writing-mastery-message">{contextMessage ?? message}</Text>
     <View style={styles.actions}>
       {children}
     </View>

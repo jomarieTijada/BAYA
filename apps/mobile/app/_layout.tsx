@@ -1,4 +1,5 @@
 import { LocalizationProvider } from '../localization/LocalizationProvider';
+import { pronunciation } from '../modules/audio/usePronunciation';
 /**
  * app/_layout.tsx
  *
@@ -32,6 +33,7 @@ let hasTriggeredMlBenchmark = false;
 export default function RootLayout() {
   const pathname = usePathname();
   const { isPhoneLandscape } = useResponsiveLayout();
+  useEffect(() => () => pronunciation.stop(), [pathname]);
 
   useEffect(() => {
     // Non-blocking database initialization on startup
@@ -77,7 +79,7 @@ export default function RootLayout() {
         hidden={isPhoneLandscape}
         style="dark"
       />
-      <LocalizationProvider><CloudProvider><BayaNotifications><LandscapeGuard allowPortrait={pathname === '/'}><Stack
+      <LocalizationProvider><CloudProvider><BayaNotifications><LandscapeGuard allowPortrait={pathname === "/learner/character-activities"}><Stack
         screenOptions={{
           animation: 'fade',
           contentStyle: { backgroundColor: Colors.background, flex: 1 },

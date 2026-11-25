@@ -93,3 +93,15 @@ it('rejects duplicate learner rows and responses from another workspace', async 
   (mentor.rpc as jest.Mock).mockResolvedValue({ data });
   expect(await service.dashboard('w2')).toEqual({ ok: false, code: 'unauthorized' });
 });
+it('defers offline uploads without touching a cloud session or losing the retry snapshot', async () => {
+ const original=Object.getOwnPropertyDescriptor(globalThis,'navigator');
+ try {
+  Object.defineProperty(globalThis,'navigator',{configurable:true,value:{onLine:false}});
+  const {service,rpc,getSession}=setup();
+  expect(await service.sync()).toEqual({ok:false,code:'offline'});
+  expect(getSession).not.toHaveBeenCalled();expect(rpc).not.toHaveBeenCalled();
+  Object.defineProperty(globalThis,'navigator',{configurable:true,value:{onLine:true}});
+  expect((await service.sync()).ok).toBe(true);
+  expect(rpc).toHaveBeenCalledWith('sync_learning_progress',expect.objectContaining({p_completed:saved.completed}));
+ } finally { if(original)Object.defineProperty(globalThis,'navigator',original);else Reflect.deleteProperty(globalThis,'navigator'); }
+});

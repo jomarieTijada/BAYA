@@ -4,7 +4,8 @@ import { fireEvent, render as renderComponent, screen, waitFor, within } from '@
 
 
 import { StyleSheet } from 'react-native';
-import { useAudioPlayer } from 'expo-audio';
+import { createAudioPlayer } from 'expo-audio';
+import { characterRecording } from '../../../../modules/audio/manifest';
 import * as Speech from 'expo-speech';
 import { Colors } from '../../../../constants/theme';
 import { CharacterViewer } from '../CharacterViewer';
@@ -73,7 +74,8 @@ describe('CharacterViewer', () => {
     expect(screen.getAllByTestId('character-example-guide-line')).toHaveLength(1);
     for (const oldWord of ['Kama', 'Ngipin', 'Yaya']) expect(screen.queryByLabelText(english(oldWord))).toBeNull();
     fireEvent.press(screen.getByTestId('baya-pronunciation-button'));
-    await waitFor(() => expect(Speech.speak).toHaveBeenCalledWith(character.latinEquivalent, expect.objectContaining({ language: 'fil-PH' })));
+    await waitFor(() => expect(createAudioPlayer).toHaveBeenLastCalledWith(characterRecording(character.id)!.source, { updateInterval: 100 }));
+    expect(Speech.speak).not.toHaveBeenCalled();
   });
 
   it('uses one thin neutral guide for every Lesson 2 character', () => {
@@ -163,41 +165,61 @@ describe('CharacterViewer', () => {
     },
   );
 
-  it('speaks the selected character when BAYA is pressed without a recording', async () => {
+  it('plays the mapped recording and releases it when the character changes', () => {
     const source = getBaybayinCharacterTopic('topic-2-1')!;
-    render(<ViewerHarness topic={source} />);
-    const player = jest.mocked(useAudioPlayer).mock.results.at(-1)?.value;
-    const mascot = screen.getByTestId('baya-mascot');
+    const view = render(<ViewerHarness topic={source} />);
     fireEvent.press(screen.getByTestId('baya-pronunciation-button'));
-    await waitFor(() => expect(Speech.speak).toHaveBeenCalledWith('A', expect.objectContaining({ language: 'fil-PH' })));
-    expect(player.pause).not.toHaveBeenCalled();
+    const first = jest.mocked(createAudioPlayer).mock.results.at(-1)!.value;
+    expect(first.play).toHaveBeenCalledTimes(1);
     fireEvent.press(screen.getByTestId('character-chip-e_i'));
-    expect(screen.getByTestId('baya-mascot')).toBe(mascot);
-    expect(screen.getByTestId('baya-pronunciation-button').props.accessibilityState.selected).toBe(false);
-    expect(player.pause).not.toHaveBeenCalled();
+    expect(first.pause).toHaveBeenCalledTimes(1);
+    expect(first.remove).toHaveBeenCalledTimes(1);
     fireEvent.press(screen.getByTestId('baya-pronunciation-button'));
-    await waitFor(() => expect(Speech.speak).toHaveBeenCalledWith('E o I', expect.any(Object)));
+    expect(createAudioPlayer).toHaveBeenLastCalledWith(characterRecording('e_i')!.source, { updateInterval: 100 });
+    const second = jest.mocked(createAudioPlayer).mock.results.at(-1)!.value;
+    view.unmount();
+    expect(second.remove).toHaveBeenCalledTimes(1);
+    expect(Speech.speak).not.toHaveBeenCalled();
   });
 
-  it('leaves Expo to release the player when a letter or topic unmounts', () => {
+  it('disables unavailable recordings without synthesized substitution', () => {
     const source = getBaybayinCharacterTopic('topic-2-1')!;
-    const firstPlayerIndex = jest.mocked(useAudioPlayer).mock.results.length;
-    const view = render(<ViewerHarness topic={source} />);
-    fireEvent.press(screen.getByTestId('character-chip-e_i'));
-    view.unmount();
-    for (const result of jest.mocked(useAudioPlayer).mock.results.slice(firstPlayerIndex)) {
-      expect(result.value.pause).not.toHaveBeenCalled();
+    const character = { ...source.characters[0], id: 'unmapped', audioSrc: null };
+    render(<CharacterViewer topicId={source.id} characters={[character]} selectedIndex={0} onSelectCharacter={jest.fn()} />);
+    expect(screen.getByTestId('baya-pronunciation-button').props.accessibilityState.disabled).toBe(true);
+    expect(screen.getByText('Recording unavailable.')).toBeTruthy();
+    expect(Speech.speak).not.toHaveBeenCalled();
+  });
+});
+
+
+describe('Base-only and separate kudlit instruction', () => {
+  it('renders all fourteen original base illustrations without any variation controls', () => {
+    const topic = getBaybayinCharacterTopic('topic-2-2')!;
+    expect(topic.characters).toHaveLength(14);
+    expect(topic.characters.map(c => c.id)).toEqual(['ba','ka','da_ra','ga','ha','la','ma','na','nga','pa','sa','ta','wa','ya']);
+    expect(topic.characters.find(c => c.id === 'da_ra')?.unicodeSymbol).toBe('ᜇ');
+    render(<ViewerHarness topic={topic} />);
+    for (const character of topic.characters) {
+      fireEvent.press(screen.getByTestId(`character-chip-${character.id}`));
+      expect(screen.getByTestId('character-glyph').props.source).toBe(character.imageAsset);
+      expect(screen.getByTestId('character-example-syllable').props.children.toLowerCase()).toBe(character.example.highlightedSyllable.toLowerCase());
+      expect(screen.queryByTestId('kudlit-recordings')).toBeNull();
+      expect(screen.queryByText(/Sounds with kudlit|Mga tunog na may kudlit/)).toBeNull();
+      expect(screen.queryByText('Be')).toBeNull();
+      expect(screen.queryByText('Bi')).toBeNull();
+      expect(screen.queryByText('Bo')).toBeNull();
+      expect(screen.queryByText('Bu')).toBeNull();
+      expect(characterRecording(character.id)).toBeTruthy();
     }
   });
-
-  it('plays a supplied recording through the shared Expo audio controller', async () => {
-    const source = getBaybayinCharacterTopic('topic-2-1')!;
-    const character = { ...source.characters[0], audioSrc: 'https://cdn.example.test/a.mp3' };
-    render(<CharacterViewer topicId={source.id} characters={[character]} selectedIndex={0} onSelectCharacter={jest.fn()} />);
-    fireEvent.press(screen.getByTestId('baya-pronunciation-button'));
-    const player = jest.mocked(useAudioPlayer).mock.results.at(-1)?.value;
-    expect(player.pause).toHaveBeenCalled();
-    await waitFor(() => expect(player.seekTo).toHaveBeenCalledWith(0));
-    await waitFor(() => expect(player.play).toHaveBeenCalled());
+  it.each(['upper','lower'])('retains %s variant illustrations and verified recordings in its own topic', position => {
+    const topic = getBaybayinCharacterTopic(`topic-kudlit-${position}`)!;
+    render(<ViewerHarness topic={topic} />);
+    expect(screen.getByTestId('kudlit-recordings')).toBeTruthy();
+    expect(screen.getByText(position === 'upper' ? 'Be' : 'Bo')).toBeTruthy();
+    expect(screen.queryByText(position === 'upper' ? 'Bo' : 'Be')).toBeNull();
+    fireEvent.press(screen.getByTestId('character-chip-da_ra'));
+    expect(screen.getByText(/Recording awaiting validation|Hinihintay ang pagpapatunay/)).toBeTruthy();
   });
 });

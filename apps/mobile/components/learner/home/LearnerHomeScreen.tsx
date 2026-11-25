@@ -1,3 +1,4 @@
+import { openLearnerSettings } from '../settings/LearnerSettingsOverlay';
 import { activityResumeService } from '../../../database/services/activityResumeService';
 import React, { useCallback, useState } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
@@ -53,7 +54,7 @@ export function LearnerHomeScreen() {
       header={(
         <LearnerHeader
           learner={data.learner}
-          onOpenSettings={() => router.push('/learner/settings')}
+          onOpenSettings={() => openLearnerSettings()}
         />
       )}
       testID="learner-home-root"
@@ -119,7 +120,7 @@ const styles = StyleSheet.create({
   },
   scrollContentLandscape: {
     paddingHorizontal: 6,
-    paddingVertical: 4,
+    paddingVertical: 2,
   },
   content: {
     alignSelf: 'stretch',
@@ -129,6 +130,6 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   contentLandscape: {
-    gap: ResponsiveLayout.heroToCardsGap.compact,
+    gap: 12,
   },
 });

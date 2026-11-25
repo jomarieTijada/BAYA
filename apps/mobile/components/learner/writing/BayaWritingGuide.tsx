@@ -11,6 +11,9 @@ import { RecognitionMatchRow } from './RecognitionMatchRow';
 import { useLoadingEllipsis } from './useLoadingEllipsis';
 
 export function BayaWritingGuide({ recognition, targetClass, mascotSize, dense = false, fillHeight = false, showMascot = true }: { recognition: RecognitionState; targetClass: string; mascotSize: number; dense?: boolean; fillHeight?: boolean; showMascot?: boolean }) {
+  const [guideHeight, setGuideHeight] = useState(0);
+  const [bubbleHeight, setBubbleHeight] = useState(0);
+  const fittedMascotSize = fillHeight && guideHeight > 0 ? Math.min(mascotSize, Math.max(0, guideHeight - bubbleHeight - 16) / .72) : mascotSize;
   const [bubbleWidth, setBubbleWidth] = useState(0);
   const loadingDots = useLoadingEllipsis(recognition.status === 'analyzing');
   let result;
@@ -32,12 +35,12 @@ export function BayaWritingGuide({ recognition, targetClass, mascotSize, dense =
     }
   }
 
-  return <View style={[styles.root, dense && styles.denseRoot, fillHeight && styles.fillHeight]} testID="baya-writing-guide">
-    <View accessibilityLiveRegion="polite" onLayout={event => { const width = event.nativeEvent.layout.width; if (Math.abs(width - bubbleWidth) > 1) setBubbleWidth(width); }} style={[styles.bubble, dense && styles.denseBubble, result && styles.resultBubble, result && density !== 'regular' && styles.compactResultBubble, result && density === 'tight' && styles.tightResultBubble]} testID="baya-result-bubble">
+  return <View style={[styles.root, dense && styles.denseRoot, fillHeight && styles.fillHeight]} testID="baya-writing-guide" onLayout={event => setGuideHeight(event.nativeEvent.layout.height)}>
+    <View accessibilityLiveRegion="polite" onLayout={event => { const width = event.nativeEvent.layout.width; setBubbleHeight(event.nativeEvent.layout.height); if (Math.abs(width - bubbleWidth) > 1) setBubbleWidth(width); }} style={[styles.bubble, dense && styles.denseBubble, result && styles.resultBubble, result && density !== 'regular' && styles.compactResultBubble, result && density === 'tight' && styles.tightResultBubble]} testID="baya-result-bubble">
       {(() => {
         if (result && top) {
           return <View style={[styles.resultContent, density !== 'regular' && styles.compactResultContent]}>
-        <RecognitionMatchRow density={density} prediction={top} />
+        <RecognitionMatchRow showGlyph={false} density={density} prediction={top} />
         <Text style={[styles.status, density !== 'regular' && styles.compactStatus, (() => {
           if (matchesTarget) {
             return styles.correctStatus;
@@ -87,7 +90,7 @@ export function BayaWritingGuide({ recognition, targetClass, mascotSize, dense =
         }
       })()} />}
     </View>
-    {showMascot && <View style={[styles.mascot, fillHeight && styles.fillMascot]}><BayaMascot crop="upperBody" decorative size={mascotSize} state={(() => {
+    {showMascot && <View testID="baya-writing-mascot" style={[styles.mascot, fillHeight && [styles.fillMascot, { height: fittedMascotSize * .72 }]]}><BayaMascot crop="upperBody" decorative size={fittedMascotSize} state={(() => {
       if (matchesTarget) {
         return 'wave';
       } else {
@@ -100,10 +103,10 @@ export function BayaWritingGuide({ recognition, targetClass, mascotSize, dense =
 const styles = StyleSheet.create({
   root: { alignItems: 'center', flexDirection: 'column', gap: Spacing.sm, justifyContent: 'center', minWidth: 0, width: '100%' },
   denseRoot: { gap: Spacing.xs },
-  fillHeight: { flex: 1, justifyContent: 'flex-start' },
+  fillHeight: { flex: 1, minHeight: 0, justifyContent: 'flex-end' },
   mascot: { alignItems: 'center', justifyContent: 'center', paddingTop: 6 },
-  fillMascot: { flex: 1 },
-  bubble: { ...speechBubbleStyles.surface, alignSelf: 'stretch', minWidth: 0, padding: Spacing.md },
+  fillMascot: { flexShrink: 0, overflow: 'hidden', justifyContent: 'flex-start', paddingTop: 0, marginTop: 6 },
+  bubble: { ...speechBubbleStyles.surface, alignSelf: 'stretch', flexShrink: 0, minWidth: 0, padding: Spacing.md },
   denseBubble: { ...speechBubbleStyles.landscape },
   resultBubble: { paddingHorizontal: 12, paddingVertical: 8 },
   compactResultBubble: { paddingHorizontal: 8, paddingVertical: 4 },

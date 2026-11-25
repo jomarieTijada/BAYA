@@ -106,11 +106,11 @@ describe('BAYA Database Inspector', () => {
     const tables = await getTableList();
     const lessonsTable = tables.find(t => t.name === 'lessons');
     expect(lessonsTable).toBeDefined();
-    expect(lessonsTable!.rowCount).toBe(3);
+    expect(lessonsTable!.rowCount).toBe(4);
 
     const activitiesTable = tables.find(t => t.name === 'activities');
     expect(activitiesTable).toBeDefined();
-    expect(activitiesTable!.rowCount).toBe(9);
+    expect(activitiesTable!.rowCount).toBe(11);
   });
 
   // -----------------------------------------------------------------------
@@ -119,13 +119,13 @@ describe('BAYA Database Inspector', () => {
   test('3. table data returns paginated results', async () => {
     const result = await getTableData('activities', 1, 5);
     expect(result.rows.length).toBeLessThanOrEqual(5);
-    expect(result.totalRows).toBe(9);
+    expect(result.totalRows).toBe(11);
     expect(result.page).toBe(1);
     expect(result.pageSize).toBe(5);
-    expect(result.totalPages).toBe(2);
+    expect(result.totalPages).toBe(3);
 
     const page2 = await getTableData('activities', 2, 5);
-    expect(page2.rows.length).toBe(4);
+    expect(page2.rows.length).toBe(5);
     expect(page2.page).toBe(2);
   });
 
@@ -167,7 +167,7 @@ describe('BAYA Database Inspector', () => {
   // -----------------------------------------------------------------------
   test('6. read-only SELECT query is allowed and returns results', async () => {
     const result = await executeReadOnlyQuery('SELECT * FROM lessons;');
-    expect(result.rowCount).toBe(3);
+    expect(result.rowCount).toBe(4);
     expect(result.columns).toContain('lesson_id');
     expect(result.executionTimeMs).toBeGreaterThanOrEqual(0);
   });
@@ -309,7 +309,7 @@ describe('BAYA Database Inspector', () => {
   // -----------------------------------------------------------------------
   test('18. query results auto-limit to MAX_QUERY_ROWS', async () => {
     const result = await executeReadOnlyQuery('SELECT * FROM activities');
-    expect(result.rowCount).toBe(9);
+    expect(result.rowCount).toBe(11);
     expect(result.rowCount).toBeLessThanOrEqual(500);
   });
 

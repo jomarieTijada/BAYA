@@ -1,5 +1,7 @@
+import { useKeyboardFocus } from '../../../hooks/useKeyboardFocus';
 import { Pressable } from '../../../localization/components';
 import React from "react";
+import { Colors } from '../../../constants/theme';
 import { View } from 'react-native';
 import { BayaMascot } from "../../branding/BayaMascot";
 import { AppIcon } from "../../ui/AppIcon";
@@ -15,6 +17,8 @@ export function StoryMascot({
   onPress,
   accessibilityLabel,
   speaking = false,
+  disabled = false,
+  loading = false,
 }: {
   mascotWidth: number;
   halfBodyHeight: number;
@@ -26,10 +30,13 @@ export function StoryMascot({
   onPress?: () => void;
   accessibilityLabel?: string;
   speaking?: boolean;
+  disabled?: boolean;
+  loading?: boolean;
 }) {
+  const { focused, onFocus, onBlur, onPressIn } = useKeyboardFocus();
   const mascot = <BayaMascot
     autoplay={process.env.NODE_ENV !== "test"}
-    crop="default"
+    crop={fullBody ? "default" : "upperBody"}
     decorative
     size={mascotWidth}
     state={(() => {
@@ -66,9 +73,11 @@ export function StoryMascot({
           return <Pressable
         accessibilityLabel={accessibilityLabel}
         accessibilityRole="button"
-        accessibilityState={{ selected: speaking }}
+        accessibilityState={{ selected: speaking, disabled, busy: loading }}
+        disabled={disabled}
+        onFocus={onFocus} onPressIn={onPressIn} onBlur={onBlur}
         onPress={onPress}
-        style={styles.mascotButton}
+        style={[styles.mascotButton, { outlineWidth: 0 }, focused && { outlineColor: Colors.focus, outlineWidth: 2, outlineStyle: 'solid' }]}
         testID="baya-pronunciation-button"
       >
         {mascot}

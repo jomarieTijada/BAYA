@@ -1,9 +1,10 @@
+import { openLearnerSettings } from '../settings/LearnerSettingsOverlay';
 import React, { useCallback, useState } from 'react';
 import {
   StyleSheet,
   View,
 } from 'react-native';
-import { useFocusEffect, useRouter } from 'expo-router';
+import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
 
 import { LearnerScreenContainer } from '../LearnerScreenContainer';
 import { LearnerAppShell } from '../LearnerAppShell';
@@ -12,6 +13,9 @@ import { LessonJourney } from './LessonJourney';
 import { createApprovedModules, getLessonProgress, type LessonItem } from './lessonData';
 import { activityResumeService } from '../../../database/services/activityResumeService';
 import { curriculumService } from '../../../database/services/curriculumService';
+import { characterActivityService } from '../../../database/services/characterActivityService';
+import type { SetAttempt } from '../../../modules/characterActivities/assessment';
+import { ModuleAssessments } from '../characterActivities/ModuleAssessments';
 
 /**
  * BAYA Learner Lessons Screen — Baybayin Basics Learning Journey Map.
@@ -19,18 +23,24 @@ import { curriculumService } from '../../../database/services/curriculumService'
  * full responsiveness, and accessibility.
  */
 export function LessonScreen() {
+  const { moduleId } = useLocalSearchParams<{ moduleId?: string }>();
   const router = useRouter();
+  const [attempts, setAttempts] = useState<SetAttempt[]>([]);
   const [lastTopics, setLastTopics] = useState<Record<string, string | null>>({});
   const [availableHeight, setAvailableHeight] = useState(0);
   const [lessons, setLessons] = useState<readonly LessonItem[]>(createApprovedModules);
 
   useFocusEffect(useCallback(() => {
     let isMounted = true;
+    setLessons(createApprovedModules());
+    setAttempts([]);
     async function hydrateLessonsFromDatabase() {
       try {
         const modules = await curriculumService.getCurriculumModules();
         if (isMounted && modules && modules.length > 0) {
           setLessons(modules);
+          const saved = await characterActivityService.list();
+          if (isMounted) setAttempts(saved);
           const bookmarks = await Promise.all(modules.map(async module => [module.id, await activityResumeService.lastOpened(module.id)] as const));
           if (isMounted) setLastTopics(Object.fromEntries(bookmarks));
         }
@@ -61,7 +71,7 @@ export function LessonScreen() {
   };
 
   const handleOpenSettings = () => {
-    router.push('/learner/settings');
+    openLearnerSettings();
   };
 
   return (
@@ -89,9 +99,11 @@ export function LessonScreen() {
         <View style={styles.organicBlob3} />
       </View>
 
-      <LearnerScreenContainer testID="lesson-scroll" onViewportHeightChange={setAvailableHeight}>
+      <LearnerScreenContainer alignTop testID="lesson-scroll" onViewportHeightChange={setAvailableHeight}>
         <LessonJourney
           lessons={lessons}
+          renderAssessments={id => <ModuleAssessments topicId={id} modules={lessons} attempts={attempts} />}
+          moduleId={moduleId}
           availableHeight={availableHeight}
           onTopicPress={topicId => router.push({ pathname: '/learner/activities/[topicId]', params: { topicId } })}
           onContinueLesson={handleContinueLesson}

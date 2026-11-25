@@ -26,8 +26,8 @@ describe('PWA Service Worker Generation and Fetch Strategy', () => {
     expect(scriptContent).toContain("request.mode === 'navigate'");
     expect(scriptContent).toContain("isNavigation");
     expect(scriptContent).toContain("cache.match('/')");
-    expect(scriptContent).toContain("caches.match('/')");
-    expect(scriptContent).toContain("BAYA is currently offline");
+    expect(scriptContent).not.toContain("caches.match('/')");
+    expect(scriptContent).toContain("Learning materials are not prepared");
     expect(scriptContent).not.toContain("status: 504");
   });
 

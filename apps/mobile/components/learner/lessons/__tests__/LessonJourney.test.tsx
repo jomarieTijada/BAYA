@@ -33,14 +33,14 @@ it('replaces arrows with bounded keyboard and accessibility scrolling', () => {
   expect(row.props.tabIndex).toBe(0);
   const target = {}, preventDefault = jest.fn();
   fireEvent(row, 'keyDown', { key: 'ArrowRight', target, currentTarget: target, preventDefault });
-  expect(scrollTo).toHaveBeenLastCalledWith({ x: 264, animated: false });
+  expect(scrollTo).toHaveBeenLastCalledWith({ x: 300, animated: false });
   expect(preventDefault).toHaveBeenCalled();
   expect(screen.queryByTestId('floating-swipe-hint')).toBeNull();
   fireEvent(row, 'keyDown', { key: 'End', target, currentTarget: target, preventDefault });
   expect(scrollTo).toHaveBeenLastCalledWith({ x: 300, animated: false });
   fireEvent.scroll(row, { nativeEvent: { contentOffset: { x: 300, y: 0 } } });
   fireEvent(row, 'accessibilityAction', { nativeEvent: { actionName: 'decrement' } });
-  expect(scrollTo).toHaveBeenLastCalledWith({ x: 36, animated: false });
+  expect(scrollTo).toHaveBeenLastCalledWith({ x: 0, animated: false });
   fireEvent(row, 'keyDown', { key: 'Home', target, currentTarget: target, preventDefault });
   expect(scrollTo).toHaveBeenLastCalledWith({ x: 0, animated: false });
 });

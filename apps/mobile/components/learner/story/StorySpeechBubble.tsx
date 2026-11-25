@@ -22,6 +22,8 @@ export function StorySpeechBubble({
   isTablet,
   stackGuide,
   floating = false,
+  centered = false,
+  bottomTail = false,
   maxHeight,
   onClose,
 }: {
@@ -34,6 +36,8 @@ export function StorySpeechBubble({
   isTablet: boolean;
   stackGuide: boolean;
   floating?: boolean;
+  centered?: boolean;
+  bottomTail?: boolean;
   maxHeight?: number;
   onClose?: () => void;
 }) {
@@ -46,6 +50,7 @@ export function StorySpeechBubble({
     effectiveLandscape && styles.bubbleTextLandscape,
     stackGuide && styles.bubbleTextPhonePortrait,
     floating && { fontSize: 16, lineHeight: 22, textAlign: 'left' },
+    centered && { textAlign: 'center' },
   ]}>{renderHighlightedText(localized(takeawayText), highlightWords?.map(localized))}</Text>;
   return (
     <View
@@ -56,14 +61,14 @@ export function StorySpeechBubble({
         compact && styles.bubbleCardCompact,
         effectiveLandscape && styles.bubbleCardLandscape,
         stackGuide && styles.bubbleCardPhonePortrait,
-        floating && { flex: 0, flexShrink: 1, minHeight: 44, maxHeight, paddingLeft: 12, paddingRight: 44, paddingVertical: 8, justifyContent: 'center' },
+        floating && { flex: 0, flexShrink: 1, minHeight: children ? 68 : 44, maxHeight, paddingLeft: 12, paddingRight: onClose ? 44 : 12, paddingVertical: 8, justifyContent: 'center' },
       ]}
       testID="story-speech-bubble"
     >
       {(() => {
         if (floating) {
           return <>
-        <Pressable accessibilityRole="button" accessibilityLabel="Isara ang mensahe ni BAYA" onPress={onClose}
+        {onClose && <Pressable accessibilityRole="button" accessibilityLabel="Isara ang mensahe ni BAYA" onPress={onClose}
           style={({ pressed }) => ({ position: 'absolute', right: 0, top: 0, width: 44, height: 44, alignItems: 'center', justifyContent: 'center', opacity: (() => {
             if (pressed) {
               return 0.6;
@@ -72,7 +77,7 @@ export function StorySpeechBubble({
             }
           })() })}>
           <AppIcon name="close" color="accent" size={22} />
-        </Pressable>
+        </Pressable>}
         <ScrollView style={{ flexShrink: 1 }} testID="story-message-scroll">{message}</ScrollView>
       </>;
         } else {
@@ -80,6 +85,7 @@ export function StorySpeechBubble({
         }
       })()}
 
+      {bottomTail && <SpeechBubbleTail position="bottom" size="compact" />}
       {!floating && !stackGuide && <SpeechBubbleTail position="right" size={(() => {
         if (effectiveLandscape) {
           return 'landscape';

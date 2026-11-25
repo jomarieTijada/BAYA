@@ -67,7 +67,7 @@ const expectedModule3Topics = [
 ];
 async function expectApprovedCurriculum(db: DatabaseConnection) {
   const modules = await curriculumService.getCurriculumModules(db);
-  expect(modules).toHaveLength(3);
+  expect(modules).toHaveLength(4);
   expect(modules[0].id).toBe('module-1');
   expect(modules[0].title).toBe('Pagkilala sa Baybayin');
   expect(modules[0].topics.map(({ id, title }) => ({ id, title }))).toEqual(expectedTopics);
@@ -79,9 +79,11 @@ async function expectApprovedCurriculum(db: DatabaseConnection) {
   expect(modules[1].topics.map(({ id, title }) => ({ id, title }))).toEqual(expectedModule2Topics);
   expect(modules[1].topics.map(({ status, contentAvailable }) => ({ status, contentAvailable })))
     .toEqual([{ status: 'locked', contentAvailable: true }, { status: 'locked', contentAvailable: true }]);
-  expect(modules[2].id).toBe('module-3');
-  expect(modules[2].topics.map(({ id, title }) => ({ id, title }))).toEqual(expectedModule3Topics);
-  expect(modules[2].topics.every(topic => topic.contentAvailable)).toBe(true);
+  expect(modules[2].id).toBe('module-kudlit');
+  expect(modules[2].topics.map(t => t.id)).toEqual(['topic-kudlit-upper', 'topic-kudlit-lower']);
+  expect(modules[3].id).toBe('module-3');
+  expect(modules[3].topics.map(({ id, title }) => ({ id, title }))).toEqual(expectedModule3Topics);
+  expect(modules[3].topics.every(topic => topic.contentAvailable)).toBe(true);
 }
 
 describe('Strict curriculum service and SQLite boundaries', () => {
@@ -95,9 +97,9 @@ describe('Strict curriculum service and SQLite boundaries', () => {
   });
   afterEach(async () => { await closeDatabaseConnection(); });
 
-  it('loads all three supplied modules and exact titles from SQLite', async () => {
+  it('loads all four configured modules and exact titles from SQLite', async () => {
     await expectApprovedCurriculum(db);
-    expect(await lessonRepository.getLessons(undefined, db)).toHaveLength(3);
+    expect(await lessonRepository.getLessons(undefined, db)).toHaveLength(4);
     expect((await lessonRepository.getActivitiesByLesson('module-1', db)).map((row) => row.title))
       .toEqual(expectedTopics.map((topic) => topic.title));
     expect((await lessonRepository.getActivitiesByLesson('module-2', db)).map((row) => row.title))
@@ -123,7 +125,7 @@ describe('Strict curriculum service and SQLite boundaries', () => {
       expect(await curriculumService.getTopicById(id, db)).toBeNull();
       expect(await lessonRepository.getActivityById(id, db)).toBeNull();
     }
-    expect(await lessonRepository.getLessons(undefined, db)).toHaveLength(3);
+    expect(await lessonRepository.getLessons(undefined, db)).toHaveLength(4);
     expect(await lessonRepository.getActivitiesByLesson('module-1', db)).toHaveLength(5);
   });
   it('does not let renamed database titles or descriptions override the manifest', async () => {

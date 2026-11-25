@@ -2,6 +2,10 @@ const { getDefaultConfig } = require('expo/metro-config');
 
 /** @type {import('expo/metro-config').MetroConfig} */
 const config = getDefaultConfig(__dirname);
+config.transformer.assetPlugins = [
+  ...(config.transformer.assetPlugins ?? []),
+  require.resolve('./scripts/export-font-path.cjs'),
+];
 
 // Keep bundled media explicit so native builds and Expo Go resolve local files.
 for (const extension of ['mp4', 'wasm']) {

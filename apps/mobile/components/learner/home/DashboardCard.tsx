@@ -69,9 +69,7 @@ const styles = StyleSheet.create({
   cardCompact: {
     borderRadius: 16,
     borderWidth: 2.5,
-    height: 114,
-    maxHeight: 116,
-    minHeight: 112,
+    minHeight: 124,
     paddingBottom: 6,
     paddingHorizontal: 8,
     paddingTop: 14,
@@ -124,7 +122,7 @@ const styles = StyleSheet.create({
     zIndex: 10,
   },
   labelCompact: {
-    height: 18,
+    minHeight: 20,
     minWidth: 0,
     paddingHorizontal: 9,
     paddingVertical: 1,
@@ -148,9 +146,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   labelTextCompact: {
-    fontSize: 9.5,
+    fontSize: 11,
     includeFontPadding: false,
     letterSpacing: 0.5,
-    lineHeight: 12,
+    lineHeight: 14,
   },
 });

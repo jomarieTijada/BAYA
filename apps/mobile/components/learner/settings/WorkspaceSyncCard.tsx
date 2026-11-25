@@ -11,53 +11,55 @@ import { defaultWorkspaceInfo, type WorkspaceInfo } from './workspaceSettingsDat
 import { p } from '../../progress/ProgressPage';
 
 /** Presentation only: connection and sync time always come from the service. */
-export function WorkspaceSyncCard({ initialInfo = defaultWorkspaceInfo, onJoinPress, onSyncPress, busy = false, message = '', pending = false }: {
-  initialInfo?: WorkspaceInfo; onJoinPress?: () => void; onSyncPress?: () => void; busy?: boolean; message?: string; pending?: boolean;
+export function WorkspaceSyncCard({ initialInfo = defaultWorkspaceInfo, onJoinPress, onSyncPress, busy = false, message = '', pending = false, landscapeCompact = false }: {
+  landscapeCompact?: boolean; initialInfo?: WorkspaceInfo; onJoinPress?: () => void; onSyncPress?: () => void; busy?: boolean; message?: string; pending?: boolean;
 }) {
   const { width } = useWindowDimensions();
-  const compact = width < 750;
+  const compact = width < 750 || landscapeCompact;
+  const smallText = landscapeCompact ? { fontSize: 12, lineHeight: 16 } : undefined;
+  const smallName = landscapeCompact ? { fontSize: 16, lineHeight: 20 } : undefined;
   const connected = initialInfo.status === 'connected';
-  return <View testID="workspace-sync-card" style={[p.card, styles.card, { padding: (() => {
+  return <View testID="workspace-sync-card" style={[p.card, styles.card, landscapeCompact && { gap: 6, borderRadius: 16 }, { padding: (() => {
     if (compact) {
-      return 20;
+      return landscapeCompact ? 10 : 20;
     } else {
       return 24;
     }
   })() }]}>
-    <View style={[p.row, { justifyContent: 'space-between' }]}>
-      <View style={[p.row, { flexShrink: 1, flexWrap: 'nowrap' }]}>
-        <View style={styles.icon}><AppIcon name="cloud" color="accent" size={30} /></View>
+    <View style={[p.row, landscapeCompact && { gap: 6 }, { justifyContent: 'space-between' }]}>
+      <View style={[p.row, landscapeCompact && { gap: 6 }, { flexShrink: 1, flexWrap: 'nowrap' }]}>
+        <View style={[styles.icon, landscapeCompact && { width: 32, height: 32, borderRadius: 10 }]}><AppIcon name="cloud" color="accent" size={landscapeCompact ? 20 : 30} /></View>
         <View style={{ flexShrink: 1 }}><Text style={[p.name, { fontSize: (() => {
           if (compact) {
-            return 23;
+            return landscapeCompact ? 16 : 23;
           } else {
             return 29;
           }
-        })() }]}>{SETTINGS_COPY.workspaceTitle}</Text><Text style={p.subtitle}>{SETTINGS_COPY.workspaceSubtitle}</Text></View>
+        })() }]}>{SETTINGS_COPY.workspaceTitle}</Text>{!landscapeCompact && <Text style={p.subtitle}>{SETTINGS_COPY.workspaceSubtitle}</Text>}</View>
       </View>
       <ConnectionStatusBadge connected={connected} landscapeCompact={compact} />
     </View>
-    <View style={styles.inset}>
+    <View style={[styles.inset, landscapeCompact && { padding: 8, borderRadius: 12 }]}>
       {(() => {
         if (connected) {
           return <>
-        <View style={[p.row, { justifyContent: 'space-between', alignItems: 'flex-start' }]}>
-          <View style={{ flex: 1, minWidth: 150 }}><Text style={styles.label}>{SETTINGS_COPY.workspaceLabel}</Text><Text style={p.name} verbatim>{initialInfo.workspaceName}</Text></View>
+        <View style={[p.row, landscapeCompact && { gap: 6 }, { justifyContent: 'space-between', alignItems: 'flex-start' }]}>
+          <View style={{ flex: 1, minWidth: 150 }}><Text style={styles.label}>{SETTINGS_COPY.workspaceLabel}</Text><Text style={[p.name, smallName]} verbatim>{initialInfo.workspaceName}</Text></View>
           <View style={{ maxWidth: '100%' }}><Text style={[styles.label, { textAlign: 'right' }]}>{SETTINGS_COPY.workspaceCodeLabel}</Text><Text selectable style={styles.code} verbatim>{initialInfo.workspaceCode}</Text></View>
         </View>
         <View style={styles.divider} />
-        <View style={[p.row, { justifyContent: 'space-between' }]}>
-          <View style={[p.row, { gap: 8 }]}>{initialInfo.lastSyncedText && initialInfo.lastSyncedText !== 'Not synchronized yet' && <AppIcon name="circleCheck" color="goal" size={22} />}<Text style={p.text}>{SETTINGS_COPY.lastSynchronized}</Text></View>
-          <Text style={[p.text, { fontWeight: '700' }]}>{initialInfo.lastSyncedText ?? 'Not synchronized yet'}</Text>
+        <View style={[p.row, landscapeCompact && { gap: 6 }, { justifyContent: 'space-between' }]}>
+          <View style={[p.row, landscapeCompact && { gap: 6 }, { gap: 8 }]}>{initialInfo.lastSyncedText && initialInfo.lastSyncedText !== 'Not synchronized yet' && <AppIcon name="circleCheck" color="goal" size={22} />}<Text style={[p.text, smallText]}>{SETTINGS_COPY.lastSynchronized}</Text></View>
+          <Text style={[p.text, smallText, { fontWeight: '700' }]}>{initialInfo.lastSyncedText ?? 'Not synchronized yet'}</Text>
         </View>
       </>;
         } else {
           return <>
-        <View style={[p.row, { flexWrap: 'nowrap' }]}><View style={styles.dot} /><Text style={[p.name, { fontSize: (() => {
+        <View style={[p.row, landscapeCompact && { gap: 6 }, { flexWrap: 'nowrap' }]}><View style={styles.dot} /><Text style={[p.name, { fontSize: (() => {
           if (compact) {
-            return 20;
+            return landscapeCompact ? 12 : 20;
           } else {
-            return 23;
+            return landscapeCompact ? 16 : 23;
           }
         })(), flex: 1 }]}>{(() => {
           if (pending) {
@@ -66,7 +68,7 @@ export function WorkspaceSyncCard({ initialInfo = defaultWorkspaceInfo, onJoinPr
             return SETTINGS_COPY.independentHeadline;
           }
         })()}</Text></View>
-        <Text style={[p.text, { marginTop: 16 }]}>{(() => {
+        <Text style={[p.text, smallText, { marginTop: landscapeCompact ? 5 : 16 }]}>{(() => {
           if (pending) {
             return 'You can keep learning while you wait. Sync becomes available after approval.';
           } else {
@@ -77,9 +79,9 @@ export function WorkspaceSyncCard({ initialInfo = defaultWorkspaceInfo, onJoinPr
         }
       })()}
     </View>
-    <View style={styles.actions}>
-      {!!message && <Text accessibilityLiveRegion="polite" style={[p.text, { textAlign: 'center' }]}>{message}</Text>}
-      {(connected || !pending) && <AppButton accessibilityLabel={(() => {
+    <View style={[styles.actions, landscapeCompact && { gap: 5, paddingTop: 0 }]}>
+      {!!message && <Text accessibilityLiveRegion="polite" style={[p.text, smallText, { textAlign: 'center' }]}>{message}</Text>}
+      {(connected || !pending) && <AppButton compact={landscapeCompact} accessibilityLabel={(() => {
         if (connected) {
           return SETTINGS_COPY.syncAccessibility;
         } else {
@@ -110,8 +112,8 @@ export function WorkspaceSyncCard({ initialInfo = defaultWorkspaceInfo, onJoinPr
             return onJoinPress ?? (() => router.push('/learner/workspaces'));
           }
         })()}
-        style={{ width: '100%', maxWidth: 620, minHeight: 64, borderRadius: 22 }} />}
-      <Text style={[p.text, { color: Colors.textMuted, textAlign: 'center' }]}>{(() => {
+        style={{ width: '100%', maxWidth: 620, minHeight: landscapeCompact ? 36 : 64, borderRadius: landscapeCompact ? 14 : 22 }} />}
+      <Text style={[p.text, smallText, { color: Colors.textMuted, textAlign: 'center' }]}>{(() => {
         if (connected) {
           return SETTINGS_COPY.connectedFooter;
         } else {

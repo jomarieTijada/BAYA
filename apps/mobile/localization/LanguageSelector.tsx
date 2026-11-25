@@ -3,11 +3,11 @@ import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import { Colors, FontFamily } from '../constants/theme';
 import { languageNames, type Language } from './core';
 import { useLocalization } from './LocalizationProvider';
-export function LanguageSelector() {
+export function LanguageSelector({ compact = false }: { compact?: boolean }) {
   const { language, setLanguage, t, saveError } = useLocalization();
-  return <View style={styles.card} testID="language-selector">
-    <Text style={styles.title}>{t('Language')}</Text>
-    <View style={styles.options} accessibilityRole="radiogroup" accessibilityLabel={t('Language')}>
+  return <View style={[styles.card, compact && { padding: 6, gap: 6, marginBottom: 0, borderRadius: 16 }]} testID="language-selector">
+    <Text style={[styles.title, compact && { fontSize: 16 }]}>{t('Language')}</Text>
+    <View style={[styles.options, compact && { gap: 6, flexWrap: "nowrap" }]} accessibilityRole="radiogroup" accessibilityLabel={t('Language')}>
       {(Object.keys(languageNames) as Language[]).map(value => <Pressable key={value} {...(Platform.OS === 'web' ? {
         tabIndex: language === value ? 0 : -1,
         onKeyDown: (event: React.KeyboardEvent<HTMLElement>) => {
@@ -17,8 +17,8 @@ export function LanguageSelector() {
           setLanguage(next);
           event.currentTarget.parentElement?.querySelector<HTMLElement>('[aria-label="' + languageNames[next] + '"]')?.focus();
         },
-      } : {})} accessibilityRole="radio" accessibilityState={{ checked: language === value }} accessibilityLabel={languageNames[value]} onPress={() => setLanguage(value)} style={[styles.option, language === value && styles.selected]}>
-        <Text style={styles.label}>{languageNames[value]}</Text>
+      } : {})} accessibilityRole="radio" accessibilityState={{ checked: language === value }} accessibilityLabel={languageNames[value]} onPress={() => setLanguage(value)} style={[styles.option, compact && { minHeight: 36, minWidth: 0, flex: 1, paddingVertical: 6, paddingHorizontal: 6 }, language === value && styles.selected]}>
+        <Text style={[styles.label, compact && { fontSize: 14 }]}>{languageNames[value]}</Text>
       </Pressable>)}
     </View>
     {saveError && <Text accessibilityRole="alert" style={styles.error}>{t('Language changed for this session. Could not save it. Select the language to retry.')}</Text>}

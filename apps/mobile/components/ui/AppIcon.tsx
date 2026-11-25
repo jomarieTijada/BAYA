@@ -179,6 +179,7 @@ export function AppIcon({
           }
         })()}
         focusable={false}
+        pointerEvents={decorative ? "none" : "auto"}
         height={resolvedSize}
         viewBox={`0 0 ${ioniconUnits} ${ioniconUnits}`}
         width={resolvedSize}

@@ -1,9 +1,11 @@
+import { openLearnerSettings } from '../settings/LearnerSettingsOverlay';
 import { useActivityResume } from '../../../modules/resume/ActivityResumeBoundary';
 import { useLocalizedAlert } from '../../../localization/useLocalizedAlert';
 import React, { useEffect, useRef, useState } from 'react';
 
 import { useRouter } from 'expo-router';
 
+import { topicCheckpoints } from '../../../content/characterActivities/checkpoints';
 import { approvedCurriculum } from '../../../content/approvedCurriculum';
 import { getBaybayinCharacterTopic } from '../../../content/baybayinCharactersData';
 import { localLearnerService } from '../../../database/services/localLearnerService';
@@ -12,12 +14,11 @@ import { ActivityHeader } from '../activity/ActivityHeader';
 import { StoryNavigation } from '../story/StoryNavigation';
 import { CharacterViewer } from './CharacterViewer';
 
-const module = approvedCurriculum.find(item => item.id === 'module-2')!;
-const characterCounts = module.topics.map(item => getBaybayinCharacterTopic(item.id)?.characters.length ?? 0);
-const totalCharacters = characterCounts.reduce((total, count) => total + count, 0);
-
 /** Shared Module 2 shell; only the supplied topic data changes. */
-function CharacterTopicScreen({ topicId }: { topicId: 'topic-2-1' | 'topic-2-2' }) {
+export function CharacterTopicScreen({ topicId }: { topicId: string }) {
+  const module = approvedCurriculum.find(m => m.topics.some(t => t.id === topicId))!;
+  const characterCounts = module.topics.map(t => getBaybayinCharacterTopic(t.id)?.characters.length ?? 0);
+  const totalCharacters = characterCounts.reduce((n, count) => n + count, 0);
   const resume = useActivityResume();
   const localizedAlert = useLocalizedAlert();
   const router = useRouter();
@@ -35,9 +36,10 @@ function CharacterTopicScreen({ topicId }: { topicId: 'topic-2-1' | 'topic-2-2' 
   const updateResume = resume?.update;
   useEffect(() => { updateResume?.({ kind: 'characters', index: selectedIndex }, true); }, [selectedIndex, updateResume]);
   const isLastCharacter = selectedIndex === (topic?.characters.length ?? 1) - 1;
+  const checkpoint = topicCheckpoints.find(c => c.topicId === topicId);
   const isLastTopic = index === module.topics.length - 1;
   const backToLessons = () => router.dismissTo('/learner/lessons');
-  const openTopic = (id: 'topic-2-1' | 'topic-2-2') => {
+  const openTopic = (id: string) => {
     setSelection({ topicId: id, index: 0 });
     router.setParams({ topicId: id });
   };
@@ -45,7 +47,7 @@ function CharacterTopicScreen({ topicId }: { topicId: 'topic-2-1' | 'topic-2-2' 
 
   const previous = () => {
     if (selectedIndex > 0) selectCharacter(selectedIndex - 1);
-    else if (index > 0) openTopic(module.topics[index - 1].id as 'topic-2-1' | 'topic-2-2');
+    else if (index > 0) openTopic(module.topics[index - 1].id);
   };
 
   const completeAndNext = async () => {
@@ -58,7 +60,7 @@ function CharacterTopicScreen({ topicId }: { topicId: 'topic-2-1' | 'topic-2-2' 
     setIsAdvancing(true);
     let target;
     if (!isLastTopic) {
-      target = (module.topics[index + 1].id as 'topic-2-1' | 'topic-2-2');
+      target = (module.topics[index + 1].id);
     } else {
       target = '/learner/lessons';
     }
@@ -68,7 +70,8 @@ function CharacterTopicScreen({ topicId }: { topicId: 'topic-2-1' | 'topic-2-2' 
       else await localLearnerService.completeTopic(topicId);
       if (resume && !resume.isActive()) return;
       if (__DEV__) console.info('[BAYA Progress] navigate topicId=%s target=%s', topicId, target);
-      if (!isLastTopic) openTopic(module.topics[index + 1].id as 'topic-2-1' | 'topic-2-2');
+      if (checkpoint) router.push({ pathname: '/learner/character-activities', params: { checkpointId: checkpoint.id } });
+      else if (!isLastTopic) openTopic(module.topics[index + 1].id);
       else backToLessons();
     } catch (error) {
       if (__DEV__) console.warn('[BAYA Progress] request topicId=%s status=failed', topicId, { error });
@@ -85,14 +88,15 @@ function CharacterTopicScreen({ topicId }: { topicId: 'topic-2-1' | 'topic-2-2' 
       activeRoute="/learner/lessons"
       backgroundColor="#FFFDF7"
       showBottomNavigation={false}
-      header={<ActivityHeader currentStep={characterCounts.slice(0, index).reduce((total, count) => total + count, 0) + selectedIndex + 1} totalSteps={totalCharacters} onBack={backToLessons} onOpenSettings={() => router.push('/learner/settings')} subtitle={topic.title} title={module.title} />}
+      header={<ActivityHeader currentStep={characterCounts.slice(0, index).reduce((total, count) => total + count, 0) + selectedIndex + 1} totalSteps={totalCharacters} onBack={backToLessons} onOpenSettings={() => openLearnerSettings()} subtitle={topic.title} title={module.title} />}
+      floatingFooter
       footer={<StoryNavigation disabled={isAdvancing} onPrevious={(() => {
         if (selectedIndex > 0 || index > 0) {
           return previous;
         } else {
           return undefined;
         }
-      })()} onNext={completeAndNext} isLast={isLastTopic && isLastCharacter} previousAccessibilityLabel={(() => {
+      })()} onNext={completeAndNext} isLast={!checkpoint && isLastTopic && isLastCharacter} previousAccessibilityLabel={(() => {
         if (selectedIndex > 0) {
           return 'Bumalik sa nakaraang simbolo';
         } else {
@@ -102,6 +106,7 @@ function CharacterTopicScreen({ topicId }: { topicId: 'topic-2-1' | 'topic-2-2' 
         if (!isLastCharacter) {
           return 'Susunod na simbolo';
         } else {
+          if (checkpoint) return 'Next';
           if (isLastTopic) {
             return 'Bumalik sa mga paksa';
           } else {
@@ -118,4 +123,3 @@ function CharacterTopicScreen({ topicId }: { topicId: 'topic-2-1' | 'topic-2-2' 
 
 export function Topic2_1Screen() { return <CharacterTopicScreen topicId="topic-2-1" />; }
 export function Topic2_2Screen() { return <CharacterTopicScreen topicId="topic-2-2" />; }
-

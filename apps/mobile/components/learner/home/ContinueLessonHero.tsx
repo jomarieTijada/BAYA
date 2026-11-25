@@ -40,7 +40,7 @@ export function ContinueLessonHero({ lesson, onContinue, onLayout }: ContinueLes
     mascotSize = 190;
   } else {
     if (landscapeCompact) {
-      mascotSize = 116;
+      mascotSize = 94;
     } else {
       if (compact) {
         mascotSize = 165;
@@ -253,9 +253,7 @@ const styles = StyleSheet.create({
   heroLandscapeCompact: {
     alignItems: 'center',
     borderWidth: 3,
-    height: 100,
-    maxHeight: 102,
-    minHeight: 98,
+    minHeight: 76,
     paddingHorizontal: 10,
     paddingVertical: 0,
   },
@@ -289,11 +287,11 @@ const styles = StyleSheet.create({
   },
   mascotAreaLandscapeCompact: {
     alignSelf: 'flex-end',
-    height: 94,
+    height: 70,
     justifyContent: 'flex-end',
     marginBottom: 0,
     overflow: 'hidden',
-    width: 118,
+    width: 96,
   },
   lessonContent: {
     flex: 1,
@@ -344,8 +342,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     gap: 7,
-    marginBottom: 3,
-    marginTop: 2,
+    marginBottom: 0,
+    marginTop: 1,
   },
   writingIcon: {
     alignItems: 'center',
@@ -383,7 +381,7 @@ const styles = StyleSheet.create({
   titleLandscapeCompact: {
     fontSize: 17,
     includeFontPadding: false,
-    lineHeight: 20,
+    lineHeight: 19,
   },
   subtitle: {
     color: Colors.textMuted,

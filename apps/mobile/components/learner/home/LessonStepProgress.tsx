@@ -455,8 +455,8 @@ const styles = StyleSheet.create({
   },
   stepLandscapeCompact: {
     borderWidth: 1.5,
-    height: 24,
-    width: 24,
+    height: 20,
+    width: 20,
   },
   stepReached: {
     backgroundColor: Colors.rolePrimary,
@@ -480,8 +480,8 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.rolePrimary,
     borderColor: '#FFBA66',
     borderWidth: 2.5,
-    height: 28,
-    width: 28,
+    height: 22,
+    width: 22,
   },
   connector: {
     borderRadius: Radius.full,

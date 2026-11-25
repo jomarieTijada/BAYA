@@ -10,6 +10,7 @@ const MASCOT_PROMINENCE_SCALE = 1.4;
 const MAX_SPREAD_MASCOT_WIDTH = 220;
 
 export type StoryGuideProps = {
+  mascotSize?: number;
   compact?: boolean;
   highlight?: string;
   highlightWords?: string[];
@@ -20,6 +21,8 @@ export type StoryGuideProps = {
   onMascotPress?: () => void;
   mascotAccessibilityLabel?: string;
   mascotSpeaking?: boolean;
+  mascotDisabled?: boolean;
+  mascotLoading?: boolean;
   maxSpreadMascotWidth?: number;
   fullBodyMascot?: boolean;
   style?: StyleProp<ViewStyle>;
@@ -35,6 +38,7 @@ export type StoryGuideProps = {
  * - Large, child-friendly spoken message without artificial labels or headings.
  */
 export function StoryGuide({
+  mascotSize,
   compact = false,
   highlight,
   highlightWords,
@@ -45,6 +49,8 @@ export function StoryGuide({
   onMascotPress,
   mascotAccessibilityLabel,
   mascotSpeaking = false,
+  mascotDisabled = false,
+  mascotLoading = false,
   maxSpreadMascotWidth = MAX_SPREAD_MASCOT_WIDTH,
   fullBodyMascot = false,
   style,
@@ -100,7 +106,7 @@ export function StoryGuide({
   } else {
     baseMascotWidth = preferredMascotWidth;
   }
-  const mascotWidth = Math.min(
+  const mascotWidth = mascotSize ?? Math.min(
     Math.round(baseMascotWidth * MASCOT_PROMINENCE_SCALE),
     (() => {
       if (isDesktop || isTablet) {
@@ -152,6 +158,8 @@ export function StoryGuide({
         onPress={onMascotPress}
         accessibilityLabel={mascotAccessibilityLabel}
         speaking={mascotSpeaking}
+        disabled={mascotDisabled}
+        loading={mascotLoading}
       />
     </View>
   );

@@ -1,8 +1,10 @@
+import { openLearnerSettings } from '../settings/LearnerSettingsOverlay';
+import { topicCheckpoints } from '../../../content/characterActivities/checkpoints';
+import { WritingPracticeLayout } from './WritingPracticeLayout';
 import { useActivityResume } from '../../../modules/resume/ActivityResumeBoundary';
 import { useLocalizedAlert } from '../../../localization/useLocalizedAlert';
-import { getBaybayinTracingGuide } from '../../../content/baybayinTracingGuides';
 import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { Platform, ScrollView, StyleSheet, View } from 'react-native';
+import { Platform, View } from 'react-native';
 import { useRouter } from 'expo-router';
 
 import { approvedCurriculum } from '../../../content/approvedCurriculum';
@@ -11,7 +13,6 @@ import { BAYA_WRITING_MASTERY_POLICY, isValidWritingResult, nextValidCount, vali
 import { validWritingCanvas } from '../../../content/writingCanvasValidation';
 import { BAYA_CLASS_LABELS } from '../../../ml/bayaClassLabels';
 import { WritingMasteryIndicator } from './WritingMasteryIndicator';
-import { WritingInstructions } from './WritingInstructions';
 import { recognizeWriting } from '../../../ml/writingRecognition';
 import { assessRecognition, canAwardWritingMastery } from '../../../ml/recognitionReliability';
 import { BayaModelError } from '../../../ml/BayaModelError';
@@ -19,19 +20,12 @@ import { preloadBayaModel } from '../../../ml/bayaModel';
 import { BAYA_MODEL_CONFIG, BAYA_RECOGNITION_MODEL_NAME, BAYA_RECOGNITION_MODEL_VERSION, BAYA_RECOGNITION_MODEL_URL } from '../../../ml/bayaModelConfig';
 import { getBayaRuntimeDiagnostics } from '../../../ml/bayaRuntimeDiagnostics';
 import { getWritingTopic, writingTopics } from '../../../content/writingLessonData';
-import { Colors, Radius, ResponsiveLayout, Spacing } from '../../../constants/theme';
 import { localLearnerService } from '../../../database/services/localLearnerService';
-import { useResponsiveLayout } from '../../../hooks/useResponsiveLayout';
 import { LearnerAppShell } from '../LearnerAppShell';
 import { ActivityHeader } from '../activity/ActivityHeader';
-import { BayaWritingGuide } from './BayaWritingGuide';
 import { downloadBayaCapture, isBayaCaptureEnabled, type BayaCaptureDownload } from './bayaCapture';
-import { CharacterReferenceCard } from './CharacterReferenceCard';
-import { ConfidenceCard } from './ConfidenceCard';
-import { WritingCanvas, type WritingCanvasSize } from './WritingCanvas';
+import { type WritingCanvasSize } from './WritingCanvas';
 import { WritingNavigation } from './WritingNavigation';
-import { WritingToolbar } from './WritingToolbar';
-import { getWritingLayout } from './writingLayout';
 import { presentTopPrediction, rankPredictions, type RecognitionState } from './recognitionPresentation';
 
 const module = approvedCurriculum.find(item => item.id === 'module-3')!;
@@ -75,14 +69,11 @@ function WritingPracticeSession({ topicId, selection, setSelection, masteredChar
   const initialCount = restored ? resume?.counts[restored.characterId] ?? 0 : 0;
   const localizedAlert = useLocalizedAlert();
   const router = useRouter();
-  const { width, height } = useResponsiveLayout();
   const referenceTarget = useRef<View>(null);
   const canvasTarget = useRef<View>(null);
   const starsTarget = useRef<View>(null);
   const actionTarget = useRef<View>(null);
   const guideTargets = { reference: referenceTarget, canvas: canvasTarget, stars: starsTarget, action: actionTarget };
-  const [available, setAvailable] = useState({ width, height });
-  const { columns, compact, dense } = getWritingLayout(available.width, available.height);
   const [strokes, setStrokes] = useState<StrokeData>(() => restored?.strokes ?? []);
   const [canvasSize, setCanvasSize] = useState<WritingCanvasSize>({ width: restored?.width ?? 1, height: restored?.height ?? 1 });
   const currentStrokes = useRef(strokes);
@@ -95,12 +86,6 @@ function WritingPracticeSession({ topicId, selection, setSelection, masteredChar
   const [recognition, setRecognition] = useState<RecognitionState>({ status: 'idle' });
   const [captureDownload, setCaptureDownload] = useState<BayaCaptureDownload | null>(null);
   useEffect(() => () => { if (captureDownload) URL.revokeObjectURL(captureDownload.url); }, [captureDownload]);
-  let mascotSize;
-  if (dense) {
-    mascotSize = Math.min(64, Math.max(48, available.height * 0.17));
-  } else {
-    mascotSize = Math.min(220, available.width * 0.17, available.height * 0.3);
-  }
   const [busy, setBusy] = useState(false);
   const advancing = useRef(false);
   const completed = useRef(false);
@@ -272,7 +257,9 @@ function WritingPracticeSession({ topicId, selection, setSelection, masteredChar
       completed.current = true;
       if (!mounted.current || (resume && !resume.isActive()) || completionTarget !== activeTarget.current) return;
       if (__DEV__) console.info('[BAYA Progress] navigate topicId=%s target=%s', topicId, target);
-      if (!lastTopic) switchTopic(writingTopics[topicIndex + 1].id);
+      const checkpoint = topicCheckpoints.find(c => c.topicId === topicId);
+      if (checkpoint) router.push({ pathname: '/learner/character-activities', params: { checkpointId: checkpoint.id } });
+      else if (!lastTopic) switchTopic(writingTopics[topicIndex + 1].id);
       else backToLessons();
     } catch (error) {
       if (__DEV__) console.warn('[BAYA Progress] request topicId=%s status=failed', topicId, { error });
@@ -297,75 +284,24 @@ function WritingPracticeSession({ topicId, selection, setSelection, masteredChar
       }
     }
   }
-  const navigation = <WritingNavigation phase={actionPhase} busy={busy} canAdvance={canProceed && !busy} canCheck={strokes.some(stroke => stroke.length > 0) && !busy && !requiresRedraw && !canProceed} canEdit={!busy} compact={compact} isLast={lastTopic && lastExercise} targetRef={actionTarget} onCheck={() => { void onCheck(); }} onNext={() => { void onNext(); }} onRetry={onRetry} />;
   return <LearnerAppShell
     activeRoute="/learner/lessons"
     backgroundColor="#FFFDF7"
-    header={<ActivityHeader currentStep={previousCount + selectedIndex + 1} totalSteps={totalExercises} onBack={onBackToWriting} onOpenSettings={() => router.push('/learner/settings')} subtitle={topic.title} title={module.title} />}
+    header={<ActivityHeader currentStep={previousCount + selectedIndex + 1} totalSteps={totalExercises} onBack={onBackToWriting} onOpenSettings={() => openLearnerSettings()} subtitle={topic.title} title={module.title} />}
     showBottomNavigation={false}
 
     testID={`writing-practice-screen-${topicId}`}
   >
-    <ScrollView contentContainerStyle={[styles.scrollContent, dense && styles.denseScrollContent, { paddingHorizontal: (() => {
-      if (available.width < 700 || dense) {
-        return ResponsiveLayout.pagePadding.phone;
-      } else {
-        return ResponsiveLayout.pagePadding.desktop;
-      }
-    })() }]} keyboardShouldPersistTaps="handled" onLayout={event => { const { width: measuredWidth, height: measuredHeight } = event.nativeEvent.layout; if (measuredWidth !== available.width || measuredHeight !== available.height) setAvailable({ width: measuredWidth, height: measuredHeight }); }} style={styles.scroll}>
-      <View style={[styles.columns, dense && styles.denseColumns, columns === 1 && styles.stack, columns === 3 && styles.desktopColumns, columns === 3 && { minHeight: Math.max(0, available.height - ((() => {
-        if (dense) {
-          return Spacing.xs * 2;
-        } else {
-          return Spacing.md + Spacing.lg;
-        }
-      })())) }]}>
-        <View ref={referenceTarget} collapsable={false} testID="writing-reference-panel" style={[styles.referenceColumn, columns === 1 && styles.stackColumn, columns === 2 && styles.twoColumn]}>
-          <CharacterReferenceCard compact={compact} dense={dense} exercise={exercise} fullHeight={columns === 3} />
-        </View>
-        <View style={[styles.canvasColumn, columns === 1 && styles.stackColumn, columns === 2 && styles.twoColumn]}>
-          <View style={[styles.canvasCard, dense && styles.denseCanvasCard, columns === 3 && styles.tallCard]}>
-            <WritingInstructions key={targetKey} count={validCount} unsuccessful={unsuccessful} compact={dense}>
-              <WritingToolbar canEdit={strokes.length > 0 && !busy && !requiresRedraw && !canProceed} dense={dense} onClear={onClear} onUndo={onUndo} />
-            </WritingInstructions>
-            <WritingCanvas onStrokeEnd={draft => { if (exercise) resume?.update({ kind: 'writing', index: selectedIndex, characterId: exercise.characterId, strokes: draft, width: currentSize.current.width, height: currentSize.current.height, submitted: needsRedraw.current }, true); }} targetRef={canvasTarget} disabled={busy || requiresRedraw || canProceed} compact={compact} dense={dense} fillHeight={columns === 3} hintImage={getBaybayinTracingGuide(exercise.characterId)} onChange={onChangeStrokes} onSizeChange={size => { if (size.width !== canvasSize.width || size.height !== canvasSize.height) { drawingVersion.current += 1; currentSize.current = size; setCanvasSize(size); if (checking.current) setRecognition({ status: 'idle' }); } }} strokes={strokes} />
-          </View>
-        </View>
-        <View testID="writing-feedback-panel" style={[styles.feedbackColumn, dense && styles.denseFeedbackColumn, columns === 1 && styles.stackColumn, columns === 2 && styles.rowFullColumn, columns === 3 && { maxHeight: Math.max(0, available.height - ((() => {
-          if (dense) {
-            return Spacing.xs * 2;
-          } else {
-            return Spacing.md + Spacing.lg;
-          }
-        })())) }]}>
-          <ConfidenceCard dense={dense} embedded guideTargets={guideTargets} phase={actionPhase} action={navigation} progress={<WritingMasteryIndicator targetRef={starsTarget} key={targetKey} count={validCount} required={BAYA_WRITING_MASTERY_POLICY.requiredValidAttempts} compact={dense} />}>
-
-          <BayaWritingGuide dense={dense} mascotSize={mascotSize} recognition={recognition} targetClass={exercise.characterId} />
-          {captureDownload && <a download={captureDownload.filename} href={captureDownload.url}>Download diagnostic JSON</a>}
-          </ConfidenceCard>
-        </View>
-      </View>
-    </ScrollView>
+    <WritingPracticeLayout exercise={exercise} targetKey={targetKey}
+      instruction={{ count: validCount, unsuccessful }}
+      toolbar={{ canEdit: strokes.length > 0 && !busy && !requiresRedraw && !canProceed, onClear, onUndo }}
+      canvas={{ strokes, disabled: busy || requiresRedraw || canProceed, onChange: onChangeStrokes,
+        onStrokeEnd: draft => { if (exercise) resume?.update({ kind: 'writing', index: selectedIndex, characterId: exercise.characterId, strokes: draft, width: currentSize.current.width, height: currentSize.current.height, submitted: needsRedraw.current }, true); },
+        onSizeChange: size => { if (size.width !== canvasSize.width || size.height !== canvasSize.height) { drawingVersion.current += 1; currentSize.current = size; setCanvasSize(size); if (checking.current) setRecognition({ status: 'idle' }); } } }}
+      recognition={recognition} phase={actionPhase} guideTargets={guideTargets}
+      action={({ compact }) => <WritingNavigation phase={actionPhase} busy={busy} canAdvance={canProceed && !busy} canCheck={strokes.some(stroke => stroke.length > 0) && !busy && !requiresRedraw && !canProceed} canEdit={!busy} compact={compact} isLast={lastTopic && lastExercise && !topicCheckpoints.some(c => c.topicId === topicId)} targetRef={actionTarget} onCheck={() => { void onCheck(); }} onNext={() => { void onNext(); }} onRetry={onRetry} />}
+      progress={({ dense }) => <WritingMasteryIndicator targetRef={starsTarget} key={targetKey} count={validCount} required={BAYA_WRITING_MASTERY_POLICY.requiredValidAttempts} compact={dense} />}
+      diagnostic={captureDownload && <a download={captureDownload.filename} href={captureDownload.url}>Download diagnostic JSON</a>}
+    />
   </LearnerAppShell>;
 }
-
-const styles = StyleSheet.create({
-
-  scroll: { flex: 1, minHeight: 0, width: '100%' },
-  scrollContent: { flexGrow: 1, paddingBottom: Spacing.lg, paddingTop: Spacing.md, width: '100%' },
-  denseScrollContent: { paddingBottom: Spacing.xs, paddingTop: Spacing.xs },
-  columns: { alignItems: 'stretch', flexDirection: 'row', flexWrap: 'wrap', gap: Spacing.md, width: '100%' },
-  denseColumns: { gap: Spacing.sm },
-  desktopColumns: { flexWrap: 'nowrap' },
-  stack: { flexDirection: 'column', flexWrap: 'nowrap' },
-  referenceColumn: { flex: 0.9, minWidth: 0 },
-  canvasColumn: { flex: 2.1, minWidth: 0 },
-  feedbackColumn: { alignSelf: 'flex-start', backgroundColor: Colors.surface, borderColor: Colors.border, borderRadius: Radius.xl, borderWidth: 1, flex: 1.05, gap: Spacing.sm, minWidth: 0, padding: Spacing.md },
-  denseFeedbackColumn: { gap: Spacing.xs, padding: Spacing.sm },
-  twoColumn: { flexBasis: '46%', flexGrow: 1 },
-  stackColumn: { flexBasis: 'auto', flexGrow: 0, flexShrink: 0, width: '100%' },
-  rowFullColumn: { flexBasis: '100%', flexGrow: 0, width: '100%' },
-  canvasCard: { backgroundColor: Colors.surface, borderColor: Colors.border, borderRadius: Radius.xl, borderWidth: 1, gap: Spacing.sm, minWidth: 0, padding: Spacing.md, width: '100%' },
-  denseCanvasCard: { gap: Spacing.xs, padding: Spacing.sm },
-  tallCard: { flex: 1 },
-});

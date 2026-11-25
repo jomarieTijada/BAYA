@@ -1,7 +1,9 @@
+import { LearnerSettingsOverlay } from '../../components/learner/settings/LearnerSettingsOverlay';
 import React from 'react';
 import { Stack } from 'expo-router';
 
 import { Colors } from '../../constants/theme';
+import { OfflineLearningStatus } from '../../components/learner/OfflineLearningStatus';
 
 /**
  * Learner route boundary only.
@@ -12,12 +14,12 @@ import { Colors } from '../../constants/theme';
  */
 export default function LearnerLayout() {
   return (
-    <Stack
+    <><OfflineLearningStatus /><Stack
       screenOptions={{
         animation: 'fade',
         contentStyle: { backgroundColor: Colors.background, flex: 1 },
         headerShown: false,
       }}
-    />
+    /><LearnerSettingsOverlay /></>
   );
 }

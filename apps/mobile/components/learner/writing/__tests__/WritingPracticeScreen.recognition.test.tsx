@@ -22,11 +22,12 @@ const masteryLabel = (n: number) => ["Wala pang bituin ang nakuha. Kailangan ng 
 const mockRecognizeWriting = jest.fn();
 const mockRecordAttempt = jest.fn();
 const mockDismissTo = jest.fn();
+const mockPush = jest.fn();
 let mockStrokeData: any;
 let mockViewport = { width: 1440, height: 900 };
 
 jest.mock('expo-router', () => ({
-  useRouter: () => ({ dismissTo: mockDismissTo, push: jest.fn(), setParams: jest.fn() }),
+  useRouter: () => ({ dismissTo: mockDismissTo, push: mockPush, setParams: jest.fn() }),
 }));
 jest.mock('../../../../hooks/useResponsiveLayout', () => ({
   useResponsiveLayout: () => mockViewport,
@@ -733,7 +734,7 @@ describe('Module 3 single-action BAYA recognition', () => {
     expect(service.completeTopic).toHaveBeenCalledWith('topic-3-2');
     fireEvent.press(screen.getByLabelText('Clear test canvas'));
     await act(async () => finishCompletion());
-    expect(mockDismissTo).toHaveBeenCalledWith('/learner/lessons');
+    expect(mockPush).toHaveBeenCalledWith({ pathname: '/learner/character-activities', params: { checkpointId: 'checkpoint-v1-topic-3-2' } });
     await act(async () => screen.UNSAFE_getByType(WritingNavigation).props.onNext());
     expect(service.completeTopic).toHaveBeenCalledTimes(1);
   }, 15000);

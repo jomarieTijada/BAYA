@@ -1,3 +1,4 @@
+import { openLearnerSettings } from '../settings/LearnerSettingsOverlay';
 import { useActivityResume } from '../../../modules/resume/ActivityResumeBoundary';
 import { useLocalizedAlert } from '../../../localization/useLocalizedAlert';
 import { Text } from '../../../localization/components';
@@ -124,7 +125,7 @@ function StorybookTopicSession({ topicId, initialPage }: { topicId: string; init
         header={(
           <LearnerPageHeader
             onBack={backToTopics}
-            onOpenSettings={() => router.push('/learner/settings')}
+            onOpenSettings={() => openLearnerSettings()}
             testID="topic-unavailable-header"
             title="Aralin"
           />
@@ -143,6 +144,7 @@ function StorybookTopicSession({ topicId, initialPage }: { topicId: string; init
       showBottomNavigation={false}
       activeRoute="/learner/lessons"
       backgroundColor="#FFFDF7"
+      floatingFooter
       footer={(
         <StoryNavigation
           disabled={isAdvancing}
@@ -192,7 +194,7 @@ function StorybookTopicSession({ topicId, initialPage }: { topicId: string; init
         <ActivityHeader
           currentStep={index + 1}
           onBack={backToTopics}
-          onOpenSettings={() => router.push('/learner/settings')}
+          onOpenSettings={() => openLearnerSettings()}
           subtitle={data.title}
           title={module.title}
           totalSteps={module.topics.length}

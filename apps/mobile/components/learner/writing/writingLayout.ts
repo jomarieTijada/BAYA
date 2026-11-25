@@ -2,7 +2,7 @@
 export function getWritingLayout(width: number, height: number) {
   const isLandscape = width > height;
   let columns: 1 | 2 | 3;
-  if (width >= 980 || (isLandscape && width >= 600)) {
+  if (width >= 980 || (isLandscape && width >= 520)) {
     columns = 3;
   } else {
     if (width >= 700) {

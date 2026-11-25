@@ -7,7 +7,7 @@ import { AppIcon } from '../ui/AppIcon';
 import { OriginStorybook } from './OriginStorybook';
 
 /** Shared learner/mentor entry; replay never reads or resets introduction state. */
-export function StorybookSettings() {
+export function StorybookSettings({ compact = false }: { compact?: boolean }) {
   const { t } = useLocalization();
   const [open, setOpen] = useState(false);
   const [focused, setFocused] = useState(false);
@@ -15,14 +15,14 @@ export function StorybookSettings() {
   useFocusEffect(useCallback(() => () => setOpen(false), []));
   const title = t('Read BAYA’s Story');
   const description = t('Discover Bayani, the inspiration behind BAYA, and the people who helped bring our learning journey to life.');
-  return <View style={styles.card} testID="storybook-settings">
-    <Text accessibilityRole="header" style={styles.heading}>{t('About BAYA')}</Text>
+  return <View style={[styles.card, compact && { padding: 6, gap: 4, marginBottom: 0, borderRadius: 16 }]} testID="storybook-settings">
+    <Text accessibilityRole="header" style={[styles.heading, compact && { fontSize: 16 }]}>{t('About BAYA')}</Text>
     <Pressable ref={trigger} accessibilityRole="button" accessibilityLabel={title} accessibilityHint={description}
       testID="storybook-settings-trigger" onPress={() => setOpen(true)} onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
-      style={({ pressed }) => [styles.row, (pressed || focused) && styles.active]}>
-      <AppIcon name="lessons" color="accent" size={24} />
-      <View style={styles.copy}><Text style={styles.title}>{title}</Text><Text style={styles.description}>{description}</Text></View>
-      <AppIcon name="chevronRight" color="secondaryText" size={20} />
+      style={({ pressed }) => [styles.row, compact && { padding: 2, gap: 6 }, (pressed || focused) && styles.active]}>
+      {!compact && <AppIcon name="lessons" color="accent" size={24} />}
+      <View style={[styles.copy, compact && { gap: 3 }]}><Text style={[styles.title, compact && { fontSize: 14 }]}>{title}</Text><Text style={[styles.description, compact && { fontSize: 12, lineHeight: 16 }]}>{description}</Text></View>
+      <AppIcon name="chevronRight" color="secondaryText" size={compact ? 12 : 20} />
     </Pressable>
     {open && <OriginStorybook onClose={() => {
       setOpen(false);

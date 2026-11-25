@@ -92,6 +92,8 @@ export function ProfileSetupForm({
         onDismiss={() => { setConfirmIndependent(false); submissionLockedRef.current = false; }}
         primaryAction={{ label: 'YES, CONTINUE', onPress: () => { setConfirmIndependent(false); onContinue(); } }}
         secondaryAction={{ label: 'NO, ENTER WORKSPACE ID', onPress: () => { setConfirmIndependent(false); router.push('/learner/workspaces'); } }} />
+      <View style={density === 'landscapeCompact' ? { flexDirection: 'row', gap: 14 } : { gap: 12 }}>
+      <View style={density === 'landscapeCompact' ? { flex: 1 } : undefined}>
       <AppTextInput
         autoCapitalize="words"
         autoComplete="name"
@@ -106,6 +108,8 @@ export function ProfileSetupForm({
         value={name}
       />
 
+      </View>
+      <View style={density === 'landscapeCompact' ? { flex: 1 } : undefined}>
       <AppTextInput
         ref={workspaceInputRef}
         autoCapitalize="characters"
@@ -121,6 +125,8 @@ export function ProfileSetupForm({
         returnKeyType="done"
         value={workspaceId}
       />
+      </View>
+      </View>
 
       <View
         style={[

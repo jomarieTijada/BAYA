@@ -1,3 +1,4 @@
+import { useKeyboardFocus } from '../../../hooks/useKeyboardFocus';
 import { useLocalization } from '../../../localization/LocalizationProvider';
 import { Pressable } from '../../../localization/components';
 import React, { useEffect, useRef, useState } from 'react';
@@ -17,13 +18,13 @@ export function StoryMascotPopover({ content, pageWidth, pageHeight }: {
   const [open, setOpen] = useState(false);
   const [presented, setPresented] = useState(false);
   const [columnWidth, setColumnWidth] = useState(0);
-  const [focused, setFocused] = useState(false);
+  const { focused, onFocus, onBlur, onPressIn } = useKeyboardFocus();
   const [motion] = useState(() => new Animated.Value(0));
   const trigger = useRef<View>(null);
   const reduced = useReducedMotionPreference();
   const message = content.storyMessage || content.storyHighlight || '';
-  const size = Math.min(152, Math.max(112, pageHeight * 0.42));
-  const footerHeight = Math.round(size * 0.7);
+  const size = Math.min(pageWidth < 640 ? 180 : 260, Math.max(140, pageHeight * 0.65));
+  const footerHeight = Math.round(size * 0.65);
   const close = () => { setOpen(false); trigger.current?.focus?.(); };
   if (open && !presented) setPresented(true);
   if (!open && reduced && presented) setPresented(false);
@@ -88,17 +89,17 @@ export function StoryMascotPopover({ content, pageWidth, pageHeight }: {
     </Animated.View>}
     <Pressable ref={trigger} accessibilityRole="button" accessibilityLabel="Pindutin si BAYA upang mabasa ang kanyang mensahe."
       accessibilityState={{ expanded: open }} onPress={() => setOpen(value => !value)}
-      onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
+      onFocus={onFocus} onPressIn={onPressIn} onBlur={onBlur}
       style={({ pressed }) => [styles.trigger, { width: size, height: footerHeight }, focused && styles.focused, pressed && { opacity: 0.75 }]}
       testID="story-mascot-button">
-      <BayaMascot size={size} state="wave" autoplay={!reduced && process.env.NODE_ENV !== 'test'} loop={false} decorative />
+      <BayaMascot crop="upperBody" size={size} state="wave" autoplay={!reduced && process.env.NODE_ENV !== 'test'} loop={false} decorative />
 
     </Pressable>
   </View>;
 }
 const styles = StyleSheet.create({
   root: { flexShrink: 0, alignItems: 'flex-end', width: '100%', position: 'relative', zIndex: 5 },
-  trigger: { borderWidth: 2, borderColor: 'transparent', borderRadius: 16, alignItems: 'center', justifyContent: 'flex-start', overflow: 'hidden' },
+  trigger: { outlineWidth: 0, borderWidth: 2, borderColor: 'transparent', borderRadius: 16, alignItems: 'center', justifyContent: 'flex-start', overflow: 'hidden' },
   focused: { borderColor: Colors.rolePrimary },
   popover: { position: 'absolute', right: 0, zIndex: 10 },
   tailAnchor: { position: 'absolute', right: 0, bottom: 0, width: 96, height: 0 },

@@ -1,6 +1,7 @@
 import { StorybookSettings } from '../../landing/StorybookSettings';
 import { useLocalization } from '../../../localization/LocalizationProvider';
 import { LanguageSelector } from '../../../localization/LanguageSelector';
+import { OfflinePreparation } from './OfflinePreparation';
 import { Text } from '../../../localization/components';
 import React, { useCallback, useState } from 'react';
 import { router } from 'expo-router';
@@ -16,7 +17,7 @@ import { AppButton } from '../../ui/AppButton';
 import { BayaDialog } from '../../ui/BayaDialog';
 import { JoinRequestStatus } from '../JoinRequestStatus';
 
-export function SettingsScreen() {
+export function SettingsScreen({ onClose }: { onClose?: () => void } = {}) {
   const { language } = useLocalization();
   const services = useCloudServices();
   const { result, refresh } = useCloudRead(useCallback(() => services.workspaces.memberships(), [services]));
@@ -30,7 +31,9 @@ export function SettingsScreen() {
     }
   }, [services]));
   const [confirmLogout, setConfirmLogout] = useState(false);
-  const { width } = useWindowDimensions();
+  const { width, height } = useWindowDimensions();
+  const compact = width > height && height < 600;
+  const columns = compact || width >= 1000;
   const [showRequests, setShowRequests] = useState(true);
   const [pending, setPending] = useState(false);
   const [selected, setSelected] = useState<string>();
@@ -41,10 +44,14 @@ export function SettingsScreen() {
     active = [];
   }
   const membership = active.find(m => m.workspace.workspace_id === selected) ?? active[0];
-  return <ProgressPage title="Settings" onBack={() => { if (router.canGoBack()) router.back(); else router.replace('/learner/home'); }}>
-    <LanguageSelector />
-    <StorybookSettings />
-    <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', rowGap: 22, alignItems: 'flex-start' }}>
+  return <ProgressPage compact={compact} title="Settings" onBack={onClose ?? (() => { if (router.canGoBack()) router.back(); else router.replace('/learner/home'); })}>
+    <View style={columns ? { flexDirection: 'row', gap: 12, alignItems: 'flex-start' } : undefined}>
+    <View style={columns ? { width: '42%', gap: compact ? 4 : 8 } : undefined}>
+    <LanguageSelector compact={compact} />
+    <StorybookSettings compact={compact} />
+    <OfflinePreparation compact={compact} />
+    </View>
+    <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', rowGap: compact ? 6 : 22, alignItems: 'flex-start', ...(columns ? { flex: 1 } : {}) }}>
     <View style={{ display: (() => {
       if (showRequests) {
         return 'flex';
@@ -57,7 +64,7 @@ export function SettingsScreen() {
       } else {
         return '100%';
       }
-    })(), gap: 16 }}>
+    })(), gap: compact ? 6 : 16 }}>
       <JoinRequestStatus onApproved={refresh} onPendingChange={setPending} onVisibilityChange={setShowRequests} />
     </View>
     <View style={{ width: (() => {
@@ -66,7 +73,7 @@ export function SettingsScreen() {
       } else {
         return '100%';
       }
-    })(), gap: 16 }}>
+    })(), gap: compact ? 6 : 16 }}>
     {(() => {
       if (!result) {
         return <View style={p.card}><Notice busy text="Checking your workspace…" /></View>;
@@ -80,7 +87,7 @@ export function SettingsScreen() {
         } else {
           return <>
       {active.length > 1 && <View style={p.row}>{active.map(m => <TextAction verbatim key={m.membership.membership_id} label={m.workspace.workspace_name} onPress={() => setSelected(m.workspace.workspace_id)} />)}</View>}
-      <WorkspaceSyncCard initialInfo={(() => {
+      <WorkspaceSyncCard landscapeCompact={compact} initialInfo={(() => {
         if (membership) {
           return { status: 'connected', workspaceName: membership.workspace.workspace_name, workspaceCode: membership.workspace.workspace_code, lastSyncedText: syncTime(membership.membership.last_synced_at, new Date(), language) };
         } else {
@@ -94,7 +101,8 @@ export function SettingsScreen() {
         }
       }
     })()}
-    <Text style={[p.text, { fontSize: 14, lineHeight: 21 }]}>Keep using this device for your workspace access. Ask your mentor before clearing browser data or changing devices.</Text>
+    <Text style={[p.text, { fontSize: compact ? 11 : 14, lineHeight: compact ? 14 : 21 }]}>Keep using this device for your workspace access. Ask your mentor before clearing browser data or changing devices.</Text>
+    </View>
     </View>
     </View>
     {!!(account.result?.ok && account.result.data?.email) && <>

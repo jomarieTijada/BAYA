@@ -1,3 +1,4 @@
+import { openLearnerSettings } from './settings/LearnerSettingsOverlay';
 import React, { useState } from 'react';
 import { router } from 'expo-router';
 import { useCloudServices } from '../../modules/cloud/services';
@@ -11,7 +12,7 @@ export function LearnerActionMenu({ groups }: { groups: MenuGroup[] }) {
   const [confirm, setConfirm] = useState(false);
   return <>
     <BayaActionMenu label="Settings" groups={[...groups, { label: 'Settings', actions: [
-      { label: 'Language & BAYA Story', icon: 'settings', onPress: () => router.push('/learner/settings') },
+      { label: 'Language & BAYA Story', icon: 'settings', onPress: () => openLearnerSettings() },
     ] }, { label: 'Session', actions: [
       { label: 'Log Out', icon: 'arrowRight', onPress: () => { op.setMessage(''); setConfirm(true); } },
     ] }]} />

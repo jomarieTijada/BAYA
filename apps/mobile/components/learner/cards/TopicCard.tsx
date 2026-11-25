@@ -94,7 +94,7 @@ export function TopicCard({
       <View style={styles.copy}>
         <Text
           ellipsizeMode="tail"
-          numberOfLines={1}
+          numberOfLines={2}
           style={[
             styles.title,
             compact && styles.titleCompact,
@@ -122,10 +122,10 @@ const styles = StyleSheet.create({
     borderRadius: Radius.md,
     backgroundColor: Colors.background,
   },
-  cardCompact: { paddingHorizontal: 6, paddingVertical: 2, gap: 6 },
-  cardDense: { paddingHorizontal: 6, paddingVertical: 4, gap: 6 },
+  cardCompact: { minHeight: 44, paddingHorizontal: 10, paddingVertical: 8, gap: 8 },
+  cardDense: { minHeight: 26, paddingHorizontal: 7, paddingVertical: 3, gap: 5 },
   numberDense: { fontSize: 12 },
-  titleDense: { fontSize: 13, lineHeight: 17 },
+  titleDense: { fontSize: 12, lineHeight: 15 },
   copy: { flex: 1, minWidth: 0 },
   number: { color: Colors.textSecondary, fontSize: 15, fontWeight: "700" },
   numberCompact: { fontSize: 13 },

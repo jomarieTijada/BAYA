@@ -1,3 +1,4 @@
+import { openLearnerSettings } from '../settings/LearnerSettingsOverlay';
 import React, { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { useRouter } from "expo-router";
@@ -143,7 +144,7 @@ function ActivitySession({
   };
 
   const handleOpenSettings = () => {
-    router.push("/learner/settings");
+    openLearnerSettings();
   };
 
   /**

@@ -39,3 +39,9 @@ it('rejects a corrupt completion time without erasing saved progress',async()=>{
  await expect(readProgressSnapshot(db)).rejects.toThrow('Invalid saved completion timestamp');
  expect(raw.prepare('select count(*) as n from activity_attempts').get()?.n).toBe(5);
 });
+
+it('keeps new local Kudlit completions outside the unchanged cloud contract', async () => {
+ raw.exec("insert into activity_attempts values ('one','topic-kudlit-upper','completed','2026-01-03T00:00:00Z')");
+ expect((await readProgressSnapshot(db)).completed.map(t => t.topicKey)).toEqual(['topic-1-1']);
+ expect(raw.prepare("select count(*) as n from activity_attempts where activity_id='topic-kudlit-upper'").get()?.n).toBe(1);
+});

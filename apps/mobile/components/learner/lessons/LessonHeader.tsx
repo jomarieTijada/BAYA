@@ -1,3 +1,4 @@
+import { openLearnerSettings } from '../settings/LearnerSettingsOverlay';
 import React from 'react';
 import { type LayoutChangeEvent } from 'react-native';
 import { useRouter } from 'expo-router';
@@ -29,7 +30,7 @@ export function LessonHeader({
     <LearnerPageHeader
       onBack={handleBack}
       onLayout={onLayout}
-      onOpenSettings={onOpenSettings ?? (() => router.push('/learner/settings'))}
+      onOpenSettings={onOpenSettings ?? (() => openLearnerSettings())}
       progressPercentage={progressPercentage}
       subtitle={subtitle}
       testID="lesson-header"

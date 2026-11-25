@@ -41,20 +41,9 @@ export function BaseCard({
   );
   const cardStyle = [
     styles.base,
-    {
-      padding:
-        (() => {
-          if (size === "small") {
-            return Spacing.sm;
-          } else {
-            if (size === "large") {
-              return Spacing.lg;
-            } else {
-              return Spacing.md;
-            }
-          }
-        })(),
-    },
+    // Use the same axis properties as callers so compact overrides win on web.
+    { paddingHorizontal: size === 'small' ? Spacing.sm : size === 'large' ? Spacing.lg : Spacing.md,
+      paddingVertical: size === 'small' ? Spacing.sm : size === 'large' ? Spacing.lg : Spacing.md },
     theme === "warm" && styles.warm,
     variant === "filled" && styles.warm,
     variant === "outlined" && styles.outlined,

@@ -36,6 +36,7 @@ export function createProgressServices({ mentor, learnerClient, snapshot, failur
   }
   return {
     sync: async () => {
+      if (typeof navigator !== 'undefined' && navigator.onLine === false) return { ok: false, code: 'offline' };
       let saved: ProgressSnapshot;
       try { saved = await snapshot(); } catch (e) { return failure(e); }
       const existing = syncInFlight.get(saved.localProfileId);

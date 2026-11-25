@@ -1,7 +1,7 @@
-import { AccessibilityView, Text } from '../../localization/components';
+import { AccessibilityView } from '../../localization/components';
 import React, { useEffect, useRef, useState } from 'react';
 import { Animated, Platform, StyleSheet } from 'react-native';
-import { Colors, FontFamily, Spacing } from '../../constants/theme';
+import { Spacing } from '../../constants/theme';
 import { useReducedMotionPreference } from '../../hooks/useReducedMotionPreference';
 import { AppIcon } from './AppIcon';
 
@@ -28,9 +28,9 @@ export function SwipeHint({ direction }: { direction: 'left' | 'right' | null })
       const move = () => Animated.sequence([
         Animated.timing(translation, { toValue: (() => {
           if (direction === 'left') {
-            return -7;
+            return -22;
           } else {
-            return 7;
+            return 22;
           }
         })(), duration: 400, useNativeDriver: Platform.OS !== 'web' }),
         Animated.timing(translation, { toValue: 0, duration: 400, useNativeDriver: Platform.OS !== 'web' }),
@@ -48,17 +48,10 @@ export function SwipeHint({ direction }: { direction: 'left' | 'right' | null })
     label = 'I-swipe pakanan';
   }
   return <AccessibilityView accessible accessibilityLabel={label} pointerEvents="none" style={styles.hint} testID="lesson-swipe-hint">
-    <Animated.View style={{ transform: [{ translateX: translation }] }} testID="swipe-hint-motion"><AppIcon name={(() => {
-      if (direction === 'left') {
-        return 'arrowLeft';
-      } else {
-        return 'arrowRight';
-      }
-    })()} color="accent" size={18} /></Animated.View>
-    <Text style={styles.text}>{label}</Text>
+    <Animated.View style={{ transform: [{ translateX: translation }] }} testID="swipe-hint-motion"><AppIcon name="swipeHand" color="accent" size={32} /></Animated.View>
   </AccessibilityView>;
 }
 const styles = StyleSheet.create({
   hint: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: Spacing.sm, paddingHorizontal: Spacing.sm, minHeight: 24, flexShrink: 1 },
-  text: { fontFamily: FontFamily.body, fontSize: 13, color: Colors.textSecondary, flexShrink: 1, textAlign: 'center' },
+
 });
