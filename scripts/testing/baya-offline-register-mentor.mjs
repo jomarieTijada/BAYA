@@ -1,0 +1,14 @@
+import {createClient} from '@supabase/supabase-js';
+import {randomBytes} from 'node:crypto';
+import fs from 'node:fs';import path from 'node:path';import os from 'node:os';
+process.loadEnvFile('apps/mobile/.env');
+const email='jstijada@unp.edu.ph';
+const password=randomBytes(24).toString('base64url')+'aA1!';
+const credentialPath=path.join(os.tmpdir(),'baya-offline-qa-mentor.json');
+if(fs.existsSync(credentialPath))throw Error('Test account attempt already recorded; inspect existing outcome before retrying.');
+fs.writeFileSync(credentialPath,JSON.stringify({email,password}),{mode:0o600});
+const client=createClient(process.env.EXPO_PUBLIC_SUPABASE_URL,process.env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY,{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}});
+const {data,error}=await client.auth.signUp({email,password,options:{data:{display_name:'BAYA Offline QA Mentor'}}});
+const result={email,error:error?{code:error.code,message:error.message}:null,verificationPending:!!data.user&&!data.session,identityCount:data.user?.identities?.length,sessionCreated:!!data.session,credentialFile:credentialPath};
+fs.writeFileSync('docs/verification/offline-first/mentor-registration.json',JSON.stringify(result,null,2));
+console.log(JSON.stringify(result));

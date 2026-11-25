@@ -1,0 +1,35 @@
+import { PGlite } from '@electric-sql/pglite';
+import { readFile } from 'node:fs/promises';
+import assert from 'node:assert/strict';
+const db=new PGlite();
+const scalar=async sql=>(await db.query(sql)).rows[0].value;
+const mentor='00000000-0000-4000-8000-000000000001', learner1='00000000-0000-4000-8000-000000000002',learner2='00000000-0000-4000-8000-000000000003';
+const user=async id=>db.exec(`reset role;set request.jwt.claim.sub='${id}';set request.jwt.claim.amr='otp';set role authenticated;`);
+try{
+ await db.exec(`create role anon;create role authenticated;create schema auth;
+ create table auth.users(id uuid primary key,raw_user_meta_data jsonb default '{}',is_anonymous boolean default false,email_confirmed_at timestamptz);
+ create function auth.uid() returns uuid language sql stable as $$select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid$$;
+ create function auth.jwt() returns jsonb language sql stable as $$select jsonb_build_object('amr',jsonb_build_array(jsonb_build_object('method',current_setting('request.jwt.claim.amr',true))))$$;
+ grant usage on schema public,auth to anon,authenticated;grant execute on function auth.uid(),auth.jwt() to anon,authenticated;`);
+ for(const file of ['202610210001_baya_cloud.sql','202610210003_workspace_management.sql','202610250005_workspace_join_requests.sql','202611250006_workspace_capacity.sql','202611250007_mentor_login_otp.sql'])await db.exec(await readFile('supabase/migrations/'+file,'utf8'));
+ await db.exec(`insert into auth.users(id,is_anonymous,email_confirmed_at) values('${mentor}',false,now()),('${learner1}',true,null),('${learner2}',true,null);`);
+ await user(mentor);
+ const w=await scalar(`select public.create_workspace('Capacity test',1) as value`);assert.equal(w.learner_capacity,1);
+ await db.exec(`set request.jwt.claim.amr='password'`);
+ await assert.rejects(()=>db.query(`select public.list_owned_workspaces()`),e=>e.code==='42501');
+ await user(learner1);const r1=await scalar(`select public.request_workspace_join('${w.workspace_code}') as value`);
+ await user(mentor);await db.query(`select public.review_workspace_join_request('${r1.request.request_id}','approved')`);
+ await user(learner1);
+ await db.query(`select public.join_workspace('${w.workspace_code}')`);
+ await user(learner2);const r2=await scalar(`select public.request_workspace_join('${w.workspace_code}') as value`);
+ await user(mentor);await assert.rejects(()=>db.query(`select public.review_workspace_join_request('${r2.request.request_id}','approved')`),e=>e.message==='workspace_full');
+ await user(mentor);await db.query(`select public.update_workspace('${w.workspace_id}','Capacity test','active',2)`);
+ await db.query(`select public.review_workspace_join_request('${r2.request.request_id}','approved')`);
+ await user(mentor);await assert.rejects(()=>db.query(`select public.update_workspace('${w.workspace_id}','Capacity test','active',1)`),e=>e.message==='workspace_full');
+ await assert.rejects(()=>db.query(`select public.create_workspace('Invalid',0)`),e=>e.code==='22023');
+ const p2=await scalar(`select profile_id as value from public.profiles where auth_user_id='${learner2}'`);
+ await db.query(`select public.set_workspace_member_active('${w.workspace_id}','${p2}',false)`);
+ await db.query(`select public.update_workspace('${w.workspace_id}','Capacity test','active',1)`);
+ await assert.rejects(()=>db.query(`select public.set_workspace_member_active('${w.workspace_id}','${p2}',true)`),e=>e.message==='workspace_full');
+ console.log('PASS: migration, OTP authorization, full-capacity rejection, capacity increase, shrink protection and invalid capacity');
+}finally{await db.close()}
