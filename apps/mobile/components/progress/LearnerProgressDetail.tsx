@@ -21,19 +21,19 @@ export function LearnerProgressDetail({ workspaceId, profileId }: { workspaceId:
         return <Notice busy text="Loading learner progress…" />;
       } else {
         if (!result.ok) {
-          return <View style={p.card}><Notice text={failureMessage[result.code]} /><AppButton label="TRY AGAIN" accessibilityLabel="Retry learner progress" onPress={refresh} /></View>;
+          return <View style={[p.card, { padding: 12, borderRadius: 18 }]}><Notice text={failureMessage[result.code]} /><AppButton label="TRY AGAIN" accessibilityLabel="Retry learner progress" onPress={refresh} /></View>;
         } else {
           return <>
-      <View style={p.card}><Text style={p.title} verbatim>{result.data.learner.displayName}</Text><Text style={[p.text, { marginTop: 12 }]}>{(() => {
+      <View style={[p.card, { padding: 12, borderRadius: 18 }]}><Text style={[p.title, { fontSize: 20 }]} verbatim>{result.data.learner.displayName}</Text><Text style={[p.text, { marginTop: 4, fontSize: 13 }]}>{(() => {
         if (result.data.learner.lastSyncedAt) {
           return `${result.data.learner.completedTopics} of ${result.data.learner.totalTopics} topics completed · ${result.data.learner.percentage}%`;
         } else {
           return 'No synchronized progress yet';
         }
-      })()}</Text><Text style={[p.text, { marginTop: 8 }]}>Last synchronized: {syncTime(result.data.learner.lastSyncedAt, new Date(), language)}</Text></View>
-      {result.data.topics.map(topic => <View key={topic.topicKey} style={[p.card, p.row, { justifyContent: 'space-between' }]}>
-        <View style={{ flex: 1 }}><Text style={[p.text, { marginBottom: 5 }]}>{topic.moduleTitle}</Text><Text style={[p.name, { fontSize: 21 }]}>{topic.title}</Text></View>
-        <Text style={p.text}>{(() => {
+      })()}</Text><Text style={[p.text, { marginTop: 4, fontSize: 13 }]}>Last synchronized: {syncTime(result.data.learner.lastSyncedAt, new Date(), language)}</Text></View>
+      {result.data.topics.map(topic => <View key={topic.topicKey} style={[p.card, p.row, { padding: 12, borderRadius: 18 }, { justifyContent: 'space-between' }]}>
+        <View style={{ flex: 1 }}><Text style={[p.text, { marginBottom: 3, fontSize: 13 }]}>{topic.moduleTitle}</Text><Text style={[p.name, { fontSize: 16 }]}>{topic.title}</Text></View>
+        <Text style={[p.text, { fontSize: 13 }]}>{(() => {
           if (topic.completedAt) {
             return `✓ Completed · ${new Date(topic.completedAt).toLocaleDateString(localeFor(language))}`;
           } else {

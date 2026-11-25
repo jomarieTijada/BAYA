@@ -35,6 +35,8 @@ import {
   normalizeCode,
   nameError,
 } from '../../../modules/cloud/validation';
+const mockOpenSettings = jest.fn();
+jest.mock('../../learner/settings/LearnerSettingsOverlay', () => ({ openLearnerSettings: () => mockOpenSettings() }));
 const mockPush = jest.fn();
 const mockReplace = jest.fn();
 jest.mock('../../../hooks/useReducedMotionPreference', () => ({ useReducedMotionPreference: () => true }));
@@ -245,7 +247,7 @@ it('creates only after confirmation and passes the trimmed name', async () => {
     ' My workspace ',
   );
   fireEvent.press(screen.getByLabelText('Create workspace'));
-  await waitFor(() => expect(create).toHaveBeenCalledWith('My workspace'));
+  await waitFor(() => expect(create).toHaveBeenCalledWith('My workspace', 30));
   expect(mockReplace).toHaveBeenCalledWith({
     pathname: '/mentor/workspaces/[id]',
     params: { id: workspaceFixture.workspace_id },
@@ -395,8 +397,21 @@ it('exposes code-only joining without requiring learner email', async () => {
  expect(screen.queryByLabelText('LEARNER EMAIL')).toBeNull();
  expect(session).not.toHaveBeenCalled(); expect(request).not.toHaveBeenCalled();
 });
-it('routes learner account actions to Settings',async()=>{
+it('opens learner account settings as an overlay',async()=>{
  const signOut=jest.fn().mockResolvedValue({ok:true,data:undefined});
  mount(<LearnerCloudAccount/>,{...fixtureServices,learnerAuth:{...fixtureServices.learnerAuth!,signOut}});
- fireEvent.press(await screen.findByText('Account settings'));expect(mockPush).toHaveBeenCalledWith('/learner/settings');expect(signOut).not.toHaveBeenCalled();
+ fireEvent.press(await screen.findByText('Account settings'));expect(mockOpenSettings).toHaveBeenCalled();expect(signOut).not.toHaveBeenCalled();
+});
+
+it('rejects invalid learner capacity before creating a workspace', async () => {
+ const create=jest.fn(fixtureServices.workspaces.create);
+ mount(<CreateWorkspaceScreen />, {...fixtureServices,workspaces:{...fixtureServices.workspaces,create}});
+ fireEvent.changeText(screen.getByLabelText('WORKSPACE NAME, required'),'Class');
+ fireEvent.changeText(screen.getByLabelText('LEARNER CAPACITY, required'),'0');
+ fireEvent.press(screen.getByLabelText('Create workspace'));
+ expect(screen.getByText('Enter a learner capacity from 1 to 10,000.')).toBeTruthy();
+ expect(create).not.toHaveBeenCalled();
+ fireEvent.changeText(screen.getByLabelText('LEARNER CAPACITY, required'),'12');
+ fireEvent.press(screen.getByLabelText('Create workspace'));
+ await waitFor(()=>expect(create).toHaveBeenCalledWith('Class',12));
 });

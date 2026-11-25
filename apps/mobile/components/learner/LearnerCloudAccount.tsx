@@ -1,3 +1,4 @@
+import { openLearnerSettings } from './settings/LearnerSettingsOverlay';
 import { Text } from '../../localization/components';
 import { useBayaToast } from '../ui/BayaNotifications';
 import React, { useCallback, useState } from 'react';
@@ -31,8 +32,8 @@ export function LearnerCloudAccount({ children }: React.PropsWithChildren) {
     if (children) return <>{children}</>;
     return <FeatureScreen title="LEARNER CLOUD ACCOUNT" subtitle={result.data.email || 'This device has a verified learner identity.'} onBack={() => router.replace('/learner/settings')}>
       <Text style={s.notice}>Your learner account is verified. Saved learning stays on this device when you sign out.</Text>
-      <AppButton label="JOIN WORKSPACE" accessibilityLabel="Join workspace" onPress={() => router.push('/learner/workspaces')} />
-      <TextAction label="Account settings" onPress={() => router.push('/learner/settings')} />
+      <AppButton compact density="compact" style={{ minHeight: 36, height: 36, paddingVertical: 4 }} labelStyle={{ fontSize: 13 }} label="JOIN WORKSPACE" accessibilityLabel="Join workspace" onPress={() => router.push('/learner/workspaces')} />
+      <TextAction label="Account settings" onPress={() => openLearnerSettings()} />
       <Notice text={op.message} busy={op.busy} />
     </FeatureScreen>;
   }
@@ -46,16 +47,16 @@ export function LearnerCloudAccount({ children }: React.PropsWithChildren) {
         } else {
           return <>
       <Text style={s.notice}>Use a separate email for each learner. Use a different email from your mentor account. This local profile stays linked to its first verified learner account.</Text>
-      <AppTextInput density="form" label="LEARNER EMAIL" keyboardType="email-address" autoCapitalize="none" autoComplete="email" value={email} onChangeText={setEmail} editable={!op.busy && !challenge} error={(() => {
+      <AppTextInput density="landscapeCompact" label="LEARNER EMAIL" keyboardType="email-address" autoCapitalize="none" autoComplete="email" value={email} onChangeText={setEmail} editable={!op.busy && !challenge} error={(() => {
         if (!challenge) {
           return error;
         } else {
           return undefined;
         }
       })()} />
-      {challenge && <AppTextInput density="form" label="VERIFICATION CODE" autoComplete="one-time-code" keyboardType="number-pad" value={code} onChangeText={setCode} editable={!op.busy} error={error} />}
+      {challenge && <AppTextInput density="landscapeCompact" label="VERIFICATION CODE" autoComplete="one-time-code" keyboardType="number-pad" value={code} onChangeText={setCode} editable={!op.busy} error={error} />}
       <Notice busy={op.busy} text={op.message} />
-      <AppButton label={(() => {
+      <AppButton compact density="compact" style={{ minHeight: 36, height: 36, paddingVertical: 4 }} labelStyle={{ fontSize: 13 }} label={(() => {
         if (challenge) {
           return 'VERIFY EMAIL';
         } else {
@@ -88,4 +89,3 @@ export function LearnerCloudAccount({ children }: React.PropsWithChildren) {
     })()}
   </FeatureScreen>;
 }
-

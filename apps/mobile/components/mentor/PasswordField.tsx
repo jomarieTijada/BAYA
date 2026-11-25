@@ -22,7 +22,7 @@ export function PasswordField({
   return (
     <View>
       <AppTextInput
-        density="form"
+        density="landscapeCompact"
         labelAction={labelAction}
         label={label}
         required
@@ -53,8 +53,8 @@ export function PasswordField({
             })()} ${label.toLowerCase()}`}
             onPress={() => setVisible(!visible)}
             style={{
-              minWidth: 52,
-              minHeight: 48,
+              minWidth: 36,
+              minHeight: 32,
               justifyContent: 'center',
               alignItems: 'center',
             }}

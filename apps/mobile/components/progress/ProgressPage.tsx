@@ -4,13 +4,14 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { PageHeader } from '../layout/PageHeader';
 import { Colors, FontFamily, Shadows } from '../../constants/theme';
 
-export function ProgressPage({ title, subtitle, onBack, action, children }: React.PropsWithChildren<{
-  title: string; subtitle?: string; onBack: () => void; action?: React.ReactNode;
+export function ProgressPage({ title, subtitle, onBack, action, compact = false, children }: React.PropsWithChildren<{
+  compact?: boolean; title: string; subtitle?: string; onBack: () => void; action?: React.ReactNode;
 }>) {
-  const { width } = useWindowDimensions();
+  const { width, height } = useWindowDimensions();
+  compact = compact || height < 500 || width < 900;
   return <SafeAreaView style={p.screen}>
-    <ScrollView contentContainerStyle={[p.page, width < 750 && { padding: 16 }]}>
-      <PageHeader title={title} subtitle={subtitle} onBack={onBack} action={action} />
+    <ScrollView contentContainerStyle={[p.page, width < 750 && { padding: 16 }, compact && { padding: 4, gap: 4 }]}>
+      <PageHeader compact={compact} title={title} subtitle={subtitle} onBack={onBack} action={action} />
       {children}
     </ScrollView>
   </SafeAreaView>;

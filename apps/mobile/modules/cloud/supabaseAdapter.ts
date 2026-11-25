@@ -20,12 +20,13 @@ export function cloudFailure(error: unknown): { ok: false; code: FailureCode } {
   const e = error as { code?: string; message?: string; status?: number } | null;
   // A known access denial must never become a retainable offline result.
   if (e?.status === 401 || e?.status === 403 || ['42501', 'session_not_found', 'refresh_token_not_found'].includes(e?.code ?? '')) return { ok: false, code: 'unauthorized' };
+  if (e?.message === 'workspace_full') return { ok: false, code: 'workspace_full' };
   if (e?.code === 'P0001') return { ok: false, code: 'inactive' };
   if (typeof navigator !== 'undefined' && navigator.onLine === false) return { ok: false, code: 'offline' };
   const codes: Record<string, FailureCode> = {
     '42501': 'unauthorized', 'P0002': 'not_found', 'P0001': 'inactive',
     '22023': 'invalid_code', '23505': 'conflict', invalid_credentials: 'credentials',
-    otp_expired: 'expired_code', user_already_exists: 'exists',
+    otp_expired: 'expired_code', user_already_exists: 'exists', email_exists: 'exists', user_not_found: 'account_not_found', workspace_full: 'workspace_full',
     session_not_found: 'unauthorized', refresh_token_not_found: 'unauthorized',
     anonymous_provider_disabled: 'learner_auth_disabled', signup_disabled: 'learner_auth_disabled',
     '40001': 'already_processed',
@@ -61,6 +62,7 @@ export function parseWorkspace(value: unknown): WorkspaceSummary {
   return {
     workspace_id: field(row, 'workspace_id'), mentor_profile_id: field(row, 'mentor_profile_id'),
     workspace_code: field(row, 'workspace_code'), workspace_name: field(row, 'workspace_name'),
+    learner_capacity: typeof row.learner_capacity === 'number' ? row.learner_capacity : undefined,
     status: field(row, 'status'), created_at: field(row, 'created_at'),
     ...((() => {
       if (typeof row.learnerCount === 'number') {
@@ -101,12 +103,12 @@ async function attempt<T>(operation: () => Promise<T>): Promise<Result<T>> {
 }
 
 export function createSupabaseServices({ mentor, learnerClient, recoveryClient, activeLearner, progressSnapshot, bindLearner }: Dependencies): CloudServices {
-  const challenges = new Map<string, string>();
+  const challenges = new Map<string, { email: string; type: 'signup' | 'login' }>();
   const learnerAuth = createLearnerEmailAuth({ clientFor: learnerClient, activeLearner, bind: bindLearner ?? (async () => { throw { code: 'unavailable' }; }), failure: cloudFailure });
   let sequence = 0;
-  function challenge(email: string): AuthOutcome {
+  function challenge(email: string, type: 'signup' | 'login' = 'signup'): AuthOutcome {
     const id = `signup-${++sequence}`;
-    challenges.set(id, email);
+    challenges.set(id, { email, type });
     return { kind: 'otp', challenge: { id, email } };
   }
   async function rpc<T>(client: SupabaseClient, name: string, args: Record<string, unknown>, parse: (v: unknown) => T) {
@@ -171,6 +173,9 @@ export function createSupabaseServices({ mentor, learnerClient, recoveryClient, 
         const existing = await mentor.auth.getSession();
         if (existing.error) throw existing.error;
         if (!existing.data.session) return null;
+        const assurance = await mentor.auth.mfa.getAuthenticatorAssuranceLevel();
+        if (assurance.error) throw assurance.error;
+        if (!assurance.data?.currentAuthenticationMethods.some(method => (typeof method === 'string' ? method : method.method) === 'otp')) throw { code: '42501' };
         const { data, error } = await mentor.auth.getUser();
         if (error) throw error;
         if (!data.user || data.user.is_anonymous || !data.user.email_confirmed_at) throw { code: '42501' };
@@ -185,36 +190,51 @@ export function createSupabaseServices({ mentor, learnerClient, recoveryClient, 
         return { authUserId: data.user.id, profileId: field(object(profile.data), 'profile_id'), mentorProfileId: field(object(own.data), 'mentor_profile_id') };
       }),
       login: (email, password) => attempt(async () => {
-        const { error } = await mentor.auth.signInWithPassword({ email, password });
+        // Password validation never creates a persistent mentor session before OTP.
+        const client = recoveryClient();
+        let error;
+        try { ({ error } = await client.auth.signInWithPassword({ email, password })); }
+        finally { await client.auth.signOut({ scope: 'local' }); }
         if (error?.code === 'email_not_confirmed') {
           const resent = await mentor.auth.resend({ type: 'signup', email });
           if (resent.error) throw resent.error;
           return challenge(email);
         }
         if (error) throw error;
-        return { kind: 'authenticated' as const };
+        const sent = await mentor.auth.signInWithOtp({ email, options: { shouldCreateUser: false } });
+        if (sent.error) throw sent.error;
+        return challenge(email, 'login');
       }),
       register: (name, email, password) => attempt(async () => {
         const { data, error } = await mentor.auth.signUp({ email, password, options: { data: { display_name: name } } });
         if (error) throw error;
-        if (data.session) return { kind: 'authenticated' as const };
+        if (data.session) {
+          await mentor.auth.signOut({ scope: 'local' });
+          const sent = await mentor.auth.signInWithOtp({ email, options: { shouldCreateUser: false } });
+          if (sent.error) throw sent.error;
+          return challenge(email, 'login');
+        }
         // Auth can deliberately obscure a repeated signup. Such a response
         // is not evidence that a new verification email was requested.
-        if (data.user?.identities?.length === 0) return { kind: 'check_email' as const };
+        if (data.user?.identities?.length === 0) throw { code: 'user_already_exists' };
         return challenge(email);
       }),
       verify: (id, code) => attempt(async () => {
-        const email = challenges.get(id);
-        if (!email) throw { code: 'otp_expired' };
+        const pending = challenges.get(id);
+        if (!pending) throw { code: 'otp_expired' };
+        const { email } = pending;
         const { error } = await mentor.auth.verifyOtp({ email, token: code, type: 'email' });
         if (error) throw error;
         challenges.delete(id);
         return { kind: 'authenticated' as const };
       }),
       resend: id => attempt(async () => {
-        const email = challenges.get(id);
-        if (!email) throw { code: 'otp_expired' };
-        const { error } = await mentor.auth.resend({ type: 'signup', email });
+        const pending = challenges.get(id);
+        if (!pending) throw { code: 'otp_expired' };
+        const { email, type } = pending;
+        const { error } = type === 'login'
+          ? await mentor.auth.signInWithOtp({ email, options: { shouldCreateUser: false } })
+          : await mentor.auth.resend({ type: 'signup', email });
         if (error) throw error;
         return { id, email };
       }),
@@ -268,7 +288,7 @@ export function createSupabaseServices({ mentor, learnerClient, recoveryClient, 
         }
         return request;
       })),
-      update: (id, name, status) => attempt(() => rpc(mentor, 'update_workspace', { p_workspace_id: id, p_name: name.trim(), p_status: status }, parseWorkspace)),
+      update: (id, name, status, capacity) => attempt(() => rpc(mentor, 'update_workspace', { p_workspace_id: id, p_name: name.trim(), p_status: status, ...(capacity !== undefined && { p_capacity: capacity }) }, parseWorkspace)),
       members: id => attempt(() => rpc(mentor, 'list_workspace_members', { p_workspace_id: id }, v => array(v, item => {
         const row = object(item);
         if (typeof row.active !== 'boolean') throw new Error('Invalid member');
@@ -276,7 +296,7 @@ export function createSupabaseServices({ mentor, learnerClient, recoveryClient, 
       }))),
       setMemberActive: (id, profileId, active) => attempt(() => rpc(mentor, 'set_workspace_member_active', { p_workspace_id: id, p_profile_id: profileId, p_active: active }, () => undefined)),
       listOwned: () => attempt(() => rpc(mentor, 'list_owned_workspaces', {}, v => array(v, parseWorkspace))),
-      create: name => attempt(() => rpc(mentor, 'create_workspace', { p_name: name.trim() }, parseWorkspace)),
+      create: (name, capacity) => attempt(() => rpc(mentor, 'create_workspace', { p_name: name.trim(), ...(capacity !== undefined && { p_capacity: capacity }) }, parseWorkspace)),
       details: id => attempt(() => rpc(mentor, 'get_workspace_details', { p_workspace_id: id }, parseWorkspace)),
       join: code => attempt(async () => rpc((await learner(true))!, 'join_workspace', { p_code: code.trim().toUpperCase() }, joined)),
       memberships: () => attempt(async () => {

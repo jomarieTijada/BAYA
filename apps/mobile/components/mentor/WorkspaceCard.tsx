@@ -5,7 +5,7 @@ import { useBayaToast } from '../ui/BayaNotifications';
 import React, { useState } from 'react';
 import { Platform, Share, View } from 'react-native';
 import { BaseCard } from '../ui/cards/BaseCard';
-import { AppButton } from '../ui/AppButton';
+import { AppButton } from './MentorButton';
 import { AppIcon } from '../ui/AppIcon';
 import { Colors, FontFamily } from '../../constants/theme';
 import type { WorkspaceSummary } from '../../modules/cloud/services';
@@ -40,13 +40,13 @@ export function WorkspaceCard({
   };
   return (
     <BaseCard
-      style={[s.card, { padding: 24, borderRadius: 28, flex: 1, gap: 18 }]}
+      style={[s.card, { padding: 10, borderRadius: 16, gap: 4 }]}
     >
       <View style={{ flexDirection: 'row', gap: 12, alignItems: 'center' }}>
-        <AppIcon name="workspace" color="accent" size={30} />
+        <AppIcon name="workspace" color="accent" size={22} />
         <Text
           accessibilityRole="header"
-          style={[s.title, { fontSize: 25, textAlign: 'left', flex: 1 }]}
+          style={[s.title, { fontSize: 13, textAlign: 'left', flex: 1 }]}
          verbatim>
           {workspace.workspace_name}
         </Text>
@@ -62,7 +62,7 @@ export function WorkspaceCard({
                 return Colors.textSecondary;
               }
             })(),
-          fontSize: 18,
+          fontSize: 13,
         }}
       >
         {(() => {
@@ -73,12 +73,13 @@ export function WorkspaceCard({
           }
         })()}
       </Text>
+      {workspace.learner_capacity !== undefined && <Text style={s.notice}>{workspace.learnerCount ?? 0} / {workspace.learner_capacity} learners</Text>}
       <View
         style={{
           borderRadius: 16,
           borderWidth: 1,
           borderColor: Colors.border,
-          padding: 12,
+          padding: 6,
           backgroundColor: Colors.background,
           flexDirection: 'row',
           alignItems: 'center',
@@ -90,7 +91,7 @@ export function WorkspaceCard({
           style={{
             fontFamily: FontFamily.rounded,
             flex: 1,
-            fontSize: 20,
+            fontSize: 13,
             fontWeight: '700',
             color: Colors.textPrimary,
           }}
@@ -112,8 +113,8 @@ export function WorkspaceCard({
             void copy();
           }}
           style={{
-            minWidth: 44,
-            minHeight: 44,
+            minWidth: 32,
+            minHeight: 32,
             alignItems: 'center',
             justifyContent: 'center',
           }}
@@ -121,10 +122,12 @@ export function WorkspaceCard({
           <AppIcon name="copy" color="accent" />
         </Pressable>
       </View>
-      {workspace.learnerCount !== undefined && (
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12 }}>
+      {workspace.learner_capacity === undefined && workspace.learnerCount !== undefined && (
         <Text style={s.notice}>{workspace.learnerCount} Learners</Text>
       )}
       {workspace.pendingCount !== undefined && <Text style={s.notice}>{workspace.pendingCount} Pending Requests</Text>}
+      </View>
       {workspace.lastSyncedAt &&
         !Number.isNaN(Date.parse(workspace.lastSyncedAt)) && (
           <Text style={s.notice}>
@@ -132,15 +135,18 @@ export function WorkspaceCard({
           </Text>
         )}
       <Notice text={feedback} />
+      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
       {onManage && <TextAction label="Manage workspace" onPress={onManage} />}
       {onEnter && workspace.status === 'active' && (
-        <AppButton
+        <AppButton density="landscapeCompact" compact
+          fullWidth={false}
           label="ENTER"
           accessibilityLabel={`Enter ${workspace.workspace_name}`}
           icon="arrowRight"
           onPress={onEnter}
         />
       )}
+      </View>
     </BaseCard>
   );
 }

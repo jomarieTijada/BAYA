@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { View, useWindowDimensions } from 'react-native';
 import { router } from 'expo-router';
 import { AppTextInput } from '../ui/AppTextInput';
-import { AppButton } from '../ui/AppButton';
+import { AppButton } from './MentorButton';
 import {
   useCloudServices,
   type AuthOutcome,
@@ -104,7 +104,7 @@ export function AuthScreen({
   };
   const email = (
     <AppTextInput
-      density="form"
+      density="landscapeCompact"
       label="EMAIL ADDRESS"
       required
       value={values.email}
@@ -173,15 +173,15 @@ export function AuthScreen({
         if (register) {
           return (
         <View style={(() => {
-          if (width >= 900) {
+          if (width >= 600) {
             return s.row;
           } else {
-            return { gap: 22 };
+            return { gap: 8 };
           }
         })()}>
           <View style={s.field}>
             <AppTextInput
-              density="form"
+              density="landscapeCompact"
               label="FULL NAME"
               required
               value={values.name}
@@ -204,10 +204,10 @@ export function AuthScreen({
       })()}
       {mode !== 'reset' && (
         <View style={(() => {
-          if (register && width >= 900) {
+          if (register && width >= 600) {
             return s.row;
           } else {
-            return { gap: 22 };
+            return { gap: 8 };
           }
         })()}>
           <View style={s.field}>
@@ -248,7 +248,7 @@ export function AuthScreen({
       )}
 
       <Notice busy={op.busy} text={op.message} />
-      <AppButton
+      <AppButton density="landscapeCompact" compact
         style={s.action}
         accessibilityLabel={
           (() => {
@@ -350,7 +350,7 @@ export function OtpScreen({
       onBack={onBack}
     >
       <AppTextInput
-        density="form"
+        density="landscapeCompact"
         label="VERIFICATION CODE"
         required
         value={code}
@@ -369,7 +369,7 @@ export function OtpScreen({
           }
         })()}
       </Text>}
-      <AppButton
+      <AppButton density="landscapeCompact" compact
         label="VERIFY"
         accessibilityLabel="Verify code"
         disabled={!current || op.busy}
@@ -424,14 +424,14 @@ function RecoveryScreen({ email, onBack }: { email: string; onBack: () => void }
   })()} onBack={onBack}>
     {(() => {
       if (done) {
-        return <AppButton label="GO TO LOGIN" accessibilityLabel="Go to login" onPress={() => router.replace('/mentor')} />;
+        return <AppButton density="landscapeCompact" compact label="GO TO LOGIN" accessibilityLabel="Go to login" onPress={() => router.replace('/mentor')} />;
       } else {
         return <>
-      <AppTextInput density="form" label="RESET CODE" required value={code} onChangeText={setCode} autoComplete="one-time-code" editable={!op.busy} />
+      <AppTextInput density="landscapeCompact" label="RESET CODE" required value={code} onChangeText={setCode} autoComplete="one-time-code" editable={!op.busy} />
       <PasswordField label="NEW PASSWORD" value={password} onChangeText={setPassword} disabled={op.busy} />
       <PasswordField label="CONFIRM PASSWORD" value={confirm} onChangeText={setConfirm} disabled={op.busy} />
       <Notice text={error || op.message} busy={op.busy} />
-      <AppButton label="UPDATE PASSWORD" accessibilityLabel="Update password" disabled={op.busy} onPress={() => {
+      <AppButton density="landscapeCompact" compact label="UPDATE PASSWORD" accessibilityLabel="Update password" disabled={op.busy} onPress={() => {
         let issue;
         if (!code.trim()) {
           issue = 'Enter the reset code.';

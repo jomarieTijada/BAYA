@@ -167,6 +167,7 @@ export function LearnerMembershipScreen() {
       onBack={() => router.replace('/learner/home')}
     >
       <AppButton
+        compact density="compact" fullWidth={false} style={{ minHeight: 36, height: 36, paddingVertical: 4, alignSelf: 'center' }} labelStyle={{ fontSize: 13 }}
         label="JOIN WORKSPACE"
         accessibilityLabel="Join workspace"
         icon="add"

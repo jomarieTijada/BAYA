@@ -11,8 +11,8 @@ import {
   type WorkspaceSummary,
 } from '../../modules/cloud/services';
 import { useOperation } from '../../modules/cloud/useOperation';
-import { nameError } from '../../modules/cloud/validation';
-import { AppButton } from '../ui/AppButton';
+import { nameError, capacityError } from '../../modules/cloud/validation';
+import { AppButton } from './MentorButton';
 import { AppTextInput } from '../ui/AppTextInput';
 import { AppIcon } from '../ui/AppIcon';
 import { BaseCard } from '../ui/cards/BaseCard';
@@ -82,7 +82,7 @@ export function MentorBoundary({ children }: React.PropsWithChildren) {
       />
       {state === 'error' && (
         <>
-          <AppButton
+          <AppButton density="landscapeCompact" compact
             label="TRY AGAIN"
             accessibilityLabel="Retry session"
             onPress={() => setRetry((n) => n + 1)}
@@ -120,7 +120,7 @@ export function WorkspaceSelectionScreen() {
             return (
         <>
           <Notice text={failureMessage[result.code]} />
-          <AppButton
+          <AppButton density="landscapeCompact" compact
             label="TRY AGAIN"
             accessibilityLabel="Retry workspaces"
             onPress={retry}
@@ -147,7 +147,7 @@ export function WorkspaceSelectionScreen() {
               {
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                marginBottom: 24,
+                marginBottom: 8,
               },
             ]}
           >
@@ -155,7 +155,7 @@ export function WorkspaceSelectionScreen() {
               MY WORKSPACES ·{' '}
               {result.data.filter((w) => w.status === 'active').length} Active
             </Text>
-            <AppButton
+            <AppButton density="landscapeCompact" compact
               fullWidth={false}
               label="CREATE WORKSPACE"
               accessibilityLabel="Create workspace"
@@ -168,7 +168,7 @@ export function WorkspaceSelectionScreen() {
               <View
                 key={workspace.workspace_id}
                 style={{ width: (() => {
-                  if (width >= 1000) {
+                  if (width >= 600) {
                     return '48%';
                   } else {
                     return '100%';
@@ -207,16 +207,16 @@ export function WorkspaceEmptyState({ onCreate }: { onCreate: () => void }) {
           width: '100%',
           alignSelf: 'center',
           alignItems: 'center',
-          marginVertical: 30,
+          marginVertical: 8,
         },
       ]}
     >
-      <AppIcon name="workspace" color="accent" size={48} />
-      <Text style={[s.title, { fontSize: 28 }]}>No Workspace Created Yet</Text>
+      <AppIcon name="workspace" color="accent" size={28} />
+      <Text style={[s.title, { fontSize: 20 }]}>No Workspace Created Yet</Text>
       <Text style={s.subtitle}>
         Create a workspace to start managing learner progress and activities.
       </Text>
-      <AppButton
+      <AppButton density="landscapeCompact" compact
         label="CREATE WORKSPACE"
         accessibilityLabel="Create workspace"
         icon="add"
@@ -231,16 +231,17 @@ export function CreateWorkspaceScreen() {
   const services = useCloudServices();
   const op = useOperation();
   const [name, setName] = useState('');
+  const [capacity, setCapacity] = useState('30');
+  const [capacityIssue, setCapacityIssue] = useState<string>();
   const [error, setError] = useState<string>();
   return (
     <FeatureScreen
-      icon={<AppIcon name="workspace" color="accent" size={40} />}
       title="CREATE WORKSPACE"
       subtitle="Create a workspace for your learners."
       onBack={() => router.replace('/mentor/workspaces')}
     >
       <AppTextInput
-        density="form"
+        density="landscapeCompact"
         required
         label="WORKSPACE NAME"
         placeholder="e.g. Baybayin Workshop"
@@ -250,15 +251,10 @@ export function CreateWorkspaceScreen() {
         editable={!op.busy}
         autoCapitalize="words"
       />
-      <AppTextInput
-        density="form"
-        label="WORKSPACE CODE"
-        value="Generated when workspace is created"
-        editable={false}
-        helperText="Auto ID Generator · Share this code with your learners after creation."
-      />
+      <AppTextInput density="landscapeCompact" label="LEARNER CAPACITY" required value={capacity} onChangeText={setCapacity} keyboardType="number-pad" error={capacityIssue} editable={!op.busy} helperText="Maximum number of active learners." />
+      <Text style={s.notice}>A workspace code is generated after creation.</Text>
       <Notice busy={op.busy} text={op.message} />
-      <AppButton
+      <AppButton density="landscapeCompact" compact
         label={(() => {
           if (op.busy) {
             return 'CREATING…';
@@ -272,9 +268,10 @@ export function CreateWorkspaceScreen() {
         onPress={() => {
           const issue = nameError(name, services.policy);
           setError(issue);
-          if (issue) return;
+          const capacityProblem = capacityError(capacity); setCapacityIssue(capacityProblem);
+          if (issue || capacityProblem) return;
           void op.run(
-            () => services.workspaces.create(name.trim()),
+            () => services.workspaces.create(name.trim(), Number(capacity)),
             (workspace) => {
               toast('Workspace created.');
               router.replace({
@@ -309,7 +306,7 @@ export function WorkspaceDetailsScreen({ id }: { id: string }) {
             return (
         <>
           <Notice text={failureMessage[result.code]} />
-          <AppButton
+          <AppButton density="landscapeCompact" compact
             label="TRY AGAIN"
             accessibilityLabel="Retry workspace details"
             onPress={retry}

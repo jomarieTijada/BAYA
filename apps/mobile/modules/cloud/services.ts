@@ -10,6 +10,8 @@ export type FailureCode =
   | 'unauthorized'
   | 'credentials'
   | 'exists'
+  | 'account_not_found'
+  | 'workspace_full'
   | 'invalid_code'
   | 'expired_code'
   | 'not_found'
@@ -38,6 +40,7 @@ export type AuthOutcome =
   | { kind: 'otp'; challenge: Challenge }
   | { kind: 'check_email' };
 export type WorkspaceSummary = Workspace & {
+  learner_capacity?: number;
   learnerCount?: number;
   pendingCount?: number;
   lastSyncedAt?: string;
@@ -91,11 +94,11 @@ export interface CloudServices {
     myRequests?(): Promise<Result<JoinRequest[]>>;
     pendingRequests?(id: string): Promise<Result<JoinRequest[]>>;
     reviewRequest?(id: string, decision: 'approved' | 'rejected'): Promise<Result<JoinRequest>>;
-    update?(id: string, name: string, status: 'active' | 'archived'): Promise<Result<WorkspaceSummary>>;
+    update?(id: string, name: string, status: 'active' | 'archived', capacity?: number): Promise<Result<WorkspaceSummary>>;
     members?(id: string): Promise<Result<WorkspaceMember[]>>;
     setMemberActive?(id: string, profileId: string, active: boolean): Promise<Result<void>>;
     listOwned(): Promise<Result<WorkspaceSummary[]>>;
-    create(name: string): Promise<Result<WorkspaceSummary>>;
+    create(name: string, capacity?: number): Promise<Result<WorkspaceSummary>>;
     details(workspaceId: string): Promise<Result<WorkspaceSummary>>;
     join(code: string): Promise<Result<JoinedWorkspace>>;
     memberships(): Promise<Result<JoinedWorkspace[]>>;
@@ -140,8 +143,10 @@ export const failureMessage: Record<FailureCode, string> = {
   offline: 'You’re offline. Connect to the internet and try again.',
   unauthorized:
     'Please log in again to continue. Your session may have expired.',
-  credentials: 'The email or password is incorrect. Please try again.',
-  exists: 'This account may already exist. Try logging in.',
+  credentials: 'The email or password is incorrect. Check your details, or create an account if you have not registered.',
+  exists: 'This email already has an account. Log in or reset your password.',
+  account_not_found: 'No account was found for this email. Create an account first.',
+  workspace_full: 'This workspace has reached its learner capacity. Increase the capacity or remove an active learner.',
   invalid_code: 'That code is not valid. Check it and try again.',
   expired_code: 'That code has expired. Request a new code.',
   not_found:

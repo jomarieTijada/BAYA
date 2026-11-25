@@ -9,7 +9,7 @@ import { useCloudRead } from '../../modules/progress/useCloudRead';
 import { useOperation } from '../../modules/cloud/useOperation';
 import { Colors } from '../../constants/theme';
 import { BaseCard } from '../ui/cards/BaseCard';
-import { AppButton } from '../ui/AppButton';
+import { AppButton } from './MentorButton';
 import { AppIcon } from '../ui/AppIcon';
 import { BayaDialog } from '../ui/BayaDialog';
 import { useBayaToast } from '../ui/BayaNotifications';
@@ -35,7 +35,7 @@ export function PendingJoinRequests({ workspaceId, onReviewed }: { workspaceId: 
       if (response && !response.ok) setRefreshError(failureMessage[response.code]);
     } finally { refreshLock.current = false; }
   };
-  return <WorkspaceSection compact title="PENDING JOIN REQUESTS" icon="personFilled" description="Review learners requesting access." badge={(() => {
+  return <WorkspaceSection compact title="Join requests" icon="personFilled" badge={(() => {
     if (result?.ok) {
       return `${result.data.length} Pending`;
     } else {
@@ -43,10 +43,9 @@ export function PendingJoinRequests({ workspaceId, onReviewed }: { workspaceId: 
     }
   })()}
     action={<View style={styles.refresh}>
-      <AppButton compact label="" icon="sync" tone="outlinePrimary" fullWidth={false} accessibilityLabel="Refresh pending join requests" disabled={refreshing} onPress={() => { void reload(); }} style={styles.iconButton} />
+      <AppButton density="landscapeCompact" compact label="" icon="sync" tone="outlinePrimary" fullWidth={false} accessibilityLabel="Refresh pending join requests" disabled={refreshing} onPress={() => { void reload(); }} style={styles.iconButton} />
       {refreshing && <ActivityIndicator accessibilityLabel="Refreshing pending join requests" size="small" color={Colors.rolePrimary} />}
     </View>}>
-    <View style={styles.reminder}><AppIcon name="help" color="muted" size={18} /><Text style={[ws.reference, { flex: 1 }]}>Verify the learner and their request reference before approving.</Text></View>
     {(() => {
       if (!result) {
         return <Notice busy text="Loading join requests…" />;
@@ -121,21 +120,20 @@ function RequestRow({ request, busy, message, onReview }: { request: JoinRequest
         <AppIcon name="personFilled" color="accent" size={22} />
         <View style={styles.copy}>
           <Text style={[ws.name, ws.compactName]} verbatim>{name}</Text>
-          <Text style={ws.reference}>{timestamp}</Text>
+
           <View style={styles.reference}>
-            <Text style={ws.reference} verbatim>Ref: {request.request_id.slice(0, 8)}…</Text>
-            <AppButton compact fullWidth={false} tone="outlinePrimary" label="View reference" accessibilityLabel={`View reference for ${name}`} onPress={() => { setCopyError(''); setDetails(true); }} style={styles.detailButton} />
+            <AppButton density="landscapeCompact" compact fullWidth={false} tone="outlinePrimary" label="Details" accessibilityLabel={`View reference for ${name}`} onPress={() => { setCopyError(''); setDetails(true); }} style={styles.detailButton} />
           </View>
         </View>
       </View>
       <View style={styles.actions}>
-        <AppButton compact label="Approve" icon="check" iconPosition="leading" accessibilityLabel={`Approve ${name}`} fullWidth={false} disabled={busy} onPress={() => onReview('approved')} style={ws.compactButton} />
-        <AppButton compact label="Reject" accessibilityLabel={`Reject ${name}`} tone="outlinePrimary" fullWidth={false} disabled={busy} onPress={() => onReview('rejected')} style={ws.compactButton} />
+        <AppButton density="landscapeCompact" compact label="Approve" icon="check" iconPosition="leading" accessibilityLabel={`Approve ${name}`} fullWidth={false} disabled={busy} onPress={() => onReview('approved')} style={ws.compactButton} />
+        <AppButton density="landscapeCompact" compact label="Reject" accessibilityLabel={`Reject ${name}`} tone="outlinePrimary" fullWidth={false} disabled={busy} onPress={() => onReview('rejected')} style={ws.compactButton} />
       </View>
     </View>
     <Notice busy={busy} text={message} />
     <BayaDialog visible={details} variant="information" icon="personFilled" title="REQUEST REFERENCE"
-      description={`${name}: compare this full reference with the learner’s screen. A matching reference or display name alone is not proof of identity.`}
+      description={`${name} · ${timestamp}. Compare this full reference with the learner’s screen. A matching reference or display name alone is not proof of identity.`}
       detail={`${(() => {
         if (copyError) {
           return `${copyError}\n\n`;
@@ -151,10 +149,10 @@ function RequestRow({ request, busy, message, onReview }: { request: JoinRequest
 
 const styles = StyleSheet.create({
   main: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 10 },
-  identity: { flexDirection: 'row', alignItems: 'flex-start', gap: 8, flexGrow: 1, flexShrink: 1, flexBasis: 200, minWidth: 0 },
+  identity: { flexDirection: 'row', alignItems: 'flex-start', gap: 8, flexGrow: 1, flexShrink: 1, flexBasis: 110, minWidth: 0 },
   copy: { flex: 1, minWidth: 0, gap: 3 },
   reference: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 8 },
-  actions: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginLeft: 'auto' },
+  actions: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginLeft: 'auto' },
   detailButton: { minHeight: 44, paddingHorizontal: 8, paddingVertical: 4, borderWidth: 1 },
   iconButton: { minWidth: 44, minHeight: 44, paddingHorizontal: 8, paddingVertical: 8, borderRadius: 12 },
   refresh: { flexDirection: 'row', alignItems: 'center', gap: 6 },

@@ -14,7 +14,7 @@ export function FeatureScreen({
   card = true,
   icon,
   footer,
-  dense = false,
+  dense = true,
   action,
 }: React.PropsWithChildren<{
   title: string;
@@ -45,37 +45,40 @@ export function FeatureScreen({
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={[
             s.scroll,
-            (width < 800 || compact) && { padding: 16 },
+            card && { justifyContent: 'center' },
+            (width < 800 || compact) && { padding: 10 },
           ]}
         >
           <View style={[s.body, { maxWidth: (() => {
-            if (wide) {
+            if (card) {
+              return 420;
+            } else if (wide) {
               return 1180;
             } else {
-              return 780;
+              return 900;
             }
           })() }]}>
             {(() => {
               if (card) {
                 return (
               <BaseCard
-                style={[s.card, (width < 800 || compact) && { padding: 22 }, dense && { gap: (() => {
+                style={[s.card, (width < 800 || compact) && { padding: 10 }, dense && { gap: (() => {
                   if (compact) {
-                    return 10;
+                    return 6;
                   } else {
-                    return 16;
+                    return 8;
                   }
                 })() }]}
               >
                 {icon && <View style={{ alignItems: 'center' }}>{icon}</View>}
-                <PageHeader title={title} subtitle={subtitle} onBack={onBack} compact={dense} action={action} />
+                <PageHeader title={title} subtitle={subtitle} onBack={onBack} compact={dense || compact} action={action} />
                 {children}
               </BaseCard>
             );
               } else {
                 return (
               <>
-                <PageHeader title={title} subtitle={subtitle} onBack={onBack} action={action} />
+                <PageHeader title={title} subtitle={subtitle} onBack={onBack} compact action={action} />
                 {children}
               </>
             );
@@ -142,7 +145,7 @@ export function TextAction({
               return Colors.rolePrimary;
             }
           })(),
-          fontSize: 17,
+          fontSize: 13,
           fontFamily: FontFamily.body,
         }}
       >
@@ -153,50 +156,50 @@ export function TextAction({
 }
 export const s = StyleSheet.create({
   screen: { flex: 1, backgroundColor: Colors.background },
-  scroll: { flexGrow: 1, padding: 32, paddingTop: 24 },
+  scroll: { flexGrow: 1, padding: 10, paddingTop: 10 },
   back: { alignSelf: 'flex-start', marginBottom: 12 },
   body: {
     width: '100%',
     alignSelf: 'center',
-    marginVertical: 'auto',
-    paddingBottom: 20,
+    marginVertical: 0,
+    paddingBottom: 8,
   },
   card: {
     backgroundColor: Colors.surface,
-    borderRadius: 36,
-    padding: 40,
-    gap: 22,
+    borderRadius: 20,
+    padding: 12,
+    gap: 6,
     ...Shadows.card,
   },
   title: {
     fontFamily: FontFamily.rounded,
     fontWeight: '900',
-    fontSize: 32,
+    fontSize: 22,
     color: Colors.textPrimary,
     textAlign: 'center',
   },
   subtitle: {
     fontFamily: FontFamily.body,
-    fontSize: 19,
-    lineHeight: 28,
+    fontSize: 14,
+    lineHeight: 20,
     color: Colors.textSecondary,
     textAlign: 'center',
-    marginBottom: 20,
+    marginBottom: 6,
   },
   notice: {
     fontFamily: FontFamily.body,
     color: Colors.textSecondary,
-    fontSize: 16,
-    lineHeight: 24,
-    marginVertical: 10,
+    fontSize: 13,
+    lineHeight: 18,
+    marginVertical: 2,
   },
-  row: { flexDirection: 'row', flexWrap: 'wrap', gap: 24 },
-  field: { flex: 1, minWidth: 240 },
+  row: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
+  field: { flex: 1, minWidth: 170 },
   link: {
-    minHeight: 44,
+    minHeight: 28,
     justifyContent: 'center',
     alignSelf: 'center',
     paddingHorizontal: 8,
   },
-  action: { maxWidth: 550, alignSelf: 'center', marginTop: 10 },
+  action: { maxWidth: 320, alignSelf: 'center', marginTop: 6 },
 });

@@ -6,9 +6,9 @@ import { router } from 'expo-router';
 import { useCloudServices, failureMessage, type WorkspaceSummary } from '../../modules/cloud/services';
 import { useCloudRead } from '../../modules/progress/useCloudRead';
 import { useOperation } from '../../modules/cloud/useOperation';
-import { nameError } from '../../modules/cloud/validation';
+import { nameError, capacityError } from '../../modules/cloud/validation';
 import { FeatureScreen, Notice, TextAction, s } from './FeatureScreen';
-import { AppButton } from '../ui/AppButton';
+import { AppButton } from './MentorButton';
 import { AppTextInput } from '../ui/AppTextInput';
 import { BaseCard } from '../ui/cards/BaseCard';
 import { PendingJoinRequests } from './PendingJoinRequests';
@@ -36,7 +36,7 @@ export function WorkspaceManageScreen({ id }: { id: string }) {
 }
 function WorkspaceEditor({ workspace, refresh }: { workspace: WorkspaceSummary; refresh: () => void }) {
   const { width } = useWindowDimensions();
-  const columns = width >= 960;
+  const columns = width >= 650;
   const cell = { width: (() => {
     if (columns) {
       return '48.5%' as const;
@@ -61,6 +61,8 @@ function WorkspaceEditor({ workspace, refresh }: { workspace: WorkspaceSummary; 
   const services = useCloudServices();
   const op = useOperation();
   const archiveOp = useOperation();
+  const [capacity, setCapacity] = useState(String(workspace.learner_capacity ?? 30));
+  const [capacityIssue, setCapacityIssue] = useState<string>();
   const [name, setName] = useState(workspace.workspace_name);
   const [issue, setIssue] = useState<string>();
   const [confirm, setConfirm] = useState(false);
@@ -74,8 +76,9 @@ function WorkspaceEditor({ workspace, refresh }: { workspace: WorkspaceSummary; 
   const archived = workspace.status === 'archived';
   const update = (status: 'active' | 'archived') => {
     const error = nameError(name, services.policy); setIssue(error);
-    if (error || !services.workspaces.update) return;
-    void op.run(() => services.workspaces.update!(workspace.workspace_id, name, status), refresh);
+    const capacityProblem = capacityError(capacity); setCapacityIssue(capacityProblem);
+    if (error || capacityProblem || !services.workspaces.update) return;
+    void op.run(() => services.workspaces.update!(workspace.workspace_id, name, status, Number(capacity)), refresh);
   };
   const archive = () => {
     if (!services.workspaces.update) return;
@@ -95,12 +98,12 @@ function WorkspaceEditor({ workspace, refresh }: { workspace: WorkspaceSummary; 
         }
       })()}</Text></View>
       <View style={{ gap: 6 }}><Text style={ws.eyebrow}>WORKSPACE CODE</Text>
-        <View style={ws.actions}><Text selectable style={ws.name} verbatim>{workspace.workspace_code}</Text><AppButton compact fullWidth={false} tone="outlinePrimary" icon="copy" label="COPY" accessibilityLabel="Copy workspace code" disabled={copying} onPress={() => { void copyCode(); }} /></View>
+        <View style={ws.actions}><Text selectable style={ws.name} verbatim>{workspace.workspace_code}</Text><AppButton density="landscapeCompact" compact fullWidth={false} tone="outlinePrimary" icon="copy" label="COPY" accessibilityLabel="Copy workspace code" disabled={copying} onPress={() => { void copyCode(); }} /></View>
         <Text style={ws.description}>Share this code with your learners, then review their requests below.</Text>
         <Notice text={copyIssue} />
       </View>
     </BaseCard>
-    <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', rowGap: 20, alignItems: 'flex-start' }}>
+    <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', rowGap: 8, alignItems: 'flex-start' }}>
     <View style={cell}>
     <PendingJoinRequests workspaceId={workspace.workspace_id} onReviewed={() => { void members.refresh(); refresh(); }} />
     </View>
@@ -110,8 +113,9 @@ function WorkspaceEditor({ workspace, refresh }: { workspace: WorkspaceSummary; 
     {(op.busy || !!op.message) && <View style={{ width: '100%' }}><Notice busy={op.busy} text={op.message} /></View>}
     <View style={cell}>
     <WorkspaceSection title="Workspace details" icon="pencil" description="Choose a name your learners will recognize.">
-    <AppTextInput density="form" label="WORKSPACE NAME" value={name} onChangeText={setName} editable={!op.busy} error={issue} />
-    <AppButton label="SAVE NAME" accessibilityLabel="Save workspace name" disabled={op.busy || !services.workspaces.update} onPress={() => update((() => {
+    <AppTextInput density="landscapeCompact" label="WORKSPACE NAME" value={name} onChangeText={setName} editable={!op.busy} error={issue} />
+    <AppTextInput density="landscapeCompact" label="LEARNER CAPACITY" required value={capacity} onChangeText={setCapacity} keyboardType="number-pad" editable={!op.busy} error={capacityIssue} />
+    <AppButton density="landscapeCompact" compact label="SAVE CHANGES" accessibilityLabel="Save workspace name" disabled={op.busy || !services.workspaces.update} onPress={() => update((() => {
       if (archived) {
         return 'archived';
       } else {

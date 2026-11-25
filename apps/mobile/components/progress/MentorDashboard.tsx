@@ -64,10 +64,10 @@ function WorkspaceResults({ id }: { id: string }) {
     </View>;
         } else {
           return <>
-      <View style={[p.card, p.row, { justifyContent: 'space-between', paddingVertical: 18 }]}>
+      <View style={[p.card, p.row, { padding: 12, borderRadius: 18 }, { justifyContent: 'space-between', paddingVertical: 10 }]}>
         <View style={[p.row, { flexShrink: 1, flexWrap: 'nowrap' }]}>
-          <View style={{ backgroundColor: '#FFF5E8', borderWidth: 1.5, borderColor: '#FFE7CC', padding: 14, borderRadius: 22 }}><AppIcon name="workspace" color="accent" size={32} /></View>
-          <View style={{ flexShrink: 1 }}><Text style={p.name} verbatim>{result.data.workspace.workspace_name}</Text><Text style={[p.text, { marginTop: 12 }]}>{learners(result.data.learnerCount)} · {(() => {
+          <View style={{ backgroundColor: '#FFF5E8', borderWidth: 1.5, borderColor: '#FFE7CC', padding: 8, borderRadius: 22 }}><AppIcon name="workspace" color="accent" size={24} /></View>
+          <View style={{ flexShrink: 1 }}><Text style={[p.name, { fontSize: 18 }]} verbatim>{result.data.workspace.workspace_name}</Text><Text style={[p.text, { marginTop: 4, fontSize: 13 }]}>{learners(result.data.learnerCount)} · {(() => {
             if (result.data.lastSyncedAt) {
               return `Last sync: ${syncTime(result.data.lastSyncedAt, new Date(), language)}`;
             } else {
@@ -78,9 +78,9 @@ function WorkspaceResults({ id }: { id: string }) {
         <WorkspaceCode code={result.data.workspace.workspace_code} />
       </View>
       {refreshError && <Text accessibilityRole="alert" style={p.text}>Could not refresh. Showing the previously loaded results.</Text>}
-      {result.data.learnerCount === 0 ? <View style={p.card}>
-        <Text accessibilityRole="header" style={p.name}>No approved learners yet</Text>
-        <Text style={[p.text, { marginTop: 12 }]}>Approved learners will appear here. Results appear after they synchronize their learning.</Text>
+      {result.data.learnerCount === 0 ? <View style={[p.card, { padding: 12, borderRadius: 18 }]}>
+        <Text accessibilityRole="header" style={[p.name, { fontSize: 18 }]}>No approved learners yet</Text>
+        <Text style={[p.text, { marginTop: 4, fontSize: 13 }]}>Approved learners will appear here. Results appear after they synchronize their learning.</Text>
       </View> : <ResultsSummaryTable learners={result.data.learners} onView={profileId => router.push({ pathname: '/mentor/learner-progress', params: { workspaceId: id, profileId } })} />}
       <View style={p.row}>
         {offset > 0 && <TextAction label="Previous learners" onPress={() => setOffset(n => Math.max(0, n - 50))} />}

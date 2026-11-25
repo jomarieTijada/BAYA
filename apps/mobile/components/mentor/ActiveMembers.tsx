@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { failureMessage, useCloudServices, type Result, type WorkspaceMember } from '../../modules/cloud/services';
 import { useOperation } from '../../modules/cloud/useOperation';
-import { AppButton } from '../ui/AppButton';
+import { AppButton } from './MentorButton';
 import { AppIcon } from '../ui/AppIcon';
 import { BaseCard } from '../ui/cards/BaseCard';
 import { BayaDialog } from '../ui/BayaDialog';
@@ -118,7 +118,7 @@ function MemberRow({ name, active, busy, onPress }: { name: string; active: bool
           return 'Removed';
         }
       })()}</Text>
-      <AppButton compact fullWidth={false} tone="outlinePrimary" label={(() => {
+      <AppButton density="landscapeCompact" compact fullWidth={false} tone="outlinePrimary" label={(() => {
         if (active) {
           return 'Remove';
         } else {

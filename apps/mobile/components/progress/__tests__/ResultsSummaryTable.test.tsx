@@ -32,7 +32,7 @@ it('exposes tabular relationships, counts, confirmed zero, missing data and deta
   expect(within(screen.getByTestId('result-row-a')).getByText('4 / 9')).toBeTruthy();
   expect(within(screen.getByTestId('result-row-b')).getByText('0%')).toBeTruthy();
   expect(within(screen.getByTestId('result-row-c')).queryByText('0%')).toBeNull();
-  expect(within(screen.getByTestId('result-row-c')).getAllByText('Not available')).toHaveLength(2);
+  expect(within(screen.getByTestId('result-row-c')).getAllByText('—')).toHaveLength(2);
   fireEvent.press(screen.getByLabelText("View Ana's progress"));expect(view).toHaveBeenCalledWith('a');
 });
 it('switches language without fetching again, changing numbers or losing workspace context', async () => {

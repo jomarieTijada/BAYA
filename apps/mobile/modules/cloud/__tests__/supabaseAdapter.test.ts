@@ -7,6 +7,8 @@ const membership = { membership_id: 'j1', learner_profile_id: 'p1', workspace_id
 const joined = { workspace, membership, alreadyJoined: false };
 function mockClient() {
   const auth = {
+    mfa: { getAuthenticatorAssuranceLevel: jest.fn().mockResolvedValue({data:{currentAuthenticationMethods:[{method:'otp'}]},error:null}) },
+    signInWithOtp: jest.fn().mockResolvedValue({error:null}),
     getSession: jest.fn().mockResolvedValue({ data: { session: null }, error: null }),
     getUser: jest.fn().mockResolvedValue({data:{user:{id:'cloud-user',is_anonymous:true}}}), signInWithPassword: jest.fn(), signUp: jest.fn(), verifyOtp: jest.fn(),
     resend: jest.fn(), resetPasswordForEmail: jest.fn(), updateUser: jest.fn(),
@@ -75,14 +77,14 @@ it('requires a provider challenge and does not store passwords in it', async () 
   expect(await service.auth.verify(result.data.challenge.id, '123456')).toEqual({ ok: false, code: 'expired_code' });
 });
 it('propagates wrong-password failures without sending OTP', async () => {
-  const { service, mentor } = setup(); mentor.auth.signInWithPassword.mockResolvedValue({ error: { code: 'invalid_credentials' } });
+  const { service, mentor, recovery } = setup(); recovery.auth.signInWithPassword.mockResolvedValue({ error: { code: 'invalid_credentials' } });
   expect(await service.auth.login('x@y.test', 'wrong')).toEqual({ ok: false, code: 'credentials' });
   expect(mentor.auth.resend).not.toHaveBeenCalled();
 });
 it('does not fabricate an OTP challenge for an obscured repeat signup', async () => {
   const { service, mentor } = setup();
   mentor.auth.signUp.mockResolvedValue({ data: { session: null, user: { identities: [] } }, error: null });
-  expect(await service.auth.register('Name', 'mentor@example.test', 'password123')).toEqual({ ok: true, data: { kind: 'check_email' } });
+  expect(await service.auth.register('Name', 'mentor@example.test', 'password123')).toEqual({ ok: false, code: 'exists' });
   expect(mentor.auth.resend).not.toHaveBeenCalled();
 });
 it('returns no session for signed-out mentor and refuses anonymous mentor access', async () => {
@@ -218,4 +220,34 @@ it('keeps known authorization denial distinct from offline connectivity', () => 
     if (original) Object.defineProperty(globalThis, 'navigator', original);
     else Reflect.deleteProperty(globalThis, 'navigator');
   }
+});
+
+it('requires login OTP after ephemeral password verification and resends the login challenge', async () => {
+ const { service, mentor, recovery } = setup();
+ recovery.auth.signInWithPassword.mockResolvedValue({data:{session:{}},error:null});
+ const result = await service.auth.login('mentor@example.test','password123');
+ expect(mentor.auth.signInWithPassword).not.toHaveBeenCalled();
+ expect(recovery.auth.signOut).toHaveBeenCalledWith({scope:'local'});
+ expect(mentor.auth.signInWithOtp).toHaveBeenCalledWith({email:'mentor@example.test',options:{shouldCreateUser:false}});
+ if(!result.ok || result.data.kind!=='otp') throw Error('OTP required');
+ await service.auth.resend(result.data.challenge.id);
+ expect(mentor.auth.signInWithOtp).toHaveBeenCalledTimes(2);
+ mentor.auth.verifyOtp.mockResolvedValue({error:{code:'otp_expired'}});
+ expect(await service.auth.verify(result.data.challenge.id,'bad')).toEqual({ok:false,code:'expired_code'});
+ mentor.auth.verifyOtp.mockResolvedValue({error:null});
+ expect(await service.auth.verify(result.data.challenge.id,'123456')).toEqual({ok:true,data:{kind:'authenticated'}});
+});
+it('rejects a restored password-only mentor session', async () => {
+ const {service,mentor}=setup();
+ mentor.auth.getSession.mockResolvedValue({data:{session:{}},error:null});
+ mentor.auth.mfa.getAuthenticatorAssuranceLevel.mockResolvedValue({data:{currentAuthenticationMethods:[{method:'password'}]},error:null});
+ expect(await service.auth.session()).toEqual({ok:false,code:'unauthorized'});
+});
+it('passes capacity to create and update and reports full workspaces', async () => {
+ const {service,mentor}=setup();mentor.rpc.mockResolvedValue({data:{...workspace,learner_capacity:12},error:null});
+ expect((await service.workspaces.create('Class',12)).ok).toBe(true);
+ expect(mentor.rpc).toHaveBeenLastCalledWith('create_workspace',{p_name:'Class',p_capacity:12});
+ await service.workspaces.update!('w1','Class','active',15);
+ expect(mentor.rpc).toHaveBeenLastCalledWith('update_workspace',{p_workspace_id:'w1',p_name:'Class',p_status:'active',p_capacity:15});
+ expect(cloudFailure({code:'P0001',message:'workspace_full'})).toEqual({ok:false,code:'workspace_full'});
 });

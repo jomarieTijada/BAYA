@@ -68,3 +68,7 @@ export const codeError = (value: string, policy: CloudServices['policy']) =>
     }
   }
 };
+
+export function capacityError(value: string): string | undefined {
+  if (!/^\d+$/.test(value.trim()) || Number(value) < 1 || Number(value) > 10000) return 'Enter a learner capacity from 1 to 10,000.';
+}

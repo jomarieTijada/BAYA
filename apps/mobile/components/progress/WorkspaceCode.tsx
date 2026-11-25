@@ -19,8 +19,8 @@ export function WorkspaceCode({ code }: { code: string }) {
           else setMessage('Select the code to copy it.');
         } catch { setMessage('Select the code to copy it.'); }
       })();
-    }} style={[p.row, { borderWidth: 1.5, borderColor: Colors.accent, backgroundColor: Colors.background, padding: 14, borderRadius: 12, gap: 10 }]}>
-      <Text selectable style={[p.text, { fontWeight: '700' }]}>ID: {code}</Text><AppIcon name="copy" color="accent" size={22} />
+    }} style={[p.row, { borderWidth: 1.5, borderColor: Colors.accent, backgroundColor: Colors.background, padding: 8, borderRadius: 12, gap: 10 }]}>
+      <Text selectable style={[p.text, { fontWeight: '700', fontSize: 13 }]}>ID: {code}</Text><AppIcon name="copy" color="accent" size={18} />
     </Pressable>
     {!!message && <Text accessibilityLiveRegion="polite" style={[p.text, { fontSize: 14 }]}>{message}</Text>}
   </View>;
