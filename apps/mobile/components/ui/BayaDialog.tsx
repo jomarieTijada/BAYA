@@ -88,7 +88,7 @@ export function BayaDialog({ visible, title, description, detail, variant = 'con
     <Animated.View style={[styles.backdrop, { opacity: motion, paddingTop: Math.max(12, insets.top), paddingBottom: Math.max(12, insets.bottom) }, Platform.OS === 'web' && { backdropFilter: 'blur(7px)' } as object]}>
       <Animated.View accessibilityViewIsModal role="dialog" aria-label={title} aria-describedby={completionContent ? 'completion-description' : undefined} style={[styles.card, completionContent ? { borderColor: '#FFF0BD', borderWidth: 3, borderRadius: width < 600 ? 28 : 48 } : undefined, { width: Math.min(width - 2 * Math.max(16, insets.left, insets.right), (() => {
         if (completionContent) {
-          return 860;
+          return Math.min(580, Math.max(420, height * 1.3));
         } else {
           return Math.min(400, Math.max(320, height - 24));
         }

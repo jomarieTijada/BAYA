@@ -1,3 +1,4 @@
+import { openLearnerSettings } from '../../settings/LearnerSettingsOverlay';
 /* eslint-disable @typescript-eslint/no-require-imports -- Jest factories resolve React inside the factory. */
 import React from 'react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
@@ -5,6 +6,8 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react-nativ
 import { DashboardCards } from '../DashboardCards';
 import { LearnerHeader } from '../LearnerHeader';
 import { learnerHomeDemo } from '../learnerHomeDemo';
+
+jest.mock('../../settings/LearnerSettingsOverlay', () => ({ openLearnerSettings: jest.fn() }));
 
 let mockViewport = { width: 390, height: 844 };
 const mockPush = jest.fn();
@@ -167,7 +170,8 @@ describe('Learner Home — English copy consistency', () => {
       renderHeader();
       openSettings();
       fireEvent.press(await screen.findByLabelText(label));
-      expect(mockPush).toHaveBeenCalledWith(route);
+      if (route === '/learner/settings') expect(openLearnerSettings).toHaveBeenCalled();
+      else expect(mockPush).toHaveBeenCalledWith(route);
       await waitFor(() => expect(screen.queryByLabelText('Join Workspace')).toBeNull());
     });
 

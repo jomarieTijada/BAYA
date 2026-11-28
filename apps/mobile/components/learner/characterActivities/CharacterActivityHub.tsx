@@ -21,7 +21,7 @@ import { useLocalization } from '../../../localization/LocalizationProvider';
 export function CharacterActivityHub({ checkpoint }: { checkpoint: TopicCheckpoint }) {
   const router = useRouter(), copy = useCharacterCopy(), { language } = useLocalization();
   const [attempt, setAttempt] = useState<SetAttempt | null>(null);
-  const [attempts, setAttempts] = useState<SetAttempt[]>([]);
+
   const [busy, setBusy] = useState(true), [error, setError] = useState(false);
   const title = checkpoint.title[language === 'tl' ? 'tl' : 'en'];
   const back = () => router.replace({ pathname: '/learner/lessons', params: { moduleId: checkpoint.moduleId, assessmentId: checkpoint.id } });
@@ -40,7 +40,7 @@ export function CharacterActivityHub({ checkpoint }: { checkpoint: TopicCheckpoi
     try {
       let saved = await service.begin(checkpoint.id, repeat);
       if (saved.responses[saved.cursor]?.answer.kind === 'choice') saved = await service.advance(saved);
-      setAttempt(saved); setAttempts(await service.list());
+      setAttempt(saved);
     } catch { setError(true); }
     finally { setBusy(false); }
   }, [checkpoint.id]);
@@ -55,13 +55,13 @@ export function CharacterActivityHub({ checkpoint }: { checkpoint: TopicCheckpoi
   const boards = matchingBoards(checkpoint.id, offset);
   const board = boards.find(b => b.start <= cursor && cursor < b.start + b.pairs.length) ?? boards.at(-1);
   const matching = question.type === 'multiple-choice' && !!board;
-  const change = (saved: SetAttempt) => { setAttempt(saved); setAttempts(previous => [...previous.filter(a => a.id !== saved.id), saved]); };
+  const change = (saved: SetAttempt) => { setAttempt(saved); };
   return <LearnerAppShell activeRoute="/learner/lessons" backgroundColor="#FFFDF7" showBottomNavigation={false}
     header={<AssessmentHeader title={title} context={copy.names[bank.number - 1]} position={cursor + 1} total={total} progressLabel={copy.setProgress} onBack={back} />} testID="character-activity-root">
-    {attempt && matching && attempt.cursor < total ? <MatchingChallenge key={`${attempt.id}:${cursor}`} board={board} attempt={attempt} onChange={change} /> : attempt && question.type === 'handwriting' ? <QuestionScreen key={`${attempt.id}:${cursor}`} activity={bank} question={question} attempt={{ ...attempt, cursor }}
+    {attempt?.cursor === total ? null : attempt && matching ? <MatchingChallenge key={`${attempt.id}:${cursor}`} board={board} attempt={attempt} onChange={change} /> : attempt && question.type === 'handwriting' ? <QuestionScreen key={`${attempt.id}:${cursor}`} activity={bank} question={question} attempt={{ ...attempt, cursor }}
       total={total} context={title} onChange={change} /> :
       <View style={{ padding: 24 }}><Text>{error ? copy.error : copy.loading}</Text>{error && <AppButton label={copy.retry} accessibilityLabel={copy.retry} onPress={() => void open()} />}</View>}
-    {attempt?.cursor === total && <SetResultStage attempt={attempt} set={getAssessmentSet(checkpoint.id).set} attempts={attempts}
+    {attempt?.cursor === total && <SetResultStage attempt={attempt} set={getAssessmentSet(checkpoint.id).set} onBack={back}
       busy={busy} error={error ? copy.error : undefined} onRepeat={() => void open(true)} onNext={() => void continueLesson()} />}
   </LearnerAppShell>;
 }

@@ -1,3 +1,6 @@
+import {readWallet,type Wallet} from '../../../modules/rewards/wallet';
+import { reconcileAchievements } from '../../../modules/achievements/service';
+import { useLocalization } from '../../../localization/LocalizationProvider';
 import { openLearnerSettings } from '../settings/LearnerSettingsOverlay';
 import { activityResumeService } from '../../../database/services/activityResumeService';
 import React, { useCallback, useState } from 'react';
@@ -18,6 +21,8 @@ import { localLearnerService } from '../../../database/services/localLearnerServ
 
 export function LearnerHomeScreen() {
   const router = useRouter();
+  const { language } = useLocalization();
+  const [wallet,setWallet]=useState<Wallet|null>(null);
   const [data, setData] = useState<LearnerHomeViewModel>(learnerHomeDemo);
   const { isPhone, isPhoneLandscape } = useResponsiveLayout();
 
@@ -31,6 +36,13 @@ export function LearnerHomeScreen() {
           localLearnerService.getTodayCompletedTopicCount(),
         ]);
         const model = buildLearnerHomeModel(profile, modules, completedToday);
+        if (profile) {
+          const achievements = await reconcileAchievements(profile.profile_id);
+          const currentWallet=await readWallet(profile.profile_id);
+          if(active)setWallet(currentWallet);
+          const recent = achievements.filter(a => a.unlockedAt).sort((a, b) => b.unlockedAt!.localeCompare(a.unlockedAt!) || b.definition.sortOrder - a.definition.sortOrder)[0];
+          model.recentAchievement = recent ? { title: recent.definition.title[language], description: recent.definition.description[language], iconKey: recent.definition.iconKey } : null;
+        }
         const checkpoint = profile ? await activityResumeService.read(profile.profile_id).catch(() => null) : null;
         const savedModule = modules.find(m => m.topics.some(t => t.id === checkpoint?.topicId));
         const savedTopic = savedModule?.topics.find(t => t.id === checkpoint?.topicId);
@@ -46,14 +58,14 @@ export function LearnerHomeScreen() {
     }
     void hydrate();
     return () => { active = false; };
-  }, []));
+  }, [language]));
 
   return (
     <LearnerAppShell
       activeRoute="/learner/home"
       header={(
         <LearnerHeader
-          learner={data.learner}
+          learner={data.learner} wallet={wallet}
           onOpenSettings={() => openLearnerSettings()}
         />
       )}

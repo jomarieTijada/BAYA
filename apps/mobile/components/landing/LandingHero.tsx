@@ -41,26 +41,10 @@ export function LandingHero({ onLearnerPress, onMentorPress, introductionEligibl
   const useWideLayout = isDesktop || isPhoneLandscape || isTabletLandscape;
   const compactControls = isPhone || isCompactHeight;
 
-  let mascotSize;
-  if (isPhoneLandscape) {
-    mascotSize = Math.min(width * 0.42, height * 0.8, 300);
-  } else {
-    if (useWideLayout) {
-      mascotSize = Math.min(width * 0.52, height * 0.86, (() => {
-        if (isTablet) {
-          return 500;
-        } else {
-          return 820;
-        }
-      })());
-    } else {
-      if (isPhonePortrait) {
-        mascotSize = Math.min(width - 64, height * 0.34, 280);
-      } else {
-        mascotSize = Math.min(width * 0.58, height * 0.4, 390);
-      }
-    }
-  }
+  const safeHeight = height - insets.top - insets.bottom;
+  const mascotSize = useWideLayout
+    ? Math.min(width * (isPhoneLandscape ? 0.46 : 0.53), safeHeight - (isPhoneLandscape ? 16 : 36), isTablet ? 620 : 900)
+    : Math.min(width * 0.9, safeHeight * (isPhonePortrait ? 0.43 : 0.48), 480);
   let logoSize;
   if (isPhoneLandscape) {
     logoSize = Math.min(66, height * 0.17);
@@ -225,7 +209,7 @@ const styles = StyleSheet.create({
     minWidth: 0,
   },
   mascotPanePhone: {
-    flex: 0.44,
+    flex: 0.47,
   },
   contentPane: {
     alignItems: 'center',
@@ -235,7 +219,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.md,
   },
   contentPanePhone: {
-    flex: 0.56,
+    flex: 0.53,
     paddingHorizontal: Spacing.sm,
   },
   branding: {

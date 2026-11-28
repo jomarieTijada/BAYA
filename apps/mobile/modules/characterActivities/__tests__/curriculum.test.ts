@@ -22,7 +22,7 @@ test('placements reflect actual target glyphs and writing concepts, with valid i
     expect(p.prerequisiteTopicIds).toContain(instruction);
     expect(p.topicId).toBe(p.interaction === 4 ? 'topic-3-2' : instruction);
   }
-  expect(questionPlacements.filter(p => p.interaction === 1 && !questionRecording(p.question)).map(p => p.question.prompt)).toEqual(['DE','RE']);
+  expect(questionPlacements.filter(p => p.interaction === 1 && !questionRecording(p.question)).map(p => p.question.prompt)).toEqual([]);
 });
 test.each(topicCheckpoints)('$id unlocks immediately after its own instruction, without requiring later topics or a score', c => {
   const modules = createApprovedModules(), topics = modules.flatMap(m => m.topics);

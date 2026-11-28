@@ -7,9 +7,7 @@ import { writingClassId } from '../writingMastery';
 const extraction = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../../../docs/activities/source-extraction.json'), 'utf8'));
 const tables = extraction.blocks.filter((b: {kind: string}) => b.kind === 'table');
 describe('DOCX Character Level content', () => {
-  it('resolves content and reports exactly the two withheld D/R recordings', () => expect(validateCharacterContent()).toEqual([
-    'character-1-q-06: missing recording', 'character-1-q-10: missing recording',
-  ]));
+  it('resolves all published recordings including the approved combined DE/RE clip', () => expect(validateCharacterContent()).toEqual([]));
   for (const [ai, activity] of characterActivities.entries()) for (const [si, set] of activity.sets.entries()) for (const [qi, q] of set.questions.entries()) {
     it(`${q.id} exactly matches the source table and answer key`, () => {
       const rows = tables[ai * 5 + si].rows.filter((r: {text: string}[]) => /^\d+$/.test(r[0].text.trim()));
@@ -20,7 +18,7 @@ describe('DOCX Character Level content', () => {
         expect(q.correctLetter).toBe(row[5].text[0]);
         for (const option of q.options) expect(evaluateAnswer(q, { kind: 'choice', optionId: option.id, audioPlayed: true })).toBe(option.letter === q.correctLetter);
         if (ai === 0) {
-          if (['DE', 'RE'].includes(q.prompt)) expect(questionRecording(q)).toBeUndefined();
+          if (['DE', 'RE'].includes(q.prompt)) expect(questionRecording(q)?.id).toBe('baya-e-dere');
           else expect(questionRecording(q)?.label.toUpperCase()).toBe(q.prompt);
         }
       } else {

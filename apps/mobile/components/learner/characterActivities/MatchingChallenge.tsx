@@ -1,3 +1,4 @@
+import { HintButton } from '../rewards/HintButton';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Animated, PanResponder, Platform, Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { Colors } from '../../../constants/theme';
@@ -129,6 +130,7 @@ export function MatchingChallenge({board,attempt,onChange}:{board:MatchingBoard;
   {target:'stars',emphasis:'',message:tl?'Dito mapupunta ang tamang card. Ang unang sagot ang binibilang sa iskor; maaari kang sumubok muli.':'Correct cards appear here. Your first answer counts toward your score; you can retry to practice.',icon:'check'},
  ];
  return <View style={s.stage} testID="matching-board">
+  <View style={{position:'absolute',right:10,bottom:6,zIndex:8}}><HintButton key={attempt.id+current.id} attempt={attempt} question={current.question} disabled={busy||won||!!saved||pending}/></View>
   <Pressable style={s.instructions} accessibilityRole="button" accessibilityLabel={tl?'Panuto':'Instructions'} onPress={()=>setHelp(h=>!h)}><Text style={s.hint}>{'\u24D8 '}{tl?'Panuto':'Instructions'}</Text></Pressable>
   <View ref={collectionTarget} collapsable={false} style={[s.collection,{width:mini}]} testID="matched-pairs" accessibilityLiveRegion="polite">{board.pairs.filter(p=>completeIds.includes(p.id)).map(p=><View key={p.id} style={[s.collected,{width:mini,height:mini}]}><Glyph glyph={p.glyph} label={p.reading} size={mini-22}/><Text style={s.pairLabel}>{p.reading}</Text></View>)}</View>
   <View style={[s.playArea,{paddingLeft:mini+44},portrait&&{flexDirection:'column',gap:4,paddingTop:42,paddingLeft:0}]}>

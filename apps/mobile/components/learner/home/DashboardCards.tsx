@@ -1,3 +1,4 @@
+import { Ionicons } from '@expo/vector-icons';
 import { AccessibilityView, Text } from '../../../localization/components';
 import React from 'react';
 import { type LayoutChangeEvent, StyleSheet, View } from 'react-native';
@@ -285,7 +286,7 @@ export function DashboardCards({
               landscapeCompact && styles.featureIconCompact,
             ]}
           >
-            <AppIcon
+            {recentAchievement?.iconKey ? <Ionicons name={recentAchievement.iconKey as keyof typeof Ionicons.glyphMap} size={landscapeCompact ? 12 : 29} color="#B96300" /> : (            <AppIcon
               color={(() => {
                 if (hasAchievement) {
                   return 'achievement';
@@ -307,7 +308,7 @@ export function DashboardCards({
                   return 29;
                 }
               })()}
-            />
+            />)}
           </View>
           <Text style={[styles.title, landscapeCompact && styles.titleCompact]}>{achievementTitle}</Text>
         </View>

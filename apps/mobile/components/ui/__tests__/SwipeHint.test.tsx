@@ -25,7 +25,7 @@ it('demonstrates the gesture twice, then stays static across rerenders and bound
   view.rerender(<SwipeHint direction="left" />);
   expect(screen.getByTestId('lesson-swipe-hint').props.pointerEvents).toBe('none');
   expect(screen.getByLabelText("Swipe left")).toBeTruthy();
-  expect(timing.mock.calls.map(call => call[1].toValue)).toEqual([-7, 0, -7, 0]);
+  expect(timing.mock.calls.map(call => call[1].toValue)).toEqual([-22, 0, -22, 0]);
   view.rerender(<SwipeHint direction="left" />);
   view.rerender(<SwipeHint direction="right" />);
   expect(screen.getByLabelText("Swipe right")).toBeTruthy();

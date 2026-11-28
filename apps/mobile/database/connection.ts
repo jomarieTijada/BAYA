@@ -7,7 +7,6 @@ import type { DatabaseConnection } from './types';
 
 export const DATABASE_NAME = 'baya.db';
 export const OPFS_LOCK_CONFLICT = 'OPFS_LOCK_CONFLICT';
-
 export type DatabaseState = 'CLOSED' | 'ACQUIRING_OWNERSHIP' | 'OPENING' | 'READY' | 'YIELD_REQUESTED' | 'CLOSING' | 'ERROR';
 
 let state: DatabaseState = 'CLOSED';

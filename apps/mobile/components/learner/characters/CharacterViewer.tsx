@@ -1,3 +1,4 @@
+import { SwipeHint, swipeDirection } from '../../ui/SwipeHint';
 import { Image, AccessibilityView, Pressable, Text } from '../../../localization/components';
 import { useLocalization } from '../../../localization/LocalizationProvider';
 import React, { useEffect, useRef, useState } from 'react';
@@ -154,6 +155,7 @@ export function CharacterViewer({ characters, topicId, selectedIndex, onSelectCh
   const { height, isCompactHeight, isDesktop, isPhone, isTablet } = useResponsiveLayout();
   const compact = isCompactHeight || isPhone || isTablet;
   const large = isDesktop && !isCompactHeight;
+  const [scrollOffset, setScrollOffset] = useState(0);
   const selector = useRef<ScrollView>(null);
   const [selectorWidth, setSelectorWidth] = useState(0);
   const [contentWidth, setContentWidth] = useState(0);
@@ -202,7 +204,7 @@ export function CharacterViewer({ characters, topicId, selectedIndex, onSelectCh
           <ScrollView style={styles.contentScroll} contentContainerStyle={[styles.content, isStacked && styles.contentStacked]} showsVerticalScrollIndicator>
             <View style={[styles.selectorSection, large && styles.selectorSectionLarge]}>
               <Text style={[styles.selectorTitle, large && styles.selectorTitleLarge]}>Mga simbolo</Text>
-              <ScrollView horizontal ref={selector} onLayout={event => setSelectorWidth(event.nativeEvent.layout.width)} onContentSizeChange={width => setContentWidth(width)} showsHorizontalScrollIndicator={false} contentContainerStyle={[styles.selectorContent, large && contentWidth <= selectorWidth && styles.selectorContentCentered]} style={styles.selector} testID="character-selector">
+              <ScrollView horizontal onScroll={e => setScrollOffset(e.nativeEvent.contentOffset.x)} scrollEventThrottle={32} ref={selector} onLayout={event => setSelectorWidth(event.nativeEvent.layout.width)} onContentSizeChange={width => setContentWidth(width)} showsHorizontalScrollIndicator={false} contentContainerStyle={[styles.selectorContent, large && contentWidth <= selectorWidth && styles.selectorContentCentered]} style={styles.selector} testID="character-selector">
                 {characters.map((item, index) => {
                   const selected = index === selectedIndex;
                   return (
@@ -228,6 +230,7 @@ export function CharacterViewer({ characters, topicId, selectedIndex, onSelectCh
                   );
                 })}
               </ScrollView>
+              <SwipeHint direction={swipeDirection(selectorWidth, contentWidth, scrollOffset)} />
             </View>
             <View style={[styles.exampleRegion, isStacked && styles.exampleRegionStacked]}>
               {position ? <StoryGuide compact={compact} landscapeCompact={isCompactHeight} stackGuide={isStacked}

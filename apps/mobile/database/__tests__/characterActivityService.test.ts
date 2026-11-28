@@ -1,3 +1,9 @@
+import { readWallet } from '../../modules/rewards/wallet';
+import { questionPlacements } from '../../content/characterActivities/checkpoints';
+import { achievementCatalog } from '../../content/achievements/achievementCatalog';
+import { redeemHint, resolveHint } from '../../modules/rewards/hints';
+import { performanceRating,rewardPolicy } from '../../modules/rewards/policy';
+import { matchingBoards, matchingPair } from '../../content/characterActivities/matching';
 import { DatabaseSync } from 'node:sqlite';
 import type { DatabaseConnection } from '../types';
 import { runMigrations } from '../migrate';
@@ -95,16 +101,16 @@ describe('Character assessment SQLite persistence', () => {
     expect(await service.list(db)).toEqual([]);
     await expect(service.advance(a, db)).rejects.toThrow('changed');
   });
-  it('lets learners reach valid questions after withheld audio without false completion', async () => {
+  it('rejects withholding approved audio and persists all five scored responses', async () => {
     const audioSet = characterActivities[0].sets[1];
     let a = await service.begin(audioSet.id, false, db);
     for (const q of audioSet.questions) {
       if (q.type !== 'multiple-choice') throw Error('fixture');
-      const answer = ['DE','RE'].includes(q.prompt) ? {kind:'unavailable' as const,reason:'recording-pending-validation' as const}
-        : {kind:'choice' as const,optionId:`${q.id}-${q.correctLetter}`,audioPlayed:true};
+      if (['DE','RE'].includes(q.prompt)) await expect(service.submit(a,q.id,{kind:'unavailable',reason:'recording-pending-validation'},db)).rejects.toThrow('Available questions cannot be deferred');
+      const answer = {kind:'choice' as const,optionId:`${q.id}-${q.correctLetter}`,audioPlayed:true};
       a = await service.submit(a, q.id, answer, db); a = await service.advance(a, db);
     }
-    expect(a.cursor).toBe(5); expect(attemptedCount(a)).toBe(3); expect(score(a)).toBe(3); expect(complete(a)).toBe(false);
+    expect(a.cursor).toBe(5); expect(attemptedCount(a)).toBe(5); expect(score(a)).toBe(5); expect(complete(a)).toBe(true);
     expect((await service.list(db))[0]).toEqual(a);
   });
   it('enforces topic prerequisites transactionally and preserves original history beside variable-length attempts', async () => {
@@ -145,4 +151,75 @@ describe('Character assessment SQLite persistence', () => {
     expect((await service.list(db))[0].responses).toEqual([]);
   });
 
+
+  const prepareWallet = async () => {
+    for(const id of ['topic-1-1','topic-1-2','topic-1-3','topic-1-4','topic-1-5','topic-2-1']) {
+      await localLearnerService.completeTopic(id,db);
+    }
+    return service.begin('checkpoint-v1-topic-2-1',false,db);
+  };
+  it('credits distinct topics, modules and achievements once per owner', async()=>{
+    const a=await prepareWallet();
+    const first=await readWallet(a.profileId,db);
+    expect(first.rows.filter(r=>r.kind==='topic')).toHaveLength(6);
+    expect(first.rows.find(r=>r.kind==='module')?.amount).toBe(5);
+    expect(first.rows.find(r=>r.source_id==='first_step')?.amount).toBe(1);
+    await localLearnerService.completeTopic('topic-1-1',db);
+    expect(await readWallet(a.profileId,db)).toEqual(first);
+  });
+  it('restores a paid clue and records actual correctness independently of answer credit',async()=>{
+    const a=await prepareWallet(), board=matchingBoards(a.setId)[0], q=board.pairs[0].id;
+    const before=await readWallet(a.profileId,db);
+    const hint=await redeemHint(a,q,db);
+    expect(hint.level).toBe('answer-revealed');
+    expect(await redeemHint(a,q,db)).toEqual(hint);
+    const after=await readWallet(a.profileId,db);
+    expect(after.balance).toBe(before.balance-rewardPolicy.hintCost);
+    expect(after.earned).toBe(before.earned);
+    const saved=await service.submit(a,q,{kind:'mascot-match-v3',boardId:board.id,boardStart:0,targetQuestionId:q},db);
+    expect(saved.responses[0].correct).toBe(true);
+    expect((await readWallet(a.profileId,db)).rows.some(r=>r.kind==='matching'&&r.source_id===q)).toBe(false);
+    await expect(redeemHint(a,q,db)).rejects.toThrow('submitted');
+  });
+  it('rolls back undelivered hints and rejects stale identities and invalid debits',async()=>{
+    const a=await prepareWallet(),q=matchingBoards(a.setId)[0].pairs[0].id;
+    const before=await readWallet(a.profileId,db);
+    await db.execAsync("CREATE TRIGGER simulate_delivery_failure BEFORE INSERT ON learner_hint_usage BEGIN SELECT RAISE(ABORT,'delivery failed'); END;");
+    await expect(redeemHint(a,q,db)).rejects.toThrow('delivery failed');
+    expect(await readWallet(a.profileId,db)).toEqual(before);
+    await expect(db.runAsync("INSERT INTO learner_star_transactions(learner_id,kind,source_id,amount,policy_version) VALUES(?,'hint','overspend',-99999,1)",[a.profileId])).rejects.toThrow('Insufficient Stars');
+    await expect(db.runAsync('UPDATE learner_star_transactions SET amount=99')).rejects.toThrow('Immutable');
+    await db.runAsync("DELETE FROM local_app_state WHERE state_key='active_learner_profile_id'");
+    const second=await localLearnerService.saveProfile('Other wallet','',db);
+    await expect(redeemHint(a,q,db)).rejects.toThrow('changed');
+    expect((await readWallet(second.profile_id,db)).balance).toBe(0);
+  });
+  it('offers only approved assistance and validates each live catalog price', () => {
+    for (const definition of achievementCatalog) {
+      expect(Number.isInteger(definition.starValue)).toBe(true);
+      expect(definition.starValue).toBeGreaterThanOrEqual(1);
+      expect(definition.starValue).toBeLessThanOrEqual(5);
+    }
+    for (const {question} of questionPlacements) {
+      const hint = resolveHint(question);
+      if (question.type === 'multiple-choice') {
+        const pair = matchingPair(question.id);
+        if (pair.pending) expect(hint).toBeNull();
+        else {
+          expect(hint?.level).toBe('answer-revealed');
+          expect(hint?.en).toContain(pair.reading+' → '+pair.glyph);
+          expect(hint?.tl).toContain(pair.reading+' → '+pair.glyph);
+        }
+      } else if (hint) {
+        expect(hint.level).toBe('clue');
+        expect(hint.en).toBeTruthy();
+        expect(hint.tl).toBeTruthy();
+      }
+    }
+  });
+  it('keeps performance rating independent from wallet balances',()=>{
+    expect([performanceRating(0,0),performanceRating(2,5),performanceRating(3,5),performanceRating(5,5)]).toEqual([0,1,2,3]);
+    expect(Object.values(rewardPolicy.earnings).every(n=>Number.isInteger(n)&&n>=0)).toBe(true);
+    expect(rewardPolicy.hintCost).toBeGreaterThan(0);
+  });
 });

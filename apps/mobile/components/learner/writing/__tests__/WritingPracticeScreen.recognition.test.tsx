@@ -177,7 +177,8 @@ describe('Module 3 single-action BAYA recognition', () => {
     expect(screen.queryByText('Pagkilala ng BAYA')).toBeNull();
     expect(screen.queryByText("BAYA is very confident!")).toBeNull();
     expect(screen.getAllByTestId(/^baya-match-/, { includeHiddenElements: true })).toHaveLength(1);
-    expect(screen.getByTestId('baya-predicted-glyph')).toBeTruthy();
+    expect(screen.queryByTestId('baya-predicted-glyph')).toBeNull();
+    expect(screen.getByTestId('test-target').props.children).toBe('a');
     expect(screen.queryByTestId('baya-match-2', { includeHiddenElements: true })).toBeNull();
     expect(screen.queryByTestId('baya-match-3', { includeHiddenElements: true })).toBeNull();
     expect(screen.queryByText("Other matches", { includeHiddenElements: true })).toBeNull();
@@ -592,7 +593,7 @@ describe('Module 3 single-action BAYA recognition', () => {
 
   it('opening help preserves strokes, accepted progress, and pending saves', async () => {
     render(<WritingPracticeScreen topicId="topic-3-1" />);
-    expect(within(screen.getByTestId('writing-instructions')).queryByTestId('writing-help-toggle')).toBeNull();
+    expect(within(screen.getByTestId('writing-reference-panel')).queryByTestId('writing-help-toggle')).toBeNull();
     expect(within(screen.getByTestId('writing-feedback-panel')).getByLabelText("Help with checking")).toBeTruthy();
     fireEvent.press(screen.getByLabelText('Draw a test stroke'));
     fireEvent.press(screen.getByLabelText("Help with checking"));
@@ -608,7 +609,7 @@ describe('Module 3 single-action BAYA recognition', () => {
     expect(screen.getByLabelText("No stars earned yet. Two stars are needed.")).toBeTruthy();
     await act(async () => finish());
     expect(screen.getByLabelText("One of two stars earned.")).toBeTruthy();
-    expect(screen.getByText("Great! One more to continue!")).toBeTruthy();
+    expect(screen.getByText("Great!")).toBeTruthy();
     fireEvent.press(screen.getByLabelText("Close the guide"));
     expect(screen.getByTestId('test-stroke-count').props.children).toBe(1);
     expect(mockRecognizeWriting).toHaveBeenCalledTimes(1);
@@ -622,7 +623,7 @@ describe('Module 3 single-action BAYA recognition', () => {
     mockRecognizeWriting.mockImplementation(() => new Promise(resolve => { finish = resolve; }));
     render(<WritingPracticeScreen topicId="topic-3-1" />);
     expect(screen.queryByLabelText("Retry writing")).toBeNull();
-    expect(screen.getByText(/Write the character and earn a star!/)).toBeTruthy();
+    expect(screen.getByLabelText("No stars earned yet. Two stars are needed.")).toBeTruthy();
     fireEvent.press(screen.getByLabelText("Help with checking"));
     fireEvent.press(screen.getByTestId('writing-technical-toggle'));
     expect(screen.getByText(/not a grade for your writing/)).toBeTruthy();

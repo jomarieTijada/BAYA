@@ -1,0 +1,88 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import { setTimeout as delay } from 'node:timers/promises';
+import { openTestBrowser } from './device-browser.mjs';
+
+const out = 'docs/verification/pwa-launch'; fs.mkdirSync(out, { recursive: true });
+const browser = await openTestBrowser(5055);
+const report = { checks: [], errors: [], installedMode: 'Simulated standalone display mode; native installation prompt not automated' };
+const ws = new WebSocket(browser.target.webSocketDebuggerUrl); await new Promise(resolve => { ws.onopen = resolve; });
+let id = 0; const pending = new Map();
+ws.onmessage = e => { const v = JSON.parse(e.data); pending.get(v.id)?.(v); pending.delete(v.id); };
+const send = (method, params = {}) => new Promise(resolve => { const n = ++id; pending.set(n, resolve); ws.send(JSON.stringify({ id: n, method, params })); });
+const ev = async expression => {
+  const r = await send('Runtime.evaluate', { expression, awaitPromise: true, returnByValue: true });
+  if (r.error || r.result.exceptionDetails) throw Error(JSON.stringify(r));
+  return r.result.result.value;
+};
+const wait = async expression => { for (let i = 0; i < 720; i++) { if (await ev(expression)) return; await delay(250); } throw Error(expression + '\n' + await ev('document.body.innerText')); };
+const shot = async name => { const r = await send('Page.captureScreenshot', { format: 'png' }); fs.writeFileSync(`${out}/${name}.png`, Buffer.from(r.result.data, 'base64')); };
+const message = type => ev(`new Promise(resolve=>{const c=new MessageChannel();c.port1.onmessage=e=>resolve(e.data);navigator.serviceWorker.controller.postMessage({type:'${type}'},[c.port2])})`);
+try {
+  await send('Page.enable'); await send('Network.enable');
+  await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
+  await send('Page.navigate', { url: 'http://127.0.0.1:5055/' });
+  await wait(`!!document.querySelector('[data-testid=pwa-install-welcome]') && !!navigator.serviceWorker.controller`);
+  await delay(1000); await shot('install-phone');
+  await ev(`document.querySelector('[aria-label="Tagalog"]').click()`);
+  await wait(`document.body.innerText.includes('I-install ang BAYA')`);
+  await shot('install-tagalog');
+  await ev(`document.querySelector('[aria-label="English"]').click()`);
+  const manifest = await message('BAYA_PACKAGE_MANIFEST');
+  const cachedModel = () => ev(`caches.open(${JSON.stringify(manifest.version)}).then(c=>c.match(${JSON.stringify(manifest.assets.find(a => a.category === 'Handwriting model').url)})).then(Boolean)`);
+  assert.equal(await cachedModel(), false);
+  assert.equal((await message('BAYA_OFFLINE_STATUS')).phase, 'not-started');
+  assert(!(await ev('document.body.innerText')).includes('Files needing repair'));
+  report.checks.push('Browser welcome does not start full asset preparation');
+  const frames = new Set();
+  for (let i = 0; i < 10; i++) { frames.add(await ev(`document.querySelector('[data-testid=pwa-install-welcome] img')?.src`)); await delay(100); }
+  assert(frames.size > 1); report.checks.push('Approved Bayani waving frames animate in install welcome');
+  await ev(`document.querySelector('[aria-label="Install BAYA"]').click()`);
+  await wait(`document.body.innerText.includes('Add to Home Screen')`); await shot('manual-install-help');
+  await ev(`(()=>{const e=new Event('beforeinstallprompt',{cancelable:true});window.__prompted=0;e.prompt=async()=>{window.__prompted++};e.userChoice=Promise.resolve({outcome:'dismissed'});window.dispatchEvent(e)})()`);
+  await ev(`document.querySelector('[aria-label="Install BAYA"]').click()`);
+  assert.equal(await ev('window.__prompted'), 1);
+  assert.equal(await cachedModel(), false);
+  await ev(`window.dispatchEvent(new Event('appinstalled'))`);
+  await wait(`document.body.innerText.includes('BAYA is installed!')`);
+  assert.equal(await cachedModel(), false); await shot('installed-open-app');
+  report.checks.push('Install prompt invoked only by button; dismissal/installation event do not download full package in browser');
+  await ev(`document.querySelector('[aria-label="Continue in browser"]').click()`);
+  await wait(`!document.querySelector('[data-testid=pwa-install-welcome]')`);
+  assert.equal(await cachedModel(), false);
+  report.checks.push('Optional browser use remains available without automatic package download');
+
+  await send('Page.addScriptToEvaluateOnNewDocument', { source: `const match=window.matchMedia.bind(window);window.matchMedia=q=>{const result=match(q);if(q==='(display-mode: standalone)')Object.defineProperty(result,'matches',{value:true});return result};Object.defineProperty(navigator,'gpu',{get:()=>undefined});window.__loaderSeen=false;new MutationObserver(()=>{if(document.querySelector('[data-testid=offline-setup]'))window.__loaderSeen=true}).observe(document,{childList:true,subtree:true});` });
+  await send('Page.reload');
+  await wait(`!!document.querySelector('[data-testid=offline-setup]')`);
+  await wait(`new Promise(resolve=>{const c=new MessageChannel();c.port1.onmessage=e=>resolve(e.data.phase==='downloading');navigator.serviceWorker.controller.postMessage({type:'BAYA_OFFLINE_STATUS'},[c.port2])})`);
+  await shot('loading-phone');
+  await send('Emulation.setDeviceMetricsOverride', { width: 844, height: 390, deviceScaleFactor: 1, mobile: true });
+  await delay(300); await shot('loading-landscape');
+  await wait(`!document.querySelector('[data-testid=offline-setup]') && !document.querySelector('[data-testid=pwa-install-welcome]')`);
+  assert.equal((await message('BAYA_OFFLINE_STATUS')).ready, true);
+  assert.equal(await cachedModel(), true);
+  report.checks.push('Installed-mode launch downloads/verifies actual package and automatically enters app without a second completion screen');
+  await send('Page.reload');
+  await wait(`!!navigator.serviceWorker.controller && !!document.querySelector('[role=button]')`);
+  await wait(`new Promise(resolve=>{const c=new MessageChannel();c.port1.onmessage=e=>resolve(e.data.ready===true);navigator.serviceWorker.controller.postMessage({type:'BAYA_OFFLINE_STATUS'},[c.port2])})`);
+  assert.equal(await ev('window.__loaderSeen'), false);
+  assert.equal((await message('BAYA_OFFLINE_STATUS')).ready, true);
+  report.checks.push('Returning installed-mode launch verifies silently without repeating setup');
+  await send('Network.setCacheDisabled', { cacheDisabled: true });
+  await send('Network.emulateNetworkConditions', { offline: true, latency: 0, downloadThroughput: -1, uploadThroughput: -1 });
+  await send('Page.reload');
+  await wait(`!!navigator.serviceWorker.controller && !!document.querySelector('[role=button]')`);
+  await wait(`new Promise(resolve=>{const c=new MessageChannel();c.port1.onmessage=e=>resolve(e.data.ready===true);navigator.serviceWorker.controller.postMessage({type:'BAYA_OFFLINE_STATUS'},[c.port2])})`);
+  assert.equal(await ev('window.__loaderSeen'), false);
+  report.checks.push('Offline returning launch keeps existing package and skips setup');
+  const audio = manifest.assets.find(a => a.category === 'Pronunciation audio');
+  await ev(`caches.open(${JSON.stringify(manifest.version)}).then(c=>c.delete(${JSON.stringify(audio.url)}))`);
+  await send('Page.reload');
+  await wait(`window.__loaderSeen===true`);
+  await send('Network.emulateNetworkConditions', { offline: false, latency: 0, downloadThroughput: -1, uploadThroughput: -1 });
+  await wait(`!document.querySelector('[data-testid=offline-setup]')`);
+  await wait(`new Promise(resolve=>{const c=new MessageChannel();c.port1.onmessage=e=>resolve(e.data.ready===true);navigator.serviceWorker.controller.postMessage({type:'BAYA_OFFLINE_STATUS'},[c.port2])})`);
+  report.checks.push('Returning readiness hint never bypasses missing-file detection; actual missing resource is repaired');
+} catch (error) { report.errors.push(String(error.stack || error)); process.exitCode = 1; }
+finally { fs.writeFileSync(`${out}/results.json`, JSON.stringify(report, null, 2)); console.log(JSON.stringify(report, null, 2)); ws.close(); await browser.close(); }

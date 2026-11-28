@@ -22,6 +22,7 @@ import {
   closeDatabaseConnection,
   configurePragmas,
 } from '../connection';
+import { reconcileAchievements } from '../../modules/achievements/service';
 import { runMigrations, getAppliedMigrations } from '../migrate';
 import { MIGRATIONS } from '../migrations';
 import { seedCurriculum } from '../seed';
@@ -113,11 +114,11 @@ describe('BAYA SQLite Database Foundation', () => {
   test('3. Migrations execute in order and record completion', async () => {
     const migrationResult = await runMigrations(db);
     expect(migrationResult.success).toBe(true);
-    expect(migrationResult.appliedCount).toBe(5);
-    expect(migrationResult.appliedMigrations).toEqual(['001_initial_schema', '002_indexes', '003_activity_content', '004_local_learner_state', '005_writing_attempts']);
+    expect(migrationResult.appliedCount).toBe(7);
+    expect(migrationResult.appliedMigrations).toEqual(['001_initial_schema', '002_indexes', '003_activity_content', '004_local_learner_state', '005_writing_attempts', '006_achievements','007_star_wallet']);
 
     const applied = await getAppliedMigrations(db);
-    expect(applied.length).toBe(5);
+    expect(applied.length).toBe(7);
     expect(applied[0].version).toBe(1);
     expect(applied[0].name).toBe('001_initial_schema');
     expect(applied[1].version).toBe(2);
@@ -131,7 +132,7 @@ describe('BAYA SQLite Database Foundation', () => {
     expect(secondResult.success).toBe(true);
     expect(secondResult.appliedCount).toBe(0);
     expect(secondResult.appliedMigrations).toEqual([]);
-    expect(secondResult.alreadyAppliedCount).toBe(5);
+    expect(secondResult.alreadyAppliedCount).toBe(7);
   });
 
   test('5. All 11 ERD tables exist', async () => {
@@ -158,6 +159,10 @@ describe('BAYA SQLite Database Foundation', () => {
       'sync_outbox',
       'local_app_state',
       'writing_attempts',
+      'learner_achievements',
+      'achievement_events',
+      'learner_star_transactions',
+      'learner_hint_usage',
     ].sort();
 
     for (const expected of expectedTables) {
@@ -427,6 +432,22 @@ describe('BAYA SQLite Database Foundation', () => {
     expect(await service.getByTopicId('topic-1-1')).toBeNull();
   });
 
+  test('upgrades a v6 unlock and credits it once while retaining its original evidence and date', async () => {
+    await runMigrations(db, MIGRATIONS.slice(0, 6));
+    await seedCurriculum(db);
+    await db.runAsync("INSERT INTO profiles(profile_id,display_name,role,created_at,updated_at) VALUES('v6','Maria','learner','old','old')");
+    await db.runAsync("INSERT INTO local_app_state(state_key,state_value) VALUES('active_learner_profile_id','v6')");
+    await db.runAsync("INSERT INTO learner_achievements VALUES('v6','first_step','2026-01-02',1,'reconciled','original evidence',1)");
+    expect((await runMigrations(db)).appliedMigrations).toEqual(['007_star_wallet']);
+    await reconcileAchievements('v6',db);
+    await reconcileAchievements('v6',db);
+    expect(await db.getAllAsync('SELECT kind,source_id,amount FROM learner_star_transactions')).toEqual([{kind:'achievement',source_id:'first_step',amount:1}]);
+    expect(await db.getFirstAsync('SELECT unlocked_at,evidence_reference,notified FROM learner_achievements')).toEqual({
+      unlocked_at:'2026-01-02',evidence_reference:'original evidence',notified:1,
+    });
+    expect((await runMigrations(db)).appliedCount).toBe(0);
+  });
+
   test('upgrades an existing v3 database without losing learner rows', async () => {
     await runMigrations(db, MIGRATIONS.slice(0, 3));
     await seedCurriculum(db);
@@ -435,7 +456,7 @@ describe('BAYA SQLite Database Foundation', () => {
        VALUES ('existing-learner', 'Maria', 'learner', 'now', 'now');`
     );
     const upgrade = await runMigrations(db);
-    expect(upgrade.appliedMigrations).toEqual(['004_local_learner_state', '005_writing_attempts']);
+    expect(upgrade.appliedMigrations).toEqual(['004_local_learner_state', '005_writing_attempts', '006_achievements','007_star_wallet']);
     expect(await db.getFirstAsync<{ display_name: string }>(
       'SELECT display_name FROM profiles WHERE profile_id = ?;', ['existing-learner']
     )).toEqual({ display_name: 'Maria' });

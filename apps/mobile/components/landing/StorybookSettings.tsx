@@ -24,7 +24,7 @@ export function StorybookSettings({ compact = false }: { compact?: boolean }) {
       <View style={[styles.copy, compact && { gap: 3 }]}><Text style={[styles.title, compact && { fontSize: 14 }]}>{title}</Text><Text style={[styles.description, compact && { fontSize: 12, lineHeight: 16 }]}>{description}</Text></View>
       <AppIcon name="chevronRight" color="secondaryText" size={compact ? 12 : 20} />
     </Pressable>
-    {open && <OriginStorybook onClose={() => {
+    {open && <OriginStorybook settingsReplay onClose={() => {
       setOpen(false);
       if (Platform.OS === 'web') requestAnimationFrame(() => (trigger.current as unknown as HTMLElement)?.focus?.());
     }} />}

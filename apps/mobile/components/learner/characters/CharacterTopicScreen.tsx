@@ -1,3 +1,4 @@
+import { exploreCharacter } from '../../../modules/achievements/service';
 import { openLearnerSettings } from '../settings/LearnerSettingsOverlay';
 import { useActivityResume } from '../../../modules/resume/ActivityResumeBoundary';
 import { useLocalizedAlert } from '../../../localization/useLocalizedAlert';
@@ -43,7 +44,11 @@ export function CharacterTopicScreen({ topicId }: { topicId: string }) {
     setSelection({ topicId: id, index: 0 });
     router.setParams({ topicId: id });
   };
-  const selectCharacter = (characterIndex: number) => setSelection({ topicId, index: characterIndex });
+  const selectCharacter = (characterIndex: number) => {
+    setSelection({ topicId, index: characterIndex });
+    const id = topic?.characters[characterIndex]?.id;
+    if (id) void localLearnerService.getActiveLearner().then(p => p && exploreCharacter(topicId, id, p.profile_id)).catch(error => console.warn('[BAYA achievements] Exploration could not be saved.', error));
+  };
 
   const previous = () => {
     if (selectedIndex > 0) selectCharacter(selectedIndex - 1);

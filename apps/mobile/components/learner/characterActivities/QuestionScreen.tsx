@@ -1,3 +1,4 @@
+import { HintButton } from '../rewards/HintButton';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Text, View, useWindowDimensions } from 'react-native';
 import { questionRecording, type CharacterActivity, type CharacterQuestion } from '../../../content/characterActivities';
@@ -87,6 +88,7 @@ export function QuestionScreen({ activity, question: q, attempt, onChange, total
       canvas={{strokes, onChange: next => { if (!lock.current && !response) { pendingAnswer.current=null;setStrokes(next);setError('');setRecognition({status:'idle'}); } }, onSizeChange:setGeometry, disabled:busy || !!response}}
       onClear={clear} onUndo={() => { if (!lock.current && !response) {setStrokes(prev=>prev.slice(0,-1));pendingAnswer.current=null;setError('');setRecognition({status:'idle'});} }}
       onCheck={() => void submit()} onNext={() => void advance()} />
+    <HintButton key={attempt.id+q.id} attempt={attempt} question={q} disabled={busy||!!response}/>
   </View>;
   return <View style={{flex:1,minHeight:0}} testID={`question-${q.id}`}>
     <AssessmentSlide questionId={q.id} label={`${copy.question} ${attempt.cursor + 1} ${copy.of} ${total}`}

@@ -59,7 +59,7 @@ export function ModuleAssessments({ topicId, modules, attempts }: { topicId: str
       description={tl ? 'Orihinal na mga pangkat; hiwalay sa pagsasanay na ito.' : 'Original source sets; separate from this topic checkpoint.'}
       metrics={[{ label: copy.correctAnswers, value: `${totals.correct}/${totals.scored}`, icon: 'check', tone: 'green' }, { label: copy.pendingValidation, value: String(totals.pending), icon: 'help', tone: 'blue' }, { label: copy.questionsVisited, value: String(totals.visited), icon: 'checkboxChecked', tone: 'orange' }]}
       reviewTitle={copy.history} review={<AttemptReview attempts={legacy} history={legacy} />}
-      summary={{ label: copy.back, onPress: () => setHistory(false) }} next={{ label: copy.completionNext, onPress: () => setHistory(false) }}
+      back={{ label: copy.back, onPress: () => setHistory(false) }} next={{ label: copy.completionNext, onPress: () => setHistory(false) }}
       retry={{ label: access.eligible ? copy.start : copy.back, onPress: () => { setHistory(false); if (access.eligible) start(); } }} />}
   </View>;
 }

@@ -13,18 +13,20 @@ import {
 import { useResponsiveLayout } from '../../../hooks/useResponsiveLayout';
 import { AppIcon } from '../../ui/AppIcon';
 import { LearnerActionMenu } from '../LearnerActionMenu';
-import { XpProgress } from './XpProgress';
+import { WalletButton } from '../rewards/WalletButton';
+import type {Wallet} from '../../../modules/rewards/wallet';
 import type { LearnerHomeViewModel } from './learnerHomeDemo';
 
 const LearnerHeaderMetrics = LayoutTokens.headerMetrics;
 
 type LearnerHeaderProps = {
   learner: LearnerHomeViewModel['learner'];
+  wallet?:Wallet|null;
   onOpenSettings: () => void;
   onLayout?: (event: LayoutChangeEvent) => void;
 };
 
-export function LearnerHeader({ learner, onOpenSettings, onLayout }: LearnerHeaderProps) {
+export function LearnerHeader({ learner, wallet=null, onOpenSettings, onLayout }: LearnerHeaderProps) {
   const { isCompactHeight, isPhone, isPhoneLandscape, isPhonePortrait } = useResponsiveLayout();
   const compact = isPhone || isCompactHeight;
   const landscapeCompact = isPhoneLandscape;
@@ -150,18 +152,7 @@ export function LearnerHeader({ learner, onOpenSettings, onLayout }: LearnerHead
           isPhonePortrait && styles.statusGroupPhonePortrait,
         ]}
       >
-        <XpProgress
-          compact={compact}
-          density={(() => {
-            if (landscapeCompact) {
-              return 'landscapeCompact';
-            } else {
-              return undefined;
-            }
-          })()}
-          goal={learner.xpGoal}
-          value={learner.xp}
-        />
+        <WalletButton wallet={wallet} />
         <AccessibilityView
           accessibilityLabel={`Level ${learner.level}`}
           accessibilityRole="text"

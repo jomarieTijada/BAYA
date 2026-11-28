@@ -1,3 +1,6 @@
+import {rewardResponses,rewardCheckpoint} from '../../modules/rewards/wallet';
+import { refreshAchievements, recordAchievementEvent } from '../../modules/achievements/service';
+import { observeOfflineCompletion } from '../../modules/achievements/offline';
 import { matchingBoards, validMatches } from '../../content/characterActivities/matching';
 import { getReadyDatabase } from '../lifecycle';
 import type { DatabaseConnection } from '../types';
@@ -6,6 +9,8 @@ import { getAssessmentSet, findCheckpoint } from '../../content/characterActivit
 import { checkpointEligibilityFromIds } from '../../modules/characterActivities/curriculum';
 import { evaluateAnswer, parseAttempt, type Answer, type SetAttempt } from '../../modules/characterActivities/assessment';
 
+const runtimeStartedAt = new Date().toISOString();
+const seenAttempts = new Set<string>();
 const prefix = (profileId: string) => `character_assessment:v1:${profileId}:`;
 const key = (a: SetAttempt) => prefix(a.profileId) + a.id;
 async function owner(db: DatabaseConnection, expected?: string) {
@@ -35,7 +40,7 @@ export const characterActivityService = {
   async begin(setId: string, repeat = false, override?: DatabaseConnection): Promise<SetAttempt> {
     const db = override ?? await getReadyDatabase();
     if (!db.withTransactionAsync) throw new Error('Transactions required');
-    return db.withTransactionAsync(async tx => {
+    const result = await db.withTransactionAsync(async tx => {
       const profileId = await owner(tx), { activity, set } = getAssessmentSet(setId);
       const checkpoint = findCheckpoint(setId);
       if (checkpoint && !checkpointEligibilityFromIds(checkpoint.id, await localLearnerService.getCompletedTopicIds(tx)).eligible) throw new Error('Checkpoint prerequisites incomplete');
@@ -50,11 +55,17 @@ export const characterActivityService = {
       const a: SetAttempt = { version: 1, id: id.id, profileId, activityId: activity.id, setId, startedAt: now, updatedAt: now, cursor: 0, responses: [], failures: [], syncState: 'local-only' };
       await write(tx, a); return a;
     });
+    if (!seenAttempts.has(result.id) && result.startedAt < runtimeStartedAt && result.cursor < getAssessmentSet(result.setId).set.questions.length) {
+      await recordAchievementEvent(result.profileId, 'resume', result.id, db);
+    }
+    seenAttempts.add(result.id);
+    await refreshAchievements(db,result);
+    return result;
   },
   async submit(attempt: SetAttempt, questionId: string, answer: Answer, override?: DatabaseConnection) {
     const db = override ?? await getReadyDatabase();
     if (!db.withTransactionAsync) throw new Error('Transactions required');
-    return db.withTransactionAsync(async tx => {
+    const result = await db.withTransactionAsync(async tx => {
       const a = await read(tx, attempt), { set } = getAssessmentSet(a.setId);
       // A retry after a lost acknowledgement returns the original score, never a duplicate.
       if (a.responses.some(r => r.questionId === questionId)) return a;
@@ -62,13 +73,15 @@ export const characterActivityService = {
       if (!q || q.id !== questionId || a.responses.length !== a.cursor) throw new Error('Question changed');
       const now = new Date().toISOString();
       a.responses.push({ questionId, answer, correct: evaluateAnswer(q, answer), answeredAt: now });
-      a.updatedAt = now; await write(tx, a); return a;
+      a.updatedAt = now; await write(tx, a); await rewardResponses(tx,a,a.cursor); return a;
     });
+    await refreshAchievements(db,result);
+    return result;
   },
   async submitMatches(attempt: SetAttempt, boardId: string, matches: Record<string, string>, played: readonly string[], override?: DatabaseConnection) {
     const db = override ?? await getReadyDatabase();
     if (!db.withTransactionAsync) throw Error('Transactions required');
-    return db.withTransactionAsync(async tx => {
+    const result = await db.withTransactionAsync(async tx => {
       const a = await read(tx, attempt);
       if (a.responses.some(r => r.answer.kind === 'matching-v2' && r.answer.boardId === boardId)) return a;
       const board = matchingBoards(a.setId, a.cursor)[0];
@@ -79,21 +92,27 @@ export const characterActivityService = {
         return { questionId: p.id, answer, correct: evaluateAnswer(p.question, answer), answeredAt: now };
       });
       a.responses.push(...responses); a.updatedAt = now;
-      await write(tx, a); return a;
+      await write(tx, a); await rewardResponses(tx,a,a.cursor); return a;
     });
+    await refreshAchievements(db,result);
+    return result;
   },
   async advance(attempt: SetAttempt, override?: DatabaseConnection) {
     const db = override ?? await getReadyDatabase();
     if (!db.withTransactionAsync) throw new Error('Transactions required');
-    return db.withTransactionAsync(async tx => {
+    let advanced = false;
+    const result = await db.withTransactionAsync(async tx => {
       const a = await read(tx, attempt);
       if (a.cursor !== attempt.cursor || !a.responses[a.cursor]) return a;
       if (a.responses[a.cursor]) {
         const answer = a.responses[a.cursor].answer;
         a.cursor += answer.kind === 'matching-v2' ? matchingBoards(a.setId, answer.boardStart)[0].pairs.length : 1;
       }
-      a.updatedAt = new Date().toISOString(); await write(tx, a); return a;
+      a.updatedAt = new Date().toISOString(); await write(tx, a); await rewardCheckpoint(tx,a); advanced = true; return a;
     });
+    if (advanced) await observeOfflineCompletion(result, db);
+    await refreshAchievements(db,result);
+    return result;
   },
   async failure(attempt: SetAttempt, reason: string, override?: DatabaseConnection) {
     const db = override ?? await getReadyDatabase();

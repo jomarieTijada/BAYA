@@ -16,26 +16,29 @@ function localPath(url) {
   return parsed.pathname;
 }
 
-function isExcludedMedia(filePath) {
-  const normalized = filePath.toLowerCase();
-  return (
-    normalized.endsWith('.mp4') ||
-    normalized.endsWith('.webm') ||
-    normalized.endsWith('.ogg') ||
-    normalized.includes('/videos/') ||
-    normalized.includes('media/videos')
-  );
-}
-
-async function exportedFiles(directory, includeMedia = false) {
+async function exportedFiles(directory) {
   const absolute = path.join(outputRoot, directory);
   const paths = [];
   for (const entry of await readdir(absolute, { withFileTypes: true })) {
     const child = path.posix.join(directory, entry.name);
-    if (entry.isDirectory()) paths.push(...await exportedFiles(child, includeMedia));
-    else if (entry.isFile() && (includeMedia || !isExcludedMedia(child))) paths.push(`/${child}`);
+    if (entry.isDirectory()) paths.push(...await exportedFiles(child));
+    else if (entry.isFile() && !child.endsWith('.map')) paths.push(`/${child}`);
   }
   return paths;
+}
+
+function category(url) {
+  if (url === '/') return 'Application shell';
+  if (url === modelPath) return 'Handwriting model';
+  if (runtimePaths.includes(url)) return 'LiteRT runtime';
+  if (/\.(?:mp4|webm|mov)$/.test(url)) return 'Educational videos';
+  if (/\.(?:m4a|mp3|wav|ogg)$/.test(url)) return 'Pronunciation audio';
+  if (/\.(?:ttf|woff2?|otf)$/.test(url)) return 'Fonts and icons';
+  if (/mascot|bayani|blink|wave/i.test(url)) return 'Bayani animations';
+  if (/story/i.test(url)) return 'Storybook resources';
+  if (/\.(?:png|webp|jpg|jpeg|svg|gif)$/.test(url)) return 'Character illustrations';
+  if (/\.(?:js|css)$/.test(url)) return 'Lessons and activities';
+  return 'Other offline resources';
 }
 
 async function buildServiceWorker() {
@@ -48,7 +51,7 @@ async function buildServiceWorker() {
     throw new Error('Refusing to prune model files outside the export directory.');
   }
   const selectedFiles = new Set([modelPath, ...metadataPaths]);
-  for (const url of await exportedFiles('models/baya', true)) {
+  for (const url of await exportedFiles('models/baya')) {
     if (selectedFiles.has(url)) continue;
     if (process.argv.includes('--check')) throw new Error(`Unselected model artifact in export: ${url}`);
     const target = await realpath(path.join(outputRoot, url));
@@ -61,7 +64,18 @@ async function buildServiceWorker() {
     .map(match => localPath(match[1]));
   if (scripts.length === 0) throw new Error('Web export has no entry script to cache.');
 
-  const assets = await exportedFiles('assets', true);
+  const assets = await exportedFiles('assets');
+  const bundles = await exportedFiles('_expo/static/js/web');
+  // Metro emits the exact runtime asset URL into its web modules. Verify those
+  // references too: scanning only existing files would hide an omitted export.
+  const referencedAssets = new Set();
+  for (const bundle of bundles) {
+    const code = await readFile(path.join(outputRoot, bundle.slice(1)), 'utf8');
+    for (const match of code.matchAll(/["'](\/assets\/[^"'\\]+\.[a-z0-9]+)["']/gi)) referencedAssets.add(match[1]);
+  }
+  for (const url of referencedAssets) {
+    if (!assets.includes(url)) throw new Error('Required bundled asset missing from export: ' + url);
+  }
   const songAssets = assets.filter(url => /\/baybayin-song\.[^.]+\.mp4$/i.test(url));
   if (songAssets.length !== 1 ||
       (await stat(path.join(outputRoot, songAssets[0].slice(1)))).size === 0) {
@@ -71,12 +85,15 @@ async function buildServiceWorker() {
   const precache = [...new Set([
     '/', '/manifest.json', '/favicon.ico', '/icon-192.png', '/icon-512.png',
     modelPath, ...metadataPaths, ...runtimePaths, ...scripts, ...styles,
-    ...await exportedFiles('_expo/static/js/web'),
-    ...assets.filter(url => !isExcludedMedia(url)),
+    ...bundles,
+    ...assets,
   ])];
   const digest = createHash('sha256');
   const integrity = {};
+  const inventory = [];
+  const template = await readFile(path.join(appRoot, 'scripts/offline-worker.js'), 'utf8');
   digest.update(await readFile(fileURLToPath(import.meta.url)));
+  digest.update(template);
   for (const url of precache) {
     const file = path.join(outputRoot, (() => {
       if (url === '/') {
@@ -87,220 +104,27 @@ async function buildServiceWorker() {
     })());
     digest.update(url);
     const bytes = await readFile(file);
+    if (!bytes.length) throw new Error('Empty required asset: ' + url);
+    const revision = createHash('sha256').update(bytes).digest('hex');
     digest.update(bytes);
+    inventory.push({ id: url.replace(/\.[a-f0-9]{32}(?=\.)/g, ''), url, category: category(url), required: true, sizeBytes: bytes.length, revision, validation: url === '/' ? 'shell-entry-references' : 'sha256-size' });
     // Hosting may add comments/snippets to HTML at response time. Validate the
     // shell's entry scripts below; keep exact digests on all executable assets.
     if (url !== '/') integrity[url] = 'sha256-' + createHash('sha256').update(bytes).digest('base64');
   }
   const cacheName = `baya-pwa-${digest.digest('hex').slice(0, 16)}`;
-  const source = `/* Generated by scripts/generate-pwa-service-worker.mjs. */
+  const manifest = { version: cacheName, totalBytes: inventory.reduce((n, a) => n + a.sizeBytes, 0), assets: inventory.map(a => ({ ...a, cache: cacheName })) };
+  const source = `/* Generated: do not edit. */
 const CACHE_NAME = ${JSON.stringify(cacheName)};
-const PRECACHE_URLS = ${JSON.stringify(precache)};
+const MANIFEST = ${JSON.stringify(manifest)};
 const ASSET_INTEGRITY = ${JSON.stringify(integrity)};
 const SHELL_SCRIPTS = ${JSON.stringify(scripts)};
-const ML_URLS = new Set(${JSON.stringify([modelPath, ...metadataPaths, ...runtimePaths])});
-const PRONUNCIATION_URLS = new Set(PRECACHE_URLS.filter(url => url.includes('/audio/baya/') && url.endsWith('.m4a')));
-
-self.addEventListener('message', event => {
-  if (event.data?.type !== 'BAYA_OFFLINE_STATUS' || !event.ports[0]) return;
-  event.waitUntil((async () => {
-    const cache = await caches.open(CACHE_NAME);
-    const missing = [];
-    for (const url of PRECACHE_URLS) if (!(await cache.match(url))?.ok) missing.push(url);
-    event.ports[0].postMessage({ ready: missing.length === 0, version: CACHE_NAME, missing });
-  })());
-});
-
-self.addEventListener('install', event => {
-  event.waitUntil((async () => {
-    const cache = await caches.open(CACHE_NAME);
-    try {
-      // Bound concurrent transfers to avoid serial request latency without flooding
-      // low-memory devices. Settle every worker before removing a failed cache.
-      let next = 0;
-      let failed = false;
-      const results = await Promise.allSettled(Array.from({ length: 4 }, async () => {
-        while (!failed && next < PRECACHE_URLS.length) {
-          const url = PRECACHE_URLS[next++];
-          try {
-            const response = await fetch(new Request(url, { cache: 'reload', integrity: ASSET_INTEGRITY[url] }));
-            if (!response.ok) throw new Error('PWA precache failed: ' + url + ' (' + response.status + ')');
-            if (url === '/') {
-              const html = await response.clone().text();
-              const entries = [...html.matchAll(/<script\\b[^>]*\\bsrc=["']([^"']+)["']/gi)]
-                .map(match => new URL(match[1], self.location.origin).href);
-              if (!response.headers.get('content-type')?.includes('text/html') ||
-                  !SHELL_SCRIPTS.every(script => entries.includes(new URL(script, self.location.origin).href))) {
-                throw new Error('PWA shell does not reference the expected application build');
-              }
-            }
-            await cache.put(url, response);
-          } catch (error) { failed = true; throw error; }
-        }
-      }));
-      const failure = results.find(result => result.status === 'rejected');
-      if (failure) throw failure.reason;
-      // Updates wait for existing clients to close. Never reload an active lesson
-      // or delete its version's assets while the old bundle is still running.
-    } catch (error) {
-      await caches.delete(CACHE_NAME);
-      throw error;
-    }
-  })());
-});
-
-self.addEventListener('activate', event => {
-  event.waitUntil((async () => {
-    for (const name of await caches.keys()) {
-      if (name.startsWith('baya-pwa-') && name !== CACHE_NAME) await caches.delete(name);
-    }
-    await self.clients.claim();
-  })());
-});
-
-self.addEventListener('fetch', event => {
-  const request = event.request;
-  if (request.method !== 'GET') return;
-  const url = new URL(request.url);
-  if (url.origin !== self.location.origin || url.pathname === '/sw.js') return;
-
-  // Pronunciation is essential offline media. Serve byte ranges from the verified
-  // full cached response; never cache a 206 or bypass the worker for these clips.
-  if (PRONUNCIATION_URLS.has(url.pathname)) {
-    event.respondWith((async () => {
-      const cache = await caches.open(CACHE_NAME);
-      let response = await cache.match(url.pathname);
-      if (!response) {
-        try {
-          response = await fetch(new Request(url.href, { integrity: ASSET_INTEGRITY[url.pathname] }));
-          if (!response.ok || response.status !== 200) return new Response('Recording unavailable', { status: 404 });
-          await cache.put(url.pathname, response.clone());
-        } catch { return new Response('Recording unavailable offline', { status: 404 }); }
-      }
-      const range = request.headers.get('range');
-      if (!range) return response;
-      const bytes = await response.arrayBuffer();
-      const match = /^bytes=(\\d*)-(\\d*)$/.exec(range);
-      const size = bytes.byteLength;
-      if (!match || (!match[1] && !match[2])) return new Response(null, { status: 416, headers: { 'Content-Range': 'bytes */' + size } });
-      const start = match[1] ? Number(match[1]) : Math.max(0, size - Number(match[2]));
-      const end = match[1] && match[2] ? Math.min(Number(match[2]), size - 1) : size - 1;
-      if (start > end || start >= size) return new Response(null, { status: 416, headers: { 'Content-Range': 'bytes */' + size } });
-      return new Response(bytes.slice(start, end + 1), { status: 206, headers: {
-        'Content-Type': 'audio/mp4', 'Accept-Ranges': 'bytes',
-        'Content-Length': String(end - start + 1), 'Content-Range': 'bytes ' + start + '-' + end + '/' + size,
-      } });
-    })());
-    return;
+${template}`;
+  if (!process.argv.includes('--check')) {
+    await writeFile(path.join(outputRoot, 'offline-manifest.json'), JSON.stringify(manifest, null, 2));
+  } else if (await readFile(path.join(outputRoot, 'offline-manifest.json'), 'utf8') !== JSON.stringify(manifest, null, 2)) {
+    throw new Error('Offline manifest is stale.');
   }
-
-  // 1. VIDEO & STREAMING MEDIA (RANGE REQUESTS):
-  // Let the browser handle media streaming directly from Netlify.
-  // CacheStorage explicitly throws on 206 responses, and returning full 200 responses
-  // to Range requests breaks media seeking. Bypassing event.respondWith allows native
-  // media engine Range handling with 206 Partial Content.
-  const isMedia =
-    request.destination === 'video' ||
-    request.destination === 'audio' ||
-    /\\.(?:mp4|webm|m4v|mov|ogg|mp3|wav)$/i.test(url.pathname) ||
-    request.headers.has('range');
-
-  if (isMedia) {
-    return;
-  }
-
-  // 2. SPA NAVIGATION & DOCUMENT REQUESTS:
-  // Identified by request.mode === 'navigate', request.destination === 'document',
-  // or Accept header including text/html.
-  const isNavigation =
-    request.mode === 'navigate' ||
-    request.destination === 'document' ||
-    (request.headers.get('accept') && request.headers.get('accept').includes('text/html'));
-
-  if (isNavigation) {
-    event.respondWith((async () => {
-      // Keep the shell and assets from the same verified installation. A newer
-      // network shell must never poison the current version's offline cache.
-      const cache = await caches.open(CACHE_NAME);
-      const shell = await cache.match('/');
-      if (shell) return shell;
-
-      try { return await fetch(request); } catch { /* Missing preparation. */ }
-
-      // Safe offline HTML fallback: never return a 504 or error response for navigation
-      return new Response(
-        '<!DOCTYPE html><html><head><meta charset=\"utf-8\"><title>BAYA</title><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"></head><body style=\"background:#0b1120;color:#fff;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;padding:24px;text-align:center\"><div><h2 style=\"margin-bottom:8px\">Learning materials are not prepared</h2><p style=\"color:#94a3b8;margin-bottom:20px\">Connect to the internet to complete the initial download, then reload. / Kumonekta sa internet upang makumpleto ang pag-download.</p><button onclick=\"location.reload()\" style=\"padding:10px 20px;border-radius:8px;border:none;background:#f59e0b;color:#000;font-weight:bold;cursor:pointer\">Reload</button></div></body></html>',
-        { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } }
-      );
-    })());
-    return;
-  }
-
-  // 3. STATIC APPLICATION ASSETS (ML models, LiteRT WASM, JS chunks, CSS, Icons, Fonts):
-  // Cache-first for performance and offline reliability.
-  const isStaticAsset =
-    ML_URLS.has(url.pathname) ||
-    url.pathname.startsWith('/_expo/static/') ||
-    url.pathname.startsWith('/assets/') ||
-    /\\.(?:js|mjs|wasm|tflite|css|png|jpg|jpeg|gif|webp|svg|ico|ttf|woff2?|json)$/i.test(url.pathname);
-
-  if (isStaticAsset) {
-    event.respondWith((async () => {
-      const cache = await caches.open(CACHE_NAME);
-      const cached = await cache.match(request);
-      if (cached) return cached;
-
-      try {
-        const response = await fetch(new Request(request, { integrity: ASSET_INTEGRITY[url.pathname] || '' }));
-        if (response.ok && response.status === 200) {
-          cache.put(request, response.clone()).catch(() => {});
-        }
-        return response;
-      } catch (error) {
-        console.warn('[BAYA SW Asset Fetch Error]', {
-          url: request.url,
-          mode: request.mode,
-          destination: request.destination,
-          error: (() => {
-            if (error instanceof Error) {
-              return error.message;
-            } else {
-              return String(error);
-            }
-          })(),
-        });
-        return new Response('Asset not found offline', { status: 404, statusText: 'Not Found' });
-      }
-    })());
-    return;
-  }
-
-  // 4. ALL OTHER REQUESTS:
-  // Network first with cache fallback
-  event.respondWith((async () => {
-    try {
-      const response = await fetch(request);
-      return response;
-    } catch (error) {
-      console.warn('[BAYA SW Fetch Error]', {
-        url: request.url,
-        mode: request.mode,
-        error: (() => {
-          if (error instanceof Error) {
-            return error.message;
-          } else {
-            return String(error);
-          }
-        })(),
-      });
-      const cache = await caches.open(CACHE_NAME);
-      const cached = await cache.match(request);
-      if (cached) return cached;
-      return new Response('Network error', { status: 408, statusText: 'Request Timeout' });
-    }
-  })());
-});
-`;
   return { cacheName, precache, source };
 }
 

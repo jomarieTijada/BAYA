@@ -1,3 +1,5 @@
+import { grant } from '../../modules/rewards/wallet';
+import { refreshAchievements } from '../../modules/achievements/service';
 /** Local learner identity and progress, backed by the ERD tables. */
 import { approvedCurriculum } from '../../content/approvedCurriculum';
 import { getWritingTopic } from '../../content/writingLessonData';
@@ -95,6 +97,7 @@ export const localLearnerService = {
         [attemptId, attempt.characterId, JSON.stringify(attempt.strokeData), 'baya_model_v1']
       );
     });
+    await refreshAchievements(db);
   },
 
   async saveProfile(name: string, workspaceCode = '', dbOverride?: DatabaseConnection): Promise<Profile> {
@@ -221,6 +224,8 @@ export const localLearnerService = {
         );
         const completedIds = new Set(completedRows.map(row => row.activity_id));
         const completed = module.topics.every(topic => completedIds.has(topic.id));
+        if(!priorIds.has(topicId)) await grant(transactionDb,learnerId,'topic',topicId);
+        if(completed && !priorIds.has(topicId)) await grant(transactionDb,learnerId,'module',module.id);
         const progress = await transactionDb.getFirstAsync<{ learner_progress_id: string }>(
           'SELECT learner_progress_id FROM learner_progress WHERE learner_profile_id = ? AND lesson_id = ? LIMIT 1;',
           [learnerId, module.id]
@@ -264,6 +269,7 @@ export const localLearnerService = {
           );
         }
       });
+      await refreshAchievements(db);
       if (__DEV__) console.info('[BAYA Progress] persist topicId=%s status=committed txId=%s', topicId, txId);
     };
 

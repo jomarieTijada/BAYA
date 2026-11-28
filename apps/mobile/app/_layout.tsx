@@ -1,3 +1,5 @@
+import { OfflinePackageProvider } from '../components/learner/OfflinePackageProvider';
+import { OfflineLearningStatus } from '../components/learner/OfflineLearningStatus';
 import { LocalizationProvider } from '../localization/LocalizationProvider';
 import { pronunciation } from '../modules/audio/usePronunciation';
 /**
@@ -79,13 +81,13 @@ export default function RootLayout() {
         hidden={isPhoneLandscape}
         style="dark"
       />
-      <LocalizationProvider><CloudProvider><BayaNotifications><LandscapeGuard allowPortrait={pathname === "/learner/character-activities"}><Stack
+      <LocalizationProvider><CloudProvider><BayaNotifications><OfflineLearningStatus /><OfflinePackageProvider><LandscapeGuard allowPortrait={pathname === "/learner/character-activities" || pathname === "/learner/achievements"}><Stack
         screenOptions={{
           animation: 'fade',
           contentStyle: { backgroundColor: Colors.background, flex: 1 },
           headerShown: false,
         }}
-      /></LandscapeGuard></BayaNotifications></CloudProvider></LocalizationProvider>
+      /></LandscapeGuard></OfflinePackageProvider></BayaNotifications></CloudProvider></LocalizationProvider>
     </SafeAreaProvider>
   );
 }

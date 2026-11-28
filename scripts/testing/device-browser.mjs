@@ -12,7 +12,7 @@ export async function openTestBrowser(port, options = {}) {
   const adb = (...args) => execFileSync('adb', ['-s', serial, ...args], { encoding: 'utf8', windowsHide: true }).trim();
   if (serial) {
     if (adb('get-state') !== 'device' || adb('shell', 'getprop', 'ro.kernel.qemu') === '1') throw Error('An authorized physical Android device is required.');
-    adb('reverse', `tcp:${port}`, `tcp:${port}`);
+    if (!options.offlineLaunch) adb('reverse', `tcp:${port}`, `tcp:${port}`);
     adb('shell', 'am', 'start', '-a', 'android.intent.action.VIEW', '-d', url, '-p', 'com.android.chrome');
     await delay(1000);
     forward = adb('forward', 'tcp:0', 'localabstract:chrome_devtools_remote'); debug = forward;
@@ -26,7 +26,7 @@ export async function openTestBrowser(port, options = {}) {
   }
   let target;
   for (let i = 0; i < 40 && !target; i++) {
-    const targets = await (await fetch(`http://127.0.0.1:${debug}/json/list`)).json();
+    const targets = await fetch(`http://127.0.0.1:${debug}/json/list`).then(res => res.json()).catch(() => []);
     target = targets.find(t => t.type === 'page' && (!serial || t.url.startsWith(url)));
     if (!target) await delay(250);
   }
@@ -34,7 +34,7 @@ export async function openTestBrowser(port, options = {}) {
   return { target, profile, physical: Boolean(serial), async close() {
     if (serial) {
       await fetch(`http://127.0.0.1:${debug}/json/close/${target.id}`).catch(() => undefined);
-      adb('forward', '--remove', `tcp:${forward}`); adb('reverse', '--remove', `tcp:${port}`);
+      adb('forward', '--remove', `tcp:${forward}`); if (!options.offlineLaunch) adb('reverse', '--remove', `tcp:${port}`);
     } else {
       const exited = new Promise(resolve => chrome.once('exit', resolve));
       chrome.kill();

@@ -17,13 +17,14 @@ export function createPronunciationController(driver: PlaybackDriver) {
       if (owner && snapshot.owner !== owner) return;
       generation++; release(); snapshot = { owner: null, id: null, phase: 'ready' }; emit();
     },
-    play(owner: symbol, id: string, source: AudioSource) {
+    play(owner: symbol, id: string, source: AudioSource, onComplete?: () => void) {
       const current = ++generation; release(); snapshot = { owner, id, phase: 'loading' }; emit();
       const update = (phase: PlaybackPhase) => {
         if (current !== generation) return;
         if (phase === 'loading') {
           clearTimeout(timer); timer = setTimeout(() => update('error'), 15000);
         } else { clearTimeout(timer); timer = undefined; }
+        if (phase === 'ready') onComplete?.();
         snapshot = { owner, id, phase }; emit();
         if (phase === 'ready' || phase === 'error') { generation++; release(); }
       };

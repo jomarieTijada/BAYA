@@ -20,7 +20,7 @@ const mockSetParams = jest.fn();
 const mockDismissTo = jest.fn();
 const mockPush = jest.fn();
 jest.mock('expo-router', () => ({ useRouter: () => ({ setParams: mockSetParams, dismissTo: mockDismissTo, push: mockPush }) }));
-jest.mock('../../../../database/services/localLearnerService', () => ({ localLearnerService: { completeTopic: jest.fn().mockResolvedValue(undefined) } }));
+jest.mock('../../../../database/services/localLearnerService', () => ({ localLearnerService: { getActiveLearner: jest.fn().mockResolvedValue(null), completeTopic: jest.fn().mockResolvedValue(undefined) } }));
 jest.mock('react-native-safe-area-context', () => ({ SafeAreaView: jest.requireActual('react-native').View }));
 jest.mock('../../../ui/AppIcon', () => ({ AppIcon: () => null }));
 jest.mock('../../../branding/BayaMascot', () => ({ BayaMascot: () => null }));

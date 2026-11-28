@@ -1,3 +1,5 @@
+import { localLearnerService } from '../../database/services/localLearnerService';
+import { recordAudioCompletion } from '../achievements/service';
 import { useCallback, useEffect, useRef, useSyncExternalStore } from 'react';
 import { AppState, Platform } from 'react-native';
 import { useLocalization } from '../../localization/LocalizationProvider';
@@ -23,5 +25,13 @@ export function usePronunciation(entry?: BayaAudioEntry) {
   const phase = snapshot.owner === owner && snapshot.id === entry?.id ? snapshot.phase : 'ready';
   const stop = useCallback(() => pronunciation.stop(owner), [owner]);
   return { phase, speaking: phase === 'playing', loading: phase === 'loading', error: phase === 'error', available: !!entry,
-    pronounce: () => { if (entry) pronunciation.play(owner, entry.id, entry.source); }, stop };
+    pronounce: () => { if (entry) {
+      const learner = localLearnerService.getActiveLearner().catch(error => {
+        console.warn('[BAYA achievements] Could not identify playback owner.', error);
+        return null;
+      });
+      pronunciation.play(owner, entry.id, entry.source, () => {
+        void learner.then(p => p && recordAudioCompletion(p.profile_id, entry.id)).catch(error => console.warn('[BAYA achievements] Audio evidence could not be saved.', error));
+      });
+    } }, stop };
 }

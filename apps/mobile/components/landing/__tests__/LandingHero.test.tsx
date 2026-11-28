@@ -97,7 +97,7 @@ describe('LandingHero (White-Box Suite)', () => {
     render(<LandingHero {...defaultProps} />);
 
     expect(screen.getByText('LogoSize:52')).toBeTruthy();
-    expect(screen.getByText('MascotSize:204,State:ambient')).toBeTruthy();
+    expect(screen.getByText('MascotSize:232,State:ambient')).toBeTruthy();
     expect(screen.getByText('Compact:true')).toBeTruthy();
     expect(screen.getByTestId('safe-area-view').props.accessibilityLabel).toContain('top');
   });
@@ -133,12 +133,12 @@ describe('LandingHero (White-Box Suite)', () => {
     expect(screen.getByText("Mabuhay! Let's learn Baybayin together!")).toBeTruthy();
     expect(edges).toEqual(JSON.stringify(['left', 'right', 'bottom']));
     expect(screen.getByText('LogoSize:66')).toBeTruthy();
-    expect(screen.getByText('MascotSize:300,State:ambient')).toBeTruthy();
+    expect(screen.getByText('MascotSize:314,State:ambient')).toBeTruthy();
     expect(screen.getByText('Compact:true')).toBeTruthy();
   });
 
   // --- BRANCH 4: Desktop Wide Layout ---
-  it('Branch: renders wide desktop layout with uncompact controls and 820 cap', () => {
+  it('Branch: renders wide desktop layout with uncompact controls and responsive mascot sizing', () => {
     mockUseResponsiveLayout.mockReturnValue({
       ...defaultLayout,
       width: 1440,
@@ -153,12 +153,12 @@ describe('LandingHero (White-Box Suite)', () => {
     render(<LandingHero {...defaultProps} />);
 
     expect(screen.getByText(/LogoSize:(100\.8|101)/)).toBeTruthy();
-    expect(screen.getByText('MascotSize:749,State:ambient')).toBeTruthy();
+    expect(screen.getByText('MascotSize:763,State:ambient')).toBeTruthy();
     expect(screen.getByText('Compact:false')).toBeTruthy();
   });
 
   // --- BRANCH 5: Tablet Landscape ---
-  it('Branch: uses 500 cap for Tablet Landscape mascot sizing', () => {
+  it('Branch: uses 620 cap for Tablet Landscape mascot sizing', () => {
     mockUseResponsiveLayout.mockReturnValue({
       ...defaultLayout,
       width: 1200,
@@ -171,11 +171,11 @@ describe('LandingHero (White-Box Suite)', () => {
 
     render(<LandingHero {...defaultProps} />);
 
-    expect(screen.getByText('MascotSize:500,State:ambient')).toBeTruthy();
+    expect(screen.getByText('MascotSize:620,State:ambient')).toBeTruthy();
   });
 
   // --- BRANCH 6: Stacked Tablet Portrait Fallback ---
-  it('Branch: uses 390 cap and size 76 logo for stacked non-phone layout', () => {
+  it('Branch: uses available height and size 76 logo for stacked non-phone layout', () => {
     mockUseResponsiveLayout.mockReturnValue({
       ...defaultLayout,
       width: 768,
@@ -191,7 +191,7 @@ describe('LandingHero (White-Box Suite)', () => {
     render(<LandingHero {...defaultProps} />);
 
     expect(screen.getByText('LogoSize:76')).toBeTruthy();
-    expect(screen.getByText('MascotSize:390,State:ambient')).toBeTruthy();
+    expect(screen.getByText('MascotSize:463,State:ambient')).toBeTruthy();
   });
 
   // --- BRANCH 7: Event Delegation ---

@@ -34,6 +34,7 @@ export interface LearnerHomeViewModel {
     description: string;
   };
   recentAchievement: {
+    iconKey?: string;
     title: string;
     description: string;
   } | null;

@@ -10,6 +10,7 @@ import * as Speech from 'expo-speech';
 import { Colors } from '../../../../constants/theme';
 import { CharacterViewer } from '../CharacterViewer';
 import { getBaybayinCharacterTopic, type BaybayinCharacterTopic } from '../../../../content/baybayinCharactersData';
+jest.mock('../../../../database/services/localLearnerService', () => ({ localLearnerService: { getActiveLearner: jest.fn().mockResolvedValue(null) } }));
 const english = (source: string) => translateText('en', source);
 
 // React Native's test renderer does not dispatch native layout events.
@@ -220,6 +221,7 @@ describe('Base-only and separate kudlit instruction', () => {
     expect(screen.getByText(position === 'upper' ? 'Be' : 'Bo')).toBeTruthy();
     expect(screen.queryByText(position === 'upper' ? 'Bo' : 'Be')).toBeNull();
     fireEvent.press(screen.getByTestId('character-chip-da_ra'));
-    expect(screen.getByText(/Recording awaiting validation|Hinihintay ang pagpapatunay/)).toBeTruthy();
+    if (position === 'upper') { expect(screen.getByText('De / Re')).toBeTruthy(); expect(screen.getByText('Di / Ri')).toBeTruthy(); }
+    else expect(screen.getByText(/Recording awaiting validation|Hinihintay ang pagpapatunay/)).toBeTruthy();
   });
 });

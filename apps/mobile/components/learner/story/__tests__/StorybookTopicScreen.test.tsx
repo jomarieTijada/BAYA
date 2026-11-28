@@ -1,3 +1,4 @@
+import { openLearnerSettings } from '../../settings/LearnerSettingsOverlay';
 import { LocalizationProvider } from '../../../../localization/LocalizationProvider';
 import { LanguageSelector } from '../../../../localization/LanguageSelector';
 import { translateText } from '../../../../localization/core';
@@ -12,6 +13,8 @@ import { getApprovedStorybookActivities } from '../../../../content/approvedStor
 import { VideoActivityCard } from '../../activity/VideoActivityCard';
 import { topic11Steps } from '../../../../content/topics/topic-1-1';
 import type { VideoStepContent } from '../../../../content/types';
+jest.mock('../../settings/LearnerSettingsOverlay', () => ({ openLearnerSettings: jest.fn() }));
+
 const english = (source: string) => translateText('en', source);
 
 const mockReplace = jest.fn();
@@ -398,7 +401,7 @@ describe('Approved storybooks with a separate introductory slide', () => {
     fireEvent.press(screen.getByLabelText("Watch the Video"));
     expect(screen.getByTestId('activity-header')).toBeTruthy();
     fireEvent.press(screen.getByLabelText('Settings'));
-    expect(mockPush).toHaveBeenCalledWith('/learner/settings');
+    expect(openLearnerSettings).toHaveBeenCalledTimes(1);
   });
 
   it.each([

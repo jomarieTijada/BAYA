@@ -53,7 +53,11 @@ export function parseAttempt(value: string, profileId: string): SetAttempt {
       || a.cursor > a.responses.length || (a.cursor < a.responses.length - 1 && a.responses[a.cursor]?.answer.kind !== 'matching-v2')
       || !Number.isFinite(Date.parse(a.startedAt)) || !Number.isFinite(Date.parse(a.updatedAt))) throw new Error('Invalid saved attempt');
   a.responses.forEach((r, i) => {
-    if (r.questionId !== set.questions[i].id || r.correct !== evaluateAnswer(set.questions[i], r.answer)
+    // Both questions were unscoreable before the combined recording was approved.
+    // Retain the original null score when reading those historical submissions.
+    const historicalDeferral = ['character-1-q-06', 'character-1-q-10'].includes(r.questionId)
+      && r.answer.kind === 'unavailable' && r.answer.reason === 'recording-pending-validation' && r.correct === null;
+    if (r.questionId !== set.questions[i].id || (!historicalDeferral && r.correct !== evaluateAnswer(set.questions[i], r.answer))
         || !Number.isFinite(Date.parse(r.answeredAt))) throw new Error('Invalid saved response');
   });
   const current = a.responses[a.cursor]?.answer;

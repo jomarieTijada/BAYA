@@ -1,3 +1,6 @@
+import { localLearnerService } from '../../database/services/localLearnerService';
+import { getReadyDatabase } from '../../database/lifecycle';
+import { recordAchievementEvent } from '../../modules/achievements/service';
 import { useOrientationBlocked } from '../layout/OrientationVisibility';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { AccessibilityInfo, Animated, findNodeHandle, Modal, Platform, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
@@ -11,7 +14,13 @@ import { AppButton } from '../ui/AppButton';
 import { storybookCopy, storybookPages } from './storybookContent';
 import { useStorybookTurn } from './useStorybookTurn';
 
-export function OriginStorybook({ onClose }: { onClose: () => void }) {
+export function OriginStorybook({ onClose, settingsReplay = false }: { onClose: () => void; settingsReplay?: boolean }) {
+  const previousStory = useRef(false);
+  const ownerAtOpen = useRef<Promise<string | undefined> | null>(null);
+  useEffect(() => { ownerAtOpen.current = localLearnerService.getActiveLearner().then(async p => {
+    if (p) { const db = await getReadyDatabase(); previousStory.current = !!(await db.getFirstAsync('SELECT 1 FROM achievement_events WHERE learner_id = ? AND event_type = ? LIMIT 1;', [p.profile_id, 'story'])); }
+    return p?.profile_id;
+  }).catch(() => undefined); }, []);
   const blocked = useOrientationBlocked();
   const { language } = useLocalization();
   const copy = storybookCopy[language];
@@ -35,7 +44,14 @@ export function OriginStorybook({ onClose }: { onClose: () => void }) {
     if (busy) return;
     if (direction === 1 && !lastPart) { setPart(activePart + 1); return; }
     if (direction === -1 && activePart > 0) { setPart(activePart - 1); return; }
-    if (direction === 1 && page === pages.length - 1) { onClose(); return; }
+    if (direction === 1 && page === pages.length - 1) {
+      void ownerAtOpen.current?.then(async id => {
+        if (!id) return;
+        await recordAchievementEvent(id, 'story', 'five-pages-v1');
+        if (settingsReplay && previousStory.current) await recordAchievementEvent(id, 'replay', 'settings-five-pages-v1');
+      }).catch(error => console.warn('[BAYA achievements] Story evidence could not be saved.', error));
+      onClose(); return;
+    }
     setPart(direction === -1 && pagedParagraphs ? pages[page - 1].paragraphs.length - 1 : 0);
     void turn(direction);
   };
